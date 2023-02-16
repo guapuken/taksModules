@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory, Meta, Story } from "@storybook/react";
+import { Meta, Story } from "@storybook/react";
 import React from "react";
 import Button, { ButtonProps } from "./button";
 
