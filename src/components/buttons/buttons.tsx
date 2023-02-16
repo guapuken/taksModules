@@ -1,5 +1,7 @@
 import React from "react";
 import Button from "../button/button";
+//
+import '../../index.css';
 
 //types
 type compositionTypes = 'horizontal' | 'vertical' | 'box';
@@ -95,48 +97,116 @@ const Buttons = (props:ButtonsProps)=>{
         icon: tipo ==='primary'?icons?.primary : tipo==='secondary'?icons?.secondary: tipo==='tertiary'?icons?.tertiary:undefined
       }
     }
+
+    //styles
+    let compositionStyles ={
+      horizontal:{
+        display:'flex',
+        justifyContent:buttons?.secondary && !buttons?.primary && !buttons?.tertiary ?'right': 'space-between',
+        gap:'1rem', 
+        width:'100%',
+      },
+      vertical:{
+        display:'flex',
+        justifyContent:buttons?.secondary && !buttons?.primary && !buttons?.tertiary ?'right': 'space-between',
+        gap:'1rem', 
+        width:'100%',
+      },
+      box:{
+        display:'flex',
+        justifyContent:buttons?.secondary && !buttons?.primary && !buttons?.tertiary ?'right': 'space-between',
+        gap:'1rem', 
+        width:'100%',        
+      }
+    }
+
+    let buttonsStyles ={
+      horizontal:{
+        secondary:{
+          width:!buttons?.primary?'50%':'25%'
+        },
+        primary:{
+          width:'50%'
+        },
+        tertiary:{
+          width:'25%'
+        }
+      },
+      vertical:{
+          width:'100%'
+      },
+      box:{
+        primary:{
+          width:'100%'
+        },
+        tertiaryAndSecondary:{
+          width:'50%'
+        }
+      }
+    }
     return( 
     composition === 'horizontal' ? 
-      <div style={{
-        display:'flex',
-        justifyContent:buttons?.secondary && !buttons?.primary && !buttons?.tertiary ?'right': 'space-between',
-        gap:'10px', 
-        width:'100%',
-        ...styleComposition
-        }}>
-        {buttons?.secondary && <Button {...dataButton('secondary')} style={{width:!buttons?.primary?'50%':'25%',...style?.secondary}}/>}
-        {buttons?.tertiary && <Button {...dataButton('tertiary')}  style={{width:'25%',...style?.tertiary}}/>}
-        {buttons?.primary && <Button {...dataButton('primary')} style={{width:'50%',...style?.primary}}/>}
+      <div style={{...compositionStyles.horizontal,...styleComposition}}>
+        { buttons?.secondary && 
+          <Button 
+            {...dataButton('secondary')} style={{...buttonsStyles.horizontal.secondary,...style?.secondary}}
+          />
+        }
+        { buttons?.tertiary && 
+          <Button 
+            {...dataButton('tertiary')} style={{...buttonsStyles.horizontal.tertiary,...style?.tertiary}}
+            />
+        }
+        { buttons?.primary && 
+          <Button 
+            {...dataButton('primary')} style={{...buttonsStyles.horizontal.primary,...style?.primary}}
+          />
+        }
       </div>
+
     : composition === 'vertical' ? 
-      <div style={{
-        display:'flex',
-        justifyContent:buttons?.secondary && !buttons?.primary && !buttons?.tertiary ?'right': 'space-between',
-        flexDirection:'column',
-        gap:'10px', 
-        width:'100%',
-        flexWrap:'wrap',
-        ...styleComposition
-        }}>
-        {buttons?.primary && <Button {...dataButton('primary')} style={{width:'100%',...style?.primary}}/>}
-        {buttons?.secondary && <Button {...dataButton('secondary')} style={{width:'100%',...style?.secondary}}/>}
-        {buttons?.tertiary && <Button {...dataButton('tertiary')}  style={{width:'100%',...style?.tertiary}}/>}
+      <div style={{ flexDirection:'column', flexWrap:'wrap', ...compositionStyles.vertical, ...styleComposition }}>
+        { buttons?.primary && 
+          <Button 
+            {...dataButton('primary')} style={{...buttonsStyles.vertical,...style?.primary}}
+          />
+        }
+        { buttons?.secondary && 
+          <Button 
+            {...dataButton('secondary')} style={{...buttonsStyles.vertical,...style?.secondary}}
+          />
+        }
+        { buttons?.tertiary && 
+          <Button 
+            {...dataButton('tertiary')} style={{...buttonsStyles.vertical,...style?.tertiary}}
+          />
+        }
       </div>
+      
     : composition === 'box' ? 
       <div style={{
-        display:'flex',
-        justifyContent:buttons?.secondary && !buttons?.primary && !buttons?.tertiary ?'right': 'space-between',
         flexDirection:'column',
-        gap:'10px', 
-        width:'100%',
         flexWrap:'wrap',
+        ...compositionStyles.box,
         ...styleComposition
         }}>
-        {buttons?.primary && <Button {...dataButton('primary')} style={{width:'100%',...style?.primary}}/>}
-          <div style={{display:'flex',gap:'10px',maxWidth:'100%',justifyContent:'right'}}>
-            {buttons?.tertiary && <Button {...dataButton('tertiary')}  style={{width:'50%',...style?.tertiary}}/>}
-            {buttons?.secondary && <Button {...dataButton('secondary')} style={{width:'50%',...style?.secondary}}/>}
-          </div>
+        { buttons?.primary && 
+          <Button 
+            {...dataButton('primary')} style={{...buttonsStyles.box.primary,...style?.primary}}
+          />
+        }
+        <div style={{display:'flex',gap:'1rem',maxWidth:'100%',justifyContent:'right'}}>
+          { buttons?.tertiary && 
+            <Button 
+              {...dataButton('tertiary')} style={{...buttonsStyles.box.tertiaryAndSecondary,...style?.tertiary}}
+            />
+          }
+          { buttons?.secondary && 
+            <Button 
+              {...dataButton('secondary')} style={{...buttonsStyles.box.tertiaryAndSecondary,...style?.secondary}}
+            />
+          }
+        </div>
       </div>
     :
     <></>
