@@ -6,3 +6,6 @@ export {default as Buttons} from './buttons';
 
 //ProgressBar to see the project and tasks progress
 export {default as ProgressBar} from './progressBar';
+
+//InputTask return two inputs to write and asign task and description
+export {default as InputTask} from './inputTask';
