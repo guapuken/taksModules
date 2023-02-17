@@ -2,7 +2,6 @@ import React, { useState } from "react";
 //
 import '../../index.css';
 import './iconDropdown.scss';
-
 type submenus = {
   submenu?:string;
   onClick?():any;
