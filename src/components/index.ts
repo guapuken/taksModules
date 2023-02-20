@@ -6,3 +6,5 @@ export {default as Buttons} from './buttons';
 
 //ProgressBar to see the project and tasks progress
 export {default as ProgressBar} from './progressBar';
+//notifications switch
+export {default as Notifications} from './notifications';
