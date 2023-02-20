@@ -11,5 +11,16 @@ Basic.args={}
 
 export default {
   title:'InputTask',
-  component:InputTask
+  component:InputTask,
+  argTypes:{
+    disabled:{
+      control:'boolean'
+    }, 
+    tarea:{
+      control:'boolean'
+    }, 
+    subtarea:{
+      control:'boolean'
+    }
+  }
 } as Meta;
