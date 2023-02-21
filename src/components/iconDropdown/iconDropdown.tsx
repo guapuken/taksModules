@@ -1,64 +1,58 @@
 import React, { useState } from "react";
 //
 import '../../index.css';
+import button from "../button";
 import './iconDropdown.scss';
-type submenus = {
-  submenu?:string;
+type submenusArray = {
+  title?:string;
   onClick?():any;
 }
-type menus = {
-  submenus?: submenus[];
-  menu?:string;
+type optionsType = {
+  submenus?: submenusArray[];
+  title?:string;
   onClick?():any;
 }
 export interface IconDropdownProps{
-  icon?: string;
-  menus?: menus[];
-  submenus?: menus[];
+  icon?: string | any;
+  options?: optionsType[];
+  submenus?: submenusArray[];
+  style?: {};
 }
 
 const IconDropdown = (props:IconDropdownProps) => {
   const [isHover,setIsOver]=useState(false)
-  const {icon, menus}=props
+  const {icon, options, style}=props
 
-  const handleMouseEnter = ()=>{
-    setIsOver(true)
+  const StructureGenerator = ()=>{
+    const menus = options?.map((menu)=>(
+      <>
+        <div className={menu.submenus?"dropdownSubmenu":''}>
+          <button onClick={menu.submenus?()=>{}:menu.onClick} className={menu.submenus?'dropbtnmenu':''}>
+            {menu.title}
+          </button>
+          { menu.submenus &&
+            <div className="dropdown-contentSubmenu">
+              {menu.submenus.map((submenu)=>(
+                <button onClick={submenu.onClick}>
+                  {submenu.title}
+                </button>
+              ))}
+            </div>
+          }
+        </div>
+      </>
+    ))
+    return menus
   }
-  const handleMouseLeave = ()=>{
-    setIsOver(false)
-  }
-  
-  const Menu = (props:any)=>{
-    const {menus}=props
-    return (
-    <>
-      {menus.map((e:any)=>(
-        <>
-          <button onClick={e.onClick} className={e.submenus?'dropbtn':''}>{e.menu}</button>
-        </>
-      ))}
-    </>
-    )
-  }
-
-  let iconStyles = {
-    height:'2rem'
-  }
-  let menusito = [{
-    submenus:{
-      submenu:'Kaori',
-      onClick:()=>alert('hola Kaori')
-    }
-  }]
   return (
-    <div className="navbar">
+    <div className="navbar" style={style}>
       <div className="dropdown">
         <button className="dropbtn">
-          <img src={icon} alt="" />
+          <img src={icon} alt="" style={{background:'transparent'}}/>
         </button>
-        {menus &&
-          <div className="dropdown-content">
-            <Menu menus={menusito}/>
+        {options &&
+          <div className={"dropdown-content"}>
+            <StructureGenerator/>
           </div>  
         }
       </div> 

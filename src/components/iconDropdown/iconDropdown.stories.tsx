@@ -10,17 +10,18 @@ const Template: Story<IconDropdownProps> = (args)=>(
 
 export const Basic = Template.bind({})
 Basic.args={
-  menus:[
+  options:[
     {
-      menu:'Responsable',
+      title:'Responsable',
+      onClick:()=>alert('Hola'),
+      submenus:[{title:'Kaori'},{title:'Kaori'},{title:'Kaori'},{title:'Kaori'}]
+    },
+    {
+      title:'Equipo',
       onClick:()=>alert('Hola')
     },
     {
-      menu:'Equipo',
-      onClick:()=>alert('Hola')
-    },
-    {
-      menu:'Revisión',
+      title:'Revisión',
       onClick:()=>alert('Hola')
     }
   ]

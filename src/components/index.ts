@@ -12,3 +12,6 @@ export {default as IconDropdown} from './iconDropdown';
 
 //InputTask return two inputs to write and asign task and description
 export {default as InputTask} from './inputTask';
+
+//Cards return a write component to add the content you need
+export {default as Cards} from './cards';
