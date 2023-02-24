@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-//
-import '../../index.css';
 import button from "../button";
 import './iconDropdown.scss';
 type submenusArray = {

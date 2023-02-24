@@ -1,4 +1,27 @@
 html {
+  /*Modificación para poder usar rems donde 1rem = 10px*/
   font-size: 62.5%;
   font-family: 'Open Sans', sans-serif;
 }
+
+/*General styles*/
+
+  /*Texts*/
+    h1, h2,h3,h4,h5{ 
+      font-weight: bold; 
+      margin-block: 0;
+    }
+    h2{ font-size: calc(2rem + 0.390625vw); }
+    h3{ font-size: calc(1.8rem + 0.390625vw); }
+    h4{  font-size: calc(1.6rem + 0.390625vw);}
+    h5{font-size: calc(1.4rem + 0.390625vw);}
+    h6{font-size: calc(1.2rem + 0.390625vw);}
+    p{
+      font-weight: normal;
+      font-size: calc(1.2rem + 0.390625vw);
+    }
+
+  /*Interfaz*/
+    ::-webkit-scrollbar{
+      background: transparent !important;
+    }

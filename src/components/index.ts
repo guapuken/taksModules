@@ -15,3 +15,6 @@ export {default as InputTask} from './inputTask';
 
 //Cards return a write component to add the content you need
 export {default as Cards} from './cards';
+
+//Modal return a write component to add the content you need in a modal
+export {default as Modal} from './modal';

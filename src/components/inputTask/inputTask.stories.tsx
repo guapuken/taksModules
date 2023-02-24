@@ -7,7 +7,9 @@ const Template: Story<InputTaskProps> = (args)=>(
 )
 
 export const Basic = Template.bind({})
-Basic.args={}
+Basic.args={
+  principalTask:false,
+}
 
 export default {
   title:'InputTask',
