@@ -39,10 +39,10 @@ Team.args={
       <div style={{display:'flex', flexWrap:'wrap', gap:'2rem'}}>
         <img src={require('../../img/vaciar.svg')} alt="editar" style={{height:'3rem'}}/>
         <IconDropdown icon={require('../../img/opciones.svg')} 
-        menus={[
-          {menu:'Editar'},
-          {menu:'Compartir'},
-          {menu:'Previsualizar'},
+        options={[
+          {title:'Editar'},
+          {title:'Compartir'},
+          {title:'Previsualizar'},
         ]}
         style={{marginLeft:'-.2rem'}}
         />

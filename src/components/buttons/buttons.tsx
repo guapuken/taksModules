@@ -1,8 +1,5 @@
 import React from "react";
 import Button from "../button/button";
-//
-import '../../index.css';
-
 //types
 type compositionTypes = 'horizontal' | 'vertical' | 'box';
 type sizeTypes='small' | 'medium' | 'large';

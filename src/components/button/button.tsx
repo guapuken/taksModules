@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import '../../index.css';
 
 //types
 type sizeTypes='small' | 'medium' | 'large';
@@ -113,7 +112,7 @@ const Button = (props:ButtonProps) => {
       height:size==='small'?'3rem':size==='medium'?'4rem':size==='large'?'5rem':'3rem',
       width:size==='small'?'3rem':size==='medium'?'4rem':size==='large'?'5rem':'3rem',
       fontWeight:'bold',
-      fontSize: '2rem'
+      fontSize: 'calc(2rem + 0.390625vw)'
   }:{
       padding: icon ?
         size==='small'?
