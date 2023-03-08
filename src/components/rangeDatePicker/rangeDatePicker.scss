@@ -1,0 +1,112 @@
+// 
+::-webkit-datetime-edit { 
+    height: 3rem;
+    background: transparent ;
+    box-shadow: none ;
+    outline: none !important;
+}
+::-webkit-datetime-edit-fields-wrapper { 
+    background: transparent !important; 
+    padding: .5rem 0 0 .5rem;
+    font-weight: bold ; 
+}
+::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-text { 
+    color: red;
+    background: transparent !important;
+    display: none;
+}
+::-webkit-inner-spin-button { display: none; }
+::-webkit-calendar-picker-indicator:hover {
+    box-shadow: 0 0 0 4px #dedede;
+    border-radius: 50rem;
+    background: transparent;
+  }
+
+#dates{
+    // background: red;
+    position: relative;
+    box-shadow: inset 0 0 0 .2rem #dedede;
+    border-radius: .5rem;
+    padding: .2rem 1rem;
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    width: 16.2rem;
+    justify-content: space-between;
+    div {
+        display: flex;
+		// flex-direction: column;
+        margin: 0;
+        margin-block: 0;
+        padding: 0;
+        position: relative;
+        p{
+            position: absolute;
+            left: -.5rem;
+            bottom: calc(100% - .5rem);
+            color: #52525270;
+            font-size: 1.2rem;
+            width: 6.1rem;  
+        }
+    }
+    h2{
+        font-size: 1.5rem; 
+        // margin: 0 1rem 0 1.5rem; 
+        margin-block: 0;
+        width: 2rem;
+        // background: red;
+        margin: 0;
+        padding: 0;
+        font-weight: lighter;
+        color: #52525250;
+    }
+    label {
+        min-width:4rem;
+        max-width: 5rem;
+        width:5rem;
+        font-size: 1.3rem;
+        margin: 0;
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        background: transparent;
+        bottom: 0;
+        color: transparent;
+        cursor: pointer;
+        height: 3rem;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        min-width: 6.1rem;
+        max-width: 6.1rem;
+        &:hover{
+            // background:none;
+            // border-radius: none;
+            // border: none;
+            box-shadow: none;
+        }
+    }
+    input{
+        background: transparent;
+        border: none;
+        margin-block: 0;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateY(-.5rem);
+        min-width:4rem;
+        max-width: 5rem;
+        width:5rem;
+        &:focus{
+            outline: none !important;
+        }
+    }
+    .CalendarOpenTaskModules:before{
+        display: block !important;
+    }
+}
+
+

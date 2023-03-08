@@ -10,7 +10,7 @@
   position: relative;
   padding-left: 2rem;
   cursor: pointer;
-}
+  }
 
 
 /* checkbox aspect */
@@ -38,9 +38,9 @@
 [type="checkbox"]:checked + label:after {
   content: '✔';
   position: absolute;
-  top: 65%;
-  left: 20%;
-  font-size: 1.2rem;
+  top: calc(30% + 0.390625vw);
+  left: calc(0% + 0.390625vw);
+  font-size: calc(12px + 0.390625vw);
   // color: #CB22ED;
   color: #fff;
   line-height: 0;
@@ -108,17 +108,22 @@ textarea::placeholder {
   color: #c6c6c6;
 }
 .PrincipalTask-TaskModule{
-  font-size: calc(2rem + 0.390625vw);
+  font-size: calc(15px + 0.390625vw);
   font-weight: bold;
+  background: transparent;
 }
 .SubTask-TaskModule{
-  font-size: calc(1.4rem + 0.390625vw);
+  font-size: calc(12px + 0.390625vw);
   font-weight: normal;
   opacity:.5 ;
+  background: transparent;
+
 }
 .Task-TaskModule{
-  font-size: calc(1.6rem + 0.390625vw);
+  font-size: calc(12px + 0.390625vw);
   font-weight: bold;
   opacity:1 ;
+  background: transparent;
+
 }
 
