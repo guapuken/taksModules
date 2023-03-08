@@ -1,0 +1,143 @@
+::-webkit-datetime-edit { 
+    height: 3rem; 
+}
+::-webkit-datetime-edit-fields-wrapper { 
+    background: transparent !important; 
+    padding: .5rem 0 0 .5rem;
+    font-weight: bold ; 
+}
+::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-text { 
+    color: #000;
+}
+::-webkit-inner-spin-button { display: none; }
+::-webkit-calendar-picker-indicator:hover {
+    box-shadow: 0 0 0 4px #dedede;
+    border-radius: 50rem;
+  }
+
+.IconsTaskContainer{
+    width: 100%;
+    height: 5rem;
+    margin: 0 auto;
+    margin-top: .8rem;
+    display: flex;
+    align-items: center;
+    .DatePickerTaskComponent{
+        width:12.6rem;
+        font-size: 1.4rem;
+        flex-direction: row-reverse;
+        border-radius: .5rem;
+        outline: none;
+        border: .2rem solid #dedede;
+    }
+    .ContainerIconAsignUsers{
+        width: auto; 
+        display: flex;
+        position: relative;
+    }
+    div{
+        margin-right: 2rem;
+    }
+    .InputsTaskContainer{
+        position: relative;
+        width: auto;
+        display: flex;
+        align-items: center;
+        & input{
+            border-radius: .5rem ;
+            background: transparent;
+            border: .2rem solid #dedede;
+            box-shadow: none !important;
+        }
+        & input:focus{
+            outline: none;
+        }
+    }
+}
+
+.TextPriorityMenu{
+    margin-left: 1rem;
+    color: #dedede; 
+    position: relative;
+    z-index: 1;
+
+}
+
+.TextInvolucradosTaskComponent{
+    position: absolute;
+    .IconMsnTaskComponent{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        background: #525252;
+        padding: 1rem 2rem;
+        position: relative;
+        border: none;
+        border-radius: 1rem;
+        color: #fff;
+        &:before{
+            content:'';
+            position: absolute;
+            bottom: 99%;
+            left:50%;
+            width:0;
+            height: 0;
+            border: none;
+            border-bottom: 2.6rem solid #525252;
+            border-right: 1.3rem solid transparent;
+            border-left: 1.3rem solid transparent;
+            border-top: 1.3rem solid transparent;
+        }
+        span{
+            font-size: 1.3rem;
+            margin-block: 0;
+            margin: 0;
+            min-width:16rem;
+            padding: 0;
+            //
+            display: flex;
+            flex-direction: column;
+            span, span strong{
+                font-size: inherit;
+            }
+            &:first-child{
+                margin-block: 0;
+                margin-bottom: 1rem ;
+            }
+        }
+    }
+}
+
+.ContainerTaksComponent{
+    z-index: 1;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+}
+.IconInformationTaskcomponent{
+    position: absolute; 
+    right: -2rem; 
+    top: -1rem;
+}
+
+//Involucrados en tamaño movil y tablet
+.CircleInvolucradosTaskComponent{
+    position: absolute;
+    bottom: 40%;
+    left: 60%;
+    background-color: red;
+    margin-block: 0;
+    padding: 0rem .5rem;
+    border-radius: 2rem;
+    color: #fff;
+}
+
+//Contenedor del children
+.ChildrenContainerTaskModules{
+    margin-left: 1rem;
+    border-left: .2rem solid #000;
+    padding-left: 2rem;
+}
+.ButtonAddTaskComponent:hover{
+    color: #dedede;
+}
