@@ -22,6 +22,9 @@ export {default as RangeDatePicker} from './rangeDatePicker';
 //Renderiza una card en blanco para poder colocar dentro la información que se necesite
 export {default as Cards} from './cards';
 
+//Renderiza la pantalla de carga con las palabras del slogan de IMJ
+export {default as LoadScreen} from './loadScreen';
+
 //Renderiza un modal en blanco para poder colocar dentro la información que se necesite
 export {default as Modal} from './modal';
 
