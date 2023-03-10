@@ -19,6 +19,9 @@ export {default as InputLabel} from './inputLabel';
 //regresa un calendario de múltiples fechas.
 export {default as RangeDatePicker} from './rangeDatePicker';
 
+//Renderiza un boton de notificaciones con su contador de notificaciones
+export {default as NotificationBell} from './notificationBell';
+
 //Renderiza una card en blanco para poder colocar dentro la información que se necesite
 export {default as Cards} from './cards';
 
