@@ -8,3 +8,5 @@ export {default as Buttons} from './buttons';
 export {default as ProgressBar} from './progressBar';
 //notifications switch
 export {default as Notifications} from './notifications';
+// option menu 
+export {default as optionmenu} from "./optionmenu";

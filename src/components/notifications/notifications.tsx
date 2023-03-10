@@ -1,27 +1,31 @@
-import React from  "react";
-// import "./notifications.scss";
 
-type stringTypes= {}
+import React, { useState } from  "react";
+import "./notifications.scss";
+
+
+
+type stringTypes= {};
 
 export interface NotificationsProps {
-    icon?:string;
     color?: string;
-    switch?: string
-    widrh: 21,
-    hwagth: 34,
-    padding:7,
-    mergin:1,
-  
+    switch?: string;
+    width?: number;
+    height?: number;
+    checkValue?: boolean;
+   
 }
 
 const Notifications= (props:NotificationsProps) => {
+  const {width=3, checkValue=false}=props
+
+  const [check, setCheck] = useState(checkValue)
     return(
-        <form action="#">
-  <div className="switch">
-    <input id="switch-1" type="checkbox" className="switch-input" />
-    <label htmlFor="switch-1" className="switch-label">Switch</label>
-  </div>
-</form>
+      <>
+        <div className="switch">
+        <input id="switch-1" type="checkbox" className="switch-input" checked={check} onChange={()=>setCheck(!check)}/>
+        <label htmlFor="switch-1" className=" switch-label" icon-name={'../../'}><button onClick={()=>setCheck(!check)}><img src="" alt="" /></button></label>   
+        </div>
+      </>
     )    
 }
 
