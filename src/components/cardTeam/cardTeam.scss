@@ -1,0 +1,65 @@
+.ContainerCardTeamComponent{
+    .container-text{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 1rem;
+    }
+    .team-name{
+        h3{
+            margin-block: 0; 
+            font-size: 1.6rem;  
+        }
+        p{
+            margin-block: 0; 
+            font-size: 1.4rem;   
+            cursor: pointer;
+        }
+        .member-team{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            background: #525252;
+            padding: 1rem;
+            position: absolute;
+            border-radius: 2rem;
+            top: calc(100% + 3.5rem);
+            width: max-content;
+            &:before{
+                content:'';
+                position: absolute;
+                bottom: 99%;
+                left:10%;
+                width:0;
+                height: 0;
+                border: none;
+                border-bottom: 2.6rem solid #525252;
+                border-right: 1.3rem solid transparent;
+                border-left: 1.3rem solid transparent;
+                border-top: 1.3rem solid transparent;
+            }
+            span{
+                font-size: 1.4rem;
+                margin-bottom: .5rem;
+                color: #dedede;
+            }
+            span:nth-child(2n){
+                font-size: 1.4rem;
+                margin-bottom: .5rem;
+                color: #a8a8a8;
+            }
+        }
+    }
+}
+.ContainerAsideCardTeamComponent{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.EtiquetaColorCardTeamComponent{
+    height: 10rem;
+    width: 1.5rem;
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+}

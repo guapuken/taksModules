@@ -22,7 +22,6 @@ const NotificationBell = (props: NotificationBellProps) => {
 	const texts = [
 		'¿Hay alguien aquí con vida?',
 		'Porque estoy solito... no hay nadie aquí a mi lado',
-		'',
 	];
 
 	const notification = notifications?.map((e) => (
