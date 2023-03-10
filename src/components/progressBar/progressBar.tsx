@@ -20,7 +20,7 @@ const LateIcon = ()=>{
   return(
     <div style={{position:'absolute',...outOfTimeICon}}>
       <div>
-      <h2 style={{position:'absolute',top:'10%', left:'45%', fontSize:'20px', color:'#fff'}}>!</h2>
+      <h2 style={{position:'absolute',top:'30%', left:'45%', fontSize:'20px', color:'#fff'}}>!</h2>
         <svg  width="54" height="54" viewBox="-50 -50 300 300" >
           <polygon style={{fill: '#FC3D38', stroke: '#fff', strokeWidth: '15' }} stroke-linejoin="round" points="100,0 0,200 200,200"/>
         </svg>

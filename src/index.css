@@ -1,3 +1,36 @@
-html {
+*{
   font-size: 62.5%;
+  font-family: 'Open Sans', sans-serif;
 }
+
+/*General styles*/
+
+  /*Texts*/
+    h1, h2,h3,h4,h5{ 
+      font-weight: bold; 
+      margin-block: 0;
+    }
+    h2{ font-size: calc(20px + 0.390625vw) ; }
+    h3{ font-size: calc(18px + 0.390625vw); }
+    h4{  font-size: calc(16px + 0.390625vw);}
+    h5{font-size: calc(14px + 0.390625vw);}
+    h6{font-size: calc(12px + 0.390625vw);}
+    p{
+      font-weight: normal;
+      font-size: calc(12px + 0.390625vw);
+    }
+
+  /*Interfaz*/
+    ::-webkit-scrollbar{
+      width: 5px;
+      position: absolute;
+      background: transparent;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent ;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: transparent !important;
+      border: .1rem solid #dedede;
+      border-radius: 10px;
+    }

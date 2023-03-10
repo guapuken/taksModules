@@ -1,0 +1,23 @@
+button {
+  all: unset;
+}
+//DropdownIcon
+.MenusTitles{
+  font-size: 1.3rem;
+  padding: 1rem 2rem;
+  outline: none;
+}
+.MenusTitles:hover {
+  background: #dedede;
+}
+.MenuTitleWithoutSubmenu:hover{
+  background-color: red;
+}
+.SubmenuContainer{
+  max-height: 18.5rem;
+  overflow: auto;
+  background: #fff;
+  box-shadow: -.5rem .5rem 1rem #dedede;
+  min-width: 10rem;
+  width: max-content;
+}

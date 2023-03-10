@@ -6,7 +6,29 @@ export {default as Buttons} from './buttons';
 
 //ProgressBar to see the project and tasks progress
 export {default as ProgressBar} from './progressBar';
+
+//IconDropdown allow show an icon and select an option
+export {default as IconDropdown} from './iconDropdown';
+
 //notifications switch
 export {default as Notifications} from './notifications';
 // option menu 
 export {default as optionmenu} from "./optionmenu";
+
+//Renderiza un text area múltiple donde se coloca la tarea y la subtarea
+export {default as InputTask} from './inputTask';
+
+//Renderiza un input con un label que se posiciona encima del texto una vez que se selecciona
+export {default as InputLabel} from './inputLabel';
+
+//regresa un calendario de múltiples fechas.
+export {default as RangeDatePicker} from './rangeDatePicker';
+
+//Renderiza una card en blanco para poder colocar dentro la información que se necesite
+export {default as Cards} from './cards';
+
+export {default as Modal} from './modal';
+
+//Renderiza el bloque de código de una tarea con su respectivos botones
+export {default as Task} from './task';
+>>>>>>> main
