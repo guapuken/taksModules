@@ -30,3 +30,8 @@ export {default as Modal} from './modal';
 
 //Renderiza el bloque de código de una tarea con su respectivos botones
 export {default as Task} from './task';
+
+
+//--Cards preestablecidas--//
+//Cards gestión de equipos
+export {default as CardTeam} from  './cardTeam';
