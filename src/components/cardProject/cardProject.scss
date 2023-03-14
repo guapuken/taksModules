@@ -1,0 +1,11 @@
+.ContainerProgressBarAndShowDetails{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 0;
+}
+.ContainerTitleAndiconsCardProject{
+    display: grid; 
+    grid-template-columns: 75% auto;
+}
