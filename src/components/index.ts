@@ -12,6 +12,11 @@ export {default as Information} from './information';
 //IconDropdown allow show an icon and select an option
 export {default as IconDropdown} from './iconDropdown';
 
+//notifications switch
+export {default as Notifications} from './notifications';
+// option menu 
+export {default as optionmenu} from "./optionmenu";
+
 //Renderiza un text area múltiple donde se coloca la tarea y la subtarea
 export {default as InputTask} from './inputTask';
 
@@ -33,7 +38,7 @@ export {default as Modal} from './modal';
 //Renderiza el bloque de código de una tarea con su respectivos botones
 export {default as Task} from './task';
 
-
 //Cards preestablecidas
 export {default as CardTeam} from  './cardTeam';
 export {default as CardProject} from './cardProject';
+

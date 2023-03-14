@@ -155,7 +155,7 @@ Tasks.args = {
 	principalTask: true,
 	taskDisabled: false,
 	taskComplete: false,
-	check: false,
+	check: true,
 	onClickCheck: () => alert('check'),
 	// onChangeNameTask: () => alert('change Task'),
 	// onChangeDescriptionTask: () => alert('change description task'),

@@ -15,7 +15,7 @@ export const CheckboxInput = (props: CheckboxInputProps) => {
 	const { principalTask, onClick, disabled, onChange, check, idCheckbox = '' } = props;
 
 	return (
-		<div style={{ marginTop: principalTask ? '1rem' : '.8rem' }}>
+		<div className='CheckBoxInputTaskComponent' style={{ marginTop: principalTask ? '1rem' : '.8rem' }}>
 			<input
 				type="checkbox"
 				id={idCheckbox}
