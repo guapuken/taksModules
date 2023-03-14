@@ -6,12 +6,6 @@ export {default as Buttons} from './buttons';
 
 //ProgressBar to see the project and tasks progress
 export {default as ProgressBar} from './progressBar';
-<<<<<<< HEAD
-//notifications switch
-export {default as Notifications} from './notifications';
-// option menu 
-export {default as optionmenu} from "./optionmenu";
-=======
 
 //IconDropdown allow show an icon and select an option
 export {default as IconDropdown} from './iconDropdown';
@@ -30,6 +24,9 @@ export {default as InputLabel} from './inputLabel';
 //regresa un calendario de múltiples fechas.
 export {default as RangeDatePicker} from './rangeDatePicker';
 
+//Renderiza un boton de notificaciones con su contador de notificaciones
+export {default as NotificationBell} from './notificationBell';
+
 //Renderiza una card en blanco para poder colocar dentro la información que se necesite
 export {default as Cards} from './cards';
 
@@ -38,4 +35,7 @@ export {default as Modal} from './modal';
 
 //Renderiza el bloque de código de una tarea con su respectivos botones
 export {default as Task} from './task';
->>>>>>> main
+
+//--Cards preestablecidas--//
+//Cards gestión de equipos
+export {default as CardTeam} from  './cardTeam';
