@@ -1,54 +1,43 @@
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 50px!important;
-  // background: red;
-  // z-index: 1;
-
+.SwitchNotification {
+  position: relative ;
+  display: block ;
+  width: 50px ;
+  height: 30px ;
+  cursor: pointer;
 }
-.switch-input {
+.SwitchNotificationInput {
   display: none;
-  opacity: 0;
-  width: 34 !important;
 }
-.switch-label {
-  position: absolute;
-  width: 58px;
-  height: 24px;
-  background-color: #fff;
-  border-radius: 9999em;
-  -webkit-transition: background-color 0.25s ease;
-  transition: background-color 0.25s ease;
-  box-shadow: inset 0 0 0 2px #525252;
-  transition: .3s ease-in-out;
-  button{
+.SwitchNotificationLabel {
+  cursor: pointer;
+  border: none;
+  border-radius: 34px;
+  height: 3rem ;
+  width: 5rem;
+  display: block;
+  box-shadow: inset 0 0 0 .2rem #dedede;
+  transition: all ease .5s;
+
+  svg{
     position: absolute;
-    background: transparent;
-    border: none;
-    height: 30px;
-    width: 30px;
-    border-radius: 20px;
-    top:-3px;
-
+    top: -1rem ;
+    left: -1.5rem;
+    height: 5rem;
+    width: auto;
   }
+  // svg{
+  //   position: absolute;
+  //   top: -1.7rem ;
+  //   left: -2rem;
+  //   height: 6.5rem;
+  //   width: auto;
+  // }
 }
-.switch-input:checked + .switch-label {
-  button{
-    left: 34px;
-  }
-  // background-color: #282828 !important;
-}
-.switch-input:checked + .switch-label{
-  background: #525252;
-  animation: inputCheck .3s ease-in;
-  // background-color: #1CBF59 ;
-  // transition: .3s ease-in-out;  
-}
-
-@keyframes inputCheck{
-  0% {
-    background: #fff;
-  } 100% {
-    background: #525252;
+.SwitchNotificationInput:checked + .SwitchNotificationLabel {
+  background-color: #282828 !important;
+  box-shadow: inset 0 0 0 .2rem #282828;
+  transition: all ease .5s;
+  svg{
+    left: 1.5rem;
   }
 }
