@@ -4,6 +4,7 @@ import { CardContainer, SimpleButtonText, Spans } from '../../utils/cardsUtils';
 import { percent } from '../../utils/percent';
 import { onClickType } from '../../utils/types/typesUtils';
 import Cards from '../cards';
+import Notifications from '../notifications';
 import ProgressBar from '../progressBar';
 import './cardProject.scss';
 type statusTypes = 'onTime' | 'delayed' | 'outOfTime';
@@ -17,12 +18,14 @@ export interface CardProjectProps {
 	completedTask?: number;
 	ejecutivo?: string;
 	projectName?: string;
+	followNotificationsValue?: boolean;
 }
 const CardProject = (props: CardProjectProps) => {
 	const {
 		status,
 		onClickFollowProject = () =>
 			alert('Change the function FollowProject with onClickFollowProject property'),
+		followNotificationsValue,
 		onClickShowDetails = () =>
 			alert('Change the function ShowDetails with onClickShowDetails property'),
 		onClickShare = () => alert('Change the function share with onClickShare property'),
@@ -43,14 +46,8 @@ const CardProject = (props: CardProjectProps) => {
 					</h4>
 					<ButtonsArray>
 						<ButtonItem img={require('../../img/share.svg')} onClick={onClickShare} />
-						<ButtonItem onClick={onClickFollowProject}>
-							<div
-								style={{
-									width: '5rem',
-									height: '3rem',
-									background: 'red',
-								}}
-							></div>
+						<ButtonItem>
+							<Notifications checkValue={followNotificationsValue} />
 						</ButtonItem>
 					</ButtonsArray>
 				</div>
