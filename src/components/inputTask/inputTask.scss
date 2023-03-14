@@ -1,4 +1,4 @@
-/* Base for label styling */
+.CheckBoxInputTaskComponent{/* Base for label styling */
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
   position: absolute;
@@ -82,7 +82,7 @@
 [type="checkbox"]:not(:checked):focus + label:before {
   box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 6px rgba(0, 128, 0, 0.226);
 }
-
+}
 
 
 

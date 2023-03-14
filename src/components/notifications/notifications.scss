@@ -1,0 +1,43 @@
+.SwitchNotification {
+  position: relative ;
+  display: block ;
+  width: 50px ;
+  height: 30px ;
+  cursor: pointer;
+}
+.SwitchNotificationInput {
+  display: none;
+}
+.SwitchNotificationLabel {
+  cursor: pointer;
+  border: none;
+  border-radius: 34px;
+  height: 3rem ;
+  width: 5rem;
+  display: block;
+  box-shadow: inset 0 0 0 .2rem #dedede;
+  transition: all ease .5s;
+
+  svg{
+    position: absolute;
+    top: -1rem ;
+    left: -1.5rem;
+    height: 5rem;
+    width: auto;
+  }
+  // svg{
+  //   position: absolute;
+  //   top: -1.7rem ;
+  //   left: -2rem;
+  //   height: 6.5rem;
+  //   width: auto;
+  // }
+}
+.SwitchNotificationInput:checked + .SwitchNotificationLabel {
+  background-color: #282828 !important;
+  box-shadow: inset 0 0 0 .2rem #282828;
+  transition: all ease .5s;
+  svg{
+    left: 1.5rem;
+  }
+}
