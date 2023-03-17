@@ -39,3 +39,4 @@ export {default as Task} from './task';
 //--Cards preestablecidas--//
 //Cards gestión de equipos
 export {default as CardTeam} from  './cardTeam';
+

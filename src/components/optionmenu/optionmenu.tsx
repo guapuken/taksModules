@@ -1,144 +1,91 @@
-import React, { useState } from "react";
-import "./optionmenu.scss";
+import React, { useState } from 'react';
+import { onClickType } from '../../utils/types/typesUtils';
+import './optionmenu.scss';
 
-
-
-export interface OptionmenuProps{};
-
-const Optionmenu= (props:OptionmenuProps) => {
-  const [menu, setMenu]=useState(false)
-  // setMenu(!menu)
-
-  const datosConCategoria =[
-      {nombre: 'Tarea',
-        menus:[
-          {
-            title:'Nuevo',
-            onClick:()=>alert('onClick')
-          },
-          {
-            title:'Gestionar',
-            onClick:()=>alert('onClick')
-          }
-        ]
-    },
-      {nombre: 'Plantillas',
-        menus:[
-          {
-            title:'Nuevo',
-            onClick:()=>alert('onClick ')
-          },
-          {
-            title:'Gestionar',
-            onClick:()=>alert('onClick')
-          }
-        ]
-    },
-    {nombre: 'Equipo',
-        menus:[
-          {
-            title:'Nuevo',
-            onClick:()=>alert('onClick ')
-          },
-          {
-            title:'Gestionar',
-            onClick:()=>alert('onClick')
-          }
-        ]
-    },
-    {nombre: 'Proyectos',
-        menus:[
-          {
-            title:'Gestionar',
-            onClick:()=>alert('onClick ')
-          },
-          {
-            title:'Estatus de proyectos',
-            onClick:()=>alert('onClick')
-          }
-        ]
-    },
-    {nombre: 'Grafica de avances',
-        menus:[
-          {
-            title:'Generales',
-            onClick:()=>alert('onClick ')
-          },
-          {
-            title:'Personales',
-            onClick:()=>alert('onClick')
-          }
-        ]
-    },
-  ]
-  const datosSinCategoria = [
-    {
-      title:'Nueva proyecto',
-      onClick:()=>alert('onClick')
-    },
-    {
-      title:'Gestionar proyecto',
-      onClick:()=>alert('onClick')
-    }
-  ]
- 
-  const Menu = datosConCategoria.map((categoria)=>
-    <div style={{display:'flex', flexDirection:'column'}}>
-      <h1>{categoria.nombre}</h1>
-      <div>
-        <h2 className="datosConCategoria">{categoria.menus.map((e)=>e.title)}</h2>
-      </div>
-    </div>
-  )
-
-  const menusSinCategoria = datosSinCategoria.map((menu)=>
-  <div style={{display:'flex', flexDirection:'column'}}>
-    <li ><a href=""><h3 className="datosSinCategoria"></h3>{menu.title}</a></li>
-</div>
-  )
-
-  const CategoritaDeMenu = datosConCategoria.map((nombre)=>
-  <div style={{display:'flex', flexDirection:'column'}}>
-    <li><a href=""><h4 className="datosConCategoria"></h4>{""}</a></li>
-    </div>
-  )
-  
-
-  type objectMenustypes={title?:string, onClick?:()=>void}
-
-interface MenuConCategoriasProps {
-  nombre?: string;
-  datosMenu?:objectMenustypes[]
+type menusOptionsTypes = {
+	title?: string;
+	onClick?: onClickType;
+};
+type conCategoriaTypes = {
+	title?: string;
+	menus?: menusOptionsTypes[];
+};
+type menusTypes = {
+	conCategoria?: conCategoriaTypes[];
+	sinCategoria?: menusOptionsTypes[];
+};
+export interface OptionmenuProps {
+	menus?: menusTypes[];
+	width?: string;
+	height?: string;
 }
 
-  const MenuConCategoria = (props:MenuConCategoriasProps)=>{
-    return(
-    <div>
-      <h2>{props.nombre}</h2>
-        <ul className="datosConCategoria">
-          {props.datosMenu?.map((e:objectMenustypes)=><li style={{fontSize:'2rem'}}><a onClick={e.onClick}>{e.title}</a></li>)}
-        </ul>
-    </div>)
-  }
+const Optionmenu = (props: OptionmenuProps) => {
+	const { menus } = props;
 
-  
+	function menusSC(props: any) {
+		return props.menus?.map((e: any) => {
+			let conCategoria = e.conCategoria?.map((categoria: any) => {
+				return (
+					<div className="menusContainerMenuComponent">
+						<h2>{categoria.title}</h2>
+						<ul>
+							{categoria.menus?.map((menu: any) => {
+								return (
+									<li onClick={menu.onClick}>
+										<button>{menu.title}</button>
+									</li>
+								);
+							})}
+						</ul>
+					</div>
+				);
+			});
+			return props.menus ? conCategoria : <></>;
+		});
+	}
+	function menusCC(props: any) {
+		return props.menus?.map((e: any) => {
+			let sinCategoria = e.sinCategoria?.map((sinCategoria: any) => {
+				return (
+					<div className="menusContainerMenuComponent">
+						<h2 onClick={sinCategoria.onClick}>{sinCategoria.title}</h2>
+					</div>
+				);
+			});
+			return props.menus ? sinCategoria : <></>;
+		});
+	}
 
-  // const categoria= datos.map((categorias)=> categorias.Categoria?.map((menuCategoria)=> menuCategoria))
-
-  // const menuCategorias= categoria.map((menuCategoria)=> menuCategoria)
-
-
-  // console.log('Datos categorias: ',categoria)
-  // console.log('Datos menuCategorias: ',menuCategorias)
-  return <>
-  <MenuConCategoria nombre='Tareas' datosMenu={datosSinCategoria}/>
-  <MenuConCategoria nombre='Pantillas' datosMenu={datosSinCategoria}/>
-  <MenuConCategoria nombre= 'Equipo' datosMenu={datosSinCategoria}/>
-  <MenuConCategoria nombre= 'Proyectos' datosMenu={datosSinCategoria}/>
-  <MenuConCategoria nombre= 'Grafica de avances' datosMenu={datosSinCategoria}/>
-  </>
-  
-
-}
+	const MenuConCategoria = (menus: any) => {
+		const [isOpen, setIsOpen] = useState(false);
+		return (
+			<>
+				<header className={`ContainerMenuComponent${!isOpen ? 'Open' : ''}`}>
+					<nav className="navOpenCloseMenuComponent">
+						<a
+							onClick={() => setIsOpen(!isOpen)}
+							className="buttonOpenCloseMenuComponent"
+						>
+							<div
+								className={`${
+									isOpen ? 'openMenuComponent' : ''
+								} iconOpenCloseMenuComponent`}
+							></div>
+						</a>
+					</nav>
+					<div
+						className="contenedorMenusMenuComponent"
+						style={{ display: !isOpen ? 'block' : 'none' }}
+					>
+						{menusCC(menus)}
+						{menusSC(menus)}
+					</div>
+				</header>
+			</>
+		);
+	};
+	return <MenuConCategoria menus={menus} />;
+};
 
 export default Optionmenu;

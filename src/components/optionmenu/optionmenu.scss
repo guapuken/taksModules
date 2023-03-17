@@ -1,17 +1,133 @@
-.datosConCategoria{
-    background-color: rgb(228, 119, 119);
-    padding: 1em;
-    height: 60px;
-    display:flex
-    
+.optionmenu-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  border: 1px solid #000000;
 }
-.datosConCategoria{
-    background-color:rgb(204, 86, 86);
+
+.datosConCategoria {
+  font-weight: bold;
+  font-size: 1.2rem;
+
 }
-.datosSinCategoria{
-    display: flex;
-    align-items: center;
-    text-decoration-color: color
+
+.datosConCategoria li a,
+.datosSinCategoria li a {
+text-align: center;
+  color: #333;
+}
+
+.menusContainerMenuComponent{
+  text-align: left;
+  color: #fff;
+  margin-top: 6px;
+  h2{ 
+    color: #ffffff;
+    font-size: 3rem;
+    // text-align: center;
+  }
+  ul{
+    list-style: none;
+    margin-block: 0;
+    padding: 0;
+
+    // li{
+    // }
+    // text-align: center;
+      font-size: 2rem;
+  }
 }
 
 
+
+
+// .datosConCategoria li a:hover,
+// .datosSinCategoria li a:hover {
+//   color: #007bff;
+// }
+.ContainerMenuComponent,.ContainerMenuComponentOpen{
+  position: absolute;
+  left: 0;
+   top: 0;
+   top: 2rem;
+}
+.ContainerMenuComponent{
+  
+  width: 5rem; 
+   height: 5rem;
+   padding: 0;
+   margin: 0;
+   background: #000000;
+   border-radius: 0.4rem;
+ }
+ 
+.ContainerMenuComponentOpen{
+ width: 40vw; 
+  height: 100vh;
+  // position: relative;
+  padding: 0;
+  margin: 0;
+  background: #000000;
+  border-radius: 0.4rem;
+  .contenedorMenusMenuComponent{
+    height: 70%;
+    position: absolute;
+    top: 5rem;
+    left: 10rem;
+    text-align: left;
+    width: 100%;
+  }
+}
+
+.buttonOpenCloseMenuComponent{
+  cursor: pointer;
+  height: 3rem;
+  width: 3rem;
+  position: absolute;
+  top: 1rem;
+}
+.iconOpenCloseMenuComponent {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  background:transparent;
+  transition: 0.5s;
+  border-radius: 2.5rem;
+
+}
+
+.iconOpenCloseMenuComponent:before, .iconOpenCloseMenuComponent:after {
+  display: block;
+  content: "";
+  height: 0.4rem;
+  width: 3rem;
+  left: 1rem;
+  background: #fff;
+  position: absolute;
+  transition: 0.25s 0.25s;
+  border-radius: 1rem;
+}
+.iconOpenCloseMenuComponent:before {
+  bottom: 0.625rem;
+  transition: .35s;
+}
+.iconOpenCloseMenuComponent:after{
+  top: 0.625rem;
+  transition: .35s;
+}
+
+.openMenuComponent.iconOpenCloseMenuComponent:after {
+  transition: 0.5s;
+  top: 50%;
+  transform: rotate(45deg);
+
+}
+.openMenuComponent.iconOpenCloseMenuComponent:before {
+  transition: 0.5s;
+  top: 50%;
+  transform: rotate(-45deg) !important;
+}
+// .openMenuComponent{
+//   transform: scale(0.75);
+// }
