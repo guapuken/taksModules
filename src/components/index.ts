@@ -41,4 +41,5 @@ export {default as Task} from './task';
 //Cards preestablecidas
 export {default as CardTeam} from  './cardTeam';
 export {default as CardProject} from './cardProject';
+export {default as CardTask} from './cardTask';
 

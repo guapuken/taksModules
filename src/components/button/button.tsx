@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { CSSProperties, useState } from 'react';
 import { onClickType } from '../../utils/types/typesUtils';
 
 //types
@@ -16,8 +16,8 @@ export interface ButtonProps {
 	tertiary?: boolean;
 	rounded?: boolean;
 	disabled?: boolean;
-	style?: {};
-	styleIcon?: {};
+	style?: CSSProperties;
+	styleIcon?: CSSProperties;
 	border?: boolean;
 	float?: boolean;
 	id?: string;

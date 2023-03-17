@@ -56,7 +56,7 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 			style={style}
 		>
 			<div>
-				<p>Comienza</p>
+				<p style={{ marginBottom: '1.5rem' }}>Comienza</p>
 				<label htmlFor="start-date">
 					{startDate === '' ? 'Comienza' : MonthName(startDate.toString().slice(-5))}
 				</label>
@@ -76,7 +76,7 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 			</div>
 			<h2>{'=>'}</h2>
 			<div>
-				<p>Termina</p>
+				<p style={{ marginBottom: '1.5rem' }}>Termina</p>
 				<label htmlFor="endDate">
 					{endDate === '' ? 'Termina' : MonthName(endDate.toString().slice(-5))}
 				</label>

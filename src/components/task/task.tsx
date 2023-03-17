@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { involucrados } from '../../utils/cardsUtils';
 import { onBlurType, onChangeType, onClickType } from '../../utils/types/typesUtils';
 import IconDropdown from '../iconDropdown';
 import InputTask from '../inputTask';
@@ -118,15 +119,6 @@ const Task = (props: TaskProps) => {
 		templateOptions,
 	} = props;
 
-	//función que retorna el número de involucrados en la tarea
-	function involucrados() {
-		if (valueResponsable && valueRevision) {
-			return 2;
-		} else if ((valueResponsable && !valueRevision) || (!valueResponsable && valueRevision)) {
-			return 1;
-		} else return 0;
-	}
-
 	const showTask = () => (plantillas ? false : true);
 
 	interface AddTaskProps {
@@ -198,7 +190,7 @@ const Task = (props: TaskProps) => {
 			>
 				<IconDates onChangeDias={onChangeDias} plantillas={plantillas} />
 				<IconAsign
-					involucrados={involucrados()}
+					involucrados={involucrados(valueResponsable, valueRevision)}
 					responsables={responsables}
 					equipos={equipos}
 					revision={revision}
