@@ -21,7 +21,7 @@ const Modal = (props: ModalProps) => {
 				left: '50%',
 				top: '0',
 				width:
-					windowSize().width < 768
+					windowSize().width <= 768
 						? `${windowSize().width}px`
 						: `${windowSize().width / 2}px`,
 				transform: 'translateX(-50%)',

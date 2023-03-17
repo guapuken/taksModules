@@ -9,6 +9,8 @@ interface IconDatesProps {
 	plantillas?: boolean;
 	className?: string;
 	onChangeDias?: onChangeType;
+	onChangeEndDate?: onChangeType;
+	onChangeStartDate?: onChangeType;
 	endDateValue?: Date;
 	startDateValue?: Date;
 	disabledEndDate?: boolean;
@@ -25,6 +27,8 @@ export const IconDates = (props: IconDatesProps) => {
 		startDateValue,
 		disabledEndDate,
 		disabledStartDate,
+		onChangeEndDate,
+		onChangeStartDate,
 	} = props;
 	return plantillas ? (
 		<div style={{ position: 'relative', zIndex: '2' }} className={className}>
@@ -47,6 +51,8 @@ export const IconDates = (props: IconDatesProps) => {
 			startDateValue={startDateValue}
 			disabledEndDate={disabledEndDate}
 			disabledStartDate={disabledStartDate}
+			onChangeEndDate={onChangeEndDate}
+			onChangeStartDate={onChangeStartDate}
 		/>
 	);
 };
