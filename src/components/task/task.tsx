@@ -44,6 +44,13 @@ export interface TaskProps {
 	//Icon Dates
 	plantillas?: boolean;
 	onChangeDias?: onChangeType;
+	disabledEndDate?: boolean;
+	disabledStartDate?: boolean;
+	onChangeEndDate?: onChangeType;
+	onChangeStartDate?: onChangeType;
+	startDateValue?: Date;
+	endDateValue?: Date;
+	className?: string;
 
 	//Icon Asign
 	responsables?: submenus[];
@@ -92,6 +99,13 @@ const Task = (props: TaskProps) => {
 		//Icon Dates
 		onChangeDias,
 		plantillas = false,
+		disabledEndDate,
+		disabledStartDate,
+		onChangeEndDate,
+		onChangeStartDate,
+		startDateValue,
+		endDateValue,
+		className,
 
 		//Icon Asign
 		responsables,
@@ -188,7 +202,17 @@ const Task = (props: TaskProps) => {
 					padding: showTask() ? '0 0 0 2rem' : '0',
 				}}
 			>
-				<IconDates onChangeDias={onChangeDias} plantillas={plantillas} />
+				<IconDates
+					onChangeDias={onChangeDias}
+					plantillas={plantillas}
+					disabledEndDate={disabledEndDate}
+					disabledStartDate={disabledStartDate}
+					onChangeEndDate={onChangeEndDate}
+					onChangeStartDate={onChangeStartDate}
+					startDateValue={startDateValue}
+					endDateValue={endDateValue}
+					className={className}
+				/>
 				<IconAsign
 					involucrados={involucrados(valueResponsable, valueRevision)}
 					responsables={responsables}
