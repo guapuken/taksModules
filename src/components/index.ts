@@ -7,6 +7,8 @@ export {default as Buttons} from './buttons';
 //ProgressBar to see the project and tasks progress
 export {default as ProgressBar} from './progressBar';
 
+export {default as Information} from './information';
+
 //IconDropdown allow show an icon and select an option
 export {default as IconDropdown} from './iconDropdown';
 
@@ -36,7 +38,8 @@ export {default as Modal} from './modal';
 //Renderiza el bloque de código de una tarea con su respectivos botones
 export {default as Task} from './task';
 
-//--Cards preestablecidas--//
-//Cards gestión de equipos
+//Cards preestablecidas
 export {default as CardTeam} from  './cardTeam';
+export {default as CardProject} from './cardProject';
+export {default as CardTask} from './cardTask';
 

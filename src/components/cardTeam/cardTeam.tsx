@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { AsideButtonItem, AsideContainer } from '../../utils/asideUtils';
-import { CardContainer } from '../../utils/cardsUtils';
+import { AsideContainer, ButtonsArray } from '../../utils/asideUtils';
+import { CardContainer, returnSize } from '../../utils/cardsUtils';
 import { Hover } from '../../utils/hover';
 import { onClickType } from '../../utils/types/typesUtils';
 import Cards from '../cards';
-import IconDropdown from '../iconDropdown';
 import './cardTeam.scss';
 
 export interface CardTeamProps {
@@ -25,6 +24,7 @@ const CardTeam = (props: CardTeamProps) => {
 		onClickView = () => alert('Change the function onClickView'),
 		teamColor = '#525252',
 	} = props;
+	const heightCard = 10;
 
 	//Componente que regresa el contenido de la card
 	const ContentCard = () => {
@@ -39,7 +39,7 @@ const CardTeam = (props: CardTeamProps) => {
 							onMouseLeave={Hover(setMouseEnter).exit}
 							onClick={() => {
 								setMouseEnter(!mouseEnter);
-								onClickView();
+								onClickView;
 							}}
 						>{`${members.length} Integrantes...`}</p>
 						{mouseEnter && (
@@ -75,15 +75,26 @@ const CardTeam = (props: CardTeamProps) => {
 	const ContentAside = () => {
 		return (
 			<AsideContainer>
-				<AsideButtonItem
-					src={require('../../img/vaciar.svg')}
-					title={'Editar'}
-					onClick={onClickView}
-				/>
-				<IconDropdown
-					icon={require('../../img/opciones.svg')}
-					title={'Más opciones'}
-					options={moreOptions}
+				<ButtonsArray
+					buttons={[
+						{
+							img: require('../../img/editar.svg'),
+							onClick: onClickEdit,
+							titleToShow: 'Visualizar equipo',
+						},
+						{
+							// img: require('../../img/bell.svg'),
+							onClick: onClickView,
+							titleToShow: 'Previsualizar equipo',
+						},
+						{
+							// img: require('../../img/addUser.svg'),
+							onClick: onClickDelete,
+							titleToShow: 'Eliminar equipo',
+						},
+					]}
+					vertical
+					size={heightCard}
 				/>
 			</AsideContainer>
 		);
@@ -92,8 +103,8 @@ const CardTeam = (props: CardTeamProps) => {
 	//Definición de los argumentos
 	const properties = {
 		rounded: true,
-		width: 25,
-		height: 10,
+		width: returnSize(),
+		height: heightCard,
 		Content: ContentCard,
 		Aside: ContentAside,
 	};

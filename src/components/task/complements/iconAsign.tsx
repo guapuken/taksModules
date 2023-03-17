@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { CSSProperties, useEffect, useRef, useState } from 'react';
 import { onClickType } from '../../../utils/types/typesUtils';
-import { windowSize } from '../../../utils/widthSize';
 import IconDropdown from '../../iconDropdown';
 
 type submenus = {
@@ -15,9 +14,12 @@ interface IconAsignProps {
 	equipos?: submenus[];
 	revision?: submenus[];
 	className?: string;
-	style?: {};
+	style?: CSSProperties;
+	styleCircle?: CSSProperties;
 	valueResponsable?: string;
 	valueRevision?: string;
+	iconStyle?: CSSProperties;
+	options?: { title?: string; onClick?: onClickType; submenus?: submenus[] }[];
 }
 //Se construye el componente que regresa el icono de asignar usuario
 export const IconAsign = (props: IconAsignProps) => {
@@ -31,6 +33,9 @@ export const IconAsign = (props: IconAsignProps) => {
 		style,
 		valueResponsable,
 		valueRevision,
+		styleCircle,
+		iconStyle,
+		options,
 	} = props;
 
 	//Opciones de usuarios
@@ -97,19 +102,27 @@ export const IconAsign = (props: IconAsignProps) => {
 	//retorno del componente
 	return (
 		<div className={`ContainerIconAsignUsers ${className}`} style={style}>
-			<IconDropdown options={asignUsers} icon={require('../../../img/addUser.svg')} />
+			<IconDropdown
+				options={equipos ? asignUsers : [asignUsers[0], asignUsers[2]]}
+				icon={require('../../../img/addUser.svg')}
+				iconStyles={iconStyle}
+			/>
 
 			{/* Si existe la propiedad de involucrados se ejecuta el bloque de código que genera el texto o el círculo con los datos de los involucrado en la tarea o proyecto */}
 			{involucrados > 0 && (
 				<p
 					className={
-						windowSize().width < 1280
-							? 'CircleInvolucradosTaskComponent'
-							: 'TextPriorityMenu'
+						// windowSize().width < 1280?
+						'CircleInvolucradosTaskComponent'
+						// : 'TextPriorityMenu'
 					}
 					style={{
 						fontSize: '1.4rem',
-						color: windowSize().width < 1280 ? '#fff' : '#525252',
+						color:
+							// windowSize().width < 1280 ?
+							'#fff',
+						// : '#525252',
+						...styleCircle,
 					}}
 					onMouseEnter={Hover}
 					onMouseLeave={Hover}
@@ -118,12 +131,13 @@ export const IconAsign = (props: IconAsignProps) => {
 					{/* Se returna el número de involucrados */}
 					{involucrados}
 					<PopUpInvolucrados
-						className={windowSize().width < 1280 ? 'TabletAndMobileVersion' : ''}
+						className="TabletAndMobileVersion" // {windowSize().width < 1280 ?
+						// : ''}
 					/>
 
-					{/* Si el tamaño de la pantalla es mayor a 768px se agrega la concatenación con el número de involucrados y la palabra involucrados o involucrado */}
+					{/* Si el tamaño de la pantalla es mayor a 768px se agrega la concatenación con el número de involucrados y la palabra involucrados o involucrado
 					{windowSize().width > 1280 &&
-						` ${involucrados > 1 ? 'involucrados' : 'involucrado'}`}
+						` ${involucrados > 1 ? 'involucrados' : 'involucrado'}`} */}
 				</p>
 			)}
 		</div>
