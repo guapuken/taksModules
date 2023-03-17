@@ -1,25 +1,29 @@
 import React, { useState } from 'react';
+import { onChangeType } from '../../utils/types/typesUtils';
 import './notifications.scss';
 
 export interface NotificationsProps {
 	checkValue?: boolean;
+	onChange?: onChangeType;
+	idNotification?: string;
 }
 
 const Notifications = (props: NotificationsProps) => {
-	const { checkValue = false } = props;
+	const { checkValue = false, onChange, idNotification = '' } = props;
 	const [check, setCheck] = useState(checkValue);
 
 	return (
 		<>
 			<div className="SwitchNotification">
 				<input
-					id="SwitchNotificationId"
+					id={idNotification}
 					type="checkbox"
 					className="SwitchNotificationInput"
 					checked={check}
 					onClick={() => setCheck(!check)}
+					onChange={onChange}
 				/>
-				<label htmlFor="SwitchNotificationId" className="SwitchNotificationLabel">
+				<label htmlFor={idNotification} className="SwitchNotificationLabel">
 					{
 						<svg
 							id="Capa_1"

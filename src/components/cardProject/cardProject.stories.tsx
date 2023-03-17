@@ -11,8 +11,9 @@ export const Basic = Template.bind({});
 Basic.args = {
 	projectName: 'ETERNO VERANO- CALYPSO PRODUCCIONES - AUTOBUSES - CDMX 8 MARZ',
 	ejecutivo: 'Juan C. Almada',
-	tasks: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-	completedTask: 0,
+	completedTask: 15,
+	incompletedTask: 10,
+	status: 'outOfTime',
 };
 
 export default {

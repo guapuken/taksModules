@@ -116,10 +116,6 @@ const equipos = [
 	},
 ];
 
-console.log(usuarios);
-usuarios.map((e) => {
-	console.log(`Nombre: ${e.userData.nombre} \nId: ${e.id}`);
-});
 const dataUsers = usuarios.map((user) => {
 	return {
 		title: user.userData.nombre,
@@ -131,12 +127,9 @@ const dataUsers = usuarios.map((user) => {
 
 export const Initial = Template.bind({});
 Initial.args = {
-	// responsables: usuarios,
 	responsables: dataUsers.map((e) => e),
 	revision: dataUsers.map((e) => e),
 	prioridadInicial: 'alta',
-	// valueResponsable: 'Creative',
-	// valueRevision: 'Adrian Moreno',
 	onClickEliminar: () => alert('hola'),
 	onClickRecordatorio: () => alert('perro'),
 	moreOptions: [
@@ -148,7 +141,7 @@ Initial.args = {
 };
 
 const Childrens = [] as any;
-console.log(Childrens);
+// console.log(Childrens);
 export const Tasks = Template.bind({});
 Tasks.args = {
 	//Input Task

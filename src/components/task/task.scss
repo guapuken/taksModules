@@ -35,9 +35,11 @@
         width: auto; 
         display: flex;
         position: relative;
+        
     }
     div{
         margin-right: 2rem;
+        height:3rem ;
     }
     .InputsTaskContainer{
         position: relative;
@@ -123,7 +125,7 @@
 //Involucrados en tamaño movil y tablet
 .CircleInvolucradosTaskComponent{
     position: absolute;
-    bottom: 40%;
+    top: 0;
     left: 60%;
     background-color: red;
     margin-block: 0;

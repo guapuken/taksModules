@@ -4,8 +4,16 @@
     justify-content: flex-end;
     position: absolute;
     bottom: 0;
+    width: 100%;
 }
 .ContainerTitleAndiconsCardProject{
-    display: grid; 
-    grid-template-columns: 75% auto;
+    display: flex;
+    // display: grid; 
+    // grid-template-columns: 75% auto;
+    justify-content: flex-end;
+
+}
+.ContainerTitleAndiconsCardProjectSmall{
+    display:flex;
+    justify-content: flex-end;
 }

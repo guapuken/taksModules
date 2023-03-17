@@ -49,7 +49,10 @@ const Menus = ({ menus }: any) => {
 						{menu.title}
 					</DropdownMenu.SubTrigger>
 					<DropdownMenu.Portal>
-						<DropdownMenu.SubContent className={`SubmenuContainer ${menu.className}`}>
+						<DropdownMenu.SubContent
+							className={`SubmenuContainer ${menu.className}`}
+							style={{ cursor: 'pointer' }}
+						>
 							{menu.submenus.map((submenu) => (
 								<DropdownMenu.Item
 									className="MenusTitles"
@@ -106,6 +109,7 @@ const IconDropdown = (props: IconDropdownProps) => {
 						background: 'none',
 						border: 'none',
 						fontSize: '1.2rem',
+						cursor: 'pointer',
 						...iconStyles,
 					}}
 					title={title}
@@ -119,7 +123,7 @@ const IconDropdown = (props: IconDropdownProps) => {
 				<DropdownMenu.Content
 					onClick={onClick}
 					className={`SubmenuContainer ${className}`}
-					style={style}
+					style={{ cursor: 'pointer', ...style }}
 				>
 					<Menus menus={options} />
 				</DropdownMenu.Content>

@@ -69,7 +69,7 @@ const ProgressBar = (props: ProgressBarProps) => {
 		}`,
 		height: '3rem',
 		width: `${width - 8}rem`,
-		borderRadius: '5rem',
+		borderRadius: '50rem',
 	};
 	let percentStyles = {
 		fontSize: '3rem',
@@ -88,7 +88,7 @@ const ProgressBar = (props: ProgressBarProps) => {
 				: status === 'delayed'
 				? '#FCB24F'
 				: '#282828',
-		borderRadius: '5rem',
+		borderRadius: '50rem',
 		width: `${valor}%`,
 	};
 
