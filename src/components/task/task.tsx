@@ -51,6 +51,7 @@ export interface TaskProps {
 	startDateValue?: Date;
 	endDateValue?: Date;
 	className?: string;
+	durationValue?: string;
 
 	//Icon Asign
 	responsables?: submenus[];
@@ -106,6 +107,7 @@ const Task = (props: TaskProps) => {
 		startDateValue,
 		endDateValue,
 		className,
+		durationValue,
 
 		//Icon Asign
 		responsables,
@@ -212,6 +214,7 @@ const Task = (props: TaskProps) => {
 					startDateValue={startDateValue}
 					endDateValue={endDateValue}
 					className={className}
+					durationValue={durationValue}
 				/>
 				<IconAsign
 					involucrados={involucrados(valueResponsable, valueRevision)}
