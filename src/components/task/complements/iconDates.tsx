@@ -15,6 +15,7 @@ interface IconDatesProps {
 	startDateValue?: Date;
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
+	durationValue?: string;
 }
 
 //Visualización de componente si la propiedad de plantillas es true
@@ -29,6 +30,7 @@ export const IconDates = (props: IconDatesProps) => {
 		disabledStartDate,
 		onChangeEndDate,
 		onChangeStartDate,
+		durationValue,
 	} = props;
 	return plantillas ? (
 		<div style={{ position: 'relative', zIndex: '2' }} className={className}>
@@ -37,6 +39,7 @@ export const IconDates = (props: IconDatesProps) => {
 				legend="Duración"
 				type="number"
 				onChange={onChangeDias ? onChangeDias : () => {}}
+				initialValue={durationValue}
 			/>
 			<div className="IconInformationTaskcomponent">
 				<Information
