@@ -1,7 +1,7 @@
 import React from 'react';
 import { onClickType } from '../../utils/types/typesUtils';
 import Button from '../button/button';
-import '../../index.scss';
+import '../../styles.scss';
 
 //types
 type compositionTypes = 'horizontal' | 'vertical' | 'box';

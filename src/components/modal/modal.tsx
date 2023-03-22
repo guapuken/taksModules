@@ -1,7 +1,6 @@
 import React from 'react';
 import { windowSize } from '../../utils/widthSize';
-import '../../index.scss';
-
+import '../../styles.scss';
 import './modal.scss';
 
 export interface ModalProps {

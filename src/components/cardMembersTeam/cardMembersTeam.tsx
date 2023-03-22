@@ -1,5 +1,6 @@
 import React from 'react';
 import { CardContainer, Spans } from '../../utils/cardsUtils';
+import '../../styles.scss';
 
 export interface CardMembersTeamProps {
 	name?: string;

@@ -14,7 +14,7 @@ import Cards from '../cards';
 import Notifications from '../notifications';
 import ProgressBar from '../progressBar';
 import { IconAsign } from '../task/complements/iconAsign';
-import '../../index.scss';
+import '../../styles.scss';
 
 // import './cardProject.scss';
 type submenus = {

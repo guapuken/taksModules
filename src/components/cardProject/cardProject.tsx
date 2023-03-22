@@ -7,7 +7,7 @@ import { windowSize } from '../../utils/widthSize';
 import Cards from '../cards';
 import Notifications from '../notifications';
 import ProgressBar from '../progressBar';
-import '../../index.scss';
+import '../../styles.scss';
 import './cardProject.scss';
 
 type statusTypes = 'onTime' | 'delayed' | 'outOfTime';

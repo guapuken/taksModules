@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { onChangeType } from '../../utils/types/typesUtils';
-import Information from '../information/information';
-import '../../index.scss';
+import '../../styles.scss';
 import './inputLabel.scss';
 
 type typeTypes = 'text' | 'number' | 'email' | 'date';

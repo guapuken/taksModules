@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { onBlurType, onChangeType, onClickType } from '../../utils/types/typesUtils';
 import { AutoResizeInput } from './complements/autoResizeInput';
 import { CheckboxInput } from './complements/checkboxInput';
-import '../../index.scss';
+import '../../styles.scss';
 import './inputTask.scss';
 
 export interface InputTaskProps {

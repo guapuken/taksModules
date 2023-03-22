@@ -8,7 +8,7 @@ import { IconAsign } from './complements/iconAsign';
 import { IconDates } from './complements/iconDates';
 import { IconMoreOptions } from './complements/iconMoreOptions';
 import { IconPriority } from './complements/iconPriority';
-import '../../index.scss';
+import '../../styles.scss';
 import './task.scss';
 
 //TYPES

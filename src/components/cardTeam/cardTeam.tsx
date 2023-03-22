@@ -4,7 +4,7 @@ import { CardContainer, returnSize } from '../../utils/cardsUtils';
 import { Hover } from '../../utils/hover';
 import { onClickType } from '../../utils/types/typesUtils';
 import Cards from '../cards';
-import '../../index.scss';
+import '../../styles.scss';
 import './cardTeam.scss';
 
 export interface CardTeamProps {

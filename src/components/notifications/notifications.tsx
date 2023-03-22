@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { onChangeType } from '../../utils/types/typesUtils';
-import '../../index.scss';
+import '../../styles.scss';
 import './notifications.scss';
 
 export interface NotificationsProps {

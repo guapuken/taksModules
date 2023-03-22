@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { onChangeType } from '../../utils/types/typesUtils';
-import '../../index.scss';
+import '../../styles.scss';
 import './dropdown.scss';
 
 const Icon = (fillColor?: string, isOpen?: Boolean) => {

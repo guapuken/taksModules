@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { onClickType } from '../../utils/types/typesUtils';
-import '../../index.scss';
+import '../../styles.scss';
 
 //types
 type statusTypes = 'onTime' | 'delayed' | 'outOfTime';
