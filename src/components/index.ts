@@ -47,6 +47,7 @@ export {default as CardTask} from './cardTask';
 export {default as ModalTareas} from './modalTareas';
 export {default as ModalTamplates} from './modalTemplates';
 export {default as ModalProjects} from './modalProjects';
+export {default as ModalTeams} from './modalTeams';
 
 //asidetemplates
 export {default as AsideTemplates} from './asideTemplates';

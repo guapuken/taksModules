@@ -1,12 +1,15 @@
+//NORMALIZE DE CSS
+@import './normalize.scss';
+
+//ESTILOS GENERALES PARA APLICAR LOS REMS A NUESTRAS COMPOSICIONES
 *{
   font-size: 62.5%;
   font-family: 'Open Sans', sans-serif;
 }
 
-/*General styles*/
-
-  /*Texts*/
-    h1, h2,h3,h4,h5,h6, p{ 
+//ESTILOS GENERALES
+  //TEXTOS
+    h1, h2,h3,h4,h5,h6,p{ 
       font-weight: bold; 
       margin-block: 0;
     }
@@ -20,7 +23,7 @@
       font-size: calc(12px + 0.390625vw);
     }
 
-  /* ClassUtilities*/
+  //CLASES UTILES
   .TextOverflow{
     overflow: hidden;
     display: -webkit-box;
@@ -28,8 +31,19 @@
     // -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
     white-space: pre-wrap; /* let the text wrap preserving spaces */
   }
+  .ContainerCardTeamComponent{
+    position: relative;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .buttonsArray{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
 
-  /*Interfaz*/
+  //MODIFICACIÓN DE INTERFAZ GENERAL
     ::-webkit-scrollbar{
       width: 5px;
       position: absolute;
@@ -43,16 +57,3 @@
       border: .1rem solid #dedede;
       border-radius: 10px;
     }
-
-/*Utilidades*/
-  .ContainerCardTeamComponent{
-    position: relative;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  .buttonsArray{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-  }
