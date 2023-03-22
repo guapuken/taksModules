@@ -91,7 +91,7 @@ const Dropdown = (props: DropdownProps) => {
 			window.removeEventListener('click', handler);
 		};
 	});
-	const handleInputClick = (e) => {
+	const handleInputClick = (e: any) => {
 		setShowMenu(!showMenu);
 	};
 

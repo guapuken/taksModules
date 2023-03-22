@@ -54,7 +54,7 @@ function sliceButtons(size: number, buttons?: any) {
 	} else {
 		return (
 			<>
-				{buttons.slice(0, maxButtons - 1).map((e) => (
+				{buttons.slice(0, maxButtons - 1).map((e: any) => (
 					<ButtonItem
 						img={e.img}
 						onClick={e.onClick}
@@ -67,10 +67,10 @@ function sliceButtons(size: number, buttons?: any) {
 					title={'Más opciones...'}
 					options={
 						maxButtons === 1
-							? buttons?.map((e) => {
+							? buttons?.map((e: any) => {
 									return { title: e.titleToShow, onClick: e.onClick };
 							  })
-							: buttons?.slice(maxButtons - 1).map((e) => {
+							: buttons?.slice(maxButtons - 1).map((e: any) => {
 									return { title: e.titleToShow, onClick: e.onClick };
 							  })
 					}
