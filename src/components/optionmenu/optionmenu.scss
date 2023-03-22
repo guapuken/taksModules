@@ -47,29 +47,24 @@ text-align: center;
 //   color: #007bff;
 // }
 .ContainerMenuComponent,.ContainerMenuComponentOpen{
-  position: absolute;
+  position: fixed;
   left: 0;
    top: 0;
-   top: 2rem;
 }
 .ContainerMenuComponent{
-  
   width: 5rem; 
-   height: 5rem;
-   padding: 0;
-   margin: 0;
-   background: #000000;
-   border-radius: 0.4rem;
+  height: 5rem;
+  background: #000000;
+  top: 15vh;
+  border-radius: 0 .5rem .5rem 0;
  }
  
 .ContainerMenuComponentOpen{
  width: 40vw; 
   height: 100vh;
-  // position: relative;
   padding: 0;
   margin: 0;
   background: #000000;
-  border-radius: 0.4rem;
   .contenedorMenusMenuComponent{
     height: 70%;
     position: absolute;
@@ -121,12 +116,14 @@ text-align: center;
   transition: 0.5s;
   top: 50%;
   transform: rotate(45deg);
-
 }
 .openMenuComponent.iconOpenCloseMenuComponent:before {
   transition: 0.5s;
   top: 50%;
   transform: rotate(-45deg) !important;
+}
+.ContainerMenuComponentOpen .buttonOpenCloseMenuComponent{
+  top: 16.5vh;
 }
 // .openMenuComponent{
 //   transform: scale(0.75);

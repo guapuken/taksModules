@@ -61,7 +61,7 @@ const Optionmenu = (props: OptionmenuProps) => {
 		const [isOpen, setIsOpen] = useState(false);
 		return (
 			<>
-				<header className={`ContainerMenuComponent${!isOpen ? 'Open' : ''}`}>
+				<div className={`ContainerMenuComponent${isOpen ? 'Open' : ''}`}>
 					<nav className="navOpenCloseMenuComponent">
 						<a
 							onClick={() => setIsOpen(!isOpen)}
@@ -76,12 +76,12 @@ const Optionmenu = (props: OptionmenuProps) => {
 					</nav>
 					<div
 						className="contenedorMenusMenuComponent"
-						style={{ display: !isOpen ? 'block' : 'none' }}
+						style={{ display: isOpen ? 'block' : 'none' }}
 					>
 						{menusCC(menus)}
 						{menusSC(menus)}
 					</div>
-				</header>
+				</div>
 			</>
 		);
 	};
