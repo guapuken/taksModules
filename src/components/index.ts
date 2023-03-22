@@ -48,3 +48,6 @@ export {default as ModalTareas} from './modalTareas';
 export {default as ModalTamplates} from './modalTemplates';
 export {default as ModalProjects} from './modalProjects';
 
+//asidetemplates
+export {default as AsideTemplates} from './asideTemplates';
+
