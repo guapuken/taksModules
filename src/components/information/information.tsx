@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../../index.scss';
 import './information.scss';
 
 //Qué tipos de posiciones se pueden utilizar en el componente

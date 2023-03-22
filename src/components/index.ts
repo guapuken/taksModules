@@ -42,6 +42,7 @@ export {default as Task} from './task';
 export {default as CardTeam} from  './cardTeam';
 export {default as CardProject} from './cardProject';
 export {default as CardTask} from './cardTask';
+export {default as CardMembersTeam} from './cardMembersTeam';
 
 //Modales preestablecidos
 export {default as ModalTareas} from './modalTareas';

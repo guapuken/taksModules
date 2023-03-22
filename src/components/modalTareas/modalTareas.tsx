@@ -3,6 +3,7 @@ import { onBlurType, onChangeType, onClickType } from '../../utils/types/typesUt
 import Buttons from '../buttons';
 import Modal from '../modal';
 import Task from '../task';
+import '../../index.scss';
 
 //TYPES
 type submenus = {

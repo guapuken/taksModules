@@ -1,5 +1,6 @@
 import React, { CSSProperties, useState } from 'react';
 import { onClickType } from '../../utils/types/typesUtils';
+import '../../index.scss';
 
 //types
 type sizeTypes = 'small' | 'medium' | 'large';

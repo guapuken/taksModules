@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { returnSize } from '../../utils/cardsUtils';
-import { onChangeType } from '../../utils/types/typesUtils';
 import { windowSize } from '../../utils/widthSize';
+import '../../index.scss';
 
 export interface AsideTemplatesProps {
 	isWhite?: boolean;

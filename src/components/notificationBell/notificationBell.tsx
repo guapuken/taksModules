@@ -3,6 +3,7 @@ import { selectRandomText } from '../../utils/randomTexts';
 import { onClickType } from '../../utils/types/typesUtils';
 import Cards from '../cards';
 // import { useTimeCounter } from './hooks/useCounter';
+import '../../index.scss';
 import './notificationBell.scss';
 
 export interface NotificationBellProps {

@@ -5,6 +5,7 @@ import InputLabel from '../inputLabel';
 import Modal from '../modal';
 import Task from '../task';
 import { AddTask } from '../task/complements/addTask';
+import '../../index.scss';
 
 //TYPES
 type submenus = {
