@@ -9,10 +9,13 @@ interface IconDatesProps {
 	plantillas?: boolean;
 	className?: string;
 	onChangeDias?: onChangeType;
+	onChangeEndDate?: onChangeType;
+	onChangeStartDate?: onChangeType;
 	endDateValue?: Date;
 	startDateValue?: Date;
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
+	durationValue?: string;
 }
 
 //Visualización de componente si la propiedad de plantillas es true
@@ -25,6 +28,9 @@ export const IconDates = (props: IconDatesProps) => {
 		startDateValue,
 		disabledEndDate,
 		disabledStartDate,
+		onChangeEndDate,
+		onChangeStartDate,
+		durationValue,
 	} = props;
 	return plantillas ? (
 		<div style={{ position: 'relative', zIndex: '2' }} className={className}>
@@ -33,6 +39,7 @@ export const IconDates = (props: IconDatesProps) => {
 				legend="Duración"
 				type="number"
 				onChange={onChangeDias ? onChangeDias : () => {}}
+				initialValue={durationValue}
 			/>
 			<div className="IconInformationTaskcomponent">
 				<Information
@@ -47,6 +54,8 @@ export const IconDates = (props: IconDatesProps) => {
 			startDateValue={startDateValue}
 			disabledEndDate={disabledEndDate}
 			disabledStartDate={disabledStartDate}
+			onChangeEndDate={onChangeEndDate}
+			onChangeStartDate={onChangeStartDate}
 		/>
 	);
 };

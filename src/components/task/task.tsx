@@ -3,6 +3,7 @@ import { involucrados } from '../../utils/cardsUtils';
 import { onBlurType, onChangeType, onClickType } from '../../utils/types/typesUtils';
 import IconDropdown from '../iconDropdown';
 import InputTask from '../inputTask';
+import { AddTask } from './complements/addTask';
 import { IconAsign } from './complements/iconAsign';
 import { IconDates } from './complements/iconDates';
 import { IconMoreOptions } from './complements/iconMoreOptions';
@@ -44,6 +45,14 @@ export interface TaskProps {
 	//Icon Dates
 	plantillas?: boolean;
 	onChangeDias?: onChangeType;
+	disabledEndDate?: boolean;
+	disabledStartDate?: boolean;
+	onChangeEndDate?: onChangeType;
+	onChangeStartDate?: onChangeType;
+	startDateValue?: Date;
+	endDateValue?: Date;
+	className?: string;
+	durationValue?: string;
 
 	//Icon Asign
 	responsables?: submenus[];
@@ -70,6 +79,33 @@ export interface TaskProps {
 	onClickAddTask?: onClickType;
 	templateOptions?: optionsType[];
 }
+//Valida si existe la propiedad de plantillas y las agrega al dropdown de cargar plantilla en caso de que si exista
+export const optionsPlantillas = (
+	templateOptions: optionsType[],
+	onClickCreateTemplate: onClickType
+) => {
+	templateOptions?.map((e: any) => {
+		return {
+			title: e.title,
+			onClick: e.onClick,
+		};
+	});
+	if (templateOptions !== undefined) {
+		return [
+			{
+				title: '+ Crear plantilla',
+				onClick: onClickCreateTemplate,
+			},
+			...templateOptions,
+		];
+	} else
+		return [
+			{
+				title: '+ Crear plantilla',
+				onClick: onClickCreateTemplate,
+			},
+		];
+};
 
 //COMPONENTE PRINCIPAL
 const Task = (props: TaskProps) => {
@@ -92,6 +128,14 @@ const Task = (props: TaskProps) => {
 		//Icon Dates
 		onChangeDias,
 		plantillas = false,
+		disabledEndDate,
+		disabledStartDate,
+		onChangeEndDate,
+		onChangeStartDate,
+		startDateValue,
+		endDateValue,
+		className,
+		durationValue,
 
 		//Icon Asign
 		responsables,
@@ -114,55 +158,12 @@ const Task = (props: TaskProps) => {
 		Children,
 
 		//BotonesAgregar
-		onClickCreateTemplate,
+		onClickCreateTemplate = () => {},
 		onClickAddTask,
-		templateOptions,
+		templateOptions = [{}],
 	} = props;
 
 	const showTask = () => (plantillas ? false : true);
-
-	interface AddTaskProps {
-		onClick?: onClickType;
-		legend?: string;
-		style?: {};
-	}
-	const AddTask = (props: AddTaskProps) => {
-		const { onClick, legend = '+ Añadir', style } = props;
-		return (
-			<button
-				onClick={onClick}
-				className="ButtonAddTaskComponent"
-				style={{ marginBlock: '0', margin: '1rem 0 2rem 0', fontSize: '1.5rem', ...style }}
-			>
-				{legend}
-			</button>
-		);
-	};
-
-	//Valida si existe la propiedad de plantillas y las agrega al dropdown de cargar plantilla en caso de que si exista
-	const optionsPlantillas = () => {
-		templateOptions?.map((e: any) => {
-			return {
-				title: e.title,
-				onClick: e.onClick,
-			};
-		});
-		if (templateOptions !== undefined) {
-			return [
-				{
-					title: '+ Crear plantilla',
-					onClick: onClickCreateTemplate,
-				},
-				...templateOptions,
-			];
-		} else
-			return [
-				{
-					title: '+ Crear plantilla',
-					onClick: onClickCreateTemplate,
-				},
-			];
-	};
 
 	return (
 		<div className="ContainerTaksComponent" /* style={{ background: 'red' }} */>
@@ -188,7 +189,18 @@ const Task = (props: TaskProps) => {
 					padding: showTask() ? '0 0 0 2rem' : '0',
 				}}
 			>
-				<IconDates onChangeDias={onChangeDias} plantillas={plantillas} />
+				<IconDates
+					onChangeDias={onChangeDias}
+					plantillas={plantillas}
+					disabledEndDate={disabledEndDate}
+					disabledStartDate={disabledStartDate}
+					onChangeEndDate={onChangeEndDate}
+					onChangeStartDate={onChangeStartDate}
+					startDateValue={startDateValue}
+					endDateValue={endDateValue}
+					className={className}
+					durationValue={durationValue}
+				/>
 				<IconAsign
 					involucrados={involucrados(valueResponsable, valueRevision)}
 					responsables={responsables}
@@ -219,7 +231,7 @@ const Task = (props: TaskProps) => {
 							marginLeft: '2rem',
 							fontSize: '1.5rem',
 						}}
-						options={optionsPlantillas()}
+						options={optionsPlantillas(templateOptions, onClickCreateTemplate)}
 					/>
 				</>
 			)}
