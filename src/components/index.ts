@@ -43,3 +43,5 @@ export {default as CardTeam} from  './cardTeam';
 export {default as CardProject} from './cardProject';
 export {default as CardTask} from './cardTask';
 
+//asidetemplates
+export {default as AsideTemplates} from './asideTemplates';
