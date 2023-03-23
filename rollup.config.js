@@ -30,7 +30,19 @@ export default [
 		],
 		plugins: [
 			PeerDepsExternal(),
-			postcss(),
+			postcss({
+				plugins: [autoprefixer(), postcssNormalize()],
+				// exclude: "src/styles/*/.scss",
+				namedExports: true,
+				sourceMap: true,
+				extract: false,
+				// modules: true,
+				autoModules: true,
+				minimize: true,
+				extensions: ['.scss'],
+				use: ['sass'], // Si funciona ambos css y scss
+				// parser: "postcss-scss",
+			}),
 			resolve(),
 			commonjs(),
 			typescript({ tsconfig: './tsconfig.json' }),
@@ -41,7 +53,7 @@ export default [
 		input: 'dist/esm/index.d.ts',
 		output: [{ file: 'dist/index.d.ts', format: 'esm' }],
 		plugins: [dts()],
-		external: [/\scss$/],
+		external: [/\css$/],
 		// external:[/\css$/]
 	},
 ];
