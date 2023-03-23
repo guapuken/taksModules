@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/guapuken"
   },
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "librería con paquetes actualizados",
   "scripts": {
     "rollup": "rollup -c",
