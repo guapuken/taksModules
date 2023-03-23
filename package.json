@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/guapuken"
   },
-  "version": "0.1.02",
+  "version": "0.1.03",
   "description": "librería con paquetes actualizados",
   "scripts": {
     "rollup": "rollup -c",
@@ -67,6 +67,8 @@
     "@storybook/preset-typescript": "^3.0.0",
     "jest-environment-jsdom": "^29.4.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.34.1"
   }
 }

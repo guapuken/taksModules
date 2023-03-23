@@ -1,6 +1,7 @@
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
-import typescript from '@rollup/plugin-typescript';
+// import typescript from '@rollup/plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
 import dts from 'rollup-plugin-dts';
 
 //css
@@ -8,7 +9,7 @@ import postcss from 'rollup-plugin-postcss';
 
 //optimization
 import terser from '@rollup/plugin-terser';
-import PeerDepsExternal from 'rollup-plugin-peer-deps-external';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import autoprefixer from 'autoprefixer';
 import postcssNormalize from 'postcss-normalize';
 
@@ -31,7 +32,13 @@ export default [
 			},
 		],
 		plugins: [
-			PeerDepsExternal(),
+			peerDepsExternal(),
+			resolve(),
+			commonjs(),
+			typescript({
+				// tsconfig: './tsconfig.json',
+				useTsconfigDeclarationDir: true,
+			}),
 			postcss({
 				plugins: [autoprefixer(), postcssNormalize()],
 				// exclude: "src/styles/*/.scss",
@@ -45,18 +52,17 @@ export default [
 				use: ['sass'], // Si funciona ambos css y scss
 				// parser: "postcss-scss",
 			}),
-			resolve(),
-			commonjs(),
-			typescript({ tsconfig: './tsconfig.json' }),
-			terser(),
+			// terser(),
+			dts(),
 		],
 	},
-	{
-		input: 'dist/esm/index.d.ts',
-		output: [{ file: 'dist/index.d.ts', format: 'esm' }],
-		output: [{ file: 'dist/index.d.ts', format: 'cjs' }],
-		plugins: [dts()],
-		// external: [/\css$/],
-		// external:[/\css$/]
-	},
+	// {
+	// input: 'dist/esm/index.d.ts',
+	// output: [
+	// { file: 'dist/index.d.ts', format: 'esm' },
+	// 		// { file: 'dist/index.d.ts', format: 'cjs' },
+	// ],
+	// 	// plugins: [dts()],
+	// external: [/\css$/],
+	// },
 ];
