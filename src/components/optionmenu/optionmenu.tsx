@@ -50,7 +50,9 @@ const Optionmenu = (props: OptionmenuProps) => {
 			let sinCategoria = e.sinCategoria?.map((sinCategoria: any) => {
 				return (
 					<div className="menusContainerMenuComponent">
-						<h2 onClick={sinCategoria.onClick}>{sinCategoria.title}</h2>
+						<h2 style={{ cursor: 'pointer' }} onClick={sinCategoria.onClick}>
+							{sinCategoria.title}
+						</h2>
 					</div>
 				);
 			});

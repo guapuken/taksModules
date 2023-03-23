@@ -1,5 +1,5 @@
 import React from 'react';
-import { returnSize } from '../../utils/cardsUtils';
+import { returnSize, sizeCard } from '../../utils/cardsUtils';
 import { windowSize } from '../../utils/widthSize';
 import '../../styles.scss';
 
@@ -15,11 +15,13 @@ const AsideTemplates = (props: AsideTemplatesProps) => {
 		<div
 			style={{
 				height: windowSize().width < 391 ? '20vh' : '100vh',
-				width: `calc(${returnSize()}vh + 2rem)`,
+				width: `calc(${returnSize()}rem + 2rem)`,
 				background: isWhite ? '#fff' : '#282828',
 				position: 'relative',
 				marginBlock: 0,
-				padding: '1rem',
+				paddingTop: '1rem',
+				display: 'flex',
+				justifyContent: 'center',
 			}}
 		>
 			{!Content && (

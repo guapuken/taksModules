@@ -24,28 +24,19 @@ text-align: center;
   margin-top: 6px;
   h2{ 
     color: #ffffff;
-    font-size: 3rem;
-    // text-align: center;
   }
   ul{
     list-style: none;
     margin-block: 0;
-    padding: 0;
+    padding: 0 0 1rem 0;
 
-    // li{
-    // }
-    // text-align: center;
+    li{
+      margin: 1rem 0;
+      cursor: pointer;
+    }
       font-size: 2rem;
   }
 }
-
-
-
-
-// .datosConCategoria li a:hover,
-// .datosSinCategoria li a:hover {
-//   color: #007bff;
-// }
 .ContainerMenuComponent,.ContainerMenuComponentOpen{
   position: fixed;
   left: 0;
@@ -60,7 +51,6 @@ text-align: center;
  }
  
 .ContainerMenuComponentOpen{
- width: 40vw; 
   height: 100vh;
   padding: 0;
   margin: 0;
@@ -72,6 +62,24 @@ text-align: center;
     left: 10rem;
     text-align: left;
     width: 100%;
+  }
+}
+/*
+Mediasqueries de tamaños del menú
+*/
+@media (min-width: 1280px){
+  .ContainerMenuComponentOpen{
+    width: 40vw;
+  }
+}
+@media (max-width: 1280px){
+  .ContainerMenuComponentOpen{
+    width: 60vw;
+  }
+}
+@media (max-width: 768px){
+  .ContainerMenuComponentOpen{
+    width: 100vw;
   }
 }
 
@@ -125,6 +133,3 @@ text-align: center;
 .ContainerMenuComponentOpen .buttonOpenCloseMenuComponent{
   top: 16.5vh;
 }
-// .openMenuComponent{
-//   transform: scale(0.75);
-// }
