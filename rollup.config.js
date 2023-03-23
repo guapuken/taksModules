@@ -10,6 +10,7 @@ import postcss from 'rollup-plugin-postcss';
 import terser from '@rollup/plugin-terser';
 import PeerDepsExternal from 'rollup-plugin-peer-deps-external';
 import autoprefixer from 'autoprefixer';
+import postcssNormalize from 'postcss-normalize';
 
 const packageJson = require('./package.json');
 // const packageJson = "./package.json";
