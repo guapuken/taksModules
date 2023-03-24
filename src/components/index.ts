@@ -53,3 +53,5 @@ export {default as ModalTeams} from './modalTeams';
 //asidetemplates
 export {default as AsideTemplates} from './asideTemplates';
 
+//drag and drop
+export {default as DragAndDrop} from './dragAndDrop';
