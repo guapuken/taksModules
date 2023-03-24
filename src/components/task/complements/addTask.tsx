@@ -1,8 +1,7 @@
 import React from 'react';
-import { onClickType } from '../../../utils/types/typesUtils';
 
 interface AddTaskProps {
-	onClick?: onClickType;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	legend?: string;
 	style?: {};
 }

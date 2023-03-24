@@ -1,13 +1,12 @@
-import React, { CSSProperties, useEffect, useRef, useState } from 'react';
-import { onClickType } from '../../../utils/types/typesUtils';
+import React, { CSSProperties, useState } from 'react';
 import IconDropdown from '../../iconDropdown';
 
-type submenus = {
+interface submenus {
 	id?: number | string;
 	className?: string;
-	onClick?: onClickType;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	title?: string;
-};
+}
 interface IconAsignProps {
 	involucrados?: number;
 	responsables?: submenus[];
@@ -19,7 +18,11 @@ interface IconAsignProps {
 	valueResponsable?: string;
 	valueRevision?: string;
 	iconStyle?: CSSProperties;
-	options?: { title?: string; onClick?: onClickType; submenus?: submenus[] }[];
+	options?: {
+		title?: string;
+		onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+		submenus?: submenus[];
+	}[];
 }
 //Se construye el componente que regresa el icono de asignar usuario
 export const IconAsign = (props: IconAsignProps) => {

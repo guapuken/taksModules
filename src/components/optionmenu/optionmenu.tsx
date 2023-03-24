@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
-import { onClickType } from '../../utils/types/typesUtils';
 import '../../styles.scss';
 import './optionmenu.scss';
 
-type menusOptionsTypes = {
+interface menusOptionsTypes {
 	title?: string;
-	onClick?: onClickType;
-};
-type conCategoriaTypes = {
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+}
+interface conCategoriaTypes {
 	title?: string;
 	menus?: menusOptionsTypes[];
-};
-type menusTypes = {
+}
+interface menusTypes {
 	conCategoria?: conCategoriaTypes[];
 	sinCategoria?: menusOptionsTypes[];
-};
+}
 export interface OptionmenuProps {
 	menus?: menusTypes[];
 	width?: string;

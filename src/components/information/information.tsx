@@ -2,24 +2,21 @@ import React, { useState } from 'react';
 import '../../styles.scss';
 import './information.scss';
 
-//Qué tipos de posiciones se pueden utilizar en el componente
-type positionInfoTypes =
-	| 'left'
-	| 'right'
-	| 'top'
-	| 'bottom'
-	| 'left_top'
-	| 'left_bottom'
-	| 'right_top'
-	| 'right_bottom'
-	| 'center';
-
 //definición de la interface y sus datos que recibirá el componente
 export interface InformationProps {
 	width?: number;
 	height?: number;
 	info?: string;
-	positionInfo?: positionInfoTypes;
+	positionInfo?:
+		| 'left'
+		| 'right'
+		| 'top'
+		| 'bottom'
+		| 'left_top'
+		| 'left_bottom'
+		| 'right_top'
+		| 'right_bottom'
+		| 'center';
 	color?: string;
 	iconInfo?: string;
 	style?: {};

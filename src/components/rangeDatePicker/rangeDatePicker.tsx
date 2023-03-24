@@ -1,5 +1,4 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
-import { onChangeType } from '../../utils/types/typesUtils';
 import '../../styles.scss';
 import './rangeDatePicker.scss';
 
@@ -9,8 +8,8 @@ export interface RangeDatePickerProps {
 	style?: CSSProperties;
 	disabledStartDate?: boolean;
 	disabledEndDate?: boolean;
-	onChangeStartDate?: onChangeType;
-	onChangeEndDate?: onChangeType;
+	onChangeStartDate?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChangeEndDate?: (e: React.FormEvent<HTMLInputElement>) => void;
 }
 
 function date(props: any) {

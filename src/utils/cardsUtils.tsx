@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { onClickType } from './types/typesUtils';
+import React from 'react';
 import { windowSize } from './widthSize';
 
 /*-----------------------------------------------------------------------------------------------
@@ -48,7 +47,7 @@ export const CardContainer = (props: CardContainerProps) => {
 
 interface SimpleButtonTextProps {
 	legend?: string;
-	onClick?: onClickType;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	style?: {};
 	children?: any;
 }
@@ -66,11 +65,10 @@ export const SimpleButtonText = (props: SimpleButtonTextProps) => {
 };
 
 //Renderiza un conjunto de spans con un estilo en el que se aplican con diferentes pesos visuales
-type positionBoldTypes = 'start' | 'end';
 interface SpansProps {
 	legend?: string | number;
 	boldLegend?: string | number;
-	positionBold?: positionBoldTypes;
+	positionBold?: 'start' | 'end';
 	styleBold?: {};
 	style?: {};
 	fontSize?: string;

@@ -1,15 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { onBlurType, onChangeType, onClickType } from '../../utils/types/typesUtils';
+import React from 'react';
 import { AutoResizeInput } from './complements/autoResizeInput';
 import { CheckboxInput } from './complements/checkboxInput';
 import '../../styles.scss';
 import './inputTask.scss';
 
 export interface InputTaskProps {
-	onChangeNameTask?: onBlurType;
-	onChange?: onChangeType;
-	onChangeDescriptionTask?: onBlurType;
-	onClickCheck?: onClickType;
+	onChangeNameTask?: (e: React.FocusEvent<HTMLInputElement>) => void;
+	onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChangeDescriptionTask?: (e: React.FocusEvent<HTMLInputElement>) => void;
+	onClickCheck?: (e: React.MouseEvent<HTMLElement>) => void;
 	disabled?: boolean;
 	principalTask?: boolean;
 	isSubtask?: boolean;

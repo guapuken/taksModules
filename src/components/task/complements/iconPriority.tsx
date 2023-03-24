@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
-import { priorityColor } from '../../../utils/priorityColors';
-import { onClickType } from '../../../utils/types/typesUtils';
-import { windowSize } from '../../../utils/widthSize';
 import IconDropdown from '../../iconDropdown';
 
-type prioridadTypes = 'none' | 'baja' | 'media' | 'alta';
 interface IconPriorityProps {
-	prioridadInicial?: prioridadTypes;
-	onClickPrioridad?: onClickType;
-	onClickNoPrioridad?: onClickType;
+	prioridadInicial?: 'none' | 'baja' | 'media' | 'alta';
+	onClickPrioridad?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickNoPrioridad?: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 export const IconPriority = (props: IconPriorityProps) => {

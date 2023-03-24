@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { onChangeType } from '../../utils/types/typesUtils';
 import '../../styles.scss';
 import './dropdown.scss';
 
@@ -44,13 +43,16 @@ const CloseIcon = () => {
 	);
 };
 
-type optionsDropdownTypes = { value: string | number; label: string };
+interface optionsDropdownTypes {
+	value: string | number;
+	label: string;
+}
 export interface DropdownProps {
 	placeHolder?: string;
 	options?: optionsDropdownTypes[];
 	isMulti?: boolean;
 	isSearchable?: boolean;
-	onChange: onChangeType;
+	onChange: (e: React.FormEvent<HTMLInputElement>) => void;
 	initialValue?: optionsDropdownTypes;
 	values?: optionsDropdownTypes[];
 }

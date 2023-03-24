@@ -1,6 +1,5 @@
 import React, { CSSProperties } from 'react';
 import { IconDropdown } from '../components';
-import { onClickType } from './types/typesUtils';
 
 //Regresa el contenedor general del aside
 export const AsideContainer = ({ children }: any) => {
@@ -16,7 +15,7 @@ export const AsideContainer = ({ children }: any) => {
 
 //Retorna un button con una imagen del tamaño de 3rem
 interface AsideButtonItemProps {
-	onClick?: onClickType;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	src?: string;
 	title?: string;
 }
@@ -80,7 +79,11 @@ function sliceButtons(size: number, buttons?: any) {
 	}
 }
 
-type buttonstypes = { img?: string; onClick?: onClickType; titleToShow?: string };
+interface buttonstypes {
+	img?: string;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+	titleToShow?: string;
+}
 interface ButtonsArrayProps {
 	vertical?: boolean;
 	style?: any;
@@ -109,7 +112,7 @@ interface ButtonItemProps {
 	children?: any;
 	img?: string;
 	alt?: string;
-	onClick?: onClickType;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	style?: CSSProperties;
 	styleImg?: CSSProperties;
 	title?: string;

@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { onBlurType } from '../../../utils/types/typesUtils';
 
-type taskTypes = 'principal' | 'task' | 'subtask';
 interface AutoResizeInputProps {
 	style?: {};
-	onBlur?: onBlurType;
+	onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
 	initialValue?: string;
-	taskType?: taskTypes;
+	taskType?: 'principal' | 'task' | 'subtask';
 	placeholder?: string;
 	tabIndex?: number;
 	disabled?: boolean;

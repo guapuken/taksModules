@@ -1,5 +1,5 @@
 import React from 'react';
-import { AsideContainer, ButtonItem, ButtonsArray } from '../../utils/asideUtils';
+import { AsideContainer, ButtonsArray } from '../../utils/asideUtils';
 import {
 	CardContainer,
 	involucrados,
@@ -8,7 +8,6 @@ import {
 	sizeCard,
 	Spans,
 } from '../../utils/cardsUtils';
-import { onChangeType, onClickType } from '../../utils/types/typesUtils';
 import { windowSize } from '../../utils/widthSize';
 import Cards from '../cards';
 import Notifications from '../notifications';
@@ -17,22 +16,21 @@ import { IconAsign } from '../task/complements/iconAsign';
 import '../../styles.scss';
 
 // import './cardProject.scss';
-type submenus = {
+interface submenus {
 	id?: number | string;
 	className?: string;
-	onClick?: onClickType;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	title?: string;
-};
-type statusTypes = 'onTime' | 'delayed' | 'outOfTime';
+}
 export interface CardTaskProps {
-	onClickShowDetails?: onClickType;
-	onClickEditar?: onClickType;
-	onClickFollow?: onClickType;
-	onClickRecordatorio?: onClickType;
-	onClickComentario?: onClickType;
-	onClickFecha?: onClickType;
-	onChangeNotificationSwitch?: onChangeType;
-	status?: statusTypes;
+	onClickShowDetails?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickEditar?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickFollow?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickRecordatorio?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickComentario?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickFecha?: (e: React.MouseEvent<HTMLElement>) => void;
+	onChangeNotificationSwitch?: (e: React.FormEvent<HTMLInputElement>) => void;
+	status?: 'onTime' | 'delayed' | 'outOfTime';
 	taskName?: string;
 	taskDescription?: string;
 	valueResponsable?: string;

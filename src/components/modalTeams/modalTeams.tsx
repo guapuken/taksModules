@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Spans } from '../../utils/cardsUtils';
-import { onChangeType, onClickType } from '../../utils/types/typesUtils';
 import Buttons from '../buttons';
 import Dropdown from '../dropdown';
 import InputLabel from '../inputLabel';
@@ -10,29 +9,29 @@ import '../../styles.scss';
 import './modalTeams.scss';
 
 //TYPES
-type submenus = {
+interface submenus {
 	id?: number | string;
 	className?: string;
 	title?: string;
-	onClick?: onClickType;
-};
-type optionsType = {
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+}
+interface optionsType {
 	id?: string;
 	title?: string;
 	className?: string;
 	submenus?: submenus[];
-	onClick?: onClickType;
-};
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+}
 
 //INTERFACES
 export interface ModalTeamsProps {
-	onClickCrear?: onClickType;
-	onClickCancelar?: onClickType;
-	onClickAddUser?: onClickType;
-	onClickCreateTemplate?: onClickType;
-	onChangeTeamName?: onChangeType;
-	onChangeTeamColor?: onChangeType;
-	onChangeRolname?: onChangeType;
+	onClickCrear?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickCancelar?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickAddUser?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickCreateTemplate?: (e: React.MouseEvent<HTMLElement>) => void;
+	onChangeTeamName?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChangeTeamColor?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChangeRolname?: (e: React.FormEvent<HTMLInputElement>) => void;
 	templateOptions?: optionsType[];
 	teamNameValue?: string;
 	teamColor?: string;

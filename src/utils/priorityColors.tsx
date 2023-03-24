@@ -1,7 +1,5 @@
-type prioridadTypes = 'none' | 'baja' | 'media' | 'alta';
-
 //functions
-export function priorityColor(prioridad: prioridadTypes) {
+export function priorityColor(prioridad: 'none' | 'baja' | 'media' | 'alta') {
 	return prioridad === 'baja'
 		? '#1CBF59'
 		: prioridad === 'media'

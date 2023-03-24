@@ -1,14 +1,14 @@
 import React, { CSSProperties, useState } from 'react';
-import { onClickType } from '../../utils/types/typesUtils';
 import '../../styles.scss';
 
 //types
-type sizeTypes = 'small' | 'medium' | 'large';
+// type sizeTypes = 'small' | 'medium' | 'large';
 
 export interface ButtonProps {
 	legend?: string;
-	onClick?: onClickType;
-	size?: sizeTypes;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+	// size?: sizeTypes;
+	size?: 'small' | 'medium' | 'large';
 	color?: string;
 	colorHover?: string;
 	className?: string;

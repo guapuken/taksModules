@@ -1,35 +1,31 @@
 import React from 'react';
-import { onClickType } from '../../utils/types/typesUtils';
 import Button from '../button/button';
 import '../../styles.scss';
 
-//types
-type compositionTypes = 'horizontal' | 'vertical' | 'box';
-type sizeTypes = 'small' | 'medium' | 'large';
-type stringTypes = {
+interface stringTypes {
 	primary?: string;
 	secondary?: string;
 	tertiary?: string;
-};
-type BooleanTypes = {
+}
+interface BooleanTypes {
 	primary?: boolean;
 	secondary?: boolean;
 	tertiary?: boolean;
-};
-type ObjectTypes = {
+}
+interface ObjectTypes {
 	primary?: {};
 	secondary?: {};
 	tertiary?: {};
-};
-type FunctionTypes = {
-	primary?: onClickType;
-	secondary?: onClickType;
-	tertiary?: onClickType;
-};
+}
+interface FunctionTypes {
+	primary?: (e: React.MouseEvent<HTMLElement>) => void;
+	secondary?: (e: React.MouseEvent<HTMLElement>) => void;
+	tertiary?: (e: React.MouseEvent<HTMLElement>) => void;
+}
 
 //interface
 export interface ButtonsProps {
-	composition?: compositionTypes;
+	composition?: 'horizontal' | 'vertical' | 'box';
 	legends?: stringTypes;
 	colorButtons?: stringTypes;
 	buttons?: BooleanTypes;
@@ -42,7 +38,7 @@ export interface ButtonsProps {
 	id?: stringTypes;
 	keys?: stringTypes;
 	onClick?: FunctionTypes;
-	size?: sizeTypes;
+	size?: 'small' | 'medium' | 'large';
 	styleComposition?: {};
 	rounded?: boolean;
 	border?: boolean;

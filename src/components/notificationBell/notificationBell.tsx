@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { selectRandomText } from '../../utils/randomTexts';
-import { onClickType } from '../../utils/types/typesUtils';
 import Cards from '../cards';
 // import { useTimeCounter } from './hooks/useCounter';
 import '../../styles.scss';
@@ -10,7 +9,7 @@ export interface NotificationBellProps {
 	Children?: any;
 	notifications?: {
 		title?: string;
-		onClick?: onClickType;
+		onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	}[];
 }
 

@@ -1,27 +1,26 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import React, { useState } from 'react';
-import { onClickType } from '../../utils/types/typesUtils';
+import React from 'react';
 import '../../styles.scss';
 import './iconDropdown.scss';
 
 //definición de los types que se usarán dentro de la interfaz
-type submenusArray = {
-	onClick?: onClickType;
+interface submenusArray {
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	id?: string | number;
 	title?: string;
-};
-type optionsType = {
-	onClick?: onClickType;
+}
+interface optionsType {
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	submenus?: submenusArray[];
 	id?: string;
 	title?: string;
 	className?: string;
-};
+}
 
 //propiedades definidas en la interfaz
 export interface IconDropdownProps {
 	options?: optionsType[];
-	onClick?: onClickType;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	icon?: string | any;
 	className?: string;
 	legend?: string;

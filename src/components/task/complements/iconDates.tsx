@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { onChangeType } from '../../../utils/types/typesUtils';
+import React from 'react';
 import { windowSize } from '../../../utils/widthSize';
 import Information from '../../information/information';
 import InputLabel from '../../inputLabel';
@@ -8,9 +7,9 @@ import RangeDatePicker from '../../rangeDatePicker';
 interface IconDatesProps {
 	plantillas?: boolean;
 	className?: string;
-	onChangeDias?: onChangeType;
-	onChangeEndDate?: onChangeType;
-	onChangeStartDate?: onChangeType;
+	onChangeDias?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChangeEndDate?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChangeStartDate?: (e: React.FormEvent<HTMLInputElement>) => void;
 	endDateValue?: Date;
 	startDateValue?: Date;
 	disabledEndDate?: boolean;

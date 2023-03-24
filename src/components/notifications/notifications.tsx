@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { onChangeType } from '../../utils/types/typesUtils';
 import '../../styles.scss';
 import './notifications.scss';
 
 export interface NotificationsProps {
 	checkValue?: boolean;
-	onChange?: onChangeType;
+	onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
 	idNotification?: string;
 }
 

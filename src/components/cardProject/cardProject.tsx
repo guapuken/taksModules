@@ -2,7 +2,6 @@ import React from 'react';
 import { ButtonItem, ButtonsArray } from '../../utils/asideUtils';
 import { CardContainer, returnSize, SimpleButtonText, Spans } from '../../utils/cardsUtils';
 import { percent } from '../../utils/percent';
-import { onClickType } from '../../utils/types/typesUtils';
 import { windowSize } from '../../utils/widthSize';
 import Cards from '../cards';
 import Notifications from '../notifications';
@@ -10,13 +9,12 @@ import ProgressBar from '../progressBar';
 import '../../styles.scss';
 import './cardProject.scss';
 
-type statusTypes = 'onTime' | 'delayed' | 'outOfTime';
 export interface CardProjectProps {
 	progress?: number;
-	status?: statusTypes;
-	onClickFollowProject?: onClickType;
-	onClickShowDetails?: onClickType;
-	onClickShare?: onClickType;
+	status?: 'onTime' | 'delayed' | 'outOfTime';
+	onClickFollowProject?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickShowDetails?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickShare?: (e: React.MouseEvent<HTMLElement>) => void;
 	// tasks?: {}[];
 	incompletedTask?: number;
 	completedTask?: number;

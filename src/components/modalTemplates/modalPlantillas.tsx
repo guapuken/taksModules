@@ -1,5 +1,4 @@
 import React from 'react';
-import { onChangeType, onClickType } from '../../utils/types/typesUtils';
 import Buttons from '../buttons';
 import InputLabel from '../inputLabel';
 import Modal from '../modal';
@@ -8,27 +7,27 @@ import { AddTask } from '../task/complements/addTask';
 import '../../styles.scss';
 
 //TYPES
-type submenus = {
+interface submenus {
 	id?: number | string;
 	className?: string;
-	onClick?: onClickType;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	title?: string;
-};
-type optionsType = {
+}
+interface optionsType {
 	id?: string;
 	submenus?: submenus[];
 	title?: string;
-	onClick?: onClickType;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	className?: string;
-};
-type childrenTypes = {
+}
+interface childrenTypes {
 	idTask: String;
 	equipos: optionsType[];
 	Children: any;
-	onChangeDescriptionTask: onChangeType;
-	onChangeNameTask: onChangeType;
-	onClickAddTask: onClickType;
-	onClickCreateTemplate: onClickType;
+	onChangeDescriptionTask: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChangeNameTask: (e: React.FormEvent<HTMLInputElement>) => void;
+	onClickAddTask: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickCreateTemplate: (e: React.MouseEvent<HTMLElement>) => void;
 	revision: optionsType[];
 	valueRevision: string;
 	responsables: optionsType[];
@@ -38,17 +37,17 @@ type childrenTypes = {
 	valueResponsable: string;
 	subtaskForbbiden: boolean;
 	templateOptions: optionsType[];
-	onClickDeleteTask: onClickType;
+	onClickDeleteTask: (e: React.MouseEvent<HTMLElement>) => void;
 	className: string;
 	durationValue: string;
-};
+}
 
 //INTERFACES
 export interface ModalTemplatesProps {
-	onClickCrear?: onClickType;
-	onClickCancelar?: onClickType;
-	onClickAddTask?: onClickType;
-	onChangeTemplateName?: onChangeType;
+	onClickCrear?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickCancelar?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickAddTask?: (e: React.MouseEvent<HTMLElement>) => void;
+	onChangeTemplateName?: (e: React.FormEvent<HTMLInputElement>) => void;
 	templateNameValue?: string;
 	Children?: childrenTypes[];
 }

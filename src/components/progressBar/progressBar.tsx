@@ -1,16 +1,12 @@
-import React, { useRef } from 'react';
-import { onClickType } from '../../utils/types/typesUtils';
+import React from 'react';
 import '../../styles.scss';
-
-//types
-type statusTypes = 'onTime' | 'delayed' | 'outOfTime';
 
 //interface
 export interface ProgressBarProps {
 	valor?: number;
-	status?: statusTypes;
+	status?: 'onTime' | 'delayed' | 'outOfTime';
 	width?: number;
-	onClick?: onClickType;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	styleContent?: {};
 }
 

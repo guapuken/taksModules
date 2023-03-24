@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { involucrados } from '../../utils/cardsUtils';
-import { onBlurType, onChangeType, onClickType } from '../../utils/types/typesUtils';
 import IconDropdown from '../iconDropdown';
 import InputTask from '../inputTask';
 import { AddTask } from './complements/addTask';
@@ -12,20 +11,19 @@ import '../../styles.scss';
 import './task.scss';
 
 //TYPES
-type submenus = {
+interface submenus {
 	id?: number | string;
 	className?: string;
-	onClick?: onClickType;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	title?: string;
-};
-type prioridadTypes = 'baja' | 'media' | 'alta';
-type optionsType = {
+}
+interface optionsType {
 	id?: string;
 	submenus?: submenus[];
 	title?: string;
-	onClick?: onClickType;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	className?: string;
-};
+}
 
 //INTERFACES
 export interface TaskProps {
@@ -37,19 +35,19 @@ export interface TaskProps {
 	check?: boolean;
 	valueTask?: string;
 	valueDescription?: string;
-	onClickCheck?: onClickType;
-	onChangeNameTask?: onBlurType;
-	onChangeDescriptionTask?: onBlurType;
+	onClickCheck?: (e: React.MouseEvent<HTMLElement>) => void;
+	onChangeNameTask?: (e: React.FocusEvent<HTMLInputElement>) => void;
+	onChangeDescriptionTask?: (e: React.FocusEvent<HTMLInputElement>) => void;
 	idCheckbox?: string;
-	onChangeCheckbox?: onChangeType;
+	onChangeCheckbox?: (e: React.FormEvent<HTMLInputElement>) => void;
 
 	//Icon Dates
 	plantillas?: boolean;
-	onChangeDias?: onChangeType;
+	onChangeDias?: (e: React.FormEvent<HTMLInputElement>) => void;
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
-	onChangeEndDate?: onChangeType;
-	onChangeStartDate?: onChangeType;
+	onChangeEndDate?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChangeStartDate?: (e: React.FormEvent<HTMLInputElement>) => void;
 	startDateValue?: Date;
 	endDateValue?: Date;
 	className?: string;
@@ -63,27 +61,27 @@ export interface TaskProps {
 	valueRevision?: string;
 
 	//Icon Priority
-	prioridadInicial?: prioridadTypes;
-	onClickPrioridad?: onClickType;
+	prioridadInicial?: 'baja' | 'media' | 'alta';
+	onClickPrioridad?: (e: React.MouseEvent<HTMLElement>) => void;
 
 	//Icon MoreOptions
 	moreOptions?: optionsType[];
-	onClickEliminar?: onClickType;
-	onClickRecordatorio?: onClickType;
+	onClickEliminar?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickRecordatorio?: (e: React.MouseEvent<HTMLElement>) => void;
 
 	//addTask
 	subtaskForbbiden?: boolean;
 	Children?: any;
 
 	//botones agregar
-	onClickCreateTemplate?: onClickType;
-	onClickAddTask?: onClickType;
+	onClickCreateTemplate?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickAddTask?: (e: React.MouseEvent<HTMLElement>) => void;
 	templateOptions?: optionsType[];
 }
 //Valida si existe la propiedad de plantillas y las agrega al dropdown de cargar plantilla en caso de que si exista
 export const optionsPlantillas = (
 	templateOptions: optionsType[],
-	onClickCreateTemplate: onClickType
+	onClickCreateTemplate: (e: React.MouseEvent<HTMLElement>) => void
 ) => {
 	templateOptions?.map((e: any) => {
 		return {

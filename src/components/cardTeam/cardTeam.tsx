@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { AsideContainer, ButtonsArray } from '../../utils/asideUtils';
 import { CardContainer, returnSize } from '../../utils/cardsUtils';
 import { Hover } from '../../utils/hover';
-import { onClickType } from '../../utils/types/typesUtils';
 import Cards from '../cards';
 import '../../styles.scss';
 import './cardTeam.scss';
@@ -10,9 +9,9 @@ import './cardTeam.scss';
 export interface CardTeamProps {
 	teamName?: string;
 	members?: string[];
-	onClickEdit?: onClickType;
-	onClickDelete?: onClickType;
-	onClickView?: onClickType;
+	onClickEdit?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickDelete?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickView?: (e: React.MouseEvent<HTMLElement>) => void;
 	teamColor?: string;
 }
 const CardTeam = (props: CardTeamProps) => {

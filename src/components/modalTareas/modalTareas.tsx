@@ -1,44 +1,42 @@
 import React from 'react';
-import { onBlurType, onChangeType, onClickType } from '../../utils/types/typesUtils';
 import Buttons from '../buttons';
 import Modal from '../modal';
 import Task from '../task';
 import '../../styles.scss';
 
 //TYPES
-type submenus = {
+interface submenus {
 	id?: number | string;
 	className?: string;
-	onClick?: onClickType;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	title?: string;
-};
-type optionsType = {
+}
+interface optionsType {
 	id?: string;
 	submenus?: submenus[];
 	title?: string;
-	onClick?: onClickType;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	className?: string;
-};
-type priorityTypes = 'baja' | 'media' | 'alta';
+}
 
 export interface ModalTareasProps {
-	onClickCrear?: onClickType;
-	onClickCancelar?: onClickType;
-	onClickAddTask?: onClickType;
-	onClickNewTemplate?: onClickType;
-	onClickPriority?: onClickType;
-	onClickDeleteTask?: onClickType;
-	onClickReminder?: onClickType;
+	onClickCrear?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickCancelar?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickAddTask?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickNewTemplate?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickPriority?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickDeleteTask?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickReminder?: (e: React.MouseEvent<HTMLElement>) => void;
 	taskCheckValue?: boolean;
-	priorityValue?: priorityTypes;
+	priorityValue?: 'baja' | 'media' | 'alta';
 	equipos?: submenus[];
 	revision?: submenus[];
 	responsables?: submenus[];
 	idTask?: string;
-	onCheck?: onChangeType;
-	onChangeDays?: onChangeType;
-	onChangeDescription?: onBlurType;
-	onChangeName?: onBlurType;
+	onCheck?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChangeDays?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChangeDescription?: (e: React.FocusEvent<HTMLInputElement>) => void;
+	onChangeName?: (e: React.FocusEvent<HTMLInputElement>) => void;
 	taskComplete?: boolean;
 	taskDisabled?: boolean;
 	valueRevision?: string;
@@ -50,9 +48,9 @@ export interface ModalTareasProps {
 	valueDescription?: string;
 	valueResponsable?: string;
 	subtaskForbbiden?: boolean;
-	onClickCheck?: onClickType;
-	onChangeStartDate?: onChangeType;
-	onChangeEndDate?: onChangeType;
+	onClickCheck?: (e: React.MouseEvent<HTMLElement>) => void;
+	onChangeStartDate?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChangeEndDate?: (e: React.FormEvent<HTMLInputElement>) => void;
 	isSubtask?: boolean;
 	templateOptions?: optionsType[];
 	moreOptions?: optionsType[];
