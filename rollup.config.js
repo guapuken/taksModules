@@ -52,8 +52,8 @@ export default [
 				use: ['sass'], // Si funciona ambos css y scss
 				// parser: "postcss-scss",
 			}),
-			// terser(),
-			dts(),
+			terser(),
+			//dts(),
 		],
 	},
 	// {
