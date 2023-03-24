@@ -1,5 +1,6 @@
 import React, { CSSProperties, useState } from 'react';
 import IconDropdown from '../../iconDropdown';
+import addUserIcon from '../../../img/addUser.svg';
 
 interface submenus {
 	id?: number | string;
@@ -107,7 +108,7 @@ export const IconAsign = (props: IconAsignProps) => {
 		<div className={`ContainerIconAsignUsers ${className}`} style={style}>
 			<IconDropdown
 				options={equipos ? asignUsers : [asignUsers[0], asignUsers[2]]}
-				icon={require('../../../img/addUser.svg')}
+				icon={addUserIcon}
 				iconStyles={iconStyle}
 			/>
 

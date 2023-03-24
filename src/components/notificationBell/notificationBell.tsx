@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { selectRandomText } from '../../utils/randomTexts';
 import Cards from '../cards';
 // import { useTimeCounter } from './hooks/useCounter';
+import bellIcon from '../../img/bell.svg';
 import '../../styles.scss';
 import './notificationBell.scss';
 
@@ -70,7 +71,7 @@ const NotificationBell = (props: NotificationBellProps) => {
 						selectRandomText(texts, setSelectedText);
 					}}
 				>
-					<img src={require('../../img/bell.svg')} alt="" />
+					<img src={bellIcon} alt="" />
 				</button>
 			</div>
 			{showNotifications && (

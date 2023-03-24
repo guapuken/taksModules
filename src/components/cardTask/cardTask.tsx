@@ -13,6 +13,8 @@ import Cards from '../cards';
 import Notifications from '../notifications';
 import ProgressBar from '../progressBar';
 import { IconAsign } from '../task/complements/iconAsign';
+import editIcon from '../../img/editar.svg';
+import calendarIcon from '../../img/calendario.svg';
 import '../../styles.scss';
 
 // import './cardProject.scss';
@@ -137,29 +139,26 @@ const CardTask = (props: CardTaskProps) => {
 				<ButtonsArray
 					buttons={[
 						{
-							img: require('../../img/editar.svg'),
+							img: editIcon,
 							onClick: onClickEditar,
 							titleToShow: 'Editar',
 						},
 						{
-							img: require('../../img/calendario.svg'),
+							img: calendarIcon,
 							onClick: onClickFecha,
 							titleToShow: 'Reasignar fecha',
 						},
 						{
-							// img: require('../../img/bell.svg'),
 							onClick: onClickComentario,
 							titleToShow: 'Asignar tarea',
 						},
 						{
-							// img: require('../../img/bell.svg'),
 							onClick: onClickFollow,
 							titleToShow: followNotificationsValue
 								? 'Dejar de seguir tarea'
 								: 'Seguir tarea',
 						},
 						{
-							// img: require('../../img/bell.svg'),
 							onClick: onClickRecordatorio,
 							titleToShow: 'Programar recordatorio',
 						},

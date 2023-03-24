@@ -1,5 +1,6 @@
 import React from 'react';
 import IconDropdown from '../../iconDropdown';
+import optionsIcon from '../../../img/opciones.svg';
 
 interface submenus {
 	id?: number | string;
@@ -43,7 +44,7 @@ export const IconMoreOptions = (props: IconMoreOptionsProps) => {
 								},
 						  ]
 				}
-				icon={require('../../../img/opciones.svg')}
+				icon={optionsIcon}
 			/>
 		</div>
 	);

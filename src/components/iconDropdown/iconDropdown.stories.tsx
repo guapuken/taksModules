@@ -44,7 +44,7 @@ AddUser.args = {
 			submenus: integrantesIMJ,
 		},
 	],
-	icon: require('../../img/addUser.svg'),
+	icon: '',
 };
 
 export default {

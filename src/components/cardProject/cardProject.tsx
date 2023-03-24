@@ -6,6 +6,7 @@ import { windowSize } from '../../utils/widthSize';
 import Cards from '../cards';
 import Notifications from '../notifications';
 import ProgressBar from '../progressBar';
+import shareIcon from '../../img/share.svg';
 import '../../styles.scss';
 import './cardProject.scss';
 
@@ -15,7 +16,6 @@ export interface CardProjectProps {
 	onClickFollowProject?: (e: React.MouseEvent<HTMLElement>) => void;
 	onClickShowDetails?: (e: React.MouseEvent<HTMLElement>) => void;
 	onClickShare?: (e: React.MouseEvent<HTMLElement>) => void;
-	// tasks?: {}[];
 	incompletedTask?: number;
 	completedTask?: number;
 	ejecutivo?: string;
@@ -49,7 +49,7 @@ const CardProject = (props: CardProjectProps) => {
 						{projectName}
 					</h4>
 					<ButtonsArray size={heightCard}>
-						<ButtonItem img={require('../../img/share.svg')} onClick={onClickShare} />
+						<ButtonItem img={shareIcon} onClick={onClickShare} />
 						<ButtonItem>
 							<Notifications checkValue={followNotificationsValue} />
 						</ButtonItem>
