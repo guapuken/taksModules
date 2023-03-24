@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/guapuken"
   },
-  "version": "0.1.07",
+  "version": "0.1.08",
   "description": "librería con paquetes actualizados",
   "scripts": {
     "rollup": "rollup -c",
@@ -64,7 +64,7 @@
   ],
   "types": "dist/index.d.ts",
 
-  "type": "module",
+  "type": "commonjs",
 
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.0.3",
