@@ -12,6 +12,7 @@ import terser from '@rollup/plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import autoprefixer from 'autoprefixer';
 import postcssNormalize from 'postcss-normalize';
+import image from '@rollup/plugin-image';
 
 const packageJson = require('./package.json');
 // const packageJson = "./package.json";
@@ -54,6 +55,7 @@ export default [
 			}),
 			terser(),
 			//dts(),
+			image(),
 		],
 	},
 	// {
