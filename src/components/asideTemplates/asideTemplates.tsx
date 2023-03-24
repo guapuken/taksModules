@@ -1,37 +1,38 @@
 import React from 'react';
-import { returnSize, sizeCard } from '../../utils/cardsUtils';
-import { windowSize } from '../../utils/widthSize';
+import { returnSize } from '../../utils/cardsUtils';
 import '../../styles.scss';
+import styles from './aside.module.scss';
 
 export interface AsideTemplatesProps {
 	isWhite?: boolean;
 	Content?: any;
+	modo?: 'Light' | 'Dark';
 }
 
 const AsideTemplates = (props: AsideTemplatesProps) => {
-	const { Content, isWhite } = props;
+	const { Content, isWhite, modo } = props;
 
 	return (
 		<div
-			style={{
-				height: windowSize().width < 391 ? '20vh' : '100vh',
-				width: `calc(${returnSize()}rem + 2rem)`,
-				background: isWhite ? '#fff' : '#282828',
-				position: 'relative',
-				marginBlock: 0,
-				paddingTop: '1rem',
-				display: 'flex',
-				justifyContent: 'center',
-			}}
+			className={
+				modo === 'Dark'
+					? isWhite
+						? styles.contenedorWhite
+						: styles.contenedorDark
+					: isWhite
+					? styles.contenedorWhite
+					: styles.contenedor
+			}
+			style={{ width: `calc(${returnSize()}rem + 2rem)` }}
 		>
 			{!Content && (
-				<div style={{ display: 'flex' }}>
-					<div style={{}}>
-						<p style={{ fontSize: '2rem', marginBlock: '0' }}>Cards</p>
-						<p style={{ fontSize: '1.4rem', marginBlock: '0' }}>
-							Nueva Tarea {'Cards'}
-						</p>
-					</div>
+				<div
+					className={
+						modo === 'Dark' || !isWhite ? styles.sinContenidoDark : styles.sinContenido
+					}
+				>
+					<h1>Ups!</h1>
+					<p>parece que olvidaste agregar tu contenido</p>
 				</div>
 			)}
 			{Content && <Content />}

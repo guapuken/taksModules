@@ -13,14 +13,17 @@ Initial.args = {
 	isWhite: true,
 };
 export const Basic = Template.bind({});
+const modo = 'Dark';
 Basic.args = {
 	Content: () => (
 		<Cards
-			height={windowSize().width <= 390 ? windowSize().height / 4 / 10 : 15}
-			width={returnSize()}
+			height={windowSize().width <= 390 ? windowSize().height / 4 / 10 - 5 : 15}
+			width={windowSize().width <= 390 ? windowSize().width / 10 - 2 : returnSize()}
 			rounded
+			modo={modo}
 		/>
 	),
+	modo: modo,
 	// isWhite: true,
 };
 export default {

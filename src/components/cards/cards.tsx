@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles.scss';
+import styles from './cards.module.scss';
 
 export interface CardsProps {
 	width?: number;
@@ -8,36 +9,25 @@ export interface CardsProps {
 	Content?: any;
 	Aside?: any;
 	data?: any;
+	modo?: 'Light' | 'Dark';
 }
 
 const Cards = (props: CardsProps) => {
-	const { width = 30, height = 10, rounded = false, Content, data, Aside } = props;
+	const { width = 30, height = 10, rounded = false, Content, data, Aside, modo } = props;
 	return (
 		<div
+			className={modo === 'Dark' ? styles.contenedorDark : styles.contenedor}
 			style={{
 				height: `${height}rem`,
 				width: Aside ? `${width + 5}rem` : `${width}rem`,
 				borderRadius: rounded ? '20px' : '0px',
-				background: '#fff',
-				boxShadow: '-.7rem .7rem 2rem #dedede',
 			}}
 		>
 			{!Content && (
-				<div style={{ display: 'flex', height: `${height}rem` }}>
-					<div
-						style={{
-							width: `${width - 2}rem`,
-							height: `${height - 2}rem`,
-							margin: 'auto',
-							marginTop: `${height / 2 - 2.5}rem`,
-						}}
-					>
-						<p style={{ fontSize: '2rem', marginBlock: '0' }}>Without content 😥</p>
-						<p style={{ fontSize: '1.4rem', marginBlock: '0' }}>
-							Add property Content and see it{' '}
-						</p>
-					</div>
-				</div>
+				<>
+					<h3>Without content 😥</h3>
+					<p>Add property Content and see it </p>
+				</>
 			)}
 			{Content && (
 				<div style={{ display: 'flex', height: `${height}rem`, position: 'relative' }}>
