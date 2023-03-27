@@ -1,7 +1,7 @@
 import React from 'react';
 import { returnSize } from '../../utils/cardsUtils';
 import '../../styles.scss';
-import styles from './aside.module.scss';
+import css from './aside.module.scss';
 
 export interface AsideTemplatesProps {
 	isWhite?: boolean;
@@ -17,18 +17,18 @@ const AsideTemplates = (props: AsideTemplatesProps) => {
 			className={
 				modo === 'Dark'
 					? isWhite
-						? styles.contenedorWhite
-						: styles.contenedorDark
+						? css.contenedorWhite
+						: css.contenedorDark
 					: isWhite
-					? styles.contenedorWhite
-					: styles.contenedor
+					? css.contenedorWhite
+					: css.contenedor
 			}
 			style={{ width: `calc(${returnSize()}rem + 2rem)` }}
 		>
 			{!Content && (
 				<div
 					className={
-						modo === 'Dark' || !isWhite ? styles.sinContenidoDark : styles.sinContenido
+						modo === 'Dark' || !isWhite ? css.sinContenidoDark : css.sinContenido
 					}
 				>
 					<h1>Ups!</h1>

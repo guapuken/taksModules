@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { windowSize } from './widthSize';
 
 /*-----------------------------------------------------------------------------------------------
@@ -14,10 +14,9 @@ export function involucrados(valueResponsable: any, valueRevision: any) {
 }
 export function sizeCard() {
 	const sizetoShow = (windowSize().width * 0.21) / 10;
-	// useEffect(() => {
-	// 	sizetoShow;
-	// }, [windowSize]);
-	// console.log(sizetoShow);
+	useEffect(() => {
+		sizetoShow;
+	}, [windowSize()]);
 	return sizetoShow;
 }
 export function returnSize() {

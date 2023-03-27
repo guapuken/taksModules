@@ -32,7 +32,7 @@ export interface CardTaskProps {
 	onClickComentario?: (e: React.MouseEvent<HTMLElement>) => void;
 	onClickFecha?: (e: React.MouseEvent<HTMLElement>) => void;
 	onChangeNotificationSwitch?: (e: React.FormEvent<HTMLInputElement>) => void;
-	status?: 'onTime' | 'delayed' | 'outOfTime';
+	statusTask?: 'onTime' | 'delayed' | 'outOfTime';
 	taskName?: string;
 	taskDescription?: string;
 	valueResponsable?: string;
@@ -47,7 +47,7 @@ export interface CardTaskProps {
 }
 const CardTask = (props: CardTaskProps) => {
 	const {
-		status,
+		statusTask,
 		followNotificationsValue,
 		onClickShowDetails = () =>
 			alert('Change the function ShowDetails with onClickShowDetails property'),
@@ -69,17 +69,21 @@ const CardTask = (props: CardTaskProps) => {
 		onClickFecha = () => alert('reasignar fecha de entrega'),
 	} = props;
 
-	const heightCard = 19;
+	const heightCard = 15;
 	//Content card
 	const ContentCard = () => {
 		const titleCard = (
-			<h5 className="TextOverflow" style={{ WebkitLineClamp: 2 }} title={taskName}>
+			<p
+				className="TextOverflow"
+				style={{ WebkitLineClamp: 2, color: '#000' }}
+				title={taskName}
+			>
 				{taskName}
-			</h5>
+			</p>
 		);
 		return (
 			<CardContainer>
-				{windowSize().width > 768 && (
+				{/* {windowSize().width > 768 && (
 					<div
 						className={`ContainerTitleAndiconsCardProject${
 							sizeCard() * 10 < 350 ? 'Small' : ''
@@ -100,12 +104,14 @@ const CardTask = (props: CardTaskProps) => {
 							checkValue={followNotificationsValue}
 						/>
 					</div>
-				)}
+				)} */}
 				{titleCard}
-				<SimpleButtonText style={{ fontSize: '1.4rem' }}>
+				<SimpleButtonText
+					style={{ fontSize: '1.4rem', color: '#00000075', lineHeight: '1.3' }}
+				>
 					<span
 						className="TextOverflow"
-						style={{ WebkitLineClamp: 1, fontSize: 'inherit' }}
+						style={{ WebkitLineClamp: 2, fontSize: 'inherit' }}
 						title={taskDescription}
 					>
 						{taskDescription}
@@ -116,9 +122,9 @@ const CardTask = (props: CardTaskProps) => {
 				</SimpleButtonText>
 				<div className="ContainerProgressBarAndShowDetails">
 					<ProgressBar
-						status={status}
+						status={statusTask}
 						valor={percentTask}
-						width={returnSize()}
+						width={returnSize() - 5}
 						onClick={onClickShowDetails}
 						styleContent={{ cursor: 'pointer' }}
 					/>
@@ -173,7 +179,7 @@ const CardTask = (props: CardTaskProps) => {
 	//Definición de los argumentos
 	const properties = {
 		rounded: true,
-		width: returnSize(),
+		width: returnSize() - 5,
 		// height:  sizeCard() * 10 < 400 ?  19  : 15.5 ,
 		height: heightCard,
 		Content: ContentCard,
