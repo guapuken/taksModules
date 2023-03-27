@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import IconDropdown from '../../iconDropdown';
+import greenFlagIcon from '../../../img/greenFlag.svg';
+import orangeFlagIcon from '../../../img/orangeFlag.svg';
+import redFlagIcon from '../../../img/redFlag.svg';
+import neutralFlagIcon from '../../../img/neutralFlag.svg';
 
 interface IconPriorityProps {
 	prioridadInicial?: 'none' | 'baja' | 'media' | 'alta';
@@ -52,13 +56,15 @@ export const IconPriority = (props: IconPriorityProps) => {
 			<IconDropdown
 				title={`Prioridad ${prioridad === 'none' ? 'no definida' : prioridad}`}
 				options={optionsPriority}
-				icon={require(prioridad === 'baja'
-					? '../../../img/greenFlag.svg'
-					: prioridad === 'media'
-					? '../../../img/orangeFlag.svg'
-					: prioridad === 'alta'
-					? '../../../img/redFlag.svg'
-					: '../../../img/neutralFlag.svg')}
+				icon={
+					prioridad === 'baja'
+						? greenFlagIcon
+						: prioridad === 'media'
+						? orangeFlagIcon
+						: prioridad === 'alta'
+						? redFlagIcon
+						: neutralFlagIcon
+				}
 			/>
 
 			{/* Si existe el campo de prioridad se ejecuta el campo en el que se le agrega el color de la prioridad según se haya asignado */}

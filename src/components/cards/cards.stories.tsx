@@ -49,13 +49,9 @@ Team.args = {
 	Aside: () => {
 		return (
 			<div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem' }}>
-				<img
-					src={require('../../img/vaciar.svg')}
-					alt="editar"
-					style={{ height: '3rem' }}
-				/>
+				<img src={''} alt="editar" style={{ height: '3rem' }} />
 				<IconDropdown
-					icon={require('../../img/opciones.svg')}
+					icon={''}
 					options={[
 						{ title: 'Editar' },
 						{ title: 'Compartir' },

@@ -1,5 +1,6 @@
 import React, { CSSProperties } from 'react';
 import { IconDropdown } from '../components';
+import optionsIcon from '../img/opciones.svg';
 
 //Regresa el contenedor general del aside
 export const AsideContainer = ({ children }: any) => {
@@ -62,7 +63,7 @@ function sliceButtons(size: number, buttons?: any) {
 					/>
 				))}
 				<IconDropdown
-					icon={require('../img/opciones.svg')}
+					icon={optionsIcon}
 					title={'Más opciones...'}
 					options={
 						maxButtons === 1
