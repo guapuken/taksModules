@@ -1,7 +1,7 @@
 //contenedor princiapal --------------------------------------------
-.contenedorDark,
-.contenedorWhite,
-.contenedor{
+.ctnDark,
+.ctnWhite,
+.ctn{
     position: relative;
     margin-block: 0;
     padding-top: 1rem;
@@ -12,36 +12,36 @@
 }
 //mediaqueries que cambia el tamaño cuando se encuentra en modo celular
 @media (max-width:400px){
-    .contenedor, 
-    .contenedorDark,
-    .contenedorWhite {
+    .ctnDark,
+    .ctnWhite,
+    .ctn {
         height: 20vh;
         width: 100vw !important;
     }
 }
 //colores de fondo en caso de no tener la propiedad isWhite
-.contenedor{
+.ctn{
     background: var(--bgDark);
 }
 //colores de fondo en caso de estar activado el modo oscuro
-.contenedorDark{
+.ctnDark{
     background: var(--contrastDark);
 }
 
 //sin contenido-----------------------------------------------------
-.sinContenidoDark, .sinContenido{
+.noCtnDarkDark, .noCtnDark{
     display: grid;
     place-content: center; 
     text-align: center;
     margin-top: -1rem;
     max-width: 70%;
 }
-.sinContenidoDark{
+.noCtnDarkDark{
     color: #fff;
 }
 //mediaquerie para que el tamaño del texto abarque todo el espacio en celular
 @media (max-width:400px){
-    .sinContenidoDark, .sinContenido{
+    .noCtnDarkDark, .noCtnDark{
         max-width: 100%;
     }
 }

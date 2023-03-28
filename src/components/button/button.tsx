@@ -1,29 +1,37 @@
 import React, { CSSProperties, useState } from 'react';
+
+//importación de types
+import { onClickType } from '../../utils/types/typesUtils';
+//importación de estilos
 import '../../styles.scss';
 
-//types
-// type sizeTypes = 'small' | 'medium' | 'large';
+// types
+type size = 'small' | 'medium' | 'large';
 
+//interfaces
 export interface ButtonProps {
+	//types
+	onClick?: onClickType;
+	size?: size;
+	//css properties
+	style?: CSSProperties;
+	styleIcon?: CSSProperties;
+	//string properties
 	legend?: string;
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
-	// size?: sizeTypes;
-	size?: 'small' | 'medium' | 'large';
 	color?: string;
+	id?: string;
+	key?: string;
+	icon?: string;
 	colorHover?: string;
 	className?: string;
+	//boolean properties
 	primary?: boolean;
 	secondary?: boolean;
 	tertiary?: boolean;
 	rounded?: boolean;
 	disabled?: boolean;
-	style?: CSSProperties;
-	styleIcon?: CSSProperties;
 	border?: boolean;
 	float?: boolean;
-	id?: string;
-	key?: string;
-	icon?: string;
 }
 
 const Button = (props: ButtonProps) => {
@@ -104,7 +112,7 @@ const Button = (props: ButtonProps) => {
 			isHover || (tertiary && border)
 				? 'none'
 				: border || secondary
-				? `inset 0 0 0 .2rem ${
+				? `inset 0 0 0 .1rem ${
 						disabled
 							? '#dedede'
 							: color
@@ -227,6 +235,7 @@ const Button = (props: ButtonProps) => {
 	//Component
 	return (
 		<button
+			data-tasks-modules
 			onClick={onClick}
 			id={id}
 			key={key}
