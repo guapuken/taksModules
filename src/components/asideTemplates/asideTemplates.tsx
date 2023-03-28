@@ -16,21 +16,13 @@ const AsideTemplates = (props: AsideTemplatesProps) => {
 		<div
 			className={
 				modo === 'Dark'
-					? isWhite
-						? css.contenedorWhite
-						: css.contenedorDark
-					: isWhite
-					? css.contenedorWhite
-					: css.contenedor
+					? `${isWhite ? css.ctnWhite : css.ctnDark}`
+					: `${isWhite ? css.ctnWhite : css.ctn}`
 			}
 			style={{ width: `calc(${returnSize()}rem + 2rem)` }}
 		>
 			{!Content && (
-				<div
-					className={
-						modo === 'Dark' || !isWhite ? css.sinContenidoDark : css.sinContenido
-					}
-				>
+				<div className={modo === 'Dark' || !isWhite ? css.noCtnDark : css.noCtn}>
 					<h1>Ups!</h1>
 					<p>parece que olvidaste agregar tu contenido</p>
 				</div>
