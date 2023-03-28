@@ -38,12 +38,11 @@ import { windowSize } from '../../utils/widthSize';
 //Definición de tipos de datos--------------------------------------------------------------------------------------------------------
 type Status = 'Pendientes' | 'En progreso' | 'Completas';
 type Modo = 'Dark' | 'Light';
+type BoardSections = {
+	[name: string]: Task[];
+};
 
 //Definición de interfaces que se utilizarán------------------------------------------------------------------------------------------
-export interface DragAndDropProps {
-	tasks: Task[];
-	modo?: Modo;
-}
 interface submenus {
 	id?: number | string;
 	className?: string;
@@ -74,23 +73,6 @@ interface Task {
 	responsables?: submenus[];
 	equipos?: submenus[];
 	revision?: submenus[];
-}
-interface BoardSections {
-	[name: string]: Task[];
-}
-interface TaskItemProps {
-	task: Task;
-	modo: 'Dark' | 'Light';
-}
-interface SortableTaskItemProps {
-	children: React.ReactNode;
-	id: string;
-}
-interface BoardSectionProps {
-	id: string;
-	title: string;
-	tasks: Task[];
-	modo: Modo;
 }
 
 //obtenien la tarea por su estatus--------------------------------------------------------------------------------------------------------
@@ -130,6 +112,10 @@ const findBoardSectionContainer = (boardSections: BoardSections, id: string) => 
 };
 
 //Componente que retorna el elemto que podrá moverse entre las diferentes columnas ----------------------------------------------------
+interface TaskItemProps {
+	task: Task;
+	modo: 'Dark' | 'Light';
+}
 const TaskItem = ({ task }: TaskItemProps) => {
 	return (
 		<CardTask
@@ -157,8 +143,11 @@ const TaskItem = ({ task }: TaskItemProps) => {
 };
 
 //Componente que genera el elemento ordenable de cada columna-----------------------------------------------------------------------------
+interface SortableTaskItemProps {
+	children: React.ReactNode;
+	id: string;
+}
 const SortableTaskItem = ({ children, id }: SortableTaskItemProps) => {
-	console.log('Children: ', children, 'Id: ', id);
 	const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
 		id,
 	});
@@ -177,6 +166,12 @@ const SortableTaskItem = ({ children, id }: SortableTaskItemProps) => {
 };
 
 //Genera los tableros em los que se podrá vaciar la información o soltar los elementos--------------------------------------------------
+interface BoardSectionProps {
+	id: string;
+	title: string;
+	tasks: Task[];
+	modo: Modo;
+}
 const BoardSection = ({ id, title, tasks, modo }: BoardSectionProps) => {
 	const { setNodeRef } = useDroppable({
 		id,
@@ -225,13 +220,15 @@ const BoardSection = ({ id, title, tasks, modo }: BoardSectionProps) => {
 };
 
 //componente principal que returna el drag and drop------------------------------------------------------------------------------------------
+export interface DragAndDropProps {
+	tasks: Task[];
+	modo?: Modo;
+}
 const DragAndDrop = (props: DragAndDropProps) => {
 	const { tasks, modo = 'Light' } = props;
 	const generalTasks = tasks;
 	const initialBoardSections = initializeBoard(generalTasks);
 	const [boardSections, setBoardSections] = useState<BoardSections>(initialBoardSections);
-	console.log('boardSections:', boardSections);
-
 	const [activeTaskId, setActiveTaskId] = useState<null | string>(null);
 
 	const sensors = useSensors(
@@ -250,10 +247,12 @@ const DragAndDrop = (props: DragAndDropProps) => {
 		const activeContainer = findBoardSectionContainer(boardSections, active.id as string);
 		const overContainer = findBoardSectionContainer(boardSections, over?.id as string);
 
+		//valida si hubo un cambio dentro del drag del elemento, sino hubo no se ejecuta ninguna acción
 		if (!activeContainer || !overContainer || activeContainer === overContainer) {
 			return <></>;
 		}
 
+		//
 		setBoardSections((boardSection: any) => {
 			const activeItem = boardSection[activeContainer];
 			const overItem = boardSection[overContainer];
@@ -287,32 +286,39 @@ const DragAndDrop = (props: DragAndDropProps) => {
 			return;
 		}
 
+		//localiza en qué posición se encuentra el id que se selecciona
 		const activeIndex = boardSections[activeContainer].findIndex(
 			(task: any) => task.id === active.id
 		);
+		//localiza en qué posición se encuentra el id que se soltó
 		const overIndex = boardSections[overContainer].findIndex(
 			(task: any) => task.id === over?.id
 		);
 
+		//esta función hace focus en el orden que tienen las tareas dentro del array
 		if (activeIndex !== overIndex) {
-			setBoardSections((boardSection: any) => ({
-				...boardSection,
-				[overContainer]: arrayMove(boardSection[overContainer], activeIndex, overIndex),
-			}));
+			setBoardSections((boardSection: any) => {
+				//Se encarga de mover el orden del arreglo
+				return {
+					...boardSection,
+					[overContainer]: arrayMove(boardSection[overContainer], activeIndex, overIndex),
+				};
+			});
 		}
-
 		setActiveTaskId(null);
 	};
 
+	//Genera los parametros de animación que se utilizan al dejar una tarea en otra posición
 	const dropAnimation: DropAnimation = {
 		...defaultDropAnimation,
+		duration: 500,
 	};
 
+	//se encarga de ver qué tarea es la que se encuentra activa
 	const task = activeTaskId ? getTaskById(generalTasks, activeTaskId) : null;
-
-	console.log(windowSize().width);
 	return (
 		<div
+			className="taskModules"
 			style={{
 				width: windowSize().width <= 768 ? sizeCard() + 'rem' : '100vw',
 			}}
@@ -332,6 +338,7 @@ const DragAndDrop = (props: DragAndDropProps) => {
 					}}
 				>
 					{Object.keys(boardSections).map((boardSectionKey) => {
+						//genera los elementos droppables
 						return (
 							<div
 								style={{

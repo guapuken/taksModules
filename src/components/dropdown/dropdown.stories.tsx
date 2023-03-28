@@ -20,8 +20,8 @@ const options = [
 	},
 ];
 Initial.args = {
-	// isSearchable: true,
-	// isMulti: true,
+	isSearchable: true,
+	isMulti: true,
 	placeHolder: 'Selecciona el encargado',
 	options: options,
 	onChange: (value) => console.log(value),

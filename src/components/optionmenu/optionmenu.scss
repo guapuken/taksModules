@@ -2,14 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000000;
-  border: 1px solid #000000;
+  background-color: #282828;
+  border: 1px solid #282828;
 }
 
 .datosConCategoria {
   font-weight: bold;
   font-size: 1.2rem;
-
 }
 
 .datosConCategoria li a,
@@ -45,7 +44,7 @@ text-align: center;
 .ContainerMenuComponent{
   width: 5rem; 
   height: 5rem;
-  background: #000000;
+  background: #282828;
   top: 15vh;
   border-radius: 0 .5rem .5rem 0;
  }
@@ -54,7 +53,7 @@ text-align: center;
   height: 100vh;
   padding: 0;
   margin: 0;
-  background: #000000;
+  background: #282828;
   .contenedorMenusMenuComponent{
     height: 70%;
     position: absolute;
@@ -65,7 +64,7 @@ text-align: center;
   }
 }
 /*
-Mediasqueries de tamaños del menú
+//Mediasqueries de tamaños del menú
 */
 @media (min-width: 1280px){
   .ContainerMenuComponentOpen{

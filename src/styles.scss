@@ -6,10 +6,10 @@
   --bg : #ffffff;
   --bgDark: #282828;
   --contrastDark: #525252;
-  --border: inset 0 0 0 .2rem #dedede;
-  --borderDark: inset 0 0 0 .2rem #525252;
-  --boxShadow: 0 0 2rem #dedede75;
-  --boxShadowDark: 0 0 2rem #00000050;
+  --border: inset 0 0 0 calc(2px + 0.390625vw) #dedede;
+  --borderDark: inset 0 0 0 calc(2px + 0.390625vw) #525252;
+  --boxShadow: 0 0 calc(20px + 0.390625vw) #dedede75;
+  --boxShadowDark: 0 0 calc(20px + 0.390625vw)#00000050;
 }
 
 //Snippet de formateo----------------------------------
@@ -35,13 +35,18 @@
 }
 ::-webkit-scrollbar-thumb {
   background-color: transparent !important;
-  border: .1rem solid #dedede;
-  border-radius: 10px;
+  border: calc(1px + 0.390625vw)  solid #dedede;
+  border-radius: calc(10px + 0.390625vw);
 }
 
-//estilos generales de textos-------------------------
+//estilos generales de textos----------------------------
 //eliminación de márgenes
-h1, h2,h3,h4,h5,h6,p{ margin-block: 0; }
+h1, h2,h3,h4,h5,h6,p,a{ margin-block: 0; }
+//eliminación de decoraciones en elementos --------------
+li,ul,ol,a{
+  text-decoration: none;
+  list-style: none;
+}
 //definición de pesos visuales
 h1, h2,h3,h4,h5,h6{font-weight: bold;}
 //definición de tamaños en tipografías
@@ -51,15 +56,15 @@ h3{ font-size: calc(18px + 0.390625vw);}
 h4{  font-size: calc(16px + 0.390625vw);}
 h5{font-size: calc(14px + 0.390625vw);}
 h6{font-size: calc(12px + 0.390625vw);}
-p{font-size: calc(12px + 0.390625vw);}
+p, a{font-size: calc(12px + 0.390625vw);}
 
 //utilidades---------------------------------------------
 .TextOverflow{
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  // -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
-  white-space: pre-wrap; /* let the text wrap preserving spaces */
+  //-webkit-line-clamp: 2;  se necesita agregar desde los estilos para definir el máximo de líneas 
+  white-space: pre-wrap; // let the text wrap preserving spaces 
 }
 .ContainerCardTeamComponent{
   position: relative;
@@ -70,7 +75,7 @@ p{font-size: calc(12px + 0.390625vw);}
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: calc(20px + 0.390625vw);
 }
 
 

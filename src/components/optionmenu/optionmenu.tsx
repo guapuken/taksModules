@@ -14,13 +14,11 @@ interface menusTypes {
 	conCategoria?: conCategoriaTypes[];
 	sinCategoria?: menusOptionsTypes[];
 }
-export interface OptionmenuProps {
+export interface OptionMenuProps {
 	menus?: menusTypes[];
-	width?: string;
-	height?: string;
 }
 
-const Optionmenu = (props: OptionmenuProps) => {
+const OptionMenu = (props: OptionMenuProps) => {
 	const { menus } = props;
 
 	function menusSC(props: any) {
@@ -90,4 +88,4 @@ const Optionmenu = (props: OptionmenuProps) => {
 	return <MenuConCategoria menus={menus} />;
 };
 
-export default Optionmenu;
+export default OptionMenu;

@@ -15,7 +15,7 @@ export {default as IconDropdown} from './iconDropdown';
 //notifications switch
 export {default as Notifications} from './notifications';
 // option menu 
-export {default as optionmenu} from "./optionmenu";
+export {default as OptionMenu} from "./optionmenu";
 
 //Renderiza un text area múltiple donde se coloca la tarea y la subtarea
 export {default as InputTask} from './inputTask';
