@@ -4,7 +4,7 @@ import Cards from '../cards';
 // import { useTimeCounter } from './hooks/useCounter';
 import bellIcon from '../../img/bell.svg';
 import '../../styles.scss';
-import './notificationBell.scss';
+import css from './notificationBell.module.scss';
 
 export interface NotificationBellProps {
 	Children?: any;

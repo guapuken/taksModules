@@ -1,3 +1,4 @@
+//contenedor principal
 .optionmenu-container {
   display: flex;
   justify-content: center;
@@ -5,7 +6,7 @@
   background-color: #000000;
   border: 1px solid #000000;
 }
-
+//datos que recibira
 .datosConCategoria {
   font-weight: bold;
   font-size: 1.2rem;
@@ -17,7 +18,7 @@
 text-align: center;
   color: #333;
 }
-
+//estilos resto del contenedor
 .menusContainerMenuComponent{
   text-align: left;
   color: #fff;
@@ -49,7 +50,7 @@ text-align: center;
   top: 15vh;
   border-radius: 0 .5rem .5rem 0;
  }
- 
+ //contenedor 
 .ContainerMenuComponentOpen{
   height: 100vh;
   padding: 0;

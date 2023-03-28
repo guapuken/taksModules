@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../../styles.scss';
-import './notifications.scss';
+import css from './notifications.module.scss';
 
 export interface NotificationsProps {
 	checkValue?: boolean;

@@ -1,6 +1,6 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
 import '../../styles.scss';
-import './rangeDatePicker.scss';
+import css from './rangeDatePicker.module.scss';
 
 export interface RangeDatePickerProps {
 	startDateValue?: Date;

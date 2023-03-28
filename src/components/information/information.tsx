@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../../styles.scss';
-import './information.scss';
+import css from './information.module.scss';
 
 //definición de la interface y sus datos que recibirá el componente
 export interface InformationProps {

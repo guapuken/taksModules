@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles.scss';
 import { involucrados } from '../../utils/cardsUtils';
 import IconDropdown from '../iconDropdown';
 import InputTask from '../inputTask';
@@ -7,8 +8,7 @@ import { IconAsign } from './complements/iconAsign';
 import { IconDates } from './complements/iconDates';
 import { IconMoreOptions } from './complements/iconMoreOptions';
 import { IconPriority } from './complements/iconPriority';
-import '../../styles.scss';
-import './task.scss';
+import css from './task.module.scss';
 
 //TYPES
 interface submenus {

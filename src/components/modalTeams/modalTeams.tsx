@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
+import '../../styles.scss';
 import { Spans } from '../../utils/cardsUtils';
 import Buttons from '../buttons';
 import Dropdown from '../dropdown';
 import InputLabel from '../inputLabel';
 import Modal from '../modal';
 import { AddTask } from '../task/complements/addTask';
-import '../../styles.scss';
-import './modalTeams.scss';
+import css from './modalTeams.module.scss';
 
 //TYPES
 interface submenus {

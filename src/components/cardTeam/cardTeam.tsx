@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import editIcon from '../../img/editar.svg';
+import '../../styles.scss';
 import { AsideContainer, ButtonsArray } from '../../utils/asideUtils';
 import { CardContainer, returnSize } from '../../utils/cardsUtils';
 import { Hover } from '../../utils/hover';
 import Cards from '../cards';
-import editIcon from '../../img/editar.svg';
-import '../../styles.scss';
-import './cardTeam.scss';
+import css from './cardTeam.module.scss';
 
 export interface CardTeamProps {
 	teamName?: string;

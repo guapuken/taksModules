@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../../styles.scss';
-import './inputLabel.scss';
+import css from './inputLabel.module.scss';
 
 export interface InputLabelProps {
 	type?: 'text' | 'number' | 'email' | 'date';
