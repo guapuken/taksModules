@@ -235,7 +235,7 @@ const Button = (props: ButtonProps) => {
 	//Component
 	return (
 		<button
-			data-tasks-modules
+			// data-tasks-modules
 			onClick={onClick}
 			id={id}
 			key={key}

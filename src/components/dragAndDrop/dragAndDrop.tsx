@@ -346,7 +346,6 @@ const DragAndDrop = (props: DragAndDropProps) => {
 										windowSize().width <= 768
 											? `calc(${windowSize().width}rem + 2rem)`
 											: `calc(${sizeCard()}rem + 2rem)`,
-									// background: 'red',
 									maxHeight:
 										windowSize().width <= 768
 											? `calc(${windowSize().height / 4 / 10}rem - 2rem)`
