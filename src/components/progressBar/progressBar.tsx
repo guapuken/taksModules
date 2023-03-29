@@ -64,12 +64,12 @@ const ProgressBar = (props: ProgressBarProps) => {
 				? '#FCB24F'
 				: '#282828'
 		}`,
-		height: '3rem',
-		width: `${width - 8}rem`,
+		height: '2rem',
+		width: `${width - 7.5}rem`,
 		borderRadius: '50rem',
 	};
 	let percentStyles = {
-		fontSize: '3rem',
+		fontSize: '2rem',
 		color: status === 'outOfTime' ? '#FC3D38' : '#282828',
 		fontFamily: "'Open Sans', sans-serif",
 		fontWeight: 'lighter',

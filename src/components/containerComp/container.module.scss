@@ -1,0 +1,25 @@
+.ctn{
+    position:fixed;
+    width: calc(var(--cardWidth)*4);
+    height: calc(var(--cardHeight)*4 - 8vh);
+    // background:blue;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    .asideCtn{
+        width: var(--cardWidth);
+    }
+    .childrenCtn{
+        left: 0;
+        height: 100%;
+        width: calc(var(--cardWidth)*3);
+    }
+    .childrenCtnNoAside{
+        left: 0;
+        height: 100%;
+        width: calc(100vw *.9);
+        margin: 0 auto;
+    }
+}
+
+

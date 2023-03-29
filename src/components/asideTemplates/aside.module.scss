@@ -7,17 +7,9 @@
     padding-top: 1rem;
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: calc(92vh - 2rem);
     background: transparent;
-}
-//mediaqueries que cambia el tamaño cuando se encuentra en modo celular
-@media (max-width:400px){
-    .ctnDark,
-    .ctnWhite,
-    .ctn {
-        height: 20vh;
-        width: 100vw !important;
-    }
+    width: calc(var(--cardWidth)*.95);
 }
 //colores de fondo en caso de no tener la propiedad isWhite
 .ctn{
@@ -40,8 +32,19 @@
     color: #fff;
 }
 //mediaquerie para que el tamaño del texto abarque todo el espacio en celular
-@media (max-width:400px){
-    .noCtnDarkDark, .noCtnDark{
-        max-width: 100%;
+@media (max-width:415px){
+    .ctnDark,
+    .ctnWhite,
+    .ctn{
+        width: calc(var(--cardSize)*4);
+        height: var(--cardHeight);
+    }
+}
+@media (max-width:834px){
+    .ctnDark,
+    .ctnWhite,
+    .ctn{
+        width: calc(var(--cardWidth)*1.95);
+        height: calc(var(--cardHeight)*4);
     }
 }

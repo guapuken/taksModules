@@ -1,15 +1,18 @@
 //NORMALIZE DE CSS
 @import './normalize.scss';
+@import './global.module.scss';
 
 //Root de colores que se pueden utilizar----------------
 :root{
   --bg : #ffffff;
   --bgDark: #282828;
   --contrastDark: #525252;
-  --border: inset 0 0 0 .2rem #dedede;
-  --borderDark: inset 0 0 0 .2rem #525252;
-  --boxShadow: -.5rem .5rem 2rem #dedede;
-  --boxShadowDark: -.5rem .5rem 2rem #00000050;
+  --border: inset 0 0 0 calc(2px + 0.390625vw) #dedede;
+  --borderDark: inset 0 0 0 calc(2px + 0.390625vw) #525252;
+  --boxShadow: 0 0 calc(20px + 0.390625vw) #dedede75;
+  --boxShadowDark: 0 0 calc(20px + 0.390625vw)#00000050;
+  --cardWidth: calc(100vw * .25);
+  --cardHeight: calc(100vh * .25);
 }
 
 //Snippet de formateo----------------------------------
@@ -19,12 +22,11 @@
   padding: 0;
 }
 
-//estilos generales------------------------------------
-// *[data-tasks-modules]{
-  *{
-    font-size: 62.5%;
-    font-family: 'Open Sans', sans-serif;
-  }
+// //estilos generales------------------------------------
+//   *{
+//     font-size: 62.5%;
+//     font-family: 'Open Sans', sans-serif;
+//   }
   //Modificación en los estilos del scrollbar
   ::-webkit-scrollbar{
     width: 5px;
@@ -42,17 +44,39 @@
 
   //estilos generales de textos-------------------------
   //eliminación de márgenes
-  h1, h2,h3,h4,h5,h6,p,button,span{ margin-block: 0; }
+  h1, h2,h3,h4,h5,h6,p,button,span,a{ margin-block: 0; }
+  a,li,ul{
+    text-decoration: none;
+    list-style: none;
+    font-size: calc(12px + 0.390625vw);
+    color: inherit;
+  }
   //definición de pesos visuales
-  h1, h2,h3,h4,h5,h6{font-weight: bold;}
+  h1, h2,h3,h4,h5,h6{
+    font-weight: bold;
+  }
   //definición de tamaños en tipografías
-  h1{font-size: calc(30px + 0.390625vw);}
-  h2{ font-size: calc(20px + 0.390625vw);}
-  h3{ font-size: calc(18px + 0.390625vw);}
-  h4{  font-size: calc(16px + 0.390625vw);}
-  h5{font-size: calc(14px + 0.390625vw);}
-  h6{font-size: calc(12px + 0.390625vw);}
-  p{font-size: calc(12px + 0.390625vw);}
+  h1{
+    font-size: calc(30px + 0.390625vw);
+  }
+  h2{ 
+    font-size: calc(20px + 0.390625vw);
+  }
+  h3{ 
+    font-size: calc(18px + 0.390625vw);
+  }
+  h4{  
+    font-size: calc(16px + 0.390625vw);
+  }
+  h5{
+    font-size: calc(14px + 0.390625vw);
+  }
+  h6{
+    font-size: calc(12px + 0.390625vw);
+  }
+  p{
+    font-size: calc(12px + 0.390625vw);
+  }
 
   //utilidades---------------------------------------------
   .TextOverflow{
@@ -73,5 +97,4 @@
     justify-content: center;
     gap: 2rem;
   }
-// }
 

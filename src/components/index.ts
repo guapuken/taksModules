@@ -15,7 +15,7 @@ export {default as IconDropdown} from './iconDropdown';
 //notifications switch
 export {default as Notifications} from './notifications';
 // option menu 
-export {default as optionmenu} from "./optionmenu";
+export {default as OptionMenu} from "./optionmenu";
 
 //Renderiza un text area múltiple donde se coloca la tarea y la subtarea
 export {default as InputTask} from './inputTask';
@@ -50,6 +50,9 @@ export {default as ModalTamplates} from './modalTemplates';
 export {default as ModalProjects} from './modalProjects';
 export {default as ModalTeams} from './modalTeams';
 
-//asidetemplates
+//Contenedores generales
 export {default as AsideTemplates} from './asideTemplates';
+export {default as Container} from './containerComp'
 
+//drag and drop
+export {default as DragAndDrop} from './dragAndDrop';

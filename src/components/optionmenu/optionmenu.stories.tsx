@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import Optionmenu, { OptionmenuProps } from './optionmenu';
+import OptionMenu, { OptionMenuProps } from './optionmenu';
 
-const Template: Story<OptionmenuProps> = (args) => <Optionmenu {...args} />;
+const Template: Story<OptionMenuProps> = (args) => <OptionMenu {...args} />;
 export const Basic = Template.bind({});
 Basic.args = {
 	menus: [
@@ -79,5 +79,5 @@ Basic.args = {
 };
 export default {
 	title: 'Optionmenu',
-	component: Optionmenu,
+	component: OptionMenu,
 } as Meta;
