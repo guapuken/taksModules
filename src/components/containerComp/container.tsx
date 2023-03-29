@@ -139,17 +139,23 @@ const Container = (props: Containerprops) => {
 						/>
 					</div>
 				)}
-				<div style={{ height: FooterContent ? '65vh' : '85vh' }}>{children}</div>
+				<div
+					style={{
+						height: FooterContent ? '65vh' : '85vh',
+						overflow: 'auto',
+					}}
+				>
+					{children}
+				</div>
 				{FooterContent && (
 					<div
 						style={{
 							height: '20vh',
-							background: 'red',
 							display: 'flex',
 							alignItems: 'center',
 						}}
 					>
-						{<FooterContent />}
+						<FooterContent />
 					</div>
 				)}
 			</div>

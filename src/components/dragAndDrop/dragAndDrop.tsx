@@ -83,6 +83,18 @@ interface Task {
 }
 
 //obtenien la tarea por su estatus--------------------------------------------------------------------------------------------------------
+/**
+ * "Get all tasks that have a status that matches the status argument."
+ * The function takes two arguments: tasks and status.
+ * The tasks argument is an array of Task objects.
+ * The status argument is a Status enum.
+ * The function returns an array of Task objects.
+ * The function uses the filter method to return a new array of Task objects that have a status that
+ * matches the status argument
+ * @param {Task[]} tasks - Task[] - this is the array of tasks that we want to filter
+ * @param {Status} status - Status - This is the type of the status parameter.
+ * @returns An array of tasks that have a status of "status"
+ */
 const getTasksByStatus = (tasks: Task[], status: Status) => {
 	return tasks.filter((task) => task.status === status);
 };
@@ -188,17 +200,19 @@ const BoardSection = ({ id, title, tasks, modo }: BoardSectionProps) => {
 				<h2>{title}</h2>
 				<img src={bell} alt="" />
 			</div>
-			<SortableContext id={id} items={tasks} strategy={verticalListSortingStrategy}>
-				<div ref={setNodeRef}>
-					{tasks.map((task) => (
-						<div className={css.draggableCtn} key={task.id}>
-							<SortableTaskItem id={task.id}>
-								<TaskItem task={task} modo={modo} />
-							</SortableTaskItem>
-						</div>
-					))}
-				</div>
-			</SortableContext>
+			<div>
+				<SortableContext id={id} items={tasks} strategy={verticalListSortingStrategy}>
+					<div ref={setNodeRef}>
+						{tasks.map((task) => (
+							<div className={css.draggableCtn} key={task.id}>
+								<SortableTaskItem id={task.id}>
+									<TaskItem task={task} modo={modo} />
+								</SortableTaskItem>
+							</div>
+						))}
+					</div>
+				</SortableContext>
+			</div>
 		</div>
 	);
 };
@@ -307,7 +321,7 @@ const DragAndDrop = (props: DragAndDropProps) => {
 	};
 
 	const Footer = () => (
-		<div>
+		<div style={{ zIndex: '10' }}>
 			<div style={{ display: 'flex', marginTop: '1rem' }}>
 				<h2>Equipo</h2>
 				<div style={{ width: '20rem', margin: '0 1rem' }}>
@@ -334,66 +348,66 @@ const DragAndDrop = (props: DragAndDropProps) => {
 	//se encarga de ver qué tarea es la que se encuentra activa
 	const task = activeTaskId ? getTaskById(generalTasks, activeTaskId) : null;
 	return (
-		<Container
-			AsideContent={() => <AsideTemplates />}
-			header={{
-				moduleName: 'Tareas Pendientes',
-				legendBtnModule: 'Crear tarea nueva',
-				onClickBtnModule: () => {},
-			}}
-			onClick={{
-				createProject: () => {},
-				inicio: () => {},
-				mannageProjects: () => {},
-				mannageTask: () => {},
-				mannageTeams: () => {},
-				mannageTemplates: () => {},
-				projectsStatus: () => {},
-				createTask: () => {},
-				createTeam: () => {},
-				createTemplate: () => {},
-			}}
-			// FooterContent={Footer}
+		// <Container
+		// AsideContent={() => <AsideTemplates />}
+		// header={{
+		// moduleName: 'Tareas Pendientes',
+		// legendBtnModule: 'Crear tarea nueva',
+		// onClickBtnModule: () => {},
+		// }}
+		// onClick={{
+		// createProject: () => {},
+		// inicio: () => {},
+		// mannageProjects: () => {},
+		// mannageTask: () => {},
+		// mannageTeams: () => {},
+		// mannageTemplates: () => {},
+		// projectsStatus: () => {},
+		// createTask: () => {},
+		// createTeam: () => {},
+		// createTemplate: () => {},
+		// }}
+		// FooterContent={Footer}
+		// >
+		<DndContext
+			sensors={sensors}
+			collisionDetection={closestCorners}
+			onDragStart={handleDragStart}
+			onDragOver={handleDragOver}
+			onDragEnd={handleDragEnd}
 		>
-			<DndContext
-				sensors={sensors}
-				collisionDetection={closestCorners}
-				onDragStart={handleDragStart}
-				onDragOver={handleDragOver}
-				onDragEnd={handleDragEnd}
+			<div
+				style={{
+					display: 'flex',
+					// background: 'red',
+					gap: '2rem',
+					overflow: 'auto',
+					maxHeight: '65vh' /* '85vh' */,
+				}}
 			>
-				<div
-					style={{
-						display: 'flex',
-						// background: 'red',
-						gap: '2rem',
-						overflow: 'auto',
-						maxHeight: /* '65vh' */ '85vh',
-					}}
-				>
-					{Object.keys(boardSections).map((boardSectionKey) => {
-						//genera los elementos droppables
-						return (
-							<div
-								className={css.boardCtn}
-								style={{ height: heightBoard }}
-								key={boardSectionKey}
-							>
-								<BoardSection
-									id={boardSectionKey}
-									title={boardSectionKey}
-									tasks={boardSections[boardSectionKey]}
-									modo={modo}
-								/>
-							</div>
-						);
-					})}
-					<DragOverlay dropAnimation={dropAnimation}>
-						{task ? <TaskItem task={task} modo={modo} /> : null}
-					</DragOverlay>
-				</div>
-			</DndContext>
-		</Container>
+				{Object.keys(boardSections).map((boardSectionKey) => {
+					//genera los elementos droppables
+					return (
+						<div
+							className={css.boardCtn}
+							style={{ height: heightBoard }}
+							key={boardSectionKey}
+						>
+							<BoardSection
+								id={boardSectionKey}
+								title={boardSectionKey}
+								tasks={boardSections[boardSectionKey]}
+								modo={modo}
+							/>
+						</div>
+					);
+				})}
+				<DragOverlay dropAnimation={dropAnimation}>
+					{task ? <TaskItem task={task} modo={modo} /> : null}
+				</DragOverlay>
+			</div>
+		</DndContext>
+		// </Container>
 	);
 };
 export default DragAndDrop;
