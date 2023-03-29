@@ -1,0 +1,59 @@
+// Estilos generales --------------------------------------------------------------------------------------
+.boardCtn{
+    width: calc(var(--cardWidth)*.95);
+    overflow: auto;
+}
+.dropableCtn,.dropableCtnDark{
+    position: relative;
+    background: transparent;
+    // background-color: #282828;
+    .ctnTitle{
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        position: sticky ;
+        top: 0 ;
+        z-index: 1;
+        height: 3rem;
+        user-select: none;
+        h2{
+            font-weight: lighter;
+            margin-right: 1rem;
+        }
+        img{
+            height: 3rem;
+        }
+    }
+    .draggableCtn{
+        margin-top: 2rem;
+        display: flex;
+        justify-content: left; 
+    }
+}
+
+// Light Mode ----------------------------------------------------------------------------------------------
+.dropableCtn{
+    .ctnTitle{
+        background: #fff;
+    }
+}
+
+// Dark Mode -----------------------------------------------------------------------------------------------
+.dropableCtnDark{
+    .ctnTitle{
+        background: #282828;
+    }
+}
+
+// Media Queries
+@media (max-width:415px){
+
+}
+@media (max-width:768px){
+    .dropableCtn,.dropableCtnDark{
+        height: 25vh;
+        width: 100vw;
+    }
+}
+
+// Animaciones

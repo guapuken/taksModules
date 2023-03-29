@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useState } from 'react';
 //importaciones de estilos globales y de componente
 import '../../styles.scss';
+import css from './dragAndDrop.module.scss';
 
 //Importaciones de dnd-kit-core----------------------------------------------------------------------------------------------------------
 import {
@@ -34,6 +35,12 @@ import { returnSize, sizeCard } from '../../utils/cardsUtils';
 //Importación de elementos multimedia a usar------------------------------------------------------------------------------------------
 import bell from '../../img/bell.svg';
 import { windowSize } from '../../utils/widthSize';
+import AsideTemplates from '../asideTemplates';
+import CardMembersTeam from '../cardMembersTeam';
+import Optionmenu from '../optionmenu';
+import Container from '../containerComp';
+import Dropdown from '../dropdown';
+import Button from '../button';
 
 //Definición de tipos de datos--------------------------------------------------------------------------------------------------------
 type Status = 'Pendientes' | 'En progreso' | 'Completas';
@@ -96,7 +103,6 @@ const initializeBoard = (tasks: Task[]) => {
 	Object.keys(BOARD_SECTIONS).forEach((boardSectionKey) => {
 		boardSections[boardSectionKey] = getTasksByStatus(tasks, boardSectionKey as Status);
 	});
-
 	return boardSections;
 };
 
@@ -177,37 +183,15 @@ const BoardSection = ({ id, title, tasks, modo }: BoardSectionProps) => {
 		id,
 	});
 	return (
-		<div
-			style={{
-				position: 'relative',
-			}}
-		>
-			<div
-				style={{
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'space-between',
-					background: modo === 'Dark' ? '#282828' : '#fff',
-					position: 'sticky',
-					top: '0',
-					zIndex: '1',
-					height: '3rem',
-				}}
-			>
-				<h2 style={{ fontWeight: 'lighter' }}>{title}</h2>
-				<img src={bell} alt="" style={{ height: '3rem' }} />
+		<div className={modo === 'Dark' ? css.dropableCtnDark : css.dropableCtn}>
+			<div className={css.ctnTitle}>
+				<h2>{title}</h2>
+				<img src={bell} alt="" />
 			</div>
 			<SortableContext id={id} items={tasks} strategy={verticalListSortingStrategy}>
 				<div ref={setNodeRef}>
 					{tasks.map((task) => (
-						<div
-							key={task.id}
-							style={{
-								marginTop: '2rem',
-								display: 'flex',
-								justifyContent: 'center',
-							}}
-						>
+						<div className={css.draggableCtn} key={task.id}>
 							<SortableTaskItem id={task.id}>
 								<TaskItem task={task} modo={modo} />
 							</SortableTaskItem>
@@ -223,13 +207,20 @@ const BoardSection = ({ id, title, tasks, modo }: BoardSectionProps) => {
 export interface DragAndDropProps {
 	tasks: Task[];
 	modo?: Modo;
+	heightBoard?: string;
 }
 const DragAndDrop = (props: DragAndDropProps) => {
-	const { tasks, modo = 'Light' } = props;
+	const { tasks, modo = 'Light', heightBoard = '85vh' } = props;
 	const generalTasks = tasks;
 	const initialBoardSections = initializeBoard(generalTasks);
+	console.log('initialBoardSections-----------------');
+	console.table(initialBoardSections);
 	const [boardSections, setBoardSections] = useState<BoardSections>(initialBoardSections);
+	console.log('boardSections------------------------');
+	console.table(boardSections);
 	const [activeTaskId, setActiveTaskId] = useState<null | string>(null);
+	console.log('activeTaskId-------------------------');
+	console.table(activeTaskId);
 
 	const sensors = useSensors(
 		useSensor(PointerSensor),
@@ -238,6 +229,7 @@ const DragAndDrop = (props: DragAndDropProps) => {
 		})
 	);
 
+	//se encarga de settear el id activo al momento de mover alguna tarea
 	const handleDragStart = ({ active }: DragStartEvent) => {
 		setActiveTaskId(active.id as string);
 	};
@@ -314,14 +306,56 @@ const DragAndDrop = (props: DragAndDropProps) => {
 		duration: 500,
 	};
 
+	const Footer = () => (
+		<div>
+			<div style={{ display: 'flex', marginTop: '1rem' }}>
+				<h2>Equipo</h2>
+				<div style={{ width: '20rem', margin: '0 1rem' }}>
+					<Dropdown
+						onChange={() => {}}
+						options={[
+							{ label: 'TI', value: 'TI' },
+							{ label: 'Página IMJ', value: 'Página IMJ' },
+						]}
+					/>
+				</div>
+				<Button legend="Asignación rápida" primary />
+			</div>
+			<div style={{ display: 'flex', marginTop: '1rem' }}>
+				<CardMembersTeam />
+				<CardMembersTeam />
+				<CardMembersTeam />
+				<CardMembersTeam />
+				<CardMembersTeam />
+				<CardMembersTeam />
+			</div>
+		</div>
+	);
 	//se encarga de ver qué tarea es la que se encuentra activa
 	const task = activeTaskId ? getTaskById(generalTasks, activeTaskId) : null;
 	return (
-		<div
-			className="taskModules"
-			style={{
-				width: windowSize().width <= 768 ? sizeCard() + 'rem' : '100vw',
+		<Container
+			AsideContent={() => <AsideTemplates />}
+			header={{
+				moduleName: 'Tareas Pendientes',
+				legendBtnModule: 'Crear tarea nueva',
+				onClickBtnModule: () => {},
 			}}
+			refs={{
+				inicio: '/',
+				mannageProjects: '/',
+				mannageTask: '/',
+				mannageTeams: '/',
+				mannageTemplates: '/',
+				projectsStatus: '/',
+			}}
+			onClick={{
+				createProject: () => {},
+				createTask: () => {},
+				createTeam: () => {},
+				createTemplate: () => {},
+			}}
+			// FooterContent={Footer}
 		>
 			<DndContext
 				sensors={sensors}
@@ -333,25 +367,18 @@ const DragAndDrop = (props: DragAndDropProps) => {
 				<div
 					style={{
 						display: 'flex',
-						flexWrap: 'wrap',
+						// background: 'red',
 						gap: '2rem',
+						overflow: 'auto',
+						maxHeight: /* '65vh' */ '85vh',
 					}}
 				>
 					{Object.keys(boardSections).map((boardSectionKey) => {
 						//genera los elementos droppables
 						return (
 							<div
-								style={{
-									width:
-										windowSize().width <= 768
-											? `calc(${windowSize().width}rem + 2rem)`
-											: `calc(${sizeCard()}rem + 2rem)`,
-									maxHeight:
-										windowSize().width <= 768
-											? `calc(${windowSize().height / 4 / 10}rem - 2rem)`
-											: '70vh',
-									overflow: 'auto',
-								}}
+								className={css.boardCtn}
+								style={{ height: heightBoard }}
 								key={boardSectionKey}
 							>
 								<BoardSection
@@ -368,7 +395,7 @@ const DragAndDrop = (props: DragAndDropProps) => {
 					</DragOverlay>
 				</div>
 			</DndContext>
-		</div>
+		</Container>
 	);
 };
 export default DragAndDrop;

@@ -50,8 +50,9 @@ export {default as ModalTamplates} from './modalTemplates';
 export {default as ModalProjects} from './modalProjects';
 export {default as ModalTeams} from './modalTeams';
 
-//asidetemplates
+//Contenedores generales
 export {default as AsideTemplates} from './asideTemplates';
+export {default as Container} from './containerComp'
 
 //drag and drop
 export {default as DragAndDrop} from './dragAndDrop';

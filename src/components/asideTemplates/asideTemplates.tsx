@@ -19,7 +19,6 @@ const AsideTemplates = (props: AsideTemplatesProps) => {
 					? `${isWhite ? css.ctnWhite : css.ctnDark}`
 					: `${isWhite ? css.ctnWhite : css.ctn}`
 			}
-			style={{ width: `calc(${returnSize()}rem + 2rem)` }}
 		>
 			{!Content && (
 				<div className={modo === 'Dark' || !isWhite ? css.noCtnDark : css.noCtn}>
