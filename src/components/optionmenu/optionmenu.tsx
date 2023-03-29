@@ -55,6 +55,7 @@ const OptionMenu = (props: OptionMenuProps) => {
 										fontSize: '1.6rem',
 										fontWeight: 'normal',
 										userSelect: 'none',
+										marginLeft: '1rem',
 									}}
 									href={menu.href}
 								>
@@ -76,9 +77,11 @@ const OptionMenu = (props: OptionMenuProps) => {
 						cursor: 'pointer',
 						fontSize: '1.6rem',
 						color: '#fff',
-						fontWeight: 'normal',
+						fontWeight: 'bold',
 						userSelect: 'none',
+						marginLeft: '1rem',
 					}}
+					onClick={sinCategoria.onClick}
 				>
 					{sinCategoria.title}
 				</a>

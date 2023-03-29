@@ -11,6 +11,7 @@ export {default as Information} from './information';
 
 //IconDropdown allow show an icon and select an option
 export {default as IconDropdown} from './iconDropdown';
+export {default as Dropdown} from './dropdown';
 
 //notifications switch
 export {default as Notifications} from './notifications';
