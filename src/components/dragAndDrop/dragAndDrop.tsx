@@ -341,16 +341,14 @@ const DragAndDrop = (props: DragAndDropProps) => {
 				legendBtnModule: 'Crear tarea nueva',
 				onClickBtnModule: () => {},
 			}}
-			refs={{
-				inicio: '/',
-				mannageProjects: '/',
-				mannageTask: '/',
-				mannageTeams: '/',
-				mannageTemplates: '/',
-				projectsStatus: '/',
-			}}
 			onClick={{
 				createProject: () => {},
+				inicio: () => {},
+				mannageProjects: () => {},
+				mannageTask: () => {},
+				mannageTeams: () => {},
+				mannageTemplates: () => {},
+				projectsStatus: () => {},
 				createTask: () => {},
 				createTeam: () => {},
 				createTemplate: () => {},

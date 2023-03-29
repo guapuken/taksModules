@@ -12,22 +12,20 @@ type header = {
 	legendBtnModule?: string;
 	onClickBtnModule?: onClickType;
 };
-interface refs {
-	inicio?: string;
-	mannageTask?: string;
-	mannageTemplates?: string;
-	mannageTeams?: string;
-	mannageProjects?: string;
-	projectsStatus?: string;
-}
 interface onClicks {
 	createTask?: onClickType;
 	createTemplate?: onClickType;
 	createTeam?: onClickType;
 	createProject?: onClickType;
+	inicio?: onClickType;
+	mannageTask?: onClickType;
+	mannageTemplates?: onClickType;
+	mannageTeams?: onClickType;
+	mannageProjects?: onClickType;
+	projectsStatus?: onClickType;
 }
 interface menuActions {
-	refs: refs;
+	// refs: refs;
 	onClick: onClicks;
 }
 interface Containerprops {
@@ -37,12 +35,12 @@ interface Containerprops {
 	aside?: boolean;
 	header?: header;
 	footer?: boolean;
-	refs: refs;
+	// refs: refs;
 	onClick: onClicks;
 }
 
 const Menu = (props: menuActions) => {
-	const { refs, onClick } = props;
+	const { onClick } = props;
 	return (
 		<div style={{ zIndex: '2' }}>
 			<OptionMenu
@@ -50,7 +48,7 @@ const Menu = (props: menuActions) => {
 					sinCategoria: [
 						{
 							title: 'Inicio',
-							href: refs.inicio,
+							onClick: onClick.inicio,
 						},
 					],
 					conCategoria: [
@@ -63,7 +61,7 @@ const Menu = (props: menuActions) => {
 								},
 								{
 									title: 'Gestionar existentes',
-									href: refs.mannageTask,
+									onClick: onClick.mannageTask,
 								},
 							],
 						},
@@ -76,7 +74,7 @@ const Menu = (props: menuActions) => {
 								},
 								{
 									title: 'Gestionar existentes',
-									href: refs.mannageTemplates,
+									onClick: onClick.mannageTemplates,
 								},
 							],
 						},
@@ -89,7 +87,7 @@ const Menu = (props: menuActions) => {
 								},
 								{
 									title: 'Gestionar existentes',
-									href: refs.mannageTeams,
+									onClick: onClick.mannageTeams,
 								},
 							],
 						},
@@ -102,11 +100,11 @@ const Menu = (props: menuActions) => {
 								},
 								{
 									title: 'Gestionar existentes',
-									href: refs.mannageProjects,
+									onClick: onClick.mannageProjects,
 								},
 								{
 									title: 'Estatus de proyectos',
-									href: refs.projectsStatus,
+									onClick: onClick.projectsStatus,
 								},
 							],
 						},
@@ -118,10 +116,10 @@ const Menu = (props: menuActions) => {
 };
 
 const Container = (props: Containerprops) => {
-	const { children, AsideContent, header, FooterContent, refs, onClick } = props;
+	const { children, AsideContent, header, FooterContent, onClick } = props;
 	return (
 		<div className={css.ctn}>
-			<Menu refs={refs} onClick={onClick} />
+			<Menu onClick={onClick} />
 			{AsideContent && <div className={css.asideCtn}>{<AsideContent />}</div>}
 			<div className={AsideContent ? css.childrenCtn : css.childrenCtnNoAside}>
 				{header && (
