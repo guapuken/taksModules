@@ -2,6 +2,9 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import DragAndDrop, { DragAndDropProps } from './dragAndDrop';
 import Task from '../task/task';
+import CardTask from '../cardTask';
+import Cards from '../cards';
+import { useWindowSize } from '../../utils/widthSize';
 
 const Template: Story<DragAndDropProps> = (args) => <DragAndDrop {...args} />;
 
@@ -9,7 +12,8 @@ export const Initial = Template.bind({});
 const tasks = [
 	{
 		id: '15',
-		status: 'Pendientes',
+		idNotification: '15',
+		status: 'En proceso',
 		taskName: 'Dummies CDMX',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
@@ -19,7 +23,8 @@ const tasks = [
 	},
 	{
 		id: '16',
-		status: 'Pendientes',
+		idNotification: '16',
+		status: 'En proceso',
 		taskName: 'Bloqueos',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
@@ -29,7 +34,8 @@ const tasks = [
 	},
 	{
 		id: '17',
-		status: 'Pendientes',
+		idNotification: '17',
+		status: 'Completas / Revisión',
 		taskName: 'Negociaciones',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
@@ -39,7 +45,8 @@ const tasks = [
 	},
 	{
 		id: '18',
-		status: 'Pendientes',
+		idNotification: '18',
+		status: 'Por hacer',
 		taskName: 'Impresión',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
@@ -49,7 +56,8 @@ const tasks = [
 	},
 	{
 		id: '19',
-		status: 'Pendientes',
+		idNotification: '19',
+		status: 'En proceso',
 		taskName: 'Impresión',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
@@ -59,7 +67,8 @@ const tasks = [
 	},
 	{
 		id: '20',
-		status: 'Pendientes',
+		idNotification: '20',
+		status: 'Por hacer',
 		taskName: 'Impresión',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
@@ -69,8 +78,9 @@ const tasks = [
 	},
 	{
 		id: '21',
-		status: 'Pendientes',
-		taskName: 'Impresión',
+		idNotification: '21',
+		status: 'Por hacer',
+		taskName: 'Impresión por medio de Bigfoot print para ayr',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
 		percentTask: 15,
@@ -78,8 +88,15 @@ const tasks = [
 		subtasks: 10,
 	},
 ];
+
 Initial.args = {
 	tasks: tasks,
+	nameBoards: {
+		'Por hacer': '1',
+		'En proceso': 'progress',
+		'Completas / Revisión': 'done',
+	},
+	Card: CardTask,
 };
 
 export default {

@@ -1,6 +1,5 @@
 //NORMALIZE DE CSS
 @import './normalize.scss';
-@import './global.module.scss';
 
 //Root de colores que se pueden utilizar----------------
 :root{
@@ -23,10 +22,10 @@
 }
 
 // //estilos generales------------------------------------
-//   *{
-//     font-size: 62.5%;
-//     font-family: 'Open Sans', sans-serif;
-//   }
+  *{
+    font-size: 62.5%;
+    font-family: 'Open Sans', sans-serif;
+  }
   //Modificación en los estilos del scrollbar
   ::-webkit-scrollbar{
     width: 5px;

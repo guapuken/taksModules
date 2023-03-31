@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../styles.scss';
+import '../../global.scss';
 import './information.scss';
 
 //definición de la interface y sus datos que recibirá el componente

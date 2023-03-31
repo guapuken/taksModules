@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles.scss';
+import '../../global.scss';
 import css from './cards.module.scss';
 
 export interface CardsProps {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { AutoResizeInput } from './complements/autoResizeInput';
 import { CheckboxInput } from './complements/checkboxInput';
-import '../../styles.scss';
+import '../../global.scss';
 import './inputTask.scss';
 
 export interface InputTaskProps {

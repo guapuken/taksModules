@@ -7,7 +7,7 @@ import { IconAsign } from './complements/iconAsign';
 import { IconDates } from './complements/iconDates';
 import { IconMoreOptions } from './complements/iconMoreOptions';
 import { IconPriority } from './complements/iconPriority';
-import '../../styles.scss';
+import '../../global.scss';
 import './task.scss';
 
 //TYPES

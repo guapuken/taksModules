@@ -2,12 +2,12 @@ import React from 'react';
 import { ButtonItem, ButtonsArray } from '../../utils/asideUtils';
 import { CardContainer, returnSize, SimpleButtonText, Spans } from '../../utils/cardsUtils';
 import { percent } from '../../utils/percent';
-import { windowSize } from '../../utils/widthSize';
+import { useWindowSize } from '../../utils/widthSize';
 import Cards from '../cards';
 import Notifications from '../notifications';
 import ProgressBar from '../progressBar';
 import shareIcon from '../../img/share.svg';
-import '../../styles.scss';
+import '../../global.scss';
 import './cardProject.scss';
 
 export interface CardProjectProps {
@@ -60,7 +60,7 @@ const CardProject = (props: CardProjectProps) => {
 					<Spans boldLegend="Ejecutivo: " legend={ejecutivo} positionBold="start" />
 				</SimpleButtonText>
 				<SimpleButtonText style={{ position: 'absolute', bottom: '0', fontSize: '1.3rem' }}>
-					{windowSize().width > 1750 && (
+					{useWindowSize().width > 1750 && (
 						<Spans
 							boldLegend={completedTask}
 							legend="tareas terminadas"

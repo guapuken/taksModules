@@ -1,6 +1,6 @@
 import React from 'react';
-import { windowSize } from '../../utils/widthSize';
-import '../../styles.scss';
+import { useWindowSize } from '../../utils/widthSize';
+import '../../global.scss';
 import './modal.scss';
 
 export interface ModalProps {
@@ -22,14 +22,14 @@ const Modal = (props: ModalProps) => {
 				left: '50%',
 				top: '0',
 				width:
-					windowSize().width <= 768
-						? `${windowSize().width}px`
-						: `${windowSize().width / 2}px`,
+					useWindowSize().width <= 768
+						? `${useWindowSize().width}px`
+						: `${useWindowSize().width / 2}px`,
 				transform: 'translateX(-50%)',
 				background: '#fff',
 				boxShadow: '.7rem .7rem 2rem #dedede',
-				height: `${windowSize().height}px`,
-				maxHeight: `${windowSize().height}px`,
+				height: `${useWindowSize().height}px`,
+				maxHeight: `${useWindowSize().height}px`,
 				margin: '0 auto',
 			}}
 		>
@@ -37,7 +37,7 @@ const Modal = (props: ModalProps) => {
 				<div
 					className="TitleModalComponent"
 					style={{
-						height: `${windowSize().height * 0.06}px`,
+						height: `${useWindowSize().height * 0.06}px`,
 						// background: 'red',
 						display: 'flex',
 						alignItems: 'center',
@@ -51,7 +51,7 @@ const Modal = (props: ModalProps) => {
 				<div
 					className={'NoModalContent'}
 					style={{
-						height: `${windowSize().height * 0.8}px`,
+						height: `${useWindowSize().height * 0.8}px`,
 						maxWidth: '90%',
 						margin: '0 auto',
 						position: 'absolute',
@@ -78,7 +78,7 @@ const Modal = (props: ModalProps) => {
 							: 'ModalContent'
 					}
 					style={{
-						height: `${windowSize().height * 0.8}px`,
+						height: `${useWindowSize().height * 0.8}px`,
 						overflow: 'auto',
 						width: '90%',
 						overflowX: 'hidden',
@@ -92,7 +92,7 @@ const Modal = (props: ModalProps) => {
 				<div
 					style={{
 						position: 'relative',
-						height: `${windowSize().height * 0.14}px`,
+						height: `${useWindowSize().height * 0.14}px`,
 						// background: 'orange',
 						display: 'flex',
 						alignItems: 'center',

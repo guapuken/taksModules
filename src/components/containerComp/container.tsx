@@ -1,7 +1,7 @@
 import React from 'react';
 
 // importación de estilos
-import '../../styles.scss';
+import '../../global.scss';
 import { onClickType } from '../../utils/types/typesUtils';
 import Button from '../button';
 import OptionMenu from '../optionmenu';
@@ -56,11 +56,11 @@ const Menu = (props: menuActions) => {
 							title: 'Tareas',
 							menus: [
 								{
-									title: 'Crear nueva',
+									title: 'Crear tarea',
 									onClick: onClick.createTask,
 								},
 								{
-									title: 'Gestionar existentes',
+									title: 'Gestionar tareas',
 									onClick: onClick.mannageTask,
 								},
 							],
@@ -69,11 +69,11 @@ const Menu = (props: menuActions) => {
 							title: 'Plantillas',
 							menus: [
 								{
-									title: 'Crear nueva',
+									title: 'Crear plantilla',
 									onClick: onClick.createTemplate,
 								},
 								{
-									title: 'Gestionar existentes',
+									title: 'Gestionar plantillas',
 									onClick: onClick.mannageTemplates,
 								},
 							],
@@ -82,11 +82,11 @@ const Menu = (props: menuActions) => {
 							title: 'Equipos',
 							menus: [
 								{
-									title: 'Crear nuevo',
+									title: 'Crear equipo',
 									onClick: onClick.createTeam,
 								},
 								{
-									title: 'Gestionar existentes',
+									title: 'Gestionar equipos',
 									onClick: onClick.mannageTeams,
 								},
 							],
@@ -95,11 +95,11 @@ const Menu = (props: menuActions) => {
 							title: 'Proyectos',
 							menus: [
 								{
-									title: 'Crear nuevo',
+									title: 'Crear proyecto',
 									onClick: onClick.createProject,
 								},
 								{
-									title: 'Gestionar existentes',
+									title: 'Gestionar proyectos',
 									onClick: onClick.mannageProjects,
 								},
 								{
@@ -119,18 +119,13 @@ const Container = (props: Containerprops) => {
 	const { children, AsideContent, header, FooterContent, onClick } = props;
 	return (
 		<div className={css.ctn}>
-			<Menu onClick={onClick} />
-			{AsideContent && <div className={css.asideCtn}>{<AsideContent />}</div>}
-			<div className={AsideContent ? css.childrenCtn : css.childrenCtnNoAside}>
+			<div className={css.menu}>
+				<Menu onClick={onClick} />
+			</div>
+			{AsideContent && <div className={css.asideCtn}>{AsideContent}</div>}
+			<div className={AsideContent ? css.ctnChildren_FtrAsd : css.ctnChildren_Ftr}>
 				{header && (
-					<div
-						style={{
-							display: 'flex',
-							height: '7vh',
-							// background: 'red',
-							alignItems: 'center',
-						}}
-					>
+					<div className={css.header}>
 						<h2 style={{ marginRight: '1rem' }}>{header.moduleName}</h2>
 						<Button
 							legend={header.legendBtnModule}
@@ -139,25 +134,8 @@ const Container = (props: Containerprops) => {
 						/>
 					</div>
 				)}
-				<div
-					style={{
-						height: FooterContent ? '65vh' : '85vh',
-						overflow: 'auto',
-					}}
-				>
-					{children}
-				</div>
-				{FooterContent && (
-					<div
-						style={{
-							height: '20vh',
-							display: 'flex',
-							alignItems: 'center',
-						}}
-					>
-						<FooterContent />
-					</div>
-				)}
+				<div className={FooterContent ? css.childrenFtr : css.children}>{children}</div>
+				{FooterContent && <div className={css.footer}>{FooterContent}</div>}
 			</div>
 		</div>
 	);

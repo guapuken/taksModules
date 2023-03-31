@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../styles.scss';
+import '../../global.scss';
 import './inputLabel.scss';
 
 export interface InputLabelProps {

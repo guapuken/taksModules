@@ -1,5 +1,5 @@
 import React from 'react';
-import { windowSize } from '../../../utils/widthSize';
+import { useWindowSize } from '../../../utils/widthSize';
 import Information from '../../information/information';
 import InputLabel from '../../inputLabel';
 import RangeDatePicker from '../../rangeDatePicker';
@@ -43,7 +43,7 @@ export const IconDates = (props: IconDatesProps) => {
 			<div className="IconInformationTaskcomponent">
 				<Information
 					info="¿En cuántos días debería de estar lista la tarea una vez que se le asigne al responsable?"
-					positionInfo={windowSize().width < 500 ? 'bottom' : 'right_bottom'}
+					positionInfo={useWindowSize().width < 500 ? 'bottom' : 'right_bottom'}
 				/>
 			</div>
 		</div>

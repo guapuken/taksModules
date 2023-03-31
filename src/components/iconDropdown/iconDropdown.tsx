@@ -1,6 +1,6 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import React from 'react';
-import '../../styles.scss';
+import '../../global.scss';
 import './iconDropdown.scss';
 
 //definición de los types que se usarán dentro de la interfaz

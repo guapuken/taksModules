@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { windowSize } from './widthSize';
+import { useWindowSize } from './widthSize';
 
 /*-----------------------------------------------------------------------------------------------
 functions
@@ -13,17 +13,17 @@ export function involucrados(valueResponsable: any, valueRevision: any) {
 	} else return 0;
 }
 export function sizeCard() {
-	const sizetoShow = (windowSize().width * 0.21) / 10;
+	const sizetoShow = (useWindowSize().width * 0.21) / 10;
 	useEffect(() => {
 		sizetoShow;
-	}, [windowSize()]);
+	}, [useWindowSize()]);
 	return sizetoShow;
 }
 export function returnSize() {
-	return windowSize().width < 415
-		? windowSize().width / 10 - 7
-		: windowSize().width < 835
-		? windowSize().width / 10 / 2 - 7
+	return useWindowSize().width < 415
+		? useWindowSize().width / 10 - 7
+		: useWindowSize().width < 835
+		? useWindowSize().width / 10 / 2 - 7
 		: sizeCard();
 }
 /*-----------------------------------------------------------------------------------------------

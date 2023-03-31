@@ -1,25 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export function windowSize() {
-	//las variables hacen el seguimiento de alto y ancho del objeto 'window'
-	const [windowSize, setWindowSize] = useState(window);
+export function useWindowSize() {
+	const [useWindowSize, setuseWindowSize] = useState({
+		width: window.innerWidth,
+		height: window.innerHeight,
+	});
 
-	//El use effect se envía una dependencia vacia en el arreglo porque sólo se necesita agregar el event listener para el evento de 'resize' sólo en el render inicial
 	useEffect(() => {
-		//El evento 'resize' es disparado cuando la ventana ha cambiado su tamaño
-		function handleWindowResize() {
-			setWindowSize(window);
+		function handleResize() {
+			setuseWindowSize({
+				width: window.innerWidth,
+				height: window.innerHeight,
+			});
 		}
-		window.addEventListener('resize', handleWindowResize);
 
-		//La función retorna el objeto del use effect, una vez que se desmonta podría invocarse
-		return () => {
-			window.removeEventListener('resize', handleWindowResize);
-		};
-	}, [window]);
+		window.addEventListener('resize', handleResize);
+		handleResize();
 
-	return {
-		width: windowSize.innerWidth,
-		height: windowSize.innerHeight,
-	};
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
+
+	return useWindowSize;
 }

@@ -69,7 +69,7 @@ export const IconPriority = (props: IconPriorityProps) => {
 
 			{/* Si existe el campo de prioridad se ejecuta el campo en el que se le agrega el color de la prioridad según se haya asignado */}
 			{/* {prioridad &&
-				windowSize().width > 1280 &&
+				useWindowSize().width > 1280 &&
 				(prioridad === 'none' ? (
 					<></>
 				) : (

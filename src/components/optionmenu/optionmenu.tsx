@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import '../../styles.scss';
-import Button from '../button';
+import '../../global.scss';
 import './optionmenu.scss';
 
 interface menusOptionsTypes {
@@ -71,20 +70,13 @@ const OptionMenu = (props: OptionMenuProps) => {
 	function menusCC(props: any) {
 		return props.menus.sinCategoria?.map((sinCategoria: menusOptionsTypes) => (
 			<div className="menusContainerMenuComponent">
-				<a
-					href={sinCategoria.href}
-					style={{
-						cursor: 'pointer',
-						fontSize: '1.6rem',
-						color: '#fff',
-						fontWeight: 'bold',
-						userSelect: 'none',
-						marginLeft: '1rem',
-					}}
-					onClick={sinCategoria.onClick}
-				>
-					{sinCategoria.title}
-				</a>
+				<ul>
+					<li>
+						<a href={sinCategoria.href} onClick={sinCategoria.onClick}>
+							{sinCategoria.title}
+						</a>
+					</li>
+				</ul>
 			</div>
 		));
 	}
@@ -107,11 +99,22 @@ const OptionMenu = (props: OptionMenuProps) => {
 						</a>
 					</nav>
 					<div
-						className="contenedorMenusMenuComponent"
-						style={{ display: isOpen ? 'block' : 'none' }}
+						// className="contenedorMenusMenuComponent"
+						// style={{ display: isOpen ? 'block' : 'none' }}
+						style={{
+							display: 'grid',
+							placeItems: 'center',
+							height: '100%',
+							width: '100%',
+						}}
 					>
-						{menusCC(menus)}
-						{menusSC(menus)}
+						<div
+							className="contenedorMenusMenuComponent"
+							style={{ display: isOpen ? 'block' : 'none' }}
+						>
+							{menusCC(menus)}
+							{menusSC(menus)}
+						</div>
 					</div>
 				</div>
 			</>

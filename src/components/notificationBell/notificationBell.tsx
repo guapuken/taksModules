@@ -3,7 +3,7 @@ import { selectRandomText } from '../../utils/randomTexts';
 import Cards from '../cards';
 // import { useTimeCounter } from './hooks/useCounter';
 import bellIcon from '../../img/bell.svg';
-import '../../styles.scss';
+import '../../global.scss';
 import './notificationBell.scss';
 
 export interface NotificationBellProps {

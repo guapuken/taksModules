@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../button/button';
-import '../../styles.scss';
+import '../../global.scss';
 
 interface stringTypes {
 	primary?: string;

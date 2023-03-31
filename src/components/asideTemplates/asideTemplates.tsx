@@ -1,6 +1,5 @@
 import React from 'react';
-import { returnSize } from '../../utils/cardsUtils';
-import '../../styles.scss';
+import '../../global.scss';
 import css from './aside.module.scss';
 
 export interface AsideTemplatesProps {

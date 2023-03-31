@@ -2,23 +2,66 @@
     position:fixed;
     width: calc(var(--cardWidth)*4);
     height: calc(var(--cardHeight)*4 - 8vh);
-    // background:blue;
     bottom: 0;
     left: 0;
     display: flex;
+    // background:green;
+    // box-shadow: inset 0 0 0 .5rem #000;
     .asideCtn{
         width: var(--cardWidth);
+        // background: purple;
+        // box-shadow: inset 0 0 0 .5rem #000;
     }
-    .childrenCtn{
+
+    //header
+    .header{
+        display: flex;
+        height: 7vh;
+        align-items: center; 
+        // background: yellow;
+        // box-shadow: inset 0 0 0 .5rem #000;
+    }
+
+    // menu
+    .menu{
+        z-index: 11;
+    }
+
+    //contenedor children y footer
+    .ctnChildren_Ftr, .ctnChildren_FtrAsd{
         left: 0;
         height: 100%;
+        position: relative;
+    }
+    //estilos cuando el componente cuenta con un aside
+    .ctnChildren_FtrAsd{
         width: calc(var(--cardWidth)*3);
     }
-    .childrenCtnNoAside{
-        left: 0;
-        height: 100%;
+    //estilos cuando el componente no cuenta con un aside
+    .ctnChildren_Ftr{
         width: calc(100vw *.9);
         margin: 0 auto;
+    }
+
+    // contenedor children 
+    .children {
+        height: 85vh;
+        overflow: auto;
+        // box-shadow: inset 0 0 0 .5rem #000;        
+    }
+    .childrenFtr {
+        height: 65vh;
+        overflow: auto;
+        // background: blue;
+        // box-shadow: inset 0 0 0 .5rem #000;
+    }
+    //conteneor footer
+    .footer{
+        height: 20vh;
+        display: flex;
+        align-items: center; 
+        // background-color: red;
+        // box-shadow:inset 0 0 0 .5rem  #000;
     }
 }
 

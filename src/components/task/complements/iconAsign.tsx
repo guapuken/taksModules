@@ -116,14 +116,14 @@ export const IconAsign = (props: IconAsignProps) => {
 			{involucrados > 0 && (
 				<p
 					className={
-						// windowSize().width < 1280?
+						// useWindowSize().width < 1280?
 						'CircleInvolucradosTaskComponent'
 						// : 'TextPriorityMenu'
 					}
 					style={{
 						fontSize: '1.4rem',
 						color:
-							// windowSize().width < 1280 ?
+							// useWindowSize().width < 1280 ?
 							'#fff',
 						// : '#525252',
 						...styleCircle,
@@ -135,12 +135,12 @@ export const IconAsign = (props: IconAsignProps) => {
 					{/* Se returna el número de involucrados */}
 					{involucrados}
 					<PopUpInvolucrados
-						className="TabletAndMobileVersion" // {windowSize().width < 1280 ?
+						className="TabletAndMobileVersion" // {useWindowSize().width < 1280 ?
 						// : ''}
 					/>
 
 					{/* Si el tamaño de la pantalla es mayor a 768px se agrega la concatenación con el número de involucrados y la palabra involucrados o involucrado
-					{windowSize().width > 1280 &&
+					{useWindowSize().width > 1280 &&
 						` ${involucrados > 1 ? 'involucrados' : 'involucrado'}`} */}
 				</p>
 			)}

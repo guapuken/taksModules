@@ -8,14 +8,14 @@ import {
 	sizeCard,
 	Spans,
 } from '../../utils/cardsUtils';
-import { windowSize } from '../../utils/widthSize';
+import { useWindowSize } from '../../utils/widthSize';
 import Cards from '../cards';
 import Notifications from '../notifications';
 import ProgressBar from '../progressBar';
 import { IconAsign } from '../task/complements/iconAsign';
 import editIcon from '../../img/editar.svg';
 import calendarIcon from '../../img/calendario.svg';
-import '../../styles.scss';
+import '../../global.scss';
 
 // import './cardProject.scss';
 interface submenus {
@@ -44,8 +44,12 @@ export interface CardTaskProps {
 	responsables?: submenus[];
 	equipos?: submenus[];
 	revision?: submenus[];
+	modo?: 'Dark' | 'Light';
 }
 const CardTask = (props: CardTaskProps) => {
+	const scrSize = useWindowSize();
+	const heightCard = scrSize.width >= 834 ? 15 : scrSize.height / 4 / 10 - 6;
+
 	const {
 		statusTask,
 		followNotificationsValue,
@@ -67,9 +71,9 @@ const CardTask = (props: CardTaskProps) => {
 		onClickEditar = () => alert('editar tarea'),
 		onClickComentario = () => alert('agregar comentario'),
 		onClickFecha = () => alert('reasignar fecha de entrega'),
+		modo,
 	} = props;
 
-	const heightCard = 15;
 	//Content card
 	const ContentCard = () => {
 		const titleCard = (
@@ -83,7 +87,7 @@ const CardTask = (props: CardTaskProps) => {
 		);
 		return (
 			<CardContainer>
-				{/* {windowSize().width > 768 && (
+				{/* {useWindowSize().width > 768 && (
 					<div
 						className={`ContainerTitleAndiconsCardProject${
 							sizeCard() * 10 < 350 ? 'Small' : ''
@@ -111,20 +115,25 @@ const CardTask = (props: CardTaskProps) => {
 				>
 					<span
 						className="TextOverflow"
-						style={{ WebkitLineClamp: 2, fontSize: 'inherit' }}
+						style={{
+							WebkitLineClamp: scrSize.width >= 834 ? 2 : 1,
+							fontSize: 'inherit',
+						}}
 						title={taskDescription}
 					>
 						{taskDescription}
 					</span>
 				</SimpleButtonText>
+
+				{/* A button that shows the number of subtasks. */}
 				<SimpleButtonText style={{ position: 'absolute', bottom: '0', fontSize: '1.3rem' }}>
-					<Spans boldLegend={subtasks} legend="subtareas más" />
+					<Spans boldLegend={subtasks} legend="más" />
 				</SimpleButtonText>
 				<div className="ContainerProgressBarAndShowDetails">
 					<ProgressBar
 						status={statusTask}
 						valor={percentTask}
-						width={returnSize() - 5}
+						width={scrSize.width / 2 / 10 - 3}
 						onClick={onClickShowDetails}
 						styleContent={{ cursor: 'pointer' }}
 					/>
@@ -179,12 +188,14 @@ const CardTask = (props: CardTaskProps) => {
 	//Definición de los argumentos
 	const properties = {
 		rounded: true,
-		width: returnSize() - 5,
+		width: scrSize.width / 10 / 2 - 2,
 		// height:  sizeCard() * 10 < 400 ?  19  : 15.5 ,
 		height: heightCard,
 		Content: ContentCard,
-		Aside: AsideContent,
+		Aside: scrSize.width >= 834 ? AsideContent : null,
+		modo: modo,
 	};
+	console.log(scrSize.width / 10 - 7 /* * 0.25 - 7 */);
 	return <Cards {...properties} />;
 };
 

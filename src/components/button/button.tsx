@@ -3,7 +3,7 @@ import React, { CSSProperties, useState } from 'react';
 //importación de types
 import { onClickType } from '../../utils/types/typesUtils';
 //importación de estilos
-import '../../styles.scss';
+import '../../global.scss';
 
 // types
 type size = 'small' | 'medium' | 'large';

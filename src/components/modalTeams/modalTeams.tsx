@@ -5,7 +5,7 @@ import Dropdown from '../dropdown';
 import InputLabel from '../inputLabel';
 import Modal from '../modal';
 import { AddTask } from '../task/complements/addTask';
-import '../../styles.scss';
+import '../../global.scss';
 import './modalTeams.scss';
 
 //TYPES

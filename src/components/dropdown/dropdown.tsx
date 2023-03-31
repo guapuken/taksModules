@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import '../../styles.scss';
+import '../../global.scss';
 import './dropdown.scss';
 
 const Icon = (fillColor?: string, isOpen?: Boolean) => {
