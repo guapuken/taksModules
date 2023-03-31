@@ -1,7 +1,7 @@
 import React, { CSSProperties, useState } from 'react';
 
 //importación de types
-import { onClickType } from '../../utils/types/types';
+import { onClickType } from '../../types';
 //importación de estilos
 import '../../global.scss';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { useWindowSize } from '../../utils/widthSize';
 import Cards from '../cards';
 import { Content } from './files';
-import { Modo, onClickType, statusTask } from '../../utils/types/types';
+import { Modo, onClickType, statusTask } from '../../types';
 
 export interface CardTaskReviewProps {
 	statusTask?: statusTask;

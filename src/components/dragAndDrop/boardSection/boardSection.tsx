@@ -11,7 +11,7 @@ import SortableTaskItem from '../sortableItem/sortableItem';
 import '../../../global.scss';
 import css from '../dragAndDrop.module.scss';
 import bell from '../../../img/bell.svg';
-import { Modo } from '../../../utils/types/types';
+import { Modo } from '../../../types';
 
 //Genera los tableros en los que se podrá vaciar la información o soltar los elementos--------------------------------------------------
 interface BoardSectionProps {

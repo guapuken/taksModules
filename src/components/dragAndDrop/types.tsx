@@ -1,3 +1,5 @@
+import { Modo } from '../../types';
+
 // type Status = 'Pendientes' | 'En progreso' | 'Completas';
 export type BoardSections = {
 	[name: string]: Task[];

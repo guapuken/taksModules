@@ -16,7 +16,7 @@ import { IconAsign } from '../task/complements/iconAsign';
 import editIcon from '../../img/editar.svg';
 import calendarIcon from '../../img/calendario.svg';
 import '../../global.scss';
-import { Modo, onChangeType, onClickType, statusTask } from '../../utils/types/types';
+import { Modo, onChangeType, onClickType, statusTask } from '../../types';
 
 // import './cardProject.scss';
 interface submenus {

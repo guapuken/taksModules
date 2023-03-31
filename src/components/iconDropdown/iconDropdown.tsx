@@ -2,7 +2,7 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import React, { CSSProperties } from 'react';
 import '../../global.scss';
 import './iconDropdown.scss';
-import { onClickType } from '../../utils/types/types';
+import { onClickType } from '../../types';
 
 //definición de los types que se usarán dentro de la interfaz
 interface submenusArray {

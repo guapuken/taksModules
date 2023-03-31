@@ -26,7 +26,7 @@ import { BoardSections, Task } from './types';
 //importaciones de estilos globales y de componente
 import '../../global.scss';
 import css from './dragAndDrop.module.scss';
-import { Modo } from '../../utils/types/types';
+import { Modo } from '../../types';
 
 //obtenien la tarea por su estatus--------------------------------------------------------------------------------------------------------
 const getTasksByStatus = (tasks: Task[], status: string) => {
