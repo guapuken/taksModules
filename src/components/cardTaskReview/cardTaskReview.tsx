@@ -1,17 +1,22 @@
 import React from 'react';
+
+// importación de funciones que se utilizan en el componente
 import { useWindowSize } from '../../utils/widthSize';
-import Cards from '../cards';
-import { Content } from './files';
+// importación de types
 import { Modo, onClickType, statusTask } from '../../types';
+// importación de componente a usar
+import Cards from '../cards';
+import { Content } from './files/contentCard';
 
 export interface CardTaskReviewProps {
 	statusTask?: statusTask;
+	onClickShowDetails?: onClickType;
+	modo?: Modo;
 	taskName?: string;
 	taskDescription?: string;
-	modo?: Modo;
-	onClickShowDetails?: onClickType;
 }
 const CardTaskReview = (props: CardTaskReviewProps) => {
+	// desesctructuración de propiedades
 	const {
 		statusTask,
 		taskName = 'Nombre de tarea',
@@ -47,7 +52,7 @@ const CardTaskReview = (props: CardTaskReviewProps) => {
 					modo={modo}
 				/>
 			)}
-		></Cards>
+		/>
 	);
 };
 export default CardTaskReview;

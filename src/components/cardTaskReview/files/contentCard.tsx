@@ -58,5 +58,3 @@ export const Content = (props: ContentProps) => {
 		</CardContainer>
 	);
 };
-
-export default Content;
