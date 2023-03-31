@@ -16,23 +16,24 @@ import { IconAsign } from '../task/complements/iconAsign';
 import editIcon from '../../img/editar.svg';
 import calendarIcon from '../../img/calendario.svg';
 import '../../global.scss';
+import { Modo, onChangeType, onClickType, statusTask } from '../../utils/types/typesUtils';
 
 // import './cardProject.scss';
 interface submenus {
 	id?: number | string;
 	className?: string;
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClick?: onClickType;
 	title?: string;
 }
 export interface CardTaskProps {
-	onClickShowDetails?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickEditar?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickFollow?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickRecordatorio?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickComentario?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickFecha?: (e: React.MouseEvent<HTMLElement>) => void;
-	onChangeNotificationSwitch?: (e: React.FormEvent<HTMLInputElement>) => void;
-	statusTask?: 'onTime' | 'delayed' | 'outOfTime';
+	onClickShowDetails?: onClickType;
+	onClickEditar?: onClickType;
+	onClickFollow?: onClickType;
+	onClickRecordatorio?: onClickType;
+	onClickComentario?: onClickType;
+	onClickFecha?: onClickType;
+	onChangeNotificationSwitch?: onChangeType;
+	statusTask?: statusTask;
 	taskName?: string;
 	taskDescription?: string;
 	valueResponsable?: string;
@@ -44,7 +45,7 @@ export interface CardTaskProps {
 	responsables?: submenus[];
 	equipos?: submenus[];
 	revision?: submenus[];
-	modo?: 'Dark' | 'Light';
+	modo?: Modo;
 }
 const CardTask = (props: CardTaskProps) => {
 	const scrSize = useWindowSize();

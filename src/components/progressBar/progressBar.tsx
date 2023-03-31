@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../global.scss';
+import { LateIcon } from '../../utils/cardsUtils';
 
 //interface
 export interface ProgressBarProps {
@@ -9,39 +10,6 @@ export interface ProgressBarProps {
 	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	styleContent?: {};
 }
-
-//components
-const LateIcon = () => {
-	let outOfTimeICon = {
-		left: '50%',
-		top: '50%',
-		transform: 'translate(-50%, -50%)',
-	};
-	return (
-		<div style={{ position: 'absolute', ...outOfTimeICon }}>
-			<div>
-				<h2
-					style={{
-						position: 'absolute',
-						top: '30%',
-						left: '45%',
-						fontSize: '20px',
-						color: '#fff',
-					}}
-				>
-					!
-				</h2>
-				<svg width="54" height="54" viewBox="-50 -50 300 300">
-					<polygon
-						style={{ fill: '#FC3D38', stroke: '#fff', strokeWidth: '15' }}
-						stroke-linejoin="round"
-						points="100,0 0,200 200,200"
-					/>
-				</svg>
-			</div>
-		</div>
-	);
-};
 
 const ProgressBar = (props: ProgressBarProps) => {
 	const { valor = 0, status = 'onTime', width = 35, onClick, styleContent } = props;

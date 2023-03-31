@@ -2,6 +2,7 @@
 
 //Definición de funciones
 export type Modo = 'Dark' | 'Light';
+export type statusTask =  'onTime' | 'delayed' | 'outOfTime';
 export type onClickType = (e: React.MouseEvent<HTMLElement>) => void;
 export type onChangeType = (e: React.FormEvent<HTMLInputElement>) => void;
 export type onBlurType = (e: React.FocusEvent<HTMLInputElement>) => void;

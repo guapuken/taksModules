@@ -38,7 +38,7 @@ const Cards = (props: CardsProps) => {
 							margin: 'auto',
 						}}
 					>
-						<Content {...data} />
+						{<Content data={data} />}
 					</div>
 					{Aside && (
 						<div
