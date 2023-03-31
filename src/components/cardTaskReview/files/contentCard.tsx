@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardContainer, LateIcon, SimpleButtonText, TitleCard } from '../../../utils/cardsUtils';
-import { Modo, onClickType, statusTask } from '../../../utils/types/typesUtils';
+import { Modo, onClickType, statusTask } from '../../../utils/types/types';
 import { screenSize } from '../../dragAndDrop/types';
 //importación de estilos
 import '../../../global.scss';

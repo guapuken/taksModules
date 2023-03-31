@@ -2,7 +2,7 @@ import React from 'react';
 
 // importación de estilos
 import '../../global.scss';
-import { onClickType } from '../../utils/types/typesUtils';
+import { onClickType } from '../../utils/types/types';
 import Button from '../button';
 import OptionMenu from '../optionmenu';
 import css from './container.module.scss';

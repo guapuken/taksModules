@@ -1,6 +1,6 @@
 import React, { CSSProperties, useEffect } from 'react';
 import { useWindowSize } from './widthSize';
-import { Modo, onClickType } from './types/typesUtils';
+import { Modo, onClickType } from './types/types';
 
 /*-----------------------------------------------------------------------------------------------
 functions
