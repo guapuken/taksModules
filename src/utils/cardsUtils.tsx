@@ -36,12 +36,13 @@ interface CardContainerProps {
 	height?: string;
 	className?: string;
 	children?: any;
+	style?: CSSProperties;
 }
 export const CardContainer = (props: CardContainerProps) => {
-	const { width = '100%', height = '100%', children, className } = props;
+	const { width = '100%', height = '100%', children, className, style } = props;
 	return (
 		<div
-			style={{ width: width, height: height }}
+			style={{ width: width, height: height, ...style }}
 			className={`ContainerCardTeamComponent ${className}`}
 		>
 			{children}
@@ -99,9 +100,11 @@ interface SpansProps {
 	legend?: string | number;
 	boldLegend?: string | number;
 	positionBold?: 'start' | 'end';
-	styleBold?: {};
-	style?: {};
+	styleBold?: CSSProperties;
+	style?: CSSProperties;
 	fontSize?: string;
+	className?: string;
+	modo?: Modo;
 }
 export const Spans = (props: SpansProps) => {
 	const {
@@ -111,9 +114,13 @@ export const Spans = (props: SpansProps) => {
 		styleBold,
 		fontSize = '1.3rem',
 		style,
+		className,
 	} = props;
 	return (
-		<span style={{ fontSize: fontSize ? fontSize : 'inherit', marginBlock: '0', ...style }}>
+		<span
+			className={className}
+			style={{ fontSize: fontSize ? fontSize : 'inherit', marginBlock: '0', ...style }}
+		>
 			{positionBold === 'start' && (
 				<strong style={{ fontSize: 'inherit', marginBlock: '0', ...styleBold }}>
 					{boldLegend}{' '}
@@ -121,7 +128,14 @@ export const Spans = (props: SpansProps) => {
 			)}
 			{legend}
 			{positionBold === 'end' && (
-				<strong style={{ fontSize: 'inherit', marginBlock: '0', ...styleBold }}>
+				<strong
+					style={{
+						fontSize: 'inherit',
+						marginBlock: '0',
+						color: 'inherit',
+						...styleBold,
+					}}
+				>
 					{boldLegend}{' '}
 				</strong>
 			)}

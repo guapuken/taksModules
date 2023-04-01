@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { IconDropdown } from '../components';
 import optionsIcon from '../img/opciones.svg';
+import { onClickType } from '../types';
 
 //Regresa el contenedor general del aside
 export const AsideContainer = ({ children }: any) => {
@@ -28,6 +29,22 @@ export const AsideButtonItem = (props: AsideButtonItemProps) => {
 		</button>
 	);
 };
+
+/**
+ * función que retorna el número de veces que cabe un número dentro de otro
+ * Ejemplo 1: si tu proporcionas como número el 3 y como límite el 10 el resultado será 3 ya que la función genera un bucle
+	en el que múltiplica el número por números consecutivos hasta llegar o pasarse al límite, en caso de pasar el límite le resta uno, esto sería lo que pasaría en la función
+		3*1 = 3 ---- 3 < 10
+		3*2 = 6 -----6 < 10
+		3*3 = 9 -----9 < 10
+		3*4 = 12 ----12 > 10
+	entonces el resultado sería 4 pero como el resultado sobrepasa el límite le resta 1
+	4 - 1 = 3 por consecuente el resultado de la función sería 3
+ * @param {number} numero - Número a validar.
+ * @param {number} limite - El límite que no tiene que sobrepasar nuestro número
+ * @returns El número de veces que cabe el número dentro del número.
+*/
+
 function sizeLimit(numero: number, limite: number) {
 	let resultado = numero;
 	let i = 1;
@@ -37,14 +54,29 @@ function sizeLimit(numero: number, limite: number) {
 	}
 	return i * numero > limite ? i - 1 : i;
 }
+
+type Buttons = {
+	img: string;
+	titleToShow: string;
+	onClick: onClickType;
+};
+/**
+ * función que nos regresa un arreglo de botones según el número que quepan en la altura definida en el elemento
+ *
+ * Ejemplo si el elemento tiene una altura de 200 px y le queremos meter 10 botones de 50px cada uno validará cuántos botones caben en esa altura y los que no tengan espacio los colocará dentro de un componente que funciona como dropdown
+ * @param {number} size - altura con la que cuenta el elemento
+ * @param {Array<Buttons>} buttons - rederea los botones que se colocarán dentro del elemento
+ * @returns componente con los botones distribuidos dependiendo los que caben en el elemento
+ */
 function sliceButtons(size: number, buttons?: any) {
 	let maxButtons = sizeLimit(5, size);
-	if (maxButtons * 5 - 2 > size) {
+	if (buttons.length * 5 <= size || maxButtons * 5 - 2 >= size) {
 		return (
 			buttons &&
 			buttons?.map((e: any) => (
 				<ButtonItem
 					img={e.img}
+					svg={e.svg}
 					onClick={e.onClick}
 					alt={e.titleToShow}
 					title={e.titleToShow}
@@ -57,6 +89,7 @@ function sliceButtons(size: number, buttons?: any) {
 				{buttons.slice(0, maxButtons - 1).map((e: any) => (
 					<ButtonItem
 						img={e.img}
+						svg={e.svg}
 						onClick={e.onClick}
 						alt={e.titleToShow}
 						title={e.titleToShow}
@@ -84,6 +117,7 @@ interface buttonstypes {
 	img?: string;
 	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	titleToShow?: string;
+	svg?: any;
 }
 interface ButtonsArrayProps {
 	vertical?: boolean;
@@ -117,9 +151,10 @@ interface ButtonItemProps {
 	style?: CSSProperties;
 	styleImg?: CSSProperties;
 	title?: string;
+	svg?: any;
 }
 export const ButtonItem = (props: ButtonItemProps) => {
-	const { children, img, alt, onClick, style, styleImg, title } = props;
+	const { children, img, alt, onClick, style, styleImg, title, svg } = props;
 	return (
 		<button
 			style={{ width: 'auto', height: '3rem', cursor: 'pointer', ...style }}
@@ -133,6 +168,7 @@ export const ButtonItem = (props: ButtonItemProps) => {
 					title={title}
 				/>
 			)}
+			{svg && svg}
 			{children}
 		</button>
 	);
