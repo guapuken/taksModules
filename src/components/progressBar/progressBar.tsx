@@ -33,7 +33,7 @@ const ProgressBar = (props: ProgressBarProps) => {
 				: '#282828'
 		}`,
 		height: '2rem',
-		width: `${width - 7.5}rem`,
+		width: `${width - 5.5}rem`,
 		borderRadius: '50rem',
 	};
 	let percentStyles = {
