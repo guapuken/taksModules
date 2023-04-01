@@ -25,7 +25,6 @@ interface onClicks {
 	projectsStatus?: onClickType;
 }
 interface menuActions {
-	// refs: refs;
 	onClick: onClicks;
 }
 interface Containerprops {
@@ -35,7 +34,6 @@ interface Containerprops {
 	aside?: boolean;
 	header?: header;
 	footer?: boolean;
-	// refs: refs;
 	onClick: onClicks;
 }
 
@@ -134,8 +132,15 @@ const Container = (props: Containerprops) => {
 						/>
 					</div>
 				)}
-				<div className={FooterContent ? css.childrenFtr : css.children}>{children}</div>
-				{FooterContent && <div className={css.footer}>{FooterContent}</div>}
+				<div
+					className={
+						!FooterContent || FooterContent === null ? css.children : css.childrenFtr
+					}
+				>
+					{children}
+				</div>
+				{FooterContent ||
+					(FooterContent !== null && <div className={css.footer}>{FooterContent}</div>)}
 			</div>
 		</div>
 	);
