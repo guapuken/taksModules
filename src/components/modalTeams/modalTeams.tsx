@@ -106,8 +106,8 @@ const ModalTeams = (props: ModalTeamsProps) => {
 	const Content = () => {
 		const [asignColor, setAsignColor] = useState('');
 		return (
-			<div className="GeneralContainerTeamsComponent">
-				<div className="InputsContainerTeamsComponent">
+			<div className={css.GeneralContainerTeamsComponent}>
+				<div className={css.InputsContainerTeamsComponent}>
 					<InputLabel
 						legend="Nombre del equipo"
 						onChange={onChangeTeamName}
@@ -122,7 +122,7 @@ const ModalTeams = (props: ModalTeamsProps) => {
 							}
 						/>
 						<input
-							className="LabelColorTeamComponent"
+							className={css.LabelColorTeamComponent}
 							id={asignColor}
 							type="color"
 							onChange={(e) => {

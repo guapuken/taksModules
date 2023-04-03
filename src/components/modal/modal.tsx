@@ -1,7 +1,7 @@
 import React from 'react';
-import { windowSize } from '../../utils/widthSize';
 import '../../styles.scss';
-import './modal.scss';
+import { windowSize } from '../../utils/widthSize';
+import css from './modal.module.scss';
 
 export interface ModalProps {
 	Content?: any;
@@ -35,7 +35,7 @@ const Modal = (props: ModalProps) => {
 		>
 			{header && (
 				<div
-					className="TitleModalComponent"
+					className={css.TitleModalComponent}
 					style={{
 						height: `${windowSize().height * 0.06}px`,
 						// background: 'red',
@@ -49,7 +49,7 @@ const Modal = (props: ModalProps) => {
 			)}
 			{!Content ? (
 				<div
-					className={'NoModalContent'}
+					className={css.NoModalContent}
 					style={{
 						height: `${windowSize().height * 0.8}px`,
 						maxWidth: '90%',
@@ -70,12 +70,12 @@ const Modal = (props: ModalProps) => {
 				<div
 					className={
 						header && Footer
-							? 'ModalWithHeaderAndFooter'
+							? css.ModalWithHeaderAndFooter
 							: header && !Footer
-							? 'ModalWithHeader'
+							? css.ModalWithHeader
 							: !header && Footer
-							? 'ModalWithFooter'
-							: 'ModalContent'
+							? css.ModalWithFooter
+							: css.ModalContent
 					}
 					style={{
 						height: `${windowSize().height * 0.8}px`,

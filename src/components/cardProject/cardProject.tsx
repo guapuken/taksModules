@@ -2,7 +2,7 @@ import React from 'react';
 import shareIcon from '../../img/share.svg';
 import '../../styles.scss';
 import { ButtonItem, ButtonsArray } from '../../utils/asideUtils';
-import { CardContainer, returnSize, SimpleButtonText, Spans } from '../../utils/cardsUtils';
+import { CardContainer, SimpleButtonText, Spans, returnSize } from '../../utils/cardsUtils';
 import { percent } from '../../utils/percent';
 import { windowSize } from '../../utils/widthSize';
 import Cards from '../cards';
@@ -41,11 +41,12 @@ const CardProject = (props: CardProjectProps) => {
 	const ContentCard = () => {
 		return (
 			<CardContainer>
-				<div
-					className="ContainerTitleAndiconsCardProject"
-					style={{ justifyContent: 'space-between' }}
-				>
-					<h4 className="TextOverflow" style={{ WebkitLineClamp: 2 }} title={projectName}>
+				<div className={css.ContainerTitle} style={{ justifyContent: 'space-between' }}>
+					<h4
+						className={css.TextOverflow}
+						style={{ WebkitLineClamp: 2 }}
+						title={projectName}
+					>
 						{projectName}
 					</h4>
 					<ButtonsArray size={heightCard}>
@@ -74,7 +75,7 @@ const CardProject = (props: CardProjectProps) => {
 						styleBold={{ marginLeft: '1rem' }}
 					/>
 				</SimpleButtonText>
-				<div className="ContainerProgressBarAndShowDetails">
+				<div className={css.ContainerProgressBarAndShowDetails}>
 					<ProgressBar
 						status={status}
 						valor={

@@ -104,13 +104,13 @@ const Dropdown = (props: DropdownProps) => {
 		}
 		if (isMulti) {
 			return (
-				<div className="dropdown-tags">
+				<div className={css.dropdownTags}>
 					{selectedValue.map((option: optionsDropdownTypes) => (
-						<div key={option.value} className="dropdown-tag-item">
+						<div key={option.value} className={css.dropdownTagItem}>
 							{option.label}
 							<span
 								onClick={(e) => onTagRemove(e, option)}
-								className="dropdown-tag-close"
+								className={css.dropdownTagClose}
 							>
 								<CloseIcon />
 							</span>
@@ -175,17 +175,19 @@ const Dropdown = (props: DropdownProps) => {
 	};
 
 	return (
-		<div className="dropdown-container">
-			<div ref={inputRef} onClick={handleInputClick} className="dropdown-input">
-				<div className="dropdown-selected-value">{getDisplay()}</div>
-				<div className="dropdown-tools">
-					<div className="dropdown-tool">{Icon(undefined, showMenu ? true : false)}</div>
+		<div className={css.dropdownContainer}>
+			<div ref={inputRef} onClick={handleInputClick} className={css.dropdownInput}>
+				<div className={css.dropdownSelectedValue}>{getDisplay()}</div>
+				<div className={css.dropdownTools}>
+					<div className={css.dropdownTool}>
+						{Icon(undefined, showMenu ? true : false)}
+					</div>
 				</div>
 			</div>
 			{showMenu && (
-				<div className="dropdown-menu">
+				<div className={css.dropdownMenu}>
 					{isSearchable && (
-						<div className="search-box">
+						<div className={css.searchBox}>
 							<input onChange={onSearch} value={searchValue} ref={searchRef} />
 						</div>
 					)}
@@ -193,7 +195,7 @@ const Dropdown = (props: DropdownProps) => {
 						<div
 							onClick={() => onItemClick(option)}
 							key={option.value}
-							className={`dropdown-item ${isSelected(option) && 'selected'}`}
+							className={`${css.dropdownItem} ${isSelected(option) && 'selected'}`}
 						>
 							{option.label}
 						</div>

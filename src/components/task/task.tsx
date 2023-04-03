@@ -165,7 +165,7 @@ const Task = (props: TaskProps) => {
 	const showTask = () => (plantillas ? false : true);
 
 	return (
-		<div className="ContainerTaksComponent" /* style={{ background: 'red' }} */>
+		<div className={css.ContainerTaksComponent} /* style={{ background: 'red' }} */>
 			<InputTask
 				style={{ maxWidth: '100%' }}
 				principalTask={principalTask}
@@ -183,7 +183,7 @@ const Task = (props: TaskProps) => {
 				idCheckbox={idCheckbox}
 			/>
 			<div
-				className="IconsTaskContainer "
+				className={css.IconsTaskContainer}
 				style={{
 					padding: showTask() ? '0 0 0 2rem' : '0',
 				}}
@@ -235,7 +235,7 @@ const Task = (props: TaskProps) => {
 				</>
 			)}
 			{Children && (
-				<div className="ChildrenContainerTaskModules">
+				<div className={css.ChildrenContainerTaskModules}>
 					<Children />
 				</div>
 			)}

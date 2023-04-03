@@ -83,7 +83,7 @@ const Information = (props: InformationProps) => {
 			onMouseEnter={onHoverMouse}
 			onMouseLeave={onLeaveMouse}
 			onClick={() => setIsHover(true)}
-			className={`ContainerInfoComponent ${className}`}
+			className={`${css.ContainerInfoComponent} ${className}`}
 			style={{
 				background: color,
 				width: `${!width ? height : width}rem`,
@@ -93,7 +93,7 @@ const Information = (props: InformationProps) => {
 			}}
 		>
 			<span
-				className="ContainerIconInfoComponent"
+				className={css.ContainerIconInfoComponent}
 				style={{
 					fontSize: `${width > height ? height - 0.8 : width - 0.8}rem`,
 				}}
@@ -103,8 +103,8 @@ const Information = (props: InformationProps) => {
 
 			{/* Se valida si hay un Hover en el componente y sólo si existe el hover se renderea el bloque de código, de lo contrario no */}
 			{isHover && (
-				<span className="PopUpInfoComponent" style={positionStyles}>
-					<span className="ContentInfoComponent">{info}</span>
+				<span className={css.PopUpInfoComponent} style={positionStyles}>
+					<span className={css.ContentInfoComponent}>{info}</span>
 				</span>
 			)}
 			{/* Finalización del código con validación */}

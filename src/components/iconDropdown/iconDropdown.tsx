@@ -35,7 +35,7 @@ const Menus = ({ menus }: any) => {
 		//Si no existe la propiedad de submenu dentro de menu sólo regresará un item del Dropdown con sus propiedades para definir
 		if (!menu.submenus) {
 			return (
-				<DropdownMenu.Item className="MenusTitles" onClick={menu.onClick} id={menu.id}>
+				<DropdownMenu.Item className={css.MenusTitles} onClick={menu.onClick} id={menu.id}>
 					{menu.title}
 				</DropdownMenu.Item>
 			);
@@ -45,17 +45,17 @@ const Menus = ({ menus }: any) => {
 		if (menu.submenus) {
 			return (
 				<DropdownMenu.Sub>
-					<DropdownMenu.SubTrigger className="MenusTitles">
+					<DropdownMenu.SubTrigger className={css.MenusTitles}>
 						{menu.title}
 					</DropdownMenu.SubTrigger>
 					<DropdownMenu.Portal>
 						<DropdownMenu.SubContent
-							className={`SubmenuContainer ${menu.className}`}
+							className={`${css.SubmenuContainer} ${menu.className}`}
 							style={{ cursor: 'pointer' }}
 						>
 							{menu.submenus.map((submenu) => (
 								<DropdownMenu.Item
-									className="MenusTitles"
+									className={css.MenusTitles}
 									onClick={(e) => {
 										if (submenu.onClick) {
 											submenu.onClick(e);
@@ -122,7 +122,7 @@ const IconDropdown = (props: IconDropdownProps) => {
 			<DropdownMenu.Portal>
 				<DropdownMenu.Content
 					onClick={onClick}
-					className={`SubmenuContainer ${className}`}
+					className={`${css.SubmenuContainer} ${className}`}
 					style={{ cursor: 'pointer', ...style }}
 				>
 					<Menus menus={options} />

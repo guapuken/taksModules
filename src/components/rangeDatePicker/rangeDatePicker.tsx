@@ -75,7 +75,7 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 					type="date"
 					id="start-date"
 					name="start-date"
-					className="DatePickerTaskComponent"
+					className={css.DatePickerTaskComponent}
 					value={startDate.toString()}
 					disabled={disabledStartDate}
 					onChange={(e) => {
@@ -103,7 +103,7 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 					value={endDate.toString()}
 					disabled={disabledEndDate}
 					min={startDate.toString()}
-					className="DatePickerTaskComponent CalendarOpenTaskModules"
+					className={`${css.DatePickerTaskComponent} ${css.CalendarOpenTaskModules}`}
 					onChange={(e) => {
 						setEndDate(e.target.value);
 						onChangeEndDate;

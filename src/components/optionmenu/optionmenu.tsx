@@ -27,7 +27,7 @@ const Optionmenu = (props: OptionmenuProps) => {
 		return props.menus?.map((e: any) => {
 			let conCategoria = e.conCategoria?.map((categoria: any) => {
 				return (
-					<div className="menusContainerMenuComponent">
+					<div className={css.menusContainerMenuComponent}>
 						<h2>{categoria.title}</h2>
 						<ul>
 							{categoria.menus?.map((menu: any) => {
@@ -48,7 +48,7 @@ const Optionmenu = (props: OptionmenuProps) => {
 		return props.menus?.map((e: any) => {
 			let sinCategoria = e.sinCategoria?.map((sinCategoria: any) => {
 				return (
-					<div className="menusContainerMenuComponent">
+					<div className={css.menusContainerMenuComponent}>
 						<h2 style={{ cursor: 'pointer' }} onClick={sinCategoria.onClick}>
 							{sinCategoria.title}
 						</h2>
@@ -63,21 +63,21 @@ const Optionmenu = (props: OptionmenuProps) => {
 		const [isOpen, setIsOpen] = useState(false);
 		return (
 			<>
-				<div className={`ContainerMenuComponent${isOpen ? 'Open' : ''}`}>
-					<nav className="navOpenCloseMenuComponent">
+				<div className={`${css.ContainerMenuComponent} ${isOpen ? 'Open' : ''}`}>
+					<nav className={css.navOpenCloseMenuComponent}>
 						<a
 							onClick={() => setIsOpen(!isOpen)}
-							className="buttonOpenCloseMenuComponent"
+							className={css.buttonOpenCloseMenuComponent}
 						>
 							<div
 								className={`${
-									isOpen ? 'openMenuComponent' : ''
+									isOpen ? css.openMenuComponent : ''
 								} iconOpenCloseMenuComponent`}
 							></div>
 						</a>
 					</nav>
 					<div
-						className="contenedorMenusMenuComponent"
+						className={css.contenedorMenusMenuComponent}
 						style={{ display: isOpen ? 'block' : 'none' }}
 					>
 						{menusCC(menus)}

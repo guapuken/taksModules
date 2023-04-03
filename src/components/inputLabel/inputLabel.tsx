@@ -48,7 +48,7 @@ const InputLabel = (props: InputLabelProps) => {
 			/>
 
 			<label
-				className={isActive || value ? 'ActiveInputLabel' : ''}
+				className={isActive || value ? css.ActiveInputLabelIsActive : ''}
 				style={{ display: 'flex', alignItems: 'center' }}
 			>
 				{legend}

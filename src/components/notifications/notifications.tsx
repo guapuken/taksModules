@@ -14,16 +14,16 @@ const Notifications = (props: NotificationsProps) => {
 
 	return (
 		<>
-			<div className="SwitchNotification">
+			<div className={css.SwitchNotification}>
 				<input
 					id={idNotification}
 					type="checkbox"
-					className="SwitchNotificationInput"
+					className={css.SwitchNotificationInput}
 					checked={check}
 					onClick={() => setCheck(!check)}
 					onChange={onChange}
 				/>
-				<label htmlFor={idNotification} className="SwitchNotificationLabel">
+				<label htmlFor={idNotification} className={css.SwitchNotificationLabel}>
 					{
 						<svg
 							id="Capa_1"
