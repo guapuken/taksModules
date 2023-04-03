@@ -21,12 +21,14 @@ import { TaskItem } from './taskItem/taskItem';
 import BoardSection from './boardSection/boardSection';
 //importación de funciones a usar----------------------------------------------------------------------------------------------------
 //Importación de elementos multimedia a usar------------------------------------------------------------------------------------------
-import { useWindowSize } from '../../utils/widthSize';
+import { useWindowSize } from '../../utils/windowSize';
 import { BoardSections, Task } from './types';
 //importaciones de estilos globales y de componente
 import '../../global.scss';
 import css from './dragAndDrop.module.scss';
 import { Modo } from '../../types';
+import Container from '../containerComp/container';
+import AsideTemplates from '../asideTemplates/asideTemplates';
 
 //obtenien la tarea por su estatus--------------------------------------------------------------------------------------------------------
 const getTasksByStatus = (tasks: Task[], status: string) => {
@@ -185,52 +187,63 @@ const DragAndDrop = (props: DragAndDropProps) => {
 		duration: 300,
 	};
 
+	const Footer = () => (
+		<div>
+			<h1>Hola</h1>
+		</div>
+	);
 	//se encarga de ver qué tarea es la que se encuentra activa
 	const task = activeTaskId ? getTaskById(tasks, activeTaskId) : null;
 	return (
-		<DndContext
-			sensors={sensors}
-			collisionDetection={closestCorners}
-			onDragStart={handleDragStart}
-			onDragOver={handleDragOver}
-			onDragEnd={handleDragEnd}
-		>
-			<div
-				className={
-					scrSize.width <= 415 ? css.ctnSml : scrSize.width <= 834 ? css.ctnTbl : css.ctn
-				}
+		<Container onClick={{}} AsideContent={<AsideTemplates />} FooterContent={<Footer />}>
+			<DndContext
+				sensors={sensors}
+				collisionDetection={closestCorners}
+				onDragStart={handleDragStart}
+				onDragOver={handleDragOver}
+				onDragEnd={handleDragEnd}
 			>
-				{Object.keys(boardSections).map((boardSectionKey) => {
-					//genera los elementos droppables
-					return (
-						<div
-							className={
-								scrSize.width <= 415
-									? css.boardCtnSml
-									: scrSize.width <= 834
-									? css.boardCtnTbl
-									: css.boardCtn
-							}
-							key={boardSectionKey}
-						>
-							<BoardSection
-								Card={Card}
-								data={data}
-								scrSize={scrSize}
-								width={width}
-								id={boardSectionKey}
-								title={boardSectionKey}
-								tasks={boardSections[boardSectionKey]}
-								modo={modo}
-							/>
-						</div>
-					);
-				})}
-				<DragOverlay dropAnimation={dropAnimation}>
-					{task ? <TaskItem data={data} Card={Card} scrSize={scrSize} /> : null}
-				</DragOverlay>
-			</div>
-		</DndContext>
+				<div
+					className={
+						scrSize.width <= 415
+							? css.ctnSml
+							: scrSize.width <= 834
+							? css.ctnTbl
+							: css.ctn
+					}
+				>
+					{Object.keys(boardSections).map((boardSectionKey) => {
+						//genera los elementos droppables
+						return (
+							<div
+								className={
+									scrSize.width <= 415
+										? css.boardCtnSml
+										: scrSize.width <= 834
+										? css.boardCtnTbl
+										: css.boardCtn
+								}
+								key={boardSectionKey}
+							>
+								<BoardSection
+									Card={Card}
+									data={data}
+									scrSize={scrSize}
+									width={width}
+									id={boardSectionKey}
+									title={boardSectionKey}
+									tasks={boardSections[boardSectionKey]}
+									modo={modo}
+								/>
+							</div>
+						);
+					})}
+					<DragOverlay dropAnimation={dropAnimation}>
+						{task ? <TaskItem data={data} Card={Card} scrSize={scrSize} /> : null}
+					</DragOverlay>
+				</div>
+			</DndContext>
+		</Container>
 	);
 };
 export default DragAndDrop;

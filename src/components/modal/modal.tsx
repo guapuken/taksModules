@@ -1,5 +1,5 @@
 import React from 'react';
-import { useWindowSize } from '../../utils/widthSize';
+import { useWindowSize } from '../../utils/windowSize';
 import '../../global.scss';
 import './modal.scss';
 

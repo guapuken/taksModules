@@ -4,11 +4,11 @@ import CardProject, { CardProjectProps } from './cardProject';
 
 const Template: Story<CardProjectProps> = (args) => <CardProject {...args} />;
 
-export const Initial = Template.bind({});
-Initial.args = {};
+export const initialState = Template.bind({});
+initialState.args = {};
 
-export const Basic = Template.bind({});
-Basic.args = {
+export const withProperties = Template.bind({});
+withProperties.args = {
 	projectName: 'ETERNO VERANO- CALYPSO PRODUCCIONES - AUTOBUSES - CDMX 8 MARZ',
 	ejecutivo: 'Juan C. Almada',
 	completedTask: 15,
@@ -17,6 +17,6 @@ Basic.args = {
 };
 
 export default {
-	title: 'CardProject',
+	title: 'Cards/project',
 	component: CardProject,
 } as Meta;

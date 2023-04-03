@@ -21,14 +21,14 @@
 }
 
 //sin contenido-----------------------------------------------------
-.noCtnDarkDark, .noCtnDark{
+.noCtnDark, .noCtn{
     display: grid;
     place-content: center; 
     text-align: center;
     margin-top: -1rem;
     max-width: 70%;
 }
-.noCtnDarkDark{
+.noCtnDark{
     color: #fff;
 }
 //mediaquerie para que el tamaño del texto abarque todo el espacio en celular

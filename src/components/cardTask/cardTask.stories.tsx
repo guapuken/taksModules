@@ -4,11 +4,11 @@ import CardTask, { CardTaskProps } from './cardTask';
 
 const Template: Story<CardTaskProps> = (args) => <CardTask {...args} />;
 
-export const Initial = Template.bind({});
-Initial.args = {};
+export const initialState = Template.bind({});
+initialState.args = {};
 
-export const Basic = Template.bind({});
-Basic.args = {
+export const withProperties = Template.bind({});
+withProperties.args = {
 	status: 'outOfTime',
 	followNotificationsValue: true,
 	onClickShowDetails: () => alert('ver detalles'),
@@ -50,6 +50,6 @@ Basic.args = {
 	percentTask: 10,
 };
 export default {
-	title: 'CardTask',
+	title: 'Cards/task',
 	component: CardTask,
 } as Meta;

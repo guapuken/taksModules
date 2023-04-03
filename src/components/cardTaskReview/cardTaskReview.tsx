@@ -1,7 +1,7 @@
 import React from 'react';
 
 // importación de funciones que se utilizan en el componente
-import { useWindowSize } from '../../utils/widthSize';
+import { useWindowSize } from '../../utils/windowSize';
 // importación de types
 import { Modo, onClickType, statusTask } from '../../types';
 // importación de componente a usar

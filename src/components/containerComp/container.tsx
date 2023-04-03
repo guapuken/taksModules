@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 // importación de estilos
 import '../../global.scss';
@@ -35,6 +35,10 @@ interface Containerprops {
 	header?: header;
 	footer?: boolean;
 	onClick: onClicks;
+	style?: CSSProperties;
+	headerStyle?: CSSProperties;
+	contentStyle?: CSSProperties;
+	footerStyle?: CSSProperties;
 }
 
 const Menu = (props: menuActions) => {
@@ -114,16 +118,26 @@ const Menu = (props: menuActions) => {
 };
 
 const Container = (props: Containerprops) => {
-	const { children, AsideContent, header, FooterContent, onClick } = props;
+	const {
+		children,
+		AsideContent,
+		header,
+		FooterContent,
+		onClick,
+		style,
+		headerStyle,
+		contentStyle,
+		footerStyle,
+	} = props;
 	return (
-		<div className={css.ctn}>
+		<div className={css.ctn} style={style}>
 			<div className={css.menu}>
 				<Menu onClick={onClick} />
 			</div>
 			{AsideContent && <div className={css.asideCtn}>{AsideContent}</div>}
 			<div className={AsideContent ? css.ctnChildren_FtrAsd : css.ctnChildren_Ftr}>
 				{header && (
-					<div className={css.header}>
+					<div className={css.header} style={headerStyle}>
 						<h2 style={{ marginRight: '1rem' }}>{header.moduleName}</h2>
 						<Button
 							legend={header.legendBtnModule}
@@ -136,11 +150,15 @@ const Container = (props: Containerprops) => {
 					className={
 						!FooterContent || FooterContent === null ? css.children : css.childrenFtr
 					}
+					style={contentStyle}
 				>
 					{children}
 				</div>
-				{FooterContent ||
-					(FooterContent !== null && <div className={css.footer}>{FooterContent}</div>)}
+				{FooterContent && (
+					<div style={footerStyle} className={css.footer}>
+						{FooterContent}
+					</div>
+				)}
 			</div>
 		</div>
 	);

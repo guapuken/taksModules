@@ -19,11 +19,9 @@ export interface OptionMenuProps {
 	menus?: menusTypes;
 }
 
-const OptionMenu = (props: OptionMenuProps) => {
-	const { menus } = props;
-
-	function menusSC(props: any) {
-		return props.menus.conCategoria?.map((categoria: conCategoriaTypes) => (
+function menusSC(props: any) {
+	return props.menus ? (
+		props.menus.conCategoria?.map((categoria: conCategoriaTypes) => (
 			<div className="menusContainerMenuComponent">
 				<div
 					style={{
@@ -65,10 +63,14 @@ const OptionMenu = (props: OptionMenuProps) => {
 					})}
 				</ul>
 			</div>
-		));
-	}
-	function menusCC(props: any) {
-		return props.menus.sinCategoria?.map((sinCategoria: menusOptionsTypes) => (
+		))
+	) : (
+		<></>
+	);
+}
+function menusCC(props: any) {
+	return props.menus ? (
+		props.menus.sinCategoria?.map((sinCategoria: menusOptionsTypes) => (
 			<div className="menusContainerMenuComponent">
 				<ul>
 					<li>
@@ -78,8 +80,14 @@ const OptionMenu = (props: OptionMenuProps) => {
 					</li>
 				</ul>
 			</div>
-		));
-	}
+		))
+	) : (
+		<></>
+	);
+}
+
+const OptionMenu = (props: OptionMenuProps) => {
+	const { menus } = props;
 
 	const MenuConCategoria = (menus: any) => {
 		const [isOpen, setIsOpen] = useState(false);
@@ -99,8 +107,6 @@ const OptionMenu = (props: OptionMenuProps) => {
 						</a>
 					</nav>
 					<div
-						// className="contenedorMenusMenuComponent"
-						// style={{ display: isOpen ? 'block' : 'none' }}
 						style={{
 							display: 'grid',
 							placeItems: 'center',

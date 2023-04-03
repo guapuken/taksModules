@@ -1,63 +1,43 @@
-import { Meta, Story } from '@storybook/react';
 import React from 'react';
-
-import Buttons from '../buttons';
-import IconDropdown from '../iconDropdown';
-import Task from '../task';
+//importación de elementos de storybook a utilizar
+import { Meta, Story } from '@storybook/react';
+//importación de componente principal
 import Modal, { ModalProps } from './modal';
+//importación de componentes auxiliares
+import { Buttons, Task } from '../../components';
 
 const Template: Story<ModalProps> = (args) => <Modal {...args} />;
-export const Initial = Template.bind({});
-Initial.args = {};
 
-export const Tareas = Template.bind({});
-const checks = {
-	principal: {
-		check: true,
-	},
-	firstChild: {
-		check: false,
-	},
-};
-Tareas.args = {
+//estado inicial del componente
+export const InitialState = Template.bind({});
+InitialState.args = {};
+
+// estado del componente con propiedades
+export const WithProperties = Template.bind({});
+WithProperties.args = {
 	Content: () => (
 		<div>
 			<Task
-				//Input Task
 				idCheckbox="12"
 				principalTask={true}
-				// taskDisabled={true}
 				taskComplete={false}
-				// check={checks.principal.check}
 				isSubtask
-				// onClickCheck={(e) => (E)}
-				// onChangeNameTask= () => alert('change Task')
-				// onChangeDescriptionTask= () => alert('change description task')
 				valueTask="Bloqueos sitios IMJ-CDMX-ESP-O-576"
 				valueDescription="Bloquear con los porveedores los sitios de la campaña de uber"
-				//Icon Dates
 				onChangeDias={() => alert('change días')}
 				plantillas={true}
-				//Icon Asign
 				responsables={[{ title: 'Olaf' }]}
 				equipos={[{ title: 'TI' }]}
 				revision={[{ title: 'Jorge' }]}
 				valueResponsable={'Olaf Ruvalcaba'}
 				valueRevision={'Jorge Correa'}
-				//Icon Priority
 				onClickPrioridad={() => alert('change priority')}
-				// prioridadInicial= 'baja'
-
-				//Icon MoreOptions
 				onClickEliminar={() => alert('eliminando')}
 				onClickRecordatorio={() => alert('Creando recordatorio')}
-				// moreOptions=
-				// subtaskForbbiden= true
 				onClickAddTask={() => alert('agregando Tarea')}
 				Children={() => (
 					<>
 						<Task
-							// isSubtask
 							plantillas
 							idCheckbox="13"
 							Children={() => (
@@ -103,7 +83,7 @@ Tareas.args = {
 			/>
 		</div>
 	),
-	header: 'Creación de tareas',
+	header: 'Tareas',
 	Footer: () => (
 		<Buttons
 			buttons={{ primary: true, secondary: true }}
@@ -117,7 +97,21 @@ Tareas.args = {
 	),
 };
 
+// exportación de valores default
 export default {
-	title: 'Modal',
+	//nombre de la carpeta en la que agrupará eel componente y su nombre
+	title: 'Modales/modal',
+	// definición de argumentos
 	component: Modal,
+	argTypes: {
+		title: {
+			type: 'string',
+		},
+		Footer: {
+			type: 'function',
+		},
+		Content: {
+			type: 'function',
+		},
+	},
 } as Meta;

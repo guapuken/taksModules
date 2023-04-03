@@ -6,8 +6,8 @@ import ModalPlantillas, { ModalTemplatesProps } from './modalPlantillas';
 
 const Template: Story<ModalTemplatesProps> = (args) => <ModalTemplates {...args} />;
 
-export const Initial = Template.bind({});
-Initial.args = {};
+export const InitialState = Template.bind({});
+InitialState.args = {};
 
 const equipos = [
 	{
@@ -37,7 +37,6 @@ const ChildrenTask1 = () => (
 	<Task
 		idCheckbox={'189045'}
 		equipos={equipos}
-		// Children={Children}
 		onChangeDescriptionTask={() => alert('Cambio la descripción')}
 		onChangeNameTask={() => alert('Cambio la descripción')}
 		onClickAddTask={() => alert('Cambio la descripción')}
@@ -45,11 +44,9 @@ const ChildrenTask1 = () => (
 		revision={revision}
 		valueRevision={'Kaori Soto'}
 		responsables={responsables}
-		// taskDisabled={taskDisabled}
-		valueTask={''}
-		valueDescription={''}
+		valueTask={'Realizar los tipos de exhibición integral'}
+		valueDescription={'Solamente realizar integrales'}
 		valueResponsable={'Denisse Hernández'}
-		// subtaskForbbiden={subtaskForbbiden}
 		isSubtask
 		templateOptions={templateOptions}
 		moreOptions={[
@@ -63,8 +60,9 @@ const ChildrenTask1 = () => (
 		durationValue={'3'}
 	/>
 );
-export const Basic = Template.bind({});
-Basic.args = {
+export const WithProperties = Template.bind({});
+WithProperties.args = {
+	templateNameValue: 'Dummies plazas principales',
 	Children: [
 		{
 			idTask: '1024',
@@ -78,8 +76,8 @@ Basic.args = {
 			valueRevision: 'Jorge Correa',
 			responsables: responsables,
 			taskDisabled: false,
-			valueTask: '',
-			valueDescription: '',
+			valueTask: 'Dummies CDMX',
+			valueDescription: 'Hacer dummies de CDMX de la campaña de Uber',
 			valueResponsable: 'Victor Galván',
 			subtaskForbbiden: false,
 			templateOptions: templateOptions,
@@ -99,8 +97,8 @@ Basic.args = {
 			valueRevision: 'Jorge Correa',
 			responsables: responsables,
 			taskDisabled: false,
-			valueTask: '',
-			valueDescription: '',
+			valueTask: 'Dummies Monterrey',
+			valueDescription: 'Hacer dummies de Monterrey de la campaña de Uber',
 			valueResponsable: 'Victor Galván',
 			subtaskForbbiden: false,
 			templateOptions: templateOptions,
@@ -112,6 +110,6 @@ Basic.args = {
 };
 
 export default {
-	title: 'ModalPlantillas',
+	title: 'Modales/templates',
 	component: ModalPlantillas,
 } as Meta;

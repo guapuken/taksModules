@@ -104,7 +104,8 @@ const ModalTeams = (props: ModalTeamsProps) => {
 
 	//COMPONENTE QUE REGRESA TODO EL CONTENIDO DEL MODAL
 	const Content = () => {
-		const [asignColor, setAsignColor] = useState('');
+		const [asignColor, setAsignColor] = useState(teamColor || '');
+		console.log(asignColor);
 		return (
 			<div className="GeneralContainerTeamsComponent">
 				<div className="InputsContainerTeamsComponent">
@@ -125,6 +126,7 @@ const ModalTeams = (props: ModalTeamsProps) => {
 							className="LabelColorTeamComponent"
 							id={asignColor}
 							type="color"
+							value={asignColor}
 							onChange={(e) => {
 								setAsignColor(e.target.value);
 								onChangeTeamColor;

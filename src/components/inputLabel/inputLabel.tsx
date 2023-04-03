@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { CSSProperties, useState } from 'react';
 import '../../global.scss';
 import './inputLabel.scss';
 
 export interface InputLabelProps {
-	type?: 'text' | 'number' | 'email' | 'date';
+	type?: 'text' | 'number' | 'email' | 'password';
 	onChange: (e: React.FormEvent<HTMLInputElement>) => void;
 	legend?: string;
 	initialValue?: string;
 	min?: number;
 	max?: number;
-	style?: {};
+	style?: CSSProperties;
 }
 const InputLabel = (props: InputLabelProps) => {
 	const {

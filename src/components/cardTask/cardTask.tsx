@@ -8,7 +8,7 @@ import {
 	sizeCard,
 	Spans,
 } from '../../utils/cardsUtils';
-import { useWindowSize } from '../../utils/widthSize';
+import { useWindowSize } from '../../utils/windowSize';
 import Cards from '../cards';
 import Notifications from '../notifications';
 import ProgressBar from '../progressBar';
@@ -17,6 +17,7 @@ import editIcon from '../../img/editar.svg';
 import calendarIcon from '../../img/calendario.svg';
 import '../../global.scss';
 import { Modo, onChangeType, onClickType, statusTask } from '../../types';
+import { cardW } from '../../utils/functions/functions';
 
 // import './cardProject.scss';
 interface submenus {
@@ -127,22 +128,32 @@ const CardTask = (props: CardTaskProps) => {
 				</SimpleButtonText>
 
 				{/* A button that shows the number of subtasks. */}
-				<SimpleButtonText style={{ position: 'absolute', bottom: '0', fontSize: '1.3rem' }}>
-					<Spans boldLegend={subtasks} legend="más" />
-				</SimpleButtonText>
+
 				<div className="ContainerProgressBarAndShowDetails">
 					<ProgressBar
 						status={statusTask}
 						valor={percentTask}
-						width={scrSize.width / 2 / 10 - 3}
+						width={cardW(true) - 3}
 						onClick={onClickShowDetails}
 						styleContent={{ cursor: 'pointer' }}
 					/>
-					<SimpleButtonText
-						legend="mostrar detalles..."
-						onClick={onClickShowDetails}
-						style={{ fontSize: '1.4rem' }}
-					/>
+					<div
+						style={{
+							display: 'flex',
+							justifyContent: 'space-between',
+							width: '100%',
+							alignItems: 'center',
+						}}
+					>
+						<SimpleButtonText style={{ position: 'relative', fontSize: '1.3rem' }}>
+							<Spans boldLegend={subtasks} legend="más" />
+						</SimpleButtonText>
+						<SimpleButtonText
+							legend="mostrar detalles..."
+							onClick={onClickShowDetails}
+							style={{ fontSize: '1.4rem' }}
+						/>
+					</div>
 				</div>
 			</CardContainer>
 		);
@@ -189,7 +200,7 @@ const CardTask = (props: CardTaskProps) => {
 	//Definición de los argumentos
 	const properties = {
 		rounded: true,
-		width: scrSize.width / 10 / 2 - 2,
+		width: cardW(true),
 		// height:  sizeCard() * 10 < 400 ?  19  : 15.5 ,
 		height: heightCard,
 		Content: ContentCard,

@@ -1,17 +1,14 @@
 .ContainerProgressBarAndShowDetails{
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: flex-start;
     position: absolute;
     bottom: 0;
     width: 100%;
 }
 .ContainerTitleAndiconsCardProject{
     display: flex;
-    // display: grid; 
-    // grid-template-columns: 75% auto;
     justify-content: flex-end;
-
 }
 .ContainerTitleAndiconsCardProjectSmall{
     display:flex;

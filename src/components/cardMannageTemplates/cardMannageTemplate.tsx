@@ -25,11 +25,7 @@ const CardTemplate = (props: cardTemplate) => {
 		rounded: true,
 		width: cardW(true),
 	};
-	return (
-		<div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-			<Cards {...properties} />
-		</div>
-	);
+	return <Cards {...properties} />;
 };
 
 export default CardTemplate;

@@ -5,12 +5,12 @@ import CardTaskReview, { CardTaskReviewProps } from './cardTaskReview';
 const Template: Story<CardTaskReviewProps> = (args) => <CardTaskReview {...args} />;
 
 //estado inicial del componente
-export const Initial = Template.bind({});
-Initial.args = {};
+export const intialState = Template.bind({});
+intialState.args = {};
 
 //Ejemplo ya con Datos
-export const Basic = Template.bind({});
-Basic.args = {
+export const withProperties = Template.bind({});
+withProperties.args = {
 	taskName: 'Hace dummies de las principales plazas',
 	taskDescription: 'Realizar dummies de CDMX, Monterrey y Guadalajara',
 	statusTask: 'outOfTime',
@@ -18,6 +18,6 @@ Basic.args = {
 	// modo: 'Dark',
 };
 export default {
-	title: 'CardTaskReview',
+	title: 'Cards/task review',
 	component: CardTaskReview,
 } as Meta;

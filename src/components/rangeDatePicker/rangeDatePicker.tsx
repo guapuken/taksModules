@@ -59,7 +59,7 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 		} else return `${months[monthNumber - 1]}, ${month.slice(-2)}`;
 	}
 
-	console.log(new Date());
+	console.log(startDate);
 	return (
 		<div
 			id="dates"

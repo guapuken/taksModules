@@ -4,10 +4,10 @@ import IconDropdown from '../iconDropdown';
 import Cards, { CardsProps } from './cards';
 
 const Template: Story<CardsProps> = (args) => <Cards {...args} />;
-export const Initial = Template.bind({});
-Initial.args = {};
-export const Team = Template.bind({});
-Team.args = {
+export const initialState = Template.bind({});
+initialState.args = {};
+export const withProperties = Template.bind({});
+withProperties.args = {
 	rounded: true,
 	Content: () => {
 		return (
@@ -65,7 +65,7 @@ Team.args = {
 };
 
 export default {
-	title: 'Cards',
+	title: 'Cards/generica',
 	component: Cards,
 	argTypes: {
 		height: {

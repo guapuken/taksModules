@@ -4,7 +4,7 @@ import DragAndDrop, { DragAndDropProps } from './dragAndDrop';
 import Task from '../task/task';
 import CardTask from '../cardTask';
 import Cards from '../cards';
-import { useWindowSize } from '../../utils/widthSize';
+import { useWindowSize } from '../../utils/windowSize';
 
 const Template: Story<DragAndDropProps> = (args) => <DragAndDrop {...args} />;
 

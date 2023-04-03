@@ -1,20 +1,19 @@
 import React from 'react';
+import Cards from '../cards';
+import { cardH, cardW } from '../../utils/functions/functions';
 import { Aside } from './files/aside';
 import { Content } from './files/content';
-import { cardH, cardW } from '../../utils/functions/functions';
-import Cards from '../cards';
-import { Modo, onClickType, statusTask } from '../../types';
+import { onClickType, statusTask } from '../../types';
 
-export interface cardMannageProjects {
+export type cardMannageTasks = {
 	onClickDelete?: onClickType;
 	onClickPreview?: onClickType;
-	modo?: Modo;
 	title?: string;
-	statusTask?: statusTask;
 	tasks?: number;
 	percentTask?: number;
-}
-const CardMannageProjects = (props: cardMannageProjects) => {
+	statusTask?: statusTask;
+};
+const CardMannageTask = (props: cardMannageTasks) => {
 	const heightCard = cardH();
 
 	const properties = {
@@ -26,4 +25,5 @@ const CardMannageProjects = (props: cardMannageProjects) => {
 	};
 	return <Cards {...properties} />;
 };
-export default CardMannageProjects;
+
+export default CardMannageTask;

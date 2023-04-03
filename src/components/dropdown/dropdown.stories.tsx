@@ -4,7 +4,11 @@ import Dropdown, { DropdownProps } from './dropdown';
 
 const Template: Story<DropdownProps> = (args) => <Dropdown {...args} />;
 
-export const Initial = Template.bind({});
+// estado inicial del componente
+export const InitialState = Template.bind({});
+InitialState.args = {};
+
+// componente con propiedades
 const options = [
 	{
 		value: 'Jorge Correa',
@@ -19,7 +23,8 @@ const options = [
 		label: 'Adan',
 	},
 ];
-Initial.args = {
+export const withProperties = Template.bind({});
+withProperties.args = {
 	isSearchable: true,
 	isMulti: true,
 	placeHolder: 'Selecciona el encargado',
@@ -27,7 +32,44 @@ Initial.args = {
 	onChange: (value) => console.log(value),
 };
 
+// exportación default de valores
 export default {
-	title: 'Dropdown',
+	title: 'Átomos/dropdown',
 	component: Dropdown,
+	argTypes: {
+		placeHolder: { type: 'string' },
+		options: {
+			control: [
+				{
+					value: {
+						type: 'string',
+					},
+					label: {
+						type: 'string',
+					},
+				},
+			],
+		},
+		isMulti: { type: 'boolean' },
+		isSearchable: { type: 'boolean' },
+		onChange: { type: 'function' },
+		initialValue: {
+			value: {
+				type: 'string',
+			},
+			label: {
+				type: 'string',
+			},
+		},
+		values: [
+			{
+				value: {
+					type: 'string',
+				},
+				label: {
+					type: 'string',
+				},
+			},
+		],
+	},
 } as Meta;
