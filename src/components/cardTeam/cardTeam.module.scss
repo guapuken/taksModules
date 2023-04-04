@@ -1,11 +1,11 @@
 .ContainerCardTeamComponent{
-    .container-text{
+    .containerText{
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
         margin-left: 1rem;
     }
-    .team-name{
+    .teamName{
         h3{
             margin-block: 0; 
             font-size: 1.6rem;  
@@ -15,7 +15,7 @@
             font-size: 1.4rem;   
             cursor: pointer;
         }
-        .member-team{
+        .memberTeam{
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
@@ -51,13 +51,9 @@
         }
     }
 }
-.ContainerAsideCardTeamComponent{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    height:100%;
-}
-.EtiquetaColorCardTeamComponent{
+
+
+.EtiquetaColor{
     height: 10rem;
     width: 1.5rem;
     position: absolute;

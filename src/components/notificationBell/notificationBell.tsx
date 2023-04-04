@@ -3,8 +3,8 @@ import { selectRandomText } from '../../utils/randomTexts';
 import Cards from '../cards';
 // import { useTimeCounter } from './hooks/useCounter';
 import bellIcon from '../../img/bell.svg';
-import '../../global.scss';
-import './notificationBell.scss';
+import '../../styles.scss';
+import css from './notificationBell.module.scss';
 
 export interface NotificationBellProps {
 	Children?: any;
@@ -31,10 +31,10 @@ const NotificationBell = (props: NotificationBellProps) => {
 				rounded
 				Content={() => (
 					<>
-						<p onClick={e.onClick} className="TitleCardsNotificationComponent">
+						<p onClick={e.onClick} className={css.TitleCards}>
 							{e.title}
 						</p>
-						<button className="ShowDetailsNotificationComponentet" onClick={e.onClick}>
+						<button className={css.Details} onClick={e.onClick}>
 							Mostrar detalles...
 						</button>
 					</>
@@ -58,10 +58,10 @@ const NotificationBell = (props: NotificationBellProps) => {
 				<div
 					id="notification"
 					data-count={counter > 0 && counter}
-					className={`notification ${counter > 0 ? 'show-count ' : ''}`}
+					className={`${css.notification} ${counter > 0 ? css.showCount : ''}`}
 				></div>
 				<button
-					className={`ButtonNotificationComponent ${counter > 0 ? 'notify' : ''}`}
+					className={`${css.Btn} ${counter > 0 ? css.notify : ''}`}
 					style={{
 						animation: counter > 0 ? `bell .7s` : '',
 						left: '0',
@@ -75,8 +75,8 @@ const NotificationBell = (props: NotificationBellProps) => {
 				</button>
 			</div>
 			{showNotifications && (
-				<div className="ModalNotificationComponent">
-					<div className="ContainerNotificationsComponent">
+				<div className={css.Modal}>
+					<div className={css.ContainerNoti}>
 						{notification ? (
 							notification
 						) : (

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import editIcon from '../../img/editar.svg';
+import '../../styles.scss';
 import { AsideContainer, ButtonsArray } from '../../utils/asideUtils';
 import { CardContainer, returnSize } from '../../utils/cardsUtils';
 import { Hover } from '../../utils/hover';
 import Cards from '../cards';
-import editIcon from '../../img/editar.svg';
 import '../../global.scss';
-import './cardTeam.scss';
+import css from './cardTeam.module.scss';
 
 export interface CardTeamProps {
 	teamName?: string;
@@ -32,8 +33,8 @@ const CardTeam = (props: CardTeamProps) => {
 		const [mouseEnter, setMouseEnter] = useState(false);
 		return (
 			<CardContainer>
-				<div className="container-text">
-					<div className="team-name">
+				<div className={css.containerText}>
+					<div className={css.teamName}>
 						<h3>{teamName}</h3>
 						<p
 							onMouseEnter={Hover(setMouseEnter).enter}
@@ -44,7 +45,7 @@ const CardTeam = (props: CardTeamProps) => {
 							}}
 						>{`${members.length} Integrantes...`}</p>
 						{mouseEnter && (
-							<span className="member-team">
+							<span className={css.memberTeam}>
 								{members.map((e) => (
 									<span>{e}</span>
 								))}
@@ -52,10 +53,7 @@ const CardTeam = (props: CardTeamProps) => {
 						)}
 					</div>
 				</div>
-				<div
-					className="EtiquetaColorCardTeamComponent"
-					style={{ background: teamColor }}
-				></div>
+				<div className={css.EtiquetaColor} style={{ background: teamColor }}></div>
 			</CardContainer>
 		);
 	};

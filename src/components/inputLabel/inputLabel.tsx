@@ -1,6 +1,6 @@
 import React, { CSSProperties, useState } from 'react';
 import '../../global.scss';
-import './inputLabel.scss';
+import css from './inputLabel.module.scss';
 
 export interface InputLabelProps {
 	type?: 'text' | 'number' | 'email' | 'password';
@@ -48,7 +48,7 @@ const InputLabel = (props: InputLabelProps) => {
 			/>
 
 			<label
-				className={isActive || value ? 'ActiveInputLabel' : ''}
+				className={isActive || value ? css.ActiveInputLabelIsActive : ''}
 				style={{ display: 'flex', alignItems: 'center' }}
 			>
 				{legend}

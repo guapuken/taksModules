@@ -1,14 +1,15 @@
 import React from 'react';
+import shareIcon from '../../img/share.svg';
+import '../../styles.scss';
 import { ButtonItem, ButtonsArray } from '../../utils/asideUtils';
-import { CardContainer, returnSize, SimpleButtonText, Spans } from '../../utils/cardsUtils';
+import { CardContainer, SimpleButtonText, Spans, returnSize } from '../../utils/cardsUtils';
 import { percent } from '../../utils/percent';
 import { useWindowSize } from '../../utils/windowSize';
 import Cards from '../cards';
 import Notifications from '../notifications';
 import ProgressBar from '../progressBar';
-import shareIcon from '../../img/share.svg';
 import '../../global.scss';
-import './cardProject.scss';
+import css from './cardProject.module.scss';
 import { cardH, cardW } from '../../utils/functions/functions';
 import Container from '../containerComp/container';
 
@@ -43,11 +44,12 @@ const CardProject = (props: CardProjectProps) => {
 	const ContentCard = () => {
 		return (
 			<CardContainer>
-				<div
-					className="ContainerTitleAndiconsCardProject"
-					style={{ justifyContent: 'space-between' }}
-				>
-					<h4 className="TextOverflow" style={{ WebkitLineClamp: 2 }} title={projectName}>
+				<div className={css.ContainerTitle} style={{ justifyContent: 'space-between' }}>
+					<h4
+						className={css.TextOverflow}
+						style={{ WebkitLineClamp: 2 }}
+						title={projectName}
+					>
 						{projectName}
 					</h4>
 					<ButtonsArray size={heightCard}>
@@ -62,7 +64,7 @@ const CardProject = (props: CardProjectProps) => {
 					<Spans boldLegend="Ejecutivo: " legend={ejecutivo} positionBold="start" />
 				</SimpleButtonText>
 
-				<div className="ContainerProgressBarAndShowDetails">
+				<div className={css.ContainerProgressBarAndShowDetails}>
 					<ProgressBar
 						status={status}
 						valor={

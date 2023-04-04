@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../../global.scss';
-import './optionmenu.scss';
+import '../../styles.scss';
+import css from './optionmenu.module.scss';
 
 interface menusOptionsTypes {
 	title?: string;
@@ -22,7 +22,7 @@ export interface OptionMenuProps {
 function menusSC(props: any) {
 	return props.menus ? (
 		props.menus.conCategoria?.map((categoria: conCategoriaTypes) => (
-			<div className="menusContainerMenuComponent">
+			<div className={css.menusContainerMenuComponent}>
 				<div
 					style={{
 						display: 'flex',
@@ -71,7 +71,7 @@ function menusSC(props: any) {
 function menusCC(props: any) {
 	return props.menus ? (
 		props.menus.sinCategoria?.map((sinCategoria: menusOptionsTypes) => (
-			<div className="menusContainerMenuComponent">
+			<div className={css.menusContainerMenuComponent}>
 				<ul>
 					<li>
 						<a href={sinCategoria.href} onClick={sinCategoria.onClick}>
@@ -93,26 +93,22 @@ const OptionMenu = (props: OptionMenuProps) => {
 		const [isOpen, setIsOpen] = useState(false);
 		return (
 			<>
-				<div className={`ContainerMenuComponent${isOpen ? 'Open' : ''}`}>
-					<nav className="navOpenCloseMenuComponent">
+				<div className={`${css.ContainerMenuComponent} ${isOpen ? 'Open' : ''}`}>
+					<nav className={css.navOpenCloseMenuComponent}>
 						<a
 							onClick={() => setIsOpen(!isOpen)}
-							className="buttonOpenCloseMenuComponent"
+							className={css.buttonOpenCloseMenuComponent}
 						>
 							<div
 								className={`${
-									isOpen ? 'openMenuComponent' : ''
+									isOpen ? css.openMenuComponent : ''
 								} iconOpenCloseMenuComponent`}
 							></div>
 						</a>
 					</nav>
 					<div
-						style={{
-							display: 'grid',
-							placeItems: 'center',
-							height: '100%',
-							width: '100%',
-						}}
+						className={css.contenedorMenusMenuComponent}
+						style={{ display: isOpen ? 'block' : 'none' }}
 					>
 						<div
 							className="contenedorMenusMenuComponent"

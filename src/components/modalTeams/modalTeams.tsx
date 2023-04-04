@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../../styles.scss';
 import { Spans } from '../../utils/cardsUtils';
 import Buttons from '../buttons';
 import Dropdown from '../dropdown';
@@ -6,7 +7,7 @@ import InputLabel from '../inputLabel';
 import Modal from '../modal';
 import { AddTask } from '../task/complements/addTask';
 import '../../global.scss';
-import './modalTeams.scss';
+import css from './modalTeams.module.scss';
 
 //TYPES
 interface submenus {
@@ -107,8 +108,8 @@ const ModalTeams = (props: ModalTeamsProps) => {
 		const [asignColor, setAsignColor] = useState(teamColor || '');
 		console.log(asignColor);
 		return (
-			<div className="GeneralContainerTeamsComponent">
-				<div className="InputsContainerTeamsComponent">
+			<div className={css.GeneralContainerTeamsComponent}>
+				<div className={css.InputsContainerTeamsComponent}>
 					<InputLabel
 						legend="Nombre del equipo"
 						onChange={onChangeTeamName}
@@ -123,7 +124,7 @@ const ModalTeams = (props: ModalTeamsProps) => {
 							}
 						/>
 						<input
-							className="LabelColorTeamComponent"
+							className={css.LabelColorTeamComponent}
 							id={asignColor}
 							type="color"
 							value={asignColor}
