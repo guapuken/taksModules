@@ -2,6 +2,7 @@ import React from 'react';
 import '../../styles.scss';
 import { AutoResizeInput } from './complements/autoResizeInput';
 import { CheckboxInput } from './complements/checkboxInput';
+import '../../global.scss';
 import css from './inputTask.module.scss';
 
 export interface InputTaskProps {

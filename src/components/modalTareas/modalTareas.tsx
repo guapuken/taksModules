@@ -2,7 +2,7 @@ import React from 'react';
 import Buttons from '../buttons';
 import Modal from '../modal';
 import Task from '../task';
-import '../../styles.scss';
+import '../../global.scss';
 
 //TYPES
 interface submenus {

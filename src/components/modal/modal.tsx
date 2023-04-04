@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../styles.scss';
-import { windowSize } from '../../utils/widthSize';
+import { useWindowSize } from '../../utils/windowSize';
+import '../../global.scss';
 import css from './modal.module.scss';
 
 export interface ModalProps {
@@ -13,6 +13,15 @@ export interface ModalProps {
 	styleFooter?: {};
 	header?: string;
 }
+function heightModalContent({ Footer, header }: ModalProps) {
+	return Footer && header
+		? useWindowSize().height - useWindowSize().height * 0.14 - 40
+		: header && !Footer
+		? useWindowSize().height - 5
+		: Footer && !header
+		? useWindowSize().height - useWindowSize().height * 0.14
+		: useWindowSize().height - 20;
+}
 const Modal = (props: ModalProps) => {
 	const { Content, styleHeader, styleContent, styleFooter, header, Footer } = props;
 	return (
@@ -22,67 +31,74 @@ const Modal = (props: ModalProps) => {
 				left: '50%',
 				top: '0',
 				width:
-					windowSize().width <= 768
-						? `${windowSize().width}px`
-						: `${windowSize().width / 2}px`,
+					useWindowSize().width <= 768
+						? `${useWindowSize().width}px`
+						: `${useWindowSize().width / 2}px`,
 				transform: 'translateX(-50%)',
 				background: '#fff',
 				boxShadow: '.7rem .7rem 2rem #dedede',
-				height: `${windowSize().height}px`,
-				maxHeight: `${windowSize().height}px`,
+				height: `${useWindowSize().height}px`,
+				maxHeight: `${useWindowSize().height}px`,
 				margin: '0 auto',
+				marginTop: !Footer && !header ? '10px' : 0,
 			}}
 		>
 			{header && (
 				<div
 					className={css.TitleModalComponent}
 					style={{
-						height: `${windowSize().height * 0.06}px`,
-						// background: 'red',
+						height: `${useWindowSize().height * 0.06}px`,
 						display: 'flex',
 						alignItems: 'center',
+
 						...styleHeader,
 					}}
 				>
-					<h3 style={{ marginBlock: '0', marginLeft: '2rem' }}>{header}</h3>
+					<h3 style={{ marginBlock: '0', fontWeight: 'lighter', marginLeft: '2rem' }}>
+						{header}
+					</h3>
 				</div>
 			)}
-			{!Content ? (
+			{!Content || Content === null || Content === undefined ? (
 				<div
 					className={css.NoModalContent}
 					style={{
-						height: `${windowSize().height * 0.8}px`,
-						maxWidth: '90%',
+						height: heightModalContent({ Footer, header }),
+						width: '90%',
 						margin: '0 auto',
-						position: 'absolute',
+						position: 'fixed',
+						// background: 'blue',
 						left: '50%',
-						top: '50%',
-						transform: 'translate(-50%,-10%)',
+						top: '0',
+						transform: 'translateX(-50%)',
 						...styleContent,
 					}}
 				>
-					<div>
-						<h2>Without content 😥</h2>
-						<p>Add property Content and see it </p>
+					<div style={{ display: 'grid', placeItems: 'center', height: '100%' }}>
+						<div>
+							<h2>Without content 😥</h2>
+							<p>Add property Content and see it </p>
+						</div>
 					</div>
 				</div>
 			) : (
 				<div
-					className={
-						header && Footer
-							? css.ModalWithHeaderAndFooter
-							: header && !Footer
-							? css.ModalWithHeader
-							: !header && Footer
-							? css.ModalWithFooter
-							: css.ModalContent
-					}
+					// className={
+					// 	header && Footer
+					// 		? css.ModalWithHeaderAndFooter
+					// 		: header && !Footer
+					// 		? css.ModalWithHeader
+					// 		: !header && Footer
+					// 		? css.ModalWithFooter
+					// 		: css.ModalContent
+					// }
 					style={{
-						height: `${windowSize().height * 0.8}px`,
+						height: heightModalContent({ header, Footer }),
 						overflow: 'auto',
 						width: '90%',
 						overflowX: 'hidden',
 						margin: '0 auto',
+						// background: 'orange',
 					}}
 				>
 					<Content />
@@ -91,9 +107,10 @@ const Modal = (props: ModalProps) => {
 			{Footer && (
 				<div
 					style={{
-						position: 'relative',
-						height: `${windowSize().height * 0.14}px`,
-						// background: 'orange',
+						position: 'fixed',
+						width: '100%',
+						bottom: '0',
+						height: `${useWindowSize().height * 0.14}px`,
 						display: 'flex',
 						alignItems: 'center',
 						...styleFooter,

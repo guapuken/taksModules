@@ -5,6 +5,7 @@ import css from './optionmenu.module.scss';
 interface menusOptionsTypes {
 	title?: string;
 	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+	href?: string;
 }
 interface conCategoriaTypes {
 	title?: string;
@@ -14,50 +15,79 @@ interface menusTypes {
 	conCategoria?: conCategoriaTypes[];
 	sinCategoria?: menusOptionsTypes[];
 }
-export interface OptionmenuProps {
-	menus?: menusTypes[];
-	width?: string;
-	height?: string;
+export interface OptionMenuProps {
+	menus?: menusTypes;
 }
 
-const Optionmenu = (props: OptionmenuProps) => {
-	const { menus } = props;
-
-	function menusSC(props: any) {
-		return props.menus?.map((e: any) => {
-			let conCategoria = e.conCategoria?.map((categoria: any) => {
-				return (
-					<div className={css.menusContainerMenuComponent}>
-						<h2>{categoria.title}</h2>
-						<ul>
-							{categoria.menus?.map((menu: any) => {
-								return (
-									<li onClick={menu.onClick}>
-										<button>{menu.title}</button>
-									</li>
-								);
-							})}
-						</ul>
-					</div>
-				);
-			});
-			return props.menus ? conCategoria : <></>;
-		});
-	}
-	function menusCC(props: any) {
-		return props.menus?.map((e: any) => {
-			let sinCategoria = e.sinCategoria?.map((sinCategoria: any) => {
-				return (
-					<div className={css.menusContainerMenuComponent}>
-						<h2 style={{ cursor: 'pointer' }} onClick={sinCategoria.onClick}>
+function menusSC(props: any) {
+	return props.menus ? (
+		props.menus.conCategoria?.map((categoria: conCategoriaTypes) => (
+			<div className={css.menusContainerMenuComponent}>
+				<div
+					style={{
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'space-between',
+						width: '35%',
+					}}
+				>
+					<h2
+						style={{
+							fontSize: '1.6rem',
+							color: '#dedede',
+							userSelect: 'none',
+							fontWeight: 'lighter',
+						}}
+					>
+						{categoria.title}
+					</h2>
+					{/* <Button legend="Crear nueva" size="small" primary /> */}
+				</div>
+				<ul>
+					{categoria.menus?.map((menu: any) => {
+						return (
+							<li onClick={menu.onClick}>
+								<a
+									style={{
+										fontSize: '1.6rem',
+										fontWeight: 'normal',
+										userSelect: 'none',
+										marginLeft: '1rem',
+									}}
+									href={menu.href}
+								>
+									{menu.title}
+								</a>
+							</li>
+						);
+					})}
+				</ul>
+			</div>
+		))
+	) : (
+		<></>
+	);
+}
+function menusCC(props: any) {
+	return props.menus ? (
+		props.menus.sinCategoria?.map((sinCategoria: menusOptionsTypes) => (
+			<div className={css.menusContainerMenuComponent}>
+				<ul>
+					<li>
+						<a href={sinCategoria.href} onClick={sinCategoria.onClick}>
 							{sinCategoria.title}
-						</h2>
-					</div>
-				);
-			});
-			return props.menus ? sinCategoria : <></>;
-		});
-	}
+						</a>
+					</li>
+				</ul>
+			</div>
+		))
+	) : (
+		<></>
+	);
+}
+
+const OptionMenu = (props: OptionMenuProps) => {
+	const { menus } = props;
 
 	const MenuConCategoria = (menus: any) => {
 		const [isOpen, setIsOpen] = useState(false);
@@ -80,8 +110,13 @@ const Optionmenu = (props: OptionmenuProps) => {
 						className={css.contenedorMenusMenuComponent}
 						style={{ display: isOpen ? 'block' : 'none' }}
 					>
-						{menusCC(menus)}
-						{menusSC(menus)}
+						<div
+							className="contenedorMenusMenuComponent"
+							style={{ display: isOpen ? 'block' : 'none' }}
+						>
+							{menusCC(menus)}
+							{menusSC(menus)}
+						</div>
 					</div>
 				</div>
 			</>
@@ -90,4 +125,4 @@ const Optionmenu = (props: OptionmenuProps) => {
 	return <MenuConCategoria menus={menus} />;
 };
 
-export default Optionmenu;
+export default OptionMenu;

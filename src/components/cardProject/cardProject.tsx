@@ -4,11 +4,14 @@ import '../../styles.scss';
 import { ButtonItem, ButtonsArray } from '../../utils/asideUtils';
 import { CardContainer, SimpleButtonText, Spans, returnSize } from '../../utils/cardsUtils';
 import { percent } from '../../utils/percent';
-import { windowSize } from '../../utils/widthSize';
+import { useWindowSize } from '../../utils/windowSize';
 import Cards from '../cards';
 import Notifications from '../notifications';
 import ProgressBar from '../progressBar';
+import '../../global.scss';
 import css from './cardProject.module.scss';
+import { cardH, cardW } from '../../utils/functions/functions';
+import Container from '../containerComp/container';
 
 export interface CardProjectProps {
 	progress?: number;
@@ -60,21 +63,7 @@ const CardProject = (props: CardProjectProps) => {
 				<SimpleButtonText style={{ fontSize: '1.4rem' }}>
 					<Spans boldLegend="Ejecutivo: " legend={ejecutivo} positionBold="start" />
 				</SimpleButtonText>
-				<SimpleButtonText style={{ position: 'absolute', bottom: '0', fontSize: '1.3rem' }}>
-					{windowSize().width > 1750 && (
-						<Spans
-							boldLegend={completedTask}
-							legend="tareas terminadas"
-							positionBold="start"
-						/>
-					)}
-					<Spans
-						boldLegend={incompletedTask}
-						legend="tareas pendientes"
-						positionBold="start"
-						styleBold={{ marginLeft: '1rem' }}
-					/>
-				</SimpleButtonText>
+
 				<div className={css.ContainerProgressBarAndShowDetails}>
 					<ProgressBar
 						status={status}
@@ -83,15 +72,39 @@ const CardProject = (props: CardProjectProps) => {
 								? 0
 								: percent(completedTask + incompletedTask, completedTask)
 						}
-						width={returnSize() + 3}
+						width={cardW(false) - 3}
 						onClick={onClickShowDetails}
 						styleContent={{ cursor: 'pointer' }}
 					/>
-					<SimpleButtonText
-						legend="mostrar detalles..."
-						onClick={onClickShowDetails}
-						style={{ fontSize: '1.4rem' }}
-					/>
+					<div
+						style={{
+							display: 'flex',
+							alignItems: 'center',
+							justifyContent: 'space-between',
+							width: '100%',
+						}}
+					>
+						<SimpleButtonText style={{ fontSize: '1.3rem' }}>
+							{useWindowSize().width > 1750 && (
+								<Spans
+									boldLegend={completedTask}
+									legend="tareas terminadas"
+									positionBold="start"
+								/>
+							)}
+							<Spans
+								boldLegend={incompletedTask}
+								legend="tareas pendientes"
+								positionBold="start"
+								styleBold={{ marginLeft: '1rem' }}
+							/>
+						</SimpleButtonText>
+						<SimpleButtonText
+							legend="mostrar detalles..."
+							onClick={onClickShowDetails}
+							style={{ fontSize: '1.4rem' }}
+						/>
+					</div>
 				</div>
 			</CardContainer>
 		);
@@ -100,8 +113,8 @@ const CardProject = (props: CardProjectProps) => {
 	//Definición de los argumentos
 	const properties = {
 		rounded: true,
-		width: returnSize() + 5,
-		height: heightCard,
+		width: cardW(false),
+		height: cardH(),
 		Content: ContentCard,
 	};
 	return <Cards {...properties} />;

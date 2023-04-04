@@ -1,47 +1,50 @@
 //contenedor princiapal --------------------------------------------
-.contenedorDark,
-.contenedorWhite,
-.contenedor{
+.ctnDark,
+.ctnWhite,
+.ctn{
     position: relative;
     margin-block: 0;
     padding-top: 1rem;
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: calc(92vh);
     background: transparent;
-}
-//mediaqueries que cambia el tamaño cuando se encuentra en modo celular
-@media (max-width:400px){
-    .contenedor, 
-    .contenedorDark,
-    .contenedorWhite {
-        height: 20vh;
-        width: 100vw !important;
-    }
+    width: calc(var(--cardWidth)*.95);
 }
 //colores de fondo en caso de no tener la propiedad isWhite
-.contenedor{
+.ctn{
     background: var(--bgDark);
 }
 //colores de fondo en caso de estar activado el modo oscuro
-.contenedorDark{
+.ctnDark{
     background: var(--contrastDark);
 }
 
 //sin contenido-----------------------------------------------------
-.sinContenidoDark, .sinContenido{
+.noCtnDark, .noCtn{
     display: grid;
     place-content: center; 
     text-align: center;
     margin-top: -1rem;
     max-width: 70%;
 }
-.sinContenidoDark{
+.noCtnDark{
     color: #fff;
 }
 //mediaquerie para que el tamaño del texto abarque todo el espacio en celular
-@media (max-width:400px){
-    .sinContenidoDark, .sinContenido{
-        max-width: 100%;
+@media (max-width:415px){
+    .ctnDark,
+    .ctnWhite,
+    .ctn{
+        width: calc(var(--cardSize)*4);
+        height: var(--cardHeight);
+    }
+}
+@media (max-width:834px){
+    .ctnDark,
+    .ctnWhite,
+    .ctn{
+        width: calc(var(--cardWidth)*1.95);
+        height: calc(var(--cardHeight)*4);
     }
 }

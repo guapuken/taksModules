@@ -4,10 +4,10 @@ import CardTeam, { CardTeamProps } from './cardTeam';
 
 const Template: Story<CardTeamProps> = (args) => <CardTeam {...args} />;
 
-export const Initial = Template.bind({});
-Initial.args = {};
-export const Bisic = Template.bind({});
-Bisic.args = {
+export const initialState = Template.bind({});
+initialState.args = {};
+export const withProperties = Template.bind({});
+withProperties.args = {
 	members: [
 		'Jorge Correa',
 		'Ivan Flores',
@@ -23,6 +23,6 @@ Bisic.args = {
 };
 
 export default {
-	title: 'CardTeam',
+	title: 'Cards/team',
 	component: CardTeam,
 } as Meta;

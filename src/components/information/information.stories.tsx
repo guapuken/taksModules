@@ -4,11 +4,12 @@ import Information, { InformationProps } from './information';
 
 const Template: Story<InformationProps> = (args) => <Information {...args} />;
 
-export const Initial = Template.bind({});
-Initial.args = {};
+//estado inicial del component
+export const InitialState = Template.bind({});
+InitialState.args = {};
 
-export const Example = Template.bind({});
-Example.args = {
+export const WithProperties = Template.bind({});
+WithProperties.args = {
 	width: 3,
 	height: 3,
 	info: `Para agregar puntos tienes que seleccionar los campos y presionar el botón:  ctrl + shift`,
@@ -20,17 +21,17 @@ Example.args = {
 };
 
 export default {
-	title: 'Information',
+	title: 'Átomos/information',
 	component: Information,
 	argTypes: {
 		width: {
-			control: 'number',
+			type: 'number',
 		},
 		height: {
-			control: 'number',
+			type: 'number',
 		},
 		info: {
-			control: 'text',
+			type: 'string',
 		},
 		positionInfo: {
 			control: {
@@ -49,7 +50,7 @@ export default {
 			},
 		},
 		color: {
-			control: 'color',
+			control: { type: 'color' },
 		},
 		iconInfo: {
 			control: {
@@ -58,10 +59,12 @@ export default {
 			},
 		},
 		style: {
-			control: 'object',
+			control: {
+				type: 'object',
+			},
 		},
 		className: {
-			control: 'text',
+			type: 'string',
 		},
 	},
 } as Meta;

@@ -1,7 +1,8 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import React from 'react';
-import '../../styles.scss';
+import React, { CSSProperties } from 'react';
+import '../../global.scss';
 import css from './iconDropdown.module.scss';
+import { onClickType } from '../../types';
 
 //definición de los types que se usarán dentro de la interfaz
 interface submenusArray {
@@ -20,13 +21,14 @@ interface optionsType {
 //propiedades definidas en la interfaz
 export interface IconDropdownProps {
 	options?: optionsType[];
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClick?: onClickType;
 	icon?: string | any;
 	className?: string;
 	legend?: string;
 	title?: string;
-	style?: {};
-	iconStyles?: {};
+	style?: CSSProperties;
+	iconStyles?: CSSProperties;
+	svg?: any;
 }
 
 //Componente funcional que permite mapear los menús y submenús, regresando ela estructura que necesita la librería de comportamiento
@@ -100,6 +102,7 @@ const IconDropdown = (props: IconDropdownProps) => {
 		onClick,
 		className,
 		title,
+		svg,
 	} = props;
 	return (
 		<DropdownMenu.Root>
@@ -115,8 +118,9 @@ const IconDropdown = (props: IconDropdownProps) => {
 					title={title}
 				>
 					{icon && <img src={icon} alt={icon} style={{ height: '2.5rem' }} />}
+					{svg && svg}
 					{legend && !icon && legend}
-					{!legend && !icon && 'ICON'}
+					{!legend && !icon && !svg && 'ICON'}
 				</button>
 			</DropdownMenu.Trigger>
 			<DropdownMenu.Portal>

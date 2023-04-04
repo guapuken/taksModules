@@ -1,0 +1,126 @@
+//Contenedor principal-------------------------------------------------------------------------------------
+.ctn, .ctnTbl, .ctnSml{
+    display: flex;
+}
+.ctn{
+    flex-direction: row;
+    gap: 2rem;
+}
+.ctnTbl, .ctnSml{
+    flex-direction: column;
+    gap: 0;
+}
+.ctnTbl{
+    width: 50vw;
+}
+.ctnSml{
+    width: 100vw;
+}
+.ctnTasks{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.DrgAndDrpSml{
+    height: 20vh !important;
+    overflow-x: auto;
+    gap: 2rem;
+}
+
+// Estilos generales --------------------------------------------------------------------------------------
+.boardCtn{
+    width: calc(var(--cardWidth)*.95) ;
+    height: 85vh;
+    // overflow-y: auto;
+    // overflow-x: hidden;
+    // background: green; /////
+    //
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.boardCtnSml, .boardCtnTbl{
+    height: calc(var(--cardHeight)*3);
+    overflow: hidden;
+    // background: green !important;/////
+    box-shadow: var(--borderDark);
+    z-index: 10000 !important;
+}
+.boardCtnTbl{
+    // width: calc(var(--cardWidth)*2);
+    width: 50vw;
+    height: var(--cardHeight);
+    overflow-y: auto;
+    background: red;
+}
+.boardCtnSml{
+    // width: calc(var(--cardWidth)*2);
+    width: 100vw;
+    height: var(--cardHeight);
+    overflow-y: hidden;
+    background: red;
+}
+.dropableCtn,.dropableCtnDark{
+    // display: flex;
+    position: relative;
+    background: transparent;
+    //
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    .ctnTitle{
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        z-index: 1;
+        height: 3rem;
+        user-select: none;
+        h2{
+            font-weight: lighter;
+            margin-right: 1rem;
+        }
+        img{
+            height: 3rem;
+        }
+    }
+    .draggableCtn{
+        margin-top: 2rem;
+        // justify-content: left; 
+        //
+        display:flex;
+        // background:purple;///////
+    }
+    .draggableCtnSml{
+        margin-top: 1rem;
+    }
+}
+
+// Light Mode ----------------------------------------------------------------------------------------------
+.dropableCtn{
+    .ctnTitle{
+        // background: #fff;
+        background: purple;
+        height: 5vh;
+    }
+}
+
+// Dark Mode -----------------------------------------------------------------------------------------------
+.dropableCtnDark{
+    .ctnTitle{
+        background: #282828;
+    }
+}
+
+// Media Queries
+@media (max-width:415px){
+
+}
+@media (max-width:768px){
+    .dropableCtn,.dropableCtnDark{
+        height: 25vh;
+        width: 100vw;
+    }
+}
+
+// Animaciones

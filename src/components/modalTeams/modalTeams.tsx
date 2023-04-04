@@ -6,6 +6,7 @@ import Dropdown from '../dropdown';
 import InputLabel from '../inputLabel';
 import Modal from '../modal';
 import { AddTask } from '../task/complements/addTask';
+import '../../global.scss';
 import css from './modalTeams.module.scss';
 
 //TYPES
@@ -104,7 +105,8 @@ const ModalTeams = (props: ModalTeamsProps) => {
 
 	//COMPONENTE QUE REGRESA TODO EL CONTENIDO DEL MODAL
 	const Content = () => {
-		const [asignColor, setAsignColor] = useState('');
+		const [asignColor, setAsignColor] = useState(teamColor || '');
+		console.log(asignColor);
 		return (
 			<div className={css.GeneralContainerTeamsComponent}>
 				<div className={css.InputsContainerTeamsComponent}>
@@ -125,6 +127,7 @@ const ModalTeams = (props: ModalTeamsProps) => {
 							className={css.LabelColorTeamComponent}
 							id={asignColor}
 							type="color"
+							value={asignColor}
 							onChange={(e) => {
 								setAsignColor(e.target.value);
 								onChangeTeamColor;

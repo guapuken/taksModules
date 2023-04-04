@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../styles.scss';
-import styles from './cards.module.scss';
+import '../../global.scss';
+import css from './cards.module.scss';
 
 export interface CardsProps {
 	width?: number;
@@ -16,7 +16,7 @@ const Cards = (props: CardsProps) => {
 	const { width = 30, height = 10, rounded = false, Content, data, Aside, modo } = props;
 	return (
 		<div
-			className={modo === 'Dark' ? styles.contenedorDark : styles.contenedor}
+			className={modo === 'Dark' ? css.contenedorDark : css.contenedor}
 			style={{
 				height: `${height}rem`,
 				width: Aside ? `${width + 5}rem` : `${width}rem`,
@@ -38,7 +38,7 @@ const Cards = (props: CardsProps) => {
 							margin: 'auto',
 						}}
 					>
-						<Content {...data} />
+						{<Content data={data} />}
 					</div>
 					{Aside && (
 						<div

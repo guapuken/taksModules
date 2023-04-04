@@ -11,11 +11,12 @@ export {default as Information} from './information';
 
 //IconDropdown allow show an icon and select an option
 export {default as IconDropdown} from './iconDropdown';
+export {default as Dropdown} from './dropdown';
 
 //notifications switch
 export {default as Notifications} from './notifications';
 // option menu 
-export {default as optionmenu} from "./optionmenu";
+export {default as OptionMenu} from "./optionmenu";
 
 //Renderiza un text area múltiple donde se coloca la tarea y la subtarea
 export {default as InputTask} from './inputTask';
@@ -43,13 +44,23 @@ export {default as CardTeam} from  './cardTeam';
 export {default as CardProject} from './cardProject';
 export {default as CardTask} from './cardTask';
 export {default as CardMembersTeam} from './cardMembersTeam';
+export {default as CardTaskReview} from './cardTaskReview';
+
+//cards preestablecidas de gestión
+export {default as CardMannageTemplates} from './cardMannageTemplates';
+export {default as CardMannageProjects} from './cardMannageProjects';
+export {default as CardMannageTasks} from './cardMannageTasks';
 
 //Modales preestablecidos
 export {default as ModalTareas} from './modalTareas';
-export {default as ModalTamplates} from './modalTemplates';
+export {default as ModalTemplates} from './modalTemplates';
 export {default as ModalProjects} from './modalProjects';
 export {default as ModalTeams} from './modalTeams';
+export {default as modalTaskWithComents} from './modalTasksWithComents';
 
-//asidetemplates
+//Contenedores generales
 export {default as AsideTemplates} from './asideTemplates';
+export {default as Container} from './containerComp'
 
+//drag and drop
+export {default as DragAndDrop} from './dragAndDrop';

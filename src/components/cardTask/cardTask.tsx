@@ -8,31 +8,33 @@ import {
 	sizeCard,
 	Spans,
 } from '../../utils/cardsUtils';
-import { windowSize } from '../../utils/widthSize';
+import { useWindowSize } from '../../utils/windowSize';
 import Cards from '../cards';
 import Notifications from '../notifications';
 import ProgressBar from '../progressBar';
 import { IconAsign } from '../task/complements/iconAsign';
 import editIcon from '../../img/editar.svg';
 import calendarIcon from '../../img/calendario.svg';
-import '../../styles.scss';
+import '../../global.scss';
+import { Modo, onChangeType, onClickType, statusTask } from '../../types';
+import { cardW } from '../../utils/functions/functions';
 
 // import './cardProject.scss';
 interface submenus {
 	id?: number | string;
 	className?: string;
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClick?: onClickType;
 	title?: string;
 }
 export interface CardTaskProps {
-	onClickShowDetails?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickEditar?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickFollow?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickRecordatorio?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickComentario?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickFecha?: (e: React.MouseEvent<HTMLElement>) => void;
-	onChangeNotificationSwitch?: (e: React.FormEvent<HTMLInputElement>) => void;
-	status?: 'onTime' | 'delayed' | 'outOfTime';
+	onClickShowDetails?: onClickType;
+	onClickEditar?: onClickType;
+	onClickFollow?: onClickType;
+	onClickRecordatorio?: onClickType;
+	onClickComentario?: onClickType;
+	onClickFecha?: onClickType;
+	onChangeNotificationSwitch?: onChangeType;
+	statusTask?: statusTask;
 	taskName?: string;
 	taskDescription?: string;
 	valueResponsable?: string;
@@ -44,10 +46,14 @@ export interface CardTaskProps {
 	responsables?: submenus[];
 	equipos?: submenus[];
 	revision?: submenus[];
+	modo?: Modo;
 }
 const CardTask = (props: CardTaskProps) => {
+	const scrSize = useWindowSize();
+	const heightCard = scrSize.width >= 834 ? 15 : scrSize.height / 4 / 10 - 6;
+
 	const {
-		status,
+		statusTask,
 		followNotificationsValue,
 		onClickShowDetails = () =>
 			alert('Change the function ShowDetails with onClickShowDetails property'),
@@ -67,19 +73,23 @@ const CardTask = (props: CardTaskProps) => {
 		onClickEditar = () => alert('editar tarea'),
 		onClickComentario = () => alert('agregar comentario'),
 		onClickFecha = () => alert('reasignar fecha de entrega'),
+		modo,
 	} = props;
 
-	const heightCard = 19;
 	//Content card
 	const ContentCard = () => {
 		const titleCard = (
-			<h5 className="TextOverflow" style={{ WebkitLineClamp: 2 }} title={taskName}>
+			<p
+				className="TextOverflow"
+				style={{ WebkitLineClamp: 2, color: '#000' }}
+				title={taskName}
+			>
 				{taskName}
-			</h5>
+			</p>
 		);
 		return (
 			<CardContainer>
-				{windowSize().width > 768 && (
+				{/* {useWindowSize().width > 768 && (
 					<div
 						className={`ContainerTitleAndiconsCardProject${
 							sizeCard() * 10 < 350 ? 'Small' : ''
@@ -100,33 +110,50 @@ const CardTask = (props: CardTaskProps) => {
 							checkValue={followNotificationsValue}
 						/>
 					</div>
-				)}
+				)} */}
 				{titleCard}
-				<SimpleButtonText style={{ fontSize: '1.4rem' }}>
+				<SimpleButtonText
+					style={{ fontSize: '1.4rem', color: '#00000075', lineHeight: '1.3' }}
+				>
 					<span
 						className="TextOverflow"
-						style={{ WebkitLineClamp: 1, fontSize: 'inherit' }}
+						style={{
+							WebkitLineClamp: scrSize.width >= 834 ? 2 : 1,
+							fontSize: 'inherit',
+						}}
 						title={taskDescription}
 					>
 						{taskDescription}
 					</span>
 				</SimpleButtonText>
-				<SimpleButtonText style={{ position: 'absolute', bottom: '0', fontSize: '1.3rem' }}>
-					<Spans boldLegend={subtasks} legend="subtareas más" />
-				</SimpleButtonText>
+
+				{/* A button that shows the number of subtasks. */}
+
 				<div className="ContainerProgressBarAndShowDetails">
 					<ProgressBar
-						status={status}
+						status={statusTask}
 						valor={percentTask}
-						width={returnSize()}
+						width={cardW(true) - 3}
 						onClick={onClickShowDetails}
 						styleContent={{ cursor: 'pointer' }}
 					/>
-					<SimpleButtonText
-						legend="mostrar detalles..."
-						onClick={onClickShowDetails}
-						style={{ fontSize: '1.4rem' }}
-					/>
+					<div
+						style={{
+							display: 'flex',
+							justifyContent: 'space-between',
+							width: '100%',
+							alignItems: 'center',
+						}}
+					>
+						<SimpleButtonText style={{ position: 'relative', fontSize: '1.3rem' }}>
+							<Spans boldLegend={subtasks} legend="más" />
+						</SimpleButtonText>
+						<SimpleButtonText
+							legend="mostrar detalles..."
+							onClick={onClickShowDetails}
+							style={{ fontSize: '1.4rem' }}
+						/>
+					</div>
 				</div>
 			</CardContainer>
 		);
@@ -173,12 +200,14 @@ const CardTask = (props: CardTaskProps) => {
 	//Definición de los argumentos
 	const properties = {
 		rounded: true,
-		width: returnSize(),
+		width: cardW(true),
 		// height:  sizeCard() * 10 < 400 ?  19  : 15.5 ,
 		height: heightCard,
 		Content: ContentCard,
-		Aside: AsideContent,
+		Aside: scrSize.width >= 834 ? AsideContent : null,
+		modo: modo,
 	};
+	console.log(scrSize.width / 10 - 7 /* * 0.25 - 7 */);
 	return <Cards {...properties} />;
 };
 

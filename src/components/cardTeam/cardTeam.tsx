@@ -5,6 +5,7 @@ import { AsideContainer, ButtonsArray } from '../../utils/asideUtils';
 import { CardContainer, returnSize } from '../../utils/cardsUtils';
 import { Hover } from '../../utils/hover';
 import Cards from '../cards';
+import '../../global.scss';
 import css from './cardTeam.module.scss';
 
 export interface CardTeamProps {

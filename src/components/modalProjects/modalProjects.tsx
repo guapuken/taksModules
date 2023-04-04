@@ -6,7 +6,7 @@ import Modal from '../modal';
 import Task from '../task';
 import { AddTask } from '../task/complements/addTask';
 import { optionsPlantillas } from '../task/task';
-import '../../styles.scss';
+import '../../global.scss';
 
 //TYPES
 interface submenus {

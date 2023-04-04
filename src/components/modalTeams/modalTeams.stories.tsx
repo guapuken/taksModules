@@ -3,9 +3,11 @@ import { Meta, Story } from '@storybook/react';
 import ModalTeams, { Members, ModalTeamsProps } from './modalTeams';
 
 const Template: Story<ModalTeamsProps> = (args) => <ModalTeams {...args} />;
-export const Initial = Template.bind({});
-Initial.args = {};
-export const Basic = Template.bind({});
+
+//estado inicial del componente
+export const InitialState = Template.bind({});
+InitialState.args = {};
+
 let options = [
 	{
 		value: 'Jorge Correa',
@@ -20,12 +22,15 @@ let options = [
 		label: 'Adan',
 	},
 ];
-Basic.args = {
+// estado del componente con propiedades
+export const WithProperties = Template.bind({});
+WithProperties.args = {
 	membersOptions: options,
 	memberValue: {
 		value: 'Jorge Correa',
 		label: 'Jorge Correa',
 	},
+	teamColor: '#525486',
 	Children: () => (
 		<div>
 			<Members
@@ -41,6 +46,6 @@ Basic.args = {
 };
 
 export default {
-	title: 'ModalTeams',
+	title: 'Modales/teams',
 	component: ModalTeams,
 } as Meta;

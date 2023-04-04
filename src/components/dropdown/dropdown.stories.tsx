@@ -4,7 +4,11 @@ import Dropdown, { DropdownProps } from './dropdown';
 
 const Template: Story<DropdownProps> = (args) => <Dropdown {...args} />;
 
-export const Initial = Template.bind({});
+// estado inicial del componente
+export const InitialState = Template.bind({});
+InitialState.args = {};
+
+// componente con propiedades
 const options = [
 	{
 		value: 'Jorge Correa',
@@ -15,19 +19,74 @@ const options = [
 		label: 'Olaf',
 	},
 	{
-		value: 'Adan',
-		label: 'Adan',
+		value: 'Olaf',
+		label: 'Olaf',
+	},
+	{
+		value: 'Olaf',
+		label: 'Olaf',
+	},
+	{
+		value: 'Olaf',
+		label: 'Olaf',
+	},
+	{
+		value: 'Olaf',
+		label: 'Olaf',
+	},
+	{
+		value: 'Olaf',
+		label: 'Olaf',
 	},
 ];
-Initial.args = {
-	// isSearchable: true,
-	// isMulti: true,
+export const withProperties = Template.bind({});
+withProperties.args = {
+	isSearchable: true,
+	isMulti: true,
 	placeHolder: 'Selecciona el encargado',
 	options: options,
 	onChange: (value) => console.log(value),
+	// topPosition: true,
 };
 
+// exportación default de valores
 export default {
-	title: 'Dropdown',
+	title: 'Átomos/dropdown',
 	component: Dropdown,
+	argTypes: {
+		placeHolder: { type: 'string' },
+		options: {
+			control: [
+				{
+					value: {
+						type: 'string',
+					},
+					label: {
+						type: 'string',
+					},
+				},
+			],
+		},
+		isMulti: { type: 'boolean' },
+		isSearchable: { type: 'boolean' },
+		onChange: { type: 'function' },
+		initialValue: {
+			value: {
+				type: 'string',
+			},
+			label: {
+				type: 'string',
+			},
+		},
+		values: [
+			{
+				value: {
+					type: 'string',
+				},
+				label: {
+					type: 'string',
+				},
+			},
+		],
+	},
 } as Meta;

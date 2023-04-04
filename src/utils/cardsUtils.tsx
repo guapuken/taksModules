@@ -1,5 +1,6 @@
-import React from 'react';
-import { windowSize } from './widthSize';
+import React, { CSSProperties, useEffect } from 'react';
+import { useWindowSize } from './windowSize';
+import { Modo, onClickType } from '../types';
 
 /*-----------------------------------------------------------------------------------------------
 functions
@@ -13,18 +14,17 @@ export function involucrados(valueResponsable: any, valueRevision: any) {
 	} else return 0;
 }
 export function sizeCard() {
-	const sizetoShow = (windowSize().width * 0.21) / 10;
-	// useEffect(() => {
-	// 	sizetoShow;
-	// }, [windowSize]);
-	// console.log(sizetoShow);
+	const sizetoShow = (useWindowSize().width * 0.21) / 10;
+	useEffect(() => {
+		sizetoShow;
+	}, [useWindowSize()]);
 	return sizetoShow;
 }
 export function returnSize() {
-	return windowSize().width < 415
-		? windowSize().width / 10 - 7
-		: windowSize().width < 835
-		? windowSize().width / 10 / 2 - 7
+	return useWindowSize().width < 415
+		? useWindowSize().width / 10 - 7
+		: useWindowSize().width < 835
+		? useWindowSize().width / 10 / 2 - 7
 		: sizeCard();
 }
 /*-----------------------------------------------------------------------------------------------
@@ -34,29 +34,60 @@ components
 interface CardContainerProps {
 	width?: string;
 	height?: string;
+	className?: string;
 	children?: any;
+	style?: CSSProperties;
 }
 export const CardContainer = (props: CardContainerProps) => {
-	const { width = '100%', height = '100%', children } = props;
+	const { width = '100%', height = '100%', children, className, style } = props;
 	return (
-		<div style={{ width: width, height: height }} className="ContainerCardTeamComponent">
+		<div
+			style={{ width: width, height: height, ...style }}
+			className={`ContainerCardTeamComponent ${className}`}
+		>
 			{children}
 		</div>
 	);
 };
 
+interface TitleCardProps {
+	title: string;
+	modo: Modo;
+}
+export const TitleCard = (props: TitleCardProps) => {
+	const { title, modo } = props;
+	return (
+		<p
+			className="TextOverflow"
+			style={{
+				WebkitLineClamp: 2,
+				color: modo === 'Dark' ? '#fff' : '#000',
+			}}
+			title={title}
+		>
+			{title}
+		</p>
+	);
+};
 interface SimpleButtonTextProps {
+	onClick?: onClickType;
+	style?: CSSProperties;
+	className?: string;
 	legend?: string;
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
-	style?: {};
 	children?: any;
 }
 export const SimpleButtonText = (props: SimpleButtonTextProps) => {
-	const { onClick, legend, style, children } = props;
+	const { onClick, legend, style, children, className } = props;
 	return (
 		<p
-			style={{ marginBlock: '0', cursor: onClick ? 'pointer' : '', ...style }}
+			style={{
+				marginBlock: '0',
+				paddingRight: '1rem',
+				cursor: onClick ? 'pointer' : '',
+				...style,
+			}}
 			onClick={onClick}
+			className={className}
 		>
 			{children && !legend && children}
 			{legend && !children && legend}
@@ -69,9 +100,11 @@ interface SpansProps {
 	legend?: string | number;
 	boldLegend?: string | number;
 	positionBold?: 'start' | 'end';
-	styleBold?: {};
-	style?: {};
+	styleBold?: CSSProperties;
+	style?: CSSProperties;
 	fontSize?: string;
+	className?: string;
+	modo?: Modo;
 }
 export const Spans = (props: SpansProps) => {
 	const {
@@ -81,9 +114,13 @@ export const Spans = (props: SpansProps) => {
 		styleBold,
 		fontSize = '1.3rem',
 		style,
+		className,
 	} = props;
 	return (
-		<span style={{ fontSize: fontSize ? fontSize : 'inherit', marginBlock: '0', ...style }}>
+		<span
+			className={className}
+			style={{ fontSize: fontSize ? fontSize : 'inherit', marginBlock: '0', ...style }}
+		>
 			{positionBold === 'start' && (
 				<strong style={{ fontSize: 'inherit', marginBlock: '0', ...styleBold }}>
 					{boldLegend}{' '}
@@ -91,10 +128,51 @@ export const Spans = (props: SpansProps) => {
 			)}
 			{legend}
 			{positionBold === 'end' && (
-				<strong style={{ fontSize: 'inherit', marginBlock: '0', ...styleBold }}>
+				<strong
+					style={{
+						fontSize: 'inherit',
+						marginBlock: '0',
+						color: 'inherit',
+						...styleBold,
+					}}
+				>
 					{boldLegend}{' '}
 				</strong>
 			)}
 		</span>
+	);
+};
+
+//renderiza el icono de atraso en una tarea
+//components
+export const LateIcon = () => {
+	let outOfTimeICon = {
+		left: '50%',
+		top: '50%',
+		transform: 'translate(-50%, -50%)',
+	};
+	return (
+		<div style={{ position: 'absolute', ...outOfTimeICon }}>
+			<div>
+				<h2
+					style={{
+						position: 'absolute',
+						top: '30%',
+						left: '45%',
+						fontSize: '20px',
+						color: '#fff',
+					}}
+				>
+					!
+				</h2>
+				<svg width="54" height="54" viewBox="-50 -50 300 300">
+					<polygon
+						style={{ fill: '#FC3D38', stroke: '#fff', strokeWidth: '15' }}
+						stroke-linejoin="round"
+						points="100,0 0,200 200,200"
+					/>
+				</svg>
+			</div>
+		</div>
 	);
 };

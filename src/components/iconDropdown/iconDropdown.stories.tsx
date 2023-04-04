@@ -5,10 +5,9 @@ import IconDropdown, { IconDropdownProps } from './iconDropdown';
 
 const Template: Story<IconDropdownProps> = (args) => <IconDropdown {...args} />;
 
-export const Basic = Template.bind({});
-Basic.args = {};
+export const InitialState = Template.bind({});
+InitialState.args = {};
 
-export const AddUser = Template.bind({});
 let integrantesIMJ = [
 	{ title: 'Kaori Soto' },
 	{ title: 'Halyt Aburto', onClick: () => alert('Adio Halyt') },
@@ -29,27 +28,34 @@ let equiposIMJ = [
 	{ title: 'Jurídico' },
 	{ title: 'Sales Mannager' },
 ];
-AddUser.args = {
-	options: [
-		{
-			title: 'Asignar responsable:',
-			submenus: integrantesIMJ,
-		},
-		{
-			title: 'Asignar equipo:',
-			submenus: equiposIMJ,
-		},
-		{
-			title: 'Revisión',
-			submenus: integrantesIMJ,
-		},
-	],
-	icon: '',
+const options = [
+	{
+		title: 'Asignar responsable:',
+		submenus: integrantesIMJ,
+	},
+	{
+		title: 'Asignar equipo:',
+		submenus: equiposIMJ,
+	},
+	{
+		title: 'Revisión',
+		submenus: integrantesIMJ,
+	},
+];
+
+//estado del componente con propiedades
+export const WithProperties = Template.bind({});
+WithProperties.args = {
+	options: options,
+	icon: 'https://cdn-icons-png.flaticon.com/512/20/20673.png',
 };
 
+//exportación default de valores
 export default {
-	title: 'IconDropdown',
+	//nombre de la carpeta en la que se agrupará y nombre del componente
+	title: 'Átomos/iconDropdown',
 	component: IconDropdown,
+	// definición de argumentos
 	argTypes: {
 		icon: {
 			control: 'text',
