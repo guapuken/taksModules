@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../styles.scss';
+import '../../global.scss';
 import css from './notifications.module.scss';
 
 export interface NotificationsProps {

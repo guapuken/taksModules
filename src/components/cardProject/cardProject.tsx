@@ -1,8 +1,7 @@
 import React from 'react';
 import shareIcon from '../../img/share.svg';
-import '../../styles.scss';
 import { ButtonItem, ButtonsArray } from '../../utils/asideUtils';
-import { CardContainer, SimpleButtonText, Spans, returnSize } from '../../utils/cardsUtils';
+import { CardContainer, SimpleButtonText, Spans } from '../../utils/cardsUtils';
 import { percent } from '../../utils/percent';
 import { useWindowSize } from '../../utils/windowSize';
 import Cards from '../cards';
@@ -11,7 +10,6 @@ import ProgressBar from '../progressBar';
 import '../../global.scss';
 import css from './cardProject.module.scss';
 import { cardH, cardW } from '../../utils/functions/functions';
-import Container from '../containerComp/container';
 
 export interface CardProjectProps {
 	progress?: number;

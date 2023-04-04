@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../../styles.scss';
 import { Spans } from '../../utils/cardsUtils';
 import Buttons from '../buttons';
 import Dropdown from '../dropdown';

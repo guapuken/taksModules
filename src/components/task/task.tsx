@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles.scss';
+import '../../global.scss';
 import { involucrados } from '../../utils/cardsUtils';
 import IconDropdown from '../iconDropdown';
 import InputTask from '../inputTask';
