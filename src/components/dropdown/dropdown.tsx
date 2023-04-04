@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { CSSProperties, useEffect, useRef, useState } from 'react';
 import '../../global.scss';
 import './dropdown.scss';
 
@@ -52,20 +52,24 @@ export interface DropdownProps {
 	options?: optionsDropdownTypes[];
 	isMulti?: boolean;
 	isSearchable?: boolean;
+	topPosition?: boolean;
 	onChange: (e: React.FormEvent<HTMLInputElement>) => void;
 	initialValue?: optionsDropdownTypes;
 	values?: optionsDropdownTypes[];
+	style?: CSSProperties;
 }
 
 const Dropdown = (props: DropdownProps) => {
 	const {
 		placeHolder,
-		options,
+		options = [],
 		isMulti,
 		isSearchable = false,
 		onChange,
 		initialValue,
 		values,
+		topPosition,
+		style,
 	} = props;
 	const [showMenu, setShowMenu] = useState(false);
 	const [selectedValue, setSelectedValue] = useState<any>(
@@ -174,8 +178,12 @@ const Dropdown = (props: DropdownProps) => {
 		);
 	};
 
+	function sizeDrop() {
+		return getOptions().length < 5 ? (getOptions().length + (isSearchable ? 1 : 0)) * 3 : 15;
+	}
+	console.log(sizeDrop());
 	return (
-		<div className="dropdown-container">
+		<div className="dropdown-container" style={style}>
 			<div ref={inputRef} onClick={handleInputClick} className="dropdown-input">
 				<div className="dropdown-selected-value">{getDisplay()}</div>
 				<div className="dropdown-tools">
@@ -183,7 +191,15 @@ const Dropdown = (props: DropdownProps) => {
 				</div>
 			</div>
 			{showMenu && (
-				<div className="dropdown-menu">
+				<div
+					className="dropdown-menu"
+					style={{
+						maxHeight: `${sizeDrop()}rem`,
+						transform: `translate(-.5rem, ${
+							topPosition ? `-${sizeDrop() + 3}rem` : '0.1rem'
+						})`,
+					}}
+				>
 					{isSearchable && (
 						<div className="search-box">
 							<input onChange={onSearch} value={searchValue} ref={searchRef} />

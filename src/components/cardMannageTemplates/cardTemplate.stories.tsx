@@ -2,10 +2,10 @@ import React from 'react';
 //importación de elementos del storybook que se utilizarán para definir las historias
 import { Meta, Story } from '@storybook/react';
 //importación del componente y su interfaz que utilizará para definir sus propiedades
-import CardMannageTemplate, { cardTemplate } from './cardMannageTemplate';
+import CardMannageTemplates, { cardTemplate } from './cardMannageTemplate';
 
 //creación de plantilla en la que se colocarán los elementos
-const Template: Story<cardTemplate> = (args) => <CardMannageTemplate {...args} />;
+const Template: Story<cardTemplate> = (args) => <CardMannageTemplates {...args} />;
 
 //estado inicial del componente
 export const initialState = Template.bind({});
@@ -24,7 +24,7 @@ withProperties.args = {
 export default {
 	//titulo de la carpeta en la que se exportará y el título que se le asignará al componente
 	title: 'Cards de gestión/templates',
-	component: CardMannageTemplate,
+	component: CardMannageTemplates,
 
 	// definición de tipos de datos que reciben los argumentos que se reciben
 	argTypes: {

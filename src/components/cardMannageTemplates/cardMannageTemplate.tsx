@@ -15,7 +15,7 @@ export interface cardTemplate {
 	tasks?: number;
 }
 
-const CardTemplate = (props: cardTemplate) => {
+const CardMannageTemplates = (props: cardTemplate) => {
 	const heightCard = cardH();
 
 	const properties = {
@@ -28,4 +28,4 @@ const CardTemplate = (props: cardTemplate) => {
 	return <Cards {...properties} />;
 };
 
-export default CardTemplate;
+export default CardMannageTemplates;

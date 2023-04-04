@@ -13,6 +13,15 @@ export interface ModalProps {
 	styleFooter?: {};
 	header?: string;
 }
+function heightModalContent({ Footer, header }: ModalProps) {
+	return Footer && header
+		? useWindowSize().height - useWindowSize().height * 0.14 - 40
+		: header && !Footer
+		? useWindowSize().height - 5
+		: Footer && !header
+		? useWindowSize().height - useWindowSize().height * 0.14
+		: useWindowSize().height - 20;
+}
 const Modal = (props: ModalProps) => {
 	const { Content, styleHeader, styleContent, styleFooter, header, Footer } = props;
 	return (
@@ -31,6 +40,7 @@ const Modal = (props: ModalProps) => {
 				height: `${useWindowSize().height}px`,
 				maxHeight: `${useWindowSize().height}px`,
 				margin: '0 auto',
+				marginTop: !Footer && !header ? '10px' : 0,
 			}}
 		>
 			{header && (
@@ -38,51 +48,57 @@ const Modal = (props: ModalProps) => {
 					className="TitleModalComponent"
 					style={{
 						height: `${useWindowSize().height * 0.06}px`,
-						// background: 'red',
 						display: 'flex',
 						alignItems: 'center',
+
 						...styleHeader,
 					}}
 				>
-					<h3 style={{ marginBlock: '0', marginLeft: '2rem' }}>{header}</h3>
+					<h3 style={{ marginBlock: '0', fontWeight: 'lighter', marginLeft: '2rem' }}>
+						{header}
+					</h3>
 				</div>
 			)}
-			{!Content ? (
+			{!Content || Content === null || Content === undefined ? (
 				<div
 					className={'NoModalContent'}
 					style={{
-						height: `${useWindowSize().height * 0.8}px`,
-						maxWidth: '90%',
+						height: heightModalContent({ Footer, header }),
+						width: '90%',
 						margin: '0 auto',
-						position: 'absolute',
+						position: 'fixed',
+						// background: 'blue',
 						left: '50%',
-						top: '50%',
-						transform: 'translate(-50%,-10%)',
+						top: '0',
+						transform: 'translateX(-50%)',
 						...styleContent,
 					}}
 				>
-					<div>
-						<h2>Without content 😥</h2>
-						<p>Add property Content and see it </p>
+					<div style={{ display: 'grid', placeItems: 'center', height: '100%' }}>
+						<div>
+							<h2>Without content 😥</h2>
+							<p>Add property Content and see it </p>
+						</div>
 					</div>
 				</div>
 			) : (
 				<div
-					className={
-						header && Footer
-							? 'ModalWithHeaderAndFooter'
-							: header && !Footer
-							? 'ModalWithHeader'
-							: !header && Footer
-							? 'ModalWithFooter'
-							: 'ModalContent'
-					}
+					// className={
+					// 	header && Footer
+					// 		? 'ModalWithHeaderAndFooter'
+					// 		: header && !Footer
+					// 		? 'ModalWithHeader'
+					// 		: !header && Footer
+					// 		? 'ModalWithFooter'
+					// 		: 'ModalContent'
+					// }
 					style={{
-						height: `${useWindowSize().height * 0.8}px`,
+						height: heightModalContent({ header, Footer }),
 						overflow: 'auto',
 						width: '90%',
 						overflowX: 'hidden',
 						margin: '0 auto',
+						// background: 'orange',
 					}}
 				>
 					<Content />
@@ -91,9 +107,10 @@ const Modal = (props: ModalProps) => {
 			{Footer && (
 				<div
 					style={{
-						position: 'relative',
+						position: 'fixed',
+						width: '100%',
+						bottom: '0',
 						height: `${useWindowSize().height * 0.14}px`,
-						// background: 'orange',
 						display: 'flex',
 						alignItems: 'center',
 						...styleFooter,

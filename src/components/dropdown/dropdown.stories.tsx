@@ -19,8 +19,24 @@ const options = [
 		label: 'Olaf',
 	},
 	{
-		value: 'Adan',
-		label: 'Adan',
+		value: 'Olaf',
+		label: 'Olaf',
+	},
+	{
+		value: 'Olaf',
+		label: 'Olaf',
+	},
+	{
+		value: 'Olaf',
+		label: 'Olaf',
+	},
+	{
+		value: 'Olaf',
+		label: 'Olaf',
+	},
+	{
+		value: 'Olaf',
+		label: 'Olaf',
 	},
 ];
 export const withProperties = Template.bind({});
@@ -30,6 +46,7 @@ withProperties.args = {
 	placeHolder: 'Selecciona el encargado',
 	options: options,
 	onChange: (value) => console.log(value),
+	// topPosition: true,
 };
 
 // exportación default de valores

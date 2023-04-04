@@ -45,16 +45,18 @@ export {default as CardProject} from './cardProject';
 export {default as CardTask} from './cardTask';
 export {default as CardMembersTeam} from './cardMembersTeam';
 export {default as CardTaskReview} from './cardTaskReview';
+
 //cards preestablecidas de gestión
-export {default as CardMannageTemplate} from './cardMannageTemplates';
+export {default as CardMannageTemplates} from './cardMannageTemplates';
 export {default as CardMannageProjects} from './cardMannageProjects';
 export {default as CardMannageTasks} from './cardMannageTasks';
 
 //Modales preestablecidos
 export {default as ModalTareas} from './modalTareas';
-export {default as ModalTamplates} from './modalTemplates';
+export {default as ModalTemplates} from './modalTemplates';
 export {default as ModalProjects} from './modalProjects';
 export {default as ModalTeams} from './modalTeams';
+export {default as modalTaskWithComents} from './modalTasksWithComents';
 
 //Contenedores generales
 export {default as AsideTemplates} from './asideTemplates';
