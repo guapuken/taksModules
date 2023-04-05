@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../global.scss';
-import css from './aside.module.scss';
+import './aside.scss';
 
 export interface AsideTemplatesProps {
 	isWhite?: boolean;
@@ -15,12 +15,12 @@ const AsideTemplates = (props: AsideTemplatesProps) => {
 		<div
 			className={
 				modo === 'Dark'
-					? `${isWhite ? css.ctnWhite : css.ctnDark}`
-					: `${isWhite ? css.ctnWhite : css.ctn}`
+					? `${isWhite ? 'ctnWhite_ATC' : 'ctnDark_ATC'}`
+					: `${isWhite ? 'ctnWhite_ATC' : 'ctn_ATC'}`
 			}
 		>
 			{!Content && (
-				<div className={modo === 'Dark' || !isWhite ? css.noCtnDark : css.noCtn}>
+				<div className={modo === 'Dark' || !isWhite ? 'noCtnDark' : 'noCtn'}>
 					<h1>Ups!</h1>
 					<p>parece que olvidaste agregar tu contenido</p>
 				</div>

@@ -1,7 +1,7 @@
 //contenedor princiapal --------------------------------------------
-.ctnDark,
-.ctnWhite,
-.ctn{
+.ctnDark_ATC,
+.ctnWhite_ATC,
+.ctn_ATC{
     position: relative;
     margin-block: 0;
     padding-top: 1rem;
@@ -10,40 +10,41 @@
     height: calc(92vh);
     background: transparent;
     width: calc(var(--cardWidth)*.95);
+    //sin contenido--------------------------------------------------
+    .noCtnDark, .noCtn{
+        display: grid;
+        place-content: center; 
+        text-align: center;
+        margin-top: -1rem;
+        max-width: 70%;
+    }
+    .noCtnDark{
+        color: #fff;
+    }
 }
 //colores de fondo en caso de no tener la propiedad isWhite
-.ctn{
+.ctn_ATC{
     background: var(--bgDark);
 }
 //colores de fondo en caso de estar activado el modo oscuro
-.ctnDark{
+.ctnDark_ATC{
     background: var(--contrastDark);
 }
 
-//sin contenido-----------------------------------------------------
-.noCtnDark, .noCtn{
-    display: grid;
-    place-content: center; 
-    text-align: center;
-    margin-top: -1rem;
-    max-width: 70%;
-}
-.noCtnDark{
-    color: #fff;
-}
+
 //mediaquerie para que el tamaño del texto abarque todo el espacio en celular
 @media (max-width:415px){
-    .ctnDark,
-    .ctnWhite,
-    .ctn{
+    .ctnDark_ATC,
+    .ctnWhite_ATC,
+    .ctn_ATC{
         width: calc(var(--cardSize)*4);
         height: var(--cardHeight);
     }
 }
 @media (max-width:834px){
-    .ctnDark,
-    .ctnWhite,
-    .ctn{
+    .ctnDark_ATC,
+    .ctnWhite_ATC,
+    .ctn_ATC{
         width: calc(var(--cardWidth)*1.95);
         height: calc(var(--cardHeight)*4);
     }
