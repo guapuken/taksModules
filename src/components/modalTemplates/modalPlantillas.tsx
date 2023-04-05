@@ -3,7 +3,7 @@ import Buttons from '../buttons';
 import InputLabel from '../inputLabel';
 import Modal from '../modal';
 import Task from '../task';
-import { AddTask } from '../task/files/addTask';
+import AddTask from '../task/files/addTask';
 import '../../global.scss';
 
 //TYPES

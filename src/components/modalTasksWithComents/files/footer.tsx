@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, Dropdown } from '../../../components';
+import { onChangeType, onClickType } from '../../../types';
 
-const Footer = (onChangeDrop, onClickReWork) => {
+const Footer = (onChangeDrop: onChangeType, onClickReWork: onClickType) => {
 	const [reWork, setReWork] = React.useState(false);
 	return (
 		<div
