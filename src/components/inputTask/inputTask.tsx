@@ -2,7 +2,6 @@ import React from 'react';
 import { AutoResizeInput } from './complements/autoResizeInput';
 import { CheckboxInput } from './complements/checkboxInput';
 import '../../global.scss';
-import css from './inputTask.module.scss';
 
 export interface InputTaskProps {
 	onChangeNameTask?: (e: React.FocusEvent<HTMLInputElement>) => void;

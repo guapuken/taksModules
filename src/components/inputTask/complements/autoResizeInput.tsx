@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-
+import css from '../inputTask.module.scss';
 interface AutoResizeInputProps {
 	style?: {};
 	onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
@@ -25,13 +25,13 @@ export const AutoResizeInput = (props: AutoResizeInputProps) => {
 	function taskTypes(type: string) {
 		switch (type) {
 			case 'principal':
-				return 'PrincipalTask-TaskModule';
+				return css.principalTask;
 			case 'task':
-				return 'Task-TaskModule';
+				return css.task;
 			case 'subtask':
-				return 'SubTask-TaskModule';
+				return css.subTask;
 			default:
-				return 'SubTask-TaskModule';
+				return css.subTask;
 		}
 	}
 

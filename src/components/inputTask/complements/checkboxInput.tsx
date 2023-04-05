@@ -1,4 +1,5 @@
 import React from 'react';
+import css from '../inputTask.module.scss';
 
 interface CheckboxInputProps {
 	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
@@ -15,7 +16,7 @@ export const CheckboxInput = (props: CheckboxInputProps) => {
 
 	return (
 		<div
-			className="CheckBoxInputTaskComponent"
+			className={css.CheckBoxInputTaskComponent}
 			style={{ marginTop: principalTask ? '1rem' : '.8rem' }}
 		>
 			<input

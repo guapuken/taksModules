@@ -1,14 +1,15 @@
 import React, { CSSProperties, useState } from 'react';
 import '../../global.scss';
-import css from './inputLabel.module.scss';
+import './inputLabel.scss';
+import { onChangeType } from '../../types';
 
 export interface InputLabelProps {
 	type?: 'text' | 'number' | 'email' | 'password';
-	onChange: (e: React.FormEvent<HTMLInputElement>) => void;
 	legend?: string;
 	initialValue?: string;
 	min?: number;
 	max?: number;
+	onChange: onChangeType;
 	style?: CSSProperties;
 }
 const InputLabel = (props: InputLabelProps) => {
@@ -35,7 +36,7 @@ const InputLabel = (props: InputLabelProps) => {
 	}
 
 	return (
-		<div id="FloatLabelInput" style={style}>
+		<div id="LblInpt_ILC" style={style}>
 			<input
 				type={type}
 				min={min}
@@ -48,7 +49,7 @@ const InputLabel = (props: InputLabelProps) => {
 			/>
 
 			<label
-				className={isActive || value ? css.ActiveInputLabelIsActive : ''}
+				className={isActive || value ? 'isActLbl' : ''}
 				style={{ display: 'flex', alignItems: 'center' }}
 			>
 				{legend}
