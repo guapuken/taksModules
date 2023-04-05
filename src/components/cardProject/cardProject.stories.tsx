@@ -9,11 +9,12 @@ initialState.args = {};
 
 export const withProperties = Template.bind({});
 withProperties.args = {
-	projectName: 'ETERNO VERANO- CALYPSO PRODUCCIONES - AUTOBUSES - CDMX 8 MARZ',
+	projectName: 'UBER EATS-1253 Sitios Noviembre',
 	ejecutivo: 'Juan C. Almada',
 	completedTask: 15,
 	incompletedTask: 10,
 	status: 'outOfTime',
+	// modo: 'Dark',
 };
 
 export default {

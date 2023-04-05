@@ -1,8 +1,8 @@
 import React from 'react';
-import { CardContainer, SimpleButtonText, Spans, TitleCard } from '../../../utils/cardsUtils';
+import { CardContainer, Spans, TitleCard } from '../../../utils/cardsUtils';
 import { content } from '../types';
 
-export const Content = (props: content) => {
+const Content = (props: content) => {
 	const { modo = 'Light', title = 'Nombre de plantilla', tasks = 0 } = props;
 	return (
 		<CardContainer style={{ display: 'grid', placeItems: 'center' }}>
@@ -20,3 +20,4 @@ export const Content = (props: content) => {
 		</CardContainer>
 	);
 };
+export default Content;
