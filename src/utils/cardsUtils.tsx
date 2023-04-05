@@ -53,15 +53,15 @@ export const CardContainer = (props: CardContainerProps) => {
 interface TitleCardProps {
 	title: string;
 	modo: Modo;
+	className?: string;
 }
 export const TitleCard = (props: TitleCardProps) => {
-	const { title, modo } = props;
+	const { title, modo, className } = props;
 	return (
 		<p
-			className="TextOverflow"
+			className={`TextOverflow ${className}`}
 			style={{
-				WebkitLineClamp: 2,
-				color: modo === 'Dark' ? '#fff' : '#000',
+				color: modo === 'Dark' ? '#dedede' : '#282828',
 			}}
 			title={title}
 		>
@@ -82,7 +82,7 @@ export const SimpleButtonText = (props: SimpleButtonTextProps) => {
 		<p
 			style={{
 				marginBlock: '0',
-				paddingRight: '1rem',
+				paddingRight: '10px',
 				cursor: onClick ? 'pointer' : '',
 				...style,
 			}}
@@ -112,7 +112,7 @@ export const Spans = (props: SpansProps) => {
 		boldLegend,
 		positionBold = 'start',
 		styleBold,
-		fontSize = '1.3rem',
+		fontSize = '14px',
 		style,
 		className,
 	} = props;

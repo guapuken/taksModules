@@ -1,9 +1,19 @@
 import React, { CSSProperties } from 'react';
+//Importación de elementos auxiliares ----------------------------------------------------------------------
+// componentes
 import { IconDropdown } from '../components';
-import optionsIcon from '../img/opciones.svg';
+// types
 import { onClickType } from '../types';
+// funciones
+import { cardH } from './functions/functions';
+// archivos multimedia
+import optionsIcon from '../img/opciones.svg';
 
-//Regresa el contenedor general del aside
+/**
+ * Componente que regresa el contenedor de los asides
+ * @param children - any element, components etc...
+ * @returns - contenedor que envuelve el aside de las cards
+ */
 export const AsideContainer = ({ children }: any) => {
 	return (
 		<div
@@ -70,10 +80,21 @@ type Buttons = {
  */
 function sliceButtons(size: number, buttons?: any) {
 	let maxButtons = sizeLimit(5, size);
-	if (buttons.length * 5 <= size || maxButtons * 5 - 2 >= size) {
+
+	if (maxButtons * 5 === 0) {
 		return (
-			buttons &&
-			buttons?.map((e: any) => (
+			<IconDropdown
+				icon={optionsIcon}
+				title={'Más opciones...'}
+				options={buttons?.map((e: any) => {
+					return { title: e.titleToShow, onClick: e.onClick };
+				})}
+			/>
+		);
+	} else {
+		if (buttons.length * 5 <= size) {
+			// if (buttons.length * 5 <= size || maxButtons * 5 <= size) {
+			return buttons?.map((e: any) => (
 				<ButtonItem
 					img={e.img}
 					svg={e.svg}
@@ -81,35 +102,38 @@ function sliceButtons(size: number, buttons?: any) {
 					alt={e.titleToShow}
 					title={e.titleToShow}
 				/>
-			))
-		);
-	} else {
-		return (
-			<>
-				{buttons.slice(0, maxButtons - 1).map((e: any) => (
-					<ButtonItem
-						img={e.img}
-						svg={e.svg}
-						onClick={e.onClick}
-						alt={e.titleToShow}
-						title={e.titleToShow}
+			));
+		} else {
+			return (
+				<>
+					{maxButtons - 1 > 0 &&
+						buttons
+							.slice(0, maxButtons - 1)
+							.map((e: any) => (
+								<ButtonItem
+									img={e.img}
+									svg={e.svg}
+									onClick={e.onClick}
+									alt={e.titleToShow}
+									title={e.titleToShow}
+								/>
+							))}
+					<IconDropdown
+						icon={optionsIcon}
+						title={'Más opciones...'}
+						options={
+							maxButtons === 1
+								? buttons?.map((e: any) => {
+										return { title: e.titleToShow, onClick: e.onClick };
+								  })
+								: buttons?.slice(maxButtons - 1).map((e: any) => {
+										return { title: e.titleToShow, onClick: e.onClick };
+								  })
+						}
 					/>
-				))}
-				<IconDropdown
-					icon={optionsIcon}
-					title={'Más opciones...'}
-					options={
-						maxButtons === 1
-							? buttons?.map((e: any) => {
-									return { title: e.titleToShow, onClick: e.onClick };
-							  })
-							: buttons?.slice(maxButtons - 1).map((e: any) => {
-									return { title: e.titleToShow, onClick: e.onClick };
-							  })
-					}
-				/>
-			</>
-		);
+				</>
+			);
+		}
 	}
 }
 
@@ -124,7 +148,7 @@ interface ButtonsArrayProps {
 	style?: any;
 	buttons?: buttonstypes[];
 	children?: any;
-	size: number;
+	size?: number;
 }
 export const ButtonsArray = (props: ButtonsArrayProps) => {
 	const { vertical, style, buttons, children, size } = props;
@@ -135,10 +159,11 @@ export const ButtonsArray = (props: ButtonsArrayProps) => {
 				flexDirection: vertical ? 'column' : 'row',
 				alignItems: vertical ? '' : 'center',
 				justifyContent: vertical ? 'center' : '',
+				height: size ? `${size + 10}px` : `${cardH() * 10 - 20}px`,
 				...style,
 			}}
 		>
-			{children ? children : sliceButtons(size, buttons)}
+			{children ? children : sliceButtons(size ? size : cardH() - 2, buttons)}
 		</div>
 	);
 };
@@ -157,14 +182,14 @@ export const ButtonItem = (props: ButtonItemProps) => {
 	const { children, img, alt, onClick, style, styleImg, title, svg } = props;
 	return (
 		<button
-			style={{ width: 'auto', height: '3rem', cursor: 'pointer', ...style }}
+			style={{ width: 'auto', height: '30px', cursor: 'pointer', ...style }}
 			onClick={onClick}
 		>
 			{img && (
 				<img
 					src={img}
 					alt={alt}
-					style={{ width: 'auto', height: '3rem', ...styleImg }}
+					style={{ width: 'auto', height: '30px', ...styleImg }}
 					title={title}
 				/>
 			)}
