@@ -2,9 +2,9 @@ import React, { CSSProperties } from 'react';
 
 // importación de estilos
 import '../../global.scss';
-import { onClickType } from '../../types';
+import { Modo, onClickType } from '../../types';
 import Button from '../button';
-import OptionMenu from '../optionmenu';
+import { Menu } from './files';
 import css from './container.module.scss';
 
 type header = {
@@ -26,96 +26,20 @@ interface onClicks {
 }
 interface menuActions {
 	onClick: onClicks;
+	modo: Modo;
 }
-interface Containerprops {
-	children: any;
+export interface Containerprops {
+	children?: any;
 	AsideContent?: any;
 	FooterContent?: any;
-	aside?: boolean;
 	header?: header;
-	footer?: boolean;
-	onClick: onClicks;
+	onClick?: onClicks;
 	style?: CSSProperties;
 	headerStyle?: CSSProperties;
 	contentStyle?: CSSProperties;
 	footerStyle?: CSSProperties;
+	modo?: Modo;
 }
-
-const Menu = (props: menuActions) => {
-	const { onClick } = props;
-	return (
-		<div style={{ zIndex: '2' }}>
-			<OptionMenu
-				menus={{
-					sinCategoria: [
-						{
-							title: 'Inicio',
-							onClick: onClick.inicio,
-						},
-					],
-					conCategoria: [
-						{
-							title: 'Tareas',
-							menus: [
-								{
-									title: 'Crear tarea',
-									onClick: onClick.createTask,
-								},
-								{
-									title: 'Gestionar tareas',
-									onClick: onClick.mannageTask,
-								},
-							],
-						},
-						{
-							title: 'Plantillas',
-							menus: [
-								{
-									title: 'Crear plantilla',
-									onClick: onClick.createTemplate,
-								},
-								{
-									title: 'Gestionar plantillas',
-									onClick: onClick.mannageTemplates,
-								},
-							],
-						},
-						{
-							title: 'Equipos',
-							menus: [
-								{
-									title: 'Crear equipo',
-									onClick: onClick.createTeam,
-								},
-								{
-									title: 'Gestionar equipos',
-									onClick: onClick.mannageTeams,
-								},
-							],
-						},
-						{
-							title: 'Proyectos',
-							menus: [
-								{
-									title: 'Crear proyecto',
-									onClick: onClick.createProject,
-								},
-								{
-									title: 'Gestionar proyectos',
-									onClick: onClick.mannageProjects,
-								},
-								{
-									title: 'Estatus de proyectos',
-									onClick: onClick.projectsStatus,
-								},
-							],
-						},
-					],
-				}}
-			/>
-		</div>
-	);
-};
 
 const Container = (props: Containerprops) => {
 	const {
@@ -128,11 +52,12 @@ const Container = (props: Containerprops) => {
 		headerStyle,
 		contentStyle,
 		footerStyle,
+		modo,
 	} = props;
 	return (
 		<div className={css.ctn} style={style}>
 			<div className={css.menu}>
-				<Menu onClick={onClick} />
+				<Menu modo={modo} onClick={onClick} />
 			</div>
 			{AsideContent && <div className={css.asideCtn}>{AsideContent}</div>}
 			<div className={AsideContent ? css.ctnChildren_FtrAsd : css.ctnChildren_Ftr}>
