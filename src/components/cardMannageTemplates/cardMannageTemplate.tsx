@@ -1,8 +1,7 @@
 import React from 'react';
 import Cards from '../cards';
 import { Modo, onClickType, statusTask } from '../../types';
-import { Aside } from './files/aside';
-import { Content } from './files/content';
+import { Aside, Content } from './files';
 import { cardH, cardW } from '../../utils/functions/functions';
 
 export interface cardTemplate {
