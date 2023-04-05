@@ -19,7 +19,10 @@ withProperties.args = {
 	],
 	teamName: 'Sistemas TI',
 	teamColor: '#126EFA',
-	onClickView: () => alert('view'),
+	onClickView: () => alert('ver'),
+	onClickEdit: () => alert('editar'),
+	onClickDelete: () => alert('eliminar'),
+	// modo: 'Dark',
 };
 
 export default {
