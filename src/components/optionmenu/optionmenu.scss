@@ -1,134 +1,170 @@
 
-//estilos resto del contenedor
-.menusContainerMenuComponent{
-  text-align: left;
-  margin-top: 6px;
-  h2{ 
-    color: #ffffff;
-  }
-  ul{
-    list-style: none;
-    margin-block: 0;
-    padding: 0 0 10px 0;
 
-    li{
-      margin: 10px 0;
-      cursor: pointer;
-      position: relative;
-      a{
-        cursor: pointer;
-        font-size: 16px;
-        color: #fff;
-        font-weight: bold;
-        user-select: none;
-        margin-left: 10px;
-      }
-      a:before{
-        content: " ";
-        position: absolute;
-        background: #fff;
-        width: 100px;
-        height: 5px;
-        transform: translateX(110px);
-        opacity: 0;
-        transition:  all 0.3s cubic-bezier(.55,0,.1,1);
-        bottom: -5px;
-        left: 0;
-        z-index: 10;
-      }
-      a:hover:before{
-        transform: translateX(0px);
-        opacity: 1;
-        width: 50px;
-      }
-    }
-      font-size: 20px;
-  }
-}
-.ContainerMenuComponent,.ContainerMenuComponentOpen{
+
+// contenedor general en todos sus modos
+.ctnLight_MenuC,      // cerrado modo claro
+.ctnDark_MenuC,       // cerrado modo oscuro
+.ctnOpenLight_MenuC,  // abierto modo claro
+.ctnOpenDark_MenuC    // abierto modo oscuro
+{
   position: fixed;
   left: 0;
-   top: 0;
+  top: 0;
+  .btnOpnCls{
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 10px;
+  }
+  // icono de cerrar modal
+  .IcnClsMenu {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background:transparent;
+    transition: 0.5s;
+    border-radius: 25px;
+    &:before, &:after {
+      display: block;
+      content: "";
+      height: 4px;
+      width: 30px;
+      left: 10px;
+      background: #fff;
+      position: absolute;
+      transition: 0.25s 0.25s;
+      border-radius: 10px;
+    }
+    &:before {
+      bottom: 6.25px;
+      transition: .35s;
+    }
+    &:after{
+      top: 6.25px;
+      transition: .35s;
+    }
+  }
+    // estilos de los elementos seleccionables
+  .menuCtn{
+    text-align: left;
+    margin-top: 6px;
+    h2{ 
+      font-size: 16px;
+      color: #dedede;
+      user-select: none;
+      font-weight: lighter;
+      overflow-wrap: normal;
+    }
+    ul{
+      list-style: none;
+      margin-block: 0;
+      padding: 0 0 10px 0;
+
+      li{
+        margin: 10px 0;
+        cursor: pointer;
+        position: relative;
+        a{
+          cursor: pointer;
+          font-size: 16px;
+          color: #fff;
+          font-weight: bold;
+          user-select: none;
+          margin-left: 10px;
+        }
+        a:before{
+          content: " ";
+          position: absolute;
+          background: #fff;
+          width: 100px;
+          height: 5px;
+          transform: translateX(110px);
+          opacity: 0;
+          transition:  all 0.3s cubic-bezier(.55,0,.1,1);
+          bottom: -5px;
+          left: 0;
+          z-index: 10;
+        }
+        a:hover:before{
+          transform: translateX(0px);
+          opacity: 1;
+          width: 50px;
+        }
+      }
+        font-size: 20px;
+    }
+  }
 }
-.ContainerMenuComponent{
+
+// contenedor en su estado cerrado
+.ctnLight_MenuC,
+.ctnDark_MenuC{
   width: 50px; 
   height: 50px;
   background: #282828;
   top: 11vh;
   border-radius: 0 5px 5px 0;
+  .menus{
+    display: none;
+  }
  }
- //contenedor 
-.ContainerMenuComponentOpen{
+ // contenedor en su estado abierto 
+ .ctnOpenLight_MenuC,
+ .ctnOpenDark_MenuC{
   height: 100%;
   padding: 0;
   margin: 0;
   background: #282828;
-}
-.buttonOpenCloseMenuComponent{
-  cursor: pointer;
-  height: 30px;
-  width: 30px;
-  position: absolute;
-  top: 10px;
-}
-.iconOpenCloseMenuComponent {
-  position: relative;
-  width: 30px;
-  height: 30px;
-  background:transparent;
-  transition: 0.5s;
-  border-radius: 25px;
-
-}
-.iconOpenCloseMenuComponent:before, .iconOpenCloseMenuComponent:after {
-  display: block;
-  content: "";
-  height: 4px;
-  width: 30px;
-  left: 10px;
-  background: #fff;
-  position: absolute;
-  transition: 0.25s 0.25s;
-  border-radius: 10px;
-}
-.iconOpenCloseMenuComponent:before {
-  bottom: 6.25px;
-  transition: .35s;
-}
-.iconOpenCloseMenuComponent:after{
-  top: 6.25px;
-  transition: .35s;
+  .menus{
+    display:block;
+    height: 100%;    
+  }
+  .IcnClsMenu:after {
+    transition: 0.5s;
+    top: 50%;
+    transform: rotate(45deg);
+  }
+  .IcnClsMenu:before {
+    transition: 0.5s;
+    top: 50%;
+    transform: rotate(-45deg) !important;
+  }
+  .btnOpnCls,
+  .btnOpnCls{
+    top: 12.5vh;
+  }
 }
 
-.openMenuComponent.iconOpenCloseMenuComponent:after {
-  transition: 0.5s;
-  top: 50%;
-  transform: rotate(45deg);
+/*
+Modo oscuro
+*/
+//modal abierto
+.ctnOpenDark_MenuC{
 }
-.openMenuComponent.iconOpenCloseMenuComponent:before {
-  transition: 0.5s;
-  top: 50%;
-  transform: rotate(-45deg) !important;
+//modal cerrado
+.ctnDark_MenuC{
 }
-.ContainerMenuComponentOpen .buttonOpenCloseMenuComponent{
-  top: 12.5vh;
-}
+
 
 /*
 //Mediasqueries de tamaños del menú
 */
 @media (min-width: 1280px){
-  .ContainerMenuComponentOpen{
-    width: 40vw;
-  }
+   .ctnOpenLight_MenuC,
+    .ctnOpenDark_MenuC{
+        width: 40vw;
+      }
 }
 @media (max-width: 1280px){
-  .ContainerMenuComponentOpen{
-    width: 60vw;
-  }
+   .ctnOpenLight_MenuC,
+    .ctnOpenDark_MenuC{
+        width: 60vw;
+      }
 }
 @media (max-width: 768px){
-  .ContainerMenuComponentOpen{
-    width: 100vw;
-  }
+   .ctnOpenLight_MenuC,
+    .ctnOpenDark_MenuC{
+        width: 100vw;
+      }
 }

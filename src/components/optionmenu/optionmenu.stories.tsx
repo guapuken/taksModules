@@ -55,7 +55,7 @@ WithProperties.args = {
 				],
 			},
 			{
-				title: 'Gráfica de avances',
+				title: 'Gráficas de avances',
 				menus: [
 					{
 						title: 'Generales',
@@ -83,5 +83,12 @@ export default {
 	title: 'Átomos/menu',
 	component: OptionMenu,
 	//definición de argumentos
-	argTypes: {},
+	argTypes: {
+		modo: {
+			control: {
+				type: 'select',
+				options: ['Dark', 'Light'],
+			},
+		},
+	},
 } as Meta;

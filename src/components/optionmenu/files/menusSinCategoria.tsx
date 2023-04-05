@@ -1,10 +1,12 @@
 import React from 'react';
 import '../optionmenu.scss';
-const MenusSc = (props: any) => {
+
+export default function MenusSc(props: any) {
 	const { menus } = props;
-	return menus ? (
+	return (
+		menus &&
 		menus.sinCategoria?.map((sinCategoria: any) => (
-			<div className={'menusContainerMenuComponent'}>
+			<div className="menuCtn">
 				<ul>
 					<li>
 						<a href={sinCategoria.href} onClick={sinCategoria.onClick}>
@@ -14,8 +16,5 @@ const MenusSc = (props: any) => {
 				</ul>
 			</div>
 		))
-	) : (
-		<></>
 	);
-};
-export default MenusSc;
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MenusSc, MenusCc } from './files';
 import './optionmenu.scss';
+import { Modo } from '../../types';
 
 interface menusOptionsTypes {
 	title?: string;
@@ -16,46 +17,28 @@ interface menusTypes {
 	sinCategoria?: menusOptionsTypes[];
 }
 export interface OptionMenuProps {
-	menus?: menusTypes;
+	menus: menusTypes;
+	modo: Modo;
 }
 
 const OptionMenu = (props: OptionMenuProps) => {
-	const { menus } = props;
-
-	const MenuConCategoria = (menus: any) => {
-		const [isOpen, setIsOpen] = useState(false);
-		return (
-			<>
-				<div className={`ContainerMenuComponent${isOpen ? 'Open' : ''}`}>
-					<nav className={'navOpenCloseMenuComponent'}>
-						<a
-							onClick={() => setIsOpen(!isOpen)}
-							className={'buttonOpenCloseMenuComponent'}
-						>
-							<div
-								className={`${
-									isOpen ? 'openMenuComponent' : ''
-								} iconOpenCloseMenuComponent`}
-							></div>
-						</a>
-					</nav>
-					<div
-						className={'contenedorMenusMenuComponent'}
-						style={{ display: isOpen ? 'block' : 'none' }}
-					>
-						<div
-							className="contenedorMenusMenuComponent"
-							style={{ display: isOpen ? 'block' : 'none' }}
-						>
-							<MenusCc menus={menus} />
-							<MenusSc menus={menus} />
-						</div>
+	const { menus, modo = 'Light' } = props;
+	const [isOpen, setIsOpen] = useState(false);
+	return (
+		<div className={`ctn${isOpen ? 'Open' : ''}${modo}_MenuC`}>
+			<a onClick={() => setIsOpen(!isOpen)} className={'btnOpnCls'}>
+				<div className="IcnClsMenu"></div>
+			</a>
+			<div className={`menus`}>
+				<div className="centerElement">
+					<div>
+						<MenusSc menus={menus} />
+						<MenusCc menus={menus} />
 					</div>
 				</div>
-			</>
-		);
-	};
-	return <MenuConCategoria menus={menus} />;
+			</div>
+		</div>
+	);
 };
 
 export default OptionMenu;
