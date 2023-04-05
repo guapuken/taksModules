@@ -48,6 +48,7 @@ withProperties.args = {
 		},
 	],
 	percentTask: 10,
+	// modo: 'Dark',
 };
 export default {
 	title: 'Cards/task',

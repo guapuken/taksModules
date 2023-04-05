@@ -1,23 +1,12 @@
 import React from 'react';
-import { AsideContainer, ButtonsArray } from '../../utils/asideUtils';
-import {
-	CardContainer,
-	involucrados,
-	returnSize,
-	SimpleButtonText,
-	sizeCard,
-	Spans,
-} from '../../utils/cardsUtils';
+// funciones
 import { useWindowSize } from '../../utils/windowSize';
+// componentes
 import Cards from '../cards';
-import Notifications from '../notifications';
-import ProgressBar from '../progressBar';
-import { IconAsign } from '../task/complements/iconAsign';
-import editIcon from '../../img/editar.svg';
-import calendarIcon from '../../img/calendario.svg';
-import '../../global.scss';
+//types
 import { Modo, onChangeType, onClickType, statusTask } from '../../types';
-import { cardW } from '../../utils/functions/functions';
+//importación de componentes principales
+import { Content, Aside } from './files';
 
 // import './cardProject.scss';
 interface submenus {
@@ -50,164 +39,14 @@ export interface CardTaskProps {
 }
 const CardTask = (props: CardTaskProps) => {
 	const scrSize = useWindowSize();
-	const heightCard = scrSize.width >= 834 ? 15 : scrSize.height / 4 / 10 - 6;
-
-	const {
-		statusTask,
-		followNotificationsValue,
-		onClickShowDetails = () =>
-			alert('Change the function ShowDetails with onClickShowDetails property'),
-		onChangeNotificationSwitch,
-		taskName = 'Nombre de tarea',
-		taskDescription = 'Descripción de tarea',
-		subtasks = 0,
-		valueResponsable,
-		valueRevision,
-		responsables,
-		equipos,
-		revision,
-		percentTask,
-		idNotification = 'task',
-		onClickFollow = () => alert('seguir tarea'),
-		onClickRecordatorio = () => alert('agregar recordatorio'),
-		onClickEditar = () => alert('editar tarea'),
-		onClickComentario = () => alert('agregar comentario'),
-		onClickFecha = () => alert('reasignar fecha de entrega'),
-		modo,
-	} = props;
-
-	//Content card
-	const ContentCard = () => {
-		const titleCard = (
-			<p
-				className="TextOverflow"
-				style={{ WebkitLineClamp: 2, color: '#000' }}
-				title={taskName}
-			>
-				{taskName}
-			</p>
-		);
-		return (
-			<CardContainer>
-				{/* {useWindowSize().width > 768 && (
-					<div
-						className={`ContainerTitleAndiconsCardProject${
-							sizeCard() * 10 < 350 ? 'Small' : ''
-						}`}
-					>
-						<IconAsign
-							involucrados={involucrados(valueResponsable, valueRevision)}
-							responsables={responsables}
-							equipos={equipos}
-							revision={revision}
-							valueResponsable={valueResponsable}
-							valueRevision={valueRevision}
-							style={{ marginRight: '2rem' }}
-						/>
-						<Notifications
-							idNotification={idNotification}
-							onChange={onChangeNotificationSwitch}
-							checkValue={followNotificationsValue}
-						/>
-					</div>
-				)} */}
-				{titleCard}
-				<SimpleButtonText
-					style={{ fontSize: '1.4rem', color: '#00000075', lineHeight: '1.3' }}
-				>
-					<span
-						className="TextOverflow"
-						style={{
-							WebkitLineClamp: scrSize.width >= 834 ? 2 : 1,
-							fontSize: 'inherit',
-						}}
-						title={taskDescription}
-					>
-						{taskDescription}
-					</span>
-				</SimpleButtonText>
-
-				{/* A button that shows the number of subtasks. */}
-
-				<div className="ContainerProgressBarAndShowDetails">
-					<ProgressBar
-						status={statusTask}
-						valor={percentTask}
-						width={cardW(true) - 3}
-						onClick={onClickShowDetails}
-						styleContent={{ cursor: 'pointer' }}
-					/>
-					<div
-						style={{
-							display: 'flex',
-							justifyContent: 'space-between',
-							width: '100%',
-							alignItems: 'center',
-						}}
-					>
-						<SimpleButtonText style={{ position: 'relative', fontSize: '1.3rem' }}>
-							<Spans boldLegend={subtasks} legend="más" />
-						</SimpleButtonText>
-						<SimpleButtonText
-							legend="mostrar detalles..."
-							onClick={onClickShowDetails}
-							style={{ fontSize: '1.4rem' }}
-						/>
-					</div>
-				</div>
-			</CardContainer>
-		);
-	};
-
-	//Aside content
-	const AsideContent = () => {
-		return (
-			<AsideContainer>
-				<ButtonsArray
-					buttons={[
-						{
-							img: editIcon,
-							onClick: onClickEditar,
-							titleToShow: 'Editar',
-						},
-						{
-							img: calendarIcon,
-							onClick: onClickFecha,
-							titleToShow: 'Reasignar fecha',
-						},
-						{
-							onClick: onClickComentario,
-							titleToShow: 'Asignar tarea',
-						},
-						{
-							onClick: onClickFollow,
-							titleToShow: followNotificationsValue
-								? 'Dejar de seguir tarea'
-								: 'Seguir tarea',
-						},
-						{
-							onClick: onClickRecordatorio,
-							titleToShow: 'Programar recordatorio',
-						},
-					]}
-					vertical
-					size={heightCard}
-				/>
-			</AsideContainer>
-		);
-	};
 
 	//Definición de los argumentos
 	const properties = {
 		rounded: true,
-		width: cardW(true),
-		// height:  sizeCard() * 10 < 400 ?  19  : 15.5 ,
-		height: heightCard,
-		Content: ContentCard,
-		Aside: scrSize.width >= 834 ? AsideContent : null,
-		modo: modo,
+		Content: () => <Content {...props} />,
+		Aside: scrSize.width >= 834 ? () => <Aside {...props} /> : null,
+		modo: props.modo,
 	};
-	console.log(scrSize.width / 10 - 7 /* * 0.25 - 7 */);
 	return <Cards {...properties} />;
 };
 

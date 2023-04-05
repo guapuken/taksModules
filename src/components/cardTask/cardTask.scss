@@ -1,0 +1,86 @@
+// estilos globales
+@import '../../global.scss';
+
+// ---------------------------------------------------------------------------------------------------------
+//      estilos generales
+// ---------------------------------------------------------------------------------------------------------
+.ctn_CTaskC, .ctnDark_CTaskC {
+    .ctnTexts{
+        display: grid;
+        place-items: center;
+        max-height: 50%;
+        height: 50%;
+        width: 100%;
+    }
+    width: calc(100% - 5px) !important;
+    height: calc(100% - 5px) !important;
+    .descTask{
+        font-size: 14px; 
+        line-height: 1.3;
+        span{
+            font-size: inherit;
+            -webkit-line-clamp: 1;
+        }
+    }
+    .ctnProgressBar_showDtls{
+        position: absolute;
+        bottom:10px;
+        .ctnDtls{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+        }
+        .tasks, .showDtls{
+            font-size: 13px;
+        }
+        .tasks{
+            position: relative;
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo claro
+// ---------------------------------------------------------------------------------------------------------
+.ctn_CTaskC{
+    .descTask{
+        color: #00000075;
+    }
+    .ctnProgressBar_showDtls{
+        .tasks, .showDtls{
+            color: #282828;
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo oscuro
+// ---------------------------------------------------------------------------------------------------------
+.ctnDark_CTaskC{
+    .descTask{
+        color: #dedede75;
+    }
+    .ctnProgressBar_showDtls{
+        .tasks, .showDtls{
+            color: #dedede75;
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      media queries
+// ---------------------------------------------------------------------------------------------------------
+@media (max-width:834px){
+    .ctn_CTaskC, .ctnDark_CTaskC {
+        .descTask{
+            span{
+                -webkit-line-clamp: 1;
+            }
+        }
+    }
+}
+
+@media (max-width: 415px){
+    
+}
