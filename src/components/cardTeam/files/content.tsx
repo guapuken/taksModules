@@ -26,7 +26,7 @@ const Content = (props: any) => {
 					>{`${members?.length} Integrantes...`}</p>
 					{members && members.length > 0 && mouseEnter && (
 						<span className={'memberTeam'}>
-							{members?.map((e) => (
+							{members?.map((e: any) => (
 								<span>{e}</span>
 							))}
 						</span>

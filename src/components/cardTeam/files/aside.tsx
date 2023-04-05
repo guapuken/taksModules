@@ -8,7 +8,7 @@ import prevIcon from '../../../img/previsualizar.svg';
 
 //Componente que regresa el aside de la card
 const Aside = (props: any) => {
-	const { onClickEdit, onClickView, onClickDelete } = props;
+	const { onClickEdit, onClickView, onClickDelete, modo } = props;
 	return (
 		<AsideContainer>
 			<ButtonsArray
@@ -28,6 +28,7 @@ const Aside = (props: any) => {
 						titleToShow: 'Eliminar equipo',
 					},
 				]}
+				modo={modo}
 				vertical
 			/>
 		</AsideContainer>

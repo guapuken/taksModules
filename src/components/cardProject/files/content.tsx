@@ -4,7 +4,7 @@ import React from 'react';
 // ---------------------------------------------------------------------------------------------------------
 // componentes
 import { CardContainer, SimpleButtonText, Spans, TitleCard } from '../../../utils/cardsUtils';
-import { AsideContainer, ButtonItem, ButtonsArray } from '../../../utils/asideUtils';
+import { ButtonItem } from '../../../utils/asideUtils';
 import { Notifications, ProgressBar } from '../../../components';
 // funciones
 import { useWindowSize } from '../../../utils/windowSize';

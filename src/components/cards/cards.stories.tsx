@@ -46,6 +46,7 @@ withProperties.args = {
 		return (
 			<AsideContainer>
 				<ButtonsArray
+					modo="Dark"
 					buttons={[
 						{
 							img: del,

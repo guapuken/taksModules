@@ -17,6 +17,7 @@ const Aside = (props: any) => {
 		onClickFollow,
 		onClickReminder,
 		followNotificationsValue,
+		modo,
 	} = props;
 
 	// definición de botones
@@ -51,7 +52,7 @@ const Aside = (props: any) => {
 	// retorno del componente
 	return (
 		<AsideContainer>
-			<ButtonsArray buttons={buttons} vertical />
+			<ButtonsArray modo={modo} buttons={buttons} vertical />
 		</AsideContainer>
 	);
 };

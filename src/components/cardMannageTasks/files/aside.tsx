@@ -3,9 +3,10 @@ import { AsideContainer, ButtonsArray } from '../../../utils/asideUtils';
 import del from '../../../img/vaciar.svg';
 import prev from '../../../img/previsualizar.svg';
 
-export const Aside = ({ onClickDelete, onClickPreview }: any) => (
+export const Aside = ({ onClickDelete, onClickPreview, modo }: any) => (
 	<AsideContainer>
 		<ButtonsArray
+			modo={modo}
 			buttons={[
 				{
 					img: del,
