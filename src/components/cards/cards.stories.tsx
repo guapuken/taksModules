@@ -1,72 +1,76 @@
-import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import IconDropdown from '../iconDropdown';
-import Cards, { CardsProps } from './cards';
+//importacióon de elementos del storybook auxiliares
+import { Meta, Story } from '@storybook/react';
+//importación de componente principal
+import Cards, { cardIntrfc } from './cards';
 
-const Template: Story<CardsProps> = (args) => <Cards {...args} />;
+//importación de componentes auxiliares
+import { AsideContainer, ButtonsArray } from '../../utils/asideUtils';
+
+//importación de archivos multimedia auxiliares
+import del from '../../img/vaciar.svg';
+import prev from '../../img/previsualizar.svg';
+
+//creación de la plantilla en la que se colocarán los elementos
+const Template: Story<cardIntrfc> = (args) => <Cards {...args} />;
+
+// estado inicial del componente
 export const initialState = Template.bind({});
 initialState.args = {};
+
+// estado del componente con propiedades
 export const withProperties = Template.bind({});
 withProperties.args = {
 	rounded: true,
 	Content: () => {
 		return (
-			<div style={{ width: '100%', height: '100%', position: 'relative' }}>
-				<div
-					style={{
-						position: 'absolute',
-						top: '50%',
-						transform: 'translateY(-50%)',
-						marginLeft: '1rem',
-					}}
-				>
-					<div
-						style={{
-							width: '100%',
-							height: '100%',
-							borderRadius: '1rem 0 0 1rem',
-						}}
-					>
-						<h3 style={{ marginBlock: '0', fontSize: '1.6rem' }}>Traffic</h3>
-						<p style={{ marginBlock: '0', fontSize: '1.4rem' }}>5 Integrantes...</p>
-					</div>
+			<div className="hola" style={{ display: 'grid', placeItems: 'center', height: '100%' }}>
+				<div>
+					<h3>Traffic</h3>
+					<p>5 Integrantes...</p>
 				</div>
 				<div
 					style={{
 						background: 'green',
-						height: '10rem',
-						width: '1.5rem',
+						height: '100%',
+						width: '15px',
 						position: 'absolute',
-						top: '-1rem',
-						right: '-1rem',
+						top: '0',
+						right: '0',
 					}}
 				></div>
 			</div>
 		);
 	},
-	width: 25,
-	height: 10,
 	Aside: () => {
 		return (
-			<div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem' }}>
-				<img src={''} alt="editar" style={{ height: '3rem' }} />
-				<IconDropdown
-					icon={''}
-					options={[
-						{ title: 'Editar' },
-						{ title: 'Compartir' },
-						{ title: 'Previsualizar' },
+			<AsideContainer>
+				<ButtonsArray
+					buttons={[
+						{
+							img: del,
+							onClick: () => alert('eliminar'),
+							titleToShow: 'Eliminar',
+						},
+						{
+							img: prev,
+							onClick: () => alert('previsualizar'),
+							titleToShow: 'Previsualizar',
+						},
 					]}
-					style={{ marginLeft: '-.2rem' }}
+					vertical
 				/>
-			</div>
+			</AsideContainer>
 		);
 	},
 };
 
+//exportación de valores default
 export default {
+	//nombre de la carpeta en la que agrupará / nombre del compponente que se mostrará
 	title: 'Cards/generica',
 	component: Cards,
+	//definición de argumentos
 	argTypes: {
 		height: {
 			control: 'number',
@@ -74,11 +78,20 @@ export default {
 		width: {
 			control: 'number',
 		},
-		titulo: {
-			control: 'text',
-		},
 		rounded: {
 			control: 'boolean',
+		},
+		modo: {
+			control: {
+				type: 'select',
+				options: ['Dark', 'Light'],
+			},
+		},
+		Content: {
+			type: 'function',
+		},
+		Aside: {
+			type: 'function',
 		},
 	},
 } as Meta;

@@ -1,0 +1,123 @@
+//importación de estilos globales
+@import '../../global.scss';
+
+//generales ----------------------------------------------------
+.noCtn_CC, .noCtnDark_CC,
+.ctn_CC, .ctnDark_CC,
+.ctnAsd_CC, .ctnAsdDark_CC,
+.ctnRnd_CC, .ctnRndDark_CC,
+.ctnAsdRnd_CC, .ctnAsdRndDark_CC{
+    width: calc(100vw / 4 - 2vw);
+    height: calc(100vh / 4 - 30px);
+    .contentCtn{
+        height: 100%;
+        .childrenCtn{
+            width: calc(100% - 50px);
+            height: 100%;
+            position: relative;
+        }
+        .asideCtn{
+            height: 100%;
+            .asideChildren{
+                width: 30px;
+                height: calc(100% - 20px);
+            }
+        }
+    }
+}
+//contenedor sin contenidof
+.noCtn_CC,      //sin contenido modo claro
+.noCtnDark_CC   //sin contenido modo oscuro
+{
+    display: grid;
+    place-content: center;
+}
+// contenedor con propiedad de redondear esquinas
+.ctnAsdRnd_CC, .ctnAsdRndDark_CC,
+.ctnRnd_CC,.ctnRndDark_CC
+{ 
+    border-radius: 20px; 
+}
+
+// selector del contenedor en todas sus versiones
+.ctn_CC, .ctnDark_CC,
+.ctnAsd_CC, .ctnAsdDark_CC,
+.ctnRnd_CC, .ctnRndDark_CC,
+.ctnAsdRnd_CC, .ctnAsdRndDark_CC
+{
+    
+    // contenedor del contenido / children y aside
+    .contentCtn{
+        display: flex;
+        position: relative; 
+        //contenedor del children
+        .childrenCtn{
+            margin: auto,
+        }
+        // contenedor del aside
+        .asideCtn{
+            width: 5rem;
+            margin: auto;
+            display: flex;
+            .asideChildren{
+                margin: auto,
+            }
+        }
+    }
+}
+
+//modo claro-----------------------------------------------------
+.ctnAsdRnd_CC,  //contenedor con aside redondeadeo
+.ctnAsd_CC,     //contenedor con Aside
+.ctnRnd_CC,     //contenedor redondeado
+.ctn_CC,         //contenedor
+.noCtn_CC
+{
+    background: #fff;
+    box-shadow: var(--boxShadow);
+    .asideCtn{
+        box-shadow: -20px 0px 20px -20px #52525275;
+    }
+}
+
+//modo oscuro ---------------------------------------------------
+.ctnAsdRndDark_CC,  //contenedor con aside redondeadeo
+.ctnAsdDark_CC,     //contenedor con Aside
+.ctnRndDark_CC,     //contenedor redondeado
+.ctnDark_CC,        //contenedor
+.noCtnDark_CC,       //sin contenido
+.noCtnDark_CC
+{
+    background: #282828;
+    box-shadow: var(--boxShadowDark);
+    h3, p{
+        color: #fff;
+    }
+    .asideCtn{
+        box-shadow: -20px 0px 20px -20px #00000075;
+    }
+}
+
+//medias queries -------------------------------------------------
+//tablet
+@media (max-width:834px){
+    .noCtn_CC, .noCtnDark_CC,
+    .ctn_CC, .ctnDark_CC,
+    .ctnAsd_CC, .ctnAsdDark_CC,
+    .ctnRnd_CC, .ctnRndDark_CC,
+    .ctnAsdRnd_CC, .ctnAsdRndDark_CC{
+        width: calc(100vw / 2 - 30px);
+        height: calc(100vh / 4 - 30px);
+    }
+}
+//phone
+@media (max-width:415px){
+    .noCtn_CC, .noCtnDark_CC,
+    .ctn_CC, .ctnDark_CC,
+    .ctnAsd_CC, .ctnAsdDark_CC,
+    .ctnRnd_CC, .ctnRndDark_CC,
+    .ctnAsdRnd_CC, .ctnAsdRndDark_CC{
+        width: calc(100vw - 30px);
+        height: calc(100vh / 4 - 30px);
+    }
+}
