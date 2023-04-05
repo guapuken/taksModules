@@ -17,13 +17,13 @@ const ProgressBar = (props: ProgressBarProps) => {
 	//Styles
 	let containerStyles = {
 		display: 'flex',
-		width: `${width}rem`,
+		width: `${width * 10}px`,
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		height: '3rem',
+		height: '30px',
 	};
 	let progressContainerStyles = {
-		boxShadow: `inset 0 0 0 .3rem ${
+		boxShadow: `inset 0 0 0 3px ${
 			status === 'outOfTime'
 				? '#FC3D38'
 				: status === 'onTime'
@@ -32,12 +32,12 @@ const ProgressBar = (props: ProgressBarProps) => {
 				? '#FCB24F'
 				: '#282828'
 		}`,
-		height: '2rem',
-		width: `${width - 5.5}rem`,
-		borderRadius: '50rem',
+		height: '20px',
+		width: `${width * 10 - 55}px`,
+		borderRadius: '100px',
 	};
 	let percentStyles = {
-		fontSize: '2rem',
+		fontSize: '20px',
 		color: status === 'outOfTime' ? '#FC3D38' : '#282828',
 		fontFamily: "'Open Sans', sans-serif",
 		fontWeight: 'lighter',
@@ -53,7 +53,7 @@ const ProgressBar = (props: ProgressBarProps) => {
 				: status === 'delayed'
 				? '#FCB24F'
 				: '#282828',
-		borderRadius: '50rem',
+		borderRadius: '100px',
 		width: `${valor}%`,
 	};
 

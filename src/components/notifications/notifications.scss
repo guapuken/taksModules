@@ -1,0 +1,50 @@
+// estilos generales
+@import '../../global.scss';
+
+// ---------------------------------------------------------------------------------------------------------
+//      estilos generales
+// ---------------------------------------------------------------------------------------------------------
+.ctn_SNC, .ctnDark_SNC {
+  position: relative ;
+  display: block ;
+  width: 50px ;
+  height: 30px ;
+  cursor: pointer;
+  .inputSwitch {
+    display: none;
+  }
+  .lblSwitch {
+    cursor: pointer;
+    border: none;
+    border-radius: 34px;
+    height: 30px ;
+    width: 50px;
+    display: block;
+    box-shadow: inset 0 0 0 2px #282828;
+    transition: all ease .5s;
+
+    svg{
+      position: absolute;
+      top: 2px ;
+      left: 0;
+      height: 25px;
+      width: auto;
+    }
+  }
+  .inputSwitch:checked + .lblSwitch {
+    background-color: #282828;
+    box-shadow: inset 0 0 0 2px #282828;
+    transition: all ease .5s;
+    svg{
+      left: 22px;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo claro
+// ---------------------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo oscuro
+// ---------------------------------------------------------------------------------------------------------

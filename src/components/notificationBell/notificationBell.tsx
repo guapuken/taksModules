@@ -3,6 +3,7 @@ import { selectRandomText } from '../../utils/randomTexts';
 import Cards from '../cards';
 // import { useTimeCounter } from './hooks/useCounter';
 import bellIcon from '../../img/bell.svg';
+import '../../global.scss';
 import css from './notificationBell.module.scss';
 
 export interface NotificationBellProps {
@@ -18,6 +19,7 @@ const NotificationBell = (props: NotificationBellProps) => {
 	const [counter] = useState(notifications?.length || 0);
 	const [showNotifications, setShowNotifications] = useState(false);
 	const [selectedText, setSelectedText] = useState('');
+	console.log(counter);
 
 	const texts = [
 		'¿Hay alguien aquí con vida?',
@@ -30,10 +32,10 @@ const NotificationBell = (props: NotificationBellProps) => {
 				rounded
 				Content={() => (
 					<>
-						<p onClick={e.onClick} className={css.TitleCards}>
+						<p onClick={e.onClick} className={css.TtlCard}>
 							{e.title}
 						</p>
-						<button className={css.Details} onClick={e.onClick}>
+						<button className={css.showDetails} onClick={e.onClick}>
 							Mostrar detalles...
 						</button>
 					</>
@@ -60,11 +62,7 @@ const NotificationBell = (props: NotificationBellProps) => {
 					className={`${css.notification} ${counter > 0 ? css.showCount : ''}`}
 				></div>
 				<button
-					className={`${css.Btn} ${counter > 0 ? css.notify : ''}`}
-					style={{
-						animation: counter > 0 ? `bell .7s` : '',
-						left: '0',
-					}}
+					className={`${css.btnNotification} ${counter > 0 ? css.notify : ''}`}
 					onClick={() => {
 						setShowNotifications(!showNotifications);
 						selectRandomText(texts, setSelectedText);
@@ -74,8 +72,8 @@ const NotificationBell = (props: NotificationBellProps) => {
 				</button>
 			</div>
 			{showNotifications && (
-				<div className={css.Modal}>
-					<div className={css.ContainerNoti}>
+				<div className={css.mdlNotification}>
+					<div className={css.CtnNotification}>
 						{notification ? (
 							notification
 						) : (

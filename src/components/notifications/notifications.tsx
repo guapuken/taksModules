@@ -1,29 +1,30 @@
 import React, { useState } from 'react';
-import '../../global.scss';
-import css from './notifications.module.scss';
+import './notifications.scss';
+import { Modo } from '../../types';
 
 export interface NotificationsProps {
 	checkValue?: boolean;
 	onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
 	idNotification?: string;
+	modo: Modo;
 }
 
 const Notifications = (props: NotificationsProps) => {
-	const { checkValue = false, onChange, idNotification = '' } = props;
+	const { checkValue = false, onChange, idNotification = '1', modo } = props;
 	const [check, setCheck] = useState(checkValue);
 
 	return (
 		<>
-			<div className={css.SwitchNotification}>
+			<div className={`ctn${modo === 'Dark' ? 'Dark' : ''}_SNC`}>
 				<input
 					id={idNotification}
 					type="checkbox"
-					className={css.SwitchNotificationInput}
+					className="inputSwitch"
 					checked={check}
 					onClick={() => setCheck(!check)}
 					onChange={onChange}
 				/>
-				<label htmlFor={idNotification} className={css.SwitchNotificationLabel}>
+				<label htmlFor={idNotification} className="lblSwitch">
 					{
 						<svg
 							id="Capa_1"
