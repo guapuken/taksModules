@@ -37,8 +37,12 @@
   }
   ::-webkit-scrollbar-thumb {
     background-color: transparent !important;
-    border: .1rem solid #dedede;
+    border: 1px solid #dedede;
     border-radius: 10px;
+  }
+  //buttons
+  button {
+    all: unset;
   }
 
   //estilos generales de textos-------------------------
@@ -91,7 +95,7 @@
   .ContainerCardTeamComponent{
     position: relative;
     margin: 0 !important;
-    padding: 0 .5rem !important;
+    padding: 0 5px !important;
   }
 
   //arreglo de botones
