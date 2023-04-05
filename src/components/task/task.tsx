@@ -167,6 +167,7 @@ const Task = (props: TaskProps) => {
 		// <div className={'ContainerTaksComponent'} /* style={{ background: 'red' }} */>
 		<div className={`ctn${modo}_TascC`} /* style={{ background: 'red' }} */>
 			<InputTask
+				modo={modo}
 				style={{ maxWidth: '100%' }}
 				principalTask={principalTask}
 				showTask={plantillas ? false : true}
