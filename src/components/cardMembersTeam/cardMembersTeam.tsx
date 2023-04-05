@@ -11,9 +11,9 @@ export interface CardMembersTeamProps {
 const CardMembersTeam = (props: CardMembersTeamProps) => {
 	const { name = 'Nombre del integrante', role = 'Puesto', incompletedTasks = 0 } = props;
 	return (
-		<CardContainer width="20rem">
+		<CardContainer>
 			<h6>{name}</h6>
-			<p style={{ fontSize: '1.3rem', marginBottom: '.5rem' }}>{role}</p>
+			<p style={{ fontSize: '13px', marginBottom: '5px' }}>{role}</p>
 			<Spans boldLegend={'Tareas pendientes: '} legend={incompletedTasks} />
 		</CardContainer>
 	);

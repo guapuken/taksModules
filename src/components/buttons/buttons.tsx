@@ -179,7 +179,7 @@ const Buttons = (props: ButtonsProps) => {
 					buttons?.secondary && !buttons?.primary && !buttons?.tertiary
 						? 'right'
 						: 'space-between',
-				gap: '1rem',
+				gap: '10px',
 				width: '100%',
 			},
 			vertical: {
@@ -188,7 +188,7 @@ const Buttons = (props: ButtonsProps) => {
 					buttons?.secondary && !buttons?.primary && !buttons?.tertiary
 						? 'right'
 						: 'space-between',
-				gap: '1rem',
+				gap: '10px',
 				width: '100%',
 			},
 			box: {
@@ -197,7 +197,7 @@ const Buttons = (props: ButtonsProps) => {
 					buttons?.secondary && !buttons?.primary && !buttons?.tertiary
 						? 'right'
 						: 'space-between',
-				gap: '1rem',
+				gap: '10px',
 				width: '100%',
 			},
 		};
@@ -295,7 +295,7 @@ const Buttons = (props: ButtonsProps) => {
 				<div
 					style={{
 						display: 'flex',
-						gap: '1rem',
+						gap: '10px',
 						maxWidth: '100%',
 						justifyContent: 'right',
 					}}

@@ -15,14 +15,11 @@ export interface cardTemplate {
 }
 
 const CardMannageTemplates = (props: cardTemplate) => {
-	const heightCard = cardH();
-
 	const properties = {
-		Aside: () => <Aside height={heightCard} />,
+		Aside: () => <Aside {...props} />,
 		Content: () => <Content {...props} />,
-		height: heightCard,
 		rounded: true,
-		width: cardW(true),
+		modo: props.modo,
 	};
 	return <Cards {...properties} />;
 };

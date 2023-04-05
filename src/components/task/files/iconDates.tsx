@@ -3,6 +3,7 @@ import { useWindowSize } from '../../../utils/windowSize';
 import Information from '../../information/information';
 import InputLabel from '../../inputLabel';
 import RangeDatePicker from '../../rangeDatePicker';
+import { Modo } from '../../../types';
 
 interface IconDatesProps {
 	plantillas?: boolean;
@@ -15,10 +16,11 @@ interface IconDatesProps {
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
 	durationValue?: string;
+	modo: Modo;
 }
 
 //Visualización de componente si la propiedad de plantillas es true
-export const IconDates = (props: IconDatesProps) => {
+const IconDates = (props: IconDatesProps) => {
 	const {
 		onChangeDias,
 		plantillas,
@@ -30,11 +32,12 @@ export const IconDates = (props: IconDatesProps) => {
 		onChangeEndDate,
 		onChangeStartDate,
 		durationValue,
+		modo,
 	} = props;
 	return plantillas ? (
 		<div style={{ position: 'relative', zIndex: '2' }} className={className}>
 			<InputLabel
-				style={{ width: '12.2rem' }}
+				style={{ width: '122px' }}
 				legend="Duración"
 				type="number"
 				onChange={onChangeDias ? onChangeDias : () => {}}
@@ -42,6 +45,7 @@ export const IconDates = (props: IconDatesProps) => {
 			/>
 			<div className="IconInformationTaskcomponent">
 				<Information
+					modo={modo}
 					info="¿En cuántos días debería de estar lista la tarea una vez que se le asigne al responsable?"
 					positionInfo={useWindowSize().width < 500 ? 'bottom' : 'right_bottom'}
 				/>
@@ -58,3 +62,4 @@ export const IconDates = (props: IconDatesProps) => {
 		/>
 	);
 };
+export default IconDates;

@@ -138,7 +138,7 @@ const Container = (props: Containerprops) => {
 			<div className={AsideContent ? css.ctnChildren_FtrAsd : css.ctnChildren_Ftr}>
 				{header && (
 					<div className={css.header} style={headerStyle}>
-						<h2 style={{ marginRight: '1rem' }}>{header.moduleName}</h2>
+						<h2 style={{ marginRight: '10px' }}>{header.moduleName}</h2>
 						<Button
 							legend={header.legendBtnModule}
 							primary

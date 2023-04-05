@@ -4,18 +4,23 @@ import Cards from '../cards';
 // import { useTimeCounter } from './hooks/useCounter';
 import bellIcon from '../../img/bell.svg';
 import '../../global.scss';
-import css from './notificationBell.module.scss';
+import './notificationBell.scss';
+import { TitleCard } from '../../utils/cardsUtils';
+import { Modo } from '../../types';
+import Notification from './files/notification';
+import WithoutNotifications from './files/withoutNotifications';
 
 export interface NotificationBellProps {
 	Children?: any;
 	notifications?: {
-		title?: string;
+		title: string;
 		onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	}[];
+	modo: Modo;
 }
 
 const NotificationBell = (props: NotificationBellProps) => {
-	const { notifications } = props;
+	const { notifications, modo = 'Light' } = props;
 	const [counter] = useState(notifications?.length || 0);
 	const [showNotifications, setShowNotifications] = useState(false);
 	const [selectedText, setSelectedText] = useState('');
@@ -26,61 +31,31 @@ const NotificationBell = (props: NotificationBellProps) => {
 		'Porque estoy solito... no hay nadie aquí a mi lado',
 	];
 
-	const notification = notifications?.map((e) => (
-		<div style={{ marginBottom: '1.5rem' }}>
-			<Cards
-				rounded
-				Content={() => (
-					<>
-						<p onClick={e.onClick} className={css.TtlCard}>
-							{e.title}
-						</p>
-						<button className={css.showDetails} onClick={e.onClick}>
-							Mostrar detalles...
-						</button>
-					</>
-				)}
-				width={25}
-			/>
-		</div>
-	));
-
 	return (
-		<div style={{ position: 'relative', width: '30rem' }}>
-			<div
-				style={{
-					position: 'absolute',
-					width: '5rem',
-					height: '4rem',
-					display: 'flex',
-					right: '0',
-				}}
-			>
+		<div className={`ctn${modo}_BtnNB`}>
+			<div className="ctnBtn">
 				<div
 					id="notification"
 					data-count={counter > 0 && counter}
-					className={`${css.notification} ${counter > 0 ? css.showCount : ''}`}
+					className={`notification ${counter > 0 ? 'showCount' : ''}`}
 				></div>
 				<button
-					className={`${css.btnNotification} ${counter > 0 ? css.notify : ''}`}
+					className={`${'btnNotification'} ${counter > 0 ? 'notify' : ''}`}
 					onClick={() => {
 						setShowNotifications(!showNotifications);
 						selectRandomText(texts, setSelectedText);
 					}}
 				>
-					<img src={bellIcon} alt="" />
+					<img src={bellIcon} alt="bell" title="Notificaciones" />
 				</button>
 			</div>
 			{showNotifications && (
-				<div className={css.mdlNotification}>
-					<div className={css.CtnNotification}>
-						{notification ? (
-							notification
+				<div className={'mdlBtnNB'}>
+					<div className={'CtnNotification'}>
+						{notifications ? (
+							<Notification notifications={notifications} modo={modo} />
 						) : (
-							<div style={{ width: '90%', margin: '0 auto' }}>
-								<h2>Sin notificaciones 😥</h2>
-								<p>{selectedText}</p>
-							</div>
+							WithoutNotifications(selectedText)
 						)}
 					</div>
 				</div>

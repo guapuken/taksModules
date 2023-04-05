@@ -1,6 +1,7 @@
 import React, { CSSProperties, useState } from 'react';
 import IconDropdown from '../../iconDropdown';
 import addUserIcon from '../../../img/addUser.svg';
+import { Modo } from '../../../types';
 
 interface submenus {
 	id?: number | string;
@@ -9,24 +10,25 @@ interface submenus {
 	title?: string;
 }
 interface IconAsignProps {
-	involucrados?: number;
+	style?: CSSProperties;
+	styleCircle?: CSSProperties;
+	iconStyle?: CSSProperties;
 	responsables?: submenus[];
 	equipos?: submenus[];
 	revision?: submenus[];
 	className?: string;
-	style?: CSSProperties;
-	styleCircle?: CSSProperties;
 	valueResponsable?: string;
 	valueRevision?: string;
-	iconStyle?: CSSProperties;
+	involucrados?: number;
 	options?: {
 		title?: string;
 		onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 		submenus?: submenus[];
 	}[];
+	modo: Modo;
 }
 //Se construye el componente que regresa el icono de asignar usuario
-export const IconAsign = (props: IconAsignProps) => {
+const IconAsign = (props: IconAsignProps) => {
 	//desestructuración de propiedades
 	const {
 		involucrados = 0,
@@ -40,6 +42,7 @@ export const IconAsign = (props: IconAsignProps) => {
 		styleCircle,
 		iconStyle,
 		options,
+		modo = 'Light',
 	} = props;
 
 	//Opciones de usuarios
@@ -74,11 +77,9 @@ export const IconAsign = (props: IconAsignProps) => {
 			<span
 				className={`TextInvolucradosTaskComponent ${className}`}
 				style={{
-					top: `calc(100% + ${
-						className === 'TabletAndMobileVersion' ? '2.5rem' : '2rem'
-					})`,
+					top: `calc(100% + ${className === 'TabletAndMobileVersion' ? '25px' : '20px'})`,
 					right: className === 'TabletAndMobileVersion' ? '' : '0',
-					left: className === 'TabletAndMobileVersion' ? 'calc(-16rem + 5.5rem)' : '',
+					left: className === 'TabletAndMobileVersion' ? 'calc(-160px + 55px)' : '',
 					display: isHover ? 'block' : 'none',
 					zIndex: '1',
 				}}
@@ -107,6 +108,7 @@ export const IconAsign = (props: IconAsignProps) => {
 	return (
 		<div className={`ContainerIconAsignUsers ${className}`} style={style}>
 			<IconDropdown
+				modo={modo}
 				options={equipos ? asignUsers : [asignUsers[0], asignUsers[2]]}
 				icon={addUserIcon}
 				iconStyles={iconStyle}
@@ -121,7 +123,7 @@ export const IconAsign = (props: IconAsignProps) => {
 						// : 'TextPriorityMenu'
 					}
 					style={{
-						fontSize: '1.4rem',
+						fontSize: '14px',
 						color:
 							// useWindowSize().width < 1280 ?
 							'#fff',
@@ -147,3 +149,5 @@ export const IconAsign = (props: IconAsignProps) => {
 		</div>
 	);
 };
+
+export default IconAsign;

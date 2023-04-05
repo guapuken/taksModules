@@ -196,9 +196,9 @@ const Dropdown = (props: DropdownProps) => {
 				<div
 					className={css.dropdownMenu}
 					style={{
-						maxHeight: `${sizeDrop()}rem`,
-						transform: `translate(-.5rem, ${
-							topPosition ? `-${sizeDrop() + 3}rem` : '0.1rem'
+						maxHeight: `${sizeDrop() * 10}px`,
+						transform: `translate(-5px, ${
+							topPosition ? `-${sizeDrop() + 3 * 10}px` : '1px'
 						})`,
 					}}
 				>

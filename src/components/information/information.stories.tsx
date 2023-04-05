@@ -10,13 +10,12 @@ InitialState.args = {};
 
 export const WithProperties = Template.bind({});
 WithProperties.args = {
-	width: 3,
-	height: 3,
+	width: 30,
+	height: 30,
 	info: `Para agregar puntos tienes que seleccionar los campos y presionar el botón:  ctrl + shift`,
 	positionInfo: 'right_bottom',
 	color: 'red',
 	iconInfo: '!',
-	style: {},
 	className: '',
 };
 

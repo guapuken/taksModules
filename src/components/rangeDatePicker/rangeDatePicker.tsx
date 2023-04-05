@@ -1,6 +1,8 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
 import '../../global.scss';
-import css from './rangeDatePicker.module.scss';
+import './rangeDatePicker.scss';
+import { Modo } from '../../types';
+import { MonthName } from './files/functions';
 
 export interface RangeDatePickerProps {
 	startDateValue?: Date;
@@ -10,6 +12,7 @@ export interface RangeDatePickerProps {
 	disabledEndDate?: boolean;
 	onChangeStartDate?: (e: React.FormEvent<HTMLInputElement>) => void;
 	onChangeEndDate?: (e: React.FormEvent<HTMLInputElement>) => void;
+	modo: Modo;
 }
 
 function date(props: any) {
@@ -30,6 +33,7 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 		disabledEndDate,
 		onChangeStartDate,
 		onChangeEndDate,
+		modo = 'Light',
 	} = props;
 	const [startDate, setStartDate] = useState(startDateValue || date({ tomorrow: false }));
 	const [endDate, setEndDate] = useState(endDateValue || date({ tomorrow: true }));
@@ -37,37 +41,16 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 	useEffect(() => {
 		setEndDate(startDate.toString());
 	}, [startDate]);
-	function MonthName(month: any) {
-		const months = [
-			'Ene',
-			'Feb',
-			'Mar',
-			'Abr',
-			'May',
-			'Jun',
-			'Jul',
-			'Ago',
-			'Sep',
-			'Oct',
-			'Nov',
-			'Dic',
-		];
-		const monthNumber = month.slice(0, 2);
-		parseInt(monthNumber) + 1;
-		if (monthNumber <= 9) {
-			return `${months[monthNumber.slice(-1) - 1]}, ${month.slice(-2)}`;
-		} else return `${months[monthNumber - 1]}, ${month.slice(-2)}`;
-	}
 
-	console.log(startDate);
 	return (
 		<div
-			id="dates"
+			id={`dates${modo}_RDatePC`}
 			onClick={() => document.getElementById('start-date')?.focus()}
 			style={style}
+			className={`ctn${modo}_RDatePC`}
 		>
 			<div>
-				<p style={{ marginBottom: '.5rem' }}>Comienza</p>
+				<p>Comienza</p>
 				<label htmlFor="start-date">
 					{startDate === '' ? 'Comienza' : MonthName(startDate.toString().slice(-5))}
 				</label>
@@ -75,7 +58,7 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 					type="date"
 					id="start-date"
 					name="start-date"
-					className={css.DatePickerTaskComponent}
+					className={'DatePickerTaskComponent'}
 					value={startDate.toString()}
 					disabled={disabledStartDate}
 					onChange={(e) => {
@@ -83,16 +66,11 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 						document.getElementById('endDate')?.focus();
 						onChangeStartDate;
 					}}
-					// onChange={(e) => {
-					// 	setStartDate(e.target.value);
-					// 	document.getElementById('endDate')?.focus();
-					// }}
-					style={{ fontSize: '1.5rem' }}
 				/>
 			</div>
 			<h2>{'=>'}</h2>
 			<div>
-				<p style={{ marginBottom: '.5rem' }}>Termina</p>
+				<p>Termina</p>
 				<label htmlFor="endDate">
 					{endDate === '' ? 'Termina' : MonthName(endDate.toString().slice(-5))}
 				</label>
@@ -103,12 +81,11 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 					value={endDate.toString()}
 					disabled={disabledEndDate}
 					min={startDate.toString()}
-					className={`${css.DatePickerTaskComponent} ${css.CalendarOpenTaskModules}`}
+					className={`${'DatePickerTaskComponent'} ${'CalendarOpenTaskModules'}`}
 					onChange={(e) => {
 						setEndDate(e.target.value);
 						onChangeEndDate;
 					}}
-					style={{ fontSize: '1.5rem' }}
 				/>
 			</div>
 		</div>

@@ -11,6 +11,8 @@ export {default as Information} from './information';
 
 //IconDropdown allow show an icon and select an option
 export {default as IconDropdown} from './iconDropdown';
+
+// retorna un dropdawwn el cual puede ser multiple y se puede buscar
 export {default as Dropdown} from './dropdown';
 
 //notifications switch
@@ -30,16 +32,11 @@ export {default as RangeDatePicker} from './rangeDatePicker';
 //Renderiza un boton de notificaciones con su contador de notificaciones
 export {default as NotificationBell} from './notificationBell';
 
-//Renderiza una card en blanco para poder colocar dentro la información que se necesite
-export {default as Cards} from './cards';
-
-//Renderiza un modal en blanco para poder colocar dentro la información que se necesite
-export {default as Modal} from './modal';
-
 //Renderiza el bloque de código de una tarea con su respectivos botones
 export {default as Task} from './task';
 
 //Cards preestablecidas
+export {default as Cards} from './cards'; // genérica
 export {default as CardTeam} from  './cardTeam';
 export {default as CardProject} from './cardProject';
 export {default as CardTask} from './cardTask';
@@ -52,6 +49,7 @@ export {default as CardMannageProjects} from './cardMannageProjects';
 export {default as CardMannageTasks} from './cardMannageTasks';
 
 //Modales preestablecidos
+export {default as Modal} from './modal'; // genérica
 export {default as ModalTareas} from './modalTareas';
 export {default as ModalTemplates} from './modalTemplates';
 export {default as ModalProjects} from './modalProjects';

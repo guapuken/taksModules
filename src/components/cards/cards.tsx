@@ -1,8 +1,8 @@
 import React from 'react';
-//Importación de funciones
-import { cardH, cardW } from '../../utils/functions/functions';
 //importación de types comunes
 import { Modo } from '../../types';
+// importaciónde componentes de error
+import ErrorNC from './files/errorNoContent';
 // importación de estilos
 import './cards.scss';
 
@@ -28,19 +28,12 @@ const Cards = (props: cardIntrfc) => {
 		<div
 			className={
 				Content
-					? `ctn${Aside ? 'Asd' : ''}${rounded ? 'Rnd' : ''}${
-							modo === 'Dark' ? 'Dark' : ''
-					  }_CC`
-					: `noCtn${modo === 'Dark' ? 'Dark' : ''}_CC`
+					? `ctn${Aside ? 'Asd' : ''}${rounded ? 'Rnd' : ''}${modo}_CC`
+					: `noCtn${modo}_CC`
 			}
 		>
 			{/* Si no existe contenido para ser mostrado en las cards se renderiza este bloque de código */}
-			{!Content && (
-				<>
-					<h4>Without content 😥</h4>
-					<p style={{ fontSize: '13px' }}>Add property Content and see it </p>
-				</>
-			)}
+			{Content ?? <ErrorNC />}
 
 			{/* Cuando existe el Contente se ejecuta esta acción */}
 			{Content && (

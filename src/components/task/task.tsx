@@ -3,12 +3,9 @@ import '../../global.scss';
 import { involucrados } from '../../utils/cardsUtils';
 import IconDropdown from '../iconDropdown';
 import InputTask from '../inputTask';
-import { AddTask } from './complements/addTask';
-import { IconAsign } from './complements/iconAsign';
-import { IconDates } from './complements/iconDates';
-import { IconMoreOptions } from './complements/iconMoreOptions';
-import { IconPriority } from './complements/iconPriority';
-import css from './task.module.scss';
+import { AddTask, IconAsign, IconDates, IconMoreOptions, IconPriority } from './files';
+import './task.scss';
+import { Modo } from '../../types';
 
 //TYPES
 interface submenus {
@@ -77,6 +74,7 @@ export interface TaskProps {
 	onClickCreateTemplate?: (e: React.MouseEvent<HTMLElement>) => void;
 	onClickAddTask?: (e: React.MouseEvent<HTMLElement>) => void;
 	templateOptions?: optionsType[];
+	modo?: Modo;
 }
 //Valida si existe la propiedad de plantillas y las agrega al dropdown de cargar plantilla en caso de que si exista
 export const optionsPlantillas = (
@@ -160,12 +158,14 @@ const Task = (props: TaskProps) => {
 		onClickCreateTemplate = () => {},
 		onClickAddTask,
 		templateOptions = [{}],
+		modo = 'Light',
 	} = props;
 
 	const showTask = () => (plantillas ? false : true);
 
 	return (
-		<div className={css.ContainerTaksComponent} /* style={{ background: 'red' }} */>
+		// <div className={'ContainerTaksComponent'} /* style={{ background: 'red' }} */>
+		<div className={`ctn${modo}_TascC`} /* style={{ background: 'red' }} */>
 			<InputTask
 				style={{ maxWidth: '100%' }}
 				principalTask={principalTask}
@@ -183,12 +183,13 @@ const Task = (props: TaskProps) => {
 				idCheckbox={idCheckbox}
 			/>
 			<div
-				className={css.IconsTaskContainer}
+				className={'icnsCtn'}
 				style={{
-					padding: showTask() ? '0 0 0 2rem' : '0',
+					padding: showTask() ? '0 0 0 20px' : '0',
 				}}
 			>
 				<IconDates
+					modo={modo}
 					onChangeDias={onChangeDias}
 					plantillas={plantillas}
 					disabledEndDate={disabledEndDate}
@@ -201,13 +202,14 @@ const Task = (props: TaskProps) => {
 					durationValue={durationValue}
 				/>
 				<IconAsign
+					modo={modo}
 					involucrados={involucrados(valueResponsable, valueRevision)}
 					responsables={responsables}
 					equipos={equipos}
 					revision={revision}
 					valueResponsable={valueResponsable}
 					valueRevision={valueRevision}
-					style={{ marginRight: '2rem' }}
+					style={{ marginRight: '20px' }}
 				/>
 				{!plantillas && (
 					<IconPriority
@@ -221,21 +223,22 @@ const Task = (props: TaskProps) => {
 					options={moreOptions}
 				/>
 			</div>
-			{!subtaskForbbiden && (
-				<>
+			{subtaskForbbiden ?? (
+				<div style={{ display: 'flex', alignItems: 'baseline' }}>
 					<AddTask legend="+ Añadir subtarea" onClick={onClickAddTask} />
 					<IconDropdown
+						modo={modo}
 						legend="Cargar plantilla"
 						iconStyles={{
-							marginLeft: '2rem',
-							fontSize: '1.5rem',
+							marginLeft: '20px',
+							fontSize: '15px',
 						}}
 						options={optionsPlantillas(templateOptions, onClickCreateTemplate)}
 					/>
-				</>
+				</div>
 			)}
 			{Children && (
-				<div className={css.ChildrenContainerTaskModules}>
+				<div className={'ChildrenContainerTaskModules'}>
 					<Children />
 				</div>
 			)}

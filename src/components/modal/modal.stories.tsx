@@ -91,7 +91,7 @@ WithProperties.args = {
 				primary: 'Crear Tarea',
 				secondary: 'Cancelar creación',
 			}}
-			styleComposition={{ maxWidth: '90%', margin: '0 auto 0 2rem' }}
+			styleComposition={{ maxWidth: '90%', margin: '0 auto 0 20px' }}
 			composition="vertical"
 		/>
 	),

@@ -3,7 +3,7 @@ import Buttons from '../buttons';
 import InputLabel from '../inputLabel';
 import Modal from '../modal';
 import Task from '../task';
-import { AddTask } from '../task/complements/addTask';
+import { AddTask } from '../task/files/addTask';
 import '../../global.scss';
 
 //TYPES
@@ -83,7 +83,7 @@ const ModalTamplates = (props: ModalTemplatesProps) => {
 				initialValue={templateNameValue}
 			/>
 			<AddTask legend="+ Añadir tarea" onClick={onClickAddTask} />
-			<div style={{ borderLeft: '.2rem solid #282828', paddingLeft: '1rem' }}>
+			<div style={{ borderLeft: '2px solid #282828', paddingLeft: '10px' }}>
 				{Children &&
 					Children.map((e: any) => (
 						<Task

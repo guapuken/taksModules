@@ -4,7 +4,7 @@
 }
 .ctn{
     flex-direction: row;
-    gap: 2rem;
+    gap: 20px;
 }
 .ctnTbl, .ctnSml{
     flex-direction: column;
@@ -18,14 +18,14 @@
 }
 .ctnTasks{
     display: flex;
-    gap: 2rem;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
 .DrgAndDrpSml{
     height: 20vh !important;
     overflow-x: auto;
-    gap: 2rem;
+    gap: 20px;
 }
 
 // Estilos generales --------------------------------------------------------------------------------------
@@ -74,25 +74,25 @@
         align-items: center;
         justify-content: left;
         z-index: 1;
-        height: 3rem;
+        height: 30px;
         user-select: none;
         h2{
             font-weight: lighter;
-            margin-right: 1rem;
+            margin-right: 10px;
         }
         img{
-            height: 3rem;
+            height: 30px;
         }
     }
     .draggableCtn{
-        margin-top: 2rem;
+        margin-top: 20px;
         // justify-content: left; 
         //
         display:flex;
         // background:purple;///////
     }
     .draggableCtnSml{
-        margin-top: 1rem;
+        margin-top: 10px;
     }
 }
 

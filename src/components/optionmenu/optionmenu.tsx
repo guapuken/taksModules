@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../../global.scss';
-import css from './optionmenu.module.scss';
+import { MenusSc, MenusCc } from './files';
+import './optionmenu.scss';
 
 interface menusOptionsTypes {
 	title?: string;
@@ -19,73 +19,6 @@ export interface OptionMenuProps {
 	menus?: menusTypes;
 }
 
-function menusSC(props: any) {
-	return props.menus ? (
-		props.menus.conCategoria?.map((categoria: conCategoriaTypes) => (
-			<div className={css.menusContainerMenuComponent}>
-				<div
-					style={{
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'space-between',
-						width: '35%',
-					}}
-				>
-					<h2
-						style={{
-							fontSize: '1.6rem',
-							color: '#dedede',
-							userSelect: 'none',
-							fontWeight: 'lighter',
-						}}
-					>
-						{categoria.title}
-					</h2>
-					{/* <Button legend="Crear nueva" size="small" primary /> */}
-				</div>
-				<ul>
-					{categoria.menus?.map((menu: any) => {
-						return (
-							<li onClick={menu.onClick}>
-								<a
-									style={{
-										fontSize: '1.6rem',
-										fontWeight: 'normal',
-										userSelect: 'none',
-										marginLeft: '1rem',
-									}}
-									href={menu.href}
-								>
-									{menu.title}
-								</a>
-							</li>
-						);
-					})}
-				</ul>
-			</div>
-		))
-	) : (
-		<></>
-	);
-}
-function menusCC(props: any) {
-	return props.menus ? (
-		props.menus.sinCategoria?.map((sinCategoria: menusOptionsTypes) => (
-			<div className={css.menusContainerMenuComponent}>
-				<ul>
-					<li>
-						<a href={sinCategoria.href} onClick={sinCategoria.onClick}>
-							{sinCategoria.title}
-						</a>
-					</li>
-				</ul>
-			</div>
-		))
-	) : (
-		<></>
-	);
-}
-
 const OptionMenu = (props: OptionMenuProps) => {
 	const { menus } = props;
 
@@ -93,29 +26,29 @@ const OptionMenu = (props: OptionMenuProps) => {
 		const [isOpen, setIsOpen] = useState(false);
 		return (
 			<>
-				<div className={`${css.ContainerMenuComponent} ${isOpen ? 'Open' : ''}`}>
-					<nav className={css.navOpenCloseMenuComponent}>
+				<div className={`ContainerMenuComponent${isOpen ? 'Open' : ''}`}>
+					<nav className={'navOpenCloseMenuComponent'}>
 						<a
 							onClick={() => setIsOpen(!isOpen)}
-							className={css.buttonOpenCloseMenuComponent}
+							className={'buttonOpenCloseMenuComponent'}
 						>
 							<div
 								className={`${
-									isOpen ? css.openMenuComponent : ''
+									isOpen ? 'openMenuComponent' : ''
 								} iconOpenCloseMenuComponent`}
 							></div>
 						</a>
 					</nav>
 					<div
-						className={css.contenedorMenusMenuComponent}
+						className={'contenedorMenusMenuComponent'}
 						style={{ display: isOpen ? 'block' : 'none' }}
 					>
 						<div
 							className="contenedorMenusMenuComponent"
 							style={{ display: isOpen ? 'block' : 'none' }}
 						>
-							{menusCC(menus)}
-							{menusSC(menus)}
+							<MenusCc menus={menus} />
+							<MenusSc menus={menus} />
 						</div>
 					</div>
 				</div>

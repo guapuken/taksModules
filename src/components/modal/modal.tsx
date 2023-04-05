@@ -36,7 +36,7 @@ const Modal = (props: ModalProps) => {
 						: `${useWindowSize().width / 2}px`,
 				transform: 'translateX(-50%)',
 				background: '#fff',
-				boxShadow: '.7rem .7rem 2rem #dedede',
+				boxShadow: '7px 7px 20px #dedede',
 				height: `${useWindowSize().height}px`,
 				maxHeight: `${useWindowSize().height}px`,
 				margin: '0 auto',
@@ -54,7 +54,7 @@ const Modal = (props: ModalProps) => {
 						...styleHeader,
 					}}
 				>
-					<h3 style={{ marginBlock: '0', fontWeight: 'lighter', marginLeft: '2rem' }}>
+					<h3 style={{ marginBlock: '0', fontWeight: 'lighter', marginLeft: '20px' }}>
 						{header}
 					</h3>
 				</div>

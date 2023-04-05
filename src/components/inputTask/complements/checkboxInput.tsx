@@ -1,5 +1,6 @@
 import React from 'react';
-import css from '../inputTask.module.scss';
+import './checkboxInput.scss';
+import { Modo } from '../../../types';
 
 interface CheckboxInputProps {
 	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
@@ -9,16 +10,22 @@ interface CheckboxInputProps {
 	disabled?: boolean;
 	check?: boolean;
 
+	modo: Modo;
 	idCheckbox?: string;
 }
 export const CheckboxInput = (props: CheckboxInputProps) => {
-	const { principalTask, onClick, disabled, onChange, check, idCheckbox = '' } = props;
+	const {
+		principalTask,
+		onClick,
+		disabled,
+		onChange,
+		check,
+		idCheckbox = '',
+		modo = 'Light',
+	} = props;
 
 	return (
-		<div
-			className={css.CheckBoxInputTaskComponent}
-			style={{ marginTop: principalTask ? '1rem' : '.8rem' }}
-		>
+		<div className={`ctn${modo}_CBIC`}>
 			<input
 				type="checkbox"
 				id={idCheckbox}

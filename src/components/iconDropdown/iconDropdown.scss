@@ -1,0 +1,88 @@
+// estilos globales
+@import '../../global.scss';
+
+// ---------------------------------------------------------------------------------------------------------
+//      estilos generales
+// --------------------------------------------------------------------------------------------------------- 
+.trggrLight_IcnDrpC,
+.trggrDark_IcnDrpC{
+  background: none;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  img{
+    height: 25px;
+  }
+}
+.sbCtnLight_IcnDrpC,
+.sbCtnDark_IcnDrpC
+{
+    max-height: 185px;
+    overflow: auto;
+    background: #fff;
+    box-shadow: -5px 5px 10px #dedede;
+    min-width: 100px;
+    width: max-content;
+}
+.ttlMenusLight_IcnDrpC,
+.ttlMenusDark_IcnDrpC
+{
+    font-size: 13px;
+    padding: 10px 20px;
+    outline: none;
+  &:hover {
+    background: #dedede;
+  }
+}
+.sbMenuCtnLight_IcnDrpC,
+.sbMenuCtnDark_IcnDrpC
+{
+  max-height: 185px;
+  overflow: auto;
+  background: #fff;
+  box-shadow: -5px 5px 10px #dedede;
+  min-width: 100px;
+  width: max-content;
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo claro
+// --------------------------------------------------------------------------------------------------------- 
+.trggrLight_IcnDrpC{
+
+}
+.sbCtnLight_IcnDrpC{
+
+}
+.ttlMenusLight_IcnDrpC{
+
+}
+.sbMenuCtnLight_IcnDrpC{
+
+}
+// ---------------------------------------------------------------------------------------------------------
+//      modo oscuro
+// --------------------------------------------------------------------------------------------------------- 
+.trggrDark_IcnDrpC{
+
+}
+.sbCtnDark_IcnDrpC{
+
+}
+.ttlMenusDark_IcnDrpC{
+
+}
+.sbMenuCtnDark_IcnDrpC{
+  
+}
+// ---------------------------------------------------------------------------------------------------------
+//      media queries
+// --------------------------------------------------------------------------------------------------------- 
+//tablet
+@media (max-width:835px){
+
+}
+//celular
+@media (max-width:415px){
+
+}

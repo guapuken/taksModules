@@ -1,8 +1,7 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import React, { CSSProperties } from 'react';
-import '../../global.scss';
-import css from './iconDropdown.module.scss';
-import { onClickType } from '../../types';
+import './iconDropdown.scss';
+import { Modo, onClickType } from '../../types';
 
 //definición de los types que se usarán dentro de la interfaz
 interface submenusArray {
@@ -29,15 +28,22 @@ export interface IconDropdownProps {
 	style?: CSSProperties;
 	iconStyles?: CSSProperties;
 	svg?: any;
+	modo: Modo;
 }
 
 //Componente funcional que permite mapear los menús y submenús, regresando ela estructura que necesita la librería de comportamiento
-const Menus = ({ menus }: any) => {
+// const Menus = ({ menus }: any, modo: Modo) => {
+const Menus = (props: any) => {
+	const { menus, modo } = props;
 	const menusMapping = menus.map((menu: optionsType) => {
 		//Si no existe la propiedad de submenu dentro de menu sólo regresará un item del Dropdown con sus propiedades para definir
 		if (!menu.submenus) {
 			return (
-				<DropdownMenu.Item className={css.MenusTitles} onClick={menu.onClick} id={menu.id}>
+				<DropdownMenu.Item
+					className={`ttlMenus${modo}_IcnDrpC`}
+					onClick={menu.onClick}
+					id={menu.id}
+				>
 					{menu.title}
 				</DropdownMenu.Item>
 			);
@@ -47,17 +53,17 @@ const Menus = ({ menus }: any) => {
 		if (menu.submenus) {
 			return (
 				<DropdownMenu.Sub>
-					<DropdownMenu.SubTrigger className={css.MenusTitles}>
+					<DropdownMenu.SubTrigger className={`ttlMenus${modo}_IcnDrpC`}>
 						{menu.title}
 					</DropdownMenu.SubTrigger>
 					<DropdownMenu.Portal>
 						<DropdownMenu.SubContent
-							className={`${css.SubmenuContainer} ${menu.className}`}
+							className={`sbMenuCtn${modo}_IcnDrpC ${menu.className}`}
 							style={{ cursor: 'pointer' }}
 						>
 							{menu.submenus.map((submenu) => (
 								<DropdownMenu.Item
-									className={css.MenusTitles}
+									className={`ttlMenus${modo}_IcnDrpC`}
 									onClick={(e) => {
 										if (submenu.onClick) {
 											submenu.onClick(e);
@@ -103,36 +109,31 @@ const IconDropdown = (props: IconDropdownProps) => {
 		className,
 		title,
 		svg,
+		modo = 'Light',
 	} = props;
 	return (
-		<DropdownMenu.Root>
-			<DropdownMenu.Trigger>
-				<button
-					style={{
-						background: 'none',
-						border: 'none',
-						fontSize: '1.2rem',
-						cursor: 'pointer',
-						...iconStyles,
-					}}
-					title={title}
-				>
-					{icon && <img src={icon} alt={icon} style={{ height: '2.5rem' }} />}
-					{svg && svg}
-					{legend && !icon && legend}
-					{!legend && !icon && !svg && 'ICON'}
-				</button>
-			</DropdownMenu.Trigger>
-			<DropdownMenu.Portal>
-				<DropdownMenu.Content
-					onClick={onClick}
-					className={`${css.SubmenuContainer} ${className}`}
-					style={{ cursor: 'pointer', ...style }}
-				>
-					<Menus menus={options} />
-				</DropdownMenu.Content>
-			</DropdownMenu.Portal>
-		</DropdownMenu.Root>
+		<div>
+			<DropdownMenu.Root>
+				<DropdownMenu.Trigger>
+					<button style={iconStyles} className={`trggr${modo}_IcnDrpC`} title={title}>
+						{icon && <img src={icon} alt={icon} />}
+						{svg && svg}
+						{legend && !icon && legend}
+						{!legend && !icon && !svg && 'ICON'}
+					</button>
+				</DropdownMenu.Trigger>
+				<DropdownMenu.Portal>
+					<DropdownMenu.Content
+						onClick={onClick}
+						// className={`SubmenuContainer${''} ${className}`}
+						className={`sbCtn${modo}_IcnDrpC ${className}`}
+						style={{ cursor: 'pointer', ...style }}
+					>
+						<Menus menus={options} modo={modo} />
+					</DropdownMenu.Content>
+				</DropdownMenu.Portal>
+			</DropdownMenu.Root>
+		</div>
 	);
 };
 

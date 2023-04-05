@@ -3,7 +3,7 @@ import React, { CSSProperties } from 'react';
 // componentes
 import { IconDropdown } from '../components';
 // types
-import { onClickType } from '../types';
+import { Modo, onClickType } from '../types';
 // funciones
 import { cardH } from './functions/functions';
 // archivos multimedia
@@ -35,7 +35,7 @@ export const AsideButtonItem = (props: AsideButtonItemProps) => {
 	const { onClick, src, title } = props;
 	return (
 		<button onClick={onClick} title={title}>
-			<img src={src} alt={title} style={{ height: '3rem' }} />
+			<img src={src} alt={title} style={{ height: '30px' }} />
 		</button>
 	);
 };
@@ -54,7 +54,6 @@ export const AsideButtonItem = (props: AsideButtonItemProps) => {
  * @param {number} limite - El límite que no tiene que sobrepasar nuestro número
  * @returns El número de veces que cabe el número dentro del número.
 */
-
 function sizeLimit(numero: number, limite: number) {
 	let resultado = numero;
 	let i = 1;
@@ -78,12 +77,13 @@ type Buttons = {
  * @param {Array<Buttons>} buttons - rederea los botones que se colocarán dentro del elemento
  * @returns componente con los botones distribuidos dependiendo los que caben en el elemento
  */
-function sliceButtons(size: number, buttons?: any) {
+function sliceButtons(size: number, modo: Modo, buttons?: any) {
 	let maxButtons = sizeLimit(5, size);
 
 	if (maxButtons * 5 === 0) {
 		return (
 			<IconDropdown
+				modo={modo}
 				icon={optionsIcon}
 				title={'Más opciones...'}
 				options={buttons?.map((e: any) => {
@@ -119,6 +119,7 @@ function sliceButtons(size: number, buttons?: any) {
 								/>
 							))}
 					<IconDropdown
+						modo={modo}
 						icon={optionsIcon}
 						title={'Más opciones...'}
 						options={
@@ -149,9 +150,10 @@ interface ButtonsArrayProps {
 	buttons?: buttonstypes[];
 	children?: any;
 	size?: number;
+	modo: Modo;
 }
 export const ButtonsArray = (props: ButtonsArrayProps) => {
-	const { vertical, style, buttons, children, size } = props;
+	const { vertical, style, buttons, children, size, modo } = props;
 	return (
 		<div
 			className={`buttonsArray`}
@@ -163,7 +165,7 @@ export const ButtonsArray = (props: ButtonsArrayProps) => {
 				...style,
 			}}
 		>
-			{children ? children : sliceButtons(size ? size : cardH() - 2, buttons)}
+			{children ? children : sliceButtons(size ? size : cardH() - 2, modo, buttons)}
 		</div>
 	);
 };

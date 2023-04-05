@@ -36,25 +36,26 @@ const Content = (props: any) => {
 	return (
 		<CardContainer className="ctn_CProjectC">
 			<div className="title">
-				<div className="ctnBtns">
-					<ButtonItem
-						img={shareIcon}
-						onClick={onClickShare}
-						style={{ marginRight: '20px' }}
-					/>
-					<Notifications
-						modo={modo}
-						idNotification={idNotification}
-						onChange={onChangeNotificationSwitch}
-						checkValue={followNotificationsValue}
-					/>
-				</div>
 				<TitleCard modo={modo} title={projectName} className="ttlProject" />
 			</div>
-
-			<SimpleButtonText style={{ fontSize: '14px' }}>
-				<Spans boldLegend="Ejecutivo: " legend={ejecutivo} positionBold="start" />
-			</SimpleButtonText>
+			<div className="ctnBtns">
+				<ButtonItem
+					img={shareIcon}
+					onClick={onClickShare}
+					style={{ marginBottom: '10px' }}
+				/>
+				<Notifications
+					modo={modo}
+					idNotification={idNotification}
+					onChange={onChangeNotificationSwitch}
+					checkValue={followNotificationsValue}
+				/>
+			</div>
+			<div className="ctnEjecutivoBtns">
+				<SimpleButtonText style={{ fontSize: '14px' }}>
+					<Spans boldLegend="Ejecutivo: " legend={ejecutivo} positionBold="start" />
+				</SimpleButtonText>
+			</div>
 
 			<div className=".ctnProgressBar_showDtls">
 				<ProgressBar
@@ -79,7 +80,7 @@ const Content = (props: any) => {
 						)}
 						<Spans
 							boldLegend={incompletedTask}
-							legend="tareas pendientes"
+							legend="pendientes"
 							positionBold="start"
 							styleBold={{ marginLeft: '10px' }}
 						/>

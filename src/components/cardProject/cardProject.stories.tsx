@@ -9,7 +9,7 @@ initialState.args = {};
 
 export const withProperties = Template.bind({});
 withProperties.args = {
-	projectName: 'UBER EATS-1253 Sitios Noviembre',
+	projectName: 'UBER EATS-1253-Sitios-Noviembre',
 	ejecutivo: 'Juan C. Almada',
 	completedTask: 15,
 	incompletedTask: 10,

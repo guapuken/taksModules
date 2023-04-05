@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import '../../global.scss';
-import css from './information.module.scss';
+import React, { CSSProperties, useState } from 'react';
+import './information.scss';
+import { Modo } from '../../types';
 
 //definición de la interface y sus datos que recibirá el componente
 export interface InformationProps {
@@ -19,8 +19,9 @@ export interface InformationProps {
 		| 'center';
 	color?: string;
 	iconInfo?: string;
-	style?: {};
+	style?: CSSProperties;
 	className?: string;
+	modo: Modo;
 }
 
 //Componente de Información permite mostrar instrucciones o Datos que deban especificarse para explicar un proceso
@@ -42,37 +43,38 @@ const Information = (props: InformationProps) => {
 
 	//destructurar propiedades
 	const {
-		width = 2,
-		height = 2,
+		width = 20,
+		height = 20,
 		info = 'Add your instructions here...',
-		color = '#525252',
 		positionInfo = 'right_bottom',
 		iconInfo = '?',
 		style,
 		className,
+		modo = 'Light',
+		color = modo === 'Dark' ? '#282828' : '#525252',
 	} = props;
 
 	//Estilos de posicionamiento del pop up
 	const positionStyles = {
 		left: searchWord('right', positionInfo)
-			? `${width}rem`
+			? `${width}px`
 			: searchWord('center', positionInfo)
 			? '50%'
 			: '',
 		top: searchWord('bottom', positionInfo)
-			? `${height}rem`
+			? `${height}px`
 			: searchWord('center', positionInfo)
 			? '50%'
 			: '',
-		right: searchWord('left', positionInfo) ? `${width}rem` : '',
-		bottom: searchWord('top', positionInfo) ? `${height}rem` : '',
+		right: searchWord('left', positionInfo) ? `${width}px` : '',
+		bottom: searchWord('top', positionInfo) ? `${height}px` : '',
 		transform: `translateX(${
 			positionInfo === 'bottom' || positionInfo === 'top' || positionInfo === 'center'
-				? '-5rem'
+				? '-50px'
 				: '0'
 		}) translateY(${
 			positionInfo === 'left' || positionInfo === 'right' || positionInfo === 'center'
-				? '-5rem'
+				? '-50px'
 				: '0'
 		})`,
 		background: color,
@@ -83,19 +85,19 @@ const Information = (props: InformationProps) => {
 			onMouseEnter={onHoverMouse}
 			onMouseLeave={onLeaveMouse}
 			onClick={() => setIsHover(true)}
-			className={`${css.ContainerInfoComponent} ${className}`}
+			className={`ctn${modo}_InfoC ${className}`}
 			style={{
 				background: color,
-				width: `${!width ? height : width}rem`,
-				height: `${!height ? width : height}rem`,
-				borderRadius: `${width + height}rem`,
+				width: `${!width ? height : width}px`,
+				height: `${!height ? width : height}px`,
+				borderRadius: `${width + height}px`,
 				...style,
 			}}
 		>
 			<span
-				className={css.ContainerIconInfoComponent}
+				className={'icnBtn'}
 				style={{
-					fontSize: `${width > height ? height - 0.8 : width - 0.8}rem`,
+					fontSize: `${width > height ? height - 8 : width - 8}px`,
 				}}
 			>
 				{iconInfo}
@@ -103,8 +105,8 @@ const Information = (props: InformationProps) => {
 
 			{/* Se valida si hay un Hover en el componente y sólo si existe el hover se renderea el bloque de código, de lo contrario no */}
 			{isHover && (
-				<span className={css.PopUpInfoComponent} style={positionStyles}>
-					<span className={css.ContentInfoComponent}>{info}</span>
+				<span className={'popUp'} style={positionStyles}>
+					<span className={'ctnPopUp'}>{info}</span>
 				</span>
 			)}
 			{/* Finalización del código con validación */}

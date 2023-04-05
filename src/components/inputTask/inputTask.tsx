@@ -1,7 +1,7 @@
 import React from 'react';
 import { AutoResizeInput } from './complements/autoResizeInput';
 import { CheckboxInput } from './complements/checkboxInput';
-import '../../global.scss';
+import { Modo } from '../../types';
 
 export interface InputTaskProps {
 	onChangeNameTask?: (e: React.FocusEvent<HTMLInputElement>) => void;
@@ -19,6 +19,7 @@ export interface InputTaskProps {
 	idCheckbox?: string;
 	data?: any;
 	style?: {};
+	modo: Modo;
 }
 
 const InputTask = (props: InputTaskProps) => {
@@ -37,6 +38,7 @@ const InputTask = (props: InputTaskProps) => {
 		valueTask,
 		valueDescription,
 		idCheckbox,
+		modo,
 	} = props;
 
 	// Estilos que se asignan al componente
@@ -47,23 +49,22 @@ const InputTask = (props: InputTaskProps) => {
 	};
 	let descriptionTaskStyles = {
 		opacity: check ? '.5' : '.8',
-		marginLeft: showTask ? '0' : '2rem',
+		marginLeft: showTask ? '0' : '20px',
 	};
 	return (
 		<div style={{ display: 'flex', flexDirection: 'column', ...style }}>
-			<div style={{ display: 'flex', width: '100%', alignItems: 'flex-start' }}>
+			<div style={{ display: 'flex', width: '100%', alignItems: 'center' }}>
 				{/* Si existe la propiedad de showTask no se muestra el componente de Checkbox */}
 				{showTask && (
-					<div style={{ marginTop: '-.3rem' }}>
-						<CheckboxInput
-							onClick={onClickCheck}
-							principalTask={principalTask}
-							disabled={disabled}
-							onChange={onChange}
-							check={check}
-							idCheckbox={idCheckbox}
-						/>
-					</div>
+					<CheckboxInput
+						modo={modo}
+						onClick={onClickCheck}
+						principalTask={principalTask}
+						disabled={disabled}
+						onChange={onChange}
+						check={check}
+						idCheckbox={idCheckbox}
+					/>
 				)}
 				<AutoResizeInput
 					taskType={principalTask ? 'principal' : 'task'}

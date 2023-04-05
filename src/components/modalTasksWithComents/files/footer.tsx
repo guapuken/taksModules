@@ -9,22 +9,22 @@ const Footer = (onChangeDrop, onClickReWork) => {
 				display: 'flex',
 				justifyContent: 'space-between',
 				width: '90%',
-				gap: '2rem',
+				gap: '20px',
 				margin: '0 auto',
 			}}
 		>
 			<div
 				style={{
 					width: '100%',
-					paddingRight: '3rem',
+					paddingRight: '30px',
 					display: 'flex',
 					flexDirection: 'column',
-					gap: '1rem',
+					gap: '10px',
 				}}
 			>
 				<Button
 					legend={'Volver a trabajar tarea'}
-					style={{ width: '100%', height: '2rem' }}
+					style={{ width: '100%', height: '20px' }}
 					secondary
 					onClick={() => {
 						setReWork(!reWork);
@@ -46,7 +46,7 @@ const Footer = (onChangeDrop, onClickReWork) => {
 					/>
 				)}
 			</div>
-			<Button legend={'Aprobar tarea'} style={{ width: '100%', height: '2rem' }} primary />
+			<Button legend={'Aprobar tarea'} style={{ width: '100%', height: '20px' }} primary />
 		</div>
 	);
 };

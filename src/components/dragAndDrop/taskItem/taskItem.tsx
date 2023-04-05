@@ -19,11 +19,11 @@ export const TaskItem = (props: TaskItemProps) => {
 			{!Card && (
 				<div
 					style={{
-						boxShadow: '0 0 2rem #dedede',
+						boxShadow: '0 0 20px #dedede',
 						width: scrSize.width / 4 - 20,
-						height: '10rem',
-						borderRadius: '2rem',
-						padding: '1rem',
+						height: '100px',
+						borderRadius: '20px',
+						padding: '10px',
 					}}
 				>
 					<h3>Nombre de la tarea</h3>

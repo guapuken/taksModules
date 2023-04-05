@@ -21,7 +21,7 @@ interface IconMoreOptionsProps {
 	options?: optionsType[];
 }
 //Construye el icono de más opciones donde se puede agregar más opciones de las que vienen por defecto
-export const IconMoreOptions = (props: IconMoreOptionsProps) => {
+const IconMoreOptions = (props: IconMoreOptionsProps) => {
 	const { onClickEliminar, onClickRecordatorio, options } = props;
 	return (
 		<div
@@ -49,3 +49,4 @@ export const IconMoreOptions = (props: IconMoreOptionsProps) => {
 		</div>
 	);
 };
+export default IconMoreOptions;

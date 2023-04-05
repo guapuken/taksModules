@@ -1,22 +1,4 @@
-//contenedor principal
-.optionmenuContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #282828;
-  border: 1px solid #282828;
-}
-//datos que recibira
-.datosConCategoria {
-  font-weight: bold;
-  font-size: 1.2rem;
-}
 
-.datosConCategoria li a,
-.datosSinCategoria li a {
-text-align: center;
-  color: #333;
-}
 //estilos resto del contenedor
 .menusContainerMenuComponent{
   text-align: left;
@@ -27,55 +9,53 @@ text-align: center;
   ul{
     list-style: none;
     margin-block: 0;
-    padding: 0 0 1rem 0;
+    padding: 0 0 10px 0;
 
     li{
-      margin: 1rem 0;
+      margin: 10px 0;
       cursor: pointer;
       position: relative;
       a{
         cursor: pointer;
-        font-size: 1.6rem;
+        font-size: 16px;
         color: #fff;
         font-weight: bold;
         user-select: none;
-        margin-left: 1rem;
+        margin-left: 10px;
       }
       a:before{
         content: " ";
         position: absolute;
         background: #fff;
         width: 100px;
-        height: .5rem;
+        height: 5px;
         transform: translateX(110px);
         opacity: 0;
         transition:  all 0.3s cubic-bezier(.55,0,.1,1);
-        bottom: -.5rem;
+        bottom: -5px;
         left: 0;
         z-index: 10;
       }
       a:hover:before{
         transform: translateX(0px);
         opacity: 1;
-        width: 5rem;
+        width: 50px;
       }
     }
-      font-size: 2rem;
+      font-size: 20px;
   }
 }
-
-
 .ContainerMenuComponent,.ContainerMenuComponentOpen{
   position: fixed;
   left: 0;
    top: 0;
 }
 .ContainerMenuComponent{
-  width: 5rem; 
-  height: 5rem;
+  width: 50px; 
+  height: 50px;
   background: #282828;
   top: 11vh;
-  border-radius: 0 .5rem .5rem 0;
+  border-radius: 0 5px 5px 0;
  }
  //contenedor 
 .ContainerMenuComponentOpen{
@@ -83,10 +63,57 @@ text-align: center;
   padding: 0;
   margin: 0;
   background: #282828;
-  .contenedorMenusMenuComponent{
-    text-align: left;
-  }
 }
+.buttonOpenCloseMenuComponent{
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 10px;
+}
+.iconOpenCloseMenuComponent {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background:transparent;
+  transition: 0.5s;
+  border-radius: 25px;
+
+}
+.iconOpenCloseMenuComponent:before, .iconOpenCloseMenuComponent:after {
+  display: block;
+  content: "";
+  height: 4px;
+  width: 30px;
+  left: 10px;
+  background: #fff;
+  position: absolute;
+  transition: 0.25s 0.25s;
+  border-radius: 10px;
+}
+.iconOpenCloseMenuComponent:before {
+  bottom: 6.25px;
+  transition: .35s;
+}
+.iconOpenCloseMenuComponent:after{
+  top: 6.25px;
+  transition: .35s;
+}
+
+.openMenuComponent.iconOpenCloseMenuComponent:after {
+  transition: 0.5s;
+  top: 50%;
+  transform: rotate(45deg);
+}
+.openMenuComponent.iconOpenCloseMenuComponent:before {
+  transition: 0.5s;
+  top: 50%;
+  transform: rotate(-45deg) !important;
+}
+.ContainerMenuComponentOpen .buttonOpenCloseMenuComponent{
+  top: 12.5vh;
+}
+
 /*
 //Mediasqueries de tamaños del menú
 */
@@ -104,55 +131,4 @@ text-align: center;
   .ContainerMenuComponentOpen{
     width: 100vw;
   }
-}
-
-.buttonOpenCloseMenuComponent{
-  cursor: pointer;
-  height: 3rem;
-  width: 3rem;
-  position: absolute;
-  top: 1rem;
-}
-.iconOpenCloseMenuComponent {
-  position: relative;
-  width: 3rem;
-  height: 3rem;
-  background:transparent;
-  transition: 0.5s;
-  border-radius: 2.5rem;
-
-}
-
-.iconOpenCloseMenuComponent:before, .iconOpenCloseMenuComponent:after {
-  display: block;
-  content: "";
-  height: 0.4rem;
-  width: 3rem;
-  left: 1rem;
-  background: #fff;
-  position: absolute;
-  transition: 0.25s 0.25s;
-  border-radius: 1rem;
-}
-.iconOpenCloseMenuComponent:before {
-  bottom: 0.625rem;
-  transition: .35s;
-}
-.iconOpenCloseMenuComponent:after{
-  top: 0.625rem;
-  transition: .35s;
-}
-
-.openMenuComponent.iconOpenCloseMenuComponent:after {
-  transition: 0.5s;
-  top: 50%;
-  transform: rotate(45deg);
-}
-.openMenuComponent.iconOpenCloseMenuComponent:before {
-  transition: 0.5s;
-  top: 50%;
-  transform: rotate(-45deg) !important;
-}
-.ContainerMenuComponentOpen .buttonOpenCloseMenuComponent{
-  top: 12.5vh;
 }

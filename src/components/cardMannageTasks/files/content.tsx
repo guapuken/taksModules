@@ -16,7 +16,7 @@ export const Content = (props: content) => {
 		<CardContainer style={{ display: 'grid', placeItems: 'center' }}>
 			<div>
 				<TitleCard modo={modo} title={title} />
-				<div style={{ margin: '1rem 0' }}>
+				<div style={{ margin: '10px 0' }}>
 					<Spans
 						modo={modo}
 						legend={`subtareas pendientes`}

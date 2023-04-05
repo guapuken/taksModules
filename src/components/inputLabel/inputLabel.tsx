@@ -44,7 +44,7 @@ const InputLabel = (props: InputLabelProps) => {
 				value={value}
 				onChange={(e) => {
 					handleTextChange(e.target.value);
-					onChange;
+					onChange(e);
 				}}
 			/>
 

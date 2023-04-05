@@ -8,7 +8,7 @@ const Content = (props: content) => {
 		<CardContainer style={{ display: 'grid', placeItems: 'center' }}>
 			<div>
 				<TitleCard modo={modo} title={title} />
-				<div style={{ marginTop: '1rem' }}>
+				<div style={{ marginTop: '10px' }}>
 					<Spans
 						modo={modo}
 						legend={`tareas registradas`}

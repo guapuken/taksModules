@@ -4,9 +4,10 @@ import Buttons from '../buttons';
 import Dropdown from '../dropdown';
 import InputLabel from '../inputLabel';
 import Modal from '../modal';
-import { AddTask } from '../task/complements/addTask';
+import { AddTask } from '../task/files';
 import '../../global.scss';
 import css from './modalTeams.module.scss';
+import { onChangeType } from '../../types';
 
 //TYPES
 interface submenus {
@@ -43,7 +44,16 @@ export interface ModalTeamsProps {
 
 //COMPONENTE QUE REGRESA UN DROPDOWN CON LOS INTEGRANTES Y UN INPUT PARAA AGREGAR EL NOMBRE DEL PUESTO
 export const Members = (props: any) => {
-	const { style, principal, memberValue, membersOptions, role, onClickAddUser, Children } = props;
+	const {
+		style,
+		principal,
+		memberValue,
+		membersOptions,
+		role,
+		onClickAddUser,
+		Children,
+		onChangeTeamName,
+	} = props;
 	return (
 		<div>
 			<div>
@@ -54,10 +64,13 @@ export const Members = (props: any) => {
 						// isMulti
 						placeHolder="Selecciona el encargado"
 						options={membersOptions}
-						onChange={(value) => console.log(value)}
+						onChange={(value) => {
+							console.log(value.target);
+							onChangeTeamName(value);
+						}}
 						initialValue={memberValue}
 					/>
-					<div style={{ marginTop: '.5rem' }}>
+					<div style={{ marginTop: '5px' }}>
 						<Spans legend={role ? role : 'Sin definir'} boldLegend={'Puesto: '} />
 					</div>
 				</div>
@@ -65,8 +78,8 @@ export const Members = (props: any) => {
 			</div>
 			<div
 				style={{
-					borderLeft: '.2rem solid #282828',
-					paddingLeft: '1rem',
+					borderLeft: '2px solid #282828',
+					paddingLeft: '10px',
 				}}
 			>
 				{Children && <Children />}
@@ -81,7 +94,7 @@ const ModalTeams = (props: ModalTeamsProps) => {
 		onClickCrear,
 		onClickCancelar,
 		onClickAddUser,
-		onChangeTeamName = () => {},
+		onChangeTeamName,
 		teamNameValue,
 		teamColor,
 		onChangeTeamColor,
@@ -111,8 +124,8 @@ const ModalTeams = (props: ModalTeamsProps) => {
 				<div className={css.InputsContainerTeamsComponent}>
 					<InputLabel
 						legend="Nombre del equipo"
-						onChange={onChangeTeamName}
-						style={{ height: '3rem', width: '45%' }}
+						onChange={onChangeTeamName as onChangeType}
+						style={{ height: '30px', width: '45%' }}
 						initialValue={teamNameValue}
 					/>
 					<div>
@@ -141,7 +154,7 @@ const ModalTeams = (props: ModalTeamsProps) => {
 						membersOptions={membersOptions}
 						role={role}
 						onClickAddUser={onClickAddUser}
-						style={{ marginTop: '2rem' }}
+						style={{ marginTop: '20px' }}
 						Children={Children}
 					/>
 				</div>

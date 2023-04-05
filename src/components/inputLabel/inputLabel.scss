@@ -8,43 +8,43 @@
   & input {
     width: 100%;
     // height: 56px;
-    height: 3rem;
+    height: 30px;
     // padding: 14px 16px 0 10px;
-    padding: 1rem 0 0 1rem;
+    padding: 10px 0 0 10px;
     outline: 0;
     // border: 1px solid #ddd;
     // border: .2rem solid #dedede;
-    box-shadow: inset 0 0 0 .2rem  #dedede;
+    box-shadow: inset 0 0 0 2px  #dedede;
     border: none;
     // border-radius: 4px;
-    border-radius: .5rem;
+    border-radius: 5px;
     background: transparent;
     font-family: Arial, Helvetica, sans-serif;
     // font-size: 16px;
-    font-size: 1.4rem;
+    font-size: 14px;
   }
   
   & label {
     // font-size: 1.3rem;
-    font-size: 1.2rem;
+    font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
     // padding: 0 12px;
-    padding-left: 1rem;
+    padding-left: 10px;
     color: #999;
     pointer-events: none;
     position: absolute;
     // transform: translate(0, 26px) scale(1);
     // transform: translate(0, 1.5rem) scale(1);
-    transform: translate(0, .5rem) scale(1);
+    transform: translate(0, 5px) scale(1);
     transform-origin: top left;
     transition: all 0.2s ease-out;
   }
   &:focus-within label {
     // transform: translate(0, 12px) scale(0.75);
-    transform: translate(0, .1rem) scale(0.75);
+    transform: translate(0, 0) scale(0.75);
   }
   & .isActLbl {
     //   transform: translate(0, 12px) scale(0.75);
-      transform: translate(0, 0rem) scale(0.75);
+      transform: translate(0, 0) scale(0.75);
   }
 }

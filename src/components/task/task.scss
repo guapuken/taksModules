@@ -1,0 +1,166 @@
+.ctnLight_TascC,
+.ctnDark_TascC
+{
+    ::-webkit-datetime-edit { 
+        height: 30px; 
+    }
+    ::-webkit-datetime-edit-fields-wrapper { 
+        background: transparent !important; 
+        padding: 5px 0 0 5px;
+        font-weight: bold ; 
+    }
+    ::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,
+    ::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-text { 
+        color: #000;
+    }
+    ::-webkit-inner-spin-button { display: none; }
+    ::-webkit-calendar-picker-indicator:hover {
+        box-shadow: 0 0 0 4px #dedede;
+        border-radius: 100px;
+    }
+
+    .icnsCtn{
+        width: 100%;
+        height: 50px;
+        margin: 0 auto;
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        .DatePickerTaskComponent{
+            width:126px;
+            font-size: 14px;
+            flex-direction: row-reverse;
+            border-radius: 5px;
+            outline: none;
+            border: 2px solid #dedede;
+
+        }
+        .ContainerIconAsignUsers{
+            width: auto; 
+            display: flex;
+            position: relative;
+        }
+        div{
+            margin-right: 20px;
+            height:30px ;
+            label{
+                padding-top:5px;
+            }
+        }
+        .InputsTaskContainer{
+            position: relative;
+            width: auto;
+            display: flex;
+            align-items: center;
+            & input{
+                border-radius: 5px ;
+                background: transparent;
+                border: 2px solid #dedede;
+                box-shadow: none !important;
+            }
+            & input:focus{
+                outline: none;
+            }
+        }
+    }
+
+    .TextPriorityMenu{
+        margin-left: 10px;
+        color: #dedede; 
+        position: relative;
+        z-index: 1;
+
+    }
+
+    .TextInvolucradosTaskComponent{
+        position: absolute;
+        .IconMsnTaskComponent{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            background: #525252;
+            padding: 10px 20px;
+            position: relative;
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            &:before{
+                content:'';
+                position: absolute;
+                bottom: 99%;
+                left:50%;
+                width:0;
+                height: 0;
+                border: none;
+                border-bottom: 26px solid #525252;
+                border-right: 13px solid transparent;
+                border-left: 13px solid transparent;
+                border-top: 13px solid transparent;
+            }
+            span{
+                font-size: 13px;
+                margin-block: 0;
+                margin: 0;
+                min-width:160px;
+                padding: 0;
+                //
+                display: flex;
+                flex-direction: column;
+                span, span strong{
+                    font-size: inherit;
+                }
+                &:first-child{
+                    margin-block: 0;
+                    margin-bottom: 10px ;
+                }
+            }
+        }
+    }
+
+    .ContainerTaksComponent{
+        z-index: 1;
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+    .IconInformationTaskcomponent{
+        position: absolute; 
+        right: -20px; 
+        top: -10px;
+    }
+
+    //Involucrados en tamaño movil y tablet
+    .CircleInvolucradosTaskComponent{
+        position: absolute;
+        top: 0;
+        left: 60%;
+        background-color: red;
+        margin-block: 0;
+        padding: 0 5px;
+        border-radius: 20px;
+        color: #fff;
+    }
+
+    //Contenedor del children
+    .ChildrenContainerTaskModules{
+        margin-left: 10px;
+        border-left: .20px solid #000;
+        padding-left: 20px;
+    }
+}
+@media (max-width:390px){
+    .ChildrenContainerTaskModules{
+        margin-left: 0;
+        border-left: .20px solid #000;
+        padding-left: 7px;
+    }
+}
+@media (max-width:768px){
+    .ChildrenContainerTaskModules{
+        margin-left: 0;
+        border-left: .20px solid #000;
+        padding-left: 7px;
+    }
+}
+.ButtonAddTaskComponent:hover{
+    color: #dedede;
+}

@@ -52,7 +52,7 @@ const BoardSection = (props: BoardSectionProps) => {
 						ref={setNodeRef}
 						style={{
 							background: 'green',
-							boxShadow: 'inset 0 0 0 .5rem #000',
+							boxShadow: 'inset 0 0 0 5px #000',
 							...styleTaskContainer,
 						}}
 						className={

@@ -1,8 +1,12 @@
 import React from 'react';
-import './cardProject.scss';
+// types
 import { Modo, onClickType, statusTask } from '../../types';
-import { Content } from './files';
+// componentes auxiliares
 import { Cards } from '../../components';
+// componentes principales
+import { Content } from './files';
+// estilos
+import './cardProject.scss';
 
 export interface CardProjectProps {
 	status?: statusTask;

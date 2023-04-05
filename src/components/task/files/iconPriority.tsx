@@ -8,7 +8,7 @@ interface IconPriorityProps {
 	onClickNoPrioridad?: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
-export const IconPriority = (props: IconPriorityProps) => {
+const IconPriority = (props: IconPriorityProps) => {
 	//Desestructuración de propiedades
 	const { prioridadInicial, onClickPrioridad, onClickNoPrioridad } = props;
 
@@ -86,3 +86,4 @@ export const IconPriority = (props: IconPriorityProps) => {
 		</div>
 	);
 };
+export default IconPriority;

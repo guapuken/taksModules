@@ -15,14 +15,11 @@ export interface cardMannageProjects {
 	percentTask?: number;
 }
 const CardMannageProjects = (props: cardMannageProjects) => {
-	const heightCard = cardH();
-
 	const properties = {
-		Aside: () => <Aside height={heightCard} {...props} />,
+		Aside: () => <Aside {...props} />,
 		Content: () => <Content {...props} />,
-		height: heightCard,
 		rounded: true,
-		width: cardW(true),
+		modo: props.modo,
 	};
 	return <Cards {...properties} />;
 };

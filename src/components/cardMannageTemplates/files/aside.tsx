@@ -3,7 +3,7 @@ import { AsideContainer, ButtonsArray } from '../../../utils/asideUtils';
 import del from '../../../img/vaciar.svg';
 import prev from '../../../img/previsualizar.svg';
 
-const Aside = ({ onClickDelete, height, onClickPreview }: any) => (
+const Aside = ({ onClickDelete, onClickPreview }: any) => (
 	<AsideContainer>
 		<ButtonsArray
 			buttons={[
@@ -19,7 +19,6 @@ const Aside = ({ onClickDelete, height, onClickPreview }: any) => (
 				},
 			]}
 			vertical
-			size={height}
 		/>
 	</AsideContainer>
 );

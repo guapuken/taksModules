@@ -3,7 +3,7 @@ import Cards from '../cards';
 import { cardH, cardW } from '../../utils/functions/functions';
 import { Aside } from './files/aside';
 import { Content } from './files/content';
-import { onClickType, statusTask } from '../../types';
+import { Modo, onClickType, statusTask } from '../../types';
 
 export type cardMannageTasks = {
 	onClickDelete?: onClickType;
@@ -12,16 +12,14 @@ export type cardMannageTasks = {
 	tasks?: number;
 	percentTask?: number;
 	statusTask?: statusTask;
+	modo: Modo;
 };
 const CardMannageTask = (props: cardMannageTasks) => {
-	const heightCard = cardH();
-
 	const properties = {
-		Aside: () => <Aside height={heightCard} {...props} />,
+		Aside: () => <Aside {...props} />,
 		Content: () => <Content {...props} />,
-		height: heightCard,
 		rounded: true,
-		width: cardW(true),
+		modo: props.modo,
 	};
 	return <Cards {...properties} />;
 };

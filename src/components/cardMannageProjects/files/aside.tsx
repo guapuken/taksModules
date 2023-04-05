@@ -19,7 +19,6 @@ export const Aside = ({ onClickDelete, height, onClickPreview }: any) => (
 				},
 			]}
 			vertical
-			size={height}
 		/>
 	</AsideContainer>
 );

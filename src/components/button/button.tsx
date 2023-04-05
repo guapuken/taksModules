@@ -112,7 +112,7 @@ const Button = (props: ButtonProps) => {
 			isHover || (tertiary && border)
 				? 'none'
 				: border || secondary
-				? `inset 0 0 0 .1rem ${
+				? `inset 0 0 0 1px ${
 						disabled
 							? '#dedede'
 							: color
@@ -144,53 +144,53 @@ const Button = (props: ButtonProps) => {
 			: '#525252',
 		background: backgroundGenerate(),
 		cursor: 'pointer',
-		borderRadius: float ? '5rem' : rounded ? '2rem' : '.5rem',
+		borderRadius: float ? '50px' : rounded ? '20px' : '5px',
 	};
 	let individualStyles = float
 		? {
 				height:
 					size === 'small'
-						? '3rem'
+						? '30px'
 						: size === 'medium'
-						? '4rem'
+						? '40px'
 						: size === 'large'
-						? '5rem'
-						: '3rem',
+						? '50px'
+						: '30px',
 				width:
 					size === 'small'
-						? '3rem'
+						? '30px'
 						: size === 'medium'
-						? '4rem'
+						? '40px'
 						: size === 'large'
-						? '5rem'
-						: '3rem',
+						? '50px'
+						: '30px',
 				fontWeight: 'bold',
-				fontSize: 'calc(2rem + 0.390625vw)',
+				fontSize: 'calc(20px + 0.390625vw)',
 		  }
 		: {
 				padding: icon
 					? size === 'small'
-						? '.5rem 1rem .5rem .5rem'
+						? '5px 10px 5px 5px'
 						: size === 'medium'
-						? '.75rem 1.5rem .75rem .75rem'
+						? '7.5px 15px 7.5px 7.5px'
 						: size === 'large'
-						? '1rem 3rem 1rem 1rem'
-						: '1rem 2rem 1rem 1rem'
+						? '10px 30px 10px 10px'
+						: '10px 20px 10px 10px'
 					: size === 'small'
-					? '5px 1rem'
+					? '5px 10px'
 					: size === 'medium'
-					? '.75rem 1.5rem'
+					? '7.5px 15px'
 					: size === 'large'
-					? '1rem 3rem'
-					: '.75rem 1.5rem',
+					? '10px 30px'
+					: '7.5px 15px',
 				fontSize:
 					size === 'small'
-						? '1.5rem'
+						? '15px'
 						: size === 'medium'
-						? '1.6rem'
+						? '16px'
 						: size === 'large'
-						? '1.8rem'
-						: '1.6rem',
+						? '18px'
+						: '16px',
 				maxHeight: '100%',
 				display: 'flex',
 				alignItems: 'center',
@@ -200,12 +200,12 @@ const Button = (props: ButtonProps) => {
 	let iconGeneralStyles = {
 		height:
 			size === 'small'
-				? '1.8rem'
+				? '18px'
 				: size === 'medium'
-				? '2.5rem'
+				? '25px'
 				: size === 'large'
-				? '3rem'
-				: '1.6rem',
+				? '30px'
+				: '16px',
 	};
 
 	let iconStyles =
@@ -219,16 +219,16 @@ const Button = (props: ButtonProps) => {
 			: !float && legend && icon
 			? {
 					marginBottom: '0',
-					marginRight: '1rem',
-					marginLeft: '1rem',
+					marginRight: '10px',
+					marginLeft: '10px',
 					width:
 						size === 'small'
-							? '1.8rem'
+							? '18px'
 							: size === 'medium'
-							? '2.5rem'
+							? '25px'
 							: size === 'large'
-							? '3rem'
-							: '1.6rem',
+							? '30px'
+							: '16px',
 			  }
 			: {};
 
@@ -279,7 +279,7 @@ const Button = (props: ButtonProps) => {
 				<span></span>
 			)}
 			{legend && !float && legend}
-			{icon && !float && <span style={{ width: '1rem' }}></span>}
+			{icon && !float && <span style={{ width: '10px' }}></span>}
 		</button>
 	);
 };
