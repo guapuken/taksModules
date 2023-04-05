@@ -219,6 +219,7 @@ const Task = (props: TaskProps) => {
 					/>
 				)}
 				<IconMoreOptions
+					modo={modo}
 					onClickEliminar={onClickEliminar}
 					onClickRecordatorio={onClickRecordatorio}
 					options={moreOptions}
