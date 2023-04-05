@@ -53,6 +53,7 @@ const IconDates = (props: IconDatesProps) => {
 		</div>
 	) : (
 		<RangeDatePicker
+			modo={modo}
 			endDateValue={endDateValue}
 			startDateValue={startDateValue}
 			disabledEndDate={disabledEndDate}
