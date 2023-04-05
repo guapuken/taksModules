@@ -214,6 +214,7 @@ const Task = (props: TaskProps) => {
 				/>
 				{!plantillas && (
 					<IconPriority
+						modo={modo}
 						onClickPrioridad={onClickPrioridad}
 						prioridadInicial={prioridadInicial}
 					/>

@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import IconDropdown from '../../iconDropdown';
 import FlagIcon from '../../../img/flagICon';
+import { Modo } from '../../../types';
 
 interface IconPriorityProps {
 	prioridadInicial?: 'none' | 'baja' | 'media' | 'alta';
 	onClickPrioridad?: (e: React.MouseEvent<HTMLElement>) => void;
 	onClickNoPrioridad?: (e: React.MouseEvent<HTMLElement>) => void;
+	modo?: Modo;
 }
 
 const IconPriority = (props: IconPriorityProps) => {
 	//Desestructuración de propiedades
-	const { prioridadInicial, onClickPrioridad, onClickNoPrioridad } = props;
+	const { prioridadInicial, onClickPrioridad, onClickNoPrioridad, modo } = props;
 
 	//Variables para definir el nivel de prioridad
 	const [prioridad, setPrioridad] = useState(prioridadInicial || 'none');
@@ -51,6 +53,7 @@ const IconPriority = (props: IconPriorityProps) => {
 		<div style={{ width: 'auto', display: 'flex' }} className="ContainerIconPriority">
 			{/* Se coloca el color de la bandera dependiendo del estado de la prioridad */}
 			<IconDropdown
+				modo={modo as Modo}
 				title={`Prioridad ${prioridad === 'none' ? 'no definida' : prioridad}`}
 				options={optionsPriority}
 				svg={
