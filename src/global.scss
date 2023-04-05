@@ -8,8 +8,8 @@
   --contrastDark: #525252;
   --border: inset 0 0 0 calc(.2vw) #dedede;
   --borderDark: inset 0 0 0 calc(2px + 0.390625vw) #525252;
-  --boxShadow: 0 0 calc(20px + 0.390625vw) #dedede75;
-  --boxShadowDark: 0 0 calc(20px + 0.390625vw)#00000050;
+  --boxShadow: 0 0 calc(10px + 0.390625vw) #dedede75;
+  --boxShadowDark: 0 0 calc(10px + 0.390625vw)#00000075;
   --cardWidth: calc(100vw * .25);
   --cardHeight: calc(100vh * .25);
 }
@@ -23,7 +23,7 @@
 
 // //estilos generales------------------------------------
   *{
-    font-size: 62.5%;
+    // font-size: 62.5%;
     font-family: 'Open Sans', sans-serif;
   }
   //Modificación en los estilos del scrollbar
@@ -76,7 +76,7 @@
   h6{
     font-size: calc(12px + 0.390625vw);
   }
-  p{
+  p, span{
     font-size: calc(12px + 0.390625vw);
   }
 
@@ -85,7 +85,7 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    // -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
+    -webkit-line-clamp: 1; /* start showing ellipsis when 3rd line is reached */
     white-space: pre-wrap; /* let the text wrap preserving spaces */
   }
   .ContainerCardTeamComponent{
@@ -93,10 +93,31 @@
     margin: 0 !important;
     padding: 0 .5rem !important;
   }
+
+  //arreglo de botones
   .buttonsArray{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    &:not(last-child){
+      gap: 20px;
+    }
   }
 
+  // contenedor de la progressbar y show details
+  .ctnProgressBar_showDtls{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      media queries
+// ---------------------------------------------------------------------------------------------------------
+
+@media (min-height:650px){
+  .TextOverflow{
+    -webkit-line-clamp: 2;
+  }
+}
