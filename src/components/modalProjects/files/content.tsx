@@ -6,7 +6,8 @@ import { optionsPlantillas } from '../../task/task';
 //COMPONENTE QUE REGRESA TODO EL CONTENIDO DEL MODAL
 const Content = (props: any) => {
 	const {
-		onChangeTemplateName,
+		onChangeName,
+		onBlurName,
 		projectNameValue,
 		onClickAddTask,
 		modo,
@@ -14,11 +15,18 @@ const Content = (props: any) => {
 		onClickCreateTemplate,
 		Children,
 	} = props;
+
 	return (
 		<div>
 			<InputLabel
 				legend="Nombre del proyecto"
-				onChange={onChangeTemplateName}
+				// onChange={onChangeName}
+				// onChange={(e: any) => {
+				// 	setProjectName(e.target.value);
+				// 	onChangeName(e);
+				// }}
+				onChange={onChangeName}
+				onBlur={onBlurName}
 				style={{ maxWidth: '98%' }}
 				initialValue={projectNameValue}
 			/>

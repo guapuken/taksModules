@@ -1,7 +1,7 @@
 import React, { CSSProperties, useState } from 'react';
 import '../../global.scss';
 import './inputLabel.scss';
-import { onChangeType } from '../../types';
+import { onBlurType } from '../../types';
 
 export interface InputLabelProps {
 	type?: 'text' | 'number' | 'email' | 'password';
@@ -9,7 +9,7 @@ export interface InputLabelProps {
 	initialValue?: string;
 	min?: number;
 	max?: number;
-	onChange: onChangeType;
+	onChange?: onBlurType;
 	style?: CSSProperties;
 }
 const InputLabel = (props: InputLabelProps) => {
@@ -28,6 +28,7 @@ const InputLabel = (props: InputLabelProps) => {
 
 	function handleTextChange(text: string) {
 		setValue(text);
+
 		if (text !== '') {
 			setIsActive(true);
 		} else {
@@ -42,10 +43,8 @@ const InputLabel = (props: InputLabelProps) => {
 				min={min}
 				max={max}
 				value={value}
-				onChange={(e) => {
-					handleTextChange(e.target.value);
-					onChange(e);
-				}}
+				onChange={(e) => handleTextChange(e.target.value)}
+				onBlur={onChange}
 			/>
 
 			<label
