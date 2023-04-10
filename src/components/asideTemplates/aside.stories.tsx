@@ -18,8 +18,8 @@ export const WithProperties = Template.bind({});
 WithProperties.args = {
 	Content: () => (
 		<Cards
-			height={scrSize().width <= 390 ? scrSize().height / 4 / 10 - 5 : 15}
-			width={scrSize().width <= 415 ? scrSize().width / 10 - 3 : scrSize().width / 10 / 4 - 3}
+			// height={scrSize().width <= 390 ? scrSize().height / 4 / 10 - 5 : 15}
+			// width={scrSize().width <= 415 ? scrSize().width / 10 - 3 : scrSize().width / 10 / 4 - 3}
 			rounded
 			modo={'Dark'}
 		/>
