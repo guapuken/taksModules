@@ -6,6 +6,7 @@ const ModalTaskWithComents = (props: any) => {
 	const args = {
 		Content: () => <Content {...props} />,
 		Footer: () => <Footer {...props} />,
+		header: 'Detalles de tarea',
 	};
 	return <Modal {...args} />;
 };
