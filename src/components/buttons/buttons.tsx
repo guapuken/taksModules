@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import Button from '../button/button';
 import '../../global.scss';
 
@@ -33,7 +33,7 @@ export interface ButtonsProps {
 	colorHover?: stringTypes;
 	className?: stringTypes;
 	disabled?: BooleanTypes;
-	style?: ObjectTypes;
+	style?: CSSProperties;
 	styleIcon?: ObjectTypes;
 	id?: stringTypes;
 	keys?: stringTypes;
