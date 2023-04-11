@@ -68,19 +68,21 @@
         {
             height: auto;
             width: 90%;
-            padding: 10px;
+            // padding: 10px;
             margin: 10px 0 0 0;
             border-radius: 10px;
             overflow: hidden;
-            background: var(--aqua);
+            // background: var(--aqua);
             .userName{
                 font-weight: bold;
-                color: #fff;
+                // color: #fff;
+                color: #000;
                 margin-bottom: 5px;
                 font-size: 12px;
             }
             p:not(.userName){
-                color: #dedede;
+                // color: #dedede;
+                color: #000;
                 line-height: 1.5;
                 font-size: 14px;
             }
@@ -88,10 +90,12 @@
         .comentCtn{
             border-top-left-radius: 0;
             .userName{
-                color: #fff;
+                // color: #fff;
+                color: #000;
             }
             p:not(.userName){
-                color: #fff;
+                // color: #fff;
+                color: #000;
             }
         }
         .comentCtnPersonal{

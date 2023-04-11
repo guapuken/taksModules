@@ -1,4 +1,4 @@
-
+@import '../../global.scss';
 
 
 // contenedor general en todos sus modos
@@ -102,7 +102,6 @@
 .ctnDark_MenuC{
   width: 50px; 
   height: 50px;
-  background: #282828;
   top: 11vh;
   border-radius: 0 5px 5px 0;
   .menus{
@@ -115,7 +114,7 @@
   height: 100%;
   padding: 0;
   margin: 0;
-  background: #282828;
+  // background: #282828;
   .menus{
     display:block;
     height: 100%;    
@@ -136,20 +135,38 @@
   }
 }
 
-/*
-Modo oscuro
-*/
+// ---------------------------------------------------------------------------------------------------------
+//      modo claro
+// ---------------------------------------------------------------------------------------------------------
+
+//modal cerrado
+.ctnLight_MenuC{
+  background: #dedede;
+  
+}
+//modal abierto
+.ctnOpenLight_MenuC{
+  background: #dedede;
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo oscuro
+// ---------------------------------------------------------------------------------------------------------
+
 //modal abierto
 .ctnOpenDark_MenuC{
+  background: #282828;
 }
 //modal cerrado
 .ctnDark_MenuC{
+  background: #282828;
 }
 
 
-/*
-//Mediasqueries de tamaños del menú
-*/
+// ---------------------------------------------------------------------------------------------------------
+//      media queries
+// ---------------------------------------------------------------------------------------------------------
+
 @media (min-width: 1280px){
    .ctnOpenLight_MenuC,
     .ctnOpenDark_MenuC{

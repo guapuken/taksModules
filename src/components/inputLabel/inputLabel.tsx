@@ -44,7 +44,11 @@ const InputLabel = (props: InputLabelProps) => {
 				max={max}
 				value={value}
 				onChange={(e) => handleTextChange(e.target.value)}
-				onBlur={onChange}
+				onBlur={(e) => {
+					if (onChange) {
+						onChange(e);
+					}
+				}}
 			/>
 
 			<label

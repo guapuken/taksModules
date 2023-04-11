@@ -9,18 +9,12 @@ export interface AsideTemplatesProps {
 }
 
 const AsideTemplates = (props: AsideTemplatesProps) => {
-	const { Content, isWhite, modo } = props;
+	const { Content, isWhite, modo = 'Light' } = props;
 
 	return (
-		<div
-			className={
-				modo === 'Dark'
-					? `${isWhite ? 'ctnWhite_ATC' : 'ctnDark_ATC'}`
-					: `${isWhite ? 'ctnWhite_ATC' : 'ctn_ATC'}`
-			}
-		>
+		<div className={`ctn${isWhite ? 'White' : ''}${modo}_ATC`}>
 			{!Content && (
-				<div className={modo === 'Dark' || !isWhite ? 'noCtnDark' : 'noCtn'}>
+				<div className={`noCtn${modo}`}>
 					<h1>Ups!</h1>
 					<p>parece que olvidaste agregar tu contenido</p>
 				</div>

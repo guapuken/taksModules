@@ -1,6 +1,7 @@
 import React, { CSSProperties, useEffect, useRef, useState } from 'react';
 import '../../global.scss';
 import './dropdown.scss';
+import { onChangeType } from '../../types';
 
 const Icon = (fillColor?: string, isOpen?: Boolean) => {
 	return (
@@ -53,7 +54,7 @@ export interface DropdownProps {
 	isMulti?: boolean;
 	isSearchable?: boolean;
 	topPosition?: boolean;
-	onChange: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChange: onChangeType;
 	initialValue?: optionsDropdownTypes;
 	values?: optionsDropdownTypes[];
 	style?: CSSProperties;
@@ -73,7 +74,7 @@ const Dropdown = (props: DropdownProps) => {
 	} = props;
 	const [showMenu, setShowMenu] = useState(false);
 	const [selectedValue, setSelectedValue] = useState<any>(
-		isMulti ? values || [] : initialValue || null
+		isMulti ? (values ? values : []) : initialValue ? initialValue : null
 	);
 	const [searchValue, setSearchValue] = useState<any>('');
 	const searchRef = useRef<any>(null);
@@ -134,7 +135,9 @@ const Dropdown = (props: DropdownProps) => {
 		e.stopPropagation();
 		const newValue = removeOption(option);
 		setSelectedValue(newValue ? newValue : null);
-		onChange(newValue);
+		if (onChange) {
+			onChange(newValue ? newValue : null);
+		}
 	};
 
 	const onItemClick = (option: any) => {
@@ -149,7 +152,9 @@ const Dropdown = (props: DropdownProps) => {
 			newValue = option;
 		}
 		setSelectedValue(newValue);
-		onChange(newValue);
+		if (onChange) {
+			onChange(newValue);
+		}
 	};
 
 	const isSelected = (option: any) => {
@@ -166,6 +171,9 @@ const Dropdown = (props: DropdownProps) => {
 
 	const onSearch = (e: any) => {
 		setSearchValue(e.target.value);
+		if (onChange) {
+			onChange(e);
+		}
 	};
 
 	const getOptions = () => {
@@ -181,7 +189,6 @@ const Dropdown = (props: DropdownProps) => {
 	function sizeDrop() {
 		return getOptions().length < 5 ? (getOptions().length + (isSearchable ? 1 : 0)) * 3 : 15;
 	}
-	console.log(sizeDrop());
 	return (
 		<div className={'dropdownContainer'} style={style}>
 			<div ref={inputRef} onClick={handleInputClick} className={'dropdownInput'}>
@@ -205,15 +212,17 @@ const Dropdown = (props: DropdownProps) => {
 							<input onChange={onSearch} value={searchValue} ref={searchRef} />
 						</div>
 					)}
-					{getOptions()?.map((option) => (
-						<div
-							onClick={() => onItemClick(option)}
-							key={option.value}
-							className={`${'dropdownItem'} ${isSelected(option) && 'selected'}`}
-						>
-							{option.label}
-						</div>
-					))}
+					{getOptions()?.map((option) => {
+						return (
+							<div
+								onClick={() => onItemClick(option)}
+								key={option.value}
+								className={`${'dropdownItem'} ${isSelected(option) && 'selected'}`}
+							>
+								{option.label}
+							</div>
+						);
+					})}
 				</div>
 			)}
 		</div>
