@@ -5,25 +5,6 @@ import { ModalProjectsProps } from './types';
 
 const Template: Story<ModalProjectsProps> = (args) => <ModalProjects {...args} />;
 
-// función para ver si funciona correctamente el onChange
-function DemoComponent() {
-	const [projectName, setProjectName] = useState('Uber Eats-2536-Espectaculares-Noviembre');
-
-	return (
-		<ModalProjects
-			modo="Dark"
-			onChangeName={(e: any) => {
-				console.log(e.target.value);
-				setProjectName(e.target.value);
-			}}
-			projectNameValue={projectName}
-		/>
-	);
-}
-storiesOf('Pruebas funcionalidad/projectModal', module).add('setteo de datos', () => (
-	<DemoComponent />
-));
-
 //estado inicial del componente
 export const InitialState = Template.bind({});
 InitialState.args = {};

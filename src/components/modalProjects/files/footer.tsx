@@ -2,16 +2,18 @@ import React from 'react';
 
 //componentes auxiliares
 import { Buttons } from '../../../components';
+// types
+import { clickButtons } from '../types';
 
-//COMPONENTE QUE REGRESA LOS BOTONES DEL MODAL
-const Footer = (props: any) => {
-	const { onClickCrear, onClickCancelar } = props;
+// footer que regresa los botones que se renderizarán
+const Footer = (props: clickButtons) => {
+	const { onClickCreate, onClickAbort } = props;
 	return (
 		<div style={{ width: '90%', margin: '0 auto' }}>
 			<Buttons
 				buttons={{ primary: true, secondary: true }}
 				legends={{ primary: 'Crear proyecto', secondary: 'Cancelar' }}
-				onClick={{ primary: onClickCrear, secondary: onClickCancelar }}
+				onClick={{ primary: onClickCreate, secondary: onClickAbort }}
 			/>
 		</div>
 	);

@@ -1,5 +1,11 @@
 import React from 'react';
-import { Modo, onChangeType } from '../../types';
+import { Modo, onChangeType, onClickType } from '../../types';
+
+// botones
+export type clickButtons = {
+	onClickCreate?: onClickType;
+	onClickAbort?: onClickType;
+};
 
 // interfaz principal
 export interface ModalProjectsProps {

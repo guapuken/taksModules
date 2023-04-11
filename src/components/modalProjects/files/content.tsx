@@ -20,13 +20,7 @@ const Content = (props: any) => {
 		<div>
 			<InputLabel
 				legend="Nombre del proyecto"
-				// onChange={onChangeName}
-				// onChange={(e: any) => {
-				// 	setProjectName(e.target.value);
-				// 	onChangeName(e);
-				// }}
 				onChange={onChangeName}
-				// onBlur={onBlurName}
 				style={{ maxWidth: '98%' }}
 				initialValue={projectNameValue}
 			/>
