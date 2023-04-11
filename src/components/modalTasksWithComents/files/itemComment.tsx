@@ -1,6 +1,6 @@
 import React from 'react';
 //
-import { contentProps, itemComments } from '../types';
+import { functions, itemComments } from '../types';
 // estilos
 import '../modalTaskWithComents.scss';
 import { CommentTask, CommentCtn } from '.';

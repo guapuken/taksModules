@@ -3,6 +3,7 @@ import { contentProps, subtasks } from '../types';
 import { Comentarios } from './index';
 import '../modalTaskWithComents.scss';
 import { SimpleButtonText } from '../../../utils/cardsUtils';
+import { onChangeType } from '../../../types';
 
 const Content = (props: contentProps) => {
 	const {

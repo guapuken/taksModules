@@ -43,6 +43,8 @@ export type functions = {
 export type itemComments = {
 	comments?: comentarios[];
 	showTasks?: boolean;
+	onChangeAddFile?: onChangeType;
+	onClickAddComent?: onClickType;
 };
 // estructura de las subtareas
 export type subtasks = {
