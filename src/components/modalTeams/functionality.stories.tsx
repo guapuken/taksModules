@@ -38,7 +38,7 @@ function DemoComponent(props) {
 }
 
 // creación de stories
-storiesOf('Pruebas funcionalidad/modal de equipos', module).add('setData', () => (
+storiesOf('Pruebas funcionalidad/teams modal', module).add('setData', () => (
 	<DemoComponent
 		initialTeamColor="#25df68"
 		teamNameValue="TI Sistemas"

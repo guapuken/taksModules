@@ -104,6 +104,7 @@
   height: 50px;
   top: 11vh;
   border-radius: 0 5px 5px 0;
+  background: #282828;
   .menus{
     display: none;
   }
@@ -114,7 +115,7 @@
   height: 100%;
   padding: 0;
   margin: 0;
-  // background: #282828;
+  background: #282828;
   .menus{
     display:block;
     height: 100%;    
@@ -140,14 +141,14 @@
 // ---------------------------------------------------------------------------------------------------------
 
 //modal cerrado
-.ctnLight_MenuC{
-  background: #dedede;
-  
-}
+// .ctnLight_MenuC{
+  // background: #dedede;
+  // 
+// }
 //modal abierto
-.ctnOpenLight_MenuC{
-  background: #dedede;
-}
+// .ctnOpenLight_MenuC{
+  // background: #dedede;
+// }
 
 // ---------------------------------------------------------------------------------------------------------
 //      modo oscuro

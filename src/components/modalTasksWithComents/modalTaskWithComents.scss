@@ -11,56 +11,57 @@
 .ctnDarknoCmts_TWCC
 {
     div{
-        p{
-            margin: 5px 0 0 10px  ;
-        }
+        user-select: none;
     }
-    .taskNameCheck{
-       text-decoration: line-through;
-       color: #28282875; 
-    }
-    .taskNameIncompleted{
-        text-decoration: none;
-        color: #282828;  
-    }
-    .subtaskCtn{
-        margin: 10px 0 50px 10px;
-        height: 100%;
-        min-height: 85%;
-        .subtasksElementsCheck, 
-        .subtasksElementsIncompleted
-        {
-            margin-block: 0;
-            height: auto;
+    .ctnTaskDtls{
+        overflow: auto;
+        height: auto;
+        position: relative;
+        .ctnPrnlTask{
             overflow: hidden;
-            margin-bottom: 10px;
-            color: #28282875;
+            max-height: 70px;
+            height: auto;
+            background: #fff;
+            position: sticky;
+            top:0;
+            margin-bottom: 20px;
+            .taskNameCheck{
+                text-decoration: line-through;
+                color: #28282875;
+             }
+             .taskNameIncompleted{
+                 text-decoration: none;
+                 color: #282828;  
+             }
         }
-        .subtasksElementsCheck{
-            text-decoration:line-through;
-        }
-        .subtasksElementsIncompleted{
-            text-decoration:none;
-        }
+        
+         .subtaskCtn{
+             margin: 10px 0 50px 10px;
+             position: relative;
+             overflow: auto !important;
+             z-index: -1;
+             .subtasksElementsCheck, 
+             .subtasksElementsIncompleted
+             {
+                 margin-block: 0;
+                 height: auto;
+                 overflow: hidden;
+                 margin-bottom: 10px;
+                 color: #28282875;
+             }
+             // elementos de tareas terminados
+             .subtasksElementsCheck{
+                 text-decoration:line-through;
+             }
+             // elementos de tareas incompletas
+             .subtasksElementsIncompleted{
+                 text-decoration:none;
+             }
+         }
     }
-    .ttlComents{
-        height: 30px;
-        box-shadow: var(--boxShadow);
-        background: #fff;
-        position: sticky;
-        top: 0;
-        width: 100%;
-    }
-    .ctnComents{
-        height: 100% !important;
-        min-height: 85%;
-    }
+    
     div {
-        height: 50%;
-        max-height: 50%;
-        // background: blue;
-        overflow-y: hidden;
-        .ctnComents{
+        .ctnComentsIndividual{
             overflow-y: auto;
         }
         .comentCtn,
@@ -68,73 +69,76 @@
         {
             height: auto;
             width: 90%;
-            // padding: 10px;
             margin: 10px 0 0 0;
             border-radius: 10px;
             overflow: hidden;
-            // background: var(--aqua);
+            // nombre del usuario en los comentarios
             .userName{
                 font-weight: bold;
-                // color: #fff;
                 color: #000;
-                margin-bottom: 5px;
+                margin-block: 0;
                 font-size: 12px;
+                margin-bottom: -5px;
             }
-            p:not(.userName){
-                // color: #dedede;
+            // estilo del cuerpo de comentario
+            .coments{
                 color: #000;
                 line-height: 1.5;
                 font-size: 14px;
             }
-        }
-        .comentCtn{
-            border-top-left-radius: 0;
-            .userName{
-                // color: #fff;
-                color: #000;
-            }
-            p:not(.userName){
-                // color: #fff;
-                color: #000;
+            // estilos de las fechas y horas
+            .dateAndTime{
+                font-size: 12px !important;
+                margin-top: 0;
+                opacity: .5;
             }
         }
         .comentCtnPersonal{
-            background: var(--aquaContrast);
-            margin-right: 0;
-            margin-left: auto;
-            border-top-right-radius: 0;
-            .userName{
-                color: #fff;
-            }
-            p:not(.userName){
-                color: #dedede;
-            }
+            text-align: right;
         }
     }
 }
-// con comentarios
-.ctnLightCmts_TWCC,
-.ctnDarkCmts_TWCC
-{
+.ctnComentsFull_TWCC
+.ctnComents_TWCC{
+    background: red;
+    position: relative;
+    overflow: auto;
     height: 100%;
-    max-height: 100%;
-    // background: blue;
-    div{
-        max-height: 50%;
-        height: 50%;
-        overflow: auto;
+    min-height: 100% !important;
+    .ttlComents{
+        height: 30px;
+        box-shadow: var(--boxShadow);
+        background: #fff;
+        position: sticky;
+        top: 0;
+        width: 100%;
+
+    }
+    .ctnComentsIndividual{
+        background: blue ;
+        // overflow: auto !important;
+        // min-height: 100%;
+
     }
 }
-// sin comentarios
-.ctnLightnoCmts_TWCC,
-.ctnDarknoCmts_TWCC
-{
-    height: 100%;
-    max-height: 100%;
-    // background: red;
-    div{
-        max-height: 50%;
-        height: 50%;
+.ctnBlockComents_TWCC{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: right;
+    fieldset{
+        padding: 10px;
+        border-radius: 10px;
+        margin-top: 20px;
+        width: 100%;
+    }
+    .ctnButtons{
+        display: flex; 
+        gap: 20px; 
+        align-items: center;
+        input{
+            display:none;
+        }
     }
 }
 

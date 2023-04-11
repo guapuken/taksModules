@@ -1,23 +1,19 @@
 import React from 'react';
-import { comentarios, contentProps } from '../types';
+//
+import { contentProps, itemComments } from '../types';
+// estilos
+import '../modalTaskWithComents.scss';
+import { CommentTask, CommentCtn } from '.';
 
-const Comentarios = (props: contentProps) => {
-	const { comentarios } = props;
+const Comentarios = (props: itemComments) => {
+	const { comments, onClickAddComent, onChangeAddFile, showTasks } = props;
 	return (
-		<div style={{ overflow: 'hidden' }}>
+		<div className={`ctnComents${showTasks ? 'Full' : ''}_TWCC`} style={{ overflow: 'hidden' }}>
 			<h5 className="ttlComents" style={{ fontWeight: 'lighter' }}>
 				Comentarios
 			</h5>
-			{comentarios && (
-				<div className="ctnComents">
-					{comentarios.map((comentario: comentarios) => (
-						<div className={`comentCtn${comentario.personalMsn ? 'Personal' : ''}`}>
-							<p className="userName">{comentario.user}</p>
-							<p>{comentario.comentario}</p>
-						</div>
-					))}
-				</div>
-			)}
+			{comments && CommentCtn(comments)}
+			<CommentTask onChangeAddFile={onChangeAddFile} onClickAddComent={onClickAddComent} />
 		</div>
 	);
 };

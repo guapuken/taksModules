@@ -1,8 +1,9 @@
 import React from 'react';
 import { Modal } from '../../components';
 import { Content, Footer } from './files';
+import { contentProps } from './types';
 
-const ModalTaskWithComents = (props: any) => {
+const ModalTaskWithComments = (props: contentProps) => {
 	const args = {
 		Content: () => <Content {...props} />,
 		Footer: () => <Footer {...props} />,
@@ -11,4 +12,4 @@ const ModalTaskWithComents = (props: any) => {
 	return <Modal {...args} />;
 };
 
-export default ModalTaskWithComents;
+export default ModalTaskWithComments;

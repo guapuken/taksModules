@@ -5,19 +5,31 @@ import '../modalTaskWithComents.scss';
 import { SimpleButtonText } from '../../../utils/cardsUtils';
 
 const Content = (props: contentProps) => {
-	const { subtasks, taskName = 'Tarea', modo = 'Light', comentarios, taskComplete } = props;
+	const {
+		subtasks,
+		taskName = 'Tarea',
+		modo = 'Light',
+		comments,
+		taskComplete,
+		onChangeAddFile,
+		onClickAddComent,
+	} = props;
 	const [showTasks, setShowTasks] = React.useState(false);
 	return (
-		<div className={`ctn${modo}${comentarios ? 'Cmts' : 'noCmts'}_TWCC`}>
-			<div style={{ overflow: 'hidden', height: '100%' }}>
-				<h5 className={`taskName${taskComplete ? 'Check' : 'Incompleted'}`}>{taskName}</h5>
-				<SimpleButtonText
-					legend={`${showTasks ? 'Ocultar' : 'Ver'} ${
-						subtasks?.length || 0
-					} subtareas más`}
-					style={{ fontSize: '13px' }}
-					onClick={() => setShowTasks(!showTasks)}
-				/>
+		<div className={`ctn${modo}${comments ? 'Cmts' : 'noCmts'}_TWCC`}>
+			<div className="ctnTaskDtls" /* style={{ overflow: 'hidden', height: '100%' }} */>
+				<div className="ctnPrnlTask">
+					<h5 className={`taskName${taskComplete ? 'Check' : 'Incompleted'}`}>
+						{taskName}
+					</h5>
+					<SimpleButtonText
+						legend={`${showTasks ? 'Ocultar' : 'Ver'} ${
+							subtasks?.length || 0
+						} subtareas más`}
+						style={{ fontSize: '13px' }}
+						onClick={() => setShowTasks(!showTasks)}
+					/>
+				</div>
 				{showTasks ? (
 					subtasks ? (
 						<div className="subtaskCtn">
@@ -39,7 +51,12 @@ const Content = (props: contentProps) => {
 					<></>
 				)}
 			</div>
-			{comentarios ? <Comentarios comentarios={comentarios} /> : <></>}
+			<Comentarios
+				comments={comments}
+				showTasks={showTasks}
+				onChangeAddFile={onChangeAddFile}
+				onClickAddComent={onClickAddComent}
+			/>
 		</div>
 	);
 };

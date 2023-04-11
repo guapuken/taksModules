@@ -1,20 +1,52 @@
-import { Modo, onClickType } from '../../types';
+import { Modo, onChangeType, onClickType } from '../../types';
 
-export type contentProps = {
-	subtasks?: subtasks[];
+// exportación de la interfaz princiapl
+export interface contentProps {
+	// propiedades de la tarea principal
 	taskName?: String;
-	comentarios?: comentarios[];
-	personalMsn?: boolean;
-	modo?: Modo;
 	taskComplete?: boolean;
-};
-export type subtasks = {
-	taskName?: string;
-	taskDescription?: string;
-	complete: boolean;
-};
+	subtasks?: subtasks[];
+
+	// tema de color
+	modo?: Modo;
+
+	// botones
+	onClickAddComent?: onClickType;
+	onClickReWork?: onClickType;
+	onClickConfirm?: onClickType;
+	onClickApprove?: onClickType;
+
+	// on changes
+	onChangeAddFile?: onChangeType;
+	onChangeDrop?: onChangeType;
+
+	// comentarios
+	comments?: comentarios[];
+}
+// estructura de los comentarios
 export type comentarios = {
 	user?: string;
 	comentario?: string;
 	personalMsn?: boolean;
+	dateAndTime?: string;
+};
+// botones que se utilizan
+export type functions = {
+	onChangeAddFile?: onChangeType;
+	onClickAddComent?: onClickType;
+	onClickReWork?: onClickType;
+	onClickConfirm?: onClickType;
+	onClickApprove?: onClickType;
+	onChangeDrop?: onChangeType;
+};
+// types del componente complemenetario Item Comments
+export type itemComments = {
+	comments?: comentarios[];
+	showTasks?: boolean;
+};
+// estructura de las subtareas
+export type subtasks = {
+	taskName?: string;
+	taskDescription?: string;
+	complete: boolean;
 };

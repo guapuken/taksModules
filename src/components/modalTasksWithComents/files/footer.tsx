@@ -1,12 +1,10 @@
 import React from 'react';
 import { Button, Buttons, Dropdown } from '../../../components';
-import { onChangeType, onClickType } from '../../../types';
+import { onChangeType } from '../../../types';
+import { functions } from '../types';
 
-const Footer = (
-	onChangeDrop?: onChangeType,
-	onClickReWork?: onClickType,
-	onClickConfirm?: onClickType
-) => {
+const Footer = (props: functions) => {
+	const { onClickReWork, onChangeDrop, onClickApprove, onClickConfirm } = props;
 	const [reWork, setReWork] = React.useState(false);
 	return (
 		<div
@@ -78,6 +76,7 @@ const Footer = (
 					legend={'Aprobar tarea'}
 					style={{ width: '100%', height: '20px' }}
 					primary
+					onClick={onClickApprove}
 				/>
 			)}
 		</div>
