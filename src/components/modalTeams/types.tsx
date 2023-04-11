@@ -1,5 +1,9 @@
 import { Modo, onBlurType, onChangeType, onClickType } from '../../types';
 
+export type clickButtons = {
+	onClickCreate?: onClickType;
+	onClickAbort?: onClickType;
+};
 //TYPES
 export interface submenus {
 	id?: number | string;
@@ -24,6 +28,8 @@ export type membersValues = {
 export interface modalTeams {
 	onChangeTeamColor?: onBlurType;
 	onChangeTeamName?: onBlurType;
+	onClickCreate?: onClickType;
+	onClickAbort?: onClickType;
 	memberValue?: membersValues;
 	onClickAddUser?: onClickType;
 	modo?: Modo;

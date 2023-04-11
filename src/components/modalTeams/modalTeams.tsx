@@ -10,7 +10,8 @@ const ModalTeams = (props: modalTeams) => {
 	return (
 		<Modal
 			header="Creación de equipos"
-			Content={() => <Content {...props} Footer={() => <Footer {...props} />} />}
+			Content={() => <Content {...props} />}
+			Footer={() => <Footer {...props} />}
 		/>
 	);
 };
