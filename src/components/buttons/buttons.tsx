@@ -33,7 +33,7 @@ export interface ButtonsProps {
 	colorHover?: stringTypes;
 	className?: stringTypes;
 	disabled?: BooleanTypes;
-	style?: CSSProperties;
+	style?: ObjectTypes;
 	styleIcon?: ObjectTypes;
 	id?: stringTypes;
 	keys?: stringTypes;
