@@ -26,7 +26,7 @@ const Content = (props: any) => {
 				// 	onChangeName(e);
 				// }}
 				onChange={onChangeName}
-				onBlur={onBlurName}
+				// onBlur={onBlurName}
 				style={{ maxWidth: '98%' }}
 				initialValue={projectNameValue}
 			/>
