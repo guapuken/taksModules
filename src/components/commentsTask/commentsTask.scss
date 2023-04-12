@@ -1,0 +1,169 @@
+@import '../../global.scss';
+
+// ---------------------------------------------------------------------------------------------------------
+//      estilos generales
+// ---------------------------------------------------------------------------------------------------------
+//generales
+.ctnLight_CTC,
+.ctnDark_CTC
+{
+    width: 300px;
+    height: auto;
+    max-height: 75vh;
+    overflow: auto;
+    box-shadow: var(--boxShadow);
+    border-radius: 20px;
+    // padding: 10px 20px;
+    position: relative;
+    h2{
+        font-weight: lighter;
+        margin-bottom: 5px;
+        position: sticky;
+        top: 0;
+        background: #fff;
+        padding: 10px 20px;
+        z-index: 1;
+    }
+    .comments,
+    .commentsPersonal{
+        margin: 5px;
+        margin-top: 10px;
+        padding: 0 10px;
+        z-index: -1;
+        // usuario y comentario
+        .comment, 
+        .user
+        {
+            font-size: 14px;
+        }
+        // nombre ddel usuario
+        .user{
+            font-weight: bold;
+            user-select: none;
+            opacity: .3;
+        }
+        // comentario del usuario
+        .comment{
+            line-height: 1.5;
+        }
+        // cuerpo del comentario con su fecha de creación
+        .comment, 
+        .dateAndTime
+        {
+            margin-left: 10px;
+            font-weight: normal;
+        }
+        // fecha de creación del comentario 
+        .dateAndTime{
+            font-size: 12px;
+            opacity: .5;
+            user-select: none;
+        }
+    }
+
+    //Estilos de un mensaje personal
+    .commentsPersonal{
+        text-align: right;
+        .comment,
+        .dateAndTime
+        {
+            margin: 0 10px 0 0;
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo claro
+// ---------------------------------------------------------------------------------------------------------
+.ctnLight_CTC
+{
+    h2{
+    }
+    .comments,
+    .commentsPersonal{
+        // usuario y comentario
+        .comment, 
+        .user
+        {
+        }
+        // nombre ddel usuario
+        .user{
+        }
+        // comentario del usuario
+        .comment{
+        }
+        // cuerpo del comentario con su fecha de creación
+        .comment, 
+        .dateAndTime
+        {
+        }
+        // fecha de creación del comentario 
+        .dateAndTime{
+        }
+    }
+
+    //Estilos de un mensaje personal
+    .commentsPersonal{
+        .comment,
+        .dateAndTime
+        {
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo oscuro
+// ---------------------------------------------------------------------------------------------------------
+.ctnDark_CTC
+{
+    h2{
+    }
+    .comments,
+    .commentsPersonal{
+        // usuario y comentario
+        .comment, 
+        .user
+        {
+        }
+        // nombre ddel usuario
+        .user{
+        }
+        // comentario del usuario
+        .comment{
+        }
+        // cuerpo del comentario con su fecha de creación
+        .comment, 
+        .dateAndTime
+        {
+        }
+        // fecha de creación del comentario 
+        .dateAndTime{
+        }
+    }
+
+    //Estilos de un mensaje personal
+    .commentsPersonal{
+        .comment,
+        .dateAndTime
+        {
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      media queries
+// ---------------------------------------------------------------------------------------------------------
+//tablet
+@media (max-width:834px){
+    .ctnLight_CTC,
+    .ctnDark_CTC{
+
+    }
+}
+//cel
+@media (max-width:415px){
+    .ctnLight_CTC,
+    .ctnDark_CTC{
+        
+    }
+}
