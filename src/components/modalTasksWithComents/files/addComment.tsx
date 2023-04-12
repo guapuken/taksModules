@@ -2,9 +2,9 @@ import React from 'react';
 import { AutoResizeInput } from '../../inputTask/complements/autoResizeInput';
 import { SimpleButtonText } from '../../../utils/cardsUtils';
 import Button from '../../button';
-import { clickButtons } from '../types';
+import { functions } from '../types';
 
-const CommentTask = (props: clickButtons) => {
+const CommentTask = (props: functions) => {
 	const { onClickAddComent, onChangeAddFile } = props;
 	return (
 		<div className="ctnBlockComents_TWCC">

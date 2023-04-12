@@ -22,6 +22,7 @@ export {default as OptionMenu} from "./optionmenu";
 
 //Renderiza un text area múltiple donde se coloca la tarea y la subtarea
 export {default as InputTask} from './inputTask';
+export {default as AutoresizeInput} from './autoResizeInput';
 
 //Renderiza un input con un label que se posiciona encima del texto una vez que se selecciona
 export {default as InputLabel} from './inputLabel';

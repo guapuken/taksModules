@@ -1,0 +1,39 @@
+/*
+* Useless styles, just for demo design
+*/
+.principalTask,.task,.subTask{
+    border-radius: 0;
+    border: none;
+    resize: none;
+    transition: border-color 150ms ease;
+    width: 100%;
+    color: #525252;
+    font-family: 'Open Sans', sans-serif;
+    margin-block: 0;
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: #c6c6c6;
+    }
+}
+
+.principalTask{
+  font-size: calc(15px + 0.390625vw);
+  font-weight: bold;
+  background: transparent;
+}
+.subTask{
+  font-size: calc(12px + 0.390625vw);
+  font-weight: normal;
+  opacity:.5 ;
+  background: transparent;
+
+}
+.task{
+  font-size: calc(12px + 0.390625vw);
+  font-weight: bold;
+  opacity:1 ;
+  background: transparent;
+}
+
