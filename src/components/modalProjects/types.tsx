@@ -9,8 +9,8 @@ export type clickButtons = {
 
 // interfaz principal
 export interface ModalProjectsProps {
-	onClickCrear?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickCancelar?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickCreate?: onClickType;
+	onClickAbort?: onClickType;
 	onClickAddTask?: (e: React.MouseEvent<HTMLElement>) => void;
 	onChangeName?: onChangeType;
 	projectNameValue?: string;

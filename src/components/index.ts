@@ -1,23 +1,37 @@
-//Button
+// ---------------------------------------------------------------------------------------------------------
+//      Átomos
+// ---------------------------------------------------------------------------------------------------------
+/**
+ * @returns - button que puede incluir un icono, ser flotante y su legenda
+ */
 export {default as Button} from './button';
-
-//Buttons if you need the primary button, secondary button and tertiary button you can use the buttons component and use the composition property to add the preset styles
+/**
+ * @returns - conjunto de botones que tienen cierta composición
+ */
 export {default as Buttons} from './buttons';
-
-//ProgressBar to see the project and tasks progress
+/**
+ * @returns - barra de progreso que puede incluir el estatus de la tarea
+ */
 export {default as ProgressBar} from './progressBar';
-
+/**
+ * @returns - añade información por medio de un componente que muestra un signo a elegir
+ */
 export {default as Information} from './information';
-
-//IconDropdown allow show an icon and select an option
+/**
+ * @returns - dropdown de cascada que proviene de un icono 
+ */
 export {default as IconDropdown} from './iconDropdown';
-
-// retorna un dropdawwn el cual puede ser multiple y se puede buscar
+/**
+ * @returns - dropdown que permite buscar y puede ser de selección múltiple
+*/
 export {default as Dropdown} from './dropdown';
-
-//notifications switch
+/**
+ * @returns - switch con icono de campana para activar notificaciones
+ */
 export {default as Notifications} from './notifications';
-// option menu 
+/**
+ * @returns - menu que recibe los enlaces a los que se moverá
+ */
 export {default as OptionMenu} from "./optionmenu";
 
 //Renderiza un text area múltiple donde se coloca la tarea y la subtarea
@@ -63,3 +77,6 @@ export {default as Container} from './containerComp'
 
 //drag and drop
 export {default as DragAndDrop} from './dragAndDrop';
+
+//timeline
+export {default as TimelineProject} from './timelineProject';

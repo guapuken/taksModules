@@ -17,6 +17,8 @@ function DemoComponent() {
 				setProjectName(e.target.value);
 			}}
 			projectNameValue={projectName}
+			onClickCreate={() => alert('Hola')}
+			onClickAbort={() => alert('Adios')}
 		/>
 	);
 }
