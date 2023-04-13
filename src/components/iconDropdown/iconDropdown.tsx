@@ -6,7 +6,7 @@ import { Modo, onClickType } from '../../types';
 //definición de los types que se usarán dentro de la interfaz
 interface submenusArray {
 	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
-	id?: string | number;
+	id?: string;
 	title?: string;
 }
 interface optionsType {
@@ -38,11 +38,13 @@ const Menus = (props: any) => {
 	const menusMapping = menus.map((menu: optionsType) => {
 		//Si no existe la propiedad de submenu dentro de menu sólo regresará un item del Dropdown con sus propiedades para definir
 		if (!menu.submenus) {
+			console.log('Recibiendo datos de menu: ', menu);
 			return (
 				<DropdownMenu.Item
 					className={`ttlMenus${modo}_IcnDrpC`}
 					onClick={menu.onClick}
 					id={menu.id}
+					onChange={(e) => console.log(e)}
 				>
 					{menu.title}
 				</DropdownMenu.Item>
@@ -61,18 +63,22 @@ const Menus = (props: any) => {
 							className={`sbMenuCtn${modo}_IcnDrpC ${menu.className}`}
 							style={{ cursor: 'pointer' }}
 						>
-							{menu.submenus.map((submenu) => (
-								<DropdownMenu.Item
-									className={`ttlMenus${modo}_IcnDrpC`}
-									onClick={(e) => {
-										if (submenu.onClick) {
-											submenu.onClick(e);
-										}
-									}}
-								>
-									{submenu.title}
-								</DropdownMenu.Item>
-							))}
+							{menu.submenus.map((submenu) => {
+								console.log('Recibiendo datos de submenus: ', menu);
+								return (
+									<DropdownMenu.Item
+										className={`ttlMenus${modo}_IcnDrpC`}
+										onClick={(e) => {
+											if (submenu.onClick) {
+												submenu.onClick(e);
+											}
+										}}
+										id={submenu.id ? submenu.id : ''}
+									>
+										{submenu.title}
+									</DropdownMenu.Item>
+								);
+							})}
 						</DropdownMenu.SubContent>
 					</DropdownMenu.Portal>
 				</DropdownMenu.Sub>
@@ -129,7 +135,7 @@ const IconDropdown = (props: IconDropdownProps) => {
 						className={`sbCtn${modo}_IcnDrpC ${className}`}
 						style={{ cursor: 'pointer', ...style }}
 					>
-						<Menus menus={options} modo={modo} />
+						<Menus menus={options as optionsType} modo={modo} />
 					</DropdownMenu.Content>
 				</DropdownMenu.Portal>
 			</DropdownMenu.Root>

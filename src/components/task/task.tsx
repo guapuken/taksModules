@@ -5,20 +5,20 @@ import IconDropdown from '../iconDropdown';
 import InputTask from '../inputTask';
 import { AddTask, IconAsign, IconDates, IconMoreOptions, IconPriority } from './files';
 import './task.scss';
-import { Modo } from '../../types';
+import { Modo, onBlurType, onChangeType, onClickType } from '../../types';
 
 //TYPES
 interface submenus {
-	id?: number | string;
+	id?: string;
 	className?: string;
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClick?: onClickType;
 	title?: string;
 }
 interface optionsType {
 	id?: string;
 	submenus?: submenus[];
 	title?: string;
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClick?: onClickType;
 	className?: string;
 }
 
@@ -32,19 +32,19 @@ export interface TaskProps {
 	check?: boolean;
 	valueTask?: string;
 	valueDescription?: string;
-	onClickCheck?: (e: React.MouseEvent<HTMLElement>) => void;
-	onChangeNameTask?: (e: React.FocusEvent<HTMLInputElement>) => void;
-	onChangeDescriptionTask?: (e: React.FocusEvent<HTMLInputElement>) => void;
+	onClickCheck?: onClickType;
+	onChangeNameTask?: onBlurType;
+	onChangeDescriptionTask?: onBlurType;
 	idCheckbox?: string;
-	onChangeCheckbox?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChangeCheckbox?: onChangeType;
 
 	//Icon Dates
 	plantillas?: boolean;
-	onChangeDias?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChangeDias?: onChangeType;
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
-	onChangeEndDate?: (e: React.FormEvent<HTMLInputElement>) => void;
-	onChangeStartDate?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChangeEndDate?: onChangeType;
+	onChangeStartDate?: onChangeType;
 	startDateValue?: Date;
 	endDateValue?: Date;
 	className?: string;
@@ -59,49 +59,49 @@ export interface TaskProps {
 
 	//Icon Priority
 	prioridadInicial?: 'baja' | 'media' | 'alta';
-	onClickPrioridad?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickPrioridad?: onClickType;
 
 	//Icon MoreOptions
 	moreOptions?: optionsType[];
-	onClickEliminar?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickRecordatorio?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickEliminar?: onClickType;
+	onClickRecordatorio?: onClickType;
 
 	//addTask
 	subtaskForbbiden?: boolean;
 	Children?: any;
 
 	//botones agregar
-	onClickCreateTemplate?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickAddTask?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickCreateTemplate?: onClickType;
+	onClickAddTask?: onClickType;
 	templateOptions?: optionsType[];
 	modo?: Modo;
 }
 //Valida si existe la propiedad de plantillas y las agrega al dropdown de cargar plantilla en caso de que si exista
 export const optionsPlantillas = (
-	templateOptions: optionsType[],
-	onClickCreateTemplate: (e: React.MouseEvent<HTMLElement>) => void
+	templateOptions: optionsType[] | null,
+	onClickCreateTemplate: onClickType | null
 ) => {
 	templateOptions?.map((e: any) => {
 		return {
 			title: e.title,
 			onClick: e.onClick,
+			id: e.id,
 		};
 	});
-	if (templateOptions !== undefined) {
-		return [
-			{
-				title: '+ Crear plantilla',
-				onClick: onClickCreateTemplate,
-			},
-			...templateOptions,
-		];
-	} else
-		return [
-			{
-				title: '+ Crear plantilla',
-				onClick: onClickCreateTemplate,
-			},
-		];
+	return !templateOptions
+		? [
+				{
+					title: '+ Crear plantilla',
+					onClick: onClickCreateTemplate,
+				},
+		  ]
+		: [
+				{
+					title: '+ Crear plantilla',
+					onClick: onClickCreateTemplate,
+				},
+				...templateOptions,
+		  ];
 };
 
 //COMPONENTE PRINCIPAL

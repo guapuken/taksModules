@@ -11,27 +11,27 @@ export type clickButtons = {
 export interface ModalProjectsProps {
 	onClickCreate?: onClickType;
 	onClickAbort?: onClickType;
-	onClickAddTask?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickAddTask?: onClickType;
 	onChangeName?: onChangeType;
 	projectNameValue?: string;
 	Children?: childrenTypes[];
 	templateOptions?: optionsType[];
-	onClickCreateTemplate?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickCreateTemplate?: onClickType;
 	modo?: Modo;
 }
 
 // types
 export type submenus = {
-	id?: number | string;
+	id?: string;
 	className?: string;
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClick?: onClickType;
 	title?: string;
 };
 export type optionsType = {
 	id?: string;
 	submenus?: submenus[];
 	title?: string;
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClick?: onClickType;
 	className?: string;
 };
 
@@ -64,20 +64,30 @@ export type childrenTypes = {
 
 	//Icon Priority
 	prioridadInicial?: 'none' | 'baja' | 'media' | 'alta';
-	onClickPrioridad?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickPrioridad?: onClickType;
 
 	//Icon MoreOptions
 	moreOptions?: optionsType[];
-	onClickEliminar?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickRecordatorio?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickEliminar?: onClickType;
+	onClickRecordatorio?: onClickType;
 
 	//addTask
 	subtaskForbbiden?: boolean;
 	Children?: any;
 
 	//botones agregar
-	onClickCreateTemplate?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickAddTask?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickCreateTemplate?: onClickType;
+	onClickAddTask?: onClickType;
 	templateOptions?: optionsType[];
 	modo?: Modo;
+};
+
+export type content = {
+	onChangeName?: onChangeType;
+	projectNameValue?: string;
+	onClickAddTask?: onClickType;
+	modo?: Modo;
+	templateOptions: optionsType[] | null;
+	onClickCreateTemplate?: onClickType;
+	Children?: childrenTypes[];
 };

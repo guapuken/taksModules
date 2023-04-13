@@ -11,9 +11,10 @@ function DemoComponent() {
 	);
 	const [priority, setPriority] = React.useState('none');
 	const [checked, setCheckedd] = React.useState(false);
-	const [startDate, setStartDate] = React.useState('');
-	const [endDate, setEndDate] = React.useState('');
-	const [responsable, setResponsable] = React.useState('');
+	const [startDate, setStartDate] = React.useState();
+	const [endDate, setEndDate] = React.useState();
+	const [responsable, setResponsable] = React.useState({ id: undefined, name: undefined });
+	const [revision, setRevision] = React.useState({ id: undefined, name: undefined });
 
 	// consoles para revisar que sse generen de manera correcta los setteos
 	console.clear();
@@ -23,6 +24,8 @@ function DemoComponent() {
 	console.log('prioridad: ', priority);
 	console.log('startDate: ', startDate);
 	console.log('endDate: ', endDate);
+	console.log('responsable: ', responsable);
+	console.log('revision: ', revision);
 	return (
 		<ModalProjects
 			modo="Light"
@@ -63,15 +66,32 @@ function DemoComponent() {
 						{
 							id: '1',
 							title: 'Jorge Correa',
-							onClick: (e) => setResponsable(e.target.value),
+							// onClick: (e) => setResponsable(e.target.value),
+							onClick: (e) =>
+								setResponsable({ id: e.target.id, name: e.target.outerText }),
 						},
 						{
 							id: '2',
 							title: 'Kaori Soto',
-							onClick: (e) => setResponsable(e.target.value),
+							onClick: (e) => console.log(e),
 						},
 					],
-					valueResponsable: responsable,
+					revision: [
+						{
+							id: '1',
+							title: 'Jorge Correa',
+							// onClick: (e) => setResponsable(e.target.value),
+							onClick: (e) =>
+								setRevision({ id: e.target.id, name: e.target.outerText }),
+						},
+						{
+							id: '2',
+							title: 'Kaori Soto',
+							onClick: (e) => console.log(e),
+						},
+					],
+					valueResponsable: responsable.name,
+					valueRevision: revision.name,
 				},
 				{
 					idTask: '26',

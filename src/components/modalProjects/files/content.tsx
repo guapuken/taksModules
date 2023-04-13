@@ -2,14 +2,16 @@ import React from 'react';
 import { IconDropdown, InputLabel, Task } from '../../../components';
 import { AddTask } from '../../task/files';
 import { optionsPlantillas } from '../../task/task';
+import { content } from '../types';
+import { onClickType } from '../../../types';
 
 //COMPONENTE QUE REGRESA TODO EL CONTENIDO DEL MODAL
-const Content = (props: any) => {
+const Content = (props: content) => {
 	const {
 		onChangeName,
 		projectNameValue,
 		onClickAddTask,
-		modo,
+		modo = 'Light',
 		templateOptions,
 		onClickCreateTemplate,
 		Children,
@@ -32,7 +34,10 @@ const Content = (props: any) => {
 						marginLeft: '20px',
 						fontSize: '15px',
 					}}
-					options={optionsPlantillas(templateOptions, onClickCreateTemplate)}
+					options={optionsPlantillas(
+						templateOptions,
+						onClickCreateTemplate as onClickType
+					)}
 				/>
 			</div>
 			<div style={{ borderLeft: '2px solid #282828', paddingLeft: '10px' }}>
