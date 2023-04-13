@@ -6,10 +6,10 @@ import {
 	verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { screenSize, Task } from '../types';
-import TaskItem from '../taskItem/taskItem';
-import SortableTaskItem from '../sortableItem/sortableItem';
+import TaskItem from './taskItem';
+import SortableTaskItem from './sortableItem';
 import '../../../global.scss';
-import css from '../dragAndDrop.module.scss';
+import '../dragAndDrop.scss';
 import bell from '../../../img/bell.svg';
 import { Modo } from '../../../types';
 
@@ -32,8 +32,8 @@ const BoardSection = (props: BoardSectionProps) => {
 		id,
 	});
 	return (
-		<div className={modo === 'Dark' ? css.dropableCtnDark : css.dropableCtn}>
-			<div className={css.ctnTitle}>
+		<div className={modo === 'Dark' ? 'dropableCtnDark' : 'dropableCtn'}>
+			<div className={'ctnTitle'}>
 				<h2>{title}</h2>
 				<img src={bell} alt="" />
 			</div>
@@ -57,14 +57,14 @@ const BoardSection = (props: BoardSectionProps) => {
 						}}
 						className={
 							width < scrSize.width || scrSize.width <= 834
-								? css.DrgAndDrpSml
-								: css.ctnTasks
+								? 'DrgAndDrpSml'
+								: 'ctnTasks'
 						}
 					>
 						{tasks.map((task) => (
 							<div
 								className={
-									scrSize.width <= 834 ? css.draggableCtnSml : css.draggableCtn
+									scrSize.width <= 834 ? 'draggableCtnSml' : 'draggableCtn'
 								}
 								key={task.id}
 							>

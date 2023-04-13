@@ -13,6 +13,7 @@ const ModalProjects = (props: ModalProjectsProps) => {
 			header="Creación de proyectos"
 			Content={() => <Content {...props} />}
 			Footer={() => <Footer {...props} />}
+			modo={props.modo}
 		/>
 	);
 };

@@ -74,7 +74,11 @@
         font-size: 13px;
         margin: 0;
     }
-    input[type="date"]::-webkit-calendar-picker-indicator {
+    // input[type="date"]::-webkit-calendar-picker-indicator {
+    input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+        //
+        // display: none;
+        //
         background: transparent;
         bottom: 0;
         color: transparent;
@@ -90,7 +94,14 @@
             box-shadow: none;
         }
     }
+    input[type="datetime-local"]::-webkit-datetime-edit-fields-wrapper {
+        border: none;
+      }
     input{
+        //
+        // display:none;
+        //
+        color: transparent;
         background: transparent;
         border: none;
         margin-block: 0;

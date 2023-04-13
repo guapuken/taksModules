@@ -7,7 +7,7 @@ const AutoresizeInput = (props: autoresizeInput) => {
 	//destructuring properties
 	const {
 		style,
-		onBlur,
+		onChange,
 		initialValue,
 		taskType = 'task',
 		placeholder,
@@ -49,7 +49,7 @@ const AutoresizeInput = (props: autoresizeInput) => {
 			ref={textAreaRef}
 			disabled={disabled}
 			onChange={(e: any) => setValue(e.target?.value)}
-			onBlur={(e) => (onBlur ? onBlur : {})}
+			onBlur={(e: any) => (onChange ? onChange(e) : {})}
 			tabIndex={tabIndex}
 			placeholder={placeholder}
 			rows={1}

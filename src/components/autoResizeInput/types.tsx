@@ -3,9 +3,9 @@ import { onBlurType } from '../../types';
 
 export interface autoresizeInput {
 	style?: React.CSSProperties;
-	onBlur?: onBlurType;
-	initialValue?: string;
+	onChange?: onBlurType;
 	taskType?: taskType;
+	initialValue?: string;
 	placeholder?: string;
 	tabIndex?: number;
 	disabled?: boolean;
