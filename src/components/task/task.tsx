@@ -78,8 +78,8 @@ export interface TaskProps {
 }
 //Valida si existe la propiedad de plantillas y las agrega al dropdown de cargar plantilla en caso de que si exista
 export const optionsPlantillas = (
-	templateOptions: optionsType[] | null,
-	onClickCreateTemplate: onClickType | null
+	templateOptions: optionsType[],
+	onClickCreateTemplate: onClickType
 ) => {
 	templateOptions?.map((e: any) => {
 		return {
@@ -157,7 +157,7 @@ const Task = (props: TaskProps) => {
 		//BotonesAgregar
 		onClickCreateTemplate = () => {},
 		onClickAddTask,
-		templateOptions = [{}],
+		templateOptions,
 		modo = 'Light',
 	} = props;
 
@@ -235,7 +235,11 @@ const Task = (props: TaskProps) => {
 							marginLeft: '20px',
 							fontSize: '15px',
 						}}
-						options={optionsPlantillas(templateOptions, onClickCreateTemplate)}
+						// options={optionsPlantillas(templateOptions, onClickCreateTemplate)}
+						options={optionsPlantillas(
+							templateOptions as optionsType[],
+							onClickCreateTemplate
+						)}
 					/>
 				</div>
 			)}

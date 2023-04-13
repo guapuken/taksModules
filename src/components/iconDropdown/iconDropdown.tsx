@@ -1,16 +1,16 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import './iconDropdown.scss';
 import { Modo, onClickType } from '../../types';
 
 //definición de los types que se usarán dentro de la interfaz
 interface submenusArray {
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClick?: onClickType;
 	id?: string;
 	title?: string;
 }
 interface optionsType {
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClick?: onClickType;
 	submenus?: submenusArray[];
 	id?: string;
 	title?: string;
@@ -25,8 +25,8 @@ export interface IconDropdownProps {
 	className?: string;
 	legend?: string;
 	title?: string;
-	style?: CSSProperties;
-	iconStyles?: CSSProperties;
+	style?: React.CSSProperties;
+	iconStyles?: React.CSSProperties;
 	svg?: any;
 	modo: Modo;
 }
@@ -135,7 +135,7 @@ const IconDropdown = (props: IconDropdownProps) => {
 						className={`sbCtn${modo}_IcnDrpC ${className}`}
 						style={{ cursor: 'pointer', ...style }}
 					>
-						<Menus menus={options as optionsType} modo={modo} />
+						<Menus menus={options} modo={modo} />
 					</DropdownMenu.Content>
 				</DropdownMenu.Portal>
 			</DropdownMenu.Root>
