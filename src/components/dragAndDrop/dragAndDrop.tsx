@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React from 'react';
 //Importaciones de dnd-kit-core----------------------------------------------------------------------------------------------------------
 import {
 	useSensors,
@@ -13,19 +13,16 @@ import {
 	DragOverlay,
 	DropAnimation,
 	defaultDropAnimation,
-	// useDroppable,
 } from '@dnd-kit/core';
 import { sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 //importación de componentes a usar--------------------------------------------------------------------------------------------------
-import { TaskItem } from './taskItem/taskItem';
-import BoardSection from './boardSection/boardSection';
+import { TaskItem, BoardSection } from './files';
 //importación de funciones a usar----------------------------------------------------------------------------------------------------
 //Importación de elementos multimedia a usar------------------------------------------------------------------------------------------
 import { useWindowSize } from '../../utils/windowSize';
 import { BoardSections, Task } from './types';
 //importaciones de estilos globales y de componente
-import '../../global.scss';
-import css from './dragAndDrop.module.scss';
+import './dragAndDrop.scss';
 import { Modo } from '../../types';
 import Container from '../containerComp/container';
 import AsideTemplates from '../asideTemplates/asideTemplates';
@@ -101,9 +98,9 @@ const DragAndDrop = (props: DragAndDropProps) => {
 	// Crea el estado inicial del tablero con es estatus de cada una de sus tareas
 	const initialBoardSections = initializeBoard(tasks, nameBoards);
 	// Actualiza el tablero en el que se encuentra cada tarea
-	const [boardSections, setBoardSections] = useState<BoardSections>(initialBoardSections);
+	const [boardSections, setBoardSections] = React.useState<BoardSections>(initialBoardSections);
 	// Selecciona la tarea activa
-	const [activeTaskId, setActiveTaskId] = useState<null | string>(null);
+	const [activeTaskId, setActiveTaskId] = React.useState<null | string>(null);
 	/* Using the useSensors hook to create a sensor. */
 	const sensors = useSensors(
 		useSensor(PointerSensor),
@@ -205,11 +202,7 @@ const DragAndDrop = (props: DragAndDropProps) => {
 			>
 				<div
 					className={
-						scrSize.width <= 415
-							? css.ctnSml
-							: scrSize.width <= 834
-							? css.ctnTbl
-							: css.ctn
+						scrSize.width <= 415 ? 'ctnSml' : scrSize.width <= 834 ? 'ctnTbl' : 'ctn'
 					}
 				>
 					{Object.keys(boardSections).map((boardSectionKey) => {
@@ -218,10 +211,10 @@ const DragAndDrop = (props: DragAndDropProps) => {
 							<div
 								className={
 									scrSize.width <= 415
-										? css.boardCtnSml
+										? 'boardCtnSml'
 										: scrSize.width <= 834
-										? css.boardCtnTbl
-										: css.boardCtn
+										? 'boardCtnTbl'
+										: 'boardCtn'
 								}
 								key={boardSectionKey}
 							>

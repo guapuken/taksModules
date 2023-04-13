@@ -1,9 +1,7 @@
 import React from 'react';
 
 //importación de componentes de la librería
-import Cards from '../../cards';
-import CardTask from '../../cardTask';
-import { screenSize, Task } from '../types';
+import { screenSize } from '../types';
 
 //Componente que retorna el elemto que podrá moverse entre las diferentes columnas ----------------------------------------------------
 interface TaskItemProps {

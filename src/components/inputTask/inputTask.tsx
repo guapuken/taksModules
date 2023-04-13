@@ -1,13 +1,14 @@
 import React from 'react';
-import { AutoResizeInput } from './complements/autoResizeInput';
+// import { AutoResizeInput } from './complements/autoResizeInput';
 import { CheckboxInput } from './complements/checkboxInput';
-import { Modo } from '../../types';
+import { AutoresizeInput } from '../../components';
+import { Modo, onBlurType, onChangeType, onClickType } from '../../types';
 
 export interface InputTaskProps {
-	onChangeNameTask?: (e: React.FocusEvent<HTMLInputElement>) => void;
-	onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
-	onChangeDescriptionTask?: (e: React.FocusEvent<HTMLInputElement>) => void;
-	onClickCheck?: (e: React.MouseEvent<HTMLElement>) => void;
+	onChangeNameTask?: onBlurType;
+	onChange?: onChangeType;
+	onChangeDescriptionTask?: onBlurType;
+	onClickCheck?: onClickType;
 	disabled?: boolean;
 	principalTask?: boolean;
 	isSubtask?: boolean;
@@ -18,8 +19,8 @@ export interface InputTaskProps {
 	valueDescription?: string;
 	idCheckbox?: string;
 	data?: any;
-	style?: {};
-	modo: Modo;
+	style?: React.CSSProperties;
+	modo?: Modo;
 }
 
 const InputTask = (props: InputTaskProps) => {
@@ -66,20 +67,20 @@ const InputTask = (props: InputTaskProps) => {
 						idCheckbox={idCheckbox}
 					/>
 				)}
-				<AutoResizeInput
+				<AutoresizeInput
 					taskType={principalTask ? 'principal' : 'task'}
 					style={nameTaskStyles}
-					onBlur={onChangeNameTask}
+					onChange={onChangeNameTask}
 					initialValue={valueTask}
 					placeholder={`Nombre de la ${isSubtask ? 'subtarea' : 'tarea'}`}
 					tabIndex={1}
 					disabled={check ? true : disabled ? disabled : false}
 				/>
 			</div>
-			<AutoResizeInput
+			<AutoresizeInput
 				taskType={'subtask'}
 				style={descriptionTaskStyles}
-				onBlur={onChangeDescriptionTask}
+				onChange={onChangeDescriptionTask}
 				initialValue={valueDescription}
 				placeholder={`Descripción de la ${isSubtask ? 'subtarea' : 'tarea'}`}
 				tabIndex={2}

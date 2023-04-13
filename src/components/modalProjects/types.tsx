@@ -1,17 +1,23 @@
 import React from 'react';
-import { Modo, onChangeType } from '../../types';
+import { Modo, onBlurType, onChangeType, onClickType } from '../../types';
+
+// botones
+export type clickButtons = {
+	onClickCreate?: onClickType;
+	onClickAbort?: onClickType;
+};
 
 // interfaz principal
 export interface ModalProjectsProps {
-	onClickCrear?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickCancelar?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickCreate?: onClickType;
+	onClickAbort?: onClickType;
 	onClickAddTask?: (e: React.MouseEvent<HTMLElement>) => void;
 	onChangeName?: onChangeType;
 	projectNameValue?: string;
 	Children?: childrenTypes[];
 	templateOptions?: optionsType[];
 	onClickCreateTemplate?: (e: React.MouseEvent<HTMLElement>) => void;
-	modo: Modo;
+	modo?: Modo;
 }
 
 // types
@@ -28,24 +34,50 @@ export type optionsType = {
 	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	className?: string;
 };
+
 export type childrenTypes = {
-	idTask: String;
-	equipos: optionsType[];
-	Children: any;
-	onChangeDescriptionTask: onChangeType;
-	onChangeNameTask: onChangeType;
-	onClickAddTask: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickCreateTemplate: (e: React.MouseEvent<HTMLElement>) => void;
-	revision: optionsType[];
-	valueRevision: string;
-	responsables: optionsType[];
-	taskDisabled: boolean;
-	valueTask: string;
-	valueDescription: string;
-	valueResponsable: string;
-	subtaskForbbiden: boolean;
-	templateOptions: optionsType[];
-	onClickDeleteTask: (e: React.MouseEvent<HTMLElement>) => void;
-	className: string;
-	durationValue: string;
+	//Input Task
+	taskDisabled?: boolean;
+	taskComplete?: boolean;
+	check?: boolean;
+	valueTask?: string;
+	valueDescription?: string;
+	onChangeNameTask?: onBlurType;
+	onChangeDescriptionTask?: onBlurType;
+	idCheckbox?: string;
+	onChangeCheckbox?: onChangeType;
+
+	//Icon Dates
+	disabledEndDate?: boolean;
+	disabledStartDate?: boolean;
+	onChangeEndDate?: onChangeType;
+	onChangeStartDate?: onChangeType;
+	startDateValue?: Date;
+	endDateValue?: Date;
+
+	//Icon Asign
+	responsables?: submenus[];
+	equipos?: submenus[];
+	revision?: submenus[];
+	valueResponsable?: string;
+	valueRevision?: string;
+
+	//Icon Priority
+	prioridadInicial?: 'none' | 'baja' | 'media' | 'alta';
+	onClickPrioridad?: (e: React.MouseEvent<HTMLElement>) => void;
+
+	//Icon MoreOptions
+	moreOptions?: optionsType[];
+	onClickEliminar?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickRecordatorio?: (e: React.MouseEvent<HTMLElement>) => void;
+
+	//addTask
+	subtaskForbbiden?: boolean;
+	Children?: any;
+
+	//botones agregar
+	onClickCreateTemplate?: (e: React.MouseEvent<HTMLElement>) => void;
+	onClickAddTask?: (e: React.MouseEvent<HTMLElement>) => void;
+	templateOptions?: optionsType[];
+	modo?: Modo;
 };

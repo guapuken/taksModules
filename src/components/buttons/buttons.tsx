@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import Button from '../button/button';
 import '../../global.scss';
 

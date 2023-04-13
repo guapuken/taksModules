@@ -7,7 +7,6 @@ import { optionsPlantillas } from '../../task/task';
 const Content = (props: any) => {
 	const {
 		onChangeName,
-		onBlurName,
 		projectNameValue,
 		onClickAddTask,
 		modo,
@@ -20,56 +19,66 @@ const Content = (props: any) => {
 		<div>
 			<InputLabel
 				legend="Nombre del proyecto"
-				// onChange={onChangeName}
-				// onChange={(e: any) => {
-				// 	setProjectName(e.target.value);
-				// 	onChangeName(e);
-				// }}
 				onChange={onChangeName}
-				onBlur={onBlurName}
 				style={{ maxWidth: '98%' }}
 				initialValue={projectNameValue}
 			/>
-			<AddTask legend="+ Añadir tarea" onClick={onClickAddTask} />
-			<IconDropdown
-				modo={modo}
-				legend="Cargar plantilla"
-				iconStyles={{
-					marginLeft: '20px',
-					fontSize: '15px',
-				}}
-				options={optionsPlantillas(templateOptions, onClickCreateTemplate)}
-			/>
+			<div style={{ display: 'flex', alignItems: 'baseline' }}>
+				<AddTask legend="+ Añadir tarea" onClick={onClickAddTask} />
+				<IconDropdown
+					modo={modo}
+					legend="Cargar plantilla"
+					iconStyles={{
+						marginLeft: '20px',
+						fontSize: '15px',
+					}}
+					options={optionsPlantillas(templateOptions, onClickCreateTemplate)}
+				/>
+			</div>
 			<div style={{ borderLeft: '2px solid #282828', paddingLeft: '10px' }}>
 				{Children &&
 					Children.map((e: any) => (
 						<Task
-							idCheckbox={e.idTask}
-							equipos={e.equipos}
-							Children={e.Children}
-							principalTask
-							onChangeDescriptionTask={e.onChangeDescription}
-							onChangeNameTask={e.onChangeName}
-							onClickAddTask={e.onClickAddTask}
-							onClickCreateTemplate={e.onClickNewTemplate}
-							revision={e.revision}
-							valueRevision={e.valueRevision}
-							responsables={e.responsables}
 							taskDisabled={e.taskDisabled}
+							taskComplete={e.taskComplete}
+							check={e.check}
 							valueTask={e.valueTask}
 							valueDescription={e.valueDescription}
+							onChangeNameTask={e.onChangeNameTask}
+							onChangeDescriptionTask={e.onChangeDescriptionTask}
+							idCheckbox={e.idTask}
+							onChangeCheckbox={e.onChangeCheckbox}
+							//
+							disabledEndDate={e.disabledEndDate}
+							disabledStartDate={e.disabledStartDate}
+							onChangeEndDate={e.onChangeEndDate}
+							onChangeStartDate={e.onChangeStartDate}
+							startDateValue={e.startDateValue}
+							endDateValue={e.endDateValue}
+							//
+							responsables={e.responsables}
+							equipos={e.equipos}
+							revision={e.revision}
 							valueResponsable={e.valueResponsable}
-							subtaskForbbiden={e.subtaskForbbiden}
-							templateOptions={e.templateOptions}
+							valueRevision={e.valueRevision}
+							//
+							prioridadInicial={e.prioridadInicial}
+							onClickPrioridad={e.onClickPrioridad}
+							//
 							moreOptions={[
 								{
 									title: 'Eliminar',
 									onClick: e.onClickDeleteTask,
 								},
 							]}
-							className={e.className}
-							plantillas
-							durationValue={e.durationValue}
+							//
+							subtaskForbbiden={e.subtaskForbbiden}
+							Children={e.Children}
+							//
+							onClickCreateTemplate={e.onClickNewTemplate}
+							onClickAddTask={e.onClickAddTask}
+							templateOptions={e.templateOptions}
+							modo={modo}
 						/>
 					))}
 			</div>

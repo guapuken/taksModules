@@ -1,14 +1,15 @@
 import React from 'react';
 import '../../global.scss';
 import { LateIcon } from '../../utils/cardsUtils';
+import { onClickType, statusTask } from '../../types';
 
 //interface
 export interface ProgressBarProps {
+	status?: statusTask;
+	onClick?: onClickType;
+	styleContent?: React.CSSProperties;
 	valor?: number;
-	status?: 'onTime' | 'delayed' | 'outOfTime';
 	width?: number;
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
-	styleContent?: {};
 }
 
 const ProgressBar = (props: ProgressBarProps) => {
@@ -24,11 +25,11 @@ const ProgressBar = (props: ProgressBarProps) => {
 	};
 	let progressContainerStyles = {
 		boxShadow: `inset 0 0 0 3px ${
-			status === 'outOfTime'
+			status === 'outOfTime' || status === 3
 				? '#FC3D38'
-				: status === 'onTime'
+				: status === 'onTime' || status === 1
 				? '#1CBF59'
-				: status === 'delayed'
+				: status === 'delayed' || status === 2
 				? '#FCB24F'
 				: '#282828'
 		}`,
@@ -38,7 +39,7 @@ const ProgressBar = (props: ProgressBarProps) => {
 	};
 	let percentStyles = {
 		fontSize: '20px',
-		color: status === 'outOfTime' ? '#FC3D38' : '#282828',
+		color: status === 'outOfTime' || status === 3 ? '#FC3D38' : '#282828',
 		fontFamily: "'Open Sans', sans-serif",
 		fontWeight: 'lighter',
 		justifyContent: 'right',
@@ -46,11 +47,11 @@ const ProgressBar = (props: ProgressBarProps) => {
 	let progressStyles = {
 		height: '100%',
 		background:
-			status === 'outOfTime'
+			status === 'outOfTime' || status === 3
 				? '#FC3D38'
-				: status === 'onTime'
+				: status === 'onTime' || status === 1
 				? '#1CBF59'
-				: status === 'delayed'
+				: status === 'delayed' || status === 2
 				? '#FCB24F'
 				: '#282828',
 		borderRadius: '100px',
@@ -60,7 +61,7 @@ const ProgressBar = (props: ProgressBarProps) => {
 	return (
 		<div style={{ ...containerStyles, ...styleContent }} onClick={onClick}>
 			<div style={{ position: 'relative', ...progressContainerStyles }}>
-				{status === 'outOfTime' && <LateIcon />}
+				{status === 'outOfTime' || (status === 3 && <LateIcon />)}
 				<div style={{ ...progressStyles }}></div>
 			</div>
 			<p style={{ ...percentStyles }}>{`${valor}%`}</p>

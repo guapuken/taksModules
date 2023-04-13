@@ -15,15 +15,6 @@ export interface RangeDatePickerProps {
 	modo: Modo;
 }
 
-function date(props: any) {
-	const { tomorrow, date } = props;
-	const newDate = date ? date : new Date();
-	var month = newDate.getUTCMonth() + 1;
-	var day = tomorrow ? newDate.getUTCDate() + 1 : newDate.getUTCDate();
-	var year = newDate.getUTCFullYear();
-	return `${year}-${month <= 9 ? `0${month}` : month}-${day <= 9 ? `0${day}` : day}`;
-}
-
 const RangeDatePicker = (props: RangeDatePickerProps) => {
 	const {
 		startDateValue,
@@ -35,12 +26,8 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 		onChangeEndDate,
 		modo = 'Light',
 	} = props;
-	const [startDate, setStartDate] = useState(startDateValue || date({ tomorrow: false }));
-	const [endDate, setEndDate] = useState(endDateValue || date({ tomorrow: true }));
-
-	useEffect(() => {
-		setEndDate(startDate.toString());
-	}, [startDate]);
+	const [startDate, setStartDate] = useState(startDateValue || '');
+	const [endDate, setEndDate] = useState(endDateValue || '');
 
 	return (
 		<div
@@ -52,19 +39,23 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 			<div>
 				<p>Comienza</p>
 				<label htmlFor="start-date">
-					{startDate === '' ? 'Comienza' : MonthName(startDate.toString().slice(-5))}
+					{startDate === '' ? 'Comienza' : MonthName(String(startDate))}
 				</label>
 				<input
-					type="date"
+					type="datetime-local"
 					id="start-date"
 					name="start-date"
 					className={'DatePickerTaskComponent'}
-					value={startDate.toString()}
+					value={String(startDate)}
 					disabled={disabledStartDate}
 					onChange={(e) => {
 						setStartDate(e.target.value);
-						document.getElementById('endDate')?.focus();
-						onChangeStartDate;
+					}}
+					onBlur={(e) => {
+						if (onChangeStartDate) {
+							onChangeStartDate(e);
+							document.getElementById('endDate')?.focus();
+						}
 					}}
 				/>
 			</div>
@@ -72,19 +63,23 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 			<div>
 				<p>Termina</p>
 				<label htmlFor="endDate">
-					{endDate === '' ? 'Termina' : MonthName(endDate.toString().slice(-5))}
+					{endDate.toString() === '' ? 'Termina' : MonthName(String(endDate))}
 				</label>
 				<input
-					type="date"
+					type="datetime-local"
 					id="endDate"
 					name="endDate"
-					value={endDate.toString()}
 					disabled={disabledEndDate}
-					min={startDate.toString()}
+					min={String(startDate)}
+					value={String(endDate)}
 					className={`${'DatePickerTaskComponent'} ${'CalendarOpenTaskModules'}`}
 					onChange={(e) => {
 						setEndDate(e.target.value);
-						onChangeEndDate;
+					}}
+					onBlur={(e) => {
+						if (onChangeEndDate) {
+							onChangeEndDate(e);
+						}
 					}}
 				/>
 			</div>

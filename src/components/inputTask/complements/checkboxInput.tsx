@@ -10,19 +10,11 @@ interface CheckboxInputProps {
 	disabled?: boolean;
 	check?: boolean;
 
-	modo: Modo;
+	modo?: Modo;
 	idCheckbox?: string;
 }
 export const CheckboxInput = (props: CheckboxInputProps) => {
-	const {
-		principalTask,
-		onClick,
-		disabled,
-		onChange,
-		check,
-		idCheckbox = '',
-		modo = 'Light',
-	} = props;
+	const { onClick, disabled, onChange, check, idCheckbox = '', modo = 'Light' } = props;
 
 	return (
 		<div className={`ctn${modo}_CBIC`}>

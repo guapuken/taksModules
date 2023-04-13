@@ -1,41 +1,74 @@
-//Button
+// ---------------------------------------------------------------------------------------------------------
+//      Átomos
+// ---------------------------------------------------------------------------------------------------------
+/**
+ * @returns - button que puede incluir un icono, ser flotante y su legenda
+ */
 export {default as Button} from './button';
-
-//Buttons if you need the primary button, secondary button and tertiary button you can use the buttons component and use the composition property to add the preset styles
+/**
+ * @returns - conjunto de botones que tienen cierta composición
+ */
 export {default as Buttons} from './buttons';
-
-//ProgressBar to see the project and tasks progress
+/**
+ * @returns - barra de progreso que puede incluir el estatus de la tarea
+ */
 export {default as ProgressBar} from './progressBar';
-
+/**
+ * @returns - añade información por medio de un componente que muestra un signo a elegir
+ */
 export {default as Information} from './information';
-
-//IconDropdown allow show an icon and select an option
+/**
+ * @returns - dropdown de cascada que proviene de un icono 
+ */
 export {default as IconDropdown} from './iconDropdown';
-
-// retorna un dropdawwn el cual puede ser multiple y se puede buscar
+/**
+ * @returns - dropdown que permite buscar y puede ser de selección múltiple
+*/
 export {default as Dropdown} from './dropdown';
-
-//notifications switch
+/**
+ * @returns - switch con icono de campana para activar notificaciones
+ */
 export {default as Notifications} from './notifications';
-// option menu 
+/**
+ * @returns - menu que recibe los enlaces a los que se moverá
+ */
 export {default as OptionMenu} from "./optionmenu";
-
-//Renderiza un text area múltiple donde se coloca la tarea y la subtarea
+/**
+ * @returns - inputs donde se coloca el nombre de la tarea y la descripción
+ */
 export {default as InputTask} from './inputTask';
-
-//Renderiza un input con un label que se posiciona encima del texto una vez que se selecciona
+/**
+ * @returns - text area que se ajusta automaticamente al tamaño del texto
+ */
+export {default as AutoresizeInput} from './autoResizeInput';
+/**
+ * @returns - contenedor lateral que recibe componentes o contenido en general
+ */
+export {default as AsideTemplates} from './asideTemplates';
+/**
+ * @returns - layout de página del módulo de tareas
+ */
+export {default as Container} from './containerComp'
+/**
+ * @returns - input que contiene etiqueta que se mueve al momento de comenzar a escribir
+ */
 export {default as InputLabel} from './inputLabel';
-
-//regresa un calendario de múltiples fechas.
+/**
+ * @returns - rango de fechas en un arreglo 
+ */
 export {default as RangeDatePicker} from './rangeDatePicker';
-
-//Renderiza un boton de notificaciones con su contador de notificaciones
+/**
+ * @returns - notificaciones con el número de notificaciones que cuenta
+ */
 export {default as NotificationBell} from './notificationBell';
-
-//Renderiza el bloque de código de una tarea con su respectivos botones
+/**
+ * @returns - regresa una estructura de las tareas
+ */
 export {default as Task} from './task';
 
-//Cards preestablecidas
+// ---------------------------------------------------------------------------------------------------------
+//      Cards preestablecidas
+// ---------------------------------------------------------------------------------------------------------
 export {default as Cards} from './cards'; // genérica
 export {default as CardTeam} from  './cardTeam';
 export {default as CardProject} from './cardProject';
@@ -43,22 +76,31 @@ export {default as CardTask} from './cardTask';
 export {default as CardMembersTeam} from './cardMembersTeam';
 export {default as CardTaskReview} from './cardTaskReview';
 
-//cards preestablecidas de gestión
+// ---------------------------------------------------------------------------------------------------------
+//      Cards de gestión
+// ---------------------------------------------------------------------------------------------------------
 export {default as CardMannageTemplates} from './cardMannageTemplates';
 export {default as CardMannageProjects} from './cardMannageProjects';
 export {default as CardMannageTasks} from './cardMannageTasks';
 
-//Modales preestablecidos
+// ---------------------------------------------------------------------------------------------------------
+//      Modales preestablecidos
+// ---------------------------------------------------------------------------------------------------------
 export {default as Modal} from './modal'; // genérica
 export {default as ModalTareas} from './modalTareas';
 export {default as ModalTemplates} from './modalTemplates';
 export {default as ModalProjects} from './modalProjects';
 export {default as ModalTeams} from './modalTeams';
-export {default as modalTaskWithComents} from './modalTasksWithComents';
+export {default as ModalTaskWithComents} from './modalTasksWithComents';
 
-//Contenedores generales
-export {default as AsideTemplates} from './asideTemplates';
-export {default as Container} from './containerComp'
-
-//drag and drop
+// ---------------------------------------------------------------------------------------------------------
+//      componentes complejos
+// ---------------------------------------------------------------------------------------------------------
+/**
+ * @returns - drag and drop 
+ */
 export {default as DragAndDrop} from './dragAndDrop';
+/**
+ * @returns - timeline
+ */
+export {default as TimelineProject} from './timelineProject';

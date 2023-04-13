@@ -14,7 +14,7 @@ const AsideTemplates = (props: AsideTemplatesProps) => {
 	return (
 		<div className={`ctn${isWhite ? 'White' : ''}${modo}_ATC`}>
 			{!Content && (
-				<div className={modo === 'Dark' || !isWhite ? 'noCtnDark' : 'noCtn'}>
+				<div className={`noCtn${modo}`}>
 					<h1>Ups!</h1>
 					<p>parece que olvidaste agregar tu contenido</p>
 				</div>

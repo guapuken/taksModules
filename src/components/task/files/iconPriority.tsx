@@ -20,7 +20,9 @@ const IconPriority = (props: IconPriorityProps) => {
 	//Se agrega el estado de la prioridad y se da la opción de agregar un onClick en la para definir la función que se realizará al dar clic en el elemento
 	const handleClickPriority = (prioridad: any) => {
 		setPrioridad(prioridad.target.id);
-		onClickPrioridad;
+		if (onClickPrioridad) {
+			onClickPrioridad(prioridad);
+		}
 	};
 	//Opciones de prioridades
 	const optionsPriority = [
@@ -65,6 +67,8 @@ const IconPriority = (props: IconPriorityProps) => {
 								? '#fcb23b'
 								: prioridad === 'alta'
 								? '#fc3d38'
+								: modo === 'Dark'
+								? '#dedede'
 								: '#525252'
 						}
 					/>

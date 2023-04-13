@@ -2,15 +2,18 @@ import React from 'react';
 //importación de elementos de storybook a utilizar
 import { Meta, Story } from '@storybook/react';
 //importación de componente principal
-import Modal, { ModalProps } from './modal';
+import Modal from './modal';
+import { modalProps } from './types';
 //importación de componentes auxiliares
 import { Buttons, Task } from '../../components';
 
-const Template: Story<ModalProps> = (args) => <Modal {...args} />;
+const Template: Story<modalProps> = (args) => <Modal {...args} />;
 
 //estado inicial del componente
 export const InitialState = Template.bind({});
-InitialState.args = {};
+InitialState.args = {
+	modo: 'Dark',
+};
 
 // estado del componente con propiedades
 export const WithProperties = Template.bind({});
@@ -95,6 +98,7 @@ WithProperties.args = {
 			composition="vertical"
 		/>
 	),
+	modo: 'Dark',
 };
 
 // exportación de valores default

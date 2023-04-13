@@ -1,8 +1,10 @@
-import React from 'react';
-import { Meta, Story } from '@storybook/react';
-import ModalTeams, { Members, ModalTeamsProps } from './modalTeams';
+import React, { useEffect } from 'react';
+import { Meta, Story, storiesOf } from '@storybook/react';
+import ModalTeams from './modalTeams';
+import { Members } from './files';
+import { modalTeams } from './types';
 
-const Template: Story<ModalTeamsProps> = (args) => <ModalTeams {...args} />;
+const Template: Story<modalTeams> = (args) => <ModalTeams {...args} />;
 
 //estado inicial del componente
 export const InitialState = Template.bind({});
@@ -31,6 +33,8 @@ WithProperties.args = {
 		label: 'Jorge Correa',
 	},
 	teamColor: '#525486',
+	onClickCreate: () => alert('Create Team'),
+	onClickAbort: () => alert('Abort team creation '),
 	Children: () => (
 		<div>
 			<Members

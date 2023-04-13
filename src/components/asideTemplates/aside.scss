@@ -1,7 +1,9 @@
 //contenedor princiapal --------------------------------------------
-.ctnDark_ATC,
-.ctnWhite_ATC,
-.ctn_ATC{
+.ctnWhiteLight_ATC,
+.ctnWhiteDark_ATC,
+.ctnLight_ATC,
+.ctnDark_ATC
+{
     position: relative;
     margin-block: 0;
     padding-top: 10px;
@@ -11,7 +13,7 @@
     background: transparent;
     width: calc(var(--cardWidth)*.95);
     //sin contenido--------------------------------------------------
-    .noCtnDark, .noCtn{
+    .noCtnDark, .noCtnLight{
         display: grid;
         place-content: center; 
         text-align: center;
@@ -23,7 +25,7 @@
     }
 }
 //colores de fondo en caso de no tener la propiedad isWhite
-.ctn_ATC{
+.ctnLight_ATC{
     background: var(--bgDark);
 }
 //colores de fondo en caso de estar activado el modo oscuro

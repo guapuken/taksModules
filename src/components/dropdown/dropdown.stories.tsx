@@ -42,10 +42,11 @@ const options = [
 export const withProperties = Template.bind({});
 withProperties.args = {
 	isSearchable: true,
-	isMulti: true,
+	// isMulti: true,
 	placeHolder: 'Selecciona el encargado',
 	options: options,
 	onChange: (value) => console.log(value),
+	initialValue: { value: 'Jorge Correa', label: 'Jorge Correa' },
 	// topPosition: true,
 };
 
