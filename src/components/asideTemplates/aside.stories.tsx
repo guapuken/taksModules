@@ -1,9 +1,9 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
+import React from 'react';
 import AsideTemplates, { AsideTemplatesProps } from './asideTemplates';
 
-import Cards from '../cards';
 import { useWindowSize as scrSize } from '../../utils/windowSize';
+import Cards from '../cards';
 
 const Template: Story<AsideTemplatesProps> = (args) => <AsideTemplates {...args} />;
 

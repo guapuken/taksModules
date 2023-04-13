@@ -1,6 +1,6 @@
 import React, { CSSProperties, useState } from 'react';
-import './information.scss';
 import { Modo } from '../../types';
+import './information.scss';
 
 //definición de la interface y sus datos que recibirá el componente
 export interface InformationProps {
@@ -85,7 +85,7 @@ const Information = (props: InformationProps) => {
 			onMouseEnter={onHoverMouse}
 			onMouseLeave={onLeaveMouse}
 			onClick={() => setIsHover(true)}
-			className={`ctn${modo}_InfoC ${className}`}
+			className={`ctn${modo}_InfoC`}
 			style={{
 				background: color,
 				width: `${!width ? height : width}px`,
