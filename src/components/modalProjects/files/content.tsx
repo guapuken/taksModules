@@ -34,10 +34,10 @@ const Content = (props: content) => {
 						marginLeft: '20px',
 						fontSize: '15px',
 					}}
-					options={optionsPlantillas(
-						templateOptions,
-						onClickCreateTemplate as onClickType
-					)}
+					options={optionsPlantillas({
+						templateOptions: templateOptions,
+						onClickCreateTemplate: onClickCreateTemplate,
+					})}
 				/>
 			</div>
 			<div style={{ borderLeft: '2px solid #282828', paddingLeft: '10px' }}>
@@ -72,6 +72,7 @@ const Content = (props: content) => {
 							//
 							moreOptions={[
 								{
+									id: 'delete',
 									title: 'Eliminar',
 									onClick: e.onClickDeleteTask,
 								},
@@ -80,7 +81,7 @@ const Content = (props: content) => {
 							subtaskForbbiden={e.subtaskForbbiden}
 							Children={e.Children}
 							//
-							onClickCreateTemplate={e.onClickNewTemplate}
+							onClickCreateTemplate={e.onClickCreateTemplate}
 							onClickAddTask={e.onClickAddTask}
 							templateOptions={e.templateOptions}
 							modo={modo}

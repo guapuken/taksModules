@@ -1,62 +1,49 @@
-import React from 'react';
 import {
 	Modo,
 	onBlurType,
 	onChangeType,
 	onClickType,
 	optionsIcnDrp,
-	prioritys,
 	submenusArray,
 } from '../../types';
 
-// botones
-export type clickButtons = {
-	onClickCreate?: onClickType;
-	onClickAbort?: onClickType;
-};
-
-// interfaz principal
-export interface ModalProjectsProps {
-	onClickCreate?: onClickType;
-	onClickAbort?: onClickType;
-	onClickAddTask?: onClickType;
-	onChangeName?: onChangeType;
-	projectNameValue?: string;
-	Children?: childrenTypes[];
-	templateOptions: optionsIcnDrp[];
-	onClickCreateTemplate: onClickType;
-	modo?: Modo;
-}
-
-export type childrenTypes = {
+//INTERFACES
+export interface tasks {
 	//Input Task
+	principalTask?: boolean;
 	taskDisabled?: boolean;
 	taskComplete?: boolean;
+	isSubtask?: boolean;
 	check?: boolean;
 	valueTask?: string;
 	valueDescription?: string;
+	onClickCheck?: onClickType;
 	onChangeNameTask?: onBlurType;
 	onChangeDescriptionTask?: onBlurType;
 	idCheckbox?: string;
 	onChangeCheckbox?: onChangeType;
 
 	//Icon Dates
+	plantillas?: boolean;
+	onChangeDias?: onChangeType;
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
 	onChangeEndDate?: onChangeType;
 	onChangeStartDate?: onChangeType;
 	startDateValue?: Date;
 	endDateValue?: Date;
+	className?: string;
+	durationValue?: string;
 
 	//Icon Asign
-	responsables?: submenusArray[];
-	equipos?: submenusArray[];
-	revision?: submenusArray[];
+	responsables: submenusArray[];
+	equipos: submenusArray[];
+	revision: submenusArray[];
 	valueResponsable?: string;
 	valueRevision?: string;
 
 	//Icon Priority
-	prioridadInicial?: prioritys;
+	prioridadInicial?: 'baja' | 'media' | 'alta';
 	onClickPrioridad?: onClickType;
 
 	//Icon MoreOptions
@@ -73,14 +60,9 @@ export type childrenTypes = {
 	onClickAddTask?: onClickType;
 	templateOptions: optionsIcnDrp[];
 	modo?: Modo;
-};
+}
 
-export type content = {
-	onChangeName?: onChangeType;
-	projectNameValue?: string;
-	onClickAddTask?: onClickType;
-	modo?: Modo;
-	templateOptions: optionsIcnDrp[];
+export type templateOptions = {
+	templateOptions?: optionsIcnDrp[];
 	onClickCreateTemplate: onClickType;
-	Children?: childrenTypes[];
 };

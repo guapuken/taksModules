@@ -1,86 +1,16 @@
 import React from 'react';
-import '../../global.scss';
 import { involucrados } from '../../utils/cardsUtils';
 import IconDropdown from '../iconDropdown';
 import InputTask from '../inputTask';
 import { AddTask, IconAsign, IconDates, IconMoreOptions, IconPriority } from './files';
+import { templateOptions } from './types';
+
+import { tasks } from './types';
 import './task.scss';
-import { Modo, onBlurType, onChangeType, onClickType } from '../../types';
 
-//TYPES
-interface submenus {
-	id?: string;
-	className?: string;
-	onClick?: onClickType;
-	title?: string;
-}
-interface optionsType {
-	id?: string;
-	submenus?: submenus[];
-	title?: string;
-	onClick?: onClickType;
-	className?: string;
-}
-
-//INTERFACES
-export interface TaskProps {
-	//Input Task
-	principalTask?: boolean;
-	taskDisabled?: boolean;
-	taskComplete?: boolean;
-	isSubtask?: boolean;
-	check?: boolean;
-	valueTask?: string;
-	valueDescription?: string;
-	onClickCheck?: onClickType;
-	onChangeNameTask?: onBlurType;
-	onChangeDescriptionTask?: onBlurType;
-	idCheckbox?: string;
-	onChangeCheckbox?: onChangeType;
-
-	//Icon Dates
-	plantillas?: boolean;
-	onChangeDias?: onChangeType;
-	disabledEndDate?: boolean;
-	disabledStartDate?: boolean;
-	onChangeEndDate?: onChangeType;
-	onChangeStartDate?: onChangeType;
-	startDateValue?: Date;
-	endDateValue?: Date;
-	className?: string;
-	durationValue?: string;
-
-	//Icon Asign
-	responsables?: submenus[];
-	equipos?: submenus[];
-	revision?: submenus[];
-	valueResponsable?: string;
-	valueRevision?: string;
-
-	//Icon Priority
-	prioridadInicial?: 'baja' | 'media' | 'alta';
-	onClickPrioridad?: onClickType;
-
-	//Icon MoreOptions
-	moreOptions?: optionsType[];
-	onClickEliminar?: onClickType;
-	onClickRecordatorio?: onClickType;
-
-	//addTask
-	subtaskForbbiden?: boolean;
-	Children?: any;
-
-	//botones agregar
-	onClickCreateTemplate?: onClickType;
-	onClickAddTask?: onClickType;
-	templateOptions?: optionsType[];
-	modo?: Modo;
-}
 //Valida si existe la propiedad de plantillas y las agrega al dropdown de cargar plantilla en caso de que si exista
-export const optionsPlantillas = (
-	templateOptions: optionsType[],
-	onClickCreateTemplate: onClickType
-) => {
+export const optionsPlantillas = (props: templateOptions) => {
+	const { templateOptions, onClickCreateTemplate } = props;
 	templateOptions?.map((e: any) => {
 		return {
 			title: e.title,
@@ -91,12 +21,14 @@ export const optionsPlantillas = (
 	return !templateOptions
 		? [
 				{
+					id: 'createTemplate',
 					title: '+ Crear plantilla',
 					onClick: onClickCreateTemplate,
 				},
 		  ]
 		: [
 				{
+					id: 'createTemplate',
 					title: '+ Crear plantilla',
 					onClick: onClickCreateTemplate,
 				},
@@ -105,82 +37,34 @@ export const optionsPlantillas = (
 };
 
 //COMPONENTE PRINCIPAL
-const Task = (props: TaskProps) => {
+const Task = (props: tasks) => {
 	//desestructuración de propiedades
-	const {
-		//Input Task
-		principalTask = false,
-		taskDisabled,
-		taskComplete,
-		isSubtask,
-		check,
-		onClickCheck,
-		onChangeNameTask,
-		onChangeDescriptionTask,
-		valueTask,
-		valueDescription,
-		idCheckbox,
-		onChangeCheckbox,
+	const datos = { ...props };
+	// inicialización de propiedaddes
+	const { modo = 'Light' } = props;
 
-		//Icon Dates
-		onChangeDias,
-		plantillas = false,
-		disabledEndDate,
-		disabledStartDate,
-		onChangeEndDate,
-		onChangeStartDate,
-		startDateValue,
-		endDateValue,
-		className,
-		durationValue,
-
-		//Icon Asign
-		responsables,
-		equipos,
-		revision,
-		valueResponsable,
-		valueRevision,
-
-		//Icon Priority
-		onClickPrioridad,
-		prioridadInicial,
-
-		//Icon MoreOptions
-		onClickEliminar,
-		onClickRecordatorio,
-		moreOptions,
-
-		//addTask
-		subtaskForbbiden,
-		Children,
-
-		//BotonesAgregar
-		onClickCreateTemplate = () => {},
-		onClickAddTask,
-		templateOptions,
-		modo = 'Light',
-	} = props;
-
-	const showTask = () => (plantillas ? false : true);
+	const showTask = () => (datos.plantillas ? false : true);
 
 	return (
 		<div className={`ctn${modo}_TascC`}>
 			<InputTask
 				modo={modo}
 				style={{ maxWidth: '100%' }}
-				principalTask={principalTask}
-				showTask={plantillas ? false : true}
-				disabled={taskDisabled ? taskDisabled : taskComplete ? true : false}
-				onChange={onChangeCheckbox}
-				checked={taskComplete}
-				isSubtask={isSubtask}
-				check={check}
-				onClickCheck={onClickCheck}
-				onChangeNameTask={onChangeNameTask}
-				onChangeDescriptionTask={onChangeDescriptionTask}
-				valueTask={valueTask}
-				valueDescription={valueDescription}
-				idCheckbox={idCheckbox}
+				principalTask={datos.principalTask}
+				showTask={datos.plantillas ? false : true}
+				disabled={
+					datos.taskDisabled ? datos.taskDisabled : datos.taskComplete ? true : false
+				}
+				onChange={datos.onChangeCheckbox}
+				checked={datos.taskComplete}
+				isSubtask={datos.isSubtask}
+				check={datos.check}
+				onClickCheck={datos.onClickCheck}
+				onChangeNameTask={datos.onChangeNameTask}
+				onChangeDescriptionTask={datos.onChangeDescriptionTask}
+				valueTask={datos.valueTask}
+				valueDescription={datos.valueDescription}
+				idCheckbox={datos.idCheckbox}
 			/>
 			<div
 				className={'icnsCtn'}
@@ -190,44 +74,44 @@ const Task = (props: TaskProps) => {
 			>
 				<IconDates
 					modo={modo}
-					onChangeDias={onChangeDias}
-					plantillas={plantillas}
-					disabledEndDate={disabledEndDate}
-					disabledStartDate={disabledStartDate}
-					onChangeEndDate={onChangeEndDate}
-					onChangeStartDate={onChangeStartDate}
-					startDateValue={startDateValue}
-					endDateValue={endDateValue}
-					className={className}
-					durationValue={durationValue}
+					onChangeDias={datos.onChangeDias}
+					plantillas={datos.plantillas}
+					disabledEndDate={datos.disabledEndDate}
+					disabledStartDate={datos.disabledStartDate}
+					onChangeEndDate={datos.onChangeEndDate}
+					onChangeStartDate={datos.onChangeStartDate}
+					startDateValue={datos.startDateValue}
+					endDateValue={datos.endDateValue}
+					className={datos.className}
+					durationValue={datos.durationValue}
 				/>
 				<IconAsign
 					modo={modo}
-					involucrados={involucrados(valueResponsable, valueRevision)}
-					responsables={responsables}
-					equipos={equipos}
-					revision={revision}
-					valueResponsable={valueResponsable}
-					valueRevision={valueRevision}
+					involucrados={involucrados(datos.valueResponsable, datos.valueRevision)}
+					responsables={datos.responsables}
+					equipos={datos.equipos}
+					revision={datos.revision}
+					valueResponsable={datos.valueResponsable}
+					valueRevision={datos.valueRevision}
 					style={{ marginRight: '20px' }}
 				/>
-				{!plantillas && (
+				{!datos.plantillas && (
 					<IconPriority
 						modo={modo}
-						onClickPrioridad={onClickPrioridad}
-						prioridadInicial={prioridadInicial}
+						onClickPrioridad={datos.onClickPrioridad}
+						prioridadInicial={datos.prioridadInicial}
 					/>
 				)}
 				<IconMoreOptions
 					modo={modo}
-					onClickEliminar={onClickEliminar}
-					onClickRecordatorio={onClickRecordatorio}
-					options={moreOptions}
+					onClickEliminar={datos.onClickEliminar}
+					onClickRecordatorio={datos.onClickRecordatorio}
+					options={datos.moreOptions}
 				/>
 			</div>
-			{subtaskForbbiden ?? (
+			{datos.subtaskForbbiden ?? (
 				<div style={{ display: 'flex', alignItems: 'baseline' }}>
-					<AddTask legend="+ Añadir subtarea" onClick={onClickAddTask} />
+					<AddTask legend="+ Añadir subtarea" onClick={datos.onClickAddTask} />
 					<IconDropdown
 						modo={modo}
 						legend="Cargar plantilla"
@@ -235,17 +119,16 @@ const Task = (props: TaskProps) => {
 							marginLeft: '20px',
 							fontSize: '15px',
 						}}
-						// options={optionsPlantillas(templateOptions, onClickCreateTemplate)}
-						options={optionsPlantillas(
-							templateOptions as optionsType[],
-							onClickCreateTemplate
-						)}
+						options={optionsPlantillas({
+							templateOptions: datos.templateOptions,
+							onClickCreateTemplate: datos.onClickCreateTemplate,
+						})}
 					/>
 				</div>
 			)}
-			{Children && (
+			{datos.Children && (
 				<div className={'ChildrenContainerTaskModules'}>
-					<Children />
+					<datos.Children />
 				</div>
 			)}
 		</div>

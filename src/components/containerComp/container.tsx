@@ -1,87 +1,45 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 
-// importación de estilos
-import '../../global.scss';
-import { Modo, onClickType } from '../../types';
 import Button from '../button';
 import { Menu } from './files';
+// importación de estilos
 import css from './container.module.scss';
+// types
+import { container } from './types';
 
-type header = {
-	moduleName?: string;
-	legendBtnModule?: string;
-	onClickBtnModule?: onClickType;
-};
-interface onClicks {
-	createTask?: onClickType;
-	createTemplate?: onClickType;
-	createTeam?: onClickType;
-	createProject?: onClickType;
-	inicio?: onClickType;
-	mannageTask?: onClickType;
-	mannageTemplates?: onClickType;
-	mannageTeams?: onClickType;
-	mannageProjects?: onClickType;
-	projectsStatus?: onClickType;
-}
-interface menuActions {
-	onClick: onClicks;
-	modo: Modo;
-}
-export interface Containerprops {
-	children?: any;
-	AsideContent?: any;
-	FooterContent?: any;
-	header?: header;
-	onClick?: onClicks;
-	style?: CSSProperties;
-	headerStyle?: CSSProperties;
-	contentStyle?: CSSProperties;
-	footerStyle?: CSSProperties;
-	modo?: Modo;
-}
-
-const Container = (props: Containerprops) => {
-	const {
-		children,
-		AsideContent,
-		header,
-		FooterContent,
-		onClick,
-		style,
-		headerStyle,
-		contentStyle,
-		footerStyle,
-		modo,
-	} = props;
+const Container = (props: container) => {
+	// desestructuración de propiedades
+	const datos = { ...props };
 	return (
-		<div className={css.ctn} style={style}>
+		<div className={css.ctn} style={datos.style}>
 			<div className={css.menu}>
-				<Menu modo={modo} onClick={onClick} />
+				<Menu modo={datos.modo} onClick={datos.onClick} />
 			</div>
-			{AsideContent && <div className={css.asideCtn}>{AsideContent}</div>}
-			<div className={AsideContent ? css.ctnChildren_FtrAsd : css.ctnChildren_Ftr}>
-				{header && (
-					<div className={css.header} style={headerStyle}>
-						<h2 style={{ marginRight: '10px' }}>{header.moduleName}</h2>
+			{datos.AsideContent && <div className={css.asideCtn}>{datos.AsideContent}</div>}
+			<div className={datos.AsideContent ? css.ctnChildren_FtrAsd : css.ctnChildren_Ftr}>
+				{datos.header && (
+					<div className={css.header} style={datos.headerStyle}>
+						<h2 style={{ marginRight: '10px' }}>{datos.header.moduleName}</h2>
 						<Button
-							legend={header.legendBtnModule}
+							legend={datos.header.legendBtnModule}
 							primary
-							onClick={header.onClickBtnModule}
+							onClick={datos.header.onClickBtnModule}
 						/>
 					</div>
 				)}
 				<div
 					className={
-						!FooterContent || FooterContent === null ? css.children : css.childrenFtr
+						!datos.FooterContent || datos.FooterContent === null
+							? css.children
+							: css.childrenFtr
 					}
-					style={contentStyle}
+					style={datos.contentStyle}
 				>
-					{children}
+					{datos.children}
 				</div>
-				{FooterContent && (
-					<div style={footerStyle} className={css.footer}>
-						{FooterContent}
+				{datos.FooterContent && (
+					<div style={datos.footerStyle} className={css.footer}>
+						{datos.FooterContent}
 					</div>
 				)}
 			</div>

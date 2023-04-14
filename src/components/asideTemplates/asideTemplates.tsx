@@ -1,25 +1,23 @@
 import React from 'react';
-import '../../global.scss';
+
+// types
+import { aside } from './types';
+// styles
 import './aside.scss';
 
-export interface AsideTemplatesProps {
-	isWhite?: boolean;
-	Content?: any;
-	modo?: 'Light' | 'Dark';
-}
-
-const AsideTemplates = (props: AsideTemplatesProps) => {
-	const { Content, isWhite, modo = 'Light' } = props;
+const AsideTemplates = (props: aside) => {
+	const datos = { ...props };
+	const { modo = 'Light' } = props;
 
 	return (
-		<div className={`ctn${isWhite ? 'White' : ''}${modo}_ATC`}>
-			{!Content && (
+		<div className={`ctn${datos.isWhite ? 'White' : ''}${modo}_ATC`}>
+			{!datos.children && (
 				<div className={`noCtn${modo}`}>
 					<h1>Ups!</h1>
 					<p>parece que olvidaste agregar tu contenido</p>
 				</div>
 			)}
-			{Content && <Content />}
+			{datos.children && datos.children}
 		</div>
 	);
 };
