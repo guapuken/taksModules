@@ -1,39 +1,86 @@
-/*
-* Useless styles, just for demo design
-*/
-.principalTask,.task,.subTask{
-    border-radius: 0;
-    border: none;
-    resize: none;
-    transition: border-color 150ms ease;
-    width: 100%;
-    color: #525252;
-    font-family: 'Open Sans', sans-serif;
-    margin-block: 0;
-    &:focus {
-      outline: none;
-    }
-    &::placeholder {
-      color: #c6c6c6;
-    }
-}
+@import '../../global.scss';
 
-.principalTask{
+// ---------------------------------------------------------------------------------------------------------
+//      estilos generales
+// ---------------------------------------------------------------------------------------------------------
+// generales
+.ctnLight-principal_AIPTC,
+.ctnDark-principal_AIPTC,
+.ctnDark-task_AIPTC,
+.ctnLight-task_AIPTC,
+.ctnLight-subtask_AIPTC,
+.ctnDark-subtask_AIPTC
+{
+  border-radius: 0;
+  border: none;
+  resize: none;
+  transition: border-color 150ms ease;
+  width: 100%;
+
+  font-family: 'Open Sans', sans-serif;
+  margin-block: 0;
+  background: transparent;
+  font-size: calc(12px + 0.390625vw);
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    font-weight: normal;
+  }
+}
+// estilos de una tarea principal
+.ctnLight-principal_AIPTC,
+.ctnDark-principal_AIPTC
+{
   font-size: calc(15px + 0.390625vw);
   font-weight: bold;
-  background: transparent;
 }
-.subTask{
-  font-size: calc(12px + 0.390625vw);
-  font-weight: normal;
-  opacity:.5 ;
-  background: transparent;
-
-}
-.task{
-  font-size: calc(12px + 0.390625vw);
+// estilos de una tarea normal
+.ctnDark-task_AIPTC,
+.ctnLight-task_AIPTC
+{
   font-weight: bold;
   opacity:1 ;
-  background: transparent;
 }
+// estilos de una subtarea
+.ctnLight-subtask_AIPTC,
+.ctnDark-subtask_AIPTC
+{
+  font-weight: normal;
+  opacity:.5 ; 
+}
+// ---------------------------------------------------------------------------------------------------------
+//      modo claro
+// ---------------------------------------------------------------------------------------------------------
+.ctnLight-principal_AIPTC,
+.ctnLight-task_AIPTC,
+.ctnLight-subtask_AIPTC
+{
+  color: #525252;
+  &::placeholder {
+    color: #c6c6c6;
+  }
+}
+// ---------------------------------------------------------------------------------------------------------
+//      modo oscuro
+// ---------------------------------------------------------------------------------------------------------
+.ctnDark-principal_AIPTC,
+.ctnDark-task_AIPTC,
+.ctnDark-subtask_AIPTC
+{
+  color: #dedede;
+  &::placeholder {
+    color: #c6c6c675;
+  }
+}
+// ---------------------------------------------------------------------------------------------------------
+//      media queries
+// ---------------------------------------------------------------------------------------------------------
+// tablet
+@media (max-width:834px){
 
+}
+// cel
+@media (max-width:415px){
+  
+}

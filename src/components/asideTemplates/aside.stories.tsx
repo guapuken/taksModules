@@ -6,7 +6,7 @@ import AsideTemplates from './asideTemplates';
 import { aside } from './types';
 
 // utilidades del storybook
-import { modo } from '../../storyUtils';
+import { boolean, functions, modo } from '../../storyUtils';
 
 // componentes auxiliares
 import Cards from '../cards';
@@ -28,6 +28,7 @@ WithProperties.args = {
 			<Cards rounded modo={'Dark'} />
 			<Cards rounded modo={'Dark'} />
 			<Cards rounded modo={'Dark'} />
+			<Cards rounded modo={'Dark'} />
 		</div>
 	),
 };
@@ -39,12 +40,8 @@ export default {
 	component: AsideTemplates,
 	//definición de argumentos
 	argTypes: {
-		isWhite: {
-			type: 'boolean',
-		},
+		isWhite: boolean(),
 		modo: modo(),
-		children: {
-			type: 'function',
-		},
+		children: functions(),
 	},
 } as Meta;

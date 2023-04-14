@@ -1,4 +1,4 @@
-import { css, onChangeType, optionsDropdown } from '../../types';
+import { Modo, css, onChangeType, optionsDropdown } from '../../types';
 //interface principal
 export interface dropdown {
 	//requirements
@@ -13,4 +13,5 @@ export interface dropdown {
 	isSearchable?: boolean;
 	topPosition?: boolean;
 	style?: css;
+	modo?: Modo;
 }

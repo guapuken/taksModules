@@ -14,7 +14,7 @@ const Content = (props: content) => {
 		modo = 'Light',
 		templateOptions,
 		onClickCreateTemplate,
-		Children,
+		subtasks,
 	} = props;
 
 	return (
@@ -41,9 +41,10 @@ const Content = (props: content) => {
 				/>
 			</div>
 			<div style={{ borderLeft: '2px solid #282828', paddingLeft: '10px' }}>
-				{Children &&
-					Children.map((e: any) => (
+				{subtasks &&
+					subtasks.map((e: any) => (
 						<Task
+							idTask={e.idTask}
 							taskDisabled={e.taskDisabled}
 							taskComplete={e.taskComplete}
 							check={e.check}
@@ -79,7 +80,7 @@ const Content = (props: content) => {
 							]}
 							//
 							subtaskForbbiden={e.subtaskForbbiden}
-							Children={e.Children}
+							subtasks={e.subtasks}
 							//
 							onClickCreateTemplate={e.onClickCreateTemplate}
 							onClickAddTask={e.onClickAddTask}

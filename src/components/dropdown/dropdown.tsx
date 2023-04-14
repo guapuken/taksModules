@@ -4,9 +4,30 @@ import { CloseIcon, Icon } from './files';
 // types
 import { dropdown } from './types';
 import { optionsDropdown } from '../../types';
+// types de la documentación NO BORRAR
+import { Modo, onChangeType } from '../../types';
 // estilos
 import './dropdown.scss';
 
+/**documentación de componente
+ * @param {optionsDropdown[]} props.options - recibe un arreglo de objetos con los siguientes datos:
+		value,
+		label
+ * @param {onChangeType} props.onChange - recibe una función que se ejecuta cuando cambia el estado del componente
+ * @param {optionsDropdown[]} props.values- recibe un arreglo de objetos con los siguientes datos:
+		value,
+		label
+ * @param {optionsDropdown} props.initialValue - recibe un objeto con los siguientes datos:
+		value,
+		label
+ * @param {string} props.placeholder - string que se colocará como placeholder
+ * @param {boolean} props.isMulti - boolean que define si el dropdown será múltiple o no
+ * @param {boolean} props.isSearchable - boolean que deefine si se podrá buscar un daato dentro del dropdown
+ * @param {boolean} props.topPosition - boolean que define si el dropdoww se mostrará arriba o abajo
+ * @param {React.CSSProperties} props.style - objeto con propiedades de css 
+ * @param {Modo} props.modo - define el color del tema que se encuentra activo
+ * 
+ */
 const Dropdown = (props: dropdown) => {
 	const datos = { ...props };
 	const [showMenu, setShowMenu] = React.useState(false);

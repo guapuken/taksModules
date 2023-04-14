@@ -22,7 +22,7 @@ export interface ModalProjectsProps {
 	onClickAddTask?: onClickType;
 	onChangeName?: onChangeType;
 	projectNameValue?: string;
-	Children?: childrenTypes[];
+	subtasks?: childrenTypes[];
 	templateOptions: optionsIcnDrp[];
 	onClickCreateTemplate: onClickType;
 	modo?: Modo;
@@ -30,6 +30,7 @@ export interface ModalProjectsProps {
 
 export type childrenTypes = {
 	//Input Task
+	idTask: string;
 	taskDisabled?: boolean;
 	taskComplete?: boolean;
 	check?: boolean;
@@ -37,7 +38,6 @@ export type childrenTypes = {
 	valueDescription?: string;
 	onChangeNameTask?: onBlurType;
 	onChangeDescriptionTask?: onBlurType;
-	idCheckbox?: string;
 	onChangeCheckbox?: onChangeType;
 
 	//Icon Dates
@@ -49,9 +49,9 @@ export type childrenTypes = {
 	endDateValue?: Date;
 
 	//Icon Asign
-	responsables?: submenusArray[];
-	equipos?: submenusArray[];
-	revision?: submenusArray[];
+	responsables: submenusArray[];
+	equipos: submenusArray[];
+	revision: submenusArray[];
 	valueResponsable?: string;
 	valueRevision?: string;
 
@@ -66,7 +66,7 @@ export type childrenTypes = {
 
 	//addTask
 	subtaskForbbiden?: boolean;
-	Children?: any;
+	subtasks?: childrenTypes[];
 
 	//botones agregar
 	onClickCreateTemplate: onClickType;
@@ -82,5 +82,5 @@ export type content = {
 	modo?: Modo;
 	templateOptions: optionsIcnDrp[];
 	onClickCreateTemplate: onClickType;
-	Children?: childrenTypes[];
+	subtasks?: childrenTypes[];
 };

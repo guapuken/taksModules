@@ -46,7 +46,7 @@ function DemoComponent() {
 			onClickCreate={() => alert('Hola')}
 			onClickAbort={() => alert('Adios')}
 			// por probar
-			Children={[
+			subtasks={[
 				{
 					idTask: '25',
 					valueTask: nameTask,
@@ -92,13 +92,172 @@ function DemoComponent() {
 					],
 					valueResponsable: responsable.name,
 					valueRevision: revision.name,
+					subtasks: [
+						{
+							idTask: '27',
+							valueTask: nameTask,
+							valueDescription: descriptionTask,
+							onClickDeleteTask: () => alert('borrar tarea'),
+							onChangeNameTask: (e) => setNameTask(e.target.value),
+							onChangeDescriptionTask: (e) => setDescriptionTask(e.target.value),
+							onClickPrioridad: (e) => setPriority(e.target.id),
+							prioridadInicial: priority,
+							check: checked,
+							onChangeCheckbox: (e) => setCheckedd(!checked),
+							startDateValue: startDate,
+							onChangeStartDate: (e) => setStartDate(e.target.value),
+							endDateValue: endDate,
+							onChangeEndDate: (e) => setEndDate(e.target.value),
+							responsables: [
+								{
+									id: '1',
+									title: 'Jorge Correa',
+									// onClick: (e) => setResponsable(e.target.value),
+									onClick: (e) =>
+										setResponsable({
+											id: e.target.id,
+											name: e.target.outerText,
+										}),
+								},
+								{
+									id: '2',
+									title: 'Kaori Soto',
+									onClick: (e) => console.log(e),
+								},
+							],
+							revision: [
+								{
+									id: '1',
+									title: 'Jorge Correa',
+									// onClick: (e) => setResponsable(e.target.value),
+									onClick: (e) =>
+										setRevision({ id: e.target.id, name: e.target.outerText }),
+								},
+								{
+									id: '2',
+									title: 'Kaori Soto',
+									onClick: (e) => console.log(e),
+								},
+							],
+							valueResponsable: responsable.name,
+							valueRevision: revision.name,
+							subtasks: [
+								{
+									idTask: '27',
+									valueTask: nameTask,
+									valueDescription: descriptionTask,
+									onClickDeleteTask: () => alert('borrar tarea'),
+									onChangeNameTask: (e) => setNameTask(e.target.value),
+									onChangeDescriptionTask: (e) =>
+										setDescriptionTask(e.target.value),
+									onClickPrioridad: (e) => setPriority(e.target.id),
+									prioridadInicial: priority,
+									check: checked,
+									onChangeCheckbox: (e) => setCheckedd(!checked),
+									startDateValue: startDate,
+									onChangeStartDate: (e) => setStartDate(e.target.value),
+									endDateValue: endDate,
+									onChangeEndDate: (e) => setEndDate(e.target.value),
+									responsables: [
+										{
+											id: '1',
+											title: 'Jorge Correa',
+											// onClick: (e) => setResponsable(e.target.value),
+											onClick: (e) =>
+												setResponsable({
+													id: e.target.id,
+													name: e.target.outerText,
+												}),
+										},
+										{
+											id: '2',
+											title: 'Kaori Soto',
+											onClick: (e) => console.log(e),
+										},
+									],
+									revision: [
+										{
+											id: '1',
+											title: 'Jorge Correa',
+											// onClick: (e) => setResponsable(e.target.value),
+											onClick: (e) =>
+												setRevision({
+													id: e.target.id,
+													name: e.target.outerText,
+												}),
+										},
+										{
+											id: '2',
+											title: 'Kaori Soto',
+											onClick: (e) => console.log(e),
+										},
+									],
+									valueResponsable: responsable.name,
+									valueRevision: revision.name,
+								},
+								{
+									idTask: '27',
+									valueTask: nameTask,
+									valueDescription: descriptionTask,
+									onClickDeleteTask: () => alert('borrar tarea'),
+									onChangeNameTask: (e) => setNameTask(e.target.value),
+									onChangeDescriptionTask: (e) =>
+										setDescriptionTask(e.target.value),
+									onClickPrioridad: (e) => setPriority(e.target.id),
+									prioridadInicial: priority,
+									check: checked,
+									onChangeCheckbox: (e) => setCheckedd(!checked),
+									startDateValue: startDate,
+									onChangeStartDate: (e) => setStartDate(e.target.value),
+									endDateValue: endDate,
+									onChangeEndDate: (e) => setEndDate(e.target.value),
+									responsables: [
+										{
+											id: '1',
+											title: 'Jorge Correa',
+											// onClick: (e) => setResponsable(e.target.value),
+											onClick: (e) =>
+												setResponsable({
+													id: e.target.id,
+													name: e.target.outerText,
+												}),
+										},
+										{
+											id: '2',
+											title: 'Kaori Soto',
+											onClick: (e) => console.log(e),
+										},
+									],
+									revision: [
+										{
+											id: '1',
+											title: 'Jorge Correa',
+											// onClick: (e) => setResponsable(e.target.value),
+											onClick: (e) =>
+												setRevision({
+													id: e.target.id,
+													name: e.target.outerText,
+												}),
+										},
+										{
+											id: '2',
+											title: 'Kaori Soto',
+											onClick: (e) => console.log(e),
+										},
+									],
+									valueResponsable: responsable.name,
+									valueRevision: revision.name,
+								},
+							],
+						},
+					],
 				},
-				{
-					idTask: '26',
-					valueTask: 'Impresión',
-					valueDescription: 'Realizar dummies de la campaña de UBER',
-					prioridadInicial: 'alta',
-				},
+				// {
+				// 	idTask: '26',
+				// 	valueTask: 'Impresión',
+				// 	valueDescription: 'Realizar dummies de la campaña de UBER',
+				// 	prioridadInicial: 'alta',
+				// },
 			]}
 		/>
 	);

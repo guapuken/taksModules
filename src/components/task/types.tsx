@@ -4,12 +4,15 @@ import {
 	onChangeType,
 	onClickType,
 	optionsIcnDrp,
+	prioritys,
 	submenusArray,
 } from '../../types';
+import { childrenTypes } from '../modalProjects/types';
 
 //INTERFACES
-export interface tasks {
+export interface tasksProps {
 	//Input Task
+	idTask: string;
 	principalTask?: boolean;
 	taskDisabled?: boolean;
 	taskComplete?: boolean;
@@ -43,7 +46,7 @@ export interface tasks {
 	valueRevision?: string;
 
 	//Icon Priority
-	prioridadInicial?: 'baja' | 'media' | 'alta';
+	prioridadInicial?: prioritys;
 	onClickPrioridad?: onClickType;
 
 	//Icon MoreOptions
@@ -53,7 +56,7 @@ export interface tasks {
 
 	//addTask
 	subtaskForbbiden?: boolean;
-	Children?: any;
+	subtasks?: childrenTypes[];
 
 	//botones agregar
 	onClickCreateTemplate: onClickType;

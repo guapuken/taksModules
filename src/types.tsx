@@ -1,7 +1,8 @@
 import React from 'react';
 //Exportación de types que se pueden repetir en múltiples archivos
-
-//Definición de funciones
+// ---------------------------------------------------------------------------------------------------------
+//      themas de color
+// ---------------------------------------------------------------------------------------------------------
 export type Modo = 'Dark' | 'Light';
 // tamaños a usar
 export type size = 'small' | 'medium' | 'large';
@@ -9,6 +10,8 @@ export type size = 'small' | 'medium' | 'large';
 export type statusTask = 'onTime' | 'delayed' | 'outOfTime' | 1 | 2 | 3;
 // composiciones de botones
 export type compositions = 'horizontal' | 'vertical' | 'box';
+//tipos de task
+export type taskType = 'principal' | 'task' | 'subtask';
 // opciones del dropdown
 export type optionsDropdown = {
 	value: string | number;

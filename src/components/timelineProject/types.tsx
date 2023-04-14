@@ -1,6 +1,6 @@
 import React from 'react';
 // types
-import { Modo } from '../../types';
+import { Modo, onClickType } from '../../types';
 
 // exportación de interfaz principal
 export interface timelineProps {
@@ -12,7 +12,8 @@ type task = {
 	taskName?: string;
 	duration?: number | string;
 	completed?: boolean;
-	link?: string;
+	onClickShow?: onClickType;
+	legendBtn?: string;
 };
 
 // componente de Tasks
@@ -20,7 +21,8 @@ export type tasks = {
 	completed?: boolean;
 	taskName?: string;
 	duration?: number | string;
-	link?: string;
+	onClickShow?: onClickType;
+	legendBtn?: string;
 };
 
 //componente Header

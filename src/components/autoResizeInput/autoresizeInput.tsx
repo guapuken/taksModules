@@ -1,37 +1,37 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './autoresizeInput.scss';
+// types que se utilizan en el componente
 import { autoresizeInput } from './types';
+// estilos del componente
+import './autoresizeInput.scss';
+// types que se usan en documentación, (NO BORRAR)--------------------------------------------------------------------------------------
+import { css, onBlurType, taskType } from '../../types';
+//--------------------------------------------------------------------------------------------------------------------------------------
 
-//this component allow change the height textarea automatically
+/** documentación del componente
+
+ * @param {css} props.style -  objetos con propiedades de css
+ * @param {onBlurType} props.onChange - función que se ejecuta al cambiar el contenido del textarea
+ * @param {taskType} props.taskType - cambia el tamaño de la fuente dependiendo la jerarquía
+ * @param {string} props.initialValue - se aplica un valor inicial al textarea
+ * @param {string} props.placeholder - texto que se mostrará hasta el momentos que se escriba dentro del textarea
+ * @param {number} props.tabIndex - número de orden que tiene el text área al moverse de uno a otro con tab
+ * @param {boolean} props.disabled - propiedad que define si se encuentra desabilitado el input o no
+ 
+ * Resultado del componente
+ * @returns - input de textarea que se ajusta automaticamente al tamaño del texto
+ */
 const AutoresizeInput = (props: autoresizeInput) => {
-	//destructuring properties
-	const {
-		style,
-		onChange,
-		initialValue,
-		taskType = 'task',
-		placeholder,
-		tabIndex,
-		disabled,
-	} = props;
+	//desestructuración de propiedades
+	const datos = { ...props };
 
-	function taskTypes(type: string) {
-		switch (type) {
-			case 'principal':
-				return 'principalTask';
-			case 'task':
-				return 'task';
-			case 'subtask':
-				return 'subTask';
-			default:
-				return 'subTask';
-		}
-	}
+	// inicialización de propiedades
+	const { taskType = 'task', modo = 'Light' } = props;
 
 	//Hooks
-	const [value, setValue] = useState(initialValue);
+	const [value, setValue] = useState(datos.initialValue);
 	const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
+	// se encarga de reiniciar el tamaño del textarea y se setea el tamaño del mismo
 	useEffect(() => {
 		if (textAreaRef.current) {
 			// We need to reset the height momentarily to get the correct scrollHeight for the textarea
@@ -40,22 +40,27 @@ const AutoresizeInput = (props: autoresizeInput) => {
 
 			// We then set the height directly, outside of the render loop
 			// Trying to set this with state or a ref will product an incorrect value.
-			textAreaRef.current.style.height = scrollHeight + 'px';
+			textAreaRef.current.style.height = `${scrollHeight}px`;
 		}
 	}, [value]);
 
+	//construcción de componente
 	return (
 		<textarea
 			ref={textAreaRef}
-			disabled={disabled}
+			disabled={datos.disabled}
 			onChange={(e: any) => setValue(e.target?.value)}
-			onBlur={(e: any) => (onChange ? onChange(e) : {})}
-			tabIndex={tabIndex}
-			placeholder={placeholder}
+			onBlur={(e: any) => {
+				if (datos.onChange) {
+					datos.onChange(e);
+				}
+			}}
+			tabIndex={datos.tabIndex}
+			placeholder={datos.placeholder}
 			rows={1}
 			value={value}
-			className={taskTypes(taskType)}
-			style={style}
+			className={`ctn${modo}-${taskType}_AIPTC`}
+			style={datos.style}
 		/>
 	);
 };

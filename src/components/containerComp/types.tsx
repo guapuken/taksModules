@@ -12,12 +12,12 @@ export interface container {
 	footerStyle?: css;
 	modo?: Modo;
 }
-type header = {
-	moduleName?: string;
+export type header = {
+	moduleName: string;
 	legendBtnModule?: string;
 	onClickBtnModule?: onClickType;
 };
-interface onClicks {
+export type onClicks = {
 	createTask?: onClickType;
 	createTemplate?: onClickType;
 	createTeam?: onClickType;
@@ -28,4 +28,4 @@ interface onClicks {
 	mannageTeams?: onClickType;
 	mannageProjects?: onClickType;
 	projectsStatus?: onClickType;
-}
+};

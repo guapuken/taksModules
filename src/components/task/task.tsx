@@ -5,7 +5,7 @@ import InputTask from '../inputTask';
 import { AddTask, IconAsign, IconDates, IconMoreOptions, IconPriority } from './files';
 import { templateOptions } from './types';
 
-import { tasks } from './types';
+import { tasksProps } from './types';
 import './task.scss';
 
 //Valida si existe la propiedad de plantillas y las agrega al dropdown de cargar plantilla en caso de que si exista
@@ -37,7 +37,7 @@ export const optionsPlantillas = (props: templateOptions) => {
 };
 
 //COMPONENTE PRINCIPAL
-const Task = (props: tasks) => {
+const Task = (props: tasksProps) => {
 	//desestructuración de propiedades
 	const datos = { ...props };
 	// inicialización de propiedaddes
@@ -126,9 +126,47 @@ const Task = (props: tasks) => {
 					/>
 				</div>
 			)}
-			{datos.Children && (
+			{datos.subtasks && (
 				<div className={'ChildrenContainerTaskModules'}>
-					<datos.Children />
+					{datos.subtasks.map((e) => (
+						<Task
+							idTask={e.idTask}
+							taskDisabled={e.taskDisabled}
+							taskComplete={e.taskComplete}
+							check={e.check}
+							valueTask={e.valueTask}
+							valueDescription={e.valueDescription}
+							onChangeNameTask={e.onChangeNameTask}
+							onChangeDescriptionTask={e.onChangeDescriptionTask}
+							idCheckbox={e.idTask}
+							onChangeCheckbox={e.onChangeCheckbox}
+							//
+							disabledEndDate={e.disabledEndDate}
+							disabledStartDate={e.disabledStartDate}
+							onChangeEndDate={e.onChangeEndDate}
+							onChangeStartDate={e.onChangeStartDate}
+							startDateValue={e.startDateValue}
+							endDateValue={e.endDateValue}
+							//
+							responsables={e.responsables}
+							equipos={e.equipos}
+							revision={e.revision}
+							valueResponsable={e.valueResponsable}
+							valueRevision={e.valueRevision}
+							//
+							prioridadInicial={e.prioridadInicial}
+							onClickPrioridad={e.onClickPrioridad}
+							//
+							moreOptions={e.moreOptions}
+							subtaskForbbiden={e.subtaskForbbiden}
+							subtasks={e.subtasks}
+							//
+							onClickCreateTemplate={e.onClickCreateTemplate}
+							onClickAddTask={e.onClickAddTask}
+							templateOptions={e.templateOptions}
+							modo={modo}
+						/>
+					))}
 				</div>
 			)}
 		</div>
