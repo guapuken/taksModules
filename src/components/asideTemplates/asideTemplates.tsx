@@ -21,7 +21,9 @@ const AsideTemplates = (props: aside) => {
 	const { modo = 'Light' } = props;
 
 	return (
-		<div className={`ctn${datos.isWhite ? 'White' : ''}${modo}_ATC`}>
+		<div
+			className={`ctn${datos.isWhite ? 'White' : ''}${datos.visible ? 'Vis' : ''}${modo}_ATC`}
+		>
 			{!datos.children && (
 				<div className={`noCtn${modo}`}>
 					<h1>Ups!</h1>

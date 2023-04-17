@@ -75,6 +75,7 @@ const Task = (props: tasks) => {
 				}}
 			>
 				<IconDates
+					idTask={datos.idTask}
 					modo={modo}
 					onChangeDias={datos.onChangeDias}
 					plantillas={datos.plantillas}

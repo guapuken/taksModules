@@ -192,7 +192,11 @@ const DragAndDrop = (props: DragAndDropProps) => {
 	//se encarga de ver qué tarea es la que se encuentra activa
 	const task = activeTaskId ? getTaskById(tasks, activeTaskId) : null;
 	return (
-		<Container onClick={{}} AsideContent={<AsideTemplates />} FooterContent={<Footer />}>
+		<Container
+			onClick={{}}
+			AsideContent={<AsideTemplates modo="Dark" visible />}
+			FooterContent={<Footer />}
+		>
 			<DndContext
 				sensors={sensors}
 				collisionDetection={closestCorners}

@@ -58,7 +58,7 @@ function DemoComponent() {
 		},
 	];
 	// consoles para revisar que sse generen de manera correcta los setteos
-	// console.clear();
+	console.clear();
 	console.log('nombre proyecto: ', projectName);
 	console.log('id proyecto: ', idProject);
 	console.log('id task: ', idTask);
@@ -106,9 +106,15 @@ function DemoComponent() {
 					check: checked,
 					onChangeCheckbox: (e) => setCheckedd(!checked),
 					startDateValue: startDate,
-					onChangeStartDate: (e) => setStartDate(e.target.value),
+					onChangeStartDate: (e) => {
+						console.log('función start date: ');
+						setStartDate(e.target.value);
+					},
+					onChangeEndDate: (e) => {
+						console.log('función end date: ');
+						setEndDate(e.target.value);
+					},
 					endDateValue: endDate,
-					onChangeEndDate: (e) => setEndDate(e.target.value),
 					responsables: responsableUs,
 					revision: revisionUs,
 					equipos: equipos,

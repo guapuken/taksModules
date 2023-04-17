@@ -41,6 +41,7 @@ export default {
 	//definición de argumentos
 	argTypes: {
 		isWhite: boolean(),
+		visible: boolean(),
 		modo: modo(),
 		children: functions(),
 	},
