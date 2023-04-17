@@ -41,7 +41,7 @@ const Task = (props: tasksProps) => {
 	//desestructuración de propiedades
 	const datos = { ...props };
 	// inicialización de propiedaddes
-	const { modo = 'Light' } = props;
+	const { modo = 'Light', prioridadInicial = 'none' } = props;
 
 	const showTask = () => (datos.plantillas ? false : true);
 
@@ -99,7 +99,7 @@ const Task = (props: tasksProps) => {
 					<IconPriority
 						modo={modo}
 						onClickPrioridad={datos.onClickPrioridad}
-						prioridadInicial={datos.prioridadInicial}
+						prioridadInicial={prioridadInicial}
 					/>
 				)}
 				<IconMoreOptions
@@ -129,43 +129,45 @@ const Task = (props: tasksProps) => {
 			{datos.subtasks && (
 				<div className={'ChildrenContainerTaskModules'}>
 					{datos.subtasks.map((e) => (
-						<Task
-							idTask={e.idTask}
-							taskDisabled={e.taskDisabled}
-							taskComplete={e.taskComplete}
-							check={e.check}
-							valueTask={e.valueTask}
-							valueDescription={e.valueDescription}
-							onChangeNameTask={e.onChangeNameTask}
-							onChangeDescriptionTask={e.onChangeDescriptionTask}
-							idCheckbox={e.idTask}
-							onChangeCheckbox={e.onChangeCheckbox}
-							//
-							disabledEndDate={e.disabledEndDate}
-							disabledStartDate={e.disabledStartDate}
-							onChangeEndDate={e.onChangeEndDate}
-							onChangeStartDate={e.onChangeStartDate}
-							startDateValue={e.startDateValue}
-							endDateValue={e.endDateValue}
-							//
-							responsables={e.responsables}
-							equipos={e.equipos}
-							revision={e.revision}
-							valueResponsable={e.valueResponsable}
-							valueRevision={e.valueRevision}
-							//
-							prioridadInicial={e.prioridadInicial}
-							onClickPrioridad={e.onClickPrioridad}
-							//
-							moreOptions={e.moreOptions}
-							subtaskForbbiden={e.subtaskForbbiden}
-							subtasks={e.subtasks}
-							//
-							onClickCreateTemplate={e.onClickCreateTemplate}
-							onClickAddTask={e.onClickAddTask}
-							templateOptions={e.templateOptions}
-							modo={modo}
-						/>
+						<div style={{ margin: '.5vh 0' }}>
+							<Task
+								idTask={e.idTask}
+								taskDisabled={e.taskDisabled}
+								taskComplete={e.taskComplete}
+								check={e.check}
+								valueTask={e.valueTask}
+								valueDescription={e.valueDescription}
+								onChangeNameTask={e.onChangeNameTask}
+								onChangeDescriptionTask={e.onChangeDescriptionTask}
+								idCheckbox={e.idTask}
+								onChangeCheckbox={e.onChangeCheckbox}
+								//
+								disabledEndDate={e.disabledEndDate}
+								disabledStartDate={e.disabledStartDate}
+								onChangeEndDate={e.onChangeEndDate}
+								onChangeStartDate={e.onChangeStartDate}
+								startDateValue={e.startDateValue}
+								endDateValue={e.endDateValue}
+								//
+								responsables={e.responsables}
+								equipos={e.equipos}
+								revision={e.revision}
+								valueResponsable={e.valueResponsable}
+								valueRevision={e.valueRevision}
+								//
+								prioridadInicial={e.prioridadInicial}
+								onClickPrioridad={e.onClickPrioridad}
+								//
+								moreOptions={e.moreOptions}
+								subtaskForbbiden={e.subtaskForbbiden}
+								subtasks={e.subtasks}
+								//
+								onClickCreateTemplate={e.onClickCreateTemplate}
+								onClickAddTask={e.onClickAddTask}
+								templateOptions={e.templateOptions}
+								modo={modo}
+							/>
+						</div>
 					))}
 				</div>
 			)}

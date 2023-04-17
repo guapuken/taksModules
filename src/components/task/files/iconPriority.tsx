@@ -60,6 +60,7 @@ const IconPriority = (props: IconPriorityProps) => {
 				options={optionsPriority}
 				svg={
 					<FlagIcon
+						height={30}
 						fill={
 							prioridad === 'baja'
 								? '#1cbf59'

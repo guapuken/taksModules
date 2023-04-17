@@ -3,30 +3,25 @@ import { IconDropdown, InputLabel, Task } from '../../../components';
 import { AddTask } from '../../task/files';
 import { optionsPlantillas } from '../../task/task';
 import { content } from '../types';
-import { onClickType } from '../../../types';
 
 //COMPONENTE QUE REGRESA TODO EL CONTENIDO DEL MODAL
 const Content = (props: content) => {
-	const {
-		onChangeName,
-		projectNameValue,
-		onClickAddTask,
-		modo = 'Light',
-		templateOptions,
-		onClickCreateTemplate,
-		subtasks,
-	} = props;
+	// desestructuración de propiedades
+	const datos = { ...props };
+	// inicialización de propiedades
+	const { modo = 'Light' } = props;
 
+	//
 	return (
 		<div>
 			<InputLabel
 				legend="Nombre del proyecto"
-				onChange={onChangeName}
+				onChange={datos.onChangeName}
 				style={{ maxWidth: '98%' }}
-				initialValue={projectNameValue}
+				initialValue={datos.projectNameValue}
 			/>
 			<div style={{ display: 'flex', alignItems: 'baseline' }}>
-				<AddTask legend="+ Añadir tarea" onClick={onClickAddTask} />
+				<AddTask legend="+ Añadir tarea" onClick={datos.onClickAddTask} />
 				<IconDropdown
 					modo={modo}
 					legend="Cargar plantilla"
@@ -35,14 +30,14 @@ const Content = (props: content) => {
 						fontSize: '15px',
 					}}
 					options={optionsPlantillas({
-						templateOptions: templateOptions,
-						onClickCreateTemplate: onClickCreateTemplate,
+						templateOptions: datos.templateOptions,
+						onClickCreateTemplate: datos.onClickCreateTemplate,
 					})}
 				/>
 			</div>
 			<div style={{ borderLeft: '2px solid #282828', paddingLeft: '10px' }}>
-				{subtasks &&
-					subtasks.map((e: any) => (
+				{datos.subtasks &&
+					datos.subtasks.map((e: any) => (
 						<Task
 							idTask={e.idTask}
 							taskDisabled={e.taskDisabled}
@@ -71,13 +66,7 @@ const Content = (props: content) => {
 							prioridadInicial={e.prioridadInicial}
 							onClickPrioridad={e.onClickPrioridad}
 							//
-							moreOptions={[
-								{
-									id: 'delete',
-									title: 'Eliminar',
-									onClick: e.onClickDeleteTask,
-								},
-							]}
+							moreOptions={e.moreOptions}
 							//
 							subtaskForbbiden={e.subtaskForbbiden}
 							subtasks={e.subtasks}

@@ -16,6 +16,45 @@ function DemoComponent() {
 	const [responsable, setResponsable] = React.useState({ id: undefined, name: undefined });
 	const [revision, setRevision] = React.useState({ id: undefined, name: undefined });
 
+	const equipos = [
+		{
+			id: '1',
+			title: 'Jorge Correa',
+			// onClick: (e) => setResponsable(e.target.value),
+			onClick: (e) => setRevision({ id: e.target.id, name: e.target.outerText }),
+		},
+		{
+			id: '2',
+			title: 'Kaori Soto',
+			onClick: (e) => console.log(e),
+		},
+	];
+	const revisionUs = [
+		{
+			id: '1',
+			title: 'Jorge Correa',
+			// onClick: (e) => setResponsable(e.target.value),
+			onClick: (e) => setRevision({ id: e.target.id, name: e.target.outerText }),
+		},
+		{
+			id: '2',
+			title: 'Kaori Soto',
+			onClick: (e) => console.log(e),
+		},
+	];
+	const responsableUs = [
+		{
+			id: '1',
+			title: 'Jorge Correa',
+			// onClick: (e) => setResponsable(e.target.value),
+			onClick: (e) => setResponsable({ id: e.target.id, name: e.target.outerText }),
+		},
+		{
+			id: '2',
+			title: 'Kaori Soto',
+			onClick: (e) => console.log(e),
+		},
+	];
 	// consoles para revisar que sse generen de manera correcta los setteos
 	console.clear();
 	console.log('nombre proyecto: ', projectName);
@@ -51,7 +90,6 @@ function DemoComponent() {
 					idTask: '25',
 					valueTask: nameTask,
 					valueDescription: descriptionTask,
-					onClickDeleteTask: () => alert('borrar tarea'),
 					onChangeNameTask: (e) => setNameTask(e.target.value),
 					onChangeDescriptionTask: (e) => setDescriptionTask(e.target.value),
 					onClickPrioridad: (e) => setPriority(e.target.id),
@@ -62,42 +100,23 @@ function DemoComponent() {
 					onChangeStartDate: (e) => setStartDate(e.target.value),
 					endDateValue: endDate,
 					onChangeEndDate: (e) => setEndDate(e.target.value),
-					responsables: [
-						{
-							id: '1',
-							title: 'Jorge Correa',
-							// onClick: (e) => setResponsable(e.target.value),
-							onClick: (e) =>
-								setResponsable({ id: e.target.id, name: e.target.outerText }),
-						},
-						{
-							id: '2',
-							title: 'Kaori Soto',
-							onClick: (e) => console.log(e),
-						},
-					],
-					revision: [
-						{
-							id: '1',
-							title: 'Jorge Correa',
-							// onClick: (e) => setResponsable(e.target.value),
-							onClick: (e) =>
-								setRevision({ id: e.target.id, name: e.target.outerText }),
-						},
-						{
-							id: '2',
-							title: 'Kaori Soto',
-							onClick: (e) => console.log(e),
-						},
-					],
+					responsables: responsableUs,
+					revision: revisionUs,
+					equipos: equipos,
 					valueResponsable: responsable.name,
 					valueRevision: revision.name,
+					onClickCreateTemplate: () => alert('crear plantilla'),
+					templateOptions: [
+						{
+							id: '1',
+							title: 'Espectaculares',
+						},
+					],
 					subtasks: [
 						{
 							idTask: '27',
-							valueTask: nameTask,
+							valueTask: 'CDMX',
 							valueDescription: descriptionTask,
-							onClickDeleteTask: () => alert('borrar tarea'),
 							onChangeNameTask: (e) => setNameTask(e.target.value),
 							onChangeDescriptionTask: (e) => setDescriptionTask(e.target.value),
 							onClickPrioridad: (e) => setPriority(e.target.id),
@@ -108,45 +127,23 @@ function DemoComponent() {
 							onChangeStartDate: (e) => setStartDate(e.target.value),
 							endDateValue: endDate,
 							onChangeEndDate: (e) => setEndDate(e.target.value),
-							responsables: [
-								{
-									id: '1',
-									title: 'Jorge Correa',
-									// onClick: (e) => setResponsable(e.target.value),
-									onClick: (e) =>
-										setResponsable({
-											id: e.target.id,
-											name: e.target.outerText,
-										}),
-								},
-								{
-									id: '2',
-									title: 'Kaori Soto',
-									onClick: (e) => console.log(e),
-								},
-							],
-							revision: [
-								{
-									id: '1',
-									title: 'Jorge Correa',
-									// onClick: (e) => setResponsable(e.target.value),
-									onClick: (e) =>
-										setRevision({ id: e.target.id, name: e.target.outerText }),
-								},
-								{
-									id: '2',
-									title: 'Kaori Soto',
-									onClick: (e) => console.log(e),
-								},
-							],
+							responsables: responsableUs,
+							revision: revisionUs,
+							equipos: equipos,
 							valueResponsable: responsable.name,
 							valueRevision: revision.name,
+							onClickCreateTemplate: () => alert('crear plantilla'),
+							templateOptions: [
+								{
+									id: '1',
+									title: 'Espectaculares',
+								},
+							],
 							subtasks: [
 								{
 									idTask: '27',
-									valueTask: nameTask,
+									valueTask: 'CDMX',
 									valueDescription: descriptionTask,
-									onClickDeleteTask: () => alert('borrar tarea'),
 									onChangeNameTask: (e) => setNameTask(e.target.value),
 									onChangeDescriptionTask: (e) =>
 										setDescriptionTask(e.target.value),
@@ -158,106 +155,104 @@ function DemoComponent() {
 									onChangeStartDate: (e) => setStartDate(e.target.value),
 									endDateValue: endDate,
 									onChangeEndDate: (e) => setEndDate(e.target.value),
-									responsables: [
-										{
-											id: '1',
-											title: 'Jorge Correa',
-											// onClick: (e) => setResponsable(e.target.value),
-											onClick: (e) =>
-												setResponsable({
-													id: e.target.id,
-													name: e.target.outerText,
-												}),
-										},
-										{
-											id: '2',
-											title: 'Kaori Soto',
-											onClick: (e) => console.log(e),
-										},
-									],
-									revision: [
-										{
-											id: '1',
-											title: 'Jorge Correa',
-											// onClick: (e) => setResponsable(e.target.value),
-											onClick: (e) =>
-												setRevision({
-													id: e.target.id,
-													name: e.target.outerText,
-												}),
-										},
-										{
-											id: '2',
-											title: 'Kaori Soto',
-											onClick: (e) => console.log(e),
-										},
-									],
+									responsables: responsableUs,
+									revision: revisionUs,
+									equipos: equipos,
 									valueResponsable: responsable.name,
 									valueRevision: revision.name,
+									onClickCreateTemplate: () => alert('crear plantilla'),
+									templateOptions: [
+										{
+											id: '1',
+											title: 'Espectaculares',
+										},
+									],
 								},
+							],
+						},
+						{
+							idTask: '27',
+							valueTask: 'CDMX',
+							valueDescription: descriptionTask,
+							onChangeNameTask: (e) => setNameTask(e.target.value),
+							onChangeDescriptionTask: (e) => setDescriptionTask(e.target.value),
+							onClickPrioridad: (e) => setPriority(e.target.id),
+							prioridadInicial: priority,
+							check: checked,
+							onChangeCheckbox: (e) => setCheckedd(!checked),
+							startDateValue: startDate,
+							onChangeStartDate: (e) => setStartDate(e.target.value),
+							endDateValue: endDate,
+							onChangeEndDate: (e) => setEndDate(e.target.value),
+							responsables: responsableUs,
+							revision: revisionUs,
+							equipos: equipos,
+							valueResponsable: responsable.name,
+							valueRevision: revision.name,
+							onClickCreateTemplate: () => alert('crear plantilla'),
+							templateOptions: [
 								{
-									idTask: '27',
-									valueTask: nameTask,
-									valueDescription: descriptionTask,
-									onClickDeleteTask: () => alert('borrar tarea'),
-									onChangeNameTask: (e) => setNameTask(e.target.value),
-									onChangeDescriptionTask: (e) =>
-										setDescriptionTask(e.target.value),
-									onClickPrioridad: (e) => setPriority(e.target.id),
-									prioridadInicial: priority,
-									check: checked,
-									onChangeCheckbox: (e) => setCheckedd(!checked),
-									startDateValue: startDate,
-									onChangeStartDate: (e) => setStartDate(e.target.value),
-									endDateValue: endDate,
-									onChangeEndDate: (e) => setEndDate(e.target.value),
-									responsables: [
-										{
-											id: '1',
-											title: 'Jorge Correa',
-											// onClick: (e) => setResponsable(e.target.value),
-											onClick: (e) =>
-												setResponsable({
-													id: e.target.id,
-													name: e.target.outerText,
-												}),
-										},
-										{
-											id: '2',
-											title: 'Kaori Soto',
-											onClick: (e) => console.log(e),
-										},
-									],
-									revision: [
-										{
-											id: '1',
-											title: 'Jorge Correa',
-											// onClick: (e) => setResponsable(e.target.value),
-											onClick: (e) =>
-												setRevision({
-													id: e.target.id,
-													name: e.target.outerText,
-												}),
-										},
-										{
-											id: '2',
-											title: 'Kaori Soto',
-											onClick: (e) => console.log(e),
-										},
-									],
-									valueResponsable: responsable.name,
-									valueRevision: revision.name,
+									id: '1',
+									title: 'Espectaculares',
 								},
 							],
 						},
 					],
 				},
-				// {
-				// 	idTask: '26',
-				// 	valueTask: 'Impresión',
-				// 	valueDescription: 'Realizar dummies de la campaña de UBER',
-				// 	prioridadInicial: 'alta',
-				// },
+				{
+					idTask: '28',
+					valueTask: 'CDMX',
+					valueDescription: descriptionTask,
+					onChangeNameTask: (e) => setNameTask(e.target.value),
+					onChangeDescriptionTask: (e) => setDescriptionTask(e.target.value),
+					onClickPrioridad: (e) => setPriority(e.target.id),
+					prioridadInicial: priority,
+					check: checked,
+					onChangeCheckbox: (e) => setCheckedd(!checked),
+					startDateValue: startDate,
+					onChangeStartDate: (e) => setStartDate(e.target.value),
+					endDateValue: endDate,
+					onChangeEndDate: (e) => setEndDate(e.target.value),
+					responsables: responsableUs,
+					revision: revisionUs,
+					equipos: equipos,
+					valueResponsable: responsable.name,
+					valueRevision: revision.name,
+					onClickCreateTemplate: () => alert('crear plantilla'),
+					templateOptions: [
+						{
+							id: '1',
+							title: 'Espectaculares',
+						},
+					],
+				},
+				{
+					idTask: '29',
+					valueTask: 'CDMX',
+					valueDescription: descriptionTask,
+					onChangeNameTask: (e) => setNameTask(e.target.value),
+					onChangeDescriptionTask: (e) => setDescriptionTask(e.target.value),
+					onClickPrioridad: (e) => setPriority(e.target.id),
+					prioridadInicial: priority,
+					check: checked,
+					onChangeCheckbox: (e) => setCheckedd(!checked),
+					startDateValue: startDate,
+					onChangeStartDate: (e) => setStartDate(e.target.value),
+					endDateValue: endDate,
+					onChangeEndDate: (e) => setEndDate(e.target.value),
+					responsables: responsableUs,
+					revision: revisionUs,
+					equipos: equipos,
+					valueResponsable: responsable.name,
+					valueRevision: revision.name,
+					onClickCreateTemplate: () => alert('crear plantilla'),
+					templateOptions: [
+						{
+							id: '1',
+							title: 'Espectaculares',
+						},
+					],
+				},
 			]}
 		/>
 	);
