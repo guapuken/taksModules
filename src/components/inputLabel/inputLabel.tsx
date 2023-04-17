@@ -11,10 +11,12 @@ export interface InputLabelProps {
 	max?: number;
 	onChange?: onBlurType;
 	style?: CSSProperties;
+	id: string;
 }
 const InputLabel = (props: InputLabelProps) => {
 	const {
 		legend = 'Change the legend',
+		id,
 		type = 'text',
 		initialValue,
 		onChange,
@@ -43,6 +45,7 @@ const InputLabel = (props: InputLabelProps) => {
 				min={min}
 				max={max}
 				value={value}
+				id={id}
 				onChange={(e) => handleTextChange(e.target.value)}
 				onBlur={(e) => {
 					if (onChange) {

@@ -15,6 +15,7 @@ const Content = (props: content) => {
 	return (
 		<div>
 			<InputLabel
+				id={datos.idProject}
 				legend="Nombre del proyecto"
 				onChange={datos.onChangeName}
 				style={{ maxWidth: '98%' }}

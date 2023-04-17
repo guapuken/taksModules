@@ -36,6 +36,7 @@ const InputTask = (props: inputTasks) => {
 				)}
 				<div>
 					<AutoresizeInput
+						id={datos.id}
 						taskType={datos.principalTask ? 'principal' : 'task'}
 						style={nameTaskStyles}
 						onChange={datos.onChangeNameTask}
@@ -45,6 +46,7 @@ const InputTask = (props: inputTasks) => {
 						disabled={datos.check ? true : datos.disabled ? datos.disabled : false}
 					/>
 					<AutoresizeInput
+						id={datos.id}
 						taskType={'subtask'}
 						style={descriptionTaskStyles}
 						onChange={datos.onChangeDescriptionTask}

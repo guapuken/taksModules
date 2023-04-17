@@ -18,4 +18,5 @@ export interface inputTasks {
 	data?: any;
 	style?: css;
 	modo?: Modo;
+	id: string;
 }

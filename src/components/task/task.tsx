@@ -1,11 +1,12 @@
 import React from 'react';
+// componentes auxiliares
 import { involucrados } from '../../utils/cardsUtils';
-import IconDropdown from '../iconDropdown';
-import InputTask from '../inputTask';
+import { IconDropdown, InputTask } from '../../components';
 import { AddTask, IconAsign, IconDates, IconMoreOptions, IconPriority } from './files';
+// types
 import { templateOptions } from './types';
-
-import { tasksProps } from './types';
+import { tasks } from '../../types';
+// estilos
 import './task.scss';
 
 //Valida si existe la propiedad de plantillas y las agrega al dropdown de cargar plantilla en caso de que si exista
@@ -37,7 +38,7 @@ export const optionsPlantillas = (props: templateOptions) => {
 };
 
 //COMPONENTE PRINCIPAL
-const Task = (props: tasksProps) => {
+const Task = (props: tasks) => {
 	//desestructuración de propiedades
 	const datos = { ...props };
 	// inicialización de propiedaddes
@@ -46,8 +47,9 @@ const Task = (props: tasksProps) => {
 	const showTask = () => (datos.plantillas ? false : true);
 
 	return (
-		<div className={`ctn${modo}_TascC`}>
+		<div id={datos.idTask} className={`ctn${modo}_TascC`}>
 			<InputTask
+				id={datos.idTask}
 				modo={modo}
 				style={{ maxWidth: '100%' }}
 				principalTask={datos.principalTask}
@@ -128,7 +130,7 @@ const Task = (props: tasksProps) => {
 			)}
 			{datos.subtasks && (
 				<div className={'ChildrenContainerTaskModules'}>
-					{datos.subtasks.map((e) => (
+					{datos.subtasks.map((e: tasks) => (
 						<div style={{ margin: '.5vh 0' }}>
 							<Task
 								idTask={e.idTask}

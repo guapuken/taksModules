@@ -47,6 +47,7 @@ const AutoresizeInput = (props: autoresizeInput) => {
 	//construcción de componente
 	return (
 		<textarea
+			id={datos.id}
 			ref={textAreaRef}
 			disabled={datos.disabled}
 			onChange={(e: any) => setValue(e.target?.value)}

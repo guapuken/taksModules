@@ -41,6 +41,108 @@ export interface submenusArray {
 	onClick?: onClickType;
 	className?: string;
 }
+// tasks
+//INTERFACES
+export interface tasks {
+	//Input Task
+	idTask: string;
+	principalTask?: boolean;
+	taskDisabled?: boolean;
+	taskComplete?: boolean;
+	isSubtask?: boolean;
+	check?: boolean;
+	valueTask?: string;
+	valueDescription?: string;
+	onClickCheck?: onClickType;
+	onChangeNameTask?: onBlurType;
+	onChangeDescriptionTask?: onBlurType;
+	idCheckbox?: string;
+	onChangeCheckbox?: onChangeType;
+
+	//Icon Dates
+	plantillas?: boolean;
+	onChangeDias?: onChangeType;
+	disabledEndDate?: boolean;
+	disabledStartDate?: boolean;
+	onChangeEndDate?: onChangeType;
+	onChangeStartDate?: onChangeType;
+	startDateValue?: Date;
+	endDateValue?: Date;
+	className?: string;
+	durationValue?: string;
+
+	//Icon Asign
+	responsables: submenusArray[];
+	equipos: submenusArray[];
+	revision: submenusArray[];
+	valueResponsable?: string;
+	valueRevision?: string;
+
+	//Icon Priority
+	prioridadInicial?: prioritys;
+	onClickPrioridad?: onClickType;
+
+	//Icon MoreOptions
+	moreOptions?: optionsIcnDrp[];
+	onClickEliminar?: onClickType;
+	onClickRecordatorio?: onClickType;
+
+	//addTask
+	subtaskForbbiden?: boolean;
+	subtasks?: subtasksProps[];
+
+	//botones agregar
+	onClickCreateTemplate: onClickType;
+	onClickAddTask?: onClickType;
+	templateOptions: optionsIcnDrp[];
+	modo?: Modo;
+}
+export type subtasksProps = {
+	//Input Task
+	idTask: string;
+	taskDisabled?: boolean;
+	taskComplete?: boolean;
+	check?: boolean;
+	valueTask?: string;
+	valueDescription?: string;
+	onChangeNameTask?: onBlurType;
+	onChangeDescriptionTask?: onBlurType;
+	onChangeCheckbox?: onChangeType;
+
+	//Icon Dates
+	disabledEndDate?: boolean;
+	disabledStartDate?: boolean;
+	onChangeEndDate?: onChangeType;
+	onChangeStartDate?: onChangeType;
+	startDateValue?: Date;
+	endDateValue?: Date;
+
+	//Icon Asign
+	responsables: submenusArray[];
+	equipos: submenusArray[];
+	revision: submenusArray[];
+	valueResponsable?: string;
+	valueRevision?: string;
+
+	//Icon Priority
+	prioridadInicial?: prioritys;
+	onClickPrioridad?: onClickType;
+
+	//Icon MoreOptions
+	moreOptions?: optionsIcnDrp[];
+	onClickEliminar?: onClickType;
+	onClickRecordatorio?: onClickType;
+
+	//addTask
+	subtaskForbbiden?: boolean;
+	subtasks?: subtasksProps[];
+
+	//botones agregar
+	onClickCreateTemplate: onClickType;
+	onClickAddTask?: onClickType;
+	templateOptions: optionsIcnDrp[];
+	modo?: Modo;
+};
 // ---------------------------------------------------------------------------------------------------------
 //      funciones
 // ---------------------------------------------------------------------------------------------------------

@@ -1,13 +1,4 @@
-import React from 'react';
-import {
-	Modo,
-	onBlurType,
-	onChangeType,
-	onClickType,
-	optionsIcnDrp,
-	prioritys,
-	submenusArray,
-} from '../../types';
+import { Modo, onChangeType, onClickType, optionsIcnDrp, subtasksProps } from '../../types';
 
 // botones
 export type clickButtons = {
@@ -22,65 +13,20 @@ export interface ModalProjectsProps {
 	onClickAddTask?: onClickType;
 	onChangeName?: onChangeType;
 	projectNameValue?: string;
-	subtasks?: childrenTypes[];
+	subtasks?: subtasksProps[];
 	templateOptions: optionsIcnDrp[];
 	onClickCreateTemplate: onClickType;
 	modo?: Modo;
+	idProject: string;
 }
-
-export type childrenTypes = {
-	//Input Task
-	idTask: string;
-	taskDisabled?: boolean;
-	taskComplete?: boolean;
-	check?: boolean;
-	valueTask?: string;
-	valueDescription?: string;
-	onChangeNameTask?: onBlurType;
-	onChangeDescriptionTask?: onBlurType;
-	onChangeCheckbox?: onChangeType;
-
-	//Icon Dates
-	disabledEndDate?: boolean;
-	disabledStartDate?: boolean;
-	onChangeEndDate?: onChangeType;
-	onChangeStartDate?: onChangeType;
-	startDateValue?: Date;
-	endDateValue?: Date;
-
-	//Icon Asign
-	responsables: submenusArray[];
-	equipos: submenusArray[];
-	revision: submenusArray[];
-	valueResponsable?: string;
-	valueRevision?: string;
-
-	//Icon Priority
-	prioridadInicial?: prioritys;
-	onClickPrioridad?: onClickType;
-
-	//Icon MoreOptions
-	moreOptions?: optionsIcnDrp[];
-	onClickEliminar?: onClickType;
-	onClickRecordatorio?: onClickType;
-
-	//addTask
-	subtaskForbbiden?: boolean;
-	subtasks?: childrenTypes[];
-
-	//botones agregar
-	onClickCreateTemplate: onClickType;
-	onClickAddTask?: onClickType;
-	templateOptions: optionsIcnDrp[];
-	modo?: Modo;
-};
 
 export type content = {
 	onChangeName?: onChangeType;
 	projectNameValue?: string;
 	onClickAddTask?: onClickType;
 	modo?: Modo;
+	idProject: string;
 	templateOptions: optionsIcnDrp[];
 	onClickCreateTemplate: onClickType;
-	subtasks?: childrenTypes[];
+	subtasks?: subtasksProps[];
 };

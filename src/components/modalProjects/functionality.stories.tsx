@@ -5,6 +5,8 @@ import { storiesOf } from '@storybook/react';
 // función para ver si funciona correctamente el onChange
 function DemoComponent() {
 	const [projectName, setProjectName] = React.useState('Uber Eats-2536-Espectaculares-Noviembre');
+	const [idProject, setIdProject] = React.useState('15');
+	const [idTask, setIdTask] = React.useState('18');
 	const [nameTask, setNameTask] = React.useState('Dummies');
 	const [descriptionTask, setDescriptionTask] = React.useState(
 		'campaña Uber Eats-2536-Espectaculares-Noviembre'
@@ -56,8 +58,10 @@ function DemoComponent() {
 		},
 	];
 	// consoles para revisar que sse generen de manera correcta los setteos
-	console.clear();
+	// console.clear();
 	console.log('nombre proyecto: ', projectName);
+	console.log('id proyecto: ', idProject);
+	console.log('id task: ', idTask);
 	console.log('nombre tarea: ', nameTask);
 	console.log('descripción: ', descriptionTask);
 	console.log('prioridad: ', priority);
@@ -70,6 +74,7 @@ function DemoComponent() {
 			modo="Light"
 			onChangeName={(e: any) => {
 				setProjectName(e.target.value);
+				console.log('id: ', e.target.id);
 			}}
 			templateOptions={[
 				{
@@ -84,13 +89,17 @@ function DemoComponent() {
 			onClickCreateTemplate={() => alert('Crear plantilla')}
 			onClickCreate={() => alert('Hola')}
 			onClickAbort={() => alert('Adios')}
+			idProject={idProject}
 			// por probar
 			subtasks={[
 				{
-					idTask: '25',
+					idTask: idTask,
 					valueTask: nameTask,
 					valueDescription: descriptionTask,
-					onChangeNameTask: (e) => setNameTask(e.target.value),
+					onChangeNameTask: (e) => {
+						console.log('id de tarea: ', e.target.id);
+						setNameTask(e.target.value);
+					},
 					onChangeDescriptionTask: (e) => setDescriptionTask(e.target.value),
 					onClickPrioridad: (e) => setPriority(e.target.id),
 					prioridadInicial: priority,
@@ -141,7 +150,7 @@ function DemoComponent() {
 							],
 							subtasks: [
 								{
-									idTask: '27',
+									idTask: '252',
 									valueTask: 'CDMX',
 									valueDescription: descriptionTask,
 									onChangeNameTask: (e) => setNameTask(e.target.value),
@@ -171,7 +180,7 @@ function DemoComponent() {
 							],
 						},
 						{
-							idTask: '27',
+							idTask: '275',
 							valueTask: 'CDMX',
 							valueDescription: descriptionTask,
 							onChangeNameTask: (e) => setNameTask(e.target.value),

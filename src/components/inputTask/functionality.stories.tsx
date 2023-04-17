@@ -13,6 +13,7 @@ function DemoComponent() {
 	console.log(descriptionTask);
 	return (
 		<InputTask
+			id="1"
 			onChangeNameTask={(e) => setNameTask(e.target.value)}
 			onChangeDescriptionTask={(e) => setDescriptionTask(e.target.value)}
 			valueTask={nameTask}
