@@ -11,13 +11,11 @@ const Menus = (props: any) => {
 	const menusMapping = menus.map((menu: optionsIcnDrp) => {
 		//Si no existe la propiedad de submenu dentro de menu sólo regresará un item del Dropdown con sus propiedades para definir
 		if (!menu.submenus) {
-			console.log('Recibiendo datos de menu: ', menu);
 			return (
 				<DropdownMenu.Item
 					className={`ttlMenus${modo}_IcnDrpC`}
 					onClick={menu.onClick}
 					id={menu.id}
-					onChange={(e) => console.log(e)}
 				>
 					{menu.title}
 				</DropdownMenu.Item>
@@ -37,7 +35,6 @@ const Menus = (props: any) => {
 							style={{ cursor: 'pointer' }}
 						>
 							{menu.submenus.map((submenu) => {
-								console.log('Recibiendo datos de submenus: ', menu);
 								return (
 									<DropdownMenu.Item
 										className={`ttlMenus${modo}_IcnDrpC`}

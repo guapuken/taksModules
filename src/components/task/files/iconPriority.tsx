@@ -29,10 +29,7 @@ const IconPriority = (props: IconPriorityProps) => {
 		{
 			id: 'none',
 			title: 'Sin prioridad',
-			onClick: () => {
-				setPrioridad('none');
-				onClickNoPrioridad;
-			},
+			onClick: handleClickPriority,
 		},
 		{
 			id: 'baja',

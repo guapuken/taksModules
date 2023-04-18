@@ -58,7 +58,7 @@ function DemoComponent() {
 		},
 	];
 	// consoles para revisar que sse generen de manera correcta los setteos
-	console.clear();
+	// console.clear();
 	console.log('nombre proyecto: ', projectName);
 	console.log('id proyecto: ', idProject);
 	console.log('id task: ', idTask);

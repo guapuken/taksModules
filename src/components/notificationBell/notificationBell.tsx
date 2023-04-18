@@ -24,7 +24,6 @@ const NotificationBell = (props: NotificationBellProps) => {
 	const [counter] = useState(notifications?.length || 0);
 	const [showNotifications, setShowNotifications] = useState(false);
 	const [selectedText, setSelectedText] = useState('');
-	console.log(counter);
 
 	const texts = [
 		'¿Hay alguien aquí con vida?',

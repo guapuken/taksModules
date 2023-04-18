@@ -4,17 +4,10 @@ import { useWindowSize } from '../../utils/windowSize';
 // componentes
 import Cards from '../cards';
 //types
-import { Modo, onChangeType, onClickType, statusTask } from '../../types';
+import { Modo, onChangeType, onClickType, statusTask, submenusArray } from '../../types';
 //importación de componentes principales
 import { Content, Aside } from './files';
 
-// import './cardProject.scss';
-interface submenus {
-	id?: number | string;
-	className?: string;
-	onClick?: onClickType;
-	title?: string;
-}
 export interface CardTaskProps {
 	onClickShowDetails?: onClickType;
 	onClickEditar?: onClickType;
@@ -32,9 +25,9 @@ export interface CardTaskProps {
 	followNotificationsValue?: boolean;
 	subtasks?: number;
 	percentTask?: number;
-	responsables?: submenus[];
-	equipos?: submenus[];
-	revision?: submenus[];
+	responsables?: submenusArray[];
+	equipos?: submenusArray[];
+	revision?: submenusArray[];
 	modo?: Modo;
 }
 const CardTask = (props: CardTaskProps) => {

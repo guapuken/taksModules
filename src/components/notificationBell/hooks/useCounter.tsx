@@ -23,7 +23,6 @@ export function useTimeCounter(minutes: number, stopAnimation: boolean) {
 			clearInterval(timer);
 		};
 	}, [interval, timeCounter]);
-	console.log(timeCounter);
 
 	return timeCounter;
 }

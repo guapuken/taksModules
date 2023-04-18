@@ -47,7 +47,6 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 						setStartDate(e.target.value);
 					}}
 					onBlur={(e) => {
-						console.log('onBlur start');
 						if (onChangeStartDate) {
 							onChangeStartDate(e);
 						}
@@ -72,7 +71,6 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 						setEndDate(e.target.value);
 					}}
 					onBlur={(e) => {
-						console.log('on Blur');
 						if (onChangeEndDate) {
 							onChangeEndDate(e);
 						}
