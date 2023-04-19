@@ -4,8 +4,8 @@ import React, { CSSProperties } from 'react';
 import '../../global.scss';
 import { Modo, onClickType } from '../../types';
 import Button from '../button';
+import './container.scss';
 import { Menu } from './files';
-import css from './container.module.scss';
 
 type header = {
 	moduleName?: string;
@@ -52,17 +52,17 @@ const Container = (props: Containerprops) => {
 		headerStyle,
 		contentStyle,
 		footerStyle,
-		modo,
+		modo = 'Light',
 	} = props;
 	return (
-		<div className={css.ctn} style={style}>
-			<div className={css.menu}>
+		<div className={`ctn${modo}_CtnC`} style={style}>
+			<div className={'menu'}>
 				<Menu modo={modo} onClick={onClick} />
 			</div>
-			{AsideContent && <div className={css.asideCtn}>{AsideContent}</div>}
-			<div className={AsideContent ? css.ctnChildren_FtrAsd : css.ctnChildren_Ftr}>
+			{AsideContent && <div className={'asideCtn'}>{AsideContent}</div>}
+			<div className={`ctnChild${AsideContent ? 'Asd' : ''}${FooterContent ? 'Ftr' : ''}`}>
 				{header && (
-					<div className={css.header} style={headerStyle}>
+					<div className={'header'} style={headerStyle}>
 						<h2 style={{ marginRight: '10px' }}>{header.moduleName}</h2>
 						<Button
 							legend={header.legendBtnModule}
@@ -71,16 +71,11 @@ const Container = (props: Containerprops) => {
 						/>
 					</div>
 				)}
-				<div
-					className={
-						!FooterContent || FooterContent === null ? css.children : css.childrenFtr
-					}
-					style={contentStyle}
-				>
+				<div className="children" style={contentStyle}>
 					{children}
 				</div>
 				{FooterContent && (
-					<div style={footerStyle} className={css.footer}>
+					<div style={footerStyle} className={'footer'}>
 						{FooterContent}
 					</div>
 				)}
