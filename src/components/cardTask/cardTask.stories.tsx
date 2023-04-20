@@ -13,6 +13,7 @@ withProperties.args = {
 	followNotificationsValue: true,
 	onClickShowDetails: () => alert('ver detalles'),
 	onChangeNotificationSwitch: () => {},
+	onClickFollow: () => alert('hola'),
 	taskName: 'Dummies campaña 1526-UberEats-Sitios-Noviembre-Urbanos',
 	taskDescription: 'Realizar os dummies de la plaza de Ciudad de méxico y Aguascalientes Sun sun',
 	subtasks: 2,

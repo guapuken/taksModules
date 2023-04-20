@@ -5,10 +5,11 @@ export const TaskItem = (props: taskItem) => {
 	const datos = { ...props };
 	return (
 		<>
-			{datos.Card && <datos.Card {...datos.data} />}
-			{!datos.Card && (
+			{datos.Card ? (
+				<datos.Card {...datos.data} />
+			) : (
 				<div className="CardTask">
-					<h3>Nombre de la tarea</h3>
+					<p>{datos.data.taskName}</p>
 				</div>
 			)}
 		</>

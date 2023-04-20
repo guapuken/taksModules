@@ -29,6 +29,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 	const scrSize = useWindowSize();
 	// desestructuración de propiedades
 	const datos = { ...props };
+	// console.log('props componente inicial: ', datos);
 	// inicialización de propiedades
 	const {
 		tasks = [
@@ -74,6 +75,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 
 	/* Using the useSensors hook to create a sensor. */
 	const sensors = useSensors(
+		// useSensor(PointerSensor),
 		useSensor(PointerSensor),
 		useSensor(KeyboardSensor, {
 			coordinateGetter: sortableKeyboardCoordinates,
@@ -166,7 +168,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 	};
 
 	//se encarga de ver qué tarea es la que se encuentra activa
-	const task = activeTaskId ? getTaskById(tasks, activeTaskId) : null;
+	const task = activeTaskId ? getTaskById(datos.tasks, activeTaskId) : null;
 	return (
 		<DndContext
 			sensors={sensors}
@@ -185,7 +187,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 						<div className="boardCtn" key={boardSectionKey}>
 							<BoardSection
 								Card={datos.Card}
-								data={datos.data}
+								data={datos.tasks}
 								scrSize={scrSize}
 								width={width}
 								id={boardSectionKey}
@@ -197,7 +199,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 					);
 				})}
 				<DragOverlay dropAnimation={dropAnimation}>
-					{task ? <TaskItem data={datos.data} Card={datos.Card} /> : null}
+					{task ? <TaskItem data={task} Card={datos.Card} /> : null}
 				</DragOverlay>
 			</div>
 		</DndContext>

@@ -21,38 +21,43 @@ const Aside = (props: any) => {
 	} = props;
 
 	// definición de botones
-	const buttons = [
-		{
-			img: editIcon,
-			onClick: onClickEditar,
-			titleToShow: 'Editar',
-		},
-		{
-			img: calendarIcon,
-			onClick: onClickFecha,
-			titleToShow: 'Reasignar fecha',
-		},
-		{
-			img: editIcon,
-			onClick: onClickComentario,
-			titleToShow: 'Asignar tarea',
-		},
-		{
-			img: calendarIcon,
-			onClick: onClickFollow,
-			titleToShow: followNotificationsValue ? 'Dejar de seguir tarea' : 'Seguir tarea',
-		},
-		{
-			img: editIcon,
-			onClick: onClickReminder,
-			titleToShow: 'Programar recordatorio',
-		},
-	];
 
 	// retorno del componente
 	return (
 		<AsideContainer>
-			<ButtonsArray modo={modo} buttons={buttons} vertical />
+			<ButtonsArray
+				modo={modo}
+				buttons={[
+					{
+						img: editIcon,
+						onClick: onClickEditar,
+						titleToShow: 'Editar',
+					},
+					{
+						img: calendarIcon,
+						onClick: onClickFecha,
+						titleToShow: 'Reasignar fecha',
+					},
+					{
+						img: editIcon,
+						onClick: onClickComentario,
+						titleToShow: 'Asignar tarea',
+					},
+					{
+						img: calendarIcon,
+						onClick: onClickFollow,
+						titleToShow: followNotificationsValue
+							? 'Dejar de seguir tarea'
+							: 'Seguir tarea',
+					},
+					{
+						img: editIcon,
+						onClick: onClickReminder,
+						titleToShow: 'Programar recordatorio',
+					},
+				]}
+				vertical
+			/>
 		</AsideContainer>
 	);
 };

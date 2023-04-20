@@ -9,6 +9,7 @@ import { Modo, onChangeType, onClickType, statusTask, submenusArray } from '../.
 import { Content, Aside } from './files';
 
 export interface CardTaskProps {
+	idTask: string;
 	onClickShowDetails?: onClickType;
 	onClickEditar?: onClickType;
 	onClickFollow?: onClickType;
