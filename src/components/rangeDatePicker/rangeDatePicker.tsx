@@ -13,8 +13,8 @@ export interface RangeDatePickerProps {
 	style?: CSSProperties;
 	disabledStartDate?: boolean;
 	disabledEndDate?: boolean;
-	onChangeStartDate?: onBlurType;
-	onChangeEndDate?: onBlurType;
+	onCh_startDate?: onBlurType;
+	onCh_endDate?: onBlurType;
 	modo: Modo;
 }
 
@@ -49,8 +49,8 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 						setStartDate(e.target.value);
 					}}
 					onBlur={(e) => {
-						if (datos.onChangeStartDate) {
-							datos.onChangeStartDate(e);
+						if (datos.onCh_startDate) {
+							datos.onCh_startDate(e);
 						}
 					}}
 				/>
@@ -73,8 +73,8 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 						setEndDate(e.target.value);
 					}}
 					onBlur={(e) => {
-						if (datos.onChangeEndDate) {
-							datos.onChangeEndDate(e);
+						if (datos.onCh_endDate) {
+							datos.onCh_endDate(e);
 						}
 					}}
 				/>

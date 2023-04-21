@@ -77,9 +77,11 @@ type Buttons = {
  * @param {Array<Buttons>} buttons - rederea los botones que se colocarán dentro del elemento
  * @returns componente con los botones distribuidos dependiendo los que caben en el elemento
  */
-function sliceButtons(size: number, modo: Modo, buttons?: any) {
-	let maxButtons = sizeLimit(5, size);
+function sliceButtons(maxHeight: number, modo: Modo, buttons?: any) {
+	// definición del número máximo de botones que utilizará nuestro elemento
+	const maxButtons = sizeLimit(5, maxHeight);
 
+	// valida si el número de botones es mayor al área donde se colocarán
 	if (maxButtons * 5 === 0) {
 		return (
 			<IconDropdown
@@ -91,10 +93,29 @@ function sliceButtons(size: number, modo: Modo, buttons?: any) {
 				})}
 			/>
 		);
-	} else {
-		if (buttons.length * 5 <= size) {
-			// if (buttons.length * 5 <= size || maxButtons * 5 <= size) {
-			return buttons?.map((e: any) => (
+	}
+
+	// valida si el número de botones es menor al área donde se colocarán
+	if (buttons.length * 5 <= maxHeight) {
+		return buttons?.map((e: any) => (
+			<ButtonItem
+				img={e.img}
+				svg={e.svg}
+				onClick={e.onClick}
+				alt={e.titleToShow}
+				title={e.titleToShow}
+			/>
+		));
+	}
+
+	// define los botones que serán visibles en nuestro elemento
+	const visibleButtons = buttons.slice(0, maxButtons - 1);
+	// define los botones que se colocarán dentro de nuestro botón de más opciones
+	const remainingButtons = buttons.slice(maxButtons - 1);
+
+	return (
+		<>
+			{visibleButtons.map((e: any) => (
 				<ButtonItem
 					img={e.img}
 					svg={e.svg}
@@ -102,40 +123,20 @@ function sliceButtons(size: number, modo: Modo, buttons?: any) {
 					alt={e.titleToShow}
 					title={e.titleToShow}
 				/>
-			));
-		} else {
-			return (
-				<>
-					{maxButtons - 1 > 0 &&
-						buttons
-							.slice(0, maxButtons - 1)
-							.map((e: any) => (
-								<ButtonItem
-									img={e.img}
-									svg={e.svg}
-									onClick={e.onClick}
-									alt={e.titleToShow}
-									title={e.titleToShow}
-								/>
-							))}
-					<IconDropdown
-						modo={modo}
-						icon={optionsIcon}
-						title={'Más opciones...'}
-						options={
-							maxButtons === 1
-								? buttons?.map((e: any) => {
-										return { title: e.titleToShow, onClick: e.onClick };
-								  })
-								: buttons?.slice(maxButtons - 1).map((e: any) => {
-										return { title: e.titleToShow, onClick: e.onClick };
-								  })
-						}
-					/>
-				</>
-			);
-		}
-	}
+			))}
+			<IconDropdown
+				modo={modo}
+				icon={optionsIcon}
+				title={'Mas opciones...'}
+				options={remainingButtons.map((e: Buttons) => {
+					return {
+						title: e.titleToShow,
+						onClick: e.onClick,
+					};
+				})}
+			/>
+		</>
+	);
 }
 
 interface buttonstypes {
@@ -152,8 +153,18 @@ interface ButtonsArrayProps {
 	size?: number;
 	modo: Modo;
 }
-export const ButtonsArray = (props: ButtonsArrayProps) => {
-	const { vertical, style, buttons, children, size, modo } = props;
+export const ButtonsArray = ({
+	vertical,
+	style,
+	buttons,
+	children,
+	size,
+	modo,
+}: ButtonsArrayProps) => {
+	const buttonsElements = children
+		? children
+		: sliceButtons(size ? size : cardH() - 2, modo, buttons);
+
 	return (
 		<div
 			className={`buttonsArray`}
@@ -165,7 +176,7 @@ export const ButtonsArray = (props: ButtonsArrayProps) => {
 				...style,
 			}}
 		>
-			{children ? children : sliceButtons(size ? size : cardH() - 2, modo, buttons)}
+			{buttonsElements}
 		</div>
 	);
 };

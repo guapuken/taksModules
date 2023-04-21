@@ -3,7 +3,7 @@ import './checkboxInput.scss';
 import { Modo, css } from '../../../types';
 
 interface CheckboxInputProps {
-	chCheck?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onCh_checkbox?: (e: React.FormEvent<HTMLInputElement>) => void;
 
 	principalTask?: boolean;
 	disabled?: boolean;
@@ -14,7 +14,7 @@ interface CheckboxInputProps {
 	style?: css;
 }
 export const CheckboxInput = (props: CheckboxInputProps) => {
-	const { disabled, chCheck, check, idCheckbox = '1', modo = 'Light', style } = props;
+	const { disabled, onCh_checkbox, check, idCheckbox = '1', modo = 'Light', style } = props;
 
 	const [checkValue, setCheckValue] = React.useState(check || false);
 	const inputRef = React.useRef<any>(null);
@@ -36,8 +36,8 @@ export const CheckboxInput = (props: CheckboxInputProps) => {
 				disabled={disabled}
 				onChange={(e) => {
 					setCheckValue(!checkValue);
-					if (chCheck) {
-						chCheck(e);
+					if (onCh_checkbox) {
+						onCh_checkbox(e);
 					}
 				}}
 			/>

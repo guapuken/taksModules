@@ -210,56 +210,5 @@ const DragAndDrop = (props: dragAndDrop) => {
 			</div>
 		</DndContext>
 	);
-	// return (
-	// 	// <Container
-	// 	// 	onClick={{}}
-	// 	// 	AsideContent={<AsideTemplates modo="Dark" visible />}
-	// 	// 	FooterContent={<Footer />}
-	// 	// >
-	// 	<DndContext
-	// 		sensors={sensors}
-	// 		collisionDetection={closestCorners}
-	// 		onDragStart={handleDragStart}
-	// 		onDragOver={handleDragOver}
-	// 		onDragEnd={handleDragEnd}
-	// 	>
-	// 		<div
-	// 			className={
-	// 				scrSize.width <= 415 ? 'ctnSml' : scrSize.width <= 834 ? 'ctnTbl' : 'ctn'
-	// 			}
-	// 		>
-	// 			{Object.keys(boardSections).map((boardSectionKey) => {
-	// 				//genera los elementos droppables
-	// 				return (
-	// 					<div
-	// 						className={
-	// 							scrSize.width <= 415
-	// 								? 'boardCtnSml'
-	// 								: scrSize.width <= 834
-	// 								? 'boardCtnTbl'
-	// 								: 'boardCtn'
-	// 						}
-	// 						key={boardSectionKey}
-	// 					>
-	// 						<BoardSection
-	// 							Card={Card}
-	// 							data={data}
-	// 							scrSize={scrSize}
-	// 							width={width}
-	// 							id={boardSectionKey}
-	// 							title={boardSectionKey}
-	// 							tasks={boardSections[boardSectionKey]}
-	// 							modo={modo}
-	// 						/>
-	// 					</div>
-	// 				);
-	// 			})}
-	// 			<DragOverlay dropAnimation={dropAnimation}>
-	// 				{task ? <TaskItem data={data} Card={Card} scrSize={scrSize} /> : null}
-	// 			</DragOverlay>
-	// 		</div>
-	// 	</DndContext>
-	// 	// </Container>
-	// );
 };
 export default DragAndDrop;

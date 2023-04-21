@@ -29,7 +29,7 @@ const Buttons = (props: buttons) => {
 						: tipo === 'tertiary'
 						? datos.legends?.tertiary
 						: 'clic here',
-				onClick:
+				onCl:
 					tipo === 'primary'
 						? onCl_buttons?.primary
 						: tipo === 'secondary'

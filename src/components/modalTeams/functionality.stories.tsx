@@ -26,31 +26,37 @@ function DemoComponent(props) {
 	];
 	return (
 		<ModalTeams
-			onChangeTeamColor={(e) => setTeamColor(e.target.value)}
+			idTeam="1"
+			onCh_teamColor={(e) => setTeamColor(e.target.value)}
 			teamColor={teamColor}
-			teamNameValue={teamName}
-			onChangeTeamName={(e) => setTeamName(e.target.value)}
+			teamName={teamName}
+			onCh_teamName={(e) => setTeamName(e.target.value)}
 			role="Ux/Ui Designer"
 			membersOptions={members}
-			onChangeUserSelected={(e) => setMember(e)}
+			onCh_user={(e) => {
+				console.log('entró en add user');
+				setMember(e);
+			}}
 			memberValue={member}
+			onCl_abort={() => alert('Ccancelar')}
+			onCl_confirm={() => alert('Confirmar')}
 			members={[
 				{
 					role: 'Ux/Ui Designer',
 					membersOptions: members,
-					onChangeUserSelected: (e) => setMember(e),
+					onCh_user: (e) => setMember(e),
 					memberValue: member,
 					members: [
 						{
 							role: 'Ux/Ui Designer',
 							membersOptions: members,
-							onChangeUserSelected: (e) => setMember(e),
+							onCh_user: (e) => setMember(e),
 							memberValue: member,
 						},
 						{
 							role: 'Ux/Ui Designer',
 							membersOptions: members,
-							onChangeUserSelected: (e) => setMember(e),
+							onCh_user: (e) => setMember(e),
 							memberValue: member,
 						},
 					],
@@ -58,7 +64,7 @@ function DemoComponent(props) {
 				{
 					role: 'Ux/Ui Designer',
 					membersOptions: members,
-					onChangeUserSelected: (e) => setMember(e),
+					onCh_user: (e) => setMember(e),
 					memberValue: member,
 				},
 			]}
@@ -71,6 +77,6 @@ storiesOf('Pruebas funcionalidad/teams modal', module).add('setData', () => (
 	<DemoComponent
 		initialTeamColor="#25df68"
 		teamNameValue="TI Sistemas"
-		memberSelectedValue={{ value: '1', label: 'Olaf' }}
+		// memberSelectedValue={{ value: '1', label: 'Olaf' }}
 	/>
 ));

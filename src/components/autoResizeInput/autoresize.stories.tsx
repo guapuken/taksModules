@@ -27,7 +27,7 @@ export default {
 	// definición de argumentos
 	argTypes: {
 		style: object(),
-		onChange: functions(),
+		onCh: functions(),
 		taskType: taskType(),
 		initialValue: text(),
 		placeholder: text(),

@@ -14,8 +14,10 @@ function DemoComponent() {
 	return (
 		<InputTask
 			id="1"
-			onChangeNameTask={(e) => setNameTask(e.target.value)}
-			onChangeDescriptionTask={(e) => setDescriptionTask(e.target.value)}
+			idCheckbox="1"
+			onCh_checkbox={(e) => console.log(e.target.value)}
+			onCh_nameTask={(e) => setNameTask(e.target.value)}
+			onCh_descriptionTask={(e) => setDescriptionTask(e.target.value)}
 			valueTask={nameTask}
 			valueDescription={descriptionTask}
 		/>

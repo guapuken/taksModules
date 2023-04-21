@@ -5,7 +5,7 @@ export interface autoresizeInput {
 	id: string;
 	style?: React.CSSProperties;
 	// onChange?: onBlurType;
-	onCh_resizeInpt?: onBlurType;
+	onCh?: onBlurType;
 	taskType?: taskType;
 	initialValue?: string;
 	placeholder?: string;

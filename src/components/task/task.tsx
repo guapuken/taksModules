@@ -11,7 +11,7 @@ import './task.scss';
 
 //Valida si existe la propiedad de plantillas y las agrega al dropdown de cargar plantilla en caso de que si exista
 export const optionsPlantillas = (props: templateOptions) => {
-	const { templateOptions, onClickCreateTemplate } = props;
+	const { templateOptions, onCl_newTemplate } = props;
 	templateOptions?.map((e: any) => {
 		return {
 			title: e.title,
@@ -24,14 +24,14 @@ export const optionsPlantillas = (props: templateOptions) => {
 				{
 					id: 'createTemplate',
 					title: '+ Crear plantilla',
-					onClick: onClickCreateTemplate,
+					onClick: onCl_newTemplate,
 				},
 		  ]
 		: [
 				{
 					id: 'createTemplate',
 					title: '+ Crear plantilla',
-					onClick: onClickCreateTemplate,
+					onClick: onCl_newTemplate,
 				},
 				...templateOptions,
 		  ];
@@ -56,12 +56,12 @@ const Task = (props: tasks) => {
 				disabled={
 					datos.taskDisabled ? datos.taskDisabled : datos.taskComplete ? true : false
 				}
-				chCheck={datos.chCheck}
+				onCh_checkbox={datos.onCh_checkbox}
 				checked={datos.taskComplete}
 				isSubtask={datos.isSubtask}
 				check={datos.check}
-				onChangeNameTask={datos.onChangeNameTask}
-				onChangeDescriptionTask={datos.onChangeDescriptionTask}
+				onCh_nameTask={datos.onCh_nameTask}
+				onCh_descriptionTask={datos.onCh_descriptionTask}
 				valueTask={datos.valueTask}
 				valueDescription={datos.valueDescription}
 				idCheckbox={datos.idTask}
@@ -75,12 +75,12 @@ const Task = (props: tasks) => {
 				<IconDates
 					idTask={datos.idTask}
 					modo={modo}
-					onChangeDuration={datos.onChangeDuration}
+					onCh_duration={datos.onCh_duration}
 					plantillas={datos.plantillas}
 					disabledEndDate={datos.check ? datos.check : datos.disabledEndDate}
 					disabledStartDate={datos.check ? datos.check : datos.disabledStartDate}
-					onChangeEndDate={datos.onChangeEndDate}
-					onChangeStartDate={datos.onChangeStartDate}
+					onCh_endDate={datos.onCh_endDate}
+					onCh_startDate={datos.onCh_startDate}
 					startDateValue={datos.startDateValue}
 					endDateValue={datos.endDateValue}
 					className={datos.className}
@@ -100,20 +100,20 @@ const Task = (props: tasks) => {
 				{!datos.plantillas && (
 					<IconPriority
 						modo={modo}
-						onClickPrioridad={datos.onClickPrioridad}
+						onCl_selectPriority={datos.onCl_selectPriority}
 						prioridadInicial={prioridadInicial}
 					/>
 				)}
 				<IconMoreOptions
 					modo={modo}
-					onClickEliminar={datos.onClickEliminar}
-					onClickRecordatorio={datos.onClickRecordatorio}
+					onCl_delete={datos.onCl_delete}
+					onCl_reminder={datos.onCl_reminder}
 					options={datos.moreOptions}
 				/>
 			</div>
 			{datos.subtaskForbbiden ?? (
 				<div style={{ display: 'flex', alignItems: 'baseline' }}>
-					<AddTask legend="+ Añadir subtarea" onClick={datos.onClickAddTask} />
+					<AddTask legend="+ Añadir subtarea" onClick={datos.onCl_addTask} />
 					<IconDropdown
 						modo={modo}
 						legend="Cargar plantilla"
@@ -123,7 +123,7 @@ const Task = (props: tasks) => {
 						}}
 						options={optionsPlantillas({
 							templateOptions: datos.templateOptions,
-							onClickCreateTemplate: datos.onClickCreateTemplate,
+							onCl_newTemplate: datos.onCl_newTemplate,
 						})}
 					/>
 				</div>
@@ -140,10 +140,10 @@ const Task = (props: tasks) => {
 										taskComplete={e.taskComplete}
 										valueTask={e.valueTask}
 										valueDescription={e.valueDescription}
-										onChangeNameTask={e.onChangeNameTask}
-										onChangeDescriptionTask={e.onChangeDescriptionTask}
+										onCh_nameTask={e.onCh_nameTask}
+										onCh_descriptionTask={e.onCh_descriptionTask}
 										plantillas
-										onChangeDuration={e.onChangeDuration}
+										onCh_duration={e.onCh_duration}
 										durationValue={e.durationValue}
 										className={e.className}
 										responsables={e.responsables}
@@ -156,15 +156,15 @@ const Task = (props: tasks) => {
 												{
 													id: 'delete',
 													title: 'Eliminar',
-													onClick: e.onClickEliminar,
+													onClick: e.onCl_delete,
 												},
 											]
 										}
-										onClickEliminar={e.onClickEliminar}
+										onCl_delete={e.onCl_delete}
 										subtaskForbbiden={e.subtaskForbbiden}
 										subtasks={e.subtasks}
-										onClickCreateTemplate={e.onClickCreateTemplate}
-										onClickAddTask={e.onClickAddTask}
+										onCl_newTemplate={e.onCl_newTemplate}
+										onCl_addTask={e.onCl_addTask}
 										templateOptions={e.templateOptions}
 										modo={modo}
 									/>
@@ -177,15 +177,15 @@ const Task = (props: tasks) => {
 										valueTask={e.valueTask}
 										valueDescription={e.valueDescription}
 										onClickCheck={e.onClickCheck}
-										onChangeNameTask={e.onChangeNameTask}
-										onChangeDescriptionTask={e.onChangeDescriptionTask}
+										onCh_nameTask={e.onCh_nameTask}
+										onCh_descriptionTask={e.onCh_descriptionTask}
 										idCheckbox={e.idTask}
-										chCheck={e.chCheck}
+										onCh_checkbox={e.onCh_checkbox}
 										//
 										disabledEndDate={e.disabledEndDate}
 										disabledStartDate={e.disabledStartDate}
-										onChangeEndDate={e.onChangeEndDate}
-										onChangeStartDate={e.onChangeStartDate}
+										onCh_endDate={e.onCh_endDate}
+										onCh_startDate={e.onCh_startDate}
 										startDateValue={e.startDateValue}
 										endDateValue={e.endDateValue}
 										className={e.className}
@@ -197,25 +197,25 @@ const Task = (props: tasks) => {
 										valueRevision={e.valueRevision}
 										//
 										prioridadInicial={e.prioridadInicial}
-										onClickPrioridad={e.onClickPrioridad}
+										onCl_selectPriority={e.onCl_selectPriority}
 										//
 										moreOptions={
 											e.moreOptions ?? [
 												{
 													id: 'deleteTask',
 													title: 'Eliminar',
-													onClick: e.onClickEliminar,
+													onClick: e.onCl_delete,
 												},
 											]
 										}
-										onClickEliminar={e.onClickEliminar}
-										onClickRecordatorio={e.onClickRecordatorio}
+										onCl_delete={e.onCl_delete}
+										onCl_reminder={e.onCl_reminder}
 										//
 										subtaskForbbiden={e.subtaskForbbiden}
 										subtasks={e.subtasks}
 										//
-										onClickCreateTemplate={e.onClickCreateTemplate}
-										onClickAddTask={e.onClickAddTask}
+										onCl_newTemplate={e.onCl_newTemplate}
+										onCl_addTask={e.onCl_addTask}
 										templateOptions={e.templateOptions}
 										modo={modo}
 									/>

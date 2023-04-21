@@ -52,8 +52,8 @@ const AutoresizeInput = (props: autoresizeInput) => {
 			disabled={datos.disabled}
 			onChange={(e: any) => setValue(e.target?.value)}
 			onBlur={(e: any) => {
-				if (datos.onCh_resizeInpt) {
-					datos.onCh_resizeInpt(e);
+				if (datos.onCh) {
+					datos.onCh(e);
 				}
 			}}
 			tabIndex={datos.tabIndex}

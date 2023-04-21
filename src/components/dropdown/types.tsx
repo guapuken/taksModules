@@ -3,7 +3,7 @@ import { Modo, css, onChangeType, optionsDropdown } from '../../types';
 export interface dropdown {
 	//requirements
 	options: optionsDropdown[];
-	onChange: onChangeType;
+	onCh: onChangeType;
 	// optinal initial values
 	values?: optionsDropdown[];
 	initialValue?: optionsDropdown;

@@ -22,23 +22,23 @@ const Template: Story<button> = (args) => <Button {...args} />;
 
 export const InitialState = Template.bind({});
 InitialState.args = {
-	onClick: () => alert('Change the function'),
+	onCl: () => alert('Change the function'),
 };
 export const Primary = Template.bind({});
 Primary.args = {
-	onClick: () => alert('Change the function'),
+	onCl: () => alert('Change the function'),
 	primary: true,
 	legend: 'Botón primario',
 };
 export const Secondary = Template.bind({});
 Secondary.args = {
-	onClick: () => alert('Change the function'),
+	onCl: () => alert('Change the function'),
 	secondary: true,
 	legend: 'Botón secundario',
 };
 export const Tertiary = Template.bind({});
 Tertiary.args = {
-	onClick: () => alert('Change the function'),
+	onCl: () => alert('Change the function'),
 	tertiary: true,
 	legend: 'Botón terciario',
 };
@@ -49,7 +49,7 @@ export default {
 	component: Button,
 	//Definición de argumentos
 	argTypes: {
-		onclick: functions(),
+		onCl: functions(),
 		size: sizeBtns(),
 
 		style: object(),

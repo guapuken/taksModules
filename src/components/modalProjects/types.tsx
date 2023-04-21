@@ -9,37 +9,37 @@ import {
 
 // botones
 export type clickButtons = {
-	onClickCreate?: onClickType;
-	onClickAbort?: onClickType;
+	onCl_confirm?: onClickType;
+	onCl_abort?: onClickType;
 };
 
 // interfaz principal
 export interface ModalProjectsProps {
-	onClickCreate?: onClickType;
-	onClickAbort?: onClickType;
-	onClickAddTask?: onClickType;
-	onChangeName?: onChangeType;
+	onCl_confirm?: onClickType;
+	onCl_abort?: onClickType;
+	onCl_addTask?: onClickType;
+	onCh_nameProject?: onChangeType;
 	projectNameValue?: string;
 	subtasks?: subtasksProps[];
 	templateOptions: optionsIcnDrp[];
-	onClickCreateTemplate: onClickType;
+	onCl_newTemplate: onClickType;
 	modo?: Modo;
 	idProject: string;
-	onChangeAsignTeam?: onChangeType;
+	onCh_asignTeam?: onChangeType;
 	teamOptions: optionsDropdown[];
 	initialTeamValue?: optionsDropdown;
 }
 
 export type content = {
-	onChangeName?: onChangeType;
+	onCh_nameProject?: onChangeType;
 	projectNameValue?: string;
-	onClickAddTask?: onClickType;
+	onCl_addTask?: onClickType;
 	modo?: Modo;
 	idProject: string;
 	templateOptions: optionsIcnDrp[];
-	onClickCreateTemplate: onClickType;
+	onCl_newTemplate: onClickType;
 	subtasks?: subtasksProps[];
-	onChangeAsignTeam?: onChangeType;
+	onCh_asignTeam?: onChangeType;
 	teamOptions: optionsDropdown[];
 	initialTeamValue?: optionsDropdown;
 };

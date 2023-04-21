@@ -2,24 +2,28 @@ import React from 'react';
 import Dropdown from '.';
 import { storiesOf } from '@storybook/react';
 
-type options = [
-	{
-		id: '';
-		title: '';
-	}
-];
+type options = {
+	id: string;
+	title: string;
+};
 // función para ver si funciona correctamente el onChange
 function DemoComponent() {
-	const [value, setValue] = React.useState<options>();
+	const [value, setValue] = React.useState<options>(
+		/* [ */ { title: 'Jorge', id: '1' }
+		/* 		{ title: 'Adan', id: '3' },
+	] */
+	);
 
 	// consoles para revisar que sse generen de manera correcta los setteos
-	console.clear();
-	console.log('value Dropdown: ', value);
+	// console.clear();
+	// console.log('value Dropdown: ', value);
 	return (
 		<Dropdown
-			isMulti
-			onChange={(e) => setValue(e)}
+			// isMulti
+			onCh={(e) => setValue(e)}
 			isSearchable
+			// values={value}
+			initialValue={value}
 			options={[
 				{
 					title: 'Jorge',

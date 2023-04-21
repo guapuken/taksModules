@@ -5,7 +5,7 @@ export interface container {
 	AsideContent?: any;
 	FooterContent?: any;
 	header?: header;
-	onClick?: onClicks;
+	onCl_menus?: onClicks;
 	style?: css;
 	headerStyle?: css;
 	contentStyle?: css;
@@ -13,9 +13,9 @@ export interface container {
 	modo?: Modo;
 }
 export type header = {
-	moduleName: string;
-	legendBtnModule?: string;
-	onClickBtnModule?: onClickType;
+	legend: string;
+	legendBtn: string;
+	onCl_btn?: onClickType;
 };
 export type onClicks = {
 	createTask?: onClickType;

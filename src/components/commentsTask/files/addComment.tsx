@@ -6,19 +6,25 @@ import Button from '../../button';
 import { commentTask } from '../types';
 
 const CommentTask = (props: commentTask) => {
-	const { onClickAddComment, onChangeAddFile } = props;
+	const { onCl_addComment, onCh_addFile, idComment, onCh_comment } = props;
+
 	return (
 		<div className="ctnBlockComents_TWCC" style={{ padding: '10px' }}>
 			<fieldset>
-				<AutoresizeInput placeholder="Agregar comentario" taskType="task" />
+				<AutoresizeInput
+					id={idComment as string}
+					placeholder="Agregar comentario"
+					taskType="task"
+					onCh={onCh_comment}
+				/>
 			</fieldset>
-			<div className="ctnButtons" style={{}}>
+			<div className="ctnButtons">
 				<input
 					type="file"
 					id="file"
 					onChange={(e) => {
-						if (onChangeAddFile) {
-							onChangeAddFile(e);
+						if (onCh_addFile) {
+							onCh_addFile(e);
 						}
 					}}
 				/>
@@ -28,7 +34,7 @@ const CommentTask = (props: commentTask) => {
 				<Button
 					primary
 					legend="Comentar"
-					onCl_button={onClickAddComment}
+					onCl={onCl_addComment}
 					style={{ height: '20px' }}
 				/>
 			</div>

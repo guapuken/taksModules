@@ -28,7 +28,7 @@ const InputTask = (props: inputTasks) => {
 						modo={datos.modo}
 						principalTask={datos.principalTask}
 						disabled={datos.disabled}
-						chCheck={datos.chCheck}
+						onCh_checkbox={datos.onCh_checkbox}
 						check={datos.check}
 						idCheckbox={datos.idCheckbox}
 					/>
@@ -38,7 +38,7 @@ const InputTask = (props: inputTasks) => {
 						id={datos.id}
 						taskType={datos.principalTask ? 'principal' : 'task'}
 						style={nameTaskStyles}
-						onCh_resizeInpt={datos.onChangeNameTask}
+						onCh={datos.onCh_nameTask}
 						initialValue={datos.valueTask}
 						placeholder={`Nombre de la ${datos.isSubtask ? 'subtarea' : 'tarea'}`}
 						tabIndex={1}
@@ -48,7 +48,7 @@ const InputTask = (props: inputTasks) => {
 						id={datos.id}
 						taskType={'subtask'}
 						style={descriptionTaskStyles}
-						onCh_resizeInpt={datos.onChangeDescriptionTask}
+						onCh={datos.onCh_descriptionTask}
 						initialValue={datos.valueDescription}
 						placeholder={`Descripción de la ${datos.isSubtask ? 'subtarea' : 'tarea'}`}
 						tabIndex={2}

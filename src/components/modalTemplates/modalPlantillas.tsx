@@ -4,29 +4,19 @@ import InputLabel from '../inputLabel';
 import Modal from '../modal';
 import Task from '../task';
 import AddTask from '../task/files/addTask';
-import { onChangeType, onClickType, optionsIcnDrp, tasksTemplates } from '../../types';
+import { onChangeType, tasksTemplates } from '../../types';
+import { modalTemplates } from './types';
 
-//INTERFACES
-export interface ModalTemplatesProps {
-	onClickCrear?: onClickType;
-	onClickCancelar?: onClickType;
-	onClickAddTask?: onClickType;
-	onChangeTemplateName?: onChangeType;
-	templateNameValue?: string;
-	idTemplate?: string;
-	tasks?: tasksTemplates[];
-}
-const ModalTamplates = (props: ModalTemplatesProps) => {
+const ModalTamplates = ({
+	onCl_confirm,
+	onCl_abort,
+	onCl_addTask,
+	onCh_templateName,
+	templateNameValue,
+	tasks,
+	idTemplate,
+}: modalTemplates) => {
 	//DESESTRUCTURACIÓN DEL PROPIEDADES COMPONENTE PRINCIPAL
-	const {
-		onClickCrear,
-		onClickCancelar,
-		onClickAddTask,
-		onChangeTemplateName = () => {},
-		templateNameValue,
-		tasks,
-		idTemplate,
-	} = props;
 
 	//COMPONENTE QUE REGRESA LOS BOTONES DEL MODAL
 	const Footer = () => (
@@ -34,7 +24,7 @@ const ModalTamplates = (props: ModalTemplatesProps) => {
 			<Buttons
 				buttons={{ primary: true, secondary: true }}
 				legends={{ primary: 'Crear plantilla', secondary: 'Cancelar' }}
-				onCl_buttons={{ primary: onClickCrear, secondary: onClickCancelar }}
+				onCl_buttons={{ primary: onCl_confirm, secondary: onCl_abort }}
 			/>
 		</div>
 	);
@@ -45,11 +35,11 @@ const ModalTamplates = (props: ModalTemplatesProps) => {
 			<InputLabel
 				id={idTemplate as any}
 				legend="Nombre de la plantilla"
-				onChange={onChangeTemplateName}
+				onCh={onCh_templateName as onChangeType}
 				style={{ maxWidth: '98%' }}
 				initialValue={templateNameValue}
 			/>
-			<AddTask legend="+ Añadir tarea" onClick={onClickAddTask} />
+			<AddTask legend="+ Añadir tarea" onClick={onCl_addTask} />
 			<div
 				style={{
 					borderLeft: '3px solid #28282830',

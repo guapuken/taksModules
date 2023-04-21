@@ -8,9 +8,9 @@ import { Modo } from '../../../types';
 interface IconDatesProps {
 	plantillas?: boolean;
 	className?: string;
-	onChangeDuration?: (e: React.FormEvent<HTMLInputElement>) => void;
-	onChangeEndDate?: (e: React.FormEvent<HTMLInputElement>) => void;
-	onChangeStartDate?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onCh_duration?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onCh_endDate?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onCh_startDate?: (e: React.FormEvent<HTMLInputElement>) => void;
 	endDateValue?: Date;
 	startDateValue?: Date;
 	disabledEndDate?: boolean;
@@ -23,15 +23,15 @@ interface IconDatesProps {
 //Visualización de componente si la propiedad de plantillas es true
 const IconDates = (props: IconDatesProps) => {
 	const {
-		onChangeDuration,
+		onCh_duration,
 		plantillas,
 		className,
 		endDateValue,
 		startDateValue,
 		disabledEndDate,
 		disabledStartDate,
-		onChangeEndDate,
-		onChangeStartDate,
+		onCh_endDate,
+		onCh_startDate,
 		durationValue,
 		idTask,
 		modo,
@@ -43,7 +43,7 @@ const IconDates = (props: IconDatesProps) => {
 				style={{ width: '122px' }}
 				legend="Duración"
 				type="number"
-				onChange={onChangeDuration}
+				onCh={onCh_duration}
 				initialValue={durationValue}
 			/>
 			<div className="IconInformationTaskcomponent">
@@ -61,8 +61,8 @@ const IconDates = (props: IconDatesProps) => {
 			startDateValue={startDateValue}
 			disabledEndDate={disabledEndDate}
 			disabledStartDate={disabledStartDate}
-			onChangeEndDate={onChangeEndDate}
-			onChangeStartDate={onChangeStartDate}
+			onCh_endDate={onCh_endDate}
+			onCh_startDate={onCh_startDate}
 		/>
 	);
 };

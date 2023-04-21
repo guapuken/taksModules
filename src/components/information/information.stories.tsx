@@ -1,8 +1,11 @@
-import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import Information, { InformationProps } from './information';
+// utilidades de storybook
+import { Meta, Story } from '@storybook/react';
+import { color, number, object, selects, text } from '../../storyUtils';
+import Information from './information';
+import { information } from './types';
 
-const Template: Story<InformationProps> = (args) => <Information {...args} />;
+const Template: Story<information> = (args) => <Information {...args} />;
 
 //estado inicial del component
 export const InitialState = Template.bind({});
@@ -22,48 +25,25 @@ WithProperties.args = {
 export default {
 	title: 'Átomos/information',
 	component: Information,
+	// definición de argumentos
 	argTypes: {
-		width: {
-			type: 'number',
-		},
-		height: {
-			type: 'number',
-		},
-		info: {
-			type: 'string',
-		},
-		positionInfo: {
-			control: {
-				options: [
-					'left',
-					'right',
-					'top',
-					'bottom',
-					'left_top',
-					'left_bottom',
-					'right_top',
-					'right_bottom',
-					'center',
-				],
-				type: 'select',
-			},
-		},
-		color: {
-			control: { type: 'color' },
-		},
-		iconInfo: {
-			control: {
-				options: ['!', '?'],
-				type: 'text',
-			},
-		},
-		style: {
-			control: {
-				type: 'object',
-			},
-		},
-		className: {
-			type: 'string',
-		},
+		width: number(),
+		height: number(),
+		info: text(),
+		positionInfo: selects([
+			'left',
+			'right',
+			'top',
+			'bottom',
+			'left_top',
+			'left_bottom',
+			'right_top',
+			'right_bottom',
+			'center',
+		]),
+		color: color(),
+		iconInfo: selects(['!', '?']),
+		style: object(),
+		className: text(),
 	},
 } as Meta;

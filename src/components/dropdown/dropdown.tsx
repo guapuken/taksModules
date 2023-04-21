@@ -93,8 +93,8 @@ const Dropdown = (props: dropdown) => {
 		e.stopPropagation();
 		const newValue = removeOption(option);
 		setSelectedValue(newValue ? newValue : null);
-		if (datos.onChange) {
-			datos.onChange(newValue ? newValue : null);
+		if (datos.onCh) {
+			datos.onCh(newValue ? newValue : null);
 		}
 	};
 
@@ -109,10 +109,10 @@ const Dropdown = (props: dropdown) => {
 		} else {
 			newValue = option;
 		}
-		setSelectedValue(newValue);
-		if (datos.onChange) {
-			datos.onChange(newValue);
+		if (datos.onCh) {
+			datos.onCh(newValue);
 		}
+		setSelectedValue(newValue);
 	};
 
 	const isSelected = (option: any) => {
@@ -128,10 +128,10 @@ const Dropdown = (props: dropdown) => {
 	};
 
 	const onSearch = (e: any) => {
-		setSearchValue(e.target.value);
-		if (datos.onChange) {
-			datos.onChange(e);
+		if (datos.onCh) {
+			datos.onCh(e);
 		}
+		setSearchValue(e.target.value);
 	};
 
 	const getOptions = () => {

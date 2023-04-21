@@ -19,7 +19,7 @@ const Content = (props: content) => {
 			<InputLabel
 				id={datos.idProject}
 				legend="Nombre del proyecto"
-				onChange={datos.onChangeName}
+				onCh={datos.onCh_nameProject}
 				style={{ marginBottom: '10px' }}
 				initialValue={datos.projectNameValue}
 			/>
@@ -29,7 +29,7 @@ const Content = (props: content) => {
 				style={{ opacity: '.5' }}
 			/>
 			<Dropdown
-				onChange={datos.onChangeAsignTeam as onChangeType}
+				onCh={datos.onCh_asignTeam as onChangeType}
 				options={datos.teamOptions}
 				placeHolder="Asignar proyecto a un equipo"
 				isSearchable
@@ -38,7 +38,7 @@ const Content = (props: content) => {
 				initialValue={datos.initialTeamValue}
 			/>
 			<div style={{ display: 'flex', alignItems: 'baseline' }}>
-				<AddTask legend="+ Añadir tarea" onClick={datos.onClickAddTask} />
+				<AddTask legend="+ Añadir tarea" onClick={datos.onCl_addTask} />
 				<IconDropdown
 					modo={modo}
 					legend="Cargar plantilla"
@@ -48,7 +48,7 @@ const Content = (props: content) => {
 					}}
 					options={optionsPlantillas({
 						templateOptions: datos.templateOptions,
-						onClickCreateTemplate: datos.onClickCreateTemplate,
+						onCl_newTemplate: datos.onCl_newTemplate,
 					})}
 				/>
 			</div>
@@ -68,15 +68,15 @@ const Content = (props: content) => {
 								check={e.check}
 								valueTask={e.valueTask}
 								valueDescription={e.valueDescription}
-								onChangeNameTask={e.onChangeNameTask}
-								onChangeDescriptionTask={e.onChangeDescriptionTask}
+								onCh_nameTask={e.onCh_nameTask}
+								onCh_descriptionTask={e.onCh_descriptionTask}
 								idCheckbox={e.idTask}
-								chCheck={e.chCheck}
+								onCh_checkbox={e.onCh_checkbox}
 								//
 								disabledEndDate={e.disabledEndDate}
 								disabledStartDate={e.disabledStartDate}
-								onChangeEndDate={e.onChangeEndDate}
-								onChangeStartDate={e.onChangeStartDate}
+								onCh_endDate={e.onCh_endDate}
+								onCh_startDate={e.onCh_startDate}
 								startDateValue={e.startDateValue}
 								endDateValue={e.endDateValue}
 								//
@@ -87,14 +87,14 @@ const Content = (props: content) => {
 								valueRevision={e.valueRevision}
 								//
 								prioridadInicial={e.prioridadInicial}
-								onClickPrioridad={e.onClickPrioridad}
+								onCl_selectPriority={e.onCl_selectPriority}
 								//
 								moreOptions={
 									e.moreOptions ?? [
 										{
 											id: 'deleteTask',
 											title: 'Eliminar',
-											onClick: e.onClikEliminar,
+											onClick: e.onCl_delete,
 										},
 									]
 								}
@@ -102,8 +102,8 @@ const Content = (props: content) => {
 								subtaskForbbiden={e.subtaskForbbiden}
 								subtasks={e.subtasks}
 								//
-								onClickCreateTemplate={e.onClickCreateTemplate}
-								onClickAddTask={e.onClickAddTask}
+								onCl_newTemplate={e.onCl_newTemplate}
+								onCl_addTask={e.onCl_addTask}
 								templateOptions={e.templateOptions}
 								modo={modo}
 							/>

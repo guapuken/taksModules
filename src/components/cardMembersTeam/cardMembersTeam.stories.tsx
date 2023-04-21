@@ -1,11 +1,13 @@
 import React from 'react';
 //importación de elementos del storybook a usar
 import { Meta, Story } from '@storybook/react';
+import { number, text } from '../../storyUtils';
 
 //importación del componente principal
-import CardMembersTeam, { CardMembersTeamProps } from './cardMembersTeam';
+import CardMembersTeam from './cardMembersTeam';
+import { cardMembersTeam } from './types';
 
-const Template: Story<CardMembersTeamProps> = (args) => <CardMembersTeam {...args} />;
+const Template: Story<cardMembersTeam> = (args) => <CardMembersTeam {...args} />;
 
 //estado inicial del componente
 export const InitialState = Template.bind({});
@@ -25,5 +27,9 @@ export default {
 	title: 'Cards/members team',
 	component: CardMembersTeam,
 	//definición de argumentos
-	argTypes: {},
+	argTypes: {
+		name: text(),
+		role: text(),
+		incompletedTasks: number(),
+	},
 } as Meta;

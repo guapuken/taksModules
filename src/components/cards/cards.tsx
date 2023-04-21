@@ -1,22 +1,11 @@
 import React from 'react';
 //importación de types comunes
-import { Modo } from '../../types';
+import { cardIntrfc } from './types';
 // importaciónde componentes de error
 import ErrorNC from './files/errorNoContent';
 // importación de estilos
 import './cards.scss';
 
-//definición de interfaces
-export interface cardIntrfc {
-	// tema de visualización
-	modo?: Modo;
-	//componentes
-	Content?: any;
-	Aside?: any;
-	data?: any;
-	// booleanos
-	rounded?: boolean;
-}
 // creación del componente principal
 const Cards = (props: cardIntrfc) => {
 	//desestructuración de propiedades

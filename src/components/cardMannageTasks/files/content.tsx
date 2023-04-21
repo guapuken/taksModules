@@ -4,14 +4,13 @@ import { content } from '../types';
 import ProgressBar from '../../progressBar/progressBar';
 import { cardW } from '../../../utils/functions/functions';
 
-export const Content = (props: content) => {
-	const {
-		modo = 'Light',
-		title = 'Nombre de la tarea',
-		statusTask,
-		percentTask,
-		tasks = 0,
-	} = props;
+export const Content = ({
+	modo = 'Light',
+	title = 'Nombre de la tarea',
+	statusTask,
+	percentTask,
+	pendingTasks = 0,
+}: content) => {
 	return (
 		<CardContainer style={{ display: 'grid', placeItems: 'center' }}>
 			<div>
@@ -20,7 +19,7 @@ export const Content = (props: content) => {
 					<Spans
 						modo={modo}
 						legend={`subtareas pendientes`}
-						boldLegend={tasks}
+						boldLegend={pendingTasks}
 						style={{ color: '#00000075' }}
 					/>
 				</div>

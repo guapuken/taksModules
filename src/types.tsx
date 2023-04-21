@@ -54,18 +54,18 @@ export interface tasks {
 	valueTask?: string;
 	valueDescription?: string;
 	onClickCheck?: onClickType;
-	onChangeNameTask?: onBlurType;
-	onChangeDescriptionTask?: onBlurType;
+	onCh_nameTask?: onBlurType;
+	onCh_descriptionTask?: onBlurType;
 	idCheckbox?: string;
-	chCheck?: onChangeType;
+	onCh_checkbox?: onChangeType;
 
 	//Icon Dates
 	plantillas?: boolean;
-	onChangeDuration?: onChangeType;
+	onCh_duration?: onChangeType;
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
-	onChangeEndDate?: onChangeType;
-	onChangeStartDate?: onChangeType;
+	onCh_endDate?: onChangeType;
+	onCh_startDate?: onChangeType;
 	startDateValue?: Date;
 	endDateValue?: Date;
 	className?: string;
@@ -80,20 +80,20 @@ export interface tasks {
 
 	//Icon Priority
 	prioridadInicial?: prioritys;
-	onClickPrioridad?: onClickType;
+	onCl_selectPriority?: onClickType;
 
 	//Icon MoreOptions
 	moreOptions?: optionsIcnDrp[];
-	onClickEliminar?: onClickType;
-	onClickRecordatorio?: onClickType;
+	onCl_delete?: onClickType;
+	onCl_reminder?: onClickType;
 
 	//addTask
 	subtaskForbbiden?: boolean;
 	subtasks?: subtasksProps[];
 
 	//botones agregar
-	onClickCreateTemplate: onClickType;
-	onClickAddTask?: onClickType;
+	onCl_newTemplate: onClickType;
+	onCl_addTask?: onClickType;
 	templateOptions: optionsIcnDrp[];
 	modo?: Modo;
 }
@@ -105,13 +105,13 @@ export interface tasksTemplates {
 	valueTask?: string;
 	valueDescription?: string;
 
-	onChangeNameTask?: onBlurType;
-	onChangeDescriptionTask?: onBlurType;
+	onCh_nameTask?: onBlurType;
+	onCh_descriptionTask?: onBlurType;
 
 	//Icon Dates
 	className?: string;
 	durationValue?: string;
-	onChangeDuration?: onChangeType;
+	onCh_duration?: onChangeType;
 
 	//Icon Asign
 	responsables: submenusArray[];
@@ -122,7 +122,7 @@ export interface tasksTemplates {
 
 	//Icon MoreOptions
 	moreOptions?: optionsIcnDrp[];
-	onClickDeleteTask?: onClickType;
+	onCl_delete?: onClickType;
 	plantillas?: boolean;
 
 	//addTask
@@ -130,8 +130,8 @@ export interface tasksTemplates {
 	subtasks?: subtaskTemplates[];
 
 	//botones agregar
-	onClickCreateTemplate: onClickType;
-	onClickAddTask?: onClickType;
+	onCl_newTemplate: onClickType;
+	onCl_addTask?: onClickType;
 	templateOptions: optionsIcnDrp[];
 	modo?: Modo;
 }
@@ -144,15 +144,16 @@ export type subtaskTemplates = {
 	check?: boolean;
 	valueTask?: string;
 	valueDescription?: string;
-	onChangeNameTask?: onBlurType;
-	onChangeDescriptionTask?: onBlurType;
-	onChangeCheckbox?: onChangeType;
+	onCh_nameTask?: onBlurType;
+	onCh_descriptionTask?: onBlurType;
+	onCh_checkbox?: onChangeType;
+	onCh_duration?: onChangeType;
 
 	//Icon Dates
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
-	onChangeEndDate?: onChangeType;
-	onChangeStartDate?: onChangeType;
+	onCh_endDate?: onChangeType;
+	onCh_startDate?: onChangeType;
 	startDateValue?: Date;
 	endDateValue?: Date;
 	plantillas?: boolean;
@@ -166,20 +167,20 @@ export type subtaskTemplates = {
 
 	//Icon Priority
 	prioridadInicial?: prioritys;
-	onClickPrioridad?: onClickType;
+	onCl_selectPriority?: onClickType;
 
 	//Icon MoreOptions
 	moreOptions?: optionsIcnDrp[];
-	onClickEliminar?: onClickType;
-	onClickRecordatorio?: onClickType;
+	onCl_delete?: onClickType;
+	onCl_reminder?: onClickType;
 
 	//addTask
 	subtaskForbbiden?: boolean;
 	subtasks?: subtasksProps[];
 
 	//botones agregar
-	onClickCreateTemplate: onClickType;
-	onClickAddTask?: onClickType;
+	onCl_newTemplate: onClickType;
+	onCl_addTask?: onClickType;
 	templateOptions: optionsIcnDrp[];
 	modo?: Modo;
 };
@@ -191,17 +192,18 @@ export type subtasksProps = {
 	check?: boolean;
 	valueTask?: string;
 	valueDescription?: string;
-	onChangeNameTask?: onBlurType;
-	onChangeDescriptionTask?: onBlurType;
-	onChangeCheckbox?: onChangeType;
+	onCh_nameTask?: onBlurType;
+	onCh_descriptionTask?: onBlurType;
+	onCh_checkbox?: onChangeType;
 
 	//Icon Dates
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
-	onChangeEndDate?: onChangeType;
-	onChangeStartDate?: onChangeType;
+	onCh_endDate?: onChangeType;
+	onCh_startDate?: onChangeType;
 	startDateValue?: Date;
 	endDateValue?: Date;
+	onCh_duration?: onChangeType;
 
 	//Icon Asign
 	responsables: submenusArray[];
@@ -212,20 +214,20 @@ export type subtasksProps = {
 
 	//Icon Priority
 	prioridadInicial?: prioritys;
-	onClickPrioridad?: onClickType;
+	onCl_selectPriority?: onClickType;
 
 	//Icon MoreOptions
 	moreOptions?: optionsIcnDrp[];
-	onClickEliminar?: onClickType;
-	onClickRecordatorio?: onClickType;
+	onCl_delete?: onClickType;
+	onCl_reminder?: onClickType;
 
 	//addTask
 	subtaskForbbiden?: boolean;
 	subtasks?: subtasksProps[];
 
 	//botones agregar
-	onClickCreateTemplate: onClickType;
-	onClickAddTask?: onClickType;
+	onCl_newTemplate: onClickType;
+	onCl_addTask?: onClickType;
 	templateOptions: optionsIcnDrp[];
 	modo?: Modo;
 };

@@ -5,7 +5,7 @@ import Button from '../../button';
 import { functions } from '../types';
 
 const CommentTask = (props: functions) => {
-	const { onClickAddComent, onChangeAddFile } = props;
+	const { onCl_addComent, onCh_addFile } = props;
 	return (
 		<div className="ctnBlockComents_TWCC">
 			<fieldset style={{}}>
@@ -16,8 +16,8 @@ const CommentTask = (props: functions) => {
 					type="file"
 					id="file"
 					onChange={(e) => {
-						if (onChangeAddFile) {
-							onChangeAddFile(e);
+						if (onCh_addFile) {
+							onCh_addFile(e);
 						}
 					}}
 				/>
@@ -27,7 +27,7 @@ const CommentTask = (props: functions) => {
 				<Button
 					primary
 					legend="Agregar comentario"
-					onCl_button={onClickAddComent}
+					onCl={onCl_addComent}
 					style={{ height: '20px' }}
 				/>
 			</div>

@@ -10,7 +10,6 @@ import TaskItem from './taskItem';
 import SortableTaskItem from './sortableItem';
 import '../dragAndDrop.scss';
 import bell from '../../../img/bell.svg';
-import NoCard from './noCard';
 
 const BoardSection = (props: boards) => {
 	const datos = { ...props };

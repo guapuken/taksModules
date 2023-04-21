@@ -18,15 +18,66 @@ function DemoComponent() {
 				idTask: '1',
 				equipos: [],
 				// moreOptions: [],
-				onClickNewTemplate: () => {},
+				onCl_newTemplate: () => alert('nueva palntilla'),
+				onCl_addTask: () => alert('nueva palntilla'),
 				responsables: [],
 				revision: [],
 				templateOptions: [],
-				onClickDelete: () => alert('Hola'),
-				onChangeTaskName: (e) => console.log(e.target.value),
-				onChangeTaskDescription: (e) => console.log(e.target.value),
-				taskCheckValue: checkValue,
-				chCheck: (e) => setCheckValue(!checkValue),
+				onCl_delete: () => alert('Hola'),
+				onCh_nameTask: (e) => console.log(e.target.value),
+				onCh_descriptionTask: (e) => console.log(e.target.value),
+				check: checkValue,
+				onCh_checkbox: (e) => setCheckValue(!checkValue),
+				subtasks: [
+					{
+						equipos: [],
+						idTask: '1',
+						onCl_newTemplate: () => {},
+						responsables: [],
+						revision: [],
+						templateOptions: [],
+						subtasks: [
+							{
+								equipos: [],
+								idTask: '1',
+								onCl_newTemplate: () => {},
+								responsables: [],
+								revision: [],
+								templateOptions: [],
+								subtasks: [
+									{
+										equipos: [],
+										idTask: '1',
+										onCl_newTemplate: () => {},
+										responsables: [],
+										revision: [],
+										templateOptions: [],
+										subtasks: [
+											{
+												equipos: [],
+												idTask: '1',
+												onCl_newTemplate: () => {},
+												responsables: [],
+												revision: [],
+												templateOptions: [],
+												subtasks: [
+													{
+														equipos: [],
+														idTask: '1',
+														onCl_newTemplate: () => {},
+														responsables: [],
+														revision: [],
+														templateOptions: [],
+													},
+												],
+											},
+										],
+									},
+								],
+							},
+						],
+					},
+				],
 			}}
 			footer={{}}
 		/>

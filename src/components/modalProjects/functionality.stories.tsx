@@ -94,19 +94,19 @@ function DemoComponent() {
 				},
 			]}
 			teamOptions={equiposD}
-			onChangeAsignTeam={(e) => console.log('team asign: ', e)}
+			onCh_asignTeam={(e) => console.log('team asign: ', e)}
 			projectNameValue={projectName}
 			// button clicks
-			onClickAddTask={() => alert('Tarea nueva')}
-			onClickCreateTemplate={() => alert('Crear plantilla')}
-			onClickCreate={() => alert('Hola')}
-			onClickAbort={() => alert('Adios')}
+			onCl_addTask={() => alert('Tarea nueva')}
+			onCl_newTemplate={() => alert('Crear plantilla')}
+			onCl_confirm={() => alert('Hola')}
+			onCl_abort={() => alert('Adios')}
 			idProject={idProject}
 			// por probar
 			subtasks={[
 				{
 					idTask: idTask,
-					valueTask: nameTask,
+					valueTask: 'Hola que hace',
 					valueDescription: descriptionTask,
 					onChangeNameTask: (e) => {
 						console.log('id de tarea: ', e.target.id);
@@ -132,14 +132,14 @@ function DemoComponent() {
 					equipos: equipos,
 					valueResponsable: responsable.name,
 					valueRevision: revision.name,
-					onClickCreateTemplate: () => alert('crear plantilla'),
+					onCl_newTemplate: () => alert('crear plantilla'),
 					templateOptions: [
 						{
 							id: '1',
 							title: 'Espectaculares',
 						},
 					],
-					onClickEliminar: () => alert('Hola'),
+					onClikEliminar: () => alert('Hola'),
 					subtasks: [
 						{
 							idTask: '27',
@@ -160,7 +160,7 @@ function DemoComponent() {
 							equipos: equipos,
 							valueResponsable: responsable.name,
 							valueRevision: revision.name,
-							onClickCreateTemplate: () => alert('crear plantilla'),
+							onCl_newTemplate: () => alert('crear plantilla'),
 							templateOptions: [
 								{
 									id: '1',
@@ -188,7 +188,7 @@ function DemoComponent() {
 									equipos: equipos,
 									valueResponsable: responsable.name,
 									valueRevision: revision.name,
-									onClickCreateTemplate: () => alert('crear plantilla'),
+									onCl_newTemplate: () => alert('crear plantilla'),
 									templateOptions: [
 										{
 											id: '1',
@@ -217,7 +217,7 @@ function DemoComponent() {
 							equipos: equipos,
 							valueResponsable: responsable.name,
 							valueRevision: revision.name,
-							onClickCreateTemplate: () => alert('crear plantilla'),
+							onCl_newTemplate: () => alert('crear plantilla'),
 							templateOptions: [
 								{
 									id: '1',
@@ -246,7 +246,7 @@ function DemoComponent() {
 					equipos: equipos,
 					valueResponsable: responsable.name,
 					valueRevision: revision.name,
-					onClickCreateTemplate: () => alert('crear plantilla'),
+					onCl_newTemplate: () => alert('crear plantilla'),
 					templateOptions: [
 						{
 							id: '1',
@@ -273,7 +273,7 @@ function DemoComponent() {
 					equipos: equipos,
 					valueResponsable: responsable.name,
 					valueRevision: revision.name,
-					onClickCreateTemplate: () => alert('crear plantilla'),
+					onCl_newTemplate: () => alert('crear plantilla'),
 					templateOptions: [
 						{
 							id: '1',

@@ -16,17 +16,19 @@ export interface tasksProps {
 
 export type content = {
 	idTask: string;
-	taskCheckValue?: boolean;
-	onCheck?: onChangeType;
+	check?: boolean;
+	onCh_checkbox?: onChangeType;
 	equipos: submenusArray[];
-	substasks?: subtasksProps[];
-	onChangeTaskDescription?: onBlurType;
-	onChangeTaskName?: onBlurType;
-	onClickAddTask?: onClickType;
-	onClickNewTemplate: onClickType;
-	onClickPriority?: onClickType;
-	onClickDelete?: onClickType;
-	onClickReminder?: onClickType;
+	subtasks?: subtasksProps[];
+
+	onCheck?: onChangeType;
+	onCh_descriptionTask?: onBlurType;
+	onCh_nameTask?: onBlurType;
+	onCl_addTask?: onClickType;
+	onCl_newTemplate: onClickType;
+	onCl_selectPriority?: onClickType;
+	onCl_delete?: onClickType;
+	onCl_reminder?: onClickType;
 	priorityValue?: prioritys;
 	revision: submenusArray[];
 	valueRevision?: string;
@@ -41,14 +43,13 @@ export type content = {
 	valueDescription?: string;
 	valueResponsable?: string;
 	subtaskForbbiden?: boolean;
-	chCheck?: onChangeType;
-	onChangeStartDate?: onChangeType;
-	onChangeEndDate?: onChangeType;
+	onCh_startDate?: onChangeType;
+	onCh_endDate?: onChangeType;
 	templateOptions: optionsIcnDrp[];
 	moreOptions?: optionsIcnDrp[];
 	className?: string;
 };
 export type footer = {
-	onClickCreate?: onClickType;
-	onClickAbort?: onClickType;
+	onCl_confirm?: onClickType;
+	onCl_abort?: onClickType;
 };

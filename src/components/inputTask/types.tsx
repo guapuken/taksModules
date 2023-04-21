@@ -1,10 +1,10 @@
 // types
-import { Modo, css, onBlurType, onChangeType, onClickType } from '../../types';
+import { Modo, css, onBlurType, onChangeType } from '../../types';
 
 export interface inputTasks {
-	onChangeNameTask?: onBlurType;
-	chCheck?: onChangeType;
-	onChangeDescriptionTask?: onBlurType;
+	onCh_nameTask?: onBlurType;
+	onCh_checkbox?: onChangeType;
+	onCh_descriptionTask?: onBlurType;
 	disabled?: boolean;
 	principalTask?: boolean;
 	isSubtask?: boolean;

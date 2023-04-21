@@ -1,57 +1,49 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import CardTask, { CardTaskProps } from './cardTask';
+import CardTask from './cardTask';
+import { cardTask } from './types';
+import { boolean, functions, modo, number, statusTasks, text } from '../../storyUtils';
 
-const Template: Story<CardTaskProps> = (args) => <CardTask {...args} />;
+const Template: Story<cardTask> = (args) => <CardTask {...args} />;
 
 export const initialState = Template.bind({});
 initialState.args = {};
 
 export const withProperties = Template.bind({});
 withProperties.args = {
-	status: 'outOfTime',
-	followNotificationsValue: true,
-	onClickShowDetails: () => alert('ver detalles'),
-	onChangeNotificationSwitch: () => {},
-	onClickFollow: () => alert('hola'),
+	onCl_edit: () => alert('Editar'),
+	onCl_reminder: () => alert('Recordatorio'),
+	onCl_follow: () => alert('seguir'),
+	onCl_reasignDate: () => alert('reasignar fecha'),
+	onCl_asignTask: () => alert('asignar tarea'),
+	follow: true,
 	taskName: 'Dummies campaña 1526-UberEats-Sitios-Noviembre-Urbanos',
 	taskDescription: 'Realizar os dummies de la plaza de Ciudad de méxico y Aguascalientes Sun sun',
-	subtasks: 2,
-	valueResponsable: 'Creative',
-	valueRevision: 'Kaori Soto',
-	responsables: [
-		{
-			title: 'Graciela Villa',
-			onClick: () => alert('Graciela Villa'),
-		},
-		{
-			title: 'Luis Lara',
-			onClick: () => alert('Luis Lara'),
-		},
-		{
-			title: 'Eder Valencia',
-			onClick: () => alert('Eder Valencia'),
-		},
-	],
-	// equipos: [{ title: 'Creative' }],
-	revision: [
-		{
-			title: 'Kaori Soto',
-			onClick: () => alert('Kaori Soto'),
-		},
-		{
-			title: 'Adrian Romero',
-			onClick: () => alert('Adrian Romero'),
-		},
-		{
-			title: 'Juan Carlos',
-			onClick: () => alert('Juan Carlos'),
-		},
-	],
-	percentTask: 10,
-	// modo: 'Dark',
+	statusTask: 'outOfTime',
+	percentTask: 20,
+	onCl_showDetails: () => alert('ver detalles'),
+	subtasks: 15,
+	modo: 'Light',
+	idTask: '1',
 };
 export default {
 	title: 'Cards/task',
 	component: CardTask,
+	// definición de argumentos
+	argTypes: {
+		onCl_edit: functions(),
+		onCl_reminder: functions(),
+		onCl_follow: functions(),
+		onCl_reasignDate: functions(),
+		onCl_asignTask: functions(),
+		follow: boolean(),
+		taskName: text(),
+		taskDescription: text(),
+		statusTask: statusTasks(),
+		percentTask: number(),
+		onCl_showDetails: functions(),
+		subtasks: number(),
+		modo: modo(),
+		idTask: text(),
+	},
 } as Meta;

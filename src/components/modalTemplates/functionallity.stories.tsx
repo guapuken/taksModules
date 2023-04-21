@@ -14,44 +14,50 @@ function DemoComponent() {
 					valueTask: 'Bloqueos',
 					valueDescription: 'Realizar los bloqueos de los siguientes sitios',
 
-					onChangeNameTask: (e) => console.log(e.target.value),
-					onChangeDescriptionTask: (e) => console.log(e.target.value),
+					onCh_nameTask: (e) => console.log(e.target.value),
+					onCh_descriptionTask: (e) => console.log(e.target.value),
 
 					equipos: [],
 					templateOptions: [],
-					onClickCreateTemplate: () => {},
+					onCl_newTemplate: () => {},
 					responsables: [],
 					revision: [],
-					onChangeDuration: (e) => console.log(e.target.value),
+					onCh_duration: (e) => console.log(e.target.value),
 					subtasks: [
 						{
 							idTask: '1',
 							equipos: [],
-							onClickCreateTemplate: () => {},
+							onCl_newTemplate: () => {},
 							responsables: [],
 							revision: [],
 							templateOptions: [],
+							onCh_duration: (e) => console.log(e.target.value),
 						},
 						{
 							idTask: '1',
 							equipos: [],
-							onClickCreateTemplate: () => {},
+							onCl_newTemplate: () => {},
 							responsables: [],
 							revision: [],
 							templateOptions: [],
+							onCh_duration: (e) => console.log(e.target.value),
+
 							subtasks: [
 								{
 									idTask: '1',
 									equipos: [],
-									onClickCreateTemplate: () => {},
+									onCl_newTemplate: () => {},
 									responsables: [],
 									revision: [],
 									templateOptions: [],
+									onCh_duration: (e) => console.log(e.target.value),
 								},
 								{
 									idTask: '1',
 									equipos: [],
-									onClickCreateTemplate: () => {},
+									onCl_newTemplate: () => {},
+									onCh_duration: (e) => console.log(e.target.value),
+
 									responsables: [],
 									revision: [],
 									templateOptions: [],

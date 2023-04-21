@@ -1,12 +1,11 @@
 import React from 'react';
 // utilidades del storybook
 import { Meta, Story } from '@storybook/react';
+import { functions, boolean, text, object, modo } from '../../storyUtils';
 // componente principal
 import InputTask from './inputTask';
 // types
 import { inputTasks } from './types';
-// utilidades de controles del storybook
-import { boolean, text } from '../../storyUtils';
 
 const Template: Story<inputTasks> = (args) => <InputTask {...args} />;
 
@@ -27,10 +26,23 @@ WithProperties.args = {
 export default {
 	title: 'Átomos/input task',
 	component: InputTask,
+	// definición de argumentos
 	argTypes: {
-		id: text(),
+		onCh_nameTask: functions(),
+		onCh_checkbox: functions(),
+		onCh_descriptionTask: functions(),
 		disabled: boolean(),
-		tarea: boolean(),
-		subtarea: boolean(),
+		principalTask: boolean(),
+		isSubtask: boolean(),
+		checked: boolean(),
+		check: boolean(),
+		showTask: boolean(),
+		valueTask: text(),
+		valueDescription: text(),
+		idCheckbox: text(),
+		data: object(),
+		style: object(),
+		modo: modo(),
+		id: text(),
 	},
 } as Meta;

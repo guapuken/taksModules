@@ -18,10 +18,10 @@ import { Modo } from '../../types';
  * @param {any} props.AsideContent - recibe componente o cualquier elemento
  * @param {any} props.FooterContent - recibe componentes o cualquier elemento
  * @param {header} props.header - recibe un objecto con 3 propiedades que son:
-		mduleName
-		legendBtnModule
-		onClickBtnModule
- * @param {onClicks} props.onClick - recibe un obejeto de funciones que son:
+		legend
+		legendBtn
+		onCl_btn
+ * @param {onClicks} props.onCl_menus - recibe un obejeto de funciones que son:
 		createTask
 		createTemplate
 		createTeam
@@ -45,18 +45,18 @@ const Container = (props: container) => {
 	return (
 		<div className={css.ctn} style={datos.style}>
 			<div className={css.menu}>
-				<Menu modo={datos.modo} onClick={datos.onClick} />
+				<Menu modo={datos.modo} onClick={datos.onCl_menus} />
 			</div>
 			{datos.AsideContent && <div className={css.asideCtn}>{datos.AsideContent}</div>}
 			<div className={datos.AsideContent ? css.ctnChildren_FtrAsd : css.ctnChildren_Ftr}>
 				{datos.header && (
 					<div className={css.header} style={datos.headerStyle}>
-						<h2 style={{ marginRight: '10px' }}>{datos.header.moduleName}</h2>
-						{datos.header.legendBtnModule && datos.header.onClickBtnModule && (
+						<h2 style={{ marginRight: '10px' }}>{datos.header.legend}</h2>
+						{datos.header.legendBtn && datos.header.onCl_btn && (
 							<Button
-								legend={datos.header.legendBtnModule}
+								legend={datos.header.legendBtn}
 								primary
-								onCl_button={datos.header.onClickBtnModule}
+								onCl={datos.header.onCl_btn}
 							/>
 						)}
 					</div>

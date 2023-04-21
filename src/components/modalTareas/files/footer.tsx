@@ -10,7 +10,7 @@ const Footer = (props: footer) => {
 			<Buttons
 				buttons={{ primary: true, secondary: true }}
 				legends={{ primary: 'Crear tarea', secondary: 'Cancelar' }}
-				onCl_buttons={{ primary: datos.onClickCreate, secondary: datos.onClickAbort }}
+				onCl_buttons={{ primary: datos.onCl_confirm, secondary: datos.onCl_abort }}
 			/>
 		</div>
 	);

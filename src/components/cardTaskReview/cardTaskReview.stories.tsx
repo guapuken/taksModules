@@ -1,8 +1,12 @@
 import React from 'react';
+// utilidades para el storybook
 import { Meta, Story } from '@storybook/react';
-import CardTaskReview, { CardTaskReviewProps } from './cardTaskReview';
+import { functions, modo, statusTasks, text } from '../../storyUtils';
+// componente principal
+import CardTaskReview from './cardTaskReview';
+import { cardTaskReview } from './types';
 
-const Template: Story<CardTaskReviewProps> = (args) => <CardTaskReview {...args} />;
+const Template: Story<cardTaskReview> = (args) => <CardTaskReview {...args} />;
 
 //estado inicial del componente
 export const intialState = Template.bind({});
@@ -20,4 +24,12 @@ withProperties.args = {
 export default {
 	title: 'Cards/task review',
 	component: CardTaskReview,
+	// definición de argumentos
+	argTypes: {
+		statusTask: statusTasks(),
+		onCl_showDetails: functions(),
+		modo: modo(),
+		taskName: text(),
+		taskDescription: text(),
+	},
 } as Meta;

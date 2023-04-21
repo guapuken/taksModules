@@ -1,11 +1,15 @@
 import React from 'react';
 import { Button, Buttons, Dropdown } from '../../../components';
-import { onChangeType } from '../../../types';
 import { functions } from '../types';
 
 const Footer = (props: functions) => {
-	const { onClickReWork, onChangeDrop, onClickApprove, onClickConfirm } = props;
+	const { onCl_reWork, onCh_dropdown, onCl_approve, onCl_confirm, reasonToRework } = props;
 	const [reWork, setReWork] = React.useState(false);
+	const [reasonToWorkAgain, setReasonToWorkAgain] = React.useState(reasonToRework);
+	React.useEffect(() => {
+		console.log('cambio rework:');
+		console.log('reasonToWorkAgain: ', reasonToWorkAgain);
+	}, [reWork]);
 	return (
 		<div
 			style={{
@@ -30,9 +34,9 @@ const Footer = (props: functions) => {
 						legend={'Volver a trabajar tarea'}
 						style={{ width: '100%', height: '20px' }}
 						secondary
-						onCl_button={() => {
-							setReWork(!reWork);
-							onClickReWork;
+						onCl={() => {
+							setReWork(true);
+							onCl_reWork;
 						}}
 					/>
 				)}
@@ -48,14 +52,19 @@ const Footer = (props: functions) => {
 					>
 						<Dropdown
 							isSearchable
-							placeHolder="Ingresa la razón"
-							onChange={onChangeDrop as onChangeType}
+							placeHolder="Selecciona la razón"
+							onCh={(e) => {
+								if (onCh_dropdown) {
+									onCh_dropdown(e);
+								}
+							}}
 							options={[
 								{ title: 'Faltó corregir camiones', id: '1' },
 								{ title: 'Viene mal editada', id: '2' },
 								{ title: 'El proveedor cambio el sitio', id: '3' },
 								{ title: 'La prueba de color viene rayada', id: '4' },
 							]}
+							initialValue={reasonToWorkAgain}
 							topPosition
 							style={{ minWidth: '100%' }}
 						/>
@@ -64,8 +73,8 @@ const Footer = (props: functions) => {
 							buttons={{ primary: true, secondary: true }}
 							legends={{ primary: 'Confirmar', secondary: 'Cancelar' }}
 							onCl_buttons={{
-								primary: onClickConfirm,
-								secondary: () => setReWork(!reWork),
+								primary: onCl_confirm,
+								secondary: () => setReWork(false),
 							}}
 						/>
 					</div>
@@ -76,7 +85,7 @@ const Footer = (props: functions) => {
 					legend={'Aprobar tarea'}
 					style={{ width: '100%', height: '20px' }}
 					primary
-					onCl_button={onClickApprove}
+					onCl={onCl_approve}
 				/>
 			)}
 		</div>
