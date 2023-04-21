@@ -8,7 +8,7 @@ import { Modo } from '../../../types';
 interface IconDatesProps {
 	plantillas?: boolean;
 	className?: string;
-	onChangeDias?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChangeDuration?: (e: React.FormEvent<HTMLInputElement>) => void;
 	onChangeEndDate?: (e: React.FormEvent<HTMLInputElement>) => void;
 	onChangeStartDate?: (e: React.FormEvent<HTMLInputElement>) => void;
 	endDateValue?: Date;
@@ -23,7 +23,7 @@ interface IconDatesProps {
 //Visualización de componente si la propiedad de plantillas es true
 const IconDates = (props: IconDatesProps) => {
 	const {
-		onChangeDias,
+		onChangeDuration,
 		plantillas,
 		className,
 		endDateValue,
@@ -43,7 +43,7 @@ const IconDates = (props: IconDatesProps) => {
 				style={{ width: '122px' }}
 				legend="Duración"
 				type="number"
-				onChange={onChangeDias ? onChangeDias : () => {}}
+				onChange={onChangeDuration}
 				initialValue={durationValue}
 			/>
 			<div className="IconInformationTaskcomponent">

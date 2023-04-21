@@ -16,7 +16,7 @@ import {
 } from '@dnd-kit/core';
 import { sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 //importación de componentes principales--------------------------------------------------------------------------------------------------
-import { TaskItem, BoardSection } from './files';
+import { TaskItem, BoardSection, NoCard } from './files';
 //Importación de elementos multimedia a usar------------------------------------------------------------------------------------------
 import { useWindowSize } from '../../utils/windowSize';
 import { BoardSections, dragAndDrop } from './types';
@@ -199,7 +199,13 @@ const DragAndDrop = (props: dragAndDrop) => {
 					);
 				})}
 				<DragOverlay dropAnimation={dropAnimation}>
-					{task ? <TaskItem data={task} Card={datos.Card} /> : null}
+					{task ? (
+						datos.Card ? (
+							<TaskItem data={task} Card={datos.Card} />
+						) : (
+							<NoCard taskName={task.taskName} />
+						)
+					) : null}
 				</DragOverlay>
 			</div>
 		</DndContext>

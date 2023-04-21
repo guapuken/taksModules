@@ -1,4 +1,4 @@
-import { Modo, onBlurType, onChangeType, onClickType } from '../../types';
+import { Modo, css, onBlurType, onChangeType, onClickType } from '../../types';
 
 export type clickButtons = {
 	onClickCreate?: onClickType;
@@ -24,6 +24,23 @@ export type membersValues = {
 	label?: string;
 };
 
+export type membersOptions = {
+	title: string;
+	id: string;
+};
+//members
+export type members = {
+	style?: css;
+	principal?: boolean;
+	memberValue?: membersOptions;
+	membersOptions?: membersOptions[];
+	role?: string;
+	onClickAddUser?: onClickType;
+	// Children
+	members?: members[];
+	onChangeUserSelected?: onChangeType;
+};
+
 // //INTERFACES
 export interface modalTeams {
 	onChangeTeamColor?: onBlurType;
@@ -38,5 +55,5 @@ export interface modalTeams {
 	membersOptions?: any;
 	onChangeUserSelected?: onBlurType;
 	role?: string;
-	Children?: any;
+	members?: members[];
 }

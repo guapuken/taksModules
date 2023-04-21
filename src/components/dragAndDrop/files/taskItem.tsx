@@ -1,5 +1,6 @@
 import React from 'react';
 import { taskItem } from '../types';
+import NoCard from './noCard';
 
 export const TaskItem = (props: taskItem) => {
 	const datos = { ...props };
@@ -8,9 +9,7 @@ export const TaskItem = (props: taskItem) => {
 			{datos.Card ? (
 				<datos.Card {...datos.data} />
 			) : (
-				<div className="CardTask">
-					<p>{datos.data.taskName}</p>
-				</div>
+				<NoCard taskName={datos.data.taskName} />
 			)}
 		</>
 	);

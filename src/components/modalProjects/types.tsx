@@ -1,4 +1,11 @@
-import { Modo, onChangeType, onClickType, optionsIcnDrp, subtasksProps } from '../../types';
+import {
+	Modo,
+	onChangeType,
+	onClickType,
+	optionsDropdown,
+	optionsIcnDrp,
+	subtasksProps,
+} from '../../types';
 
 // botones
 export type clickButtons = {
@@ -18,6 +25,9 @@ export interface ModalProjectsProps {
 	onClickCreateTemplate: onClickType;
 	modo?: Modo;
 	idProject: string;
+	onChangeAsignTeam?: onChangeType;
+	teamOptions: optionsDropdown[];
+	initialTeamValue?: optionsDropdown;
 }
 
 export type content = {
@@ -29,4 +39,7 @@ export type content = {
 	templateOptions: optionsIcnDrp[];
 	onClickCreateTemplate: onClickType;
 	subtasks?: subtasksProps[];
+	onChangeAsignTeam?: onChangeType;
+	teamOptions: optionsDropdown[];
+	initialTeamValue?: optionsDropdown;
 };

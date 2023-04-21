@@ -4,8 +4,8 @@ import { storiesOf } from '@storybook/react';
 
 type options = [
 	{
-		value: '';
-		label: '';
+		id: '';
+		title: '';
 	}
 ];
 // función para ver si funciona correctamente el onChange
@@ -19,38 +19,39 @@ function DemoComponent() {
 		<Dropdown
 			isMulti
 			onChange={(e) => setValue(e)}
+			isSearchable
 			options={[
 				{
-					label: 'Jorge',
-					value: '1',
+					title: 'Jorge',
+					id: '1',
 				},
 				{
-					label: 'Denisse',
-					value: '2',
+					title: 'Denisse',
+					id: '2',
 				},
 				{
-					label: 'Adan',
-					value: '3',
+					title: 'Adan',
+					id: '3',
 				},
 				{
-					label: 'Olaf',
-					value: '4',
+					title: 'Olaf',
+					id: '4',
 				},
 				{
-					label: 'Victor',
-					value: '5',
+					title: 'Victor',
+					id: '5',
 				},
 				{
-					label: 'Ivan',
-					value: '6',
+					title: 'Ivan',
+					id: '6',
 				},
 				{
-					label: 'Rene',
-					value: '7',
+					title: 'Rene',
+					id: '7',
 				},
 				{
-					label: 'Diego',
-					value: '8',
+					title: 'Diego',
+					id: '8',
 				},
 			]}
 			placeHolder="Selecciona el enccargado de la tarea"

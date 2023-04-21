@@ -3,9 +3,8 @@ import { Modo, css, onBlurType, onChangeType, onClickType } from '../../types';
 
 export interface inputTasks {
 	onChangeNameTask?: onBlurType;
-	onChange?: onChangeType;
+	chCheck?: onChangeType;
 	onChangeDescriptionTask?: onBlurType;
-	onClickCheck?: onClickType;
 	disabled?: boolean;
 	principalTask?: boolean;
 	isSubtask?: boolean;
@@ -14,7 +13,7 @@ export interface inputTasks {
 	showTask?: boolean;
 	valueTask?: string;
 	valueDescription?: string;
-	idCheckbox?: string;
+	idCheckbox: string;
 	data?: any;
 	style?: css;
 	modo?: Modo;

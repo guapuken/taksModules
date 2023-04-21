@@ -11,7 +11,7 @@ function DemoComponent() {
 	return (
 		<AutoresizeInput
 			id=""
-			onChange={(e) => setNameTask(e.target.value)}
+			onCh_resizeInpt={(e) => setNameTask(e.target.value)}
 			initialValue={nameTask}
 			modo="Light"
 			placeholder="Hola que hace"

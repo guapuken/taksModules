@@ -21,7 +21,7 @@ const SortableTaskItem = ({ children, id }: SortableTaskItemProps) => {
 
 	return (
 		<div ref={setNodeRef} style={{ position: 'relative', ...style }} {...attributes}>
-			<img className="icnDrag" {...listeners} style={{}} src={dragIcon} />
+			<img className="icnDrag" {...listeners} title="Arrastrar" src={dragIcon} />
 			{children}
 		</div>
 	);

@@ -51,22 +51,20 @@ const Task = (props: tasks) => {
 			<InputTask
 				id={datos.idTask}
 				modo={modo}
-				style={{ maxWidth: '100%' }}
 				principalTask={datos.principalTask}
 				showTask={datos.plantillas ? false : true}
 				disabled={
 					datos.taskDisabled ? datos.taskDisabled : datos.taskComplete ? true : false
 				}
-				onChange={datos.onChangeCheckbox}
+				chCheck={datos.chCheck}
 				checked={datos.taskComplete}
 				isSubtask={datos.isSubtask}
 				check={datos.check}
-				onClickCheck={datos.onClickCheck}
 				onChangeNameTask={datos.onChangeNameTask}
 				onChangeDescriptionTask={datos.onChangeDescriptionTask}
 				valueTask={datos.valueTask}
 				valueDescription={datos.valueDescription}
-				idCheckbox={datos.idCheckbox}
+				idCheckbox={datos.idTask}
 			/>
 			<div
 				className={'icnsCtn'}
@@ -77,10 +75,10 @@ const Task = (props: tasks) => {
 				<IconDates
 					idTask={datos.idTask}
 					modo={modo}
-					onChangeDias={datos.onChangeDias}
+					onChangeDuration={datos.onChangeDuration}
 					plantillas={datos.plantillas}
-					disabledEndDate={datos.disabledEndDate}
-					disabledStartDate={datos.disabledStartDate}
+					disabledEndDate={datos.check ? datos.check : datos.disabledEndDate}
+					disabledStartDate={datos.check ? datos.check : datos.disabledStartDate}
 					onChangeEndDate={datos.onChangeEndDate}
 					onChangeStartDate={datos.onChangeStartDate}
 					startDateValue={datos.startDateValue}
@@ -97,6 +95,7 @@ const Task = (props: tasks) => {
 					valueResponsable={datos.valueResponsable}
 					valueRevision={datos.valueRevision}
 					style={{ marginRight: '20px' }}
+					disabled={datos.check ? datos.check : false}
 				/>
 				{!datos.plantillas && (
 					<IconPriority
@@ -131,47 +130,99 @@ const Task = (props: tasks) => {
 			)}
 			{datos.subtasks && (
 				<div className={'ChildrenContainerTaskModules'}>
-					{datos.subtasks.map((e: tasks) => (
-						<div style={{ margin: '.5vh 0' }}>
-							<Task
-								idTask={e.idTask}
-								taskDisabled={e.taskDisabled}
-								taskComplete={e.taskComplete}
-								check={e.check}
-								valueTask={e.valueTask}
-								valueDescription={e.valueDescription}
-								onChangeNameTask={e.onChangeNameTask}
-								onChangeDescriptionTask={e.onChangeDescriptionTask}
-								idCheckbox={e.idTask}
-								onChangeCheckbox={e.onChangeCheckbox}
-								//
-								disabledEndDate={e.disabledEndDate}
-								disabledStartDate={e.disabledStartDate}
-								onChangeEndDate={e.onChangeEndDate}
-								onChangeStartDate={e.onChangeStartDate}
-								startDateValue={e.startDateValue}
-								endDateValue={e.endDateValue}
-								//
-								responsables={e.responsables}
-								equipos={e.equipos}
-								revision={e.revision}
-								valueResponsable={e.valueResponsable}
-								valueRevision={e.valueRevision}
-								//
-								prioridadInicial={e.prioridadInicial}
-								onClickPrioridad={e.onClickPrioridad}
-								//
-								moreOptions={e.moreOptions}
-								subtaskForbbiden={e.subtaskForbbiden}
-								subtasks={e.subtasks}
-								//
-								onClickCreateTemplate={e.onClickCreateTemplate}
-								onClickAddTask={e.onClickAddTask}
-								templateOptions={e.templateOptions}
-								modo={modo}
-							/>
-						</div>
-					))}
+					<div style={{ borderLeft: '3px solid #28282830', paddingLeft: '20px' }}>
+						{datos.subtasks.map((e: tasks) => (
+							<div style={{ margin: '.5vh 0' }}>
+								{datos.plantillas ? (
+									<Task
+										idTask={e.idTask}
+										taskDisabled={e.taskDisabled}
+										taskComplete={e.taskComplete}
+										valueTask={e.valueTask}
+										valueDescription={e.valueDescription}
+										onChangeNameTask={e.onChangeNameTask}
+										onChangeDescriptionTask={e.onChangeDescriptionTask}
+										plantillas
+										onChangeDuration={e.onChangeDuration}
+										durationValue={e.durationValue}
+										className={e.className}
+										responsables={e.responsables}
+										equipos={e.equipos}
+										revision={e.revision}
+										valueResponsable={e.valueResponsable}
+										valueRevision={e.valueRevision}
+										moreOptions={
+											e.moreOptions ?? [
+												{
+													id: 'delete',
+													title: 'Eliminar',
+													onClick: e.onClickEliminar,
+												},
+											]
+										}
+										onClickEliminar={e.onClickEliminar}
+										subtaskForbbiden={e.subtaskForbbiden}
+										subtasks={e.subtasks}
+										onClickCreateTemplate={e.onClickCreateTemplate}
+										onClickAddTask={e.onClickAddTask}
+										templateOptions={e.templateOptions}
+										modo={modo}
+									/>
+								) : (
+									<Task
+										idTask={e.idTask}
+										taskDisabled={e.taskDisabled}
+										taskComplete={e.taskComplete}
+										check={e.check}
+										valueTask={e.valueTask}
+										valueDescription={e.valueDescription}
+										onClickCheck={e.onClickCheck}
+										onChangeNameTask={e.onChangeNameTask}
+										onChangeDescriptionTask={e.onChangeDescriptionTask}
+										idCheckbox={e.idTask}
+										chCheck={e.chCheck}
+										//
+										disabledEndDate={e.disabledEndDate}
+										disabledStartDate={e.disabledStartDate}
+										onChangeEndDate={e.onChangeEndDate}
+										onChangeStartDate={e.onChangeStartDate}
+										startDateValue={e.startDateValue}
+										endDateValue={e.endDateValue}
+										className={e.className}
+										//
+										responsables={e.responsables}
+										equipos={e.equipos}
+										revision={e.revision}
+										valueResponsable={e.valueResponsable}
+										valueRevision={e.valueRevision}
+										//
+										prioridadInicial={e.prioridadInicial}
+										onClickPrioridad={e.onClickPrioridad}
+										//
+										moreOptions={
+											e.moreOptions ?? [
+												{
+													id: 'deleteTask',
+													title: 'Eliminar',
+													onClick: e.onClickEliminar,
+												},
+											]
+										}
+										onClickEliminar={e.onClickEliminar}
+										onClickRecordatorio={e.onClickRecordatorio}
+										//
+										subtaskForbbiden={e.subtaskForbbiden}
+										subtasks={e.subtasks}
+										//
+										onClickCreateTemplate={e.onClickCreateTemplate}
+										onClickAddTask={e.onClickAddTask}
+										templateOptions={e.templateOptions}
+										modo={modo}
+									/>
+								)}
+							</div>
+						))}
+					</div>
 				</div>
 			)}
 		</div>

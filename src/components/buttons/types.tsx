@@ -2,7 +2,7 @@
 import { compositions, css, onClickType, size } from '../../types';
 
 export interface buttons {
-	onClick?: functions;
+	onCl_buttons?: functions;
 	buttons?: booleanTypes;
 	disabled?: booleanTypes;
 	styleIcon?: styles;

@@ -11,7 +11,7 @@ const Button = (props: button) => {
 	// desestructurando propiedades
 	const datos = { ...props };
 	// inicialización de propiedades
-	const { legend = 'button', onClick = () => alert('Cambia la función') } = props;
+	const { legend = 'button', onCl_button = () => alert('Cambia la función') } = props;
 
 	//functions
 	const handleMouseEnter = () => {
@@ -189,7 +189,7 @@ const Button = (props: button) => {
 	return (
 		<button
 			// datos-tasks-modules
-			onClick={onClick}
+			onClick={onCl_button}
 			id={datos.id}
 			key={datos.key}
 			onMouseEnter={handleMouseEnter}

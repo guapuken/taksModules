@@ -52,8 +52,8 @@ const AutoresizeInput = (props: autoresizeInput) => {
 			disabled={datos.disabled}
 			onChange={(e: any) => setValue(e.target?.value)}
 			onBlur={(e: any) => {
-				if (datos.onChange) {
-					datos.onChange(e);
+				if (datos.onCh_resizeInpt) {
+					datos.onCh_resizeInpt(e);
 				}
 			}}
 			tabIndex={datos.tabIndex}
@@ -61,7 +61,7 @@ const AutoresizeInput = (props: autoresizeInput) => {
 			rows={1}
 			value={value}
 			className={`ctn${modo}-${taskType}_AIPTC`}
-			style={datos.style}
+			style={{ width: '100%', ...datos.style }}
 		/>
 	);
 };

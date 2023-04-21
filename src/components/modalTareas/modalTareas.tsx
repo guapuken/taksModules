@@ -5,7 +5,7 @@ import { tasksProps } from './types';
 // componentes principales
 import { Footer, Content } from './files';
 
-const ModalTareas = (props: tasksProps) => (
+const ModalTask = (props: tasksProps) => (
 	<Modal
 		header="Creación de tareas"
 		Content={() => <Content {...props.content} />}
@@ -13,4 +13,4 @@ const ModalTareas = (props: tasksProps) => (
 	/>
 );
 
-export default ModalTareas;
+export default ModalTask;

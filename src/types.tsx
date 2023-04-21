@@ -14,8 +14,8 @@ export type compositions = 'horizontal' | 'vertical' | 'box';
 export type taskType = 'principal' | 'task' | 'subtask';
 // opciones del dropdown
 export type optionsDropdown = {
-	value: string | number;
-	label: string;
+	id: string | number;
+	title: string;
 };
 // prioridades
 export type prioritys = 'none' | 'baja' | 'media' | 'alta';
@@ -57,11 +57,11 @@ export interface tasks {
 	onChangeNameTask?: onBlurType;
 	onChangeDescriptionTask?: onBlurType;
 	idCheckbox?: string;
-	onChangeCheckbox?: onChangeType;
+	chCheck?: onChangeType;
 
 	//Icon Dates
 	plantillas?: boolean;
-	onChangeDias?: onChangeType;
+	onChangeDuration?: onChangeType;
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
 	onChangeEndDate?: onChangeType;
@@ -97,6 +97,92 @@ export interface tasks {
 	templateOptions: optionsIcnDrp[];
 	modo?: Modo;
 }
+//INTERFACES
+export interface tasksTemplates {
+	//Input Task
+	idTask: string;
+	taskDisabled?: boolean;
+	valueTask?: string;
+	valueDescription?: string;
+
+	onChangeNameTask?: onBlurType;
+	onChangeDescriptionTask?: onBlurType;
+
+	//Icon Dates
+	className?: string;
+	durationValue?: string;
+	onChangeDuration?: onChangeType;
+
+	//Icon Asign
+	responsables: submenusArray[];
+	equipos: submenusArray[];
+	revision: submenusArray[];
+	valueResponsable?: string;
+	valueRevision?: string;
+
+	//Icon MoreOptions
+	moreOptions?: optionsIcnDrp[];
+	onClickDeleteTask?: onClickType;
+	plantillas?: boolean;
+
+	//addTask
+	subtaskForbbiden?: boolean;
+	subtasks?: subtaskTemplates[];
+
+	//botones agregar
+	onClickCreateTemplate: onClickType;
+	onClickAddTask?: onClickType;
+	templateOptions: optionsIcnDrp[];
+	modo?: Modo;
+}
+
+export type subtaskTemplates = {
+	//Input Task
+	idTask: string;
+	taskDisabled?: boolean;
+	taskComplete?: boolean;
+	check?: boolean;
+	valueTask?: string;
+	valueDescription?: string;
+	onChangeNameTask?: onBlurType;
+	onChangeDescriptionTask?: onBlurType;
+	onChangeCheckbox?: onChangeType;
+
+	//Icon Dates
+	disabledEndDate?: boolean;
+	disabledStartDate?: boolean;
+	onChangeEndDate?: onChangeType;
+	onChangeStartDate?: onChangeType;
+	startDateValue?: Date;
+	endDateValue?: Date;
+	plantillas?: boolean;
+
+	//Icon Asign
+	responsables: submenusArray[];
+	equipos: submenusArray[];
+	revision: submenusArray[];
+	valueResponsable?: string;
+	valueRevision?: string;
+
+	//Icon Priority
+	prioridadInicial?: prioritys;
+	onClickPrioridad?: onClickType;
+
+	//Icon MoreOptions
+	moreOptions?: optionsIcnDrp[];
+	onClickEliminar?: onClickType;
+	onClickRecordatorio?: onClickType;
+
+	//addTask
+	subtaskForbbiden?: boolean;
+	subtasks?: subtasksProps[];
+
+	//botones agregar
+	onClickCreateTemplate: onClickType;
+	onClickAddTask?: onClickType;
+	templateOptions: optionsIcnDrp[];
+	modo?: Modo;
+};
 export type subtasksProps = {
 	//Input Task
 	idTask: string;

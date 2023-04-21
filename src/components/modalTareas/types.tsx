@@ -20,12 +20,12 @@ export type content = {
 	onCheck?: onChangeType;
 	equipos: submenusArray[];
 	substasks?: subtasksProps[];
-	onChangeDescription?: onBlurType;
-	onChangeName?: onBlurType;
+	onChangeTaskDescription?: onBlurType;
+	onChangeTaskName?: onBlurType;
 	onClickAddTask?: onClickType;
 	onClickNewTemplate: onClickType;
 	onClickPriority?: onClickType;
-	onClickDeleteTask?: onClickType;
+	onClickDelete?: onClickType;
 	onClickReminder?: onClickType;
 	priorityValue?: prioritys;
 	revision: submenusArray[];
@@ -33,7 +33,6 @@ export type content = {
 	responsables: submenusArray[];
 	taskComplete?: boolean;
 	taskDisabled?: boolean;
-	onChangeDays?: onChangeType;
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
 	endDateValue?: Date;
@@ -42,13 +41,11 @@ export type content = {
 	valueDescription?: string;
 	valueResponsable?: string;
 	subtaskForbbiden?: boolean;
-	onClickCheck?: onClickType;
+	chCheck?: onChangeType;
 	onChangeStartDate?: onChangeType;
 	onChangeEndDate?: onChangeType;
-	isSubtask?: boolean;
 	templateOptions: optionsIcnDrp[];
-	moreOptions: optionsIcnDrp[];
-	plantillas?: boolean;
+	moreOptions?: optionsIcnDrp[];
 	className?: string;
 };
 export type footer = {

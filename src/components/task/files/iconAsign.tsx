@@ -16,6 +16,7 @@ interface IconAsignProps {
 	involucrados?: number;
 	// options: optionsIcnDrp[];
 	modo: Modo;
+	disabled?: boolean;
 }
 //Se construye el componente que regresa el icono de asignar usuario
 const IconAsign = (props: IconAsignProps) => {
@@ -31,6 +32,7 @@ const IconAsign = (props: IconAsignProps) => {
 		valueRevision,
 		styleCircle,
 		iconStyle,
+		disabled,
 		modo = 'Light',
 	} = props;
 
@@ -104,6 +106,7 @@ const IconAsign = (props: IconAsignProps) => {
 				options={equipos ? asignUsers : [asignUsers[0], asignUsers[2]]}
 				icon={addUserIcon}
 				iconStyles={iconStyle}
+				disabled={disabled}
 			/>
 
 			{/* Si existe la propiedad de involucrados se ejecuta el bloque de código que genera el texto o el círculo con los datos de los involucrado en la tarea o proyecto */}

@@ -11,15 +11,14 @@ function DemoComponent() {
 	const [dragEnd, setDragEnd] = React.useState({});
 	// consoles para revisar que sse generen de manera correcta los setteos
 	// console.clear();
-	React.useEffect(() => {
-		console.log('notifications: ', notifications);
-	}, [notifications]);
+	React.useEffect(() => {}, [notifications]);
+	console.log('notifications: ', notifications);
 	console.log('dragEnd: ', dragEnd);
 
 	return (
 		<Container AsideContent={<AsideTemplates />}>
 			<DragAndDrop
-				// Card={CardTask}
+				Card={CardTask}
 				// onDragEnd={(e) => setDragEnd(e)}
 				onDragEnd={(e) => console.log(e)}
 				tasks={[
@@ -34,7 +33,6 @@ function DemoComponent() {
 						valueRevision: 'Jorge Correa',
 						followNotificationsValue: notifications,
 						onClickFollow: () => {
-							console.log('entró en notificaciones');
 							setNotifications(!notifications);
 						},
 						onClickEditar: () => alert('editar'),

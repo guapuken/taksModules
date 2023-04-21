@@ -31,7 +31,7 @@ const IconDropdown = (props: iconDrps) => {
 	return (
 		<div>
 			<DropdownMenu.Root>
-				<DropdownMenu.Trigger>
+				<DropdownMenu.Trigger disabled={datos.disabled}>
 					<button
 						style={datos.iconStyles}
 						className={`trggr${modo}_IcnDrpC`}

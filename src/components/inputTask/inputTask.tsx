@@ -26,15 +26,14 @@ const InputTask = (props: inputTasks) => {
 					<CheckboxInput
 						style={{ marginTop: '.5vh' }}
 						modo={datos.modo}
-						onClick={datos.onClickCheck}
 						principalTask={datos.principalTask}
 						disabled={datos.disabled}
-						onChange={datos.onChange}
+						chCheck={datos.chCheck}
 						check={datos.check}
 						idCheckbox={datos.idCheckbox}
 					/>
 				)}
-				<div>
+				<div style={{ width: '100%' }}>
 					<AutoresizeInput
 						id={datos.id}
 						taskType={datos.principalTask ? 'principal' : 'task'}

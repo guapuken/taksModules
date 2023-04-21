@@ -3,7 +3,7 @@ import React from 'react';
 import { Modo, onClickType, size } from '../../types';
 
 export interface button {
-	onClick?: onClickType;
+	onCl_button?: onClickType;
 	size?: size;
 	//css properties
 	style?: React.CSSProperties;

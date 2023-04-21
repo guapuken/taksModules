@@ -31,6 +31,16 @@ function DemoComponent() {
 			onClick: (e) => console.log(e),
 		},
 	];
+	const equiposD = [
+		{
+			id: '1',
+			title: 'Jorge Correa',
+		},
+		{
+			id: '2',
+			title: 'Kaori Soto',
+		},
+	];
 	const revisionUs = [
 		{
 			id: '1',
@@ -83,6 +93,8 @@ function DemoComponent() {
 					onClick: () => alert('Espectaculares'),
 				},
 			]}
+			teamOptions={equiposD}
+			onChangeAsignTeam={(e) => console.log('team asign: ', e)}
 			projectNameValue={projectName}
 			// button clicks
 			onClickAddTask={() => alert('Tarea nueva')}
@@ -127,6 +139,7 @@ function DemoComponent() {
 							title: 'Espectaculares',
 						},
 					],
+					onClickEliminar: () => alert('Hola'),
 					subtasks: [
 						{
 							idTask: '27',

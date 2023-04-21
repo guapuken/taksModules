@@ -21,20 +21,18 @@ const IconMoreOptions = (props: IconMoreOptionsProps) => {
 			<IconDropdown
 				modo={modo as Modo}
 				options={
-					options
-						? options
-						: [
-								{
-									id: 'delete',
-									title: 'Eliminar',
-									onClick: onClickEliminar,
-								},
-								{
-									id: 'remembered',
-									title: 'Crear recordatorio',
-									onClick: onClickRecordatorio,
-								},
-						  ]
+					options ?? [
+						{
+							id: 'delete',
+							title: 'Eliminar',
+							onClick: onClickEliminar,
+						},
+						{
+							id: 'remembered',
+							title: 'Crear recordatorio',
+							onClick: onClickRecordatorio,
+						},
+					]
 				}
 				icon={optionsIcon}
 			/>

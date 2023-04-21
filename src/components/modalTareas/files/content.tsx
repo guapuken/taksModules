@@ -9,17 +9,17 @@ const Content = (props: content) => {
 			<Task
 				idTask={datos.idTask}
 				check={datos.taskCheckValue}
-				onChangeCheckbox={datos.onCheck}
+				chCheck={datos.chCheck}
 				idCheckbox={datos.idTask}
 				equipos={datos.equipos}
 				subtasks={datos.substasks}
 				principalTask
-				onChangeDescriptionTask={datos.onChangeDescription}
-				onChangeNameTask={datos.onChangeName}
+				onChangeDescriptionTask={datos.onChangeTaskDescription}
+				onChangeNameTask={datos.onChangeTaskName}
 				onClickAddTask={datos.onClickAddTask}
 				onClickCreateTemplate={datos.onClickNewTemplate}
 				onClickPrioridad={datos.onClickPriority}
-				onClickEliminar={datos.onClickDeleteTask}
+				onClickEliminar={datos.onClickDelete}
 				onClickRecordatorio={datos.onClickReminder}
 				prioridadInicial={datos.priorityValue}
 				revision={datos.revision}
@@ -27,7 +27,6 @@ const Content = (props: content) => {
 				responsables={datos.responsables}
 				taskComplete={datos.taskComplete}
 				taskDisabled={datos.taskDisabled}
-				onChangeDias={datos.onChangeDays}
 				disabledEndDate={datos.disabledEndDate}
 				disabledStartDate={datos.disabledStartDate}
 				endDateValue={datos.endDateValue}
@@ -36,13 +35,10 @@ const Content = (props: content) => {
 				valueDescription={datos.valueDescription}
 				valueResponsable={datos.valueResponsable}
 				subtaskForbbiden={datos.subtaskForbbiden}
-				onClickCheck={datos.onClickCheck}
 				onChangeStartDate={datos.onChangeStartDate}
 				onChangeEndDate={datos.onChangeEndDate}
-				isSubtask={datos.isSubtask}
 				templateOptions={datos.templateOptions}
 				moreOptions={datos.moreOptions}
-				plantillas={datos.plantillas}
 				className={datos.className}
 			/>
 		</div>

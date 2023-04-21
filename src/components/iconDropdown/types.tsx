@@ -12,4 +12,5 @@ export interface iconDrps {
 	iconStyles?: css;
 	svg?: any;
 	modo?: Modo;
+	disabled?: boolean;
 }

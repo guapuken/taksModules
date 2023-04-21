@@ -22,7 +22,8 @@ const Content = (props: any) => {
 		membersOptions,
 		onClickAddUser,
 		role,
-		Children,
+		members,
+		idTeam,
 		modo = 'Light',
 	} = props;
 	const [asignColor, setAsignColor] = React.useState(teamColor || '');
@@ -31,6 +32,7 @@ const Content = (props: any) => {
 		<div className={`ctn${modo}_MTC`}>
 			<div className={'inptsCtn'}>
 				<InputLabel
+					id={idTeam as any}
 					legend="Nombre del equipo"
 					onChange={onChangeTeamName as onBlurType}
 					style={{ height: '30px', width: '45%' }}
@@ -64,7 +66,7 @@ const Content = (props: any) => {
 					role={role}
 					onClickAddUser={onClickAddUser}
 					style={{ marginTop: '20px' }}
-					Children={Children}
+					members={members}
 					onChangeUserSelected={onChangeUserSelected}
 				/>
 			</div>

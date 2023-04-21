@@ -2,6 +2,7 @@ import React from 'react';
 import { Dropdown } from '../../../components';
 import { Spans } from '../../../utils/cardsUtils';
 import { AddTask } from '../../task/files';
+import { members } from '../types';
 
 //COMPONENTE QUE REGRESA UN DROPDOWN CON LOS INTEGRANTES Y UN INPUT PARAA AGREGAR EL NOMBRE DEL PUESTO
 const Members = (props: any) => {
@@ -12,7 +13,8 @@ const Members = (props: any) => {
 		membersOptions,
 		role,
 		onClickAddUser,
-		Children,
+		// Children,
+		members,
 		onChangeUserSelected,
 	} = props;
 	return (
@@ -21,11 +23,11 @@ const Members = (props: any) => {
 				<div style={{ width: '100%', ...style }}>
 					{principal && <p style={{ width: '100%' }}> Encargado </p>}
 					<Dropdown
-						isSearchable
+						// isSearchable
 						placeHolder="Selecciona el encargado"
 						options={membersOptions}
 						onChange={onChangeUserSelected}
-						initialValue={memberValue}
+						initialValue={memberValue || undefined}
 					/>
 					<div style={{ marginTop: '5px' }}>
 						<Spans legend={role ? role : 'Sin definir'} boldLegend={'Puesto: '} />
@@ -39,7 +41,18 @@ const Members = (props: any) => {
 					paddingLeft: '10px',
 				}}
 			>
-				{Children && <Children />}
+				{members &&
+					members.map((member: members) => (
+						<Members
+							style={style}
+							memberValue={member.memberValue}
+							membersOptions={membersOptions}
+							role={member.role}
+							onClickAddUser={member.onClickAddUser}
+							members={member.members}
+							onChangeUserSelected={member.onChangeUserSelected}
+						/>
+					))}
 			</div>
 		</div>
 	);

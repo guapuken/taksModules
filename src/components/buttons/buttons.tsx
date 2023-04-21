@@ -11,7 +11,7 @@ const Buttons = (props: buttons) => {
 	const {
 		size = 'medium',
 		composition = 'horizontal',
-		onClick = {
+		onCl_buttons = {
 			primary: () => alert('change the function'),
 			secondary: () => alert('change the function'),
 			tertiary: () => alert('change the function'),
@@ -31,11 +31,11 @@ const Buttons = (props: buttons) => {
 						: 'clic here',
 				onClick:
 					tipo === 'primary'
-						? onClick?.primary
+						? onCl_buttons?.primary
 						: tipo === 'secondary'
-						? onClick?.secondary
+						? onCl_buttons?.secondary
 						: tipo === 'tertiary'
-						? onClick?.tertiary
+						? onCl_buttons?.tertiary
 						: undefined,
 				size: size,
 				color:
