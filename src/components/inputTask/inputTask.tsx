@@ -38,7 +38,7 @@ const InputTask = (props: inputTasks) => {
 						id={datos.id}
 						taskType={datos.principalTask ? 'principal' : 'task'}
 						style={nameTaskStyles}
-						onChange={datos.onChangeNameTask}
+						onCh_resizeInpt={datos.onChangeNameTask}
 						initialValue={datos.valueTask}
 						placeholder={`Nombre de la ${datos.isSubtask ? 'subtarea' : 'tarea'}`}
 						tabIndex={1}
@@ -48,7 +48,7 @@ const InputTask = (props: inputTasks) => {
 						id={datos.id}
 						taskType={'subtask'}
 						style={descriptionTaskStyles}
-						onChange={datos.onChangeDescriptionTask}
+						onCh_resizeInpt={datos.onChangeDescriptionTask}
 						initialValue={datos.valueDescription}
 						placeholder={`Descripción de la ${datos.isSubtask ? 'subtarea' : 'tarea'}`}
 						tabIndex={2}

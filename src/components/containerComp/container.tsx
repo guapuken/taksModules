@@ -56,7 +56,7 @@ const Container = (props: container) => {
 							<Button
 								legend={datos.header.legendBtnModule}
 								primary
-								onClick={datos.header.onClickBtnModule}
+								onCl_button={datos.header.onClickBtnModule}
 							/>
 						)}
 					</div>

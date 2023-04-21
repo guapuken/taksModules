@@ -13,7 +13,7 @@ const Footer = (props: clickButtons) => {
 			<Buttons
 				buttons={{ primary: true, secondary: true }}
 				legends={{ primary: 'Crear proyecto', secondary: 'Cancelar' }}
-				onClick={{ primary: onClickCreate, secondary: onClickAbort }}
+				onCl_buttons={{ primary: onClickCreate, secondary: onClickAbort }}
 			/>
 		</div>
 	);

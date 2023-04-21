@@ -30,7 +30,7 @@ const Footer = (props: functions) => {
 						legend={'Volver a trabajar tarea'}
 						style={{ width: '100%', height: '20px' }}
 						secondary
-						onClick={() => {
+						onCl_button={() => {
 							setReWork(!reWork);
 							onClickReWork;
 						}}
@@ -51,10 +51,10 @@ const Footer = (props: functions) => {
 							placeHolder="Ingresa la razón"
 							onChange={onChangeDrop as onChangeType}
 							options={[
-								{ label: 'Faltó corregir camiones', value: '1' },
-								{ label: 'Viene mal editada', value: '2' },
-								{ label: 'El proveedor cambio el sitio', value: '3' },
-								{ label: 'La prueba de color viene rayada', value: '4' },
+								{ title: 'Faltó corregir camiones', id: '1' },
+								{ title: 'Viene mal editada', id: '2' },
+								{ title: 'El proveedor cambio el sitio', id: '3' },
+								{ title: 'La prueba de color viene rayada', id: '4' },
 							]}
 							topPosition
 							style={{ minWidth: '100%' }}
@@ -63,7 +63,7 @@ const Footer = (props: functions) => {
 							styleComposition={{ width: '100%' }}
 							buttons={{ primary: true, secondary: true }}
 							legends={{ primary: 'Confirmar', secondary: 'Cancelar' }}
-							onClick={{
+							onCl_buttons={{
 								primary: onClickConfirm,
 								secondary: () => setReWork(!reWork),
 							}}
@@ -76,7 +76,7 @@ const Footer = (props: functions) => {
 					legend={'Aprobar tarea'}
 					style={{ width: '100%', height: '20px' }}
 					primary
-					onClick={onClickApprove}
+					onCl_button={onClickApprove}
 				/>
 			)}
 		</div>

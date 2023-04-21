@@ -22,7 +22,7 @@ const Tasks = (props: tasks) => {
 								primary
 								legend={legendBtn}
 								style={{ margin: '10px 0' }}
-								onClick={onClickShow}
+								onCl_button={onClickShow}
 							/>
 						</div>
 					)}

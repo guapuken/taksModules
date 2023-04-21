@@ -27,7 +27,7 @@ const CommentTask = (props: functions) => {
 				<Button
 					primary
 					legend="Agregar comentario"
-					onClick={onClickAddComent}
+					onCl_button={onClickAddComent}
 					style={{ height: '20px' }}
 				/>
 			</div>

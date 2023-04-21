@@ -28,7 +28,7 @@ const CommentTask = (props: commentTask) => {
 				<Button
 					primary
 					legend="Comentar"
-					onClick={onClickAddComment}
+					onCl_button={onClickAddComment}
 					style={{ height: '20px' }}
 				/>
 			</div>

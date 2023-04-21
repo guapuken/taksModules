@@ -34,7 +34,7 @@ const ModalTamplates = (props: ModalTemplatesProps) => {
 			<Buttons
 				buttons={{ primary: true, secondary: true }}
 				legends={{ primary: 'Crear plantilla', secondary: 'Cancelar' }}
-				onClick={{ primary: onClickCrear, secondary: onClickCancelar }}
+				onCl_buttons={{ primary: onClickCrear, secondary: onClickCancelar }}
 			/>
 		</div>
 	);
