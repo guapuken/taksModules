@@ -17,6 +17,7 @@ interface IconDatesProps {
 	disabledStartDate?: boolean;
 	durationValue?: string;
 	modo: Modo;
+	idTask: string;
 }
 
 //Visualización de componente si la propiedad de plantillas es true
@@ -32,11 +33,13 @@ const IconDates = (props: IconDatesProps) => {
 		onChangeEndDate,
 		onChangeStartDate,
 		durationValue,
+		idTask,
 		modo,
 	} = props;
 	return plantillas ? (
 		<div style={{ position: 'relative', zIndex: '2' }} className={className}>
 			<InputLabel
+				id={idTask}
 				style={{ width: '122px' }}
 				legend="Duración"
 				type="number"

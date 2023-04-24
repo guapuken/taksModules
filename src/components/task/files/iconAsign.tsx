@@ -1,30 +1,20 @@
 import React, { CSSProperties, useState } from 'react';
 import IconDropdown from '../../iconDropdown';
 import addUserIcon from '../../../img/addUser.svg';
-import { Modo } from '../../../types';
+import { Modo, optionsIcnDrp, submenusArray } from '../../../types';
 
-interface submenus {
-	id?: number | string;
-	className?: string;
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
-	title?: string;
-}
 interface IconAsignProps {
 	style?: CSSProperties;
 	styleCircle?: CSSProperties;
 	iconStyle?: CSSProperties;
-	responsables?: submenus[];
-	equipos?: submenus[];
-	revision?: submenus[];
+	responsables?: submenusArray[];
+	equipos: submenusArray[];
+	revision?: submenusArray[];
 	className?: string;
 	valueResponsable?: string;
 	valueRevision?: string;
 	involucrados?: number;
-	options?: {
-		title?: string;
-		onClick?: (e: React.MouseEvent<HTMLElement>) => void;
-		submenus?: submenus[];
-	}[];
+	// options: optionsIcnDrp[];
 	modo: Modo;
 }
 //Se construye el componente que regresa el icono de asignar usuario
@@ -41,21 +31,23 @@ const IconAsign = (props: IconAsignProps) => {
 		valueRevision,
 		styleCircle,
 		iconStyle,
-		options,
 		modo = 'Light',
 	} = props;
 
 	//Opciones de usuarios
 	const asignUsers = [
 		{
+			id: '1',
 			title: 'Asignar responsable:',
 			submenus: responsables,
 		},
 		{
+			id: '2',
 			title: 'Asignar a equipo:',
 			submenus: equipos,
 		},
 		{
+			id: '3',
 			title: 'Encargado de revisión:',
 			submenus: revision,
 		},

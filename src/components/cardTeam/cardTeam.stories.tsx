@@ -26,6 +26,6 @@ withProperties.args = {
 };
 
 export default {
-	title: 'Cards/team',
+	title: 'CARDS DE GESTIÓN/team',
 	component: CardTeam,
 } as Meta;

@@ -64,22 +64,38 @@
 .ctnDark_ATC{
     background: var(--contrastDark);
 }
+.ctnDark_ATC
+{
+    background: var(--bgDark);
+}
 
 
 //mediaquerie para que el tamaño del texto abarque todo el espacio en celular
-@media (max-width:415px){
-    .ctnDark_ATC,
-    .ctnWhite_ATC,
-    .ctn_ATC{
-        width: calc(var(--cardSize)*4);
-        height: var(--cardHeight);
+@media (max-width:834px){
+    .ctnWhiteVisLight_ATC,
+    .ctnWhiteVisDark_ATC,
+    .ctnVisLight_ATC,
+    .ctnVisDark_ATC
+    .ctnWhiteLight_ATC,
+    .ctnWhiteDark_ATC,
+    .ctnLight_ATC,
+    .ctnDark_ATC
+    {
+        width: calc(100vw / 2);
+        height: calc(100vw / 4);
     }
 }
-@media (max-width:834px){
-    .ctnDark_ATC,
-    .ctnWhite_ATC,
-    .ctn_ATC{
-        width: calc(var(--cardWidth)*1.95);
-        height: calc(var(--cardHeight)*4);
+@media (max-width:415px){
+    .ctnWhiteVisLight_ATC,
+    .ctnWhiteVisDark_ATC,
+    .ctnVisLight_ATC,
+    .ctnVisDark_ATC
+    .ctnWhiteLight_ATC,
+    .ctnWhiteDark_ATC,
+    .ctnLight_ATC,
+    .ctnDark_ATC
+    {
+        width: calc(var(--cardSize)*4);
+        height: var(--cardHeight);
     }
 }

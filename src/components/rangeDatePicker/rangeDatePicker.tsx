@@ -1,7 +1,7 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
 import '../../global.scss';
 import './rangeDatePicker.scss';
-import { Modo } from '../../types';
+import { Modo, onBlurType } from '../../types';
 import { MonthName } from './files/functions';
 
 export interface RangeDatePickerProps {
@@ -10,8 +10,8 @@ export interface RangeDatePickerProps {
 	style?: CSSProperties;
 	disabledStartDate?: boolean;
 	disabledEndDate?: boolean;
-	onChangeStartDate?: (e: React.FormEvent<HTMLInputElement>) => void;
-	onChangeEndDate?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onChangeStartDate?: onBlurType;
+	onChangeEndDate?: onBlurType;
 	modo: Modo;
 }
 
@@ -30,12 +30,7 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 	const [endDate, setEndDate] = useState(endDateValue || '');
 
 	return (
-		<div
-			id={`dates${modo}_RDatePC`}
-			onClick={() => document.getElementById('start-date')?.focus()}
-			style={style}
-			className={`ctn${modo}_RDatePC`}
-		>
+		<div id={`dates${modo}_RDatePC`} style={style} className={`ctn${modo}_RDatePC`}>
 			<div>
 				<p>Comienza</p>
 				<label htmlFor="start-date">
@@ -54,7 +49,6 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 					onBlur={(e) => {
 						if (onChangeStartDate) {
 							onChangeStartDate(e);
-							document.getElementById('endDate')?.focus();
 						}
 					}}
 				/>

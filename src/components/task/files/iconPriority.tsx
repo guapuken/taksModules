@@ -29,10 +29,7 @@ const IconPriority = (props: IconPriorityProps) => {
 		{
 			id: 'none',
 			title: 'Sin prioridad',
-			onClick: () => {
-				setPrioridad('none');
-				onClickNoPrioridad;
-			},
+			onClick: handleClickPriority,
 		},
 		{
 			id: 'baja',
@@ -60,6 +57,7 @@ const IconPriority = (props: IconPriorityProps) => {
 				options={optionsPriority}
 				svg={
 					<FlagIcon
+						height={30}
 						fill={
 							prioridad === 'baja'
 								? '#1cbf59'

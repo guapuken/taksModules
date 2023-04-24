@@ -1,186 +1,72 @@
 import React from 'react';
-import '../../global.scss';
+// componentes auxiliares
 import { involucrados } from '../../utils/cardsUtils';
-import IconDropdown from '../iconDropdown';
-import InputTask from '../inputTask';
+import { IconDropdown, InputTask } from '../../components';
 import { AddTask, IconAsign, IconDates, IconMoreOptions, IconPriority } from './files';
+// types
+import { templateOptions } from './types';
+import { tasks } from '../../types';
+// estilos
 import './task.scss';
-import { Modo } from '../../types';
 
-//TYPES
-interface submenus {
-	id?: number | string;
-	className?: string;
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
-	title?: string;
-}
-interface optionsType {
-	id?: string;
-	submenus?: submenus[];
-	title?: string;
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
-	className?: string;
-}
-
-//INTERFACES
-export interface TaskProps {
-	//Input Task
-	principalTask?: boolean;
-	taskDisabled?: boolean;
-	taskComplete?: boolean;
-	isSubtask?: boolean;
-	check?: boolean;
-	valueTask?: string;
-	valueDescription?: string;
-	onClickCheck?: (e: React.MouseEvent<HTMLElement>) => void;
-	onChangeNameTask?: (e: React.FocusEvent<HTMLInputElement>) => void;
-	onChangeDescriptionTask?: (e: React.FocusEvent<HTMLInputElement>) => void;
-	idCheckbox?: string;
-	onChangeCheckbox?: (e: React.FormEvent<HTMLInputElement>) => void;
-
-	//Icon Dates
-	plantillas?: boolean;
-	onChangeDias?: (e: React.FormEvent<HTMLInputElement>) => void;
-	disabledEndDate?: boolean;
-	disabledStartDate?: boolean;
-	onChangeEndDate?: (e: React.FormEvent<HTMLInputElement>) => void;
-	onChangeStartDate?: (e: React.FormEvent<HTMLInputElement>) => void;
-	startDateValue?: Date;
-	endDateValue?: Date;
-	className?: string;
-	durationValue?: string;
-
-	//Icon Asign
-	responsables?: submenus[];
-	equipos?: submenus[];
-	revision?: submenus[];
-	valueResponsable?: string;
-	valueRevision?: string;
-
-	//Icon Priority
-	prioridadInicial?: 'baja' | 'media' | 'alta';
-	onClickPrioridad?: (e: React.MouseEvent<HTMLElement>) => void;
-
-	//Icon MoreOptions
-	moreOptions?: optionsType[];
-	onClickEliminar?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickRecordatorio?: (e: React.MouseEvent<HTMLElement>) => void;
-
-	//addTask
-	subtaskForbbiden?: boolean;
-	Children?: any;
-
-	//botones agregar
-	onClickCreateTemplate?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickAddTask?: (e: React.MouseEvent<HTMLElement>) => void;
-	templateOptions?: optionsType[];
-	modo?: Modo;
-}
 //Valida si existe la propiedad de plantillas y las agrega al dropdown de cargar plantilla en caso de que si exista
-export const optionsPlantillas = (
-	templateOptions: optionsType[],
-	onClickCreateTemplate: (e: React.MouseEvent<HTMLElement>) => void
-) => {
+export const optionsPlantillas = (props: templateOptions) => {
+	const { templateOptions, onClickCreateTemplate } = props;
 	templateOptions?.map((e: any) => {
 		return {
 			title: e.title,
 			onClick: e.onClick,
+			id: e.id,
 		};
 	});
-	if (templateOptions !== undefined) {
-		return [
-			{
-				title: '+ Crear plantilla',
-				onClick: onClickCreateTemplate,
-			},
-			...templateOptions,
-		];
-	} else
-		return [
-			{
-				title: '+ Crear plantilla',
-				onClick: onClickCreateTemplate,
-			},
-		];
+	return !templateOptions
+		? [
+				{
+					id: 'createTemplate',
+					title: '+ Crear plantilla',
+					onClick: onClickCreateTemplate,
+				},
+		  ]
+		: [
+				{
+					id: 'createTemplate',
+					title: '+ Crear plantilla',
+					onClick: onClickCreateTemplate,
+				},
+				...templateOptions,
+		  ];
 };
 
 //COMPONENTE PRINCIPAL
-const Task = (props: TaskProps) => {
+const Task = (props: tasks) => {
 	//desestructuración de propiedades
-	const {
-		//Input Task
-		principalTask = false,
-		taskDisabled,
-		taskComplete,
-		isSubtask,
-		check,
-		onClickCheck,
-		onChangeNameTask,
-		onChangeDescriptionTask,
-		valueTask,
-		valueDescription,
-		idCheckbox,
-		onChangeCheckbox,
+	const datos = { ...props };
+	// inicialización de propiedaddes
+	const { modo = 'Light', prioridadInicial = 'none' } = props;
 
-		//Icon Dates
-		onChangeDias,
-		plantillas = false,
-		disabledEndDate,
-		disabledStartDate,
-		onChangeEndDate,
-		onChangeStartDate,
-		startDateValue,
-		endDateValue,
-		className,
-		durationValue,
-
-		//Icon Asign
-		responsables,
-		equipos,
-		revision,
-		valueResponsable,
-		valueRevision,
-
-		//Icon Priority
-		onClickPrioridad,
-		prioridadInicial,
-
-		//Icon MoreOptions
-		onClickEliminar,
-		onClickRecordatorio,
-		moreOptions,
-
-		//addTask
-		subtaskForbbiden,
-		Children,
-
-		//BotonesAgregar
-		onClickCreateTemplate = () => {},
-		onClickAddTask,
-		templateOptions = [{}],
-		modo = 'Light',
-	} = props;
-
-	const showTask = () => (plantillas ? false : true);
+	const showTask = () => (datos.plantillas ? false : true);
 
 	return (
-		<div className={`ctn${modo}_TascC`}>
+		<div id={datos.idTask} className={`ctn${modo}_TascC`}>
 			<InputTask
+				id={datos.idTask}
 				modo={modo}
 				style={{ maxWidth: '100%' }}
-				principalTask={principalTask}
-				showTask={plantillas ? false : true}
-				disabled={taskDisabled ? taskDisabled : taskComplete ? true : false}
-				onChange={onChangeCheckbox}
-				checked={taskComplete}
-				isSubtask={isSubtask}
-				check={check}
-				onClickCheck={onClickCheck}
-				onChangeNameTask={onChangeNameTask}
-				onChangeDescriptionTask={onChangeDescriptionTask}
-				valueTask={valueTask}
-				valueDescription={valueDescription}
-				idCheckbox={idCheckbox}
+				principalTask={datos.principalTask}
+				showTask={datos.plantillas ? false : true}
+				disabled={
+					datos.taskDisabled ? datos.taskDisabled : datos.taskComplete ? true : false
+				}
+				onChange={datos.onChangeCheckbox}
+				checked={datos.taskComplete}
+				isSubtask={datos.isSubtask}
+				check={datos.check}
+				onClickCheck={datos.onClickCheck}
+				onChangeNameTask={datos.onChangeNameTask}
+				onChangeDescriptionTask={datos.onChangeDescriptionTask}
+				valueTask={datos.valueTask}
+				valueDescription={datos.valueDescription}
+				idCheckbox={datos.idCheckbox}
 			/>
 			<div
 				className={'icnsCtn'}
@@ -189,45 +75,46 @@ const Task = (props: TaskProps) => {
 				}}
 			>
 				<IconDates
+					idTask={datos.idTask}
 					modo={modo}
-					onChangeDias={onChangeDias}
-					plantillas={plantillas}
-					disabledEndDate={disabledEndDate}
-					disabledStartDate={disabledStartDate}
-					onChangeEndDate={onChangeEndDate}
-					onChangeStartDate={onChangeStartDate}
-					startDateValue={startDateValue}
-					endDateValue={endDateValue}
-					className={className}
-					durationValue={durationValue}
+					onChangeDias={datos.onChangeDias}
+					plantillas={datos.plantillas}
+					disabledEndDate={datos.disabledEndDate}
+					disabledStartDate={datos.disabledStartDate}
+					onChangeEndDate={datos.onChangeEndDate}
+					onChangeStartDate={datos.onChangeStartDate}
+					startDateValue={datos.startDateValue}
+					endDateValue={datos.endDateValue}
+					className={datos.className}
+					durationValue={datos.durationValue}
 				/>
 				<IconAsign
 					modo={modo}
-					involucrados={involucrados(valueResponsable, valueRevision)}
-					responsables={responsables}
-					equipos={equipos}
-					revision={revision}
-					valueResponsable={valueResponsable}
-					valueRevision={valueRevision}
+					involucrados={involucrados(datos.valueResponsable, datos.valueRevision)}
+					responsables={datos.responsables}
+					equipos={datos.equipos}
+					revision={datos.revision}
+					valueResponsable={datos.valueResponsable}
+					valueRevision={datos.valueRevision}
 					style={{ marginRight: '20px' }}
 				/>
-				{!plantillas && (
+				{!datos.plantillas && (
 					<IconPriority
 						modo={modo}
-						onClickPrioridad={onClickPrioridad}
+						onClickPrioridad={datos.onClickPrioridad}
 						prioridadInicial={prioridadInicial}
 					/>
 				)}
 				<IconMoreOptions
 					modo={modo}
-					onClickEliminar={onClickEliminar}
-					onClickRecordatorio={onClickRecordatorio}
-					options={moreOptions}
+					onClickEliminar={datos.onClickEliminar}
+					onClickRecordatorio={datos.onClickRecordatorio}
+					options={datos.moreOptions}
 				/>
 			</div>
-			{subtaskForbbiden ?? (
+			{datos.subtaskForbbiden ?? (
 				<div style={{ display: 'flex', alignItems: 'baseline' }}>
-					<AddTask legend="+ Añadir subtarea" onClick={onClickAddTask} />
+					<AddTask legend="+ Añadir subtarea" onClick={datos.onClickAddTask} />
 					<IconDropdown
 						modo={modo}
 						legend="Cargar plantilla"
@@ -235,13 +122,56 @@ const Task = (props: TaskProps) => {
 							marginLeft: '20px',
 							fontSize: '15px',
 						}}
-						options={optionsPlantillas(templateOptions, onClickCreateTemplate)}
+						options={optionsPlantillas({
+							templateOptions: datos.templateOptions,
+							onClickCreateTemplate: datos.onClickCreateTemplate,
+						})}
 					/>
 				</div>
 			)}
-			{Children && (
+			{datos.subtasks && (
 				<div className={'ChildrenContainerTaskModules'}>
-					<Children />
+					{datos.subtasks.map((e: tasks) => (
+						<div style={{ margin: '.5vh 0' }}>
+							<Task
+								idTask={e.idTask}
+								taskDisabled={e.taskDisabled}
+								taskComplete={e.taskComplete}
+								check={e.check}
+								valueTask={e.valueTask}
+								valueDescription={e.valueDescription}
+								onChangeNameTask={e.onChangeNameTask}
+								onChangeDescriptionTask={e.onChangeDescriptionTask}
+								idCheckbox={e.idTask}
+								onChangeCheckbox={e.onChangeCheckbox}
+								//
+								disabledEndDate={e.disabledEndDate}
+								disabledStartDate={e.disabledStartDate}
+								onChangeEndDate={e.onChangeEndDate}
+								onChangeStartDate={e.onChangeStartDate}
+								startDateValue={e.startDateValue}
+								endDateValue={e.endDateValue}
+								//
+								responsables={e.responsables}
+								equipos={e.equipos}
+								revision={e.revision}
+								valueResponsable={e.valueResponsable}
+								valueRevision={e.valueRevision}
+								//
+								prioridadInicial={e.prioridadInicial}
+								onClickPrioridad={e.onClickPrioridad}
+								//
+								moreOptions={e.moreOptions}
+								subtaskForbbiden={e.subtaskForbbiden}
+								subtasks={e.subtasks}
+								//
+								onClickCreateTemplate={e.onClickCreateTemplate}
+								onClickAddTask={e.onClickAddTask}
+								templateOptions={e.templateOptions}
+								modo={modo}
+							/>
+						</div>
+					))}
 				</div>
 			)}
 		</div>

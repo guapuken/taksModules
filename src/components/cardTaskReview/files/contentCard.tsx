@@ -21,7 +21,7 @@ export const Content = (props: ContentProps) => {
 		modo = 'Light',
 	} = props;
 	return (
-		<CardContainer className={`ctn${modo == 'Dark' ? 'Dark' : ''}_CTR`}>
+		<CardContainer className={`ctn${modo}_CTR`}>
 			{/* Renderea el título de la tarea */}
 			<TitleCard title={taskName} modo={modo} />
 			{statusTask === 'outOfTime' && (

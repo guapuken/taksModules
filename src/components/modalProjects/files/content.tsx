@@ -2,29 +2,27 @@ import React from 'react';
 import { IconDropdown, InputLabel, Task } from '../../../components';
 import { AddTask } from '../../task/files';
 import { optionsPlantillas } from '../../task/task';
+import { content } from '../types';
 
 //COMPONENTE QUE REGRESA TODO EL CONTENIDO DEL MODAL
-const Content = (props: any) => {
-	const {
-		onChangeName,
-		projectNameValue,
-		onClickAddTask,
-		modo,
-		templateOptions,
-		onClickCreateTemplate,
-		Children,
-	} = props;
+const Content = (props: content) => {
+	// desestructuración de propiedades
+	const datos = { ...props };
+	// inicialización de propiedades
+	const { modo = 'Light' } = props;
 
+	//
 	return (
 		<div>
 			<InputLabel
+				id={datos.idProject}
 				legend="Nombre del proyecto"
-				onChange={onChangeName}
+				onChange={datos.onChangeName}
 				style={{ maxWidth: '98%' }}
-				initialValue={projectNameValue}
+				initialValue={datos.projectNameValue}
 			/>
 			<div style={{ display: 'flex', alignItems: 'baseline' }}>
-				<AddTask legend="+ Añadir tarea" onClick={onClickAddTask} />
+				<AddTask legend="+ Añadir tarea" onClick={datos.onClickAddTask} />
 				<IconDropdown
 					modo={modo}
 					legend="Cargar plantilla"
@@ -32,13 +30,17 @@ const Content = (props: any) => {
 						marginLeft: '20px',
 						fontSize: '15px',
 					}}
-					options={optionsPlantillas(templateOptions, onClickCreateTemplate)}
+					options={optionsPlantillas({
+						templateOptions: datos.templateOptions,
+						onClickCreateTemplate: datos.onClickCreateTemplate,
+					})}
 				/>
 			</div>
 			<div style={{ borderLeft: '2px solid #282828', paddingLeft: '10px' }}>
-				{Children &&
-					Children.map((e: any) => (
+				{datos.subtasks &&
+					datos.subtasks.map((e: any) => (
 						<Task
+							idTask={e.idTask}
 							taskDisabled={e.taskDisabled}
 							taskComplete={e.taskComplete}
 							check={e.check}
@@ -65,17 +67,12 @@ const Content = (props: any) => {
 							prioridadInicial={e.prioridadInicial}
 							onClickPrioridad={e.onClickPrioridad}
 							//
-							moreOptions={[
-								{
-									title: 'Eliminar',
-									onClick: e.onClickDeleteTask,
-								},
-							]}
+							moreOptions={e.moreOptions}
 							//
 							subtaskForbbiden={e.subtaskForbbiden}
-							Children={e.Children}
+							subtasks={e.subtasks}
 							//
-							onClickCreateTemplate={e.onClickNewTemplate}
+							onClickCreateTemplate={e.onClickCreateTemplate}
 							onClickAddTask={e.onClickAddTask}
 							templateOptions={e.templateOptions}
 							modo={modo}

@@ -12,7 +12,8 @@ withProperties.args = {
 	onClickDelete: () => alert('Eliminar proyecto'),
 	onClickPreview: () => alert('Previsualizar'),
 	title: 'UBER EATS-1523-Sitios-Noviembre23',
-	statusTask: 'delayed',
+	// statusTask: 'delayed',
+	statusTask: 1,
 	percentTask: 100,
 	tasks: 35,
 };

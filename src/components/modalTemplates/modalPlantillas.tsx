@@ -5,49 +5,36 @@ import Modal from '../modal';
 import Task from '../task';
 import AddTask from '../task/files/addTask';
 import '../../global.scss';
+import { onChangeType, onClickType, optionsIcnDrp } from '../../types';
 
-//TYPES
-interface submenus {
-	id?: number | string;
-	className?: string;
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
-	title?: string;
-}
-interface optionsType {
-	id?: string;
-	submenus?: submenus[];
-	title?: string;
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
-	className?: string;
-}
 interface childrenTypes {
 	idTask: String;
-	equipos: optionsType[];
+	equipos: optionsIcnDrp[];
 	Children: any;
-	onChangeDescriptionTask: (e: React.FormEvent<HTMLInputElement>) => void;
-	onChangeNameTask: (e: React.FormEvent<HTMLInputElement>) => void;
-	onClickAddTask: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickCreateTemplate: (e: React.MouseEvent<HTMLElement>) => void;
-	revision: optionsType[];
+	onChangeDescriptionTask: onChangeType;
+	onChangeNameTask: onChangeType;
+	onClickAddTask: onClickType;
+	onClickCreateTemplate: onClickType;
+	revision: optionsIcnDrp[];
 	valueRevision: string;
-	responsables: optionsType[];
+	responsables: optionsIcnDrp[];
 	taskDisabled: boolean;
 	valueTask: string;
 	valueDescription: string;
 	valueResponsable: string;
 	subtaskForbbiden: boolean;
-	templateOptions: optionsType[];
-	onClickDeleteTask: (e: React.MouseEvent<HTMLElement>) => void;
+	templateOptions: optionsIcnDrp[];
+	onClickDeleteTask: onClickType;
 	className: string;
 	durationValue: string;
 }
 
 //INTERFACES
 export interface ModalTemplatesProps {
-	onClickCrear?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickCancelar?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickAddTask?: (e: React.MouseEvent<HTMLElement>) => void;
-	onChangeTemplateName?: (e: React.FormEvent<HTMLInputElement>) => void;
+	onClickCrear?: onClickType;
+	onClickCancelar?: onClickType;
+	onClickAddTask?: onClickType;
+	onChangeTemplateName?: onChangeType;
 	templateNameValue?: string;
 	Children?: childrenTypes[];
 }
@@ -106,6 +93,7 @@ const ModalTamplates = (props: ModalTemplatesProps) => {
 							templateOptions={e.templateOptions}
 							moreOptions={[
 								{
+									id: 'delete',
 									title: 'Eliminar',
 									onClick: e.onClickDeleteTask,
 								},

@@ -1,11 +1,18 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import AsideTemplates, { AsideTemplatesProps } from './asideTemplates';
+// componente principal
+import AsideTemplates from './asideTemplates';
+// types
+import { aside } from './types';
 
+// utilidades del storybook
+import { boolean, functions, modo } from '../../storyUtils';
+
+// componentes auxiliares
 import Cards from '../cards';
-import { useWindowSize as scrSize } from '../../utils/windowSize';
 
-const Template: Story<AsideTemplatesProps> = (args) => <AsideTemplates {...args} />;
+// creación de plantilla donde se colocará el componente
+const Template: Story<aside> = (args) => <AsideTemplates {...args} />;
 
 //estado inicial del componente
 export const InitialState = Template.bind({});
@@ -16,13 +23,13 @@ InitialState.args = {
 //estado del componente con propiedades
 export const WithProperties = Template.bind({});
 WithProperties.args = {
-	Content: () => (
-		<Cards
-			// height={scrSize().width <= 390 ? scrSize().height / 4 / 10 - 5 : 15}
-			// width={scrSize().width <= 415 ? scrSize().width / 10 - 3 : scrSize().width / 10 / 4 - 3}
-			rounded
-			modo={'Dark'}
-		/>
+	children: (
+		<div style={{ display: 'flex', flexWrap: 'wrap' }}>
+			<Cards rounded modo={'Dark'} />
+			<Cards rounded modo={'Dark'} />
+			<Cards rounded modo={'Dark'} />
+			<Cards rounded modo={'Dark'} />
+		</div>
 	),
 };
 
@@ -32,5 +39,10 @@ export default {
 	title: 'Átomos/aside',
 	component: AsideTemplates,
 	//definición de argumentos
-	argTypes: {},
+	argTypes: {
+		isWhite: boolean(),
+		visible: boolean(),
+		modo: modo(),
+		children: functions(),
+	},
 } as Meta;

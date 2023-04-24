@@ -1,7 +1,8 @@
 import React from 'react';
-import { onBlurType } from '../../types';
+import { Modo, onBlurType, taskType } from '../../types';
 
 export interface autoresizeInput {
+	id: string;
 	style?: React.CSSProperties;
 	onChange?: onBlurType;
 	taskType?: taskType;
@@ -9,6 +10,5 @@ export interface autoresizeInput {
 	placeholder?: string;
 	tabIndex?: number;
 	disabled?: boolean;
+	modo?: Modo;
 }
-
-type taskType = 'principal' | 'task' | 'subtask';
