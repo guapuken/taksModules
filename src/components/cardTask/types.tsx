@@ -18,13 +18,6 @@ export interface cardTask {
 	// generales
 	modo?: Modo;
 	idTask: string;
-	// valueResponsable?: string;
-	// valueRevision?: string;
-	// idNotification: string;
-	// onChangeNotificationSwitch?: onChangeType;
-	// responsables?: submenusArray[];
-	// equipos?: submenusArray[];
-	// revision?: submenusArray[];
 }
 
 export type aside = {

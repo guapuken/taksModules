@@ -14,7 +14,7 @@ function DemoComponent() {
 	return (
 		<CardProject
 			modo="Light"
-			status={'outOfTime'}
+			statusTasks={'outOfTime'}
 			onCl_showDetails={() => alert('mostrar detalles')}
 			onCl_share={() => alert('compartir')}
 			onCh_follow={() => setNameTask(!nameTask)}

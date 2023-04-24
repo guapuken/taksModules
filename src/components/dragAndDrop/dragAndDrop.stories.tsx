@@ -18,7 +18,7 @@ const tasks = [
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
 		percentTask: 15,
-		onChangeNotificationSwitch: (e) => !e,
+		onCh_follow: (e) => !e,
 		subtasks: 10,
 	},
 	{
@@ -29,7 +29,7 @@ const tasks = [
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
 		percentTask: 15,
-		onChangeNotificationSwitch: (e) => !e,
+		onCh_follow: (e) => !e,
 		subtasks: 10,
 	},
 	{
@@ -40,7 +40,7 @@ const tasks = [
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
 		percentTask: 15,
-		onChangeNotificationSwitch: (e) => !e,
+		onCh_follow: (e) => !e,
 		subtasks: 10,
 	},
 	{
@@ -51,7 +51,7 @@ const tasks = [
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
 		percentTask: 15,
-		onChangeNotificationSwitch: (e) => !e,
+		onCh_follow: (e) => !e,
 		subtasks: 10,
 	},
 	{
@@ -62,7 +62,7 @@ const tasks = [
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
 		percentTask: 15,
-		onChangeNotificationSwitch: (e) => !e,
+		onCh_follow: (e) => !e,
 		subtasks: 10,
 	},
 	{
@@ -73,7 +73,7 @@ const tasks = [
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
 		percentTask: 15,
-		onChangeNotificationSwitch: (e) => !e,
+		onCh_follow: (e) => !e,
 		subtasks: 10,
 	},
 	{
@@ -84,7 +84,7 @@ const tasks = [
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
 		percentTask: 15,
-		onChangeNotificationSwitch: (e) => !e,
+		onCh_follow: (e) => !e,
 		subtasks: 10,
 	},
 ];
