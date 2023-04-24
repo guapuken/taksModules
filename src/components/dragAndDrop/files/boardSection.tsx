@@ -22,35 +22,28 @@ const BoardSection = (props: boards) => {
 				<h2>{datos.title}</h2>
 				<img src={bell} alt="" />
 			</div>
-			<div>
-				<SortableContext
-					id={datos.id}
-					items={datos.tasks}
-					strategy={
-						datos.scrSize.width <= 834
-							? horizontalListSortingStrategy
-							: verticalListSortingStrategy
-					}
-				>
-					{/* Se aplican los estilos al componente que contiene las tareas */}
-					<div
-						ref={setNodeRef}
-						style={datos.styleTaskContainer}
-						className={`ctnIndvlBrd`}
-					>
-						{datos.tasks.map((task) => {
-							console.log('data: ', task);
-							return (
-								<div className={`ctnDrgbl`} key={task.id}>
-									<SortableTaskItem id={task.id}>
-										<TaskItem data={task} Card={datos.Card} />
-									</SortableTaskItem>
-								</div>
-							);
-						})}
-					</div>
-				</SortableContext>
-			</div>
+			<SortableContext
+				id={datos.id}
+				items={datos.tasks}
+				strategy={
+					datos.scrSize.width <= 834
+						? horizontalListSortingStrategy
+						: verticalListSortingStrategy
+				}
+			>
+				{/* Se aplican los estilos al componente que contiene las tareas */}
+				<div ref={setNodeRef} style={datos.styleTaskContainer} className={`ctnIndvlBrd`}>
+					{datos.tasks.map((task) => {
+						return (
+							<div className={`ctnDrgbl`} key={task.id}>
+								<SortableTaskItem id={task.id}>
+									<TaskItem data={task} Card={datos.Card} />
+								</SortableTaskItem>
+							</div>
+						);
+					})}
+				</div>
+			</SortableContext>
 		</div>
 	);
 };

@@ -1,19 +1,13 @@
 import React from 'react';
+
+// componente contenedor
 import Cards from '../cards';
-import { cardH, cardW } from '../../utils/functions/functions';
+// componente principales
 import { Aside } from './files/aside';
 import { Content } from './files/content';
-import { Modo, onClickType, statusTask } from '../../types';
+// types
+import { cardMannageTasks } from './types';
 
-export type cardMannageTasks = {
-	onClickDelete?: onClickType;
-	onClickPreview?: onClickType;
-	title?: string;
-	tasks?: number;
-	percentTask?: number;
-	statusTask?: statusTask;
-	modo: Modo;
-};
 const CardMannageTask = (props: cardMannageTasks) => {
 	const properties = {
 		Aside: () => <Aside {...props} />,

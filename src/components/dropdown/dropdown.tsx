@@ -69,8 +69,8 @@ const Dropdown = (props: dropdown) => {
 			return (
 				<div className={'dropdownTags'}>
 					{selectedValue.map((option: optionsDropdown) => (
-						<div key={option.value} className={'dropdownTagItem'}>
-							{option.label}
+						<div key={option.id} className={'dropdownTagItem'}>
+							{option.title}
 							<span
 								onClick={(e) => onTagRemove(e, option)}
 								className={'dropdownTagClose'}
@@ -82,26 +82,26 @@ const Dropdown = (props: dropdown) => {
 				</div>
 			);
 		}
-		return selectedValue.label;
+		return selectedValue.title;
 	};
 
 	const removeOption = (option: any) => {
-		return selectedValue?.filter((o: any) => o.value !== option.value);
+		return selectedValue?.filter((o: any) => o.id !== option.id);
 	};
 
 	const onTagRemove = (e: any, option: any) => {
 		e.stopPropagation();
 		const newValue = removeOption(option);
 		setSelectedValue(newValue ? newValue : null);
-		if (datos.onChange) {
-			datos.onChange(newValue ? newValue : null);
+		if (datos.onCh) {
+			datos.onCh(newValue ? newValue : null);
 		}
 	};
 
 	const onItemClick = (option: any) => {
 		let newValue;
 		if (datos.isMulti) {
-			if (selectedValue.findIndex((o: any) => o.value === option.value) >= 0) {
+			if (selectedValue.findIndex((o: any) => o.id === option.id) >= 0) {
 				newValue = removeOption(option);
 			} else {
 				newValue = [...selectedValue, option];
@@ -109,29 +109,29 @@ const Dropdown = (props: dropdown) => {
 		} else {
 			newValue = option;
 		}
-		setSelectedValue(newValue);
-		if (datos.onChange) {
-			datos.onChange(newValue);
+		if (datos.onCh) {
+			datos.onCh(newValue);
 		}
+		setSelectedValue(newValue);
 	};
 
 	const isSelected = (option: any) => {
 		if (datos.isMulti) {
-			return selectedValue.filter((o: any) => o.value === option.value).length > 0;
+			return selectedValue.filter((o: any) => o.id === option.id).length > 0;
 		}
 
 		if (!selectedValue) {
 			return false;
 		}
 
-		return selectedValue.value === option.value;
+		return selectedValue.id === option.id;
 	};
 
 	const onSearch = (e: any) => {
-		setSearchValue(e.target.value);
-		if (datos.onChange) {
-			datos.onChange(e);
+		if (datos.onCh) {
+			datos.onCh(e);
 		}
+		setSearchValue(e.target.value);
 	};
 
 	const getOptions = () => {
@@ -140,7 +140,7 @@ const Dropdown = (props: dropdown) => {
 		}
 
 		return datos.options?.filter(
-			(option) => option.label.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0
+			(option) => option.title.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0
 		);
 	};
 
@@ -176,10 +176,10 @@ const Dropdown = (props: dropdown) => {
 						return (
 							<div
 								onClick={() => onItemClick(option)}
-								key={option.value}
+								key={option.id}
 								className={`${'dropdownItem'} ${isSelected(option) && 'selected'}`}
 							>
-								{option.label}
+								{option.title}
 							</div>
 						);
 					})}

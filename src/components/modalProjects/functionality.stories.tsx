@@ -31,6 +31,16 @@ function DemoComponent() {
 			onClick: (e) => console.log(e),
 		},
 	];
+	const equiposD = [
+		{
+			id: '1',
+			title: 'Jorge Correa',
+		},
+		{
+			id: '2',
+			title: 'Kaori Soto',
+		},
+	];
 	const revisionUs = [
 		{
 			id: '1',
@@ -72,7 +82,7 @@ function DemoComponent() {
 	return (
 		<ModalProjects
 			modo="Light"
-			onChangeName={(e: any) => {
+			onCh_nameproject={(e: any) => {
 				setProjectName(e.target.value);
 				console.log('id: ', e.target.id);
 			}}
@@ -83,34 +93,36 @@ function DemoComponent() {
 					onClick: () => alert('Espectaculares'),
 				},
 			]}
+			teamOptions={equiposD}
+			onCh_asignTeam={(e) => console.log('team asign: ', e)}
 			projectNameValue={projectName}
 			// button clicks
-			onClickAddTask={() => alert('Tarea nueva')}
-			onClickCreateTemplate={() => alert('Crear plantilla')}
-			onClickCreate={() => alert('Hola')}
-			onClickAbort={() => alert('Adios')}
+			onCl_addTask={() => alert('Tarea nueva')}
+			onCl_newTemplate={() => alert('Crear plantilla')}
+			onCl_confirm={() => alert('Hola')}
+			onCl_abort={() => alert('Adios')}
 			idProject={idProject}
 			// por probar
 			subtasks={[
 				{
 					idTask: idTask,
-					valueTask: nameTask,
+					valueTask: 'Hola que hace',
 					valueDescription: descriptionTask,
-					onChangeNameTask: (e) => {
+					onCh_nameTask: (e) => {
 						console.log('id de tarea: ', e.target.id);
 						setNameTask(e.target.value);
 					},
-					onChangeDescriptionTask: (e) => setDescriptionTask(e.target.value),
-					onClickPrioridad: (e) => setPriority(e.target.id),
+					onCh_descriptionTask: (e) => setDescriptionTask(e.target.value),
+					onCl_Priority: (e) => setPriority(e.target.id),
 					prioridadInicial: priority,
 					check: checked,
-					onChangeCheckbox: (e) => setCheckedd(!checked),
+					onCh_checkbox: (e) => setCheckedd(!checked),
 					startDateValue: startDate,
-					onChangeStartDate: (e) => {
+					onCh_tartDate: (e) => {
 						console.log('función start date: ');
 						setStartDate(e.target.value);
 					},
-					onChangeEndDate: (e) => {
+					onCh_endDate: (e) => {
 						console.log('función end date: ');
 						setEndDate(e.target.value);
 					},
@@ -120,34 +132,35 @@ function DemoComponent() {
 					equipos: equipos,
 					valueResponsable: responsable.name,
 					valueRevision: revision.name,
-					onClickCreateTemplate: () => alert('crear plantilla'),
+					onCl_newTemplate: () => alert('crear plantilla'),
 					templateOptions: [
 						{
 							id: '1',
 							title: 'Espectaculares',
 						},
 					],
+					onClikEliminar: () => alert('Hola'),
 					subtasks: [
 						{
 							idTask: '27',
 							valueTask: 'CDMX',
 							valueDescription: descriptionTask,
-							onChangeNameTask: (e) => setNameTask(e.target.value),
-							onChangeDescriptionTask: (e) => setDescriptionTask(e.target.value),
-							onClickPrioridad: (e) => setPriority(e.target.id),
+							onCh_nameTask: (e) => setNameTask(e.target.value),
+							onCh_descriptionTask: (e) => setDescriptionTask(e.target.value),
+							onCl_Priority: (e) => setPriority(e.target.id),
 							prioridadInicial: priority,
 							check: checked,
-							onChangeCheckbox: (e) => setCheckedd(!checked),
+							onCh_checkbox: (e) => setCheckedd(!checked),
 							startDateValue: startDate,
-							onChangeStartDate: (e) => setStartDate(e.target.value),
+							onCh_tartDate: (e) => setStartDate(e.target.value),
 							endDateValue: endDate,
-							onChangeEndDate: (e) => setEndDate(e.target.value),
+							onCh_endDate: (e) => setEndDate(e.target.value),
 							responsables: responsableUs,
 							revision: revisionUs,
 							equipos: equipos,
 							valueResponsable: responsable.name,
 							valueRevision: revision.name,
-							onClickCreateTemplate: () => alert('crear plantilla'),
+							onCl_newTemplate: () => alert('crear plantilla'),
 							templateOptions: [
 								{
 									id: '1',
@@ -159,23 +172,22 @@ function DemoComponent() {
 									idTask: '252',
 									valueTask: 'CDMX',
 									valueDescription: descriptionTask,
-									onChangeNameTask: (e) => setNameTask(e.target.value),
-									onChangeDescriptionTask: (e) =>
-										setDescriptionTask(e.target.value),
-									onClickPrioridad: (e) => setPriority(e.target.id),
+									onCh_nameTask: (e) => setNameTask(e.target.value),
+									onCh_descriptionTask: (e) => setDescriptionTask(e.target.value),
+									onCl_Priority: (e) => setPriority(e.target.id),
 									prioridadInicial: priority,
 									check: checked,
-									onChangeCheckbox: (e) => setCheckedd(!checked),
+									onCh_checkbox: (e) => setCheckedd(!checked),
 									startDateValue: startDate,
-									onChangeStartDate: (e) => setStartDate(e.target.value),
+									onCh_tartDate: (e) => setStartDate(e.target.value),
 									endDateValue: endDate,
-									onChangeEndDate: (e) => setEndDate(e.target.value),
+									onCh_endDate: (e) => setEndDate(e.target.value),
 									responsables: responsableUs,
 									revision: revisionUs,
 									equipos: equipos,
 									valueResponsable: responsable.name,
 									valueRevision: revision.name,
-									onClickCreateTemplate: () => alert('crear plantilla'),
+									onCl_newTemplate: () => alert('crear plantilla'),
 									templateOptions: [
 										{
 											id: '1',
@@ -189,22 +201,22 @@ function DemoComponent() {
 							idTask: '275',
 							valueTask: 'CDMX',
 							valueDescription: descriptionTask,
-							onChangeNameTask: (e) => setNameTask(e.target.value),
-							onChangeDescriptionTask: (e) => setDescriptionTask(e.target.value),
-							onClickPrioridad: (e) => setPriority(e.target.id),
+							onCh_nameTask: (e) => setNameTask(e.target.value),
+							onCh_descriptionTask: (e) => setDescriptionTask(e.target.value),
+							onCl_Priority: (e) => setPriority(e.target.id),
 							prioridadInicial: priority,
 							check: checked,
-							onChangeCheckbox: (e) => setCheckedd(!checked),
+							onCh_checkbox: (e) => setCheckedd(!checked),
 							startDateValue: startDate,
-							onChangeStartDate: (e) => setStartDate(e.target.value),
+							onCh_tartDate: (e) => setStartDate(e.target.value),
 							endDateValue: endDate,
-							onChangeEndDate: (e) => setEndDate(e.target.value),
+							onCh_endDate: (e) => setEndDate(e.target.value),
 							responsables: responsableUs,
 							revision: revisionUs,
 							equipos: equipos,
 							valueResponsable: responsable.name,
 							valueRevision: revision.name,
-							onClickCreateTemplate: () => alert('crear plantilla'),
+							onCl_newTemplate: () => alert('crear plantilla'),
 							templateOptions: [
 								{
 									id: '1',
@@ -218,22 +230,22 @@ function DemoComponent() {
 					idTask: '28',
 					valueTask: 'CDMX',
 					valueDescription: descriptionTask,
-					onChangeNameTask: (e) => setNameTask(e.target.value),
-					onChangeDescriptionTask: (e) => setDescriptionTask(e.target.value),
-					onClickPrioridad: (e) => setPriority(e.target.id),
+					onCh_nameTask: (e) => setNameTask(e.target.value),
+					onCh_descriptionTask: (e) => setDescriptionTask(e.target.value),
+					onCl_Priority: (e) => setPriority(e.target.id),
 					prioridadInicial: priority,
 					check: checked,
-					onChangeCheckbox: (e) => setCheckedd(!checked),
+					onCh_checkbox: (e) => setCheckedd(!checked),
 					startDateValue: startDate,
-					onChangeStartDate: (e) => setStartDate(e.target.value),
+					onCh_tartDate: (e) => setStartDate(e.target.value),
 					endDateValue: endDate,
-					onChangeEndDate: (e) => setEndDate(e.target.value),
+					onCh_endDate: (e) => setEndDate(e.target.value),
 					responsables: responsableUs,
 					revision: revisionUs,
 					equipos: equipos,
 					valueResponsable: responsable.name,
 					valueRevision: revision.name,
-					onClickCreateTemplate: () => alert('crear plantilla'),
+					onCl_newTemplate: () => alert('crear plantilla'),
 					templateOptions: [
 						{
 							id: '1',
@@ -245,22 +257,22 @@ function DemoComponent() {
 					idTask: '29',
 					valueTask: 'CDMX',
 					valueDescription: descriptionTask,
-					onChangeNameTask: (e) => setNameTask(e.target.value),
-					onChangeDescriptionTask: (e) => setDescriptionTask(e.target.value),
-					onClickPrioridad: (e) => setPriority(e.target.id),
+					onCh_nameTask: (e) => setNameTask(e.target.value),
+					onCh_descriptionTask: (e) => setDescriptionTask(e.target.value),
+					onCl_Priority: (e) => setPriority(e.target.id),
 					prioridadInicial: priority,
 					check: checked,
-					onChangeCheckbox: (e) => setCheckedd(!checked),
+					onCh_checkbox: (e) => setCheckedd(!checked),
 					startDateValue: startDate,
-					onChangeStartDate: (e) => setStartDate(e.target.value),
+					onCh_tartDate: (e) => setStartDate(e.target.value),
 					endDateValue: endDate,
-					onChangeEndDate: (e) => setEndDate(e.target.value),
+					onCh_endDate: (e) => setEndDate(e.target.value),
 					responsables: responsableUs,
 					revision: revisionUs,
 					equipos: equipos,
 					valueResponsable: responsable.name,
 					valueRevision: revision.name,
-					onClickCreateTemplate: () => alert('crear plantilla'),
+					onCl_newTemplate: () => alert('crear plantilla'),
 					templateOptions: [
 						{
 							id: '1',

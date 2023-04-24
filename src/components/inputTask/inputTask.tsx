@@ -26,20 +26,19 @@ const InputTask = (props: inputTasks) => {
 					<CheckboxInput
 						style={{ marginTop: '.5vh' }}
 						modo={datos.modo}
-						onClick={datos.onClickCheck}
 						principalTask={datos.principalTask}
 						disabled={datos.disabled}
-						onChange={datos.onChange}
+						onCh_checkbox={datos.onCh_checkbox}
 						check={datos.check}
 						idCheckbox={datos.idCheckbox}
 					/>
 				)}
-				<div>
+				<div style={{ width: '100%' }}>
 					<AutoresizeInput
 						id={datos.id}
 						taskType={datos.principalTask ? 'principal' : 'task'}
 						style={nameTaskStyles}
-						onChange={datos.onChangeNameTask}
+						onCh={datos.onCh_nameTask}
 						initialValue={datos.valueTask}
 						placeholder={`Nombre de la ${datos.isSubtask ? 'subtarea' : 'tarea'}`}
 						tabIndex={1}
@@ -49,7 +48,7 @@ const InputTask = (props: inputTasks) => {
 						id={datos.id}
 						taskType={'subtask'}
 						style={descriptionTaskStyles}
-						onChange={datos.onChangeDescriptionTask}
+						onCh={datos.onCh_descriptionTask}
 						initialValue={datos.valueDescription}
 						placeholder={`Descripción de la ${datos.isSubtask ? 'subtarea' : 'tarea'}`}
 						tabIndex={2}

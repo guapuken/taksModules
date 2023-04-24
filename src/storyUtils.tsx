@@ -37,6 +37,15 @@ export function functions() {
 		control: 'function',
 	};
 }
+// selects
+export function selects(options: string[]) {
+	return {
+		control: {
+			type: 'select',
+			options: options,
+		},
+	};
+}
 // files without bg
 export function filesNoBG() {
 	return {
@@ -73,6 +82,14 @@ export function taskType() {
 		control: {
 			type: 'select',
 			options: ['principal', 'task', 'subtask'],
+		},
+	};
+}
+export function statusTasks() {
+	return {
+		control: {
+			type: 'select',
+			options: ['delayed', 'outOfTime', 'onTime'],
 		},
 	};
 }

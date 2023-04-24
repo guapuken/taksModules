@@ -7,34 +7,37 @@ import { Members } from '.';
 import { onBlurType, onChangeType } from '../../../types';
 // estilos
 import '../modalTeams.scss';
+import { content } from '../types';
 
 //COMPONENTE QUE REGRESA TODO EL CONTENIDO DEL MODAL
-const Content = (props: any) => {
-	const {
-		teamColor,
-		onChangeTeamColor,
+const Content = ({
+	teamColor,
+	onCh_teamColor,
 
-		onChangeTeamName,
-		teamNameValue,
-		onChangeUserSelected,
-		memberValue,
+	onCh_teamName,
+	teamName,
+	onCh_user,
+	memberValue,
 
-		membersOptions,
-		onClickAddUser,
-		role,
-		Children,
-		modo = 'Light',
-	} = props;
+	membersOptions,
+	onCl_addUser,
+	onCl_delete,
+	role,
+	members,
+	idTeam,
+	modo = 'Light',
+}: content) => {
 	const [asignColor, setAsignColor] = React.useState(teamColor || '');
-	const [teamName] = React.useState(teamNameValue || '');
+	const [nameTeam] = React.useState(teamName || '');
 	return (
 		<div className={`ctn${modo}_MTC`}>
 			<div className={'inptsCtn'}>
 				<InputLabel
+					id={idTeam as any}
 					legend="Nombre del equipo"
-					onChange={onChangeTeamName as onBlurType}
+					onCh={onCh_teamName as onBlurType}
 					style={{ height: '30px', width: '45%' }}
-					initialValue={teamName}
+					initialValue={nameTeam}
 				/>
 				<div className="ctnColorLbl">
 					<Spans
@@ -49,8 +52,8 @@ const Content = (props: any) => {
 						value={asignColor}
 						onChange={(e: any) => setAsignColor(e.target.value)}
 						onBlur={(e) => {
-							if (onChangeTeamColor) {
-								onChangeTeamColor(e);
+							if (onCh_teamColor) {
+								onCh_teamColor(e);
 							}
 						}}
 					/>
@@ -62,10 +65,11 @@ const Content = (props: any) => {
 					memberValue={memberValue}
 					membersOptions={membersOptions}
 					role={role}
-					onClickAddUser={onClickAddUser}
-					style={{ marginTop: '20px' }}
-					Children={Children}
-					onChangeUserSelected={onChangeUserSelected}
+					onCl_addUser={onCl_addUser}
+					style={{ marginTop: '10px' }}
+					members={members}
+					onCh_user={onCh_user}
+					onCl_delete={onCl_delete}
 				/>
 			</div>
 		</div>

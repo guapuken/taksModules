@@ -16,7 +16,7 @@ import {
 } from '@dnd-kit/core';
 import { sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 //importación de componentes principales--------------------------------------------------------------------------------------------------
-import { TaskItem, BoardSection } from './files';
+import { TaskItem, BoardSection, NoCard } from './files';
 //Importación de elementos multimedia a usar------------------------------------------------------------------------------------------
 import { useWindowSize } from '../../utils/windowSize';
 import { BoardSections, dragAndDrop } from './types';
@@ -29,6 +29,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 	const scrSize = useWindowSize();
 	// desestructuración de propiedades
 	const datos = { ...props };
+	// console.log('props componente inicial: ', datos);
 	// inicialización de propiedades
 	const {
 		tasks = [
@@ -74,6 +75,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 
 	/* Using the useSensors hook to create a sensor. */
 	const sensors = useSensors(
+		// useSensor(PointerSensor),
 		useSensor(PointerSensor),
 		useSensor(KeyboardSensor, {
 			coordinateGetter: sortableKeyboardCoordinates,
@@ -166,7 +168,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 	};
 
 	//se encarga de ver qué tarea es la que se encuentra activa
-	const task = activeTaskId ? getTaskById(tasks, activeTaskId) : null;
+	const task = activeTaskId ? getTaskById(datos.tasks, activeTaskId) : null;
 	return (
 		<DndContext
 			sensors={sensors}
@@ -185,7 +187,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 						<div className="boardCtn" key={boardSectionKey}>
 							<BoardSection
 								Card={datos.Card}
-								data={datos.data}
+								data={datos.tasks}
 								scrSize={scrSize}
 								width={width}
 								id={boardSectionKey}
@@ -197,61 +199,16 @@ const DragAndDrop = (props: dragAndDrop) => {
 					);
 				})}
 				<DragOverlay dropAnimation={dropAnimation}>
-					{task ? <TaskItem data={datos.data} Card={datos.Card} /> : null}
+					{task ? (
+						datos.Card ? (
+							<TaskItem data={task} Card={datos.Card} />
+						) : (
+							<NoCard taskName={task.taskName} />
+						)
+					) : null}
 				</DragOverlay>
 			</div>
 		</DndContext>
 	);
-	// return (
-	// 	// <Container
-	// 	// 	onClick={{}}
-	// 	// 	AsideContent={<AsideTemplates modo="Dark" visible />}
-	// 	// 	FooterContent={<Footer />}
-	// 	// >
-	// 	<DndContext
-	// 		sensors={sensors}
-	// 		collisionDetection={closestCorners}
-	// 		onDragStart={handleDragStart}
-	// 		onDragOver={handleDragOver}
-	// 		onDragEnd={handleDragEnd}
-	// 	>
-	// 		<div
-	// 			className={
-	// 				scrSize.width <= 415 ? 'ctnSml' : scrSize.width <= 834 ? 'ctnTbl' : 'ctn'
-	// 			}
-	// 		>
-	// 			{Object.keys(boardSections).map((boardSectionKey) => {
-	// 				//genera los elementos droppables
-	// 				return (
-	// 					<div
-	// 						className={
-	// 							scrSize.width <= 415
-	// 								? 'boardCtnSml'
-	// 								: scrSize.width <= 834
-	// 								? 'boardCtnTbl'
-	// 								: 'boardCtn'
-	// 						}
-	// 						key={boardSectionKey}
-	// 					>
-	// 						<BoardSection
-	// 							Card={Card}
-	// 							data={data}
-	// 							scrSize={scrSize}
-	// 							width={width}
-	// 							id={boardSectionKey}
-	// 							title={boardSectionKey}
-	// 							tasks={boardSections[boardSectionKey]}
-	// 							modo={modo}
-	// 						/>
-	// 					</div>
-	// 				);
-	// 			})}
-	// 			<DragOverlay dropAnimation={dropAnimation}>
-	// 				{task ? <TaskItem data={data} Card={Card} scrSize={scrSize} /> : null}
-	// 			</DragOverlay>
-	// 		</div>
-	// 	</DndContext>
-	// 	// </Container>
-	// );
 };
 export default DragAndDrop;

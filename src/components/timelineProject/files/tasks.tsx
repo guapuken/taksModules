@@ -5,14 +5,14 @@ import '../timelineProject.scss';
 import Button from '../../button/button';
 
 const Tasks = (props: tasks) => {
-	const { completed, taskName, duration, onClickShow, legendBtn } = props;
+	const { completed, taskName, duration, onCl_showDetails, legendBtn } = props;
 	return (
 		<div className="ctnTasks">
 			<div className={`circle${completed ? 'Complete' : ''}`}></div>
 			<div className="ctnDrtnTaks">
 				{duration && <p className="drtnTask">{duration} días hábiles</p>}
 				<div>
-					{taskName && !onClickShow ? (
+					{taskName && !onCl_showDetails ? (
 						<p className="nmTask">{taskName}</p>
 					) : (
 						<div>
@@ -22,7 +22,7 @@ const Tasks = (props: tasks) => {
 								primary
 								legend={legendBtn}
 								style={{ margin: '10px 0' }}
-								onClick={onClickShow}
+								onCl={onCl_showDetails}
 							/>
 						</div>
 					)}

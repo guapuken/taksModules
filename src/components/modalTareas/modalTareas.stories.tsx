@@ -16,10 +16,10 @@ InitialState.args = {};
 export const WithProperties = Template.bind({});
 WithProperties.args = {
 	projectNameValue: 'UBER-EATS-1235-ESP-NOV',
-	onClickCreate: () => alert('crear'),
-	onClickAbort: () => alert('cancelar'),
-	onClickAddTask: () => alert('añadir tarea'),
-	onClickCreateTemplate: () => alert('crear plantilla'),
+	onCl_confirm: () => alert('crear'),
+	onCl_abort: () => alert('cancelar'),
+	onCl_addTask: () => alert('añadir tarea'),
+	onCl_newTemplate: () => alert('crear plantilla'),
 };
 
 //exportación default de los valores

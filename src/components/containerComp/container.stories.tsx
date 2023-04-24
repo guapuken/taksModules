@@ -82,9 +82,9 @@ WithProperties.args = {
 		</div>
 	),
 	header: {
-		moduleName: 'Tareas',
-		legendBtnModule: 'Crear nueva',
-		onClickBtnModule: () => alert('Crear nueva'),
+		legend: 'Tareas',
+		legendBtn: 'Crear nueva',
+		onCl_btn: () => alert('Crear nueva'),
 	},
 	// onClick: onClicks,
 	// style: CSSProperties,

@@ -8,26 +8,25 @@ const Content = (props: content) => {
 		<div>
 			<Task
 				idTask={datos.idTask}
-				check={datos.taskCheckValue}
-				onChangeCheckbox={datos.onCheck}
+				check={datos.check}
+				onCh_checkbox={datos.onCh_checkbox}
 				idCheckbox={datos.idTask}
 				equipos={datos.equipos}
-				subtasks={datos.substasks}
+				subtasks={datos.subtasks}
 				principalTask
-				onChangeDescriptionTask={datos.onChangeDescription}
-				onChangeNameTask={datos.onChangeName}
-				onClickAddTask={datos.onClickAddTask}
-				onClickCreateTemplate={datos.onClickNewTemplate}
-				onClickPrioridad={datos.onClickPriority}
-				onClickEliminar={datos.onClickDeleteTask}
-				onClickRecordatorio={datos.onClickReminder}
+				onCh_descriptionTask={datos.onCh_descriptionTask}
+				onCh_nameTask={datos.onCh_nameTask}
+				onCl_addTask={datos.onCl_addTask}
+				onCl_newTemplate={datos.onCl_newTemplate}
+				onCl_selectPriority={datos.onCl_selectPriority}
+				onCl_delete={datos.onCl_delete}
+				onCl_reminder={datos.onCl_reminder}
 				prioridadInicial={datos.priorityValue}
 				revision={datos.revision}
 				valueRevision={datos.valueRevision}
 				responsables={datos.responsables}
 				taskComplete={datos.taskComplete}
 				taskDisabled={datos.taskDisabled}
-				onChangeDias={datos.onChangeDays}
 				disabledEndDate={datos.disabledEndDate}
 				disabledStartDate={datos.disabledStartDate}
 				endDateValue={datos.endDateValue}
@@ -36,13 +35,10 @@ const Content = (props: content) => {
 				valueDescription={datos.valueDescription}
 				valueResponsable={datos.valueResponsable}
 				subtaskForbbiden={datos.subtaskForbbiden}
-				onClickCheck={datos.onClickCheck}
-				onChangeStartDate={datos.onChangeStartDate}
-				onChangeEndDate={datos.onChangeEndDate}
-				isSubtask={datos.isSubtask}
+				onCh_startDate={datos.onCh_startDate}
+				onCh_endDate={datos.onCh_endDate}
 				templateOptions={datos.templateOptions}
 				moreOptions={datos.moreOptions}
-				plantillas={datos.plantillas}
 				className={datos.className}
 			/>
 		</div>

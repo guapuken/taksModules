@@ -12,8 +12,8 @@ const Content = (props: contentProps) => {
 		modo = 'Light',
 		comments,
 		taskComplete,
-		onChangeAddFile,
-		onClickAddComent,
+		onCh_addFile,
+		onCl_addComent,
 	} = props;
 	const [showTasks, setShowTasks] = React.useState(false);
 	return (
@@ -55,8 +55,8 @@ const Content = (props: contentProps) => {
 			<Comentarios
 				comments={comments}
 				showTasks={showTasks}
-				onChangeAddFile={onChangeAddFile}
-				onClickAddComent={onClickAddComent}
+				onCh_addFile={onCh_addFile}
+				onCl_addComent={onCl_addComent}
 			/>
 		</div>
 	);

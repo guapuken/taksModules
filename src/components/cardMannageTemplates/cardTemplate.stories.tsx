@@ -2,7 +2,10 @@ import React from 'react';
 //importación de elementos del storybook que se utilizarán para definir las historias
 import { Meta, Story } from '@storybook/react';
 //importación del componente y su interfaz que utilizará para definir sus propiedades
-import CardMannageTemplates, { cardTemplate } from './cardMannageTemplate';
+import CardMannageTemplates from './cardMannageTemplate';
+import { cardTemplate } from './types';
+// utilidades para el storybook
+import { functions, modo, number, statusTasks, text } from '../../storyUtils';
 
 //creación de plantilla en la que se colocarán los elementos
 const Template: Story<cardTemplate> = (args) => <CardMannageTemplates {...args} />;
@@ -14,10 +17,11 @@ initialState.args = {};
 //estado del componente con propiedades
 export const withProperties = Template.bind({});
 withProperties.args = {
-	onClickDelete: () => alert('Eliminar'),
-	onClickPreview: () => alert('Previsualizar'),
-	title: 'Espectaculares',
-	tasks: 15,
+	onCl_delete: () => alert('Eliminar'),
+	onCl_preview: () => alert('Previsualizar'),
+	onCl_edit: () => alert('editar'),
+	templateName: 'Espectaculares',
+	totalTasks: 15,
 };
 
 //exportación de valores por default
@@ -28,27 +32,13 @@ export default {
 
 	// definición de tipos de datos que reciben los argumentos que se reciben
 	argTypes: {
-		//argumentos de tipo función
-		onClickDelete: {
-			type: 'function',
-		},
-		onClickPreview: {
-			type: 'function',
-		},
-		//argumentos de tipo string
-		title: {
-			type: 'string',
-		},
-		//argumentos de tipo number
-		tasks: {
-			type: 'number',
-		},
-		//argumentos de tipo select
-		modo: {
-			control: {
-				type: 'select',
-				options: ['Dark', 'Light'],
-			},
-		},
+		onCl_delete: functions(),
+		onCl_preview: functions(),
+		onCl_edit: functions(),
+		modo: modo(),
+		templateName: text(),
+		statusTask: statusTasks(),
+		percentTask: number(),
+		totalTasks: number(),
 	},
 } as Meta;

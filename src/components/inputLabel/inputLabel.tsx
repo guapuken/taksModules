@@ -1,30 +1,18 @@
 import React, { CSSProperties, useState } from 'react';
 import '../../global.scss';
 import './inputLabel.scss';
-import { onBlurType } from '../../types';
+import { inputLabel } from './types';
 
-export interface InputLabelProps {
-	type?: 'text' | 'number' | 'email' | 'password';
-	legend?: string;
-	initialValue?: string;
-	min?: number;
-	max?: number;
-	onChange?: onBlurType;
-	style?: CSSProperties;
-	id: string;
-}
-const InputLabel = (props: InputLabelProps) => {
-	const {
-		legend = 'Change the legend',
-		id,
-		type = 'text',
-		initialValue,
-		onChange,
-		min = 0,
-		max = 30,
-		style,
-	} = props;
-
+const InputLabel = ({
+	legend = 'Change the legend',
+	id,
+	type = 'text',
+	initialValue,
+	onCh,
+	min = 0,
+	max = 30,
+	style,
+}: inputLabel) => {
 	const [isActive, setIsActive] = useState(false);
 	const [value, setValue] = useState(initialValue || '');
 
@@ -48,8 +36,8 @@ const InputLabel = (props: InputLabelProps) => {
 				id={id}
 				onChange={(e) => handleTextChange(e.target.value)}
 				onBlur={(e) => {
-					if (onChange) {
-						onChange(e);
+					if (onCh) {
+						onCh(e);
 					}
 				}}
 			/>

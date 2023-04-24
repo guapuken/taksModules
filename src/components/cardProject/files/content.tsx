@@ -14,41 +14,36 @@ import { cardW } from '../../../utils/functions/functions';
 import shareIcon from '../../../img/share.svg';
 // estilos
 import '../cardProject.scss';
+import { cardProject } from '../types';
 
 // ---------------------------------------------------------------------------------------------------------
 //      creación de componente
 // ---------------------------------------------------------------------------------------------------------
-const Content = (props: any) => {
-	// desestructuración de propiedades
-	const {
-		modo,
-		projectName = 'Projecto',
-		followNotificationsValue,
-		onClickShare,
-		ejecutivo = 'Ejecutivo',
-		status,
-		completedTask = 0,
-		incompletedTask = 10,
-		onClickShowDetails,
-		onChangeNotificationSwitch,
-		idNotification,
-	} = props;
+const Content = ({
+	modo,
+	projectName = 'Projecto',
+	follow,
+	onCl_share,
+	ejecutivo = 'Ejecutivo',
+	statusTasks,
+	completedTask = 0,
+	incompletedTask = 10,
+	onCl_showDetails,
+	onCh_follow,
+	idProject,
+}: cardProject) => {
 	return (
 		<CardContainer className="ctn_CProjectC">
 			<div className="title">
 				<TitleCard modo={modo} title={projectName} className="ttlProject" />
 			</div>
 			<div className="ctnBtns">
-				<ButtonItem
-					img={shareIcon}
-					onClick={onClickShare}
-					style={{ marginBottom: '10px' }}
-				/>
+				<ButtonItem img={shareIcon} onClick={onCl_share} style={{ marginBottom: '10px' }} />
 				<Notifications
 					modo={modo}
-					idNotification={idNotification}
-					onChange={onChangeNotificationSwitch}
-					checkValue={followNotificationsValue}
+					idNotification={idProject}
+					onChange={onCh_follow}
+					checkValue={follow}
 				/>
 			</div>
 			<div className="ctnEjecutivoBtns">
@@ -59,14 +54,14 @@ const Content = (props: any) => {
 
 			<div className=".ctnProgressBar_showDtls">
 				<ProgressBar
-					status={status}
+					status={statusTasks}
 					valor={
 						completedTask === 0 || incompletedTask === 0
 							? 0
 							: percent(completedTask + incompletedTask, completedTask)
 					}
 					width={cardW(false) - 3}
-					onClick={onClickShowDetails}
+					onClick={onCl_showDetails}
 					styleContent={{ cursor: 'pointer' }}
 				/>
 				<div className="ftr">
@@ -87,7 +82,7 @@ const Content = (props: any) => {
 					</SimpleButtonText>
 					<SimpleButtonText
 						legend="mostrar detalles..."
-						onClick={onClickShowDetails}
+						onClick={onCl_showDetails}
 						style={{ fontSize: '14px' }}
 					/>
 				</div>

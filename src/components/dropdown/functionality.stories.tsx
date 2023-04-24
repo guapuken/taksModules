@@ -2,55 +2,60 @@ import React from 'react';
 import Dropdown from '.';
 import { storiesOf } from '@storybook/react';
 
-type options = [
-	{
-		value: '';
-		label: '';
-	}
-];
+type options = {
+	id: string;
+	title: string;
+};
 // función para ver si funciona correctamente el onChange
 function DemoComponent() {
-	const [value, setValue] = React.useState<options>();
+	const [value, setValue] = React.useState<options>(
+		/* [ */ { title: 'Jorge', id: '1' }
+		/* 		{ title: 'Adan', id: '3' },
+	] */
+	);
 
 	// consoles para revisar que sse generen de manera correcta los setteos
-	console.clear();
-	console.log('value Dropdown: ', value);
+	// console.clear();
+	// console.log('value Dropdown: ', value);
 	return (
 		<Dropdown
-			isMulti
-			onChange={(e) => setValue(e)}
+			// isMulti
+			onCh={(e) => setValue(e)}
+			isSearchable
+			// values={value}
+			initialValue={value}
 			options={[
 				{
-					label: 'Jorge',
-					value: '1',
+					title: 'Jorge',
+					id: '1',
 				},
 				{
-					label: 'Denisse',
-					value: '2',
+					title: 'Denisse',
+					id: '2',
 				},
 				{
-					label: 'Adan',
-					value: '3',
+					title: 'Adan',
+					id: '3',
 				},
 				{
-					label: 'Olaf',
-					value: '4',
+					title: 'Olaf',
+					id: '4',
 				},
 				{
-					label: 'Victor',
-					value: '5',
+					title: 'Victor',
+					id: '5',
 				},
 				{
-					label: 'Ivan',
-					value: '6',
+					title: 'Ivan',
+					id: '6',
 				},
 				{
-					label: 'Rene',
-					value: '7',
+					title: 'Rene',
+					id: '7',
 				},
 				{
-					label: 'Diego',
-					value: '8',
+					title: 'Diego',
+					id: '8',
 				},
 			]}
 			placeHolder="Selecciona el enccargado de la tarea"

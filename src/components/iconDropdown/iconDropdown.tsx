@@ -31,7 +31,7 @@ const IconDropdown = (props: iconDrps) => {
 	return (
 		<div>
 			<DropdownMenu.Root>
-				<DropdownMenu.Trigger>
+				<DropdownMenu.Trigger disabled={datos.disabled}>
 					<button
 						style={datos.iconStyles}
 						className={`trggr${modo}_IcnDrpC`}
@@ -45,7 +45,7 @@ const IconDropdown = (props: iconDrps) => {
 				</DropdownMenu.Trigger>
 				<DropdownMenu.Portal>
 					<DropdownMenu.Content
-						onClick={datos.onClick}
+						onClick={datos.onCl}
 						// className={`SubmenuContainer${''} ${className}`}
 						className={`sbCtn${modo}_IcnDrpC ${datos.className}`}
 						style={{ cursor: 'pointer', ...datos.style }}

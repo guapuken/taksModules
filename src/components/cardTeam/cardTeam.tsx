@@ -1,23 +1,14 @@
 import React from 'react';
-//componentes auxiliares
+//componente contenedor
 import Cards from '../cards';
 // componentes principales
 import { Content, Aside } from './files';
 // types
-import { Modo, onClickType } from '../../types';
+import { cardTeam } from './types';
 // estilos
 import './cardTeam.scss';
 
-export interface CardTeamProps {
-	onClickEdit?: onClickType;
-	onClickView?: onClickType;
-	onClickDelete?: onClickType;
-	modo?: Modo;
-	teamName?: string;
-	teamColor?: string;
-	members?: string[];
-}
-const CardTeam = (props: CardTeamProps) => {
+const CardTeam = (props: cardTeam) => {
 	return (
 		<Cards
 			rounded={true}

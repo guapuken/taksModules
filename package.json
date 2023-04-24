@@ -1,6 +1,6 @@
 {
   "name": "@guapuken/tasks-modules",
-  "version": "0.1.29",
+  "version": "0.1.35",
   "description": "librería con paquetes actualizados",
   "scripts": {
     "rollup": "rollup -c",
@@ -41,6 +41,7 @@
     "@testing-library/react": "^13.4.0",
     "@types/jest": "^29.4.0",
     "@types/react": "^18.0.28",
+    "@types/react-beautiful-dnd": "^13.1.4",
     "autoprefixer": "^10.4.14",
     "babel-jest": "^29.4.2",
     "css-loader": "^5.2.6",
@@ -79,5 +80,8 @@
   "types": "dist/index.d.ts",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/guapuken"
+  },
+  "dependencies": {
+    "react-beautiful-dnd": "^13.1.1"
   }
 }

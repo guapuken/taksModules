@@ -3,13 +3,19 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 // componentes principales
 import ModalTaskWithComments from '.';
+import { optionsType } from '../modalTeams/types';
 
+type options = {
+	id: string;
+	title: string;
+};
 function DemoComponent(props: any) {
 	const [file, setFile] = React.useState('');
-	const [reasonToReWork, setReasonToReWork] = React.useState('');
+
+	const [reasonToReWork, setReasonToReWork] = React.useState<options>();
 
 	// consoles para ver que funcionen correctamente los setteos
-	console.clear();
+	// console.clear();
 	console.log('Archivo', file);
 	console.log('Retrabajar: ', reasonToReWork);
 
@@ -35,12 +41,12 @@ function DemoComponent(props: any) {
 				},
 			]}
 			modo="Dark"
-			onClickAddComent={() => alert('Agregar comentario')}
-			onClickConfirm={() => alert('confirmar retrabajar')}
-			onClickReWork={() => alert('Retrabajar tarea')}
-			onClickApprove={() => alert('Aprobar tarea')}
-			onChangeDrop={(e) => setReasonToReWork(e.value)}
-			onChangeAddFile={(e) => setFile(e.target.value)}
+			onCl_addComent={() => alert('Agregar comentario')}
+			onCl_confirm={() => alert('confirmar retrabajar')}
+			onCl_reWork={() => alert('Retrabajar tarea')}
+			onCl_approve={() => alert('Aprobar tarea')}
+			onCh_dropdown={(e) => setReasonToReWork(e)}
+			onCh_addFile={(e) => setFile(e.value)}
 			comments={[
 				{
 					user: 'kaori Soto',
