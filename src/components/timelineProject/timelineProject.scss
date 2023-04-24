@@ -27,42 +27,46 @@
     .ctnTimeline{
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        // justify-content: space-between;
         position: relative;
+        gap: 20px;
     }
     // línea que une las tareas
     .line{
         width: 2px;
-        height: 98%;
+        height: calc(100% - 30px);
         background: #525252;
         position: absolute;
-        left: 15px;
+        left: 8px;
         z-index: -1;
-        margin-top: 3px;
+        margin-top: 10px;
     }
     // conteneor de las tareas
     .ctnTasks{
         display: flex;
         gap: 20px;
-        align-items: center;
-        .drtnTask{
-            opacity: .5;
-            font-size: 14px;
+        align-items: start;
+        .ctnDrtnTaks{
+            display: flex;
+            flex-direction: column;
+            .nmTask{
+                font-size: 15px;
+            }
+            .drtnTask{
+                padding: 3px 0;
+                opacity: .5;
+                font-size: 14px;
+            }
         }
     }
     // tarea completa e incompleta
     .circleComplete,
     .circle{
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         border-radius: 20px;
         display: grid;
         place-items: center;
-        &:before{
-            content: "✔";
-            position: absolute;
-            font-size: 20px;
-        }
     }
     // cuando la tarea aun no se completa
     .circle{
@@ -77,6 +81,9 @@
         background: #282828;
         box-shadow: none;
         &:before{
+            content: "✔";
+            position: absolute;
+            font-size: 15px;
             color: #dedede;
         }
     }

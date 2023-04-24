@@ -33,18 +33,12 @@ WithProperties.args = {
 		label: 'Jorge Correa',
 	},
 	teamColor: '#525486',
-	onClickCreate: () => alert('Create Team'),
-	onClickAbort: () => alert('Abort team creation '),
+	onCl_confirm: () => alert('Create Team'),
+	onCl_abort: () => alert('Abort team creation '),
 	Children: () => (
 		<div>
-			<Members
-				membersOptions={options}
-				Children={() => <Members membersOptions={options} />}
-			/>
-			<Members
-				membersOptions={options}
-				Children={() => <Members membersOptions={options} />}
-			/>
+			<Members membersOptions={options as any} members={options as any} />
+			<Members membersOptions={options as any} members={options as any} />
 		</div>
 	),
 };

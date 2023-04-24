@@ -2,90 +2,60 @@ import React from 'react';
 // import { AutoResizeInput } from './complements/autoResizeInput';
 import { CheckboxInput } from './complements/checkboxInput';
 import { AutoresizeInput } from '../../components';
-import { Modo, onBlurType, onChangeType, onClickType } from '../../types';
+import { inputTasks } from './types';
 
-export interface InputTaskProps {
-	onChangeNameTask?: onBlurType;
-	onChange?: onChangeType;
-	onChangeDescriptionTask?: onBlurType;
-	onClickCheck?: onClickType;
-	disabled?: boolean;
-	principalTask?: boolean;
-	isSubtask?: boolean;
-	checked?: boolean;
-	check?: boolean;
-	showTask?: boolean;
-	valueTask?: string;
-	valueDescription?: string;
-	idCheckbox?: string;
-	data?: any;
-	style?: React.CSSProperties;
-	modo?: Modo;
-}
-
-const InputTask = (props: InputTaskProps) => {
+const InputTask = (props: inputTasks) => {
 	//desestucturación de propiedades
-	const {
-		disabled,
-		principalTask,
-		onChange,
-		check,
-		onClickCheck,
-		isSubtask,
-		style,
-		showTask,
-		onChangeNameTask,
-		onChangeDescriptionTask,
-		valueTask,
-		valueDescription,
-		idCheckbox,
-		modo,
-	} = props;
+	const datos = { ...props };
 
 	// Estilos que se asignan al componente
 	let nameTaskStyles = {
-		textDecoration: check ? 'line-through' : 'none',
-		opacity: check ? '.7' : '1',
+		textDecoration: datos.check ? 'line-through' : 'none',
+		opacity: datos.check ? '.7' : '1',
 		with: '100%',
 	};
 	let descriptionTaskStyles = {
-		opacity: check ? '.5' : '.8',
-		marginLeft: showTask ? '0' : '20px',
+		opacity: datos.check ? '.5' : '.8',
+		marginLeft: datos.showTask ? '0' : '20px',
 	};
 	return (
-		<div style={{ display: 'flex', flexDirection: 'column', ...style }}>
-			<div style={{ display: 'flex', width: '100%', alignItems: 'center' }}>
+		<div style={{ display: 'flex', flexDirection: 'column', ...datos.style }}>
+			<div style={{ display: 'flex', width: '100%', alignItems: 'flex-start' }}>
 				{/* Si existe la propiedad de showTask no se muestra el componente de Checkbox */}
-				{showTask && (
+				{datos.showTask && (
 					<CheckboxInput
-						modo={modo}
-						onClick={onClickCheck}
-						principalTask={principalTask}
-						disabled={disabled}
-						onChange={onChange}
-						check={check}
-						idCheckbox={idCheckbox}
+						style={{ marginTop: '.5vh' }}
+						modo={datos.modo}
+						principalTask={datos.principalTask}
+						disabled={datos.disabled}
+						onCh_checkbox={datos.onCh_checkbox}
+						check={datos.check}
+						idCheckbox={datos.idCheckbox}
 					/>
 				)}
-				<AutoresizeInput
-					taskType={principalTask ? 'principal' : 'task'}
-					style={nameTaskStyles}
-					onChange={onChangeNameTask}
-					initialValue={valueTask}
-					placeholder={`Nombre de la ${isSubtask ? 'subtarea' : 'tarea'}`}
-					tabIndex={1}
-					disabled={check ? true : disabled ? disabled : false}
-				/>
+				<div style={{ width: '100%' }}>
+					<AutoresizeInput
+						id={datos.id}
+						taskType={datos.principalTask ? 'principal' : 'task'}
+						style={nameTaskStyles}
+						onCh={datos.onCh_nameTask}
+						initialValue={datos.valueTask}
+						placeholder={`Nombre de la ${datos.isSubtask ? 'subtarea' : 'tarea'}`}
+						tabIndex={1}
+						disabled={datos.check ? true : datos.disabled ? datos.disabled : false}
+					/>
+					<AutoresizeInput
+						id={datos.id}
+						taskType={'subtask'}
+						style={descriptionTaskStyles}
+						onCh={datos.onCh_descriptionTask}
+						initialValue={datos.valueDescription}
+						placeholder={`Descripción de la ${datos.isSubtask ? 'subtarea' : 'tarea'}`}
+						tabIndex={2}
+						disabled={datos.check ? true : datos.disabled ? datos.disabled : false}
+					/>
+				</div>
 			</div>
-			<AutoresizeInput
-				taskType={'subtask'}
-				style={descriptionTaskStyles}
-				onChange={onChangeDescriptionTask}
-				initialValue={valueDescription}
-				placeholder={`Descripción de la ${isSubtask ? 'subtarea' : 'tarea'}`}
-				tabIndex={2}
-				disabled={check ? true : disabled ? disabled : false}
-			/>
 		</div>
 	);
 };

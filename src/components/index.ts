@@ -87,7 +87,7 @@ export {default as CardMannageTasks} from './cardMannageTasks';
 //      Modales preestablecidos
 // ---------------------------------------------------------------------------------------------------------
 export {default as Modal} from './modal'; // genérica
-export {default as ModalTareas} from './modalTareas';
+export {default as ModalTask} from './modalTareas';
 export {default as ModalTemplates} from './modalTemplates';
 export {default as ModalProjects} from './modalProjects';
 export {default as ModalTeams} from './modalTeams';

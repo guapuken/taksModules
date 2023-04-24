@@ -36,21 +36,22 @@ const templateOptions = [
 const ChildrenTask1 = () => (
 	<Task
 		idCheckbox={'189045'}
-		equipos={equipos}
-		onChangeDescriptionTask={() => alert('Cambio la descripción')}
-		onChangeNameTask={() => alert('Cambio la descripción')}
-		onClickAddTask={() => alert('Cambio la descripción')}
-		onClickCreateTemplate={() => alert('Cambio la descripción')}
-		revision={revision}
+		equipos={equipos as any}
+		onCh_descriptionTask={() => alert('Cambio la descripción')}
+		onCh_nameTask={() => alert('Cambio la descripción')}
+		onCl_addTask={() => alert('Cambio la descripción')}
+		onCl_newTemplate={() => alert('Cambio la descripción')}
+		revision={revision as any}
 		valueRevision={'Kaori Soto'}
-		responsables={responsables}
+		responsables={responsables as any}
 		valueTask={'Realizar los tipos de exhibición integral'}
 		valueDescription={'Solamente realizar integrales'}
 		valueResponsable={'Denisse Hernández'}
 		isSubtask
-		templateOptions={templateOptions}
+		templateOptions={templateOptions as any}
 		moreOptions={[
 			{
+				id: 'eliminar',
 				title: 'Eliminar',
 				onClick: () => alert('Cambio la descripción'),
 			},
@@ -68,10 +69,10 @@ WithProperties.args = {
 			idTask: '1024',
 			equipos: equipos,
 			Children: ChildrenTask1,
-			onChangeDescriptionTask: () => alert('Cambio la descripción'),
-			onChangeNameTask: () => alert('Cambio la descripción'),
-			onClickAddTask: () => alert('Cambio la descripción'),
-			onClickCreateTemplate: () => alert('Cambio la descripción'),
+			onCh_descriptionTask: () => alert('Cambio la descripción'),
+			onCh_nameTask: () => alert('Cambio la descripción'),
+			onCl_addTask: () => alert('Cambio la descripción'),
+			onCl_newTemplate: () => alert('Cambio la descripción'),
 			revision: revision,
 			valueRevision: 'Jorge Correa',
 			responsables: responsables,
@@ -89,10 +90,10 @@ WithProperties.args = {
 			idTask: '1025',
 			equipos: equipos,
 			Children: ChildrenTask1,
-			onChangeDescriptionTask: () => alert('Cambio la descripción'),
-			onChangeNameTask: () => alert('Cambio la descripción'),
-			onClickAddTask: () => alert('Cambio la descripción'),
-			onClickCreateTemplate: () => alert('Cambio la descripción'),
+			onCh_descriptionTask: () => alert('Cambio la descripción'),
+			onCh_nameTask: () => alert('Cambio la descripción'),
+			onCl_addTask: () => alert('Cambio la descripción'),
+			onCl_newTemplate: () => alert('Cambio la descripción'),
 			revision: revision,
 			valueRevision: 'Jorge Correa',
 			responsables: responsables,

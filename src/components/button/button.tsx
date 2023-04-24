@@ -1,64 +1,17 @@
 import React, { CSSProperties, useState } from 'react';
 
 //importación de types
-import { onClickType } from '../../types';
+import { button } from './types';
 //importación de estilos
-import '../../global.scss';
+import './button.scss';
 
-// types
-type size = 'small' | 'medium' | 'large';
-
-//interfaces
-export interface ButtonProps {
-	//types
-	onClick?: onClickType;
-	size?: size;
-	//css properties
-	style?: CSSProperties;
-	styleIcon?: CSSProperties;
-	//string properties
-	legend?: string;
-	color?: string;
-	id?: string;
-	key?: string;
-	icon?: string;
-	colorHover?: string;
-	className?: string;
-	//boolean properties
-	primary?: boolean;
-	secondary?: boolean;
-	tertiary?: boolean;
-	rounded?: boolean;
-	disabled?: boolean;
-	border?: boolean;
-	float?: boolean;
-}
-
-const Button = (props: ButtonProps) => {
+const Button = (props: button) => {
 	//Hooks
 	const [isHover, setIsOver] = useState(false);
-
-	//Destructuring
-	const {
-		style,
-		styleIcon,
-		color,
-		colorHover,
-		primary,
-		secondary,
-		tertiary,
-		legend = 'button',
-		size,
-		className,
-		onClick = () => alert('Cambia la función'),
-		rounded,
-		disabled,
-		border,
-		float,
-		id,
-		key,
-		icon,
-	} = props;
+	// desestructurando propiedades
+	const datos = { ...props };
+	// inicialización de propiedades
+	const { legend = 'button', onCl = () => alert('Cambia la función') } = props;
 
 	//functions
 	const handleMouseEnter = () => {
@@ -70,35 +23,35 @@ const Button = (props: ButtonProps) => {
 
 	//styles
 	function backgroundGenerate() {
-		switch (border) {
+		switch (datos.border) {
 			case true:
-				return primary && isHover
+				return datos.primary && isHover
 					? '#126EFA'
-					: secondary && isHover
+					: datos.secondary && isHover
 					? '#FC3D38'
-					: tertiary && isHover
+					: datos.tertiary && isHover
 					? '#7BAFFF'
-					: !primary && !secondary && !tertiary && isHover
+					: !datos.primary && !datos.secondary && !datos.tertiary && isHover
 					? '#525252'
-					: colorHover && isHover
-					? colorHover
+					: datos.colorHover && isHover
+					? datos.colorHover
 					: 'transparent';
 			default:
-				return disabled && (primary || color)
+				return datos.disabled && (datos.primary || datos.color)
 					? '#dedede'
-					: color
+					: datos.color
 					? isHover
-						? colorHover
-						: color
-					: primary
+						? datos.colorHover
+						: datos.color
+					: datos.primary
 					? isHover
 						? '#0523E3'
 						: '#126EFA'
-					: secondary
+					: datos.secondary
 					? isHover
 						? '#FC3D38'
 						: 'transparent'
-					: tertiary
+					: datos.tertiary
 					? isHover
 						? '#7BAFFF'
 						: 'transparent'
@@ -109,19 +62,19 @@ const Button = (props: ButtonProps) => {
 	}
 	let generalStyles = {
 		boxShadow:
-			isHover || (tertiary && border)
+			isHover || (datos.tertiary && datos.border)
 				? 'none'
-				: border || secondary
+				: datos.border || datos.secondary
 				? `inset 0 0 0 1px ${
-						disabled
+						datos.disabled
 							? '#dedede'
-							: color
-							? color
-							: primary
+							: datos.color
+							? datos.color
+							: datos.primary
 							? '#126EFA'
-							: secondary
+							: datos.secondary
 							? '#FC3D38'
-							: tertiary
+							: datos.tertiary
 							? '#7BAFFF'
 							: 'gray'
 				  }`
@@ -129,104 +82,104 @@ const Button = (props: ButtonProps) => {
 		border: 'none',
 		color: isHover
 			? '#fff'
-			: !border && (primary || color)
+			: !datos.border && (datos.primary || datos.color)
 			? '#fff'
-			: disabled
+			: datos.disabled
 			? '#dedede'
-			: primary
+			: datos.primary
 			? '#126EFA'
-			: secondary
+			: datos.secondary
 			? '#FC3D38'
-			: tertiary
+			: datos.tertiary
 			? '#7BAFFF'
-			: color
-			? color
+			: datos.color
+			? datos.color
 			: '#525252',
 		background: backgroundGenerate(),
 		cursor: 'pointer',
-		borderRadius: float ? '50px' : rounded ? '20px' : '5px',
+		borderRadius: datos.float ? '50px' : datos.rounded ? '20px' : '5px',
 	};
-	let individualStyles = float
+	let individualStyles = datos.float
 		? {
 				height:
-					size === 'small'
+					datos.size === 'small'
 						? '30px'
-						: size === 'medium'
+						: datos.size === 'medium'
 						? '40px'
-						: size === 'large'
+						: datos.size === 'large'
 						? '50px'
 						: '30px',
 				width:
-					size === 'small'
+					datos.size === 'small'
 						? '30px'
-						: size === 'medium'
+						: datos.size === 'medium'
 						? '40px'
-						: size === 'large'
+						: datos.size === 'large'
 						? '50px'
 						: '30px',
 				fontWeight: 'bold',
 				fontSize: 'calc(20px + 0.390625vw)',
 		  }
 		: {
-				padding: icon
-					? size === 'small'
+				padding: datos.icon
+					? datos.size === 'small'
 						? '5px 10px 5px 5px'
-						: size === 'medium'
+						: datos.size === 'medium'
 						? '7.5px 15px 7.5px 7.5px'
-						: size === 'large'
+						: datos.size === 'large'
 						? '10px 30px 10px 10px'
 						: '10px 20px 10px 10px'
-					: size === 'small'
+					: datos.size === 'small'
 					? '5px 10px'
-					: size === 'medium'
+					: datos.size === 'medium'
 					? '7.5px 15px'
-					: size === 'large'
+					: datos.size === 'large'
 					? '10px 30px'
 					: '7.5px 15px',
 				fontSize:
-					size === 'small'
+					datos.size === 'small'
 						? '15px'
-						: size === 'medium'
+						: datos.size === 'medium'
 						? '16px'
-						: size === 'large'
+						: datos.size === 'large'
 						? '18px'
 						: '16px',
 				maxHeight: '100%',
 				display: 'flex',
 				alignItems: 'center',
-				justifyContent: icon ? 'space-around' : 'center',
+				justifyContent: datos.icon ? 'space-around' : 'center',
 		  };
 
 	let iconGeneralStyles = {
 		height:
-			size === 'small'
+			datos.size === 'small'
 				? '18px'
-				: size === 'medium'
+				: datos.size === 'medium'
 				? '25px'
-				: size === 'large'
+				: datos.size === 'large'
 				? '30px'
 				: '16px',
 	};
 
 	let iconStyles =
-		icon && legend && float
+		datos.icon && legend && datos.float
 			? {
 					fill: '#000',
 					left: '50%',
 					top: '50%',
 					transform: 'translate(-50%,-50%)',
 			  }
-			: !float && legend && icon
+			: !datos.float && legend && datos.icon
 			? {
 					marginBottom: '0',
 					marginRight: '10px',
 					marginLeft: '10px',
 					width:
-						size === 'small'
+						datos.size === 'small'
 							? '18px'
-							: size === 'medium'
+							: datos.size === 'medium'
 							? '25px'
-							: size === 'large'
+							: datos.size === 'large'
 							? '30px'
 							: '16px',
 			  }
@@ -235,51 +188,51 @@ const Button = (props: ButtonProps) => {
 	//Component
 	return (
 		<button
-			// data-tasks-modules
-			onClick={onClick}
-			id={id}
-			key={key}
+			// datos-tasks-modules
+			onClick={onCl}
+			id={datos.id}
+			key={datos.key}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
-			className={className}
-			disabled={disabled}
+			// className={datos.className}
+			className={`ctn${datos.modo}_BtnC ${datos.className}`}
+			disabled={datos.disabled}
 			style={{
-				position: 'relative',
 				...generalStyles,
 				...individualStyles,
-				...style,
+				...datos.style,
 			}}
 		>
-			{icon && legend && float ? (
+			{datos.icon && legend && datos.float ? (
 				<span>
 					<img
-						src={icon}
+						src={datos.icon}
 						alt=""
 						style={{
 							position: 'absolute',
 							...iconGeneralStyles,
 							...iconStyles,
-							...styleIcon,
+							...datos.styleIcon,
 						}}
 					/>
 				</span>
-			) : !float && legend && icon ? (
+			) : !datos.float && legend && datos.icon ? (
 				<span>
 					<img
-						src={icon}
+						src={datos.icon}
 						alt=""
 						style={{
 							...iconGeneralStyles,
 							...iconStyles,
-							...styleIcon,
+							...datos.styleIcon,
 						}}
 					/>
 				</span>
 			) : (
 				<span></span>
 			)}
-			{legend && !float && legend}
-			{icon && !float && <span style={{ width: '10px' }}></span>}
+			{legend && !datos.float && legend}
+			{datos.icon && !datos.float && <span style={{ width: '10px' }}></span>}
 		</button>
 	);
 };

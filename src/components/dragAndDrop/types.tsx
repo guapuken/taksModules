@@ -1,20 +1,46 @@
-import { Modo } from '../../types';
+import { Modo, css, onChangeType, onClickType, statusTask, submenusArray } from '../../types';
+
+//componente principal que returna el drag and drop------------------------------------------------------------------------------------------
+export interface dragAndDrop {
+	tasks: task[];
+	modo?: Modo;
+	nameBoards?: { [key: string]: string };
+	withAside?: boolean;
+	width?: number;
+	vertical?: boolean;
+	horizontal?: boolean;
+	Card?: any;
+	data?: any;
+	onDragStart?: any;
+	onDragEnd?: any;
+}
 
 // type Status = 'Pendientes' | 'En progreso' | 'Completas';
 export type BoardSections = {
-	[name: string]: Task[];
+	[name: string]: task[];
 };
 export type screenSize = { width: number; height: number };
 
-//Definición de interfaces que se utilizarán------------------------------------------------------------------------------------------
-export type submenus = {
-	id?: number | string;
-	className?: string;
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
-	title?: string;
+// items generados por cada card
+export type taskItem = {
+	Card?: any;
+	data?: any;
 };
 
-export type Task = {
+// tableros
+export type boards = {
+	id: string;
+	title: string;
+	tasks: task[];
+	data?: any;
+	modo: Modo;
+	width: number;
+	scrSize: screenSize;
+	Card?: any;
+	styleTaskContainer?: css;
+};
+
+export type task = {
 	id: string;
 	// status: Status;
 	status: string;
@@ -28,15 +54,15 @@ export type Task = {
 	subtasks?: number;
 	percentTask?: number;
 	followNotificationsValue?: boolean;
-	statusTask?: 'onTime' | 'delayed' | 'outOfTime';
-	onClickShowDetails?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickEditar?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickFollow?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickRecordatorio?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickComentario?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickFecha?: (e: React.MouseEvent<HTMLElement>) => void;
-	onChangeNotificationSwitch?: (e: React.FormEvent<HTMLInputElement>) => void;
-	responsables?: submenus[];
-	equipos?: submenus[];
-	revision?: submenus[];
+	statusTask?: statusTask;
+	onCl_showDetails?: onClickType;
+	onCl_edit?: onClickType;
+	onCl_follow?: onClickType;
+	onCl_remimder?: onClickType;
+	onCl_asignTask?: onClickType;
+	onCl_reasignDate?: onClickType;
+	onCh_follow?: onChangeType;
+	responsables?: submenusArray[];
+	equipos?: submenusArray[];
+	revision?: submenusArray[];
 };

@@ -1,31 +1,15 @@
 import React from 'react';
+import { taskItem } from '../types';
+import NoCard from './noCard';
 
-//importación de componentes de la librería
-import { screenSize } from '../types';
-
-//Componente que retorna el elemto que podrá moverse entre las diferentes columnas ----------------------------------------------------
-interface TaskItemProps {
-	data: any;
-	scrSize: screenSize;
-	Card?: any;
-}
-export const TaskItem = (props: TaskItemProps) => {
-	const { data, scrSize, Card } = props;
+export const TaskItem = (props: taskItem) => {
+	const datos = { ...props };
 	return (
 		<>
-			{Card && <Card {...data} />}
-			{!Card && (
-				<div
-					style={{
-						boxShadow: '0 0 20px #dedede',
-						width: scrSize.width / 4 - 20,
-						height: '100px',
-						borderRadius: '20px',
-						padding: '10px',
-					}}
-				>
-					<h3>Nombre de la tarea</h3>
-				</div>
+			{datos.Card ? (
+				<datos.Card {...datos.data} />
+			) : (
+				<NoCard taskName={datos.data.taskName} />
 			)}
 		</>
 	);

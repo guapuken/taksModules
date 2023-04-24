@@ -5,15 +5,16 @@ import { Modo, onChangeType, onClickType } from '../../types';
 export interface commentsTask {
 	modo?: Modo;
 	comments?: comments[];
-	onClickAddComment?: onClickType;
-	onChangeAddFile?: onChangeType;
+	onCl_addComment?: onClickType;
+	onCh_addFile?: onChangeType;
+	onCh_comment?: onChangeType;
 }
 
 // comments component
 export type commentsComponent = {
 	comments?: comments[];
-	onClickAddComment?: onClickType;
-	onChangeAddFile?: onChangeType;
+	onCl_addComment?: onClickType;
+	onCh_AddFile?: onChangeType;
 };
 
 // estructura de los comentarios
@@ -26,6 +27,8 @@ export type comments = {
 
 // commentTaskComponent
 export type commentTask = {
-	onClickAddComment?: onClickType;
-	onChangeAddFile?: onChangeType;
+	onCl_addComment?: onClickType;
+	onCh_addFile?: onChangeType;
+	idComment?: string;
+	onCh_comment?: onChangeType;
 };

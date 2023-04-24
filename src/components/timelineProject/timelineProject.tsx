@@ -1,6 +1,6 @@
 import React from 'react';
 // types
-import { timelineProps } from './types';
+import { tasks, timelineProps } from './types';
 // componentes princiaples
 import { Header, Tasks } from './files';
 // estilos
@@ -9,19 +9,31 @@ import './timelineProject.scss';
 // componente principal
 const TimelineProject = (props: timelineProps) => {
 	const { modo = 'Light', tasks } = props;
+	// constantes que validan si la tarea final contiene boton y con base a ello renderiza la altura de la linea correctamente
+	let mapTask = tasks ? tasks?.map((e) => e) : [];
+	let finalTask = mapTask.length - 1;
+	let isBtninFinalTask = mapTask[finalTask].legendBtn ? true : false;
+
+	//
 	return (
 		<div className={`ctn${modo}_TLPC`}>
 			<Header />
 			<h2 className="ttlTimeline">Progreso del proyecto</h2>
-			<div className="ctnTimeline" style={{ height: tasks ? `${tasks.length * 50}px` : '0' }}>
-				<div className="line"></div>
+			<div className="ctnTimeline">
+				<div
+					className="line"
+					style={{
+						height: `calc(100% - ${isBtninFinalTask ? '90px' : '30px'})`,
+					}}
+				></div>
 				{tasks &&
-					tasks.map((e) => (
+					tasks?.map((e: tasks) => (
 						<Tasks
-							completed={e.completed}
-							duration={e.duration}
-							taskName={e.taskName}
-							link={e.link}
+							completed={e?.completed}
+							duration={e?.duration}
+							taskName={e?.taskName}
+							onCl_showDetails={e?.onCl_showDetails}
+							legendBtn={e?.legendBtn}
 						/>
 					))}
 			</div>

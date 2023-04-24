@@ -1,27 +1,21 @@
 import React from 'react';
+
+// componentes auxiliares
 import { CardContainer, LateIcon, SimpleButtonText, TitleCard } from '../../../utils/cardsUtils';
 // types
-import { Modo, onClickType, statusTask } from '../../../types';
+import { cardTaskReview } from '../types';
 //importación de estilos
 import '../cardTaskReview.scss';
 
-interface ContentProps {
-	onClickShowDetails?: onClickType;
-	statusTask?: statusTask;
-	modo?: Modo;
-	taskName?: string;
-	taskDescription?: string;
-}
-export const Content = (props: ContentProps) => {
-	const {
-		taskName = 'Titulo',
-		taskDescription = 'Descripción',
-		statusTask,
-		onClickShowDetails,
-		modo = 'Light',
-	} = props;
+export const Content = ({
+	taskName = 'Titulo',
+	taskDescription = 'Descripción',
+	statusTask,
+	onCl_showDetails,
+	modo = 'Light',
+}: cardTaskReview) => {
 	return (
-		<CardContainer className={`ctn${modo == 'Dark' ? 'Dark' : ''}_CTR`}>
+		<CardContainer className={`ctn${modo}_CTR`}>
 			{/* Renderea el título de la tarea */}
 			<TitleCard title={taskName} modo={modo} />
 			{statusTask === 'outOfTime' && (
@@ -41,7 +35,7 @@ export const Content = (props: ContentProps) => {
 			<div className=".ctnProgressBar_showDtls">
 				<SimpleButtonText
 					legend={`mostrar detalles...`}
-					onClick={onClickShowDetails}
+					onClick={onCl_showDetails}
 					className={'btnShowDtls'}
 				/>
 			</div>

@@ -1,31 +1,19 @@
 import React, { CSSProperties, useState } from 'react';
-import { Modo } from '../../types';
 import './information.scss';
-
-//definición de la interface y sus datos que recibirá el componente
-export interface InformationProps {
-	width?: number;
-	height?: number;
-	info?: string;
-	positionInfo?:
-		| 'left'
-		| 'right'
-		| 'top'
-		| 'bottom'
-		| 'left_top'
-		| 'left_bottom'
-		| 'right_top'
-		| 'right_bottom'
-		| 'center';
-	color?: string;
-	iconInfo?: string;
-	style?: CSSProperties;
-	className?: string;
-	modo: Modo;
-}
+import { information } from './types';
 
 //Componente de Información permite mostrar instrucciones o Datos que deban especificarse para explicar un proceso
-const Information = (props: InformationProps) => {
+const Information = ({
+	width = 20,
+	height = 20,
+	info = 'Add your instructions here...',
+	positionInfo = 'right_bottom',
+	iconInfo = '?',
+	style,
+	className,
+	modo = 'Light',
+	color = modo === 'Dark' ? '#282828' : '#525252',
+}: information) => {
 	//hook para definir si hace hover o no
 	const [isHover, setIsHover] = useState(false);
 
@@ -40,19 +28,6 @@ const Information = (props: InformationProps) => {
 	function searchWord(word: string, string: string) {
 		return string.includes(word);
 	}
-
-	//destructurar propiedades
-	const {
-		width = 20,
-		height = 20,
-		info = 'Add your instructions here...',
-		positionInfo = 'right_bottom',
-		iconInfo = '?',
-		style,
-		className,
-		modo = 'Light',
-		color = modo === 'Dark' ? '#282828' : '#525252',
-	} = props;
 
 	//Estilos de posicionamiento del pop up
 	const positionStyles = {

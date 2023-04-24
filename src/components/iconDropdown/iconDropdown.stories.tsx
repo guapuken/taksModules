@@ -1,9 +1,10 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
-import IconDropdown, { IconDropdownProps } from './iconDropdown';
+import IconDropdown from './iconDropdown';
+import { iconDrps } from './types';
 
-const Template: Story<IconDropdownProps> = (args) => <IconDropdown {...args} />;
+const Template: Story<iconDrps> = (args) => <IconDropdown {...args} />;
 
 export const InitialState = Template.bind({});
 InitialState.args = {};

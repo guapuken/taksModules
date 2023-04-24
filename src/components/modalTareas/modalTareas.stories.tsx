@@ -1,8 +1,12 @@
-import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import ModalTareas, { ModalTareasProps } from './modalTareas';
+// utilidades del storybook
+import { Meta, Story } from '@storybook/react';
+// componente principal
+import ModalTareas from './modalTareas';
+// types
+import { tasksProps } from './types';
 
-const Template: Story<ModalTareasProps> = (args) => <ModalTareas {...args} />;
+const Template: Story<tasksProps> = (args) => <ModalTareas {...args} />;
 
 //estado inicial del componente
 export const InitialState = Template.bind({});
@@ -12,10 +16,10 @@ InitialState.args = {};
 export const WithProperties = Template.bind({});
 WithProperties.args = {
 	projectNameValue: 'UBER-EATS-1235-ESP-NOV',
-	onClickCrear: () => alert('crear'),
-	onClickCancelar: () => alert('cancelar'),
-	onClickAddTask: () => alert('añadir tarea'),
-	onClickCreateTemplate: () => alert('crear plantilla'),
+	onCl_confirm: () => alert('crear'),
+	onCl_abort: () => alert('cancelar'),
+	onCl_addTask: () => alert('añadir tarea'),
+	onCl_newTemplate: () => alert('crear plantilla'),
 };
 
 //exportación default de los valores

@@ -6,8 +6,7 @@ import { CardContainer } from '../../../utils/cardsUtils';
 import { Hover } from '../../../utils/hover';
 
 //Componente que regresa el contenido de la card
-const Content = (props: any) => {
-	const { modo, teamName = 'Equipo', onClickView, members = [], teamColor } = props;
+const Content = ({ modo, teamName = 'Equipo', onCl_preview, members, teamColor }: any) => {
 	const [mouseEnter, setMouseEnter] = React.useState(false);
 	return (
 		<CardContainer className={`ctn${modo === 'Dark' ? 'Dark' : ''}_CTeamC`}>
@@ -21,9 +20,9 @@ const Content = (props: any) => {
 					<p
 						onClick={() => {
 							setMouseEnter(!mouseEnter);
-							onClickView;
+							onCl_preview;
 						}}
-					>{`${members?.length} Integrantes...`}</p>
+					>{`${members?.length ?? 0} Integrantes...`}</p>
 					{members && members.length > 0 && mouseEnter && (
 						<span className={'memberTeam'}>
 							{members?.map((e: any) => (

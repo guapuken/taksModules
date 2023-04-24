@@ -1,8 +1,10 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import Dropdown, { DropdownProps } from './dropdown';
+import Dropdown from './dropdown';
+import { dropdown } from './types';
+import { boolean, functions, text } from '../../storyUtils';
 
-const Template: Story<DropdownProps> = (args) => <Dropdown {...args} />;
+const Template: Story<dropdown> = (args) => <Dropdown {...args} />;
 
 // estado inicial del componente
 export const InitialState = Template.bind({});
@@ -45,7 +47,7 @@ withProperties.args = {
 	// isMulti: true,
 	placeHolder: 'Selecciona el encargado',
 	options: options,
-	onChange: (value) => console.log(value),
+	onCh: (value) => console.log(value),
 	initialValue: { value: 'Jorge Correa', label: 'Jorge Correa' },
 	// topPosition: true,
 };
@@ -55,7 +57,7 @@ export default {
 	title: 'Átomos/dropdown',
 	component: Dropdown,
 	argTypes: {
-		placeHolder: { type: 'string' },
+		placeHolder: text(),
 		options: {
 			control: [
 				{
@@ -68,9 +70,9 @@ export default {
 				},
 			],
 		},
-		isMulti: { type: 'boolean' },
-		isSearchable: { type: 'boolean' },
-		onChange: { type: 'function' },
+		isMulti: boolean(),
+		isSearchable: boolean(),
+		onCh: functions(),
 		initialValue: {
 			value: {
 				type: 'string',

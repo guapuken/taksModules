@@ -1,6 +1,7 @@
 import React from 'react';
 //importación de elementos de storybook a utilizar
 import { Meta, Story } from '@storybook/react';
+import { functions, modo, object, text } from '../../storyUtils';
 //importación de componente principal
 import Modal from './modal';
 import { modalProps } from './types';
@@ -21,66 +22,44 @@ WithProperties.args = {
 	Content: () => (
 		<div>
 			<Task
+				idTask="12"
+				onCl_newTemplate={() => {}}
+				templateOptions={[]}
 				idCheckbox="12"
 				principalTask={true}
 				taskComplete={false}
 				isSubtask
 				valueTask="Bloqueos sitios IMJ-CDMX-ESP-O-576"
 				valueDescription="Bloquear con los porveedores los sitios de la campaña de uber"
-				onChangeDias={() => alert('change días')}
+				onCh_duration={() => alert('change días')}
 				plantillas={true}
-				responsables={[{ title: 'Olaf' }]}
-				equipos={[{ title: 'TI' }]}
-				revision={[{ title: 'Jorge' }]}
+				responsables={[{ title: 'Olaf', id: 'Olaf' }]}
+				equipos={[{ title: 'TI', id: 'TI' }]}
+				revision={[{ title: 'Jorge', id: 'Jorge' }]}
 				valueResponsable={'Olaf Ruvalcaba'}
 				valueRevision={'Jorge Correa'}
-				onClickPrioridad={() => alert('change priority')}
-				onClickEliminar={() => alert('eliminando')}
-				onClickRecordatorio={() => alert('Creando recordatorio')}
-				onClickAddTask={() => alert('agregando Tarea')}
-				Children={() => (
-					<>
-						<Task
-							plantillas
-							idCheckbox="13"
-							Children={() => (
-								<>
-									<Task idCheckbox="18" />
-								</>
-							)}
-						/>
-						<Task idCheckbox="14" />
-						<Task
-							idCheckbox="15"
-							Children={() => (
-								<>
-									<Task
-										idCheckbox="16"
-										Children={() => (
-											<Task
-												subtaskForbbiden
-												valueResponsable={'Olaf'}
-												idCheckbox="17"
-											/>
-										)}
-									/>
-								</>
-							)}
-						/>
-					</>
-				)}
-				templateOptions={[
+				onCl_selectPriority={() => alert('change priority')}
+				onCl_delete={() => alert('eliminando')}
+				onCl_reminder={() => alert('Creando recordatorio')}
+				onCl_addTask={() => alert('agregando Tarea')}
+				subtasks={[
 					{
-						title: 'Espectaculares',
-						onClick: () => alert('hola'),
-					},
-					{
-						title: 'Muros',
-						onClick: () => alert('hola'),
-					},
-					{
-						title: 'Vallas',
-						onClick: () => alert('hola'),
+						equipos: [],
+						idTask: '1',
+						onCl_newTemplate: () => {},
+						responsables: [],
+						revision: [],
+						templateOptions: [],
+						subtasks: [
+							{
+								idTask: '18',
+								equipos: [],
+								onCl_newTemplate: () => {},
+								responsables: [],
+								revision: [],
+								templateOptions: [],
+							},
+						],
 					},
 				]}
 			/>
@@ -98,7 +77,7 @@ WithProperties.args = {
 			composition="vertical"
 		/>
 	),
-	modo: 'Dark',
+	modo: 'Light',
 };
 
 // exportación de valores default
@@ -108,14 +87,13 @@ export default {
 	// definición de argumentos
 	component: Modal,
 	argTypes: {
-		title: {
-			type: 'string',
-		},
-		Footer: {
-			type: 'function',
-		},
-		Content: {
-			type: 'function',
-		},
+		title: text(),
+		Footer: functions(),
+		Content: functions(),
+		style: object(),
+		styleHeader: object(),
+		styleContent: object(),
+		styleFooter: object(),
+		modo: modo(),
 	},
 } as Meta;

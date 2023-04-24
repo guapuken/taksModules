@@ -1,14 +1,10 @@
 import React from 'react';
+// componentes auxiliares
 import { CardContainer, Spans } from '../../utils/cardsUtils';
-import '../../global.scss';
+// types
+import { cardMembersTeam } from './types';
 
-export interface CardMembersTeamProps {
-	name?: string;
-	role?: string;
-	incompletedTasks?: number;
-}
-
-const CardMembersTeam = (props: CardMembersTeamProps) => {
+const CardMembersTeam = (props: cardMembersTeam) => {
 	const { name = 'Nombre del integrante', role = 'Puesto', incompletedTasks = 0 } = props;
 	return (
 		<CardContainer>

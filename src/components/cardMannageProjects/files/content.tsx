@@ -1,17 +1,20 @@
 import React from 'react';
-import { CardContainer, SimpleButtonText, Spans, TitleCard } from '../../../utils/cardsUtils';
-import { content } from '../types';
+// componentes auxiliares
+import { CardContainer, Spans, TitleCard } from '../../../utils/cardsUtils';
 import ProgressBar from '../../progressBar/progressBar';
+// functions
 import { cardW } from '../../../utils/functions/functions';
+// types
+import { content } from '../types';
 
-export const Content = (props: content) => {
-	const {
-		modo = 'Light',
-		title = 'Nombre de proyecto',
-		statusTask,
-		percentTask,
-		tasks = 0,
-	} = props;
+const Content = ({
+	modo = 'Light',
+	title = 'Nombre de proyecto',
+	statusTask,
+	percentTask,
+	onCl_preview,
+	tasks = 0,
+}: content) => {
 	return (
 		<CardContainer style={{ display: 'grid', placeItems: 'center' }}>
 			<div>
@@ -24,8 +27,14 @@ export const Content = (props: content) => {
 						style={{ color: '#00000075' }}
 					/>
 				</div>
-				<ProgressBar status={statusTask} width={cardW(true) - 5} valor={percentTask} />
+				<ProgressBar
+					status={statusTask}
+					width={cardW(true) - 5}
+					valor={percentTask}
+					onClick={onCl_preview}
+				/>
 			</div>
 		</CardContainer>
 	);
 };
+export default Content;

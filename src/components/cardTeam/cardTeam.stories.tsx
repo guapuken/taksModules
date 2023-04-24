@@ -1,8 +1,13 @@
-import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import CardTeam, { CardTeamProps } from './cardTeam';
+// utilidades del storybook
+import { Meta, Story } from '@storybook/react';
+import { functions, modo, object, text } from '../../storyUtils';
 
-const Template: Story<CardTeamProps> = (args) => <CardTeam {...args} />;
+// componente principal
+import CardTeam from './cardTeam';
+import { cardTeam } from './types';
+
+const Template: Story<cardTeam> = (args) => <CardTeam {...args} />;
 
 export const initialState = Template.bind({});
 initialState.args = {};
@@ -19,13 +24,23 @@ withProperties.args = {
 	],
 	teamName: 'Sistemas TI',
 	teamColor: '#126EFA',
-	onClickView: () => alert('ver'),
-	onClickEdit: () => alert('editar'),
-	onClickDelete: () => alert('eliminar'),
+	onCl_preview: () => alert('ver'),
+	onCl_edit: () => alert('editar'),
+	onCl_delete: () => alert('eliminar'),
 	// modo: 'Dark',
 };
 
 export default {
-	title: 'Cards/team',
+	title: 'CARDS DE GESTIÓN/team',
 	component: CardTeam,
+	// definición de argumentos
+	argTypes: {
+		onCl_edit: functions(),
+		onCl_preview: functions(),
+		onCl_delete: functions(),
+		modo: modo(),
+		teamName: text(),
+		teamColor: text(),
+		members: object(),
+	},
 } as Meta;

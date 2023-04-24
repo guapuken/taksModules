@@ -9,16 +9,15 @@ import { cardW } from '../../../utils/functions/functions';
 import '../cardTask.scss';
 
 //componente principal
-const Content = (props: any) => {
-	const {
-		taskName = 'Tarea',
-		taskDescription = 'Descripción',
-		statusTask,
-		percentTask,
-		onClickShowDetails,
-		subtasks = 0,
-		modo,
-	} = props;
+const Content = ({
+	taskName = 'Tarea',
+	taskDescription = 'Descripción',
+	statusTask,
+	percentTask,
+	onCl_showDetails,
+	subtasks = 0,
+	modo,
+}: any) => {
 	return (
 		<CardContainer className={`ctn${modo === 'Dark' ? 'Dark' : ''}_CTaskC`}>
 			{/* {useWindowSize().width > 768 && (
@@ -59,7 +58,7 @@ const Content = (props: any) => {
 					status={statusTask}
 					valor={percentTask}
 					width={cardW(true)}
-					onClick={onClickShowDetails}
+					onClick={onCl_showDetails}
 					styleContent={{ cursor: 'pointer' }}
 				/>
 				<div className="ctnDtls">
@@ -69,7 +68,7 @@ const Content = (props: any) => {
 					<SimpleButtonText
 						className="showDtls"
 						legend="mostrar detalles..."
-						onClick={onClickShowDetails}
+						onClick={onCl_showDetails}
 					/>
 				</div>
 			</div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modo } from '../../types';
+import { Modo, css } from '../../types';
 
 export interface modalProps {
 	// elements
@@ -7,10 +7,10 @@ export interface modalProps {
 	Content?: any;
 	Footer?: any;
 	// styles
-	style?: React.CSSProperties;
-	styleHeader?: React.CSSProperties;
-	styleContent?: React.CSSProperties;
-	styleFooter?: React.CSSProperties;
+	style?: css;
+	styleHeader?: css;
+	styleContent?: css;
+	styleFooter?: css;
 	// theme
 	modo?: Modo;
 }
@@ -18,13 +18,13 @@ export interface modalProps {
 // componente header
 export type header = {
 	header?: string;
-	styleHeader?: React.CSSProperties;
+	styleHeader?: css;
 };
 
 // componente footer
 export type footer = {
 	Footer?: any;
-	styleFooter?: React.CSSProperties;
+	styleFooter?: css;
 };
 
 // componente footer
@@ -32,5 +32,5 @@ export type content = {
 	header?: string;
 	Content?: any;
 	Footer?: any;
-	styleContent?: React.CSSProperties;
+	styleContent?: css;
 };

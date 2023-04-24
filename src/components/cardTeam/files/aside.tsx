@@ -5,27 +5,27 @@ import { AsideContainer, ButtonsArray } from '../../../utils/asideUtils';
 //archivos multimedia
 import editIcon from '../../../img/editar.svg';
 import prevIcon from '../../../img/previsualizar.svg';
+import { aside } from '../types';
 
 //Componente que regresa el aside de la card
-const Aside = (props: any) => {
-	const { onClickEdit, onClickView, onClickDelete, modo } = props;
+const Aside = ({ onCl_edit, onCl_preview, onCl_delete, modo = 'Light' }: aside) => {
 	return (
 		<AsideContainer>
 			<ButtonsArray
 				buttons={[
 					{
 						img: editIcon,
-						onClick: onClickEdit,
-						titleToShow: 'Editar equipo',
+						onClick: onCl_edit,
+						titleToShow: 'Editar',
 					},
 					{
 						img: prevIcon,
-						onClick: onClickView,
-						titleToShow: 'Previsualizar equipo',
+						onClick: onCl_preview,
+						titleToShow: 'Previsualizar',
 					},
 					{
-						onClick: onClickDelete,
-						titleToShow: 'Eliminar equipo',
+						onClick: onCl_delete,
+						titleToShow: 'Eliminar',
 					},
 				]}
 				modo={modo}

@@ -108,8 +108,10 @@
   }
   .ContainerCardTeamComponent{
     position: relative;
-    margin: 0 !important;
-    padding: 0 5px !important;
+    margin: 0 auto;
+    width: calc(100% - 30px) !important;
+    height: calc(100% - 20px) !important;
+    margin-top: 10px;
   }
   .centerElement{
     display:grid;

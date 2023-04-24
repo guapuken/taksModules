@@ -36,7 +36,6 @@ WithProperties.args = {
 		{
 			taskName: 'Aprobación de prueba de color',
 			// duration: 'Depende del cliente los',
-			link: '/',
 			completed: false,
 		},
 		{
@@ -50,9 +49,32 @@ WithProperties.args = {
 			completed: false,
 		},
 		{
-			taskName: 'Envío e instalación',
-			duration: 10,
+			taskName: 'Reporte fotográfico',
+			duration: 2,
 			completed: false,
+			onClickShow: () => alert('Redirigiendo a testigos...'),
+			legendBtn: 'Ir a testigos',
+		},
+		{
+			taskName: 'Reporte fotográfico',
+			duration: 2,
+			completed: false,
+			onClickShow: () => alert('Redirigiendo a testigos...'),
+			legendBtn: 'Ir a testigos',
+		},
+		{
+			taskName: 'Reporte fotográfico',
+			duration: 2,
+			completed: false,
+			onClickShow: () => alert('Redirigiendo a testigos...'),
+			legendBtn: 'Ir a testigos',
+		},
+		{
+			taskName: 'Retiro',
+			duration: 2,
+			completed: false,
+			onClickShow: () => alert('Redirigiendo a testigos...'),
+			legendBtn: 'Ir a testigos',
 		},
 	],
 };

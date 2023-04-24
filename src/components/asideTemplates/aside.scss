@@ -1,9 +1,9 @@
-//contenedor princiapal --------------------------------------------
-.ctnWhiteLight_ATC,
-.ctnWhiteDark_ATC,
+@import '../../global.scss';
+// ---------------------------------------------------------------------------------------------------------
+//      Estilos generales 
+// ---------------------------------------------------------------------------------------------------------
 .ctnLight_ATC,
-.ctnDark_ATC
-{
+.ctnDark_ATC{
     position: relative;
     margin-block: 0;
     padding-top: 10px;
@@ -12,7 +12,6 @@
     height: calc(92vh);
     background: transparent;
     width: calc(var(--cardWidth)*.95);
-    //sin contenido--------------------------------------------------
     .noCtnDark, .noCtnLight{
         display: grid;
         place-content: center; 
@@ -24,30 +23,79 @@
         color: #fff;
     }
 }
-//colores de fondo en caso de no tener la propiedad isWhite
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo claro
+// ---------------------------------------------------------------------------------------------------------
+.ctnLight_ATC{
+    background: var(--bg);
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo oscuro
+// ---------------------------------------------------------------------------------------------------------
+.ctnDark_ATC{
+    background: var(--bgDark);
+}
+
+
+//contenedor princiapal --------------------------------------------
+// .ctnWhiteLight_ATC,
+// .ctnWhiteDark_ATC,
+// .ctnLight_ATC,
+// .ctnDark_ATC
+// {
+//     position: relative;
+//     margin-block: 0;
+//     padding-top: 10px;
+//     display: flex;
+//     justify-content: center;
+//     height: calc(92vh);
+//     background: transparent;
+//     width: calc(var(--cardWidth)*.95);
+    //sin contenido--------------------------------------------------
+  
+
+// //colores de fondo en caso de no tener la propiedad isWhite
 .ctnLight_ATC{
     background: var(--bgDark);
 }
-//colores de fondo en caso de estar activado el modo oscuro
+// //colores de fondo en caso de estar activado el modo oscuro
 .ctnDark_ATC{
     background: var(--contrastDark);
+}
+.ctnDark_ATC
+{
+    background: var(--bgDark);
 }
 
 
 //mediaquerie para que el tamaño del texto abarque todo el espacio en celular
-@media (max-width:415px){
-    .ctnDark_ATC,
-    .ctnWhite_ATC,
-    .ctn_ATC{
-        width: calc(var(--cardSize)*4);
-        height: var(--cardHeight);
+@media (max-width:834px){
+    .ctnWhiteVisLight_ATC,
+    .ctnWhiteVisDark_ATC,
+    .ctnVisLight_ATC,
+    .ctnVisDark_ATC
+    .ctnWhiteLight_ATC,
+    .ctnWhiteDark_ATC,
+    .ctnLight_ATC,
+    .ctnDark_ATC
+    {
+        width: calc(100vw / 2);
+        height: calc(100vw / 4);
     }
 }
-@media (max-width:834px){
-    .ctnDark_ATC,
-    .ctnWhite_ATC,
-    .ctn_ATC{
-        width: calc(var(--cardWidth)*1.95);
-        height: calc(var(--cardHeight)*4);
+@media (max-width:415px){
+    .ctnWhiteVisLight_ATC,
+    .ctnWhiteVisDark_ATC,
+    .ctnVisLight_ATC,
+    .ctnVisDark_ATC
+    .ctnWhiteLight_ATC,
+    .ctnWhiteDark_ATC,
+    .ctnLight_ATC,
+    .ctnDark_ATC
+    {
+        width: calc(var(--cardSize)*4);
+        height: var(--cardHeight);
     }
 }

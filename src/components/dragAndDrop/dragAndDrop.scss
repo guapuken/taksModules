@@ -1,118 +1,124 @@
-//Contenedor principal-------------------------------------------------------------------------------------
-.ctn, .ctnTbl, .ctnSml{
+@import '../../global.scss';
+
+// ---------------------------------------------------------------------------------------------------------
+//      estilos generales
+// ---------------------------------------------------------------------------------------------------------
+.ctnLight_DDC,
+.ctnDark_DDC
+{
     display: flex;
-}
-.ctn{
     flex-direction: row;
     gap: 20px;
-}
-.ctnTbl, .ctnSml{
-    flex-direction: column;
-    gap: 0;
-}
-.ctnTbl{
-    width: 50vw;
-}
-.ctnSml{
-    width: 100vw;
-}
-.ctnTasks{
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.DrgAndDrpSml{
-    height: 20vh !important;
-    overflow-x: auto;
-    gap: 20px;
-}
-
-// Estilos generales --------------------------------------------------------------------------------------
-.boardCtn{
-    width: calc(var(--cardWidth)*.95) ;
-    height: 85vh;
-    // overflow-y: auto;
-    // overflow-x: hidden;
-    // background: green; /////
-    //
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-.boardCtnSml, .boardCtnTbl{
-    height: calc(var(--cardHeight)*3);
-    overflow: hidden;
-    // background: green !important;/////
-    box-shadow: var(--borderDark);
-    z-index: 10000 !important;
-}
-.boardCtnTbl{
-    // width: calc(var(--cardWidth)*2);
-    width: 50vw;
-    height: var(--cardHeight);
-    overflow-y: auto;
-    background: red;
-}
-.boardCtnSml{
-    // width: calc(var(--cardWidth)*2);
-    width: 100vw;
-    height: var(--cardHeight);
-    overflow-y: hidden;
-    background: red;
-}
-.dropableCtn,.dropableCtnDark{
-    // display: flex;
-    position: relative;
-    background: transparent;
-    //
-    display:flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    .ctnTitle{
+    
+    // se aplican estos estilos a la carda cuando no se carga una plantilla
+    .noCardTmplt{
+        box-shadow: 0 0 20px #dedede;
+        height: 100px;
+        border-radius: 20px;
+        padding: 10px;
+        background: #fff;
+        p{
+            padding-left: 25px;
+            padding-top: 5px;
+        }
+    }
+    .boardCtn{
+        width: calc(var(--cardWidth)*.95) ;
+        height: 85vh;
         display: flex;
-        align-items: center;
-        justify-content: left;
-        z-index: 1;
-        height: 30px;
-        user-select: none;
-        h2{
-            font-weight: lighter;
-            margin-right: 10px;
-        }
-        img{
+        flex-wrap: wrap;
+        flex-direction: column;
+        .drpblCtn{
+            position: relative;
+            background: transparent;
+            display:flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            // contenedor de cada columna del dragAndDrop
+            .ctnIndvlBrd{
+                // background: green;
+                // box-shadow: inset 0 0 0 5px #000;
+                height: calc(85vh - 50px);
+                .ctnDrgbl{
+                    margin-top: 20px;
+                    display:flex;
+                    // background: #000;
+                    z-index: 1;
+                    .icnDrag{
+                        width: 30px;
+                        height: 30px;
+                        // background: red;
+                        position: absolute;
+                        z-index: 1;
+                        border-radius: 10px;
+                        top: 25%;
+                        transform:translateY(-50%);
+                        display: flex;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+                        // cursor: isDragging ? grabbing : grab;
+                        cursor: grabbing;
+                    }
+                    
+                }
+                
+            }
+            .ctnTitle{
+                display: flex;
+            align-items: center;
+            justify-content: left;
+            z-index: 1;
             height: 30px;
+            user-select: none;
+            h2
+            {
+                font-size: clamp(16px, 2.5vw , 20px);
+                font-weight: lighter;
+                margin-right: 10px;
+            }
+            img
+            {
+                height: clamp(16px, 2.5vw , 20px);
+            }
+            }
         }
     }
-    .draggableCtn{
-        margin-top: 20px;
-        // justify-content: left; 
-        //
-        display:flex;
-        // background:purple;///////
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo claro
+// ---------------------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo oscuro
+// ---------------------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------------------
+//      media queries
+// ---------------------------------------------------------------------------------------------------------
+
+@media (max-width:834px){
+    .ctnLight_DDC{
+        flex-direction: column;
+        gap: 0;
+        max-height: calc(85vh);
+        .boardCtn{
+            width: 50vw !important;
+            max-height: calc(85vh / 4);
+            
+        }
+        .drpblCtn{
+            max-height: calc(100vh / 4);
+            background: red;
+        }
     }
-    .draggableCtnSml{
-        margin-top: 10px;
+}
+@media (max-width:415px){
+    .ctnLight_DDC{
+        width: 100vw;
     }
 }
 
-// Light Mode ----------------------------------------------------------------------------------------------
-.dropableCtn{
-    .ctnTitle{
-        // background: #fff;
-        background: purple;
-        height: 5vh;
-    }
-}
-
-// Dark Mode -----------------------------------------------------------------------------------------------
-.dropableCtnDark{
-    .ctnTitle{
-        background: #282828;
-    }
-}
-
-// Media Queries
 @media (max-width:415px){
 
 }
@@ -122,5 +128,3 @@
         width: 100vw;
     }
 }
-
-// Animaciones

@@ -1,6 +1,7 @@
 import React from 'react';
 import { CSS } from '@dnd-kit/utilities';
 import { useSortable } from '@dnd-kit/sortable';
+import dragIcon from '../../../img/drag.svg';
 
 //Componente que genera el elemento ordenable de cada columna-----------------------------------------------------------------------------
 interface SortableTaskItemProps {
@@ -19,7 +20,8 @@ const SortableTaskItem = ({ children, id }: SortableTaskItemProps) => {
 	};
 
 	return (
-		<div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+		<div ref={setNodeRef} style={{ position: 'relative', ...style }} {...attributes}>
+			<img className="icnDrag" {...listeners} title="Arrastrar" src={dragIcon} />
 			{children}
 		</div>
 	);

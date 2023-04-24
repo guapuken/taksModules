@@ -13,7 +13,7 @@ InitialState.args = {};
 // estado del componente con propiedades
 export const WithProperties = Template.bind({});
 WithProperties.args = {
-	personalMsn: true,
+	// personalMsn: true,
 	modo: 'Dark',
 	comments: [
 		{

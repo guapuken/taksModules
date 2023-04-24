@@ -1,70 +1,17 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import Button from '../button/button';
-import '../../global.scss';
 
-interface stringTypes {
-	primary?: string;
-	secondary?: string;
-	tertiary?: string;
-}
-interface BooleanTypes {
-	primary?: boolean;
-	secondary?: boolean;
-	tertiary?: boolean;
-}
-interface ObjectTypes {
-	primary?: {};
-	secondary?: {};
-	tertiary?: {};
-}
-interface FunctionTypes {
-	primary?: (e: React.MouseEvent<HTMLElement>) => void;
-	secondary?: (e: React.MouseEvent<HTMLElement>) => void;
-	tertiary?: (e: React.MouseEvent<HTMLElement>) => void;
-}
-
-//interface
-export interface ButtonsProps {
-	composition?: 'horizontal' | 'vertical' | 'box';
-	legends?: stringTypes;
-	colorButtons?: stringTypes;
-	buttons?: BooleanTypes;
-	icons?: stringTypes;
-	colorHover?: stringTypes;
-	className?: stringTypes;
-	disabled?: BooleanTypes;
-	style?: ObjectTypes;
-	styleIcon?: ObjectTypes;
-	id?: stringTypes;
-	keys?: stringTypes;
-	onClick?: FunctionTypes;
-	size?: 'small' | 'medium' | 'large';
-	styleComposition?: {};
-	rounded?: boolean;
-	border?: boolean;
-	float?: boolean;
-}
+import { buttons } from './types';
 
 //component
-const Buttons = (props: ButtonsProps) => {
+const Buttons = (props: buttons) => {
+	// desestructuración de props
+	const datos = { ...props };
+	// inicialización de props
 	const {
-		legends,
-		buttons,
-		colorButtons,
-		icons,
-		colorHover,
-		className,
-		keys,
-		id,
-		style,
-		styleIcon,
 		size = 'medium',
-		rounded,
-		disabled,
-		border,
 		composition = 'horizontal',
-		styleComposition,
-		onClick = {
+		onCl_buttons = {
 			primary: () => alert('change the function'),
 			secondary: () => alert('change the function'),
 			tertiary: () => alert('change the function'),
@@ -76,97 +23,97 @@ const Buttons = (props: ButtonsProps) => {
 			return {
 				legend:
 					tipo === 'primary'
-						? legends?.primary
+						? datos.legends?.primary
 						: tipo === 'secondary'
-						? legends?.secondary
+						? datos.legends?.secondary
 						: tipo === 'tertiary'
-						? legends?.tertiary
+						? datos.legends?.tertiary
 						: 'clic here',
-				onClick:
+				onCl:
 					tipo === 'primary'
-						? onClick?.primary
+						? onCl_buttons?.primary
 						: tipo === 'secondary'
-						? onClick?.secondary
+						? onCl_buttons?.secondary
 						: tipo === 'tertiary'
-						? onClick?.tertiary
+						? onCl_buttons?.tertiary
 						: undefined,
 				size: size,
 				color:
 					tipo === 'primary'
-						? colorButtons?.primary
+						? datos.colorButtons?.primary
 						: tipo === 'secondary'
-						? colorButtons?.secondary
+						? datos.colorButtons?.secondary
 						: tipo === 'tertiary'
-						? colorButtons?.tertiary
+						? datos.colorButtons?.tertiary
 						: undefined,
 				colorHover:
 					tipo === 'primary'
-						? colorHover?.primary
+						? datos.colorHover?.primary
 						: tipo === 'secondary'
-						? colorHover?.secondary
+						? datos.colorHover?.secondary
 						: tipo === 'tertiary'
-						? colorHover?.tertiary
+						? datos.colorHover?.tertiary
 						: undefined,
 				className:
 					tipo === 'primary'
-						? className?.primary
+						? datos.className?.primary
 						: tipo === 'secondary'
-						? className?.secondary
+						? datos.className?.secondary
 						: tipo === 'tertiary'
-						? className?.tertiary
+						? datos.className?.tertiary
 						: undefined,
-				primary: tipo === 'primary' ? buttons?.primary : false,
-				secondary: tipo === 'secondary' ? buttons?.secondary : false,
-				tertiary: tipo === 'tertiary' ? buttons?.tertiary : false,
-				rounded: rounded ? rounded : false,
+				primary: tipo === 'primary' ? datos.buttons?.primary : false,
+				secondary: tipo === 'secondary' ? datos.buttons?.secondary : false,
+				tertiary: tipo === 'tertiary' ? datos.buttons?.tertiary : false,
+				rounded: datos.rounded ? datos.rounded : false,
 				disabled:
 					tipo === 'primary'
-						? disabled?.primary
+						? datos.disabled?.primary
 						: tipo === 'secondary'
-						? disabled?.secondary
+						? datos.disabled?.secondary
 						: tipo === 'tertiary'
-						? disabled?.tertiary
+						? datos.disabled?.tertiary
 						: undefined,
 				style:
 					tipo === 'primary'
-						? style?.primary
+						? datos.style?.primary
 						: tipo === 'secondary'
-						? { ...style?.secondary }
+						? { ...datos.style?.secondary }
 						: tipo === 'tertiary'
-						? style?.tertiary
+						? datos.style?.tertiary
 						: undefined,
 				styleIcon:
 					tipo === 'primary'
-						? styleIcon?.primary
+						? datos.styleIcon?.primary
 						: tipo === 'secondary'
-						? styleIcon?.secondary
+						? datos.styleIcon?.secondary
 						: tipo === 'tertiary'
-						? styleIcon?.tertiary
+						? datos.styleIcon?.tertiary
 						: undefined,
-				border: border ? border : false,
+				border: datos.border ? datos.border : false,
 				id:
 					tipo === 'primary'
-						? id?.primary
+						? datos.id?.primary
 						: tipo === 'secondary'
-						? id?.secondary
+						? datos.id?.secondary
 						: tipo === 'tertiary'
-						? id?.tertiary
+						? datos.id?.tertiary
 						: undefined,
 				key:
 					tipo === 'primary'
-						? keys?.primary
+						? datos.keys?.primary
 						: tipo === 'secondary'
-						? keys?.secondary
+						? datos.keys?.secondary
 						: tipo === 'tertiary'
-						? keys?.tertiary
+						? datos.keys?.tertiary
 						: undefined,
 				icon:
 					tipo === 'primary'
-						? icons?.primary
+						? datos.icons?.primary
 						: tipo === 'secondary'
-						? icons?.secondary
+						? datos.icons?.secondary
 						: tipo === 'tertiary'
-						? icons?.tertiary
+						? datos.icons?.tertiary
 						: undefined,
 			};
 		}
@@ -176,7 +123,7 @@ const Buttons = (props: ButtonsProps) => {
 			horizontal: {
 				display: 'flex',
 				justifyContent:
-					buttons?.secondary && !buttons?.primary && !buttons?.tertiary
+					datos.buttons?.secondary && !datos.buttons?.primary && !datos.buttons?.tertiary
 						? 'right'
 						: 'space-between',
 				gap: '10px',
@@ -185,7 +132,7 @@ const Buttons = (props: ButtonsProps) => {
 			vertical: {
 				display: 'flex',
 				justifyContent:
-					buttons?.secondary && !buttons?.primary && !buttons?.tertiary
+					datos.buttons?.secondary && !datos.buttons?.primary && !datos.buttons?.tertiary
 						? 'right'
 						: 'space-between',
 				gap: '10px',
@@ -194,7 +141,7 @@ const Buttons = (props: ButtonsProps) => {
 			box: {
 				display: 'flex',
 				justifyContent:
-					buttons?.secondary && !buttons?.primary && !buttons?.tertiary
+					datos.buttons?.secondary && !datos.buttons?.primary && !datos.buttons?.tertiary
 						? 'right'
 						: 'space-between',
 				gap: '10px',
@@ -205,7 +152,7 @@ const Buttons = (props: ButtonsProps) => {
 		let buttonsStyles = {
 			horizontal: {
 				secondary: {
-					width: !buttons?.primary ? '50%' : '25%',
+					width: !datos.buttons?.primary ? '50%' : '25%',
 				},
 				primary: {
 					width: '50%',
@@ -228,23 +175,23 @@ const Buttons = (props: ButtonsProps) => {
 			},
 		};
 		return composition === 'horizontal' ? (
-			<div style={{ ...compositionStyles.horizontal, ...styleComposition }}>
-				{buttons?.secondary && (
+			<div style={{ ...compositionStyles.horizontal, ...datos.styleComposition }}>
+				{datos.buttons?.secondary && (
 					<Button
 						{...dataButton('secondary')}
-						style={{ ...buttonsStyles.horizontal.secondary, ...style?.secondary }}
+						style={{ ...buttonsStyles.horizontal.secondary, ...datos.style?.secondary }}
 					/>
 				)}
-				{buttons?.tertiary && (
+				{datos.buttons?.tertiary && (
 					<Button
 						{...dataButton('tertiary')}
-						style={{ ...buttonsStyles.horizontal.tertiary, ...style?.tertiary }}
+						style={{ ...buttonsStyles.horizontal.tertiary, ...datos.style?.tertiary }}
 					/>
 				)}
-				{buttons?.primary && (
+				{datos.buttons?.primary && (
 					<Button
 						{...dataButton('primary')}
-						style={{ ...buttonsStyles.horizontal.primary, ...style?.primary }}
+						style={{ ...buttonsStyles.horizontal.primary, ...datos.style?.primary }}
 					/>
 				)}
 			</div>
@@ -255,25 +202,25 @@ const Buttons = (props: ButtonsProps) => {
 					flexWrap: 'wrap',
 					maxWidth: '100%',
 					...compositionStyles.vertical,
-					...styleComposition,
+					...datos.styleComposition,
 				}}
 			>
-				{buttons?.primary && (
+				{datos.buttons?.primary && (
 					<Button
 						{...dataButton('primary')}
-						style={{ ...buttonsStyles.vertical, ...style?.primary }}
+						style={{ ...buttonsStyles.vertical, ...datos.style?.primary }}
 					/>
 				)}
-				{buttons?.secondary && (
+				{datos.buttons?.secondary && (
 					<Button
 						{...dataButton('secondary')}
-						style={{ ...buttonsStyles.vertical, ...style?.secondary }}
+						style={{ ...buttonsStyles.vertical, ...datos.style?.secondary }}
 					/>
 				)}
-				{buttons?.tertiary && (
+				{datos.buttons?.tertiary && (
 					<Button
 						{...dataButton('tertiary')}
-						style={{ ...buttonsStyles.vertical, ...style?.tertiary }}
+						style={{ ...buttonsStyles.vertical, ...datos.style?.tertiary }}
 					/>
 				)}
 			</div>
@@ -283,13 +230,13 @@ const Buttons = (props: ButtonsProps) => {
 					flexDirection: 'column',
 					flexWrap: 'wrap',
 					...compositionStyles.box,
-					...styleComposition,
+					...datos.styleComposition,
 				}}
 			>
-				{buttons?.primary && (
+				{datos.buttons?.primary && (
 					<Button
 						{...dataButton('primary')}
-						style={{ ...buttonsStyles.box.primary, ...style?.primary }}
+						style={{ ...buttonsStyles.box.primary, ...datos.style?.primary }}
 					/>
 				)}
 				<div
@@ -300,21 +247,21 @@ const Buttons = (props: ButtonsProps) => {
 						justifyContent: 'right',
 					}}
 				>
-					{buttons?.tertiary && (
+					{datos.buttons?.tertiary && (
 						<Button
 							{...dataButton('tertiary')}
 							style={{
 								...buttonsStyles.box.tertiaryAndSecondary,
-								...style?.tertiary,
+								...datos.style?.tertiary,
 							}}
 						/>
 					)}
-					{buttons?.secondary && (
+					{datos.buttons?.secondary && (
 						<Button
 							{...dataButton('secondary')}
 							style={{
 								...buttonsStyles.box.tertiaryAndSecondary,
-								...style?.secondary,
+								...datos.style?.secondary,
 							}}
 						/>
 					)}

@@ -1,87 +1,76 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 
-// importación de estilos
-import '../../global.scss';
-import { Modo, onClickType } from '../../types';
+//componentes auxiliares
 import Button from '../button';
+// componentes principales
 import { Menu } from './files';
+// importación de estilos
 import css from './container.module.scss';
+// types
+import { container } from './types';
 
-type header = {
-	moduleName?: string;
-	legendBtnModule?: string;
-	onClickBtnModule?: onClickType;
-};
-interface onClicks {
-	createTask?: onClickType;
-	createTemplate?: onClickType;
-	createTeam?: onClickType;
-	createProject?: onClickType;
-	inicio?: onClickType;
-	mannageTask?: onClickType;
-	mannageTemplates?: onClickType;
-	mannageTeams?: onClickType;
-	mannageProjects?: onClickType;
-	projectsStatus?: onClickType;
-}
-interface menuActions {
-	onClick: onClicks;
-	modo: Modo;
-}
-export interface Containerprops {
-	children?: any;
-	AsideContent?: any;
-	FooterContent?: any;
-	header?: header;
-	onClick?: onClicks;
-	style?: CSSProperties;
-	headerStyle?: CSSProperties;
-	contentStyle?: CSSProperties;
-	footerStyle?: CSSProperties;
-	modo?: Modo;
-}
+// types que se usan en documentación NO BORRAR
+import { Modo } from '../../types';
+import { header, onClicks } from './types';
 
-const Container = (props: Containerprops) => {
-	const {
-		children,
-		AsideContent,
-		header,
-		FooterContent,
-		onClick,
-		style,
-		headerStyle,
-		contentStyle,
-		footerStyle,
-		modo,
-	} = props;
+/** documentación de componente
+ * @param {any} props.children - recibe un children dentro del componente o cualquier elemento
+ * @param {any} props.AsideContent - recibe componente o cualquier elemento
+ * @param {any} props.FooterContent - recibe componentes o cualquier elemento
+ * @param {header} props.header - recibe un objecto con 3 propiedades que son:
+		legend
+		legendBtn
+		onCl_btn
+ * @param {onClicks} props.onCl_menus - recibe un obejeto de funciones que son:
+		createTask
+		createTemplate
+		createTeam
+		createProject
+		inicio
+		mannageTask
+		mannageTemplates
+		mannageTeams
+		mannageProjects
+		projectsStatus	
+* @param {React.CSSProperties} props.style - recibe un objeto con estilos de css
+* @param {React.CSSProperties} props.headerStyle - recibe un objeto con estilos de css
+* @param {React.CSSProperties} props.contentStyle - recibe un objeto con estilos de css
+* @param {React.CSSProperties} props.footerStyle - recibe un objeto con estilos de css
+* @param {Modo} props.modo - recibe la propiedad de selección de temas disponible
+ * @returns - contenedor que incluye el aside, menu, un contenido y un footer
+ */
+const Container = (props: container) => {
+	// desestructuración de propiedades
+	const datos = { ...props };
 	return (
-		<div className={css.ctn} style={style}>
-			<div className={css.menu}>
-				<Menu modo={modo} onClick={onClick} />
+		<div className={`ctn${datos.modo}_CtnC`} style={datos.style}>
+			<div className={'menu'}>
+				<Menu modo={datos.modo} onClick={datos.onCl_menus} />
 			</div>
-			{AsideContent && <div className={css.asideCtn}>{AsideContent}</div>}
-			<div className={AsideContent ? css.ctnChildren_FtrAsd : css.ctnChildren_Ftr}>
-				{header && (
-					<div className={css.header} style={headerStyle}>
-						<h2 style={{ marginRight: '10px' }}>{header.moduleName}</h2>
-						<Button
-							legend={header.legendBtnModule}
-							primary
-							onClick={header.onClickBtnModule}
-						/>
+			{datos.AsideContent && <div className={'asideCtn'}>{datos.AsideContent}</div>}
+			<div
+				className={`ctnChild${datos.AsideContent ? 'Asd' : ''}${
+					datos.FooterContent ? 'Ftr' : ''
+				}`}
+			>
+				{datos.header && (
+					<div className={'header'} style={datos.headerStyle}>
+						<h2 style={{ marginRight: '10px' }}>{datos.header.legend}</h2>
+						{datos.header.legendBtn && datos.header.onCl_btn && (
+							<Button
+								legend={datos.header.legendBtn}
+								primary
+								onCl={datos.header.onCl_btn}
+							/>
+						)}
 					</div>
 				)}
-				<div
-					className={
-						!FooterContent || FooterContent === null ? css.children : css.childrenFtr
-					}
-					style={contentStyle}
-				>
-					{children}
+				<div className="children" style={datos.contentStyle}>
+					{datos.children}
 				</div>
-				{FooterContent && (
-					<div style={footerStyle} className={css.footer}>
-						{FooterContent}
+				{datos.FooterContent && (
+					<div style={datos.footerStyle} className={'footer'}>
+						{datos.FooterContent}
 					</div>
 				)}
 			</div>

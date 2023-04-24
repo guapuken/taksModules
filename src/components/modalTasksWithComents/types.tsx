@@ -1,4 +1,4 @@
-import { Modo, onChangeType, onClickType } from '../../types';
+import { Modo, onChangeType, onClickType, optionsDropdown } from '../../types';
 
 // exportación de la interfaz princiapl
 export interface contentProps {
@@ -11,17 +11,18 @@ export interface contentProps {
 	modo?: Modo;
 
 	// botones
-	onClickAddComent?: onClickType;
-	onClickReWork?: onClickType;
-	onClickConfirm?: onClickType;
-	onClickApprove?: onClickType;
+	onCl_addComent?: onClickType;
+	onCl_reWork?: onClickType;
+	onCl_confirm?: onClickType;
+	onCl_approve?: onClickType;
 
 	// on changes
-	onChangeAddFile?: onChangeType;
-	onChangeDrop?: onChangeType;
+	onCh_addFile?: onChangeType;
+	onCh_dropdown?: onChangeType;
 
 	// comentarios
 	comments?: comentarios[];
+	reasonToRework?: optionsDropdown;
 }
 // estructura de los comentarios
 export type comentarios = {
@@ -32,19 +33,20 @@ export type comentarios = {
 };
 // botones que se utilizan
 export type functions = {
-	onChangeAddFile?: onChangeType;
-	onClickAddComent?: onClickType;
-	onClickReWork?: onClickType;
-	onClickConfirm?: onClickType;
-	onClickApprove?: onClickType;
-	onChangeDrop?: onChangeType;
+	onCh_addFile?: onChangeType;
+	onCl_addComent?: onClickType;
+	onCl_reWork?: onClickType;
+	onCl_confirm?: onClickType;
+	onCl_approve?: onClickType;
+	onCh_dropdown?: onChangeType;
+	reasonToRework?: optionsDropdown;
 };
 // types del componente complemenetario Item Comments
 export type itemComments = {
 	comments?: comentarios[];
 	showTasks?: boolean;
-	onChangeAddFile?: onChangeType;
-	onClickAddComent?: onClickType;
+	onCh_addFile?: onChangeType;
+	onCl_addComent?: onClickType;
 };
 // estructura de las subtareas
 export type subtasks = {

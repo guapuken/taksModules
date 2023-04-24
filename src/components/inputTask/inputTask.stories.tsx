@@ -1,15 +1,23 @@
-import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import InputTask, { InputTaskProps } from './inputTask';
+// utilidades del storybook
+import { Meta, Story } from '@storybook/react';
+import { functions, boolean, text, object, modo } from '../../storyUtils';
+// componente principal
+import InputTask from './inputTask';
+// types
+import { inputTasks } from './types';
 
-const Template: Story<InputTaskProps> = (args) => <InputTask {...args} />;
+const Template: Story<inputTasks> = (args) => <InputTask {...args} />;
 
 export const InitialState = Template.bind({});
-InitialState.args = {};
+InitialState.args = {
+	id: '1',
+};
 
 //estado del componente con propiedades
 export const WithProperties = Template.bind({});
 WithProperties.args = {
+	id: '1',
 	principalTask: true,
 	valueTask: 'Hacer dummies',
 	valueDescription: 'Realizar dummies de las principales plazas',
@@ -18,15 +26,23 @@ WithProperties.args = {
 export default {
 	title: 'Átomos/input task',
 	component: InputTask,
+	// definición de argumentos
 	argTypes: {
-		disabled: {
-			control: 'boolean',
-		},
-		tarea: {
-			control: 'boolean',
-		},
-		subtarea: {
-			control: 'boolean',
-		},
+		onCh_nameTask: functions(),
+		onCh_checkbox: functions(),
+		onCh_descriptionTask: functions(),
+		disabled: boolean(),
+		principalTask: boolean(),
+		isSubtask: boolean(),
+		checked: boolean(),
+		check: boolean(),
+		showTask: boolean(),
+		valueTask: text(),
+		valueDescription: text(),
+		idCheckbox: text(),
+		data: object(),
+		style: object(),
+		modo: modo(),
+		id: text(),
 	},
 } as Meta;

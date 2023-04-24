@@ -5,14 +5,13 @@ import { Modo } from '../../../types';
 
 interface IconPriorityProps {
 	prioridadInicial?: 'none' | 'baja' | 'media' | 'alta';
-	onClickPrioridad?: (e: React.MouseEvent<HTMLElement>) => void;
-	onClickNoPrioridad?: (e: React.MouseEvent<HTMLElement>) => void;
+	onCl_selectPriority?: (e: React.MouseEvent<HTMLElement>) => void;
 	modo?: Modo;
 }
 
 const IconPriority = (props: IconPriorityProps) => {
 	//Desestructuración de propiedades
-	const { prioridadInicial, onClickPrioridad, onClickNoPrioridad, modo } = props;
+	const { prioridadInicial, onCl_selectPriority, modo } = props;
 
 	//Variables para definir el nivel de prioridad
 	const [prioridad, setPrioridad] = useState(prioridadInicial || 'none');
@@ -20,8 +19,8 @@ const IconPriority = (props: IconPriorityProps) => {
 	//Se agrega el estado de la prioridad y se da la opción de agregar un onClick en la para definir la función que se realizará al dar clic en el elemento
 	const handleClickPriority = (prioridad: any) => {
 		setPrioridad(prioridad.target.id);
-		if (onClickPrioridad) {
-			onClickPrioridad(prioridad);
+		if (onCl_selectPriority) {
+			onCl_selectPriority(prioridad);
 		}
 	};
 	//Opciones de prioridades
@@ -29,10 +28,7 @@ const IconPriority = (props: IconPriorityProps) => {
 		{
 			id: 'none',
 			title: 'Sin prioridad',
-			onClick: () => {
-				setPrioridad('none');
-				onClickNoPrioridad;
-			},
+			onClick: handleClickPriority,
 		},
 		{
 			id: 'baja',
@@ -60,6 +56,7 @@ const IconPriority = (props: IconPriorityProps) => {
 				options={optionsPriority}
 				svg={
 					<FlagIcon
+						height={30}
 						fill={
 							prioridad === 'baja'
 								? '#1cbf59'

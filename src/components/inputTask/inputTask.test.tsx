@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import InputTask from "./inputTask";
+import InputTask from './inputTask';
 
-describe('InputTask',()=>{
-  test('render the InputTask component', ()=>{
-    <InputTask/>
-  })
-})
+describe('InputTask', () => {
+	test('render the InputTask component', () => {
+		<InputTask id="1" idCheckbox="1" />;
+	});
+});
