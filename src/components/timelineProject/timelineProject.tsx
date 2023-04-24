@@ -32,7 +32,7 @@ const TimelineProject = (props: timelineProps) => {
 							completed={e?.completed}
 							duration={e?.duration}
 							taskName={e?.taskName}
-							onClickShow={e?.onClickShow}
+							onCl_showDetails={e?.onCl_showDetails}
 							legendBtn={e?.legendBtn}
 						/>
 					))}

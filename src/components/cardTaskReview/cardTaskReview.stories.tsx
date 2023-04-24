@@ -18,7 +18,7 @@ withProperties.args = {
 	taskName: 'Hace dummies de las principales plazas',
 	taskDescription: 'Realizar dummies de CDMX, Monterrey y Guadalajara',
 	statusTask: 'outOfTime',
-	onClickShowDetails: () => alert('Click'),
+	onCl_showDetails: () => alert('Click'),
 	// modo: 'Dark',
 };
 export default {

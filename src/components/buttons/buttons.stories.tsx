@@ -26,7 +26,7 @@ Horizontal.args = {
 		secondary: true,
 		tertiary: true,
 	},
-	onClick: {
+	onCl_buttons: {
 		primary: () => alert('Realizando pago...'),
 		secondary: () => alert('Cancelando...'),
 		tertiary: () => alert('Regresando a la página inicial...'),
@@ -78,7 +78,7 @@ Box.args = {
 		secondary: true,
 		tertiary: true,
 	},
-	onClick: {
+	onCl_buttons: {
 		primary: () => alert('Realizando pago...'),
 		secondary: () => alert('Cancelando...'),
 		tertiary: () => alert('Regresando a la página inicial...'),

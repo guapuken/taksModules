@@ -32,29 +32,29 @@ function DemoComponent() {
 						percentTask: 25,
 						valueRevision: 'Jorge Correa',
 						followNotificationsValue: notifications,
-						onClickFollow: () => {
+						onCl_follow: () => {
 							setNotifications(!notifications);
 						},
-						onClickEditar: () => alert('editar'),
-						onChangeNotificationSwitch: () => alert('editar'),
+						onCl_edit: () => alert('editar'),
+						onCh_follow: () => alert('editar'),
 					},
 					{
 						id: '2',
 						idNotification: '2',
-						onClickEditar: () => alert('editar'),
-						onClickShowDetails: () => alert('editar'),
+						onCl_edit: () => alert('editar'),
+						onCl_showDetails: () => alert('editar'),
 						status: 'Progress',
 						taskName: 'decirle gracias a Adan',
 						taskDescription: 'no pues creo que no',
 						statusTask: 'outOfTime',
 						percentTask: 25,
-						onClickFollow: () => {
+						onCl_follow: () => {
 							console.log('entró en notificaciones');
 							setNotifications(!notifications);
 						},
 						followNotificationsValue: notifications,
 
-						onChangeNotificationSwitch: () => setNotifications(!notifications),
+						onCh_follow: () => setNotifications(!notifications),
 					},
 					{
 						id: '3',
@@ -64,14 +64,14 @@ function DemoComponent() {
 						taskDescription: 'no pues creo que no',
 						statusTask: 'outOfTime',
 						percentTask: 25,
-						onClickFollow: () => {
+						onCl_follow: () => {
 							console.log('entró en notificaciones');
 							setNotifications(!notifications);
 						},
 						followNotificationsValue: notifications,
-						onClickEditar: () => alert('editar'),
+						onCl_edit: () => alert('editar'),
 
-						onChangeNotificationSwitch: () => setNotifications(!notifications),
+						onCh_follow: () => setNotifications(!notifications),
 					},
 					{
 						id: '4',
@@ -81,14 +81,14 @@ function DemoComponent() {
 						taskDescription: 'no pues creo que no',
 						statusTask: 'outOfTime',
 						percentTask: 25,
-						onClickFollow: () => {
+						onCl_follow: () => {
 							console.log('entró en notificaciones');
 							setNotifications(!notifications);
 						},
 						followNotificationsValue: notifications,
-						onClickEditar: () => alert('editar'),
+						onCl_edit: () => alert('editar'),
 
-						onChangeNotificationSwitch: () => setNotifications(!notifications),
+						onCh_follow: () => setNotifications(!notifications),
 					},
 					{
 						id: '5',
@@ -98,14 +98,14 @@ function DemoComponent() {
 						taskDescription: 'no pues creo que no',
 						statusTask: 'outOfTime',
 						percentTask: 25,
-						onClickFollow: () => {
+						onCl_follow: () => {
 							console.log('entró en notificaciones');
 							setNotifications(!notifications);
 						},
 						followNotificationsValue: notifications,
-						onClickEditar: () => alert('editar'),
+						onCl_edit: () => alert('editar'),
 
-						onChangeNotificationSwitch: () => setNotifications(!notifications),
+						onCh_follow: () => setNotifications(!notifications),
 					},
 				]}
 				nameBoards={{

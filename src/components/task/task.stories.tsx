@@ -1,9 +1,10 @@
 import { Meta, Story } from '@storybook/react';
 import React, { useEffect, useState } from 'react';
 
-import Task, { TaskProps } from './task';
+import Task from './task';
+import { tasks } from '../../types';
 
-const Template: Story<TaskProps> = (args) => <Task {...args} />;
+const Template: Story<tasks> = (args) => <Task {...args} />;
 
 //Ejemplo de estructura de datos de usuario
 const usuarios = [
@@ -130,8 +131,8 @@ Initial.args = {
 	responsables: dataUsers.map((e) => e),
 	revision: dataUsers.map((e) => e),
 	prioridadInicial: 'alta',
-	onClickEliminar: () => alert('hola'),
-	onClickRecordatorio: () => alert('perro'),
+	onCl_delete: () => alert('hola'),
+	onCl_reminder: () => alert('perro'),
 	moreOptions: [
 		{ title: 'Encontrar tarea', onClick: () => alert('encontrar') },
 		{ title: 'Seguir tarea', onClick: () => alert('seguimiento') },
@@ -149,14 +150,13 @@ Tasks.args = {
 	taskDisabled: false,
 	taskComplete: false,
 	check: true,
-	onClickCheck: () => alert('check'),
 	// onChangeNameTask: () => alert('change Task'),
 	// onChangeDescriptionTask: () => alert('change description task'),
 	// valueTask: ,
 	// valueDescription: ,
 
 	//Icon Dates
-	onChangeDias: () => alert('change días'),
+	onCh_duration: () => alert('change días'),
 	plantillas: false,
 
 	//Icon Asign
@@ -167,30 +167,35 @@ Tasks.args = {
 	valueRevision: 'Jorge Correa',
 
 	//Icon Priority
-	onClickPrioridad: () => alert('change priority'),
+	onCl_selectPriority: () => alert('change priority'),
 	// prioridadInicial: 'baja',
 
 	//Icon MoreOptions
-	onClickEliminar: () => alert('eliminando'),
-	onClickRecordatorio: () => alert('Creando recordatorio'),
+	onCl_delete: () => alert('eliminando'),
+	onCl_reminder: () => alert('Creando recordatorio'),
 	// moreOptions: ,
 
 	// subtaskForbbiden: true,
-	onClickAddTask: Childrens.push(<Task />),
-	Children: () => (
-		<>
-			<Task
-				// isSubtask
-				Children={() => (
-					<>
-						<Task isSubtask />
-					</>
-				)}
-			/>
-			<Task />
-			<Task />
-		</>
+	onCl_addTask: Childrens.push(
+		<Task
+			idTask="1"
+			equipos={[]}
+			onCl_newTemplate={() => {}}
+			responsables={[]}
+			revision={[]}
+			templateOptions={[]}
+		/>
 	),
+	subtasks:[{ 
+
+				idTask:"1",
+				equipos:[],
+				onCl_newTemplate:()=> ,
+				responsables:[],
+				revision:[],
+				templateOptions:[],
+				subtasks:[]}],
+	,
 	// Children: Childrens.length > 0 ? () => Childrens.map((e) => e) : () => <></>,
 	templateOptions: [
 		{

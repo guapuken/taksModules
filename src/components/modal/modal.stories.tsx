@@ -23,7 +23,7 @@ WithProperties.args = {
 		<div>
 			<Task
 				idTask="12"
-				onClickCreateTemplate={() => {}}
+				onCl_newTemplate={() => {}}
 				templateOptions={[]}
 				idCheckbox="12"
 				principalTask={true}
@@ -31,22 +31,22 @@ WithProperties.args = {
 				isSubtask
 				valueTask="Bloqueos sitios IMJ-CDMX-ESP-O-576"
 				valueDescription="Bloquear con los porveedores los sitios de la campaña de uber"
-				onChangeDuration={() => alert('change días')}
+				onCh_duration={() => alert('change días')}
 				plantillas={true}
 				responsables={[{ title: 'Olaf', id: 'Olaf' }]}
 				equipos={[{ title: 'TI', id: 'TI' }]}
 				revision={[{ title: 'Jorge', id: 'Jorge' }]}
 				valueResponsable={'Olaf Ruvalcaba'}
 				valueRevision={'Jorge Correa'}
-				onClickPrioridad={() => alert('change priority')}
-				onClickEliminar={() => alert('eliminando')}
-				onClickRecordatorio={() => alert('Creando recordatorio')}
-				onClickAddTask={() => alert('agregando Tarea')}
+				onCl_selectPriority={() => alert('change priority')}
+				onCl_delete={() => alert('eliminando')}
+				onCl_reminder={() => alert('Creando recordatorio')}
+				onCl_addTask={() => alert('agregando Tarea')}
 				subtasks={[
 					{
 						equipos: [],
 						idTask: '1',
-						onClickCreateTemplate: () => {},
+						onCl_newTemplate: () => {},
 						responsables: [],
 						revision: [],
 						templateOptions: [],
@@ -54,7 +54,7 @@ WithProperties.args = {
 							{
 								idTask: '18',
 								equipos: [],
-								onClickCreateTemplate: () => {},
+								onCl_newTemplate: () => {},
 								responsables: [],
 								revision: [],
 								templateOptions: [],

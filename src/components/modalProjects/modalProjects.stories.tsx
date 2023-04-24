@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Meta, Story, storiesOf } from '@storybook/react';
+import { functions, modo, object, text } from '../../storyUtils';
 import ModalProjects from './modalProjects';
 import { ModalProjectsProps } from './types';
 
@@ -13,10 +14,10 @@ InitialState.args = {};
 export const WithProperties = Template.bind({});
 WithProperties.args = {
 	projectNameValue: 'UBER-EATS-1235-ESP-NOV',
-	onClickCrear: () => alert('crear'),
-	onClickCancelar: () => alert('cancelar'),
-	onClickAddTask: () => alert('añadir tarea'),
-	onClickCreateTemplate: () => alert('crear plantilla'),
+	onCl_confirm: () => alert('crear'),
+	onCl_abort: () => alert('cancelar'),
+	onCl_addTask: () => alert('añadir tarea'),
+	onCl_newTemplate: () => alert('crear plantilla'),
 };
 
 //exportación default de valores
@@ -25,13 +26,18 @@ export default {
 	component: ModalProjects,
 	//definición de argumentos
 	argTypes: {
-		onClickCrear: { type: 'function' },
-		onClickCancelar: { type: 'function' },
-		onClickAddTask: { type: 'function' },
-		onChangeTemplateName: { type: 'function' },
-		projectNameValue: { type: 'string' },
-		Children: { control: { type: 'object' } },
-		templateOptions: { control: { type: 'object' } },
-		onClickCreateTemplate: { type: 'function' },
+		onCl_confirm: functions(),
+		onCl_abort: functions(),
+		onCl_addTask: functions(),
+		onCh_nameProject: functions(),
+		projectNameValue: text(),
+		subtasks: object(),
+		templateOptions: object(),
+		onCl_newTemplate: functions(),
+		modo: modo(),
+		idProject: text(),
+		onCh_asignTeam: functions(),
+		teamOptions: object(),
+		initialTeamValue: object(),
 	},
 } as Meta;
