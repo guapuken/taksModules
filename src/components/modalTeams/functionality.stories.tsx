@@ -40,6 +40,7 @@ function DemoComponent(props) {
 			memberValue={member}
 			onCl_abort={() => alert('Ccancelar')}
 			onCl_confirm={() => alert('Confirmar')}
+			onCl_delete={() => alert('borrar')}
 			members={[
 				{
 					role: 'Ux/Ui Designer',

@@ -21,6 +21,7 @@ const Content = ({
 
 	membersOptions,
 	onCl_addUser,
+	onCl_delete,
 	role,
 	members,
 	idTeam,
@@ -65,9 +66,10 @@ const Content = ({
 					membersOptions={membersOptions}
 					role={role}
 					onCl_addUser={onCl_addUser}
-					style={{ marginTop: '20px' }}
+					style={{ marginTop: '10px' }}
 					members={members}
 					onCh_user={onCh_user}
+					onCl_delete={onCl_delete}
 				/>
 			</div>
 		</div>

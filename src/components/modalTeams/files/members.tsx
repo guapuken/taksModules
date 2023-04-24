@@ -5,12 +5,15 @@ import { AddTask } from '../../task/files';
 import { members, membersOptions } from '../types';
 import { onChangeType } from '../../../types';
 
+import del from '../../../img/vaciar.svg';
+
 //COMPONENTE QUE REGRESA UN DROPDOWN CON LOS INTEGRANTES Y UN INPUT PARAA AGREGAR EL NOMBRE DEL PUESTO
 const Members = ({
 	style,
 	principal,
 	memberValue,
 	membersOptions,
+	onCl_delete,
 	role,
 	onCl_addUser,
 	// Children,
@@ -22,13 +25,24 @@ const Members = ({
 			<div>
 				<div style={{ width: '100%', ...style }}>
 					{principal && <p style={{ width: '100%' }}> Encargado </p>}
-					<Dropdown
-						// isSearchable
-						placeHolder="Selecciona el encargado"
-						options={membersOptions as membersOptions[]}
-						onCh={onCh_user as onChangeType}
-						initialValue={memberValue || undefined}
-					/>
+					<div
+						style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}
+					>
+						<Dropdown
+							// isSearchable
+							placeHolder="Selecciona el encargado"
+							options={membersOptions as membersOptions[]}
+							onCh={onCh_user as onChangeType}
+							initialValue={memberValue || undefined}
+							style={{ width: '95%' }}
+						/>
+						<img
+							src={del}
+							alt=""
+							style={{ height: '30px', width: ' auto', cursor: 'pointer' }}
+							onClick={onCl_delete}
+						/>
+					</div>
 					<div style={{ marginTop: '5px' }}>
 						<Spans legend={role ? role : 'Sin definir'} boldLegend={'Puesto: '} />
 					</div>

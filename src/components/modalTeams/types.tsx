@@ -36,6 +36,7 @@ export type members = {
 	membersOptions?: membersOptions[];
 	role?: string;
 	onCl_addUser?: onClickType;
+	onCl_delete?: onClickType;
 	// Children
 	members?: members[];
 	onCh_user?: onChangeType;
@@ -50,14 +51,15 @@ export interface modalTeams {
 	memberValue?: membersValues;
 	membersOptions?: any;
 	onCl_addUser?: onClickType;
+	onCl_delete?: onClickType;
 	role?: string;
 	members?: members[];
 	idTeam: string;
 	modo?: Modo;
+	teamName?: string;
 
 	onCl_confirm?: onClickType;
 	onCl_abort?: onClickType;
-	teamName?: string;
 }
 
 export type content = {
@@ -68,6 +70,7 @@ export type content = {
 	memberValue?: membersValues;
 	membersOptions?: any;
 	onCl_addUser?: onClickType;
+	onCl_delete?: onClickType;
 	role?: string;
 	members?: members[];
 	idTeam: string;
