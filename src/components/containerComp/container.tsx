@@ -10,8 +10,8 @@ import css from './container.module.scss';
 import { container } from './types';
 
 // types que se usan en documentación NO BORRAR
-import { header, onClicks } from './types';
 import { Modo } from '../../types';
+import { header, onClicks } from './types';
 
 /** documentación de componente
  * @param {any} props.children - recibe un children dentro del componente o cualquier elemento
@@ -43,14 +43,18 @@ const Container = (props: container) => {
 	// desestructuración de propiedades
 	const datos = { ...props };
 	return (
-		<div className={css.ctn} style={datos.style}>
-			<div className={css.menu}>
+		<div className={`ctn${datos.modo}_CtnC`} style={datos.style}>
+			<div className={'menu'}>
 				<Menu modo={datos.modo} onClick={datos.onCl_menus} />
 			</div>
-			{datos.AsideContent && <div className={css.asideCtn}>{datos.AsideContent}</div>}
-			<div className={datos.AsideContent ? css.ctnChildren_FtrAsd : css.ctnChildren_Ftr}>
+			{datos.AsideContent && <div className={'asideCtn'}>{datos.AsideContent}</div>}
+			<div
+				className={`ctnChild${datos.AsideContent ? 'Asd' : ''}${
+					datos.FooterContent ? 'Ftr' : ''
+				}`}
+			>
 				{datos.header && (
-					<div className={css.header} style={datos.headerStyle}>
+					<div className={'header'} style={datos.headerStyle}>
 						<h2 style={{ marginRight: '10px' }}>{datos.header.legend}</h2>
 						{datos.header.legendBtn && datos.header.onCl_btn && (
 							<Button
@@ -61,18 +65,11 @@ const Container = (props: container) => {
 						)}
 					</div>
 				)}
-				<div
-					className={
-						!datos.FooterContent || datos.FooterContent === null
-							? css.children
-							: css.childrenFtr
-					}
-					style={datos.contentStyle}
-				>
+				<div className="children" style={datos.contentStyle}>
 					{datos.children}
 				</div>
 				{datos.FooterContent && (
-					<div style={datos.footerStyle} className={css.footer}>
+					<div style={datos.footerStyle} className={'footer'}>
 						{datos.FooterContent}
 					</div>
 				)}

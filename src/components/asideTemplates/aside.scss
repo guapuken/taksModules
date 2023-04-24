@@ -1,13 +1,9 @@
-//contenedor princiapal --------------------------------------------
-.ctnWhiteVisLight_ATC,
-.ctnWhiteVisDark_ATC,
-.ctnVisLight_ATC,
-.ctnVisDark_ATC,
-.ctnWhiteLight_ATC,
-.ctnWhiteDark_ATC,
+@import '../../global.scss';
+// ---------------------------------------------------------------------------------------------------------
+//      Estilos generales 
+// ---------------------------------------------------------------------------------------------------------
 .ctnLight_ATC,
-.ctnDark_ATC
-{
+.ctnDark_ATC{
     position: relative;
     margin-block: 0;
     padding-top: 10px;
@@ -16,7 +12,6 @@
     height: calc(92vh);
     background: transparent;
     width: calc(var(--cardWidth)*.95);
-    //sin contenido--------------------------------------------------
     .noCtnDark, .noCtnLight{
         display: grid;
         place-content: center; 
@@ -34,8 +29,31 @@
     background: var(--bgDark);
     color: #fff;
 }
-//colores de fondo en caso de estar activado el modo oscuro
-.ctnVisDark_ATC{
+
+
+//contenedor princiapal --------------------------------------------
+// .ctnWhiteLight_ATC,
+// .ctnWhiteDark_ATC,
+// .ctnLight_ATC,
+// .ctnDark_ATC
+// {
+//     position: relative;
+//     margin-block: 0;
+//     padding-top: 10px;
+//     display: flex;
+//     justify-content: center;
+//     height: calc(92vh);
+//     background: transparent;
+//     width: calc(var(--cardWidth)*.95);
+    //sin contenido--------------------------------------------------
+  
+
+// //colores de fondo en caso de no tener la propiedad isWhite
+.ctnLight_ATC{
+    background: var(--bgDark);
+}
+// //colores de fondo en caso de estar activado el modo oscuro
+.ctnDark_ATC{
     background: var(--contrastDark);
 }
 .ctnDark_ATC
