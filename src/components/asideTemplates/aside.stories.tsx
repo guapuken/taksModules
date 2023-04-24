@@ -17,7 +17,9 @@ const Template: Story<aside> = (args) => <AsideTemplates {...args} />;
 //estado inicial del componente
 export const InitialState = Template.bind({});
 InitialState.args = {
-	isWhite: true,
+	// isWhite: true,
+	visible: true,
+	modo: 'Light',
 };
 
 //estado del componente con propiedades

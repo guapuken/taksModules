@@ -10,7 +10,7 @@ describe('Modal', () => {
 			<Modal
 				Content={() => (
 					<div style={{ position: 'relative', height: '100%', width: '760px' }}>
-						<InputTask id="1" />
+						<InputTask idCheckbox="1" id="1" />
 						<div
 							style={{
 								marginLeft: '20px',
@@ -19,14 +19,14 @@ describe('Modal', () => {
 								paddingLeft: '10px',
 							}}
 						>
-							<InputTask id="1" isSubtask checked />
-							<InputTask id="1" isSubtask checked />
-							<InputTask id="1" isSubtask />
-							<InputTask id="1" isSubtask />
-							<InputTask id="1" isSubtask />
+							<InputTask idCheckbox="1" id="1" isSubtask checked />
+							<InputTask idCheckbox="1" id="1" isSubtask checked />
+							<InputTask idCheckbox="1" id="1" isSubtask />
+							<InputTask idCheckbox="1" id="1" isSubtask />
+							<InputTask idCheckbox="1" id="1" isSubtask />
 						</div>
 						<div style={{ marginTop: '10px' }}>
-							<InputTask id="1" />
+							<InputTask idCheckbox="1" id="1" />
 							<div
 								style={{
 									marginLeft: '20px',
@@ -35,11 +35,11 @@ describe('Modal', () => {
 									paddingLeft: '10px',
 								}}
 							>
-								<InputTask id="1" isSubtask />
-								<InputTask id="1" isSubtask />
-								<InputTask id="1" isSubtask />
-								<InputTask id="1" isSubtask />
-								<InputTask id="1" isSubtask />
+								<InputTask idCheckbox="1" id="1" isSubtask />
+								<InputTask idCheckbox="1" id="1" isSubtask />
+								<InputTask idCheckbox="1" id="1" isSubtask />
+								<InputTask idCheckbox="1" id="1" isSubtask />
+								<InputTask idCheckbox="1" id="1" isSubtask />
 							</div>
 						</div>
 						<Buttons

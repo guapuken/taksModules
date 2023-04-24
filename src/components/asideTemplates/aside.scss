@@ -29,9 +29,10 @@
     }
 }
 //colores de fondo en caso de no tener la propiedad isWhite
-.ctnLight_ATC
+.ctnVisLight_ATC
 {
     background: var(--bgDark);
+    color: #fff;
 }
 //colores de fondo en caso de estar activado el modo oscuro
 .ctnVisDark_ATC{
@@ -55,7 +56,7 @@
     .ctnDark_ATC
     {
         width: calc(100vw / 2);
-        height: calc(100vw / 4);
+        // height: calc(100vw / 4);
     }
 }
 @media (max-width:415px){
@@ -69,6 +70,6 @@
     .ctnDark_ATC
     {
         width: calc(var(--cardSize)*4);
-        height: var(--cardHeight);
+        height: calc(100vh /4);
     }
 }

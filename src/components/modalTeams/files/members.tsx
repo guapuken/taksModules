@@ -16,7 +16,6 @@ const Members = ({
 	onCl_delete,
 	role,
 	onCl_addUser,
-	// Children,
 	members,
 	onCh_user,
 }: members) => {
@@ -38,7 +37,8 @@ const Members = ({
 						/>
 						<img
 							src={del}
-							alt=""
+							alt="eliminar"
+							title="Eliminar"
 							style={{ height: '30px', width: ' auto', cursor: 'pointer' }}
 							onClick={onCl_delete}
 						/>
@@ -65,6 +65,7 @@ const Members = ({
 							onCl_addUser={member.onCl_addUser}
 							members={member.members}
 							onCh_user={member.onCh_user}
+							onCl_delete={member.onCl_delete}
 						/>
 					))}
 			</div>
