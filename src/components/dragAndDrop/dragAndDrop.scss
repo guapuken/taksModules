@@ -97,34 +97,41 @@
 //      media queries
 // ---------------------------------------------------------------------------------------------------------
 
-@media (max-width:834px){
+@media (min-width:768px) and (max-width:1024px){
     .ctnLight_DDC{
         flex-direction: column;
         gap: 0;
         max-height: calc(85vh);
         .boardCtn{
             width: 50vw !important;
-            max-height: calc(85vh / 4);
-            
-        }
-        .drpblCtn{
-            max-height: calc(100vh / 4);
-            background: red;
+            background: green;
+            height: 75%;
+            .drpblCtn{
+                height:calc(85vh / 4);
+                max-width: 50vw;
+                overflow: hidden;
+                display: flex !important;
+                flex-direction: column !important;
+                flex-wrap: nowrap;
+                .ctnIndvlBrd{
+                    display: flex;
+                    gap: 20px;
+                }
+                .ctnDrgbl{
+                    .ctnAsdRndLight_CC{
+                        // background: red
+                        height: 80%;
+                        .ctnProgressBar_showDtls{
+                            display: none;
+                        }
+                    }
+                }
+            }
         }
     }
 }
 @media (max-width:415px){
     .ctnLight_DDC{
-        width: 100vw;
-    }
-}
-
-@media (max-width:415px){
-
-}
-@media (max-width:768px){
-    .dropableCtn,.dropableCtnDark{
-        height: 25vh;
         width: 100vw;
     }
 }

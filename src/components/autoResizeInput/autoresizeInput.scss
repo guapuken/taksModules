@@ -16,11 +16,13 @@
   resize: none;
   transition: border-color 150ms ease;
   width: 100%;
-
+  
   font-family: 'Open Sans', sans-serif;
   margin-block: 0;
   background: transparent;
-  font-size: calc(12px + 0.390625vw);
+  // background: red;
+  // font-size: calc(12px + 0.390625vw);
+  font-size: clamp(12px,3.2vh,32px);
   &:focus {
     outline: none;
   }
@@ -32,14 +34,15 @@
 .ctnLight-principal_AIPTC,
 .ctnDark-principal_AIPTC
 {
-  font-size: calc(15px + 0.390625vw);
-  font-weight: bold;
+  // font-size: calc(15px + 0.390625vw);
+  font-size: clamp(14px,3vh,30px);
+  font-weight: normal;
 }
 // estilos de una tarea normal
 .ctnDark-task_AIPTC,
 .ctnLight-task_AIPTC
 {
-  font-weight: bold;
+  font-weight: normal;
   opacity:1 ;
 }
 // estilos de una subtarea
@@ -49,6 +52,7 @@
   font-weight: normal;
   opacity:.5 ; 
 }
+
 // ---------------------------------------------------------------------------------------------------------
 //      modo claro
 // ---------------------------------------------------------------------------------------------------------
@@ -61,6 +65,7 @@
     color: #c6c6c6;
   }
 }
+
 // ---------------------------------------------------------------------------------------------------------
 //      modo oscuro
 // ---------------------------------------------------------------------------------------------------------
@@ -76,11 +81,5 @@
 // ---------------------------------------------------------------------------------------------------------
 //      media queries
 // ---------------------------------------------------------------------------------------------------------
-// tablet
-@media (max-width:834px){
-
-}
-// cel
-@media (max-width:415px){
-  
-}
+@media (min-width:768px) and (max-width:1024px){}
+@media (max-width:767px){}

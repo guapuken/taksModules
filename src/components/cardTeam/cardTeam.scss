@@ -9,11 +9,11 @@
         height: 100%;
     }
     .lblColor{
-        height: 100%;
+        height: calc(100% + 20px);
         width: 15px;
         position: absolute;
-        top: 0;
-        right: 0;
+        top: -10px;
+        right: -10px;
     }
     //pop up que se mustra al hacer Hover
     .teamName{

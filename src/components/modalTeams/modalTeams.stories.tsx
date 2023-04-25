@@ -12,16 +12,28 @@ InitialState.args = {};
 
 let options = [
 	{
-		value: 'Jorge Correa',
-		label: 'Jorge Correa',
+		id: 'Jorge Correa',
+		title: 'Jorge Correa',
 	},
 	{
-		value: 'Olaf',
-		label: 'Olaf',
+		id: 'Olaf',
+		title: 'Olaf',
 	},
 	{
-		value: 'Adan',
-		label: 'Adan',
+		id: 'Adan',
+		title: 'Adan',
+	},
+	{
+		id: 'Adin',
+		title: 'Adin',
+	},
+	{
+		id: 'Adon',
+		title: 'Adon',
+	},
+	{
+		id: 'Adun',
+		title: 'Adun',
 	},
 ];
 // estado del componente con propiedades
@@ -29,18 +41,14 @@ export const WithProperties = Template.bind({});
 WithProperties.args = {
 	membersOptions: options,
 	memberValue: {
-		value: 'Jorge Correa',
-		label: 'Jorge Correa',
+		id: 'Jorge Correa',
+		title: 'Jorge Correa',
 	},
 	teamColor: '#525486',
 	onCl_confirm: () => alert('Create Team'),
 	onCl_abort: () => alert('Abort team creation '),
-	Children: () => (
-		<div>
-			<Members membersOptions={options as any} members={options as any} />
-			<Members membersOptions={options as any} members={options as any} />
-		</div>
-	),
+	onCl_delete: () => alert('eliminar'),
+	members: [{ membersOptions: options }, { membersOptions: options }],
 };
 
 export default {

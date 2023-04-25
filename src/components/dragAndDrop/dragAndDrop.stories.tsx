@@ -1,12 +1,13 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import DragAndDrop, { DragAndDropProps } from './dragAndDrop';
+import DragAndDrop from './dragAndDrop';
+import { dragAndDrop } from './types';
 import Task from '../task/task';
 import CardTask from '../cardTask';
 import Cards from '../cards';
 import { useWindowSize } from '../../utils/windowSize';
 
-const Template: Story<DragAndDropProps> = (args) => <DragAndDrop {...args} />;
+const Template: Story<dragAndDrop> = (args) => <DragAndDrop {...args} />;
 
 export const Initial = Template.bind({});
 const tasks = [

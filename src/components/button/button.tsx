@@ -194,7 +194,6 @@ const Button = (props: button) => {
 			key={datos.key}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
-			// className={datos.className}
 			className={`ctn${datos.modo}_BtnC ${datos.className}`}
 			disabled={datos.disabled}
 			style={{

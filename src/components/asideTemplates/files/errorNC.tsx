@@ -1,10 +1,9 @@
 import React from 'react';
-import { Modo } from '../../../types';
 
-const ErrorNc = ({ modo = 'Light' }: any) => {
+const ErrorNc = () => {
 	return (
-		<div className={`noCtn${modo}`}>
-			<h1>Ups!</h1>
+		<div className={`noCtn`}>
+			<h2>Ups!</h2>
 			<p>parece que olvidaste agregar tu contenido</p>
 		</div>
 	);

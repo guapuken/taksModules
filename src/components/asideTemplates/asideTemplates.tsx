@@ -20,7 +20,7 @@ import { Modo } from '../../types';
 const AsideTemplates = ({ isWhite = false, children, modo = 'Light', visible }: aside) => {
 	return (
 		<div className={`ctn${isWhite ? 'White' : ''}${visible ? 'Vis' : ''}${modo}_ATC`}>
-			{children ?? <ErrorNc modo={modo} />}
+			<div className="children">{children ?? <ErrorNc />}</div>
 		</div>
 	);
 };

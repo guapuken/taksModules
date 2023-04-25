@@ -9,7 +9,7 @@ import './cards.scss';
 // creación del componente principal
 const Cards = (props: cardIntrfc) => {
 	//desestructuración de propiedades
-	const { rounded = false, Content, data, Aside, modo = 'Light' } = props;
+	const { rounded = false, Content, data, Aside, modo = 'Light', className } = props;
 
 	//renderizado del componente
 	return (
@@ -18,7 +18,7 @@ const Cards = (props: cardIntrfc) => {
 			className={
 				Content
 					? `ctn${Aside ? 'Asd' : ''}${rounded ? 'Rnd' : ''}${modo}_CC`
-					: `noCtn${modo}_CC`
+					: `noCtn${modo}_CC ${className}`
 			}
 		>
 			{/* Si no existe contenido para ser mostrado en las cards se renderiza este bloque de código */}
