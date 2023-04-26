@@ -101,7 +101,7 @@
 
 //medias queries -------------------------------------------------
 //tablet
-@media (max-width:834px){
+@media (min-width:768px) and (max-width:1024px){
     .noCtnLight_CC, .noCtnDark_CC,
     .ctnLight_CC, .ctnDark_CC,
     .ctnAsdLight_CC, .ctnAsdDark_CC,
@@ -112,7 +112,7 @@
     }
 }
 //phone
-@media (max-width:415px){
+@media (max-width:767px){
     .noCtnLight_CC, .noCtnDark_CC,
     .ctnLight_CC, .ctnDark_CC,
     .ctnAsdLight_CC, .ctnAsdDark_CC,

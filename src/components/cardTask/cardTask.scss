@@ -4,18 +4,25 @@
 // ---------------------------------------------------------------------------------------------------------
 //      estilos generales
 // ---------------------------------------------------------------------------------------------------------
-.ctn_CTaskC, .ctnDark_CTaskC {
-    .ctnTexts{
-        display: grid;
-        place-items: center;
-        max-height: 50%;
-        height: 50%;
-        width: 100%;
-    }
-    width: calc(100% - 5px) !important;
+.ctnLight_CTaskC, 
+.ctnDark_CTaskC {
+    max-width: calc(100% - 40px);
+    margin-right: 0 !important;
     height: calc(100% - 5px) !important;
+    display: flex;
+    justify-content: flex-end !important;
+    position: relative;
+    .ctnTexts{
+        // max-height: 50%;
+        // height: 50%;
+        // width: calc(100% - 30px);
+        // width: 100%;
+    }
     .descTask{
-        font-size: 14px; 
+        // font-size: 14px; 
+        font-weight: normal;
+        opacity: .5;
+        // font-size: clamp(12px, 2.5vh, 33px); 
         line-height: 1.3;
         span{
             font-size: inherit;
@@ -32,7 +39,7 @@
             align-items: center;
         }
         .tasks, .showDtls{
-            font-size: 13px;
+            font-size: clamp(11px, 2vh, 30px);
         }
         .tasks{
             position: relative;
@@ -71,16 +78,49 @@
 // ---------------------------------------------------------------------------------------------------------
 //      media queries
 // ---------------------------------------------------------------------------------------------------------
-@media (max-width:834px){
-    .ctn_CTaskC, .ctnDark_CTaskC {
+@media (min-width:768px) and (max-width:1024px){
+    .ctnLight_CTaskC, 
+    .ctnDark_CTaskC 
+    {
         .descTask{
             span{
                 -webkit-line-clamp: 1;
             }
         }
+        .ctnProgressBar_showDtls{
+            .ctnDtls{
+                display: none;
+            }
+        }
     }
 }
 
-@media (max-width: 415px){
-    
+@media (max-width: 767px){
+    .ctnLight_CTaskC, 
+    .ctnDark_CTaskC 
+    {
+        .descTask{
+            span{
+                -webkit-line-clamp: 2;
+            }
+        }
+        .ctnProgressBar_showDtls{
+            display: none;
+        }
+    }
+}
+
+@media (max-height:640px){
+    .ctnLight_CTaskC, 
+    .ctnDark_CTaskC 
+    {
+        .descTask{
+            span{
+                -webkit-line-clamp: 2;
+            }
+        }
+        .ctnProgressBar_showDtls{
+            display: none;
+        }
+    }
 }

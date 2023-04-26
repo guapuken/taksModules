@@ -16,7 +16,6 @@ const Members = ({
 	onCl_delete,
 	role,
 	onCl_addUser,
-	// Children,
 	members,
 	onCh_user,
 }: members) => {
@@ -29,7 +28,7 @@ const Members = ({
 						style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}
 					>
 						<Dropdown
-							// isSearchable
+							isSearchable
 							placeHolder="Selecciona el encargado"
 							options={membersOptions as membersOptions[]}
 							onCh={onCh_user as onChangeType}
@@ -38,7 +37,8 @@ const Members = ({
 						/>
 						<img
 							src={del}
-							alt=""
+							alt="eliminar"
+							title="Eliminar"
 							style={{ height: '30px', width: ' auto', cursor: 'pointer' }}
 							onClick={onCl_delete}
 						/>
@@ -51,22 +51,29 @@ const Members = ({
 			</div>
 			<div
 				style={{
-					borderLeft: '2px solid #282828',
-					paddingLeft: '10px',
+					paddingLeft: '15px',
 				}}
 			>
-				{members &&
-					members.map((member: members) => (
-						<Members
-							style={style}
-							memberValue={member.memberValue}
-							membersOptions={membersOptions}
-							role={member.role}
-							onCl_addUser={member.onCl_addUser}
-							members={member.members}
-							onCh_user={member.onCh_user}
-						/>
-					))}
+				<div
+					style={{
+						borderLeft: '2px solid #282828',
+						paddingLeft: '15px',
+					}}
+				>
+					{members &&
+						members.map((member: members) => (
+							<Members
+								style={style}
+								memberValue={member.memberValue}
+								membersOptions={membersOptions}
+								role={member.role}
+								onCl_addUser={member.onCl_addUser}
+								members={member.members}
+								onCh_user={member.onCh_user}
+								onCl_delete={member.onCl_delete}
+							/>
+						))}
+				</div>
 			</div>
 		</div>
 	);

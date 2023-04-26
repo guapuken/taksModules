@@ -1,62 +1,51 @@
 @import '../../global.scss';
+
 // ---------------------------------------------------------------------------------------------------------
 //      Estilos generales 
 // ---------------------------------------------------------------------------------------------------------
+.ctnWhiteVisDark_ATC,
+.ctnWhiteVisLight_ATC,
+.ctnVisLight_ATC,
+.ctnVisDark_ATC,
+.ctnWhiteLight_ATC,
+.ctnWhiteDark_ATC,
 .ctnLight_ATC,
-.ctnDark_ATC{
+.ctnDark_ATC
+{
     position: relative;
     margin-block: 0;
     padding-top: 10px;
     display: flex;
     justify-content: center;
     height: calc(92vh);
-    background: transparent;
-    width: calc(var(--cardWidth)*.95);
-    .noCtnDark, .noCtnLight{
+    width: 25%;
+    .children {
+        display: grid;
+        place-items: center;
+        width: 95%;
+        height: 95%;
+        h2{
+            font-weight: bold;
+        }
+        p{
+            font-weight: lighter;
+            opacity: .5;
+        }
+    }
+    .noCtn{
         display: grid;
         place-content: center; 
         text-align: center;
-        margin-top: -10px;
-        max-width: 70%;
-    }
-    .noCtnDark{
-        color: #fff;
+        width: 100%;
     }
 }
-
-// ---------------------------------------------------------------------------------------------------------
-//      modo claro
-// ---------------------------------------------------------------------------------------------------------
-.ctnLight_ATC{
-    background: var(--bg);
-}
-
-// ---------------------------------------------------------------------------------------------------------
-//      modo oscuro
-// ---------------------------------------------------------------------------------------------------------
-.ctnDark_ATC{
+//colores de fondo en caso de no tener la propiedad isWhite
+.ctnVisLight_ATC
+{
     background: var(--bgDark);
+    color: #fff;
 }
-
-
-//contenedor princiapal --------------------------------------------
-// .ctnWhiteLight_ATC,
-// .ctnWhiteDark_ATC,
-// .ctnLight_ATC,
-// .ctnDark_ATC
-// {
-//     position: relative;
-//     margin-block: 0;
-//     padding-top: 10px;
-//     display: flex;
-//     justify-content: center;
-//     height: calc(92vh);
-//     background: transparent;
-//     width: calc(var(--cardWidth)*.95);
-    //sin contenido--------------------------------------------------
-  
-
-// //colores de fondo en caso de no tener la propiedad isWhite
+//colores de fondo en caso de no tener la propiedad isWhite
 .ctnLight_ATC{
     background: var(--bgDark);
 }
@@ -69,9 +58,18 @@
     background: var(--bgDark);
 }
 
+// ---------------------------------------------------------------------------------------------------------
+//      Estilos generales 
+// ---------------------------------------------------------------------------------------------------------
 
-//mediaquerie para que el tamaño del texto abarque todo el espacio en celular
-@media (max-width:834px){
+// ---------------------------------------------------------------------------------------------------------
+//      Estilos generales 
+// ---------------------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------------------
+//      media queries 
+// ---------------------------------------------------------------------------------------------------------
+@media (min-width:768px) and (max-width:1024px){
     .ctnWhiteVisLight_ATC,
     .ctnWhiteVisDark_ATC,
     .ctnVisLight_ATC,
@@ -81,11 +79,10 @@
     .ctnLight_ATC,
     .ctnDark_ATC
     {
-        width: calc(100vw / 2);
-        height: calc(100vw / 4);
-    }
+        width: 50%;
+    } 
 }
-@media (max-width:415px){
+@media (max-width:767px){
     .ctnWhiteVisLight_ATC,
     .ctnWhiteVisDark_ATC,
     .ctnVisLight_ATC,
@@ -95,7 +92,10 @@
     .ctnLight_ATC,
     .ctnDark_ATC
     {
-        width: calc(var(--cardSize)*4);
-        height: var(--cardHeight);
+        width: 100%;
+        height: calc(100vh /4);
+        .children {
+            height: 92%;
+        }
     }
 }

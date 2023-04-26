@@ -59,7 +59,7 @@ export const TitleCard = (props: TitleCardProps) => {
 	const { title, modo, className } = props;
 	return (
 		<p
-			className={`TextOverflow ${className}`}
+			className={`TextOverflow ${className} ttlTask`}
 			style={{
 				color: modo === 'Dark' ? '#dedede' : '#282828',
 			}}

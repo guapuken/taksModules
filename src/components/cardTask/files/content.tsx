@@ -16,10 +16,11 @@ const Content = ({
 	percentTask,
 	onCl_showDetails,
 	subtasks = 0,
-	modo,
+	modo = 'Light',
+	className,
 }: any) => {
 	return (
-		<CardContainer className={`ctn${modo === 'Dark' ? 'Dark' : ''}_CTaskC`}>
+		<CardContainer className={`ctn${modo}_CTaskC`}>
 			{/* {useWindowSize().width > 768 && (
                 <div
                     className={`ContainerTitleAndiconsCardProject${
@@ -45,7 +46,7 @@ const Content = ({
 			<div className="ctnTexts">
 				<div>
 					<TitleCard modo={modo} title={taskName} />
-					<SimpleButtonText className="descTask">
+					<SimpleButtonText className="descTask ttlTask">
 						<span className="TextOverflow" title={taskDescription}>
 							{taskDescription}
 						</span>

@@ -3,22 +3,11 @@ import React, { CSSProperties, useState } from 'react';
 // styles
 import './rangeDatePicker.scss';
 // types
-import { Modo, onBlurType } from '../../types';
+import { rangeDatePicker } from './types';
 // functions
 import { MonthName } from './files/functions';
 
-export interface RangeDatePickerProps {
-	startDateValue?: Date;
-	endDateValue?: Date;
-	style?: CSSProperties;
-	disabledStartDate?: boolean;
-	disabledEndDate?: boolean;
-	onCh_startDate?: onBlurType;
-	onCh_endDate?: onBlurType;
-	modo: Modo;
-}
-
-const RangeDatePicker = (props: RangeDatePickerProps) => {
+const RangeDatePicker = (props: rangeDatePicker) => {
 	// desestructuración de propiedades
 	const datos = { ...props };
 	// inicialización de propiedades
@@ -26,16 +15,20 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 	// hooks de setteos de fechas
 	const [startDate, setStartDate] = useState(datos.startDateValue || '');
 	const [endDate, setEndDate] = useState(datos.endDateValue || '');
+	const nextinput = React.useRef<any>(null);
+
+	// function focusNext() {
+	// 	const inputElement = nextinput.current;
+	// 	if (inputElement) {
+	// 		inputElement.click();
+	// 	}
+	// }
 
 	return (
 		<div id={`dates${modo}_RDatePC`} style={datos.style} className={`ctn${modo}_RDatePC`}>
 			<div>
 				<p>Inicio</p>
-				<label
-					htmlFor="start-date"
-					className={`${startDate === '' ? 'No' : ''}Dt`}
-					onClick={() => document.getElementById('start-date')?.focus()}
-				>
+				<label htmlFor="start-date" className={`${startDate === '' ? 'No' : ''}Dt`}>
 					{startDate === '' ? 'Inicio' : MonthName(String(startDate))}
 				</label>
 				<input
@@ -49,21 +42,31 @@ const RangeDatePicker = (props: RangeDatePickerProps) => {
 						setStartDate(e.target.value);
 					}}
 					onBlur={(e) => {
+						console.log('cambió');
 						if (datos.onCh_startDate) {
 							datos.onCh_startDate(e);
 						}
+						document.getElementById('end-date')?.focus();
+						// focusNext();
 					}}
 				/>
 			</div>
 			<h2>→</h2>
 			<div>
 				<p>Entrega</p>
-				<label htmlFor="endDate" className={`${endDate === '' ? 'No' : ''}Dt`}>
+				<label
+					htmlFor="endDate"
+					className={`${endDate === '' ? 'No' : ''}Dt`}
+					ref={nextinput}
+					onClick={() => {
+						// document.getElementById('end-date')?.focus();
+					}}
+				>
 					{endDate.toString() === '' ? 'Fin' : MonthName(String(endDate))}
 				</label>
 				<input
 					type="datetime-local"
-					id="endDate"
+					id="end-date"
 					name="endDate"
 					disabled={datos.disabledEndDate}
 					min={String(startDate)}

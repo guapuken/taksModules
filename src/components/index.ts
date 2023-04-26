@@ -65,6 +65,10 @@ export {default as NotificationBell} from './notificationBell';
  * @returns - regresa una estructura de las tareas
  */
 export {default as Task} from './task';
+/**
+ * @returns - Carrousel de elementos
+ */
+export {default as Carousel} from './carousel';
 
 // ---------------------------------------------------------------------------------------------------------
 //      Cards preestablecidas

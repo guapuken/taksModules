@@ -15,6 +15,7 @@ withProperties.args = {
 	onCl_preview: () => alert('Previsualizar'),
 	onCl_edit: () => alert('editar'),
 	title: 'UBER EATS-1523-Sitios-Noviembre23',
+
 	// statusTask: 'delayed',
 	statusTask: 1,
 	percentTask: 100,

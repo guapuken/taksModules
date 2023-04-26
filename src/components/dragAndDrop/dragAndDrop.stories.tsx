@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { useWindowSize } from '../../utils/windowSize';
 import CardTask from '../cardTask';
 import Cards from '../cards';
 import Task from '../task/task';
