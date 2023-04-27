@@ -15,6 +15,7 @@ const ModalTamplates = ({
 	templateNameValue,
 	tasks,
 	idTemplate,
+	edit,
 }: modalTemplates) => {
 	//DESESTRUCTURACIÓN DEL PROPIEDADES COMPONENTE PRINCIPAL
 
@@ -23,7 +24,10 @@ const ModalTamplates = ({
 		<div style={{ width: '90%', margin: '0 auto' }}>
 			<Buttons
 				buttons={{ primary: true, secondary: true }}
-				legends={{ primary: 'Crear plantilla', secondary: 'Cancelar' }}
+				legends={{
+					primary: edit ? 'Guardar cambios' : 'Crear plantilla',
+					secondary: edit ? 'Descartar cambios' : 'Cancelar',
+				}}
 				onCl_buttons={{ primary: onCl_confirm, secondary: onCl_abort }}
 			/>
 		</div>

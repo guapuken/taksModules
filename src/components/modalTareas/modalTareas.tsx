@@ -8,8 +8,8 @@ import { Footer, Content } from './files';
 const ModalTask = (props: tasksProps) => (
 	<Modal
 		header="Creación de tareas"
-		Content={() => <Content {...props.content} />}
-		Footer={() => <Footer {...props.footer} />}
+		Content={() => <Content {...props} />}
+		Footer={() => <Footer {...props} />}
 	/>
 );
 

@@ -11,6 +11,7 @@ import {
 export type clickButtons = {
 	onCl_confirm?: onClickType;
 	onCl_abort?: onClickType;
+	edit?: boolean;
 };
 
 // interfaz principal
@@ -28,6 +29,7 @@ export interface ModalProjectsProps {
 	onCh_asignTeam?: onChangeType;
 	teamOptions: optionsDropdown[];
 	initialTeamValue?: optionsDropdown;
+	edit?: boolean;
 }
 
 export type content = {

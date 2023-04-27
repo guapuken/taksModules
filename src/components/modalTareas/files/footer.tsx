@@ -9,7 +9,10 @@ const Footer = (props: footer) => {
 		<div style={{ width: '90%', margin: '0 auto' }}>
 			<Buttons
 				buttons={{ primary: true, secondary: true }}
-				legends={{ primary: 'Crear tarea', secondary: 'Cancelar' }}
+				legends={{
+					primary: datos.edit ? 'Guardar cambios' : 'Crear tarea',
+					secondary: datos.edit ? 'Descartar cambios' : 'Cancelar',
+				}}
 				onCl_buttons={{ primary: datos.onCl_confirm, secondary: datos.onCl_abort }}
 			/>
 		</div>

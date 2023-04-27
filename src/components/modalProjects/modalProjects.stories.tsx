@@ -18,6 +18,7 @@ WithProperties.args = {
 	onCl_abort: () => alert('cancelar'),
 	onCl_addTask: () => alert('añadir tarea'),
 	onCl_newTemplate: () => alert('crear plantilla'),
+	edit: true,
 };
 
 //exportación default de valores
