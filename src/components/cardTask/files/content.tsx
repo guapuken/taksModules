@@ -2,11 +2,12 @@ import React from 'react';
 
 //componentes auxiliares
 import { CardContainer, SimpleButtonText, Spans, TitleCard } from '../../../utils/cardsUtils';
-import { ProgressBar } from '../../../components';
+import { Button, CircularProgressBar, IconDropdown, ProgressBar } from '../../../components';
 //funciones auxiliares
 import { cardW } from '../../../utils/functions/functions';
 // estilos
 import '../cardTask.scss';
+import { IconMoreOptions } from '../../task/files';
 
 //componente principal
 const Content = ({
@@ -18,6 +19,12 @@ const Content = ({
 	subtasks = 0,
 	modo = 'Light',
 	className,
+	onCl_edit,
+	onCl_reasignDate,
+	onCl_asignTask,
+	onCl_follow,
+	onCl_reminder,
+	onCl_status,
 }: any) => {
 	return (
 		<CardContainer className={`ctn${modo}_CTaskC`}>
@@ -70,6 +77,50 @@ const Content = ({
 						className="showDtls"
 						legend="mostrar detalles..."
 						onClick={onCl_showDetails}
+					/>
+				</div>
+			</div>
+			<div className="ctnCircularProgressBar">
+				<div>
+					<CircularProgressBar percentTask={percentTask} size={40} />
+					<p>{`${percentTask}%`}</p>
+				</div>
+				<div>
+					<Button
+						legend="Cambiar estatus"
+						size="small"
+						style={{ height: '25px' }}
+						primary
+						onCl={onCl_status}
+					/>
+					<IconMoreOptions
+						options={[
+							{
+								id: 'edit',
+								title: 'Editar',
+								onClick: onCl_edit,
+							},
+							{
+								id: 'reasignDate',
+								title: 'Reasignar fecha',
+								onClick: onCl_reasignDate,
+							},
+							{
+								id: 'reasignTask',
+								title: 'Reasignar tarea',
+								onClick: onCl_asignTask,
+							},
+							{
+								id: 'follow',
+								title: 'Seguir tarea',
+								onClick: onCl_follow,
+							},
+							{
+								id: 'reminder',
+								title: 'Programar recordatorio',
+								onClick: onCl_reminder,
+							},
+						]}
 					/>
 				</div>
 			</div>

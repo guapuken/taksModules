@@ -45,6 +45,9 @@
             position: relative;
         }
     }
+    .ctnCircularProgressBar{
+        display: none;
+    }
 }
 
 // ---------------------------------------------------------------------------------------------------------
@@ -73,6 +76,7 @@
             color: #dedede75;
         }
     }
+
 }
 
 // ---------------------------------------------------------------------------------------------------------
@@ -86,16 +90,11 @@
             span{
                 -webkit-line-clamp: 1;
             }
-        }
-        .ctnProgressBar_showDtls{
-            .ctnDtls{
-                display: none;
-            }
-        }
+        }        
     }
 }
 
-@media (max-width: 767px){
+@media (max-width: 1024px){
     .ctnLight_CTaskC, 
     .ctnDark_CTaskC 
     {
@@ -106,6 +105,24 @@
         }
         .ctnProgressBar_showDtls{
             display: none;
+        }
+        .ctnCircularProgressBar{
+            display: flex;
+            position: absolute;
+            align-items: center;
+            width:calc(100% - 10px);
+            justify-content: space-between;
+            bottom: 10px;
+            left:0;
+            gap: 20px;
+            div{
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                &:first-of-type{
+                    gap: 5px;
+                }
+            }
         }
     }
 }
@@ -121,6 +138,9 @@
         }
         .ctnProgressBar_showDtls{
             display: none;
+        }
+        .ctnCircularProgressBar{
+            bottom: -10px;
         }
     }
 }

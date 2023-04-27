@@ -7,6 +7,7 @@ export interface cardTask {
 	onCl_follow?: onClickType;
 	onCl_reasignDate?: onClickType;
 	onCl_asignTask?: onClickType;
+	onCl_status?: onClickType;
 	follow?: boolean;
 	// content
 	taskName?: string;

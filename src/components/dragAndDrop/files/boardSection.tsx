@@ -1,21 +1,27 @@
 import React from 'react';
+// types
+import { boards } from '../types';
+// dnd librería
 import { useDroppable } from '@dnd-kit/core';
 import {
 	horizontalListSortingStrategy,
-	SortableContext,
 	verticalListSortingStrategy,
+	SortableContext,
 } from '@dnd-kit/sortable';
-import { boards } from '../types';
+// componentes principales
 import TaskItem from './taskItem';
 import SortableTaskItem from './sortableItem';
-import '../dragAndDrop.scss';
+// archivos multimedia
 import bell from '../../../img/bell.svg';
+
+import '../dragAndDrop.scss';
 
 const BoardSection = (props: boards) => {
 	const datos = { ...props };
 	const { setNodeRef } = useDroppable({
 		id: datos.id,
 	});
+
 	return (
 		<div className={`drpblCtn`}>
 			<div className={'ctnTitle'}>

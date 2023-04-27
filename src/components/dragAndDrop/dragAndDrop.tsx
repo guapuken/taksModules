@@ -24,6 +24,7 @@ import { BoardSections, dragAndDrop } from './types';
 import { findBoardSectionContainer, getTaskById, initializeBoard } from './files/functions';
 //importaciones de estilos
 import './dragAndDrop.scss';
+import Carousel from '../carousel/carousel';
 
 const DragAndDrop = (props: dragAndDrop) => {
 	const scrSize = useWindowSize();
@@ -169,15 +170,37 @@ const DragAndDrop = (props: dragAndDrop) => {
 
 	//se encarga de ver qué tarea es la que se encuentra activa
 	const task = activeTaskId ? getTaskById(datos.tasks, activeTaskId) : null;
-	return (
+	return scrSize.width < 1024 ? (
+		Object.keys(boardSections).map((boardSectionKey) => {
+			console.log(boardSectionKey);
+			return (
+				<Carousel
+					data={boardSections[boardSectionKey]}
+					Card={(e) => {
+						console.log('e: ', e.property);
+						return <datos.Card {...e.property} />;
+					}}
+				/>
+			);
+		})
+	) : (
 		<DndContext
 			sensors={sensors}
 			collisionDetection={closestCorners}
-			onDragStart={handleDragStart}
-			onDragOver={handleDragOver}
+			onDragStart={(e) => {
+				console.log('onDragStart');
+				handleDragStart(e);
+			}}
+			onDragOver={(e) => {
+				console.log('onDragOver');
+				handleDragOver(e);
+			}}
 			onDragEnd={(e) => {
+				console.log('onDragEnd');
 				handleDragEnd(e);
-				datos.onDragEnd({ boards: boardSections, data: e });
+				if (datos.onDragEnd) {
+					datos.onDragEnd({ boards: boardSections, data: e });
+				}
 			}}
 		>
 			<div className={`ctn${modo}_DDC`}>
