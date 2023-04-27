@@ -13,6 +13,7 @@ export {default as Buttons} from './buttons';
  * @returns - barra de progreso que puede incluir el estatus de la tarea
  */
 export {default as ProgressBar} from './progressBar';
+export {default as CircularProgressBar} from './circularProgressBar'
 /**
  * @returns - añade información por medio de un componente que muestra un signo a elegir
  */
