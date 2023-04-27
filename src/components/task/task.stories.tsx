@@ -186,16 +186,18 @@ Tasks.args = {
 			templateOptions={[]}
 		/>
 	),
-	subtasks:[{ 
+	subtasks: [
+		{
+			idTask: '1',
+			equipos: [],
+			onCl_newTemplate: () => {},
+			responsables: [],
+			revision: [],
+			templateOptions: [],
+			subtasks: [],
+		},
+	],
 
-				idTask:"1",
-				equipos:[],
-				onCl_newTemplate:()=> ,
-				responsables:[],
-				revision:[],
-				templateOptions:[],
-				subtasks:[]}],
-	,
 	// Children: Childrens.length > 0 ? () => Childrens.map((e) => e) : () => <></>,
 	templateOptions: [
 		{
