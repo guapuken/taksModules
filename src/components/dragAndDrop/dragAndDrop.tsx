@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 //Importaciones de dnd-kit-core----------------------------------------------------------------------------------------------------------
 import {
 	useSensors,
@@ -25,6 +25,7 @@ import { findBoardSectionContainer, getTaskById, initializeBoard } from './files
 //importaciones de estilos
 import './dragAndDrop.scss';
 import Carousel from '../carousel/carousel';
+import icon from '../../img/bell.svg';
 
 const DragAndDrop = (props: dragAndDrop) => {
 	const scrSize = useWindowSize();
@@ -174,13 +175,41 @@ const DragAndDrop = (props: dragAndDrop) => {
 		Object.keys(boardSections).map((boardSectionKey) => {
 			console.log(boardSectionKey);
 			return (
-				<Carousel
-					data={boardSections[boardSectionKey]}
-					Card={(e) => {
-						console.log('e: ', e.property);
-						return <datos.Card {...e.property} />;
-					}}
-				/>
+				<Fragment>
+					<Carousel
+						data={boardSections[boardSectionKey]}
+						Card={(e: any) => {
+							console.log('e: ', e.property);
+							return <datos.Card {...e.property} />;
+						}}
+						width={scrSize.width}
+						height={scrSize.height / 4}
+						titleContent={
+							<div
+								style={{
+									position: 'absolute',
+									// background: 'red',
+									left: '50%',
+									transform: 'translateX(-50%)',
+								}}
+							>
+								<div
+									style={{
+										display: 'flex',
+										gap: '20px',
+									}}
+								>
+									<p>{boardSectionKey}</p>
+									<img
+										src={icon}
+										alt=""
+										style={{ height: '20px', width: 'auto' }}
+									/>
+								</div>
+							</div>
+						}
+					/>
+				</Fragment>
 			);
 		})
 	) : (

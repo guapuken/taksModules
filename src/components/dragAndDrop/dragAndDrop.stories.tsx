@@ -36,7 +36,7 @@ const tasks = [
 	{
 		id: '19',
 		idNotification: '19',
-		status: 'En proceso',
+		status: 'Completas / Revisión',
 		taskName: 'Impresión de comidas',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
