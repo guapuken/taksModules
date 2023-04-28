@@ -108,7 +108,7 @@
     .ctnRndLight_CC, .ctnRndDark_CC,
     .ctnAsdRndLight_CC, .ctnAsdRndDark_CC{
         width: calc(100vw / 2 - 30px);
-        height: calc(100vh / 4 - 30px);
+        height: calc(100vh / 4 - 50px);
     }
 }
 //phone
@@ -119,6 +119,6 @@
     .ctnRndLight_CC, .ctnRndDark_CC,
     .ctnAsdRndLight_CC, .ctnAsdRndDark_CC{
         width: calc(100vw - 30px);
-        height: calc(100vh / 4 - 30px);
+        height: calc(100vh / 4 - 50px);
     }
 }

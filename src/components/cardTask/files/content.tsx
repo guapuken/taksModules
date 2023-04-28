@@ -26,30 +26,35 @@ const Content = ({
 	onCl_reminder,
 	onCl_status,
 }: any) => {
+	const options = [
+		{
+			id: 'edit',
+			title: 'Editar',
+			onClick: onCl_edit,
+		},
+		{
+			id: 'reasignDate',
+			title: 'Reasignar fecha',
+			onClick: onCl_reasignDate,
+		},
+		{
+			id: 'reasignTask',
+			title: 'Reasignar tarea',
+			onClick: onCl_asignTask,
+		},
+		{
+			id: 'follow',
+			title: 'Seguir tarea',
+			onClick: onCl_follow,
+		},
+		{
+			id: 'reminder',
+			title: 'Programar recordatorio',
+			onClick: onCl_reminder,
+		},
+	];
 	return (
-		<CardContainer className={`ctn${modo}_CTaskC`}>
-			{/* {useWindowSize().width > 768 && (
-                <div
-                    className={`ContainerTitleAndiconsCardProject${
-                        sizeCard() * 10 < 350 ? 'Small' : ''
-                    }`}
-                >
-                    <IconAsign
-                        involucrados={involucrados(valueResponsable, valueRevision)}
-                        responsables={responsables}
-                        equipos={equipos}
-                        revision={revision}
-                        valueResponsable={valueResponsable}
-                        valueRevision={valueRevision}
-                        style={{ marginRight: '2rem' }}
-                    />
-                    <Notifications
-                        idNotification={idNotification}
-                        onChange={onChangeNotificationSwitch}
-                        checkValue={followNotificationsValue}
-                    />
-                </div>
-            )} */}
+		<CardContainer className={`ctn${modo}_CTaskC ${className}`}>
 			<div className="ctnTexts">
 				<div>
 					<TitleCard modo={modo} title={taskName} />
@@ -93,35 +98,7 @@ const Content = ({
 						primary
 						onCl={onCl_status}
 					/>
-					<IconMoreOptions
-						options={[
-							{
-								id: 'edit',
-								title: 'Editar',
-								onClick: onCl_edit,
-							},
-							{
-								id: 'reasignDate',
-								title: 'Reasignar fecha',
-								onClick: onCl_reasignDate,
-							},
-							{
-								id: 'reasignTask',
-								title: 'Reasignar tarea',
-								onClick: onCl_asignTask,
-							},
-							{
-								id: 'follow',
-								title: 'Seguir tarea',
-								onClick: onCl_follow,
-							},
-							{
-								id: 'reminder',
-								title: 'Programar recordatorio',
-								onClick: onCl_reminder,
-							},
-						]}
-					/>
+					<IconMoreOptions options={options} />
 				</div>
 			</div>
 		</CardContainer>

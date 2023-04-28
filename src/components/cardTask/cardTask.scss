@@ -10,7 +10,9 @@
     margin-right: 0 !important;
     height: calc(100% - 5px) !important;
     display: flex;
-    justify-content: flex-end !important;
+    flex-direction: column;
+    justify-content: space-between;
+    // justify-content: flex-end !important;
     position: relative;
     .ctnTexts{
         // max-height: 50%;
@@ -108,12 +110,9 @@
         }
         .ctnCircularProgressBar{
             display: flex;
-            position: absolute;
             align-items: center;
             width:calc(100% - 10px);
             justify-content: space-between;
-            bottom: 10px;
-            left:0;
             gap: 20px;
             div{
                 display: flex;

@@ -15,7 +15,7 @@ const CardTask = (props: cardTask) => {
 	const properties = {
 		rounded: true,
 		Content: () => <Content {...props} />,
-		Aside: scrSize.width >= 834 ? () => <Aside {...props} /> : null,
+		Aside: scrSize.width >= 1024 ? () => <Aside {...props} /> : null,
 		modo: props.modo,
 	};
 	return <Cards {...properties} />;

@@ -7,28 +7,41 @@ import './carousel.scss';
 import { ButtonsPrevNext, Examples, dataExample } from './files';
 import { asignIndex } from './functions/functions';
 
-const Carousel = ({ Card, width = 500, data = dataExample }: carousel) => {
+const Carousel = ({
+	Card,
+	width = 500,
+	data = dataExample,
+	height = 264,
+	titleContent,
+}: carousel) => {
 	// recibe la data y les asigna un index automático
 	asignIndex(data, 'index');
 	// seleciona la propiedad activa
 	const [property, setProperty] = useState(data[0]);
 
 	return (
-		<div style={{ position: 'relative', height: '264px' }}>
+		<div style={{ position: 'relative', height: height }}>
 			<ButtonsPrevNext property={property} setProperty={setProperty} data={data} />
 			<div
 				className={`cards-slider active-slide-${property?.index}`}
-				style={{ width: width }}
+				style={{ width: width, overflow: 'hidden' }}
 			>
+				<div>{titleContent}</div>
 				<div
 					className={`cards-slider-wrapper`}
-					style={{ transform: `translateX(-${property?.index * width}px)` }}
+					style={{
+						transform: `translateX(-${property?.index * width}px)`,
+					}}
 				>
 					{data.map((prop: elements) => {
 						return (
 							<div
 								className={`card card${prop.index}`}
-								style={{ display: 'grid', placeItems: 'center' }}
+								style={{
+									display: 'grid',
+									placeItems: 'center',
+									// boxShadow: 'inset 0 0 0 2px red',
+								}}
 							>
 								{Card ? (
 									<Card key={prop.id} property={prop} />
