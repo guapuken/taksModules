@@ -20,7 +20,7 @@ const Members = ({
 	onCh_user,
 }: members) => {
 	return (
-		<div>
+		<>
 			<div>
 				<div style={{ width: '100%', ...style }}>
 					{principal && <p style={{ width: '100%' }}> Encargado </p>}
@@ -61,21 +61,26 @@ const Members = ({
 					}}
 				>
 					{members &&
-						members.map((member: members) => (
-							<Members
-								style={style}
-								memberValue={member.memberValue}
-								membersOptions={membersOptions}
-								role={member.role}
-								onCl_addUser={member.onCl_addUser}
-								members={member.members}
-								onCh_user={member.onCh_user}
-								onCl_delete={member.onCl_delete}
-							/>
-						))}
+						members.map((member: members) => {
+							console.log(member);
+							return (
+								<div>
+									<Members
+										style={style}
+										memberValue={member.memberValue}
+										membersOptions={membersOptions}
+										role={member.role}
+										onCl_addUser={member.onCl_addUser}
+										members={member.members}
+										onCh_user={member.onCh_user}
+										onCl_delete={member.onCl_delete}
+									/>
+								</div>
+							);
+						})}
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 export default Members;

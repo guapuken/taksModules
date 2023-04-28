@@ -31,7 +31,6 @@ const DragAndDrop = (props: dragAndDrop) => {
 	const scrSize = useWindowSize();
 	// desestructuración de propiedades
 	const datos = { ...props };
-	// console.log('props componente inicial: ', datos);
 	// inicialización de propiedades
 	const {
 		tasks = [
@@ -171,6 +170,8 @@ const DragAndDrop = (props: dragAndDrop) => {
 
 	//se encarga de ver qué tarea es la que se encuentra activa
 	const task = activeTaskId ? getTaskById(datos.tasks, activeTaskId) : null;
+
+	//
 	return scrSize.width < 1024 ? (
 		Object.keys(boardSections).map((boardSectionKey) => {
 			console.log(boardSectionKey);
@@ -192,6 +193,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 									left: '50%',
 									transform: 'translateX(-50%)',
 								}}
+								key={boardSectionKey}
 							>
 								<div
 									style={{

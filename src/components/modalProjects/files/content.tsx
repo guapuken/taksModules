@@ -29,7 +29,7 @@ const Content = (props: content) => {
 				style={{ opacity: '.5' }}
 			/>
 			<Dropdown
-				onCh={datos.onCh_asignTeam as onChangeType}
+				onCh={datos.onCh_asignTeam}
 				options={datos.teamOptions}
 				placeHolder="Asignar proyecto a un equipo"
 				isSearchable
@@ -62,6 +62,7 @@ const Content = (props: content) => {
 					{datos.subtasks &&
 						datos.subtasks.map((e: any) => (
 							<Task
+								key={e.idTask}
 								idTask={e.idTask}
 								taskDisabled={e.taskDisabled}
 								taskComplete={e.taskComplete}

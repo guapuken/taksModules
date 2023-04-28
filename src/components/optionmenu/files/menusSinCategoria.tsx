@@ -6,7 +6,7 @@ export default function MenusSc(props: any) {
 	return (
 		menus &&
 		menus.sinCategoria?.map((sinCategoria: any) => (
-			<div className="menuCtn">
+			<div className="menuCtn" key={sinCategoria.id}>
 				<ul>
 					<li>
 						<a href={sinCategoria.href} onClick={sinCategoria.onClick}>

@@ -8,8 +8,8 @@ import { onClickType } from '../../../types';
 const Notification = (props: any) => {
 	const { notifications, modo } = props;
 	return notifications ? (
-		notifications?.map((e: { title: string; onClick: onClickType }) => (
-			<div style={{ marginBottom: '15px', cursor: 'pointer' }} onClick={e.onClick}>
+		notifications?.map((e: { id: string; title: string; onClick: onClickType }) => (
+			<div style={{ marginBottom: '15px', cursor: 'pointer' }} onClick={e.onClick} key={e.id}>
 				<Cards
 					rounded
 					Content={() => (

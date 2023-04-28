@@ -16,6 +16,7 @@ const Menus = (props: any) => {
 					className={`ttlMenus${modo}_IcnDrpC`}
 					onClick={menu.onClick}
 					id={menu.id}
+					key={menu.id}
 				>
 					{menu.title}
 				</DropdownMenu.Item>
@@ -25,7 +26,7 @@ const Menus = (props: any) => {
 		//Si existe la propiedad de submenu dentro del menú regresará la estructura de un submenú con sus respectivas propiedades para que se definan más adelante
 		if (menu.submenus) {
 			return (
-				<DropdownMenu.Sub>
+				<DropdownMenu.Sub key={menu.id}>
 					<DropdownMenu.SubTrigger className={`ttlMenus${modo}_IcnDrpC`} id={menu.id}>
 						{menu.title}
 					</DropdownMenu.SubTrigger>
@@ -43,7 +44,8 @@ const Menus = (props: any) => {
 												submenu.onClick(e);
 											}
 										}}
-										id={submenu.id ? submenu.id : ''}
+										id={submenu.id}
+										key={submenu.id}
 									>
 										{submenu.title}
 									</DropdownMenu.Item>

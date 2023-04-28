@@ -44,7 +44,7 @@ const Container = (props: container) => {
 	const datos = { ...props };
 	return (
 		<div className={`ctn${datos.modo}_CtnC`} style={datos.style}>
-			<div className={'menu'}>
+			<div className={'menu'} style={{ zIndex: 1 }}>
 				<Menu modo={datos.modo} onClick={datos.onCl_menus} />
 			</div>
 			{datos.AsideContent && <div className={'asideCtn'}>{datos.AsideContent}</div>}

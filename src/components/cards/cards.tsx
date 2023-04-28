@@ -22,10 +22,7 @@ const Cards = (props: cardIntrfc) => {
 			}
 		>
 			{/* Si no existe contenido para ser mostrado en las cards se renderiza este bloque de código */}
-			{Content ?? <ErrorNC />}
-
-			{/* Cuando existe el Contente se ejecuta esta acción */}
-			{Content && (
+			{Content ? (
 				<div className="contentCtn">
 					{/* Contenedor general del children */}
 					<div className="childrenCtn">{<Content data={data} />}</div>
@@ -39,6 +36,8 @@ const Cards = (props: cardIntrfc) => {
 						</div>
 					)}
 				</div>
+			) : (
+				<ErrorNC />
 			)}
 		</div>
 	);

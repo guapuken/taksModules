@@ -42,6 +42,7 @@ const Carousel = ({
 									placeItems: 'center',
 									// boxShadow: 'inset 0 0 0 2px red',
 								}}
+								key={prop.id}
 							>
 								{Card ? (
 									<Card key={prop.id} property={prop} />

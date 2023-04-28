@@ -50,7 +50,10 @@ const ModalTamplates = ({
 					paddingLeft: '20px',
 				}}
 			>
-				{tasks && tasks.map((indTask: tasksTemplates) => <Task plantillas {...indTask} />)}
+				{tasks &&
+					tasks.map((indTask: tasksTemplates) => (
+						<Task key={indTask.idTask} plantillas {...indTask} />
+					))}
 			</div>
 		</div>
 	);

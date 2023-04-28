@@ -22,6 +22,7 @@ export interface cardTask {
 }
 
 export type aside = {
+	idTask: string;
 	onCl_edit?: onClickType;
 	onCl_follow?: onClickType;
 	onCl_reminder?: onClickType;

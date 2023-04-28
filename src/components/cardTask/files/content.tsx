@@ -87,7 +87,11 @@ const Content = ({
 			</div>
 			<div className="ctnCircularProgressBar">
 				<div>
-					<CircularProgressBar percentTask={percentTask} size={40} />
+					<CircularProgressBar
+						percentTask={percentTask}
+						statusTask={statusTask}
+						size={40}
+					/>
 					<p>{`${percentTask}%`}</p>
 				</div>
 				<div>

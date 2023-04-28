@@ -66,7 +66,7 @@ export const WithProperties = Template.bind({});
 WithProperties.args = {
 	templateNameValue: 'Dummies plazas principales',
 	edit: true,
-	Children: [
+	tasks: [
 		{
 			idTask: '1024',
 			equipos: equipos,

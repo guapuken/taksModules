@@ -26,6 +26,7 @@ export interface contentProps {
 }
 // estructura de los comentarios
 export type comentarios = {
+	id: string;
 	user?: string;
 	comentario?: string;
 	personalMsn?: boolean;
@@ -50,6 +51,7 @@ export type itemComments = {
 };
 // estructura de las subtareas
 export type subtasks = {
+	id: string;
 	taskName?: string;
 	taskDescription?: string;
 	complete: boolean;

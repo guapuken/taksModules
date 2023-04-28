@@ -5,7 +5,7 @@ import { LateIcon } from '../../utils/cardsUtils';
 import * as Files from './files';
 
 const CircularProgressBar = ({
-	strokeColor = '#282828',
+	strokeColor,
 	strokeWidth = 5,
 	percentTask = 0,
 	trailStrokeColor = '#dedede',
@@ -44,17 +44,28 @@ const CircularProgressBar = ({
 						cy={circleConfig.y}
 						r={circleConfig.radio}
 						fill="transparent"
-						stroke={strokeColor}
+						stroke={
+							strokeColor
+								? strokeColor
+								: statusTask === 'outOfTime' || statusTask === 3
+								? '#FC3D38'
+								: statusTask === 'onTime' || statusTask === 1
+								? '#1CBF59'
+								: statusTask === 'delayed' || statusTask === 2
+								? '#FCB24F'
+								: '#525252'
+						}
 						strokeWidth={strokeWidth}
 						strokeDashoffset={0}
 					/>
 				</svg>
-				{statusTask === 'outOfTime' ||
-					(statusTask === 3 && (
-						<div className="iconOtOfTm">
-							<LateIcon />
-						</div>
-					))}
+				{statusTask === 'outOfTime' || statusTask === 3 ? (
+					<div className="iconOtOfTm">
+						<LateIcon />
+					</div>
+				) : (
+					<></>
+				)}
 			</div>
 		</div>
 	);

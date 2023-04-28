@@ -24,6 +24,8 @@ export type content = {
 	title?: string;
 	statusTask?: statusTask;
 	onCl_preview?: onClickType;
+	onCl_edit?: onClickType;
+	onCl_delete?: onClickType;
 	percentTask?: number;
 	tasks?: number;
 };

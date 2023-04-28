@@ -5,7 +5,7 @@ export function selectRandomText(texts: string[], setSelectedText: any) {
 	const randomIndex = Math.floor(Math.random() * texts.length);
 	setSelectedText(texts[randomIndex]);
 
-	useEffect(() => {
-		selectRandomText(texts, selectRandomText);
-	}, []);
+	// useEffect(() => {
+	// 	selectRandomText(texts, selectRandomText);
+	// }, [setSelectedText]);
 }

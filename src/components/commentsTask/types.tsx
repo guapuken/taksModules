@@ -19,6 +19,7 @@ export type commentsComponent = {
 
 // estructura de los comentarios
 export type comments = {
+	id: string | number;
 	user?: string;
 	comment?: string;
 	personalMsn?: boolean;

@@ -108,21 +108,6 @@
         .ctnProgressBar_showDtls{
             display: none;
         }
-        .ctnCircularProgressBar{
-            display: flex;
-            align-items: center;
-            width:calc(100% - 10px);
-            justify-content: space-between;
-            gap: 20px;
-            div{
-                display: flex;
-                gap: 20px;
-                align-items: center;
-                &:first-of-type{
-                    gap: 5px;
-                }
-            }
-        }
     }
 }
 

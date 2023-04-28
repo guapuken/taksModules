@@ -21,6 +21,11 @@ WithProperties.args = {
 	onCl_addTask: () => alert('añadir tarea'),
 	onCl_newTemplate: () => alert('crear plantilla'),
 	edit: true,
+	subtasks: [
+		{
+			taskName: 'Dummies',
+		},
+	],
 };
 
 //exportación default de los valores

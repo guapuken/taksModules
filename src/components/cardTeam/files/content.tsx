@@ -25,9 +25,13 @@ const Content = ({ modo, teamName = 'Equipo', onCl_preview, members, teamColor }
 					>{`${members?.length ?? 0} Integrantes...`}</p>
 					{members && members.length > 0 && mouseEnter && (
 						<span className={'memberTeam'}>
-							{members?.map((e: any) => (
-								<span>{e}</span>
-							))}
+							{members?.map((e: any) => {
+								return (
+									<span key={e.id} id={e.name}>
+										{e.name}
+									</span>
+								);
+							})}
 						</span>
 					)}
 				</div>

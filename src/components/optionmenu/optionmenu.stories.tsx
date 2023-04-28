@@ -16,52 +16,64 @@ WithProperties.args = {
 	menus: {
 		conCategoria: [
 			{
+				id: '1',
 				title: 'Tarea',
 				menus: [
 					{
+						id: '6',
 						title: 'Nueva',
 						onClick: () => alert('Nueva tarea'),
 					},
 					{
+						id: '7',
 						title: 'Gestionar',
 						onClick: () => alert('Navegar a gestión'),
 					},
 				],
 			},
 			{
+				id: '2',
 				title: 'Plantillas',
 				menus: [
 					{
+						id: '8',
 						title: 'Nueva',
 						onClick: () => alert('Nueva plantilla'),
 					},
 					{
+						id: '9',
 						title: 'Gestionar',
 						onClick: () => alert('Navegar a gestión'),
 					},
 				],
 			},
 			{
+				id: '3',
 				title: 'Proyectos',
 				menus: [
 					{
+						id: '10',
 						title: 'Nuevo',
 						onClick: () => alert('Nuevo proyecto'),
 					},
 					{
+						id: '11',
 						title: 'Gestionar',
 						onClick: () => alert('Navegar a gestión'),
 					},
 				],
 			},
 			{
+				id: '4',
 				title: 'Gráficas de avances',
 				menus: [
 					{
+						id: '12',
 						title: 'Generales',
 						onClick: () => alert('Proyectos'),
 					},
 					{
+						id: '13',
 						title: 'Personales',
 						onClick: () => alert('Proyectos'),
 					},
@@ -70,6 +82,7 @@ WithProperties.args = {
 		],
 		sinCategoria: [
 			{
+				id: '5',
 				title: 'Inicio',
 				onClick: () => alert('inicio'),
 			},

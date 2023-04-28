@@ -7,9 +7,7 @@ import CardTask from '../cardTask';
 import Cards from '../cards';
 import { useWindowSize } from '../../utils/windowSize';
 
-const Template: Story<dragAndDrop> = (args) => <DragAndDrop {...args} />;
-
-export const Initial = Template.bind({});
+const Template: Story<dragAndDrop> = (args) => <DragAndDrop {...args} {...args.tasks} />;
 const tasks = [
 	{
 		id: '15',
@@ -89,6 +87,7 @@ const tasks = [
 		subtasks: 10,
 	},
 ];
+export const Initial = Template.bind({});
 
 Initial.args = {
 	tasks: tasks,
