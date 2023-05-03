@@ -16,16 +16,19 @@ const Aside = ({ onCl_edit, onCl_preview, onCl_delete, modo = 'Light' }: aside) 
 			<ButtonsArray
 				buttons={[
 					{
+						id: 'edit',
 						img: editIcon,
 						onClick: onCl_edit,
 						titleToShow: 'Editar',
 					},
 					{
+						id: 'preview',
 						img: prevIcon,
 						onClick: onCl_preview,
 						titleToShow: 'Previsualizar',
 					},
 					{
+						id: 'delete',
 						img: del,
 						onClick: onCl_delete,
 						titleToShow: 'Eliminar',

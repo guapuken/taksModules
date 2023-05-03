@@ -19,11 +19,12 @@ export const Content = ({
 			{/* Renderea el título de la tarea */}
 			<div>
 				<TitleCard title={taskName} modo={modo} />
-				{statusTask === 'outOfTime' && (
-					<div className={'lateIcon'}>
-						<LateIcon />
-					</div>
-				)}
+				{statusTask === 'outOfTime' ||
+					(statusTask === 3 && (
+						<div className={'lateIcon'}>
+							<LateIcon />
+						</div>
+					))}
 				{/* renderea la descripción de la tarea */}
 				<SimpleButtonText className={'description'}>
 					<span className="TextOverflow" title={taskDescription}>

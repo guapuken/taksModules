@@ -1,18 +1,16 @@
-//importación de estilos globales
 @import '../../global.scss';
 
-//generales ----------------------------------------------------
-.noCtnLight_CC, .noCtnDark_CC,
-.ctnLight_CC, .ctnDark_CC,
-.ctnAsdLight_CC, .ctnAsdDark_CC,
-.ctnRndLight_CC, .ctnRndDark_CC,
-.ctnAsdRndLight_CC, .ctnAsdRndDark_CC{
+/// ---------------------------------------------------------------------------------------------------------
+//      estilos generales
+// ---------------------------------------------------------------------------------------------------------
+.ctnLight_CC,  // aspect-ratio 16:9
+.ctnDark_CC
+{ 
     width: calc(100vw / 4 - 2vw);
     height: calc(100vh / 4 - 30px);
     .contentCtn{
         height: 100%;
         .childrenCtn{
-            // width: calc(100% - 50px);
             width: 100%;
             height: 100%;
             position: relative;
@@ -25,29 +23,16 @@
             }
         }
     }
-}
-//contenedor sin contenido
-.noCtnLight_CC,      //sin contenido modo claro
-.noCtnDark_CC   //sin contenido modo oscuro
-{
-    display: grid;
-    place-content: center;
-}
-// contenedor con propiedad de redondear esquinas
-.ctnAsdRndLight_CC, .ctnAsdRndDark_CC,
-.ctnRndLight_CC,.ctnRndDark_CC
-{ 
-    border-radius: 20px; 
-}
-
-// selector del contenedor en todas sus versiones
-.ctnLight_CC, .ctnDark_CC,
-.ctnAsdLight_CC, .ctnAsdDark_CC,
-.ctnRndLight_CC, .ctnRndDark_CC,
-.ctnAsdRndLight_CC, .ctnAsdRndDark_CC
-{
-    
-    // contenedor del contenido / children y aside
+    //contenedor sin contenido
+    &[ctn-ctn='NoCtn']{
+        display: grid;
+        place-content: center;
+    }
+    // contenedor con propiedad de redondear esquinas
+    &[asd-ctn='Asd'], 
+    &[rnd-ctn='Rnd']{
+        border-radius: 20px;  
+    }
     .contentCtn{
         display: flex;
         position: relative; 
@@ -67,12 +52,10 @@
     }
 }
 
-//modo claro-----------------------------------------------------
-.ctnAsdRndLight_CC,  //contenedor con aside redondeadeo
-.ctnAsdLight_CC,     //contenedor con Aside
-.ctnRndLight_CC,     //contenedor redondeado
-.ctnLight_CC,         //contenedor
-.noCtnLight_CC
+/// ---------------------------------------------------------------------------------------------------------
+//      modo claro
+// ---------------------------------------------------------------------------------------------------------
+.ctnLight_CC, .ctnLight_CC[ctn-ctn='NoCtn']
 {
     background: #fff;
     box-shadow: var(--boxShadow);
@@ -80,14 +63,10 @@
         box-shadow: -20px 0px 20px -20px #52525275;
     }
 }
-
-//modo oscuro ---------------------------------------------------
-.ctnAsdRndDark_CC,  //contenedor con aside redondeadeo
-.ctnAsdDark_CC,     //contenedor con Aside
-.ctnRndDark_CC,     //contenedor redondeado
-.ctnDark_CC,        //contenedor
-.noCtnDark_CC,       //sin contenido
-.noCtnDark_CC
+/// ---------------------------------------------------------------------------------------------------------
+//      modo oscuro
+// ---------------------------------------------------------------------------------------------------------
+.ctnDark_CC,.ctnDark_CC[ctn-ctn='NoCtn']
 {
     background: #282828;
     box-shadow: var(--boxShadowDark);
@@ -99,25 +78,21 @@
     }
 }
 
-//medias queries -------------------------------------------------
-//tablet
-@media (min-width:768px) and (max-width:1024px){
-    .noCtnLight_CC, .noCtnDark_CC,
+/// ---------------------------------------------------------------------------------------------------------
+//      media queries
+// ---------------------------------------------------------------------------------------------------------
+@media (max-aspect-ratio: 4/3){ // relación aspecto con dispositivos mayores a móviles tales como tablets
     .ctnLight_CC, .ctnDark_CC,
-    .ctnAsdLight_CC, .ctnAsdDark_CC,
-    .ctnRndLight_CC, .ctnRndDark_CC,
-    .ctnAsdRndLight_CC, .ctnAsdRndDark_CC{
-        width: calc(100vw / 2 - 30px);
-        height: calc(100vh / 4 - 50px);
-    }
+    .ctnLight_CC[ctn-ctn='NoCtn'], .ctnDark_CC[ctn-ctn='NoCtn']
+    {
+        width: calc(100vw / 2 - 70px);
+        height: calc(100vh / 4 - 40px);
+    } 
 }
-//phone
-@media (max-width:767px){
-    .noCtnLight_CC, .noCtnDark_CC,
+@media (max-aspect-ratio: 7/10){ // Relación aspecto de dispositivos móviles
     .ctnLight_CC, .ctnDark_CC,
-    .ctnAsdLight_CC, .ctnAsdDark_CC,
-    .ctnRndLight_CC, .ctnRndDark_CC,
-    .ctnAsdRndLight_CC, .ctnAsdRndDark_CC{
+    .ctnLight_CC[ctn-ctn='NoCtn'], .ctnDark_CC[ctn-ctn='NoCtn']
+    {
         width: calc(100vw - 50px);
         height: calc(100vh / 4 - 50px);
     }

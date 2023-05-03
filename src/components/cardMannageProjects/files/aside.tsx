@@ -15,16 +15,19 @@ const Aside = ({ onCl_delete, onCl_preview, onCl_edit, modo }: aside) => (
 			modo={modo as Modo}
 			buttons={[
 				{
+					id: 'edit',
 					img: edit,
 					onClick: onCl_edit,
 					titleToShow: 'Eitar',
 				},
 				{
+					id: 'preview',
 					img: prev,
 					onClick: onCl_preview,
 					titleToShow: 'Previsualizar',
 				},
 				{
+					id: 'delete',
 					img: del,
 					onClick: onCl_delete,
 					titleToShow: 'Eliminar',

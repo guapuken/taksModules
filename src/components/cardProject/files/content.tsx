@@ -38,7 +38,12 @@ const Content = ({
 				<TitleCard modo={modo} title={projectName} className="ttlProject" />
 			</div>
 			<div className="ctnBtns">
-				<ButtonItem img={shareIcon} onClick={onCl_share} style={{ marginBottom: '10px' }} />
+				<ButtonItem
+					id={idProject as string}
+					img={shareIcon}
+					onClick={onCl_share}
+					style={{ marginBottom: '10px' }}
+				/>
 				<Notifications
 					modo={modo}
 					idNotification={idProject}

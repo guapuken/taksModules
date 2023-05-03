@@ -3,10 +3,10 @@ import { Meta, Story } from '@storybook/react';
 // componente principal
 import AsideTemplates from './asideTemplates';
 // types
-import { aside } from './types';
+import { aside } from './types/types';
 
 // utilidades del storybook
-import { boolean, functions, modo } from '../../storyUtils';
+import { boolean, functions, modo, object, text } from '../../storyUtils';
 
 // componentes auxiliares
 import Cards from '../cards';
@@ -19,20 +19,47 @@ export const InitialState = Template.bind({});
 InitialState.args = {
 	// isWhite: true,
 	visible: true,
-	modo: 'Light',
+	modo: 'Dark',
 };
 
 //estado del componente con propiedades
 export const WithProperties = Template.bind({});
 WithProperties.args = {
-	children: (
-		<div style={{ display: 'flex', flexWrap: 'wrap' }}>
-			<Cards rounded modo={'Dark'} />
-			<Cards rounded modo={'Dark'} />
-			<Cards rounded modo={'Dark'} />
-			<Cards rounded modo={'Dark'} />
-		</div>
-	),
+	visible: true,
+	modo: 'Dark',
+	priText: `Sin tareas por el momento?`,
+	secText: `Déjate de huevonadas 😎`,
+	legendBtn: 'Nueva tarea',
+	// tasks: [
+	// 	{
+	// 		id: '1',
+	// 		taskName: 'Hacer Dummies',
+	// 		taskDescription: 'Recordar hacer los dummies de la campaña de uber',
+	// 		statusTask: 3,
+	// 		onCl_showDetails: () => alert('ver detalles'),
+	// 	},
+	// 	{
+	// 		id: '1',
+	// 		taskName: 'Hacer Dummies',
+	// 		taskDescription: 'Recordar hacer los dummies de la campaña de uber',
+	// 		statusTask: 3,
+	// 		onCl_showDetails: () => alert('ver detalles'),
+	// 	},
+	// 	{
+	// 		id: '1',
+	// 		taskName: 'Hacer Dummies',
+	// 		taskDescription: 'Recordar hacer los dummies de la campaña de uber',
+	// 		statusTask: 3,
+	// 		onCl_showDetails: () => alert('ver detalles'),
+	// 	},
+	// 	{
+	// 		id: '1',
+	// 		taskName: 'Hacer Dummies',
+	// 		taskDescription: 'Recordar hacer los dummies de la campaña de uber',
+	// 		statusTask: 3,
+	// 		onCl_showDetails: () => alert('ver detalles'),
+	// 	},
+	// ],
 };
 
 //exportación de valores default
@@ -42,9 +69,14 @@ export default {
 	component: AsideTemplates,
 	//definición de argumentos
 	argTypes: {
-		isWhite: boolean(),
 		visible: boolean(),
 		modo: modo(),
-		children: functions(),
+		priText: text(),
+		secText: text(),
+		legendBtn: text(),
+		tasks: object(),
+		imageNoTasks: text(),
+		idSection: text(),
+		onCl_btn: functions(),
 	},
 } as Meta;
