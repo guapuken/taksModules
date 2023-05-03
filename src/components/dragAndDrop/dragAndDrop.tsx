@@ -174,22 +174,25 @@ const DragAndDrop = (props: dragAndDrop) => {
 	//
 	return scrSize.width < 1024 ? (
 		Object.keys(boardSections).map((boardSectionKey) => {
-			console.log(boardSectionKey);
+			console.log('boardSections', boardSections[boardSectionKey]);
 			return (
-				<Fragment>
+				<div style={{ width: '95%', margin: '0 auto' }}>
 					<Carousel
 						data={boardSections[boardSectionKey]}
 						Card={(e: any) => {
-							console.log('e: ', e.property);
-							return <datos.Card {...e.property} />;
+							console.log('boardSections', boardSections);
+							return datos.Card ? (
+								<datos.Card {...e.property} />
+							) : (
+								<NoCard taskName={e.taskName} />
+							);
 						}}
-						width={scrSize.width}
+						width={scrSize.width > 768 ? scrSize.width / 2 : scrSize.width - 50}
 						height={scrSize.height / 4}
 						titleContent={
 							<div
 								style={{
 									position: 'absolute',
-									// background: 'red',
 									left: '50%',
 									transform: 'translateX(-50%)',
 								}}
@@ -211,7 +214,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 							</div>
 						}
 					/>
-				</Fragment>
+				</div>
 			);
 		})
 	) : (

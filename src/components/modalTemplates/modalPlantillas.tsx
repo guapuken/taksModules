@@ -7,7 +7,7 @@ import AddTask from '../task/files/addTask';
 import { onChangeType, tasksTemplates } from '../../types';
 import { modalTemplates } from './types';
 
-const ModalTamplates = ({
+const ModalTemplates = ({
 	onCl_confirm,
 	onCl_abort,
 	onCl_addTask,
@@ -67,4 +67,4 @@ const ModalTamplates = ({
 	return <Modal {...args} />;
 };
 
-export default ModalTamplates;
+export default ModalTemplates;

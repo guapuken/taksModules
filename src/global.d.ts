@@ -2,6 +2,10 @@ declare module "*.module.scss"{
     const classes : {[key:string]:string}
     export default classes
 }
+declare module "*.js"{
+    const content : any
+    export default content
+}
 
 declare module "*.module.css"{
     const classes : {[key:string]:string}

@@ -1,4 +1,4 @@
-@import '../../global.scss';
+@import '../../../global.scss';
 
 // ---------------------------------------------------------------------------------------------------------
 //      Estilos generales 
@@ -20,10 +20,9 @@
     height: calc(92vh);
     width: 25%;
     .children {
-        display: grid;
-        place-items: center;
         width: 95%;
-        height: 95%;
+        height: 80vh;
+        margin-top: 10vh;
         h2{
             font-weight: bold;
         }
@@ -70,10 +69,10 @@
 //      media queries 
 // ---------------------------------------------------------------------------------------------------------
 @media (min-width:768px) and (max-width:1024px){
-    .ctnWhiteVisLight_ATC,
     .ctnWhiteVisDark_ATC,
+    .ctnWhiteVisLight_ATC,
     .ctnVisLight_ATC,
-    .ctnVisDark_ATC
+    .ctnVisDark_ATC,
     .ctnWhiteLight_ATC,
     .ctnWhiteDark_ATC,
     .ctnLight_ATC,
@@ -96,6 +95,7 @@
         height: calc(100vh /4);
         .children {
             height: 92%;
+            margin-top: 0;
         }
     }
 }

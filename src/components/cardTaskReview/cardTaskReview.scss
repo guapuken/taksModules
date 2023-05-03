@@ -6,6 +6,9 @@
 //      estilos generales
 // ---------------------------------------------------------------------------------------------------------
 .ctnLight_CTR, .ctnDark_CTR {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     .lateIcon{
         position: absolute;
         right: -10px;
@@ -20,9 +23,11 @@
         }
     }
     .btnShowDtls{
-        position:absolute;
-        bottom:5px;
-        right: 0;
+        margin-top: 10px !important;
+        text-align: right;
+        // position:absolute;
+        // bottom:5px;
+        // right: 0;
     }
 }
 

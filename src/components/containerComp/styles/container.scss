@@ -1,0 +1,183 @@
+@import '../../../global.scss';
+// ---------------------------------------------------------------------------------------------------------
+//      Estilos generales 
+// ---------------------------------------------------------------------------------------------------------
+.ctnLight_CtnC,
+.ctnDark_CtnC
+{
+    position:fixed;
+    width: calc(100vw);
+    height: calc(100vh - 8vh);
+    // height: calc(var(--cardHeight)*4 - 8vh);
+    bottom: 0;
+    left: 0;
+    display: flex;
+    // menu
+    .menu{
+        z-index: 1;
+    }
+    //Aside
+    .asideCtn{
+        width: calc(100vw);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+    // estilos generales del contenedor child
+    .ctnChild,      //si no hay aside ni footer
+    .ctnChildAsd,   //si hay aside
+    .ctnChildFtr,   //si hay footer
+    .ctnChildAsdFtr //si hay aside y footer
+    {
+        position: absolute;
+        height: 100%;
+        left: calc(25vw + 20px);
+        top: 0;
+        z-index: 0;
+        .header{
+            display: flex;
+            height: 7vh;
+            align-items: center; 
+            h3{
+                font-weight: lighter;
+                margin-right: 20px;
+            }
+        }
+        //contenedor footer
+        .footer{
+            height: 20vh;
+            display: flex;
+            align-items: center; 
+        }
+    }
+    // cuando tiene footer y aside
+    .ctnChildAsdFtr{
+        width: calc(75vw - 20px);
+    }
+    //cuando solo tiene footer
+    .ctnChildFtr{
+        width: 100vw;
+        // margin: 0 auto;
+        .children{
+            width: calc(100vw - 50px);
+            margin: 0 auto;
+        }
+    }
+    // cuando no tiene footer
+    .ctnChild,
+    .ctnChildAsd {
+        .children{
+            height: 85vh;
+            overflow: auto;
+        }
+    }
+    //cuando tiene footer 
+    .ctnChildFtr,
+    .ctnChildAsdFtr {
+        .children{
+            height: 65vh;
+            overflow: auto;
+        }
+    }
+    &[as-ctn='noAsd']{
+        .ctnChild,
+        .ctnChildFtr{
+            height: 100vh !important;
+            width: 80vw;
+            left: 10vw;
+            .children{
+                width: 90vw;
+            }
+        }
+        .ctnChild{
+            .children{
+                height: 100vh !important;
+            }
+        }
+    }
+}
+// ---------------------------------------------------------------------------------------------------------
+//      modo claro
+// ---------------------------------------------------------------------------------------------------------
+.ctnLight_CtnC{
+    background: var(--bg);
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo oscuro
+// ---------------------------------------------------------------------------------------------------------
+.ctnDark_CtnC{
+    background: var(--bgDark);
+}
+// ---------------------------------------------------------------------------------------------------------
+//     mediaQueries
+// ---------------------------------------------------------------------------------------------------------
+//tablet
+@media  (min-width:768px) and (max-width:1024px){
+    .ctnLight_CtnC,
+    .ctnDark_CtnC{
+        .ctnChild,      //si no hay aside ni footer
+        .ctnChildAsd,   //si hay aside
+        .ctnChildFtr,   //si hay footer
+        .ctnChildAsdFtr //si hay aside y footer
+        {
+            left: calc(50vw + 20px);
+        }
+    } 
+}
+//cel
+@media (max-width:767px){
+    .ctnLight_CtnC,
+    .ctnDark_CtnC{
+        .asideCtn{
+            max-height: calc(92vh / 4);
+            overflow: hidden;
+        }
+        .ctnChild,      //si no hay aside ni footer
+        .ctnChildAsd,   //si hay aside
+        .ctnChildFtr,   //si hay footer
+        .ctnChildAsdFtr //si hay aside y footer
+        {
+            left: 0;
+            top: calc(92vh / 4 );
+            width: calc(100vw);
+            max-height: calc(92vh / 4 *3) ;
+            overflow: hidden;
+            .header{
+                display: none;
+            }
+            .children{
+                height: 100%;
+                overflow: auto;
+            }
+            .footer{
+                display: none;
+            }
+        }
+        .ctnChild,
+        .ctnChildFtr{
+            height: 100vh;
+            
+        }
+        &[as-ctn='noAsd']{
+            .ctnChild,
+            .ctnChildFtr{
+                min-height: 100vh ;
+                width: 100vw;
+                left: 0vw;
+                top: 0;
+                .children{
+                    width: 100vw;
+                    height: 100vh;
+                    background: red;
+                }
+            }
+            .ctnChild{
+                .children{
+                    height: 100vh !important;
+                }
+            }
+        }
+    }
+}

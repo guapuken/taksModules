@@ -181,8 +181,41 @@
       }
 }
 @media (max-width: 768px){
-   .ctnOpenLight_MenuC,
-    .ctnOpenDark_MenuC{
-        width: 100vw;
-      }
+  .ctnOpenLight_MenuC,
+  .ctnOpenDark_MenuC{
+    width: 100vw;
+  }
+  .ctnLight_MenuC,
+  .ctnDark_MenuC{
+    top: calc(100vh - 6vh);
+    left: 50vw;
+    transform: translateX(-30px);
+    border-radius: 5px 5px 0 0;
+  }
+  .ctnOpenLight_MenuC,
+  .ctnOpenDark_MenuC{
+   height: 100%;
+   padding: 0;
+   margin: 0;
+   background: #282828;
+   .menus{
+     display:block;
+     height: 100%;    
+   }
+   .IcnClsMenu:after {
+     transition: 0.5s;
+     top: 50%;
+     transform: rotate(45deg);
+   }
+   .IcnClsMenu:before {
+     transition: 0.5s;
+     top: 50%;
+     transform: rotate(-45deg) !important;
+   }
+   .btnOpnCls,
+   .btnOpnCls{
+     top: calc(100vh - 5vh);
+     left: calc(50% - 30px);
+   }
+ }
 }

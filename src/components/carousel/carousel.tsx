@@ -20,11 +20,11 @@ const Carousel = ({
 	const [property, setProperty] = useState(data[0]);
 
 	return (
-		<div style={{ position: 'relative', height: height }}>
+		<div style={{ position: 'relative', height: height, width: '100%' }}>
 			<ButtonsPrevNext property={property} setProperty={setProperty} data={data} />
 			<div
 				className={`cards-slider active-slide-${property?.index}`}
-				style={{ width: width, overflow: 'hidden' }}
+				style={{ width: '100%', overflow: 'hidden' }}
 			>
 				<div>{titleContent}</div>
 				<div
@@ -40,7 +40,6 @@ const Carousel = ({
 								style={{
 									display: 'grid',
 									placeItems: 'center',
-									// boxShadow: 'inset 0 0 0 2px red',
 								}}
 								key={prop.id}
 							>

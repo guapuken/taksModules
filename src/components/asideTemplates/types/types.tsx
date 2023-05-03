@@ -1,4 +1,4 @@
-import { Modo } from '../../types';
+import { Modo } from '../../../types';
 
 // interface principal
 export interface aside {

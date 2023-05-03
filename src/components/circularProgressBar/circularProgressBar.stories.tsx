@@ -12,7 +12,6 @@ InitialState.args = {
 
 export const WithProperties = Template.bind({});
 WithProperties.args = {
-	strokeColor: 'red',
 	strokeWidth: 5,
 	percentTask: 75,
 	trailStrokeColor: '#52525230',

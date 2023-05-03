@@ -177,3 +177,8 @@
     bottom: -10px;
   }
 }
+@media (max-height:649px){
+  .TextOverflow{
+    -webkit-line-clamp: 1 !important;
+  }
+}

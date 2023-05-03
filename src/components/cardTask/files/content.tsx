@@ -98,7 +98,7 @@ const Content = ({
 					<Button
 						legend="Cambiar estatus"
 						size="small"
-						style={{ height: '25px' }}
+						style={{ height: '25px', padding: '2px 10px' }}
 						primary
 						onCl={onCl_status}
 					/>

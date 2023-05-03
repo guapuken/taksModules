@@ -17,19 +17,20 @@ export const Content = ({
 	return (
 		<CardContainer className={`ctn${modo}_CTR`}>
 			{/* Renderea el título de la tarea */}
-			<TitleCard title={taskName} modo={modo} />
-			{statusTask === 'outOfTime' && (
-				<div className={'lateIcon'}>
-					<LateIcon />
-				</div>
-			)}
-
-			{/* renderea la descripción de la tarea */}
-			<SimpleButtonText className={'description'}>
-				<span className="TextOverflow" title={taskDescription}>
-					{taskDescription}
-				</span>
-			</SimpleButtonText>
+			<div>
+				<TitleCard title={taskName} modo={modo} />
+				{statusTask === 'outOfTime' && (
+					<div className={'lateIcon'}>
+						<LateIcon />
+					</div>
+				)}
+				{/* renderea la descripción de la tarea */}
+				<SimpleButtonText className={'description'}>
+					<span className="TextOverflow" title={taskDescription}>
+						{taskDescription}
+					</span>
+				</SimpleButtonText>
+			</div>
 
 			{/*  renderea el boton para abrir el modal de edición de la tarea  */}
 			<div className=".ctnProgressBar_showDtls">
