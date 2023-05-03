@@ -47,7 +47,7 @@
   }
   ::-webkit-scrollbar-thumb {
     background-color: transparent !important;
-    border: 1px solid #dedede;
+    // border: 1px solid #dedede;
     border-radius: 10px;
   }
   //buttons
@@ -63,7 +63,7 @@
   a,li,ul{
     text-decoration: none;
     list-style: none;
-    font-size: calc(12px + 0.390625vw);
+    font-size: clamp(13px, 1.5vw, 32px);
     color: inherit;
   }
   span{
@@ -75,25 +75,25 @@
   }
   //definición de tamaños en tipografías
   h1{
-    font-size: clamp(30px, 5vh, 50px);
+    font-size: clamp(30px, 3.2vw, 50px);
   }
   h2{ 
-    font-size: clamp(20px, 4vh, 40px);
+    font-size: clamp(20px, 2.2vw, 40px);
   }
   h3{ 
-    font-size: clamp(18px, 3.8vh, 38px);
+    font-size: clamp(18px, 2vw, 38px);
   }
   h4{  
-    font-size: clamp(16px,3.6vh, 36px);
+    font-size: clamp(16px,1.8vw, 36px);
   }
   h5{
-    font-size: clamp(14px, 3.4vh, 34px);
+    font-size: clamp(14px, 1.6vw, 34px);
   }
   h6{
-    font-size: clamp(12px,3.2vh, 32px);
+    font-size: clamp(13px,1.5vw, 32px);
   }
   p, span{
-    font-size: clamp(12px, 3.2vh, 32px);
+    font-size: clamp(13px, 1.5vw, 32px);
   }
 
 // ---------------------------------------------------------------------------------------------------------
@@ -140,14 +140,45 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     width: 100%;
-}
+  }
+  .ctnCircularProgressBar{
+    display: none;
+  }
 
 // ---------------------------------------------------------------------------------------------------------
 //      media queries
 // ---------------------------------------------------------------------------------------------------------
-
+// dispositivos de tabletas a inferiores en tamaño
+@media (max-width: 1024px){
+  .ctnProgressBar_showDtls{
+      display: none ;
+  }
+  .ctnCircularProgressBar{
+      display: flex !important;
+      align-items: center;
+      width:calc(100% - 10px) !important;
+      justify-content: space-between;
+      gap: 20px;
+      div{
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          &:first-of-type{
+              gap: 5px;
+          }
+      }
+  }
+}
 @media (min-height:650px){
   .TextOverflow{
     -webkit-line-clamp: 2;
+  }
+  .ctnCircularProgressBar{
+    bottom: -10px;
+  }
+}
+@media (max-height:649px){
+  .TextOverflow{
+    -webkit-line-clamp: 1 !important;
   }
 }

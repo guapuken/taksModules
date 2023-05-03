@@ -3,13 +3,15 @@ import { Buttons } from '../../../components';
 import { clickButtons } from '../types';
 
 //COMPONENTE QUE REGRESA LOS BOTONES DEL MODAL
-const Footer = (props: clickButtons) => {
-	const { onCl_confirm, onCl_abort } = props;
+const Footer = ({ onCl_confirm, onCl_abort, edit }: clickButtons) => {
 	return (
 		<div style={{ width: '90%', margin: '0 auto' }}>
 			<Buttons
 				buttons={{ primary: true, secondary: true }}
-				legends={{ primary: 'Crear equipo', secondary: 'Cancelar' }}
+				legends={{
+					primary: edit ? 'Guaardar cambios' : 'Crear equipo',
+					secondary: edit ? 'Descartar cambios' : 'Cancelar',
+				}}
 				onCl_buttons={{ primary: onCl_confirm, secondary: onCl_abort }}
 			/>
 		</div>

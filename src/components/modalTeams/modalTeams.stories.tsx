@@ -49,6 +49,7 @@ WithProperties.args = {
 	onCl_abort: () => alert('Abort team creation '),
 	onCl_delete: () => alert('eliminar'),
 	members: [{ membersOptions: options }, { membersOptions: options }],
+	edit: true,
 };
 
 export default {

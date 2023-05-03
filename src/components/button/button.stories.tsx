@@ -2,9 +2,9 @@ import React from 'react';
 // utilidaes del storybook
 import { Meta, Story } from '@storybook/react';
 // componente principal
-import Button from './button';
+import Button from './Button';
 // types
-import { button } from './types';
+import { button } from './types/types';
 // storybook utils
 import {
 	boolean,
@@ -61,6 +61,7 @@ export default {
 		key: text(),
 		icon: filesNoBG(),
 		colorHover: color(),
+		fontColor: color(),
 		className: text(),
 
 		primary: boolean(),

@@ -11,6 +11,7 @@ import {
 export type clickButtons = {
 	onCl_confirm?: onClickType;
 	onCl_abort?: onClickType;
+	edit?: boolean;
 };
 
 // interfaz principal
@@ -25,9 +26,10 @@ export interface ModalProjectsProps {
 	onCl_newTemplate: onClickType;
 	modo?: Modo;
 	idProject: string;
-	onCh_asignTeam?: onChangeType;
+	onCh_asignTeam: onChangeType;
 	teamOptions: optionsDropdown[];
 	initialTeamValue?: optionsDropdown;
+	edit?: boolean;
 }
 
 export type content = {
@@ -39,7 +41,7 @@ export type content = {
 	templateOptions: optionsIcnDrp[];
 	onCl_newTemplate: onClickType;
 	subtasks?: subtasksProps[];
-	onCh_asignTeam?: onChangeType;
+	onCh_asignTeam: onChangeType;
 	teamOptions: optionsDropdown[];
 	initialTeamValue?: optionsDropdown;
 };

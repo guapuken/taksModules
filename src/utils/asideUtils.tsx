@@ -65,6 +65,7 @@ function sizeLimit(numero: number, limite: number) {
 }
 
 type Buttons = {
+	id: string;
 	img: string;
 	titleToShow: string;
 	onClick: onClickType;
@@ -89,7 +90,7 @@ function sliceButtons(maxHeight: number, modo: Modo, buttons?: any) {
 				icon={optionsIcon}
 				title={'Más opciones...'}
 				options={buttons?.map((e: any) => {
-					return { title: e.titleToShow, onClick: e.onClick };
+					return { title: e.titleToShow, onClick: e.onClick, id: e.id };
 				})}
 			/>
 		);
@@ -99,6 +100,7 @@ function sliceButtons(maxHeight: number, modo: Modo, buttons?: any) {
 	if (buttons.length * 5 <= maxHeight) {
 		return buttons?.map((e: any) => (
 			<ButtonItem
+				id={e.id}
 				img={e.img}
 				svg={e.svg}
 				onClick={e.onClick}
@@ -117,6 +119,7 @@ function sliceButtons(maxHeight: number, modo: Modo, buttons?: any) {
 		<>
 			{visibleButtons.map((e: any) => (
 				<ButtonItem
+					id={e.id}
 					img={e.img}
 					svg={e.svg}
 					onClick={e.onClick}
@@ -130,6 +133,7 @@ function sliceButtons(maxHeight: number, modo: Modo, buttons?: any) {
 				title={'Mas opciones...'}
 				options={remainingButtons.map((e: Buttons) => {
 					return {
+						id: e.id,
 						title: e.titleToShow,
 						onClick: e.onClick,
 					};
@@ -140,6 +144,7 @@ function sliceButtons(maxHeight: number, modo: Modo, buttons?: any) {
 }
 
 interface buttonstypes {
+	id: string;
 	img?: string;
 	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	titleToShow?: string;
@@ -163,7 +168,7 @@ export const ButtonsArray = ({
 }: ButtonsArrayProps) => {
 	const buttonsElements = children
 		? children
-		: sliceButtons(size ? size : cardH() - 2, modo, buttons);
+		: sliceButtons(size ? size : cardH() - 8, modo, buttons);
 
 	return (
 		<div
@@ -190,13 +195,16 @@ interface ButtonItemProps {
 	styleImg?: CSSProperties;
 	title?: string;
 	svg?: any;
+	id: string;
 }
 export const ButtonItem = (props: ButtonItemProps) => {
-	const { children, img, alt, onClick, style, styleImg, title, svg } = props;
+	const { children, id, img, alt, onClick, style, styleImg, title, svg } = props;
 	return (
 		<button
 			style={{ width: 'auto', height: '30px', cursor: 'pointer', ...style }}
 			onClick={onClick}
+			id={id}
+			key={id}
 		>
 			{img && (
 				<img

@@ -132,7 +132,7 @@ const Task = (props: tasks) => {
 				<div className={'ChildrenContainerTaskModules'}>
 					<div style={{ borderLeft: '3px solid #28282830', paddingLeft: '20px' }}>
 						{datos.subtasks.map((e: tasks) => (
-							<div style={{ margin: '.5vh 0' }}>
+							<div style={{ margin: '.5vh 0' }} key={e.idTask}>
 								{datos.plantillas ? (
 									<Task
 										idTask={e.idTask}

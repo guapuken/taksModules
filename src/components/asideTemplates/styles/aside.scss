@@ -1,0 +1,135 @@
+@import '../../../global.scss';
+
+// ---------------------------------------------------------------------------------------------------------
+//      Estilos generales 
+// ---------------------------------------------------------------------------------------------------------
+.ctnDark_ATC,
+.ctnLight_ATC
+{
+    position: relative;
+    margin-block: 0;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    height: calc(92vh);
+    width: 25%; 
+    .children {
+        width: 100%;
+        height: 80vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        margin-top: 10vh;
+        h2{
+            font-weight: bold;
+        }
+        p{
+            font-weight: lighter;
+            opacity: .5;
+        }
+        .ctnCards{
+            display: flex;
+            gap:20px;
+            flex-wrap: wrap;
+        }
+        .ctnTextAndImage{
+            height: 100%;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            .ctnTexts{
+                background: #28282875;
+                padding: 20px;
+                border-radius: 20px;
+                z-index: 1;
+                max-width: 95%;
+                .descrAsd{
+                    margin: 10px auto 20px auto;
+                    color: #fff;
+                    opacity: 1;
+                }
+            }
+            .imgAsd{
+                position: absolute;
+                right: 0;
+                height: 75%;
+                z-index: 0;
+                max-width: 100%;
+                max-height: 75%;
+                overflow: hidden;
+            }
+        }
+    }
+    .noCtn{
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    &[vs-asd='Visible']{
+        .noCtn{
+            color: #fff;
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo claro
+// ---------------------------------------------------------------------------------------------------------
+.ctnLight_ATC
+{
+    &[vs-asd='Visible']{
+        background: var(--bgDark) !important;
+    }
+    &[vs-asd='Normal']{
+        background: var(--bg);
+        color: #525252;
+    }
+    color: #fff;
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      Modo oscuro
+// ---------------------------------------------------------------------------------------------------------
+.ctnDark_ATC{
+    .noCtn{
+        color: #dedede;
+    }
+    &[vs-asd='Visible']{
+        background: var(--contrastDark) !important;
+    }
+    &[vs-asd='Normal']{
+        background: var(--bgDark);
+    }
+}
+// ---------------------------------------------------------------------------------------------------------
+//      media queries 
+// ---------------------------------------------------------------------------------------------------------
+@media (max-aspect-ratio: 4/3){ // relación aspecto con dispositivos mayores a móviles tales como tablets
+    .ctnLight_ATC,
+    .ctnDark_ATC
+    {
+        width: calc(50% - 20px);
+        .children{
+            width: 100%;
+        }
+    }    
+}
+@media (max-aspect-ratio: 7/10){ // Relación aspecto de dispositivos móviles
+    .ctnLight_ATC,
+    .ctnDark_ATC
+    {
+        width: 100%;
+        height: calc(100vh /4);
+        .children {
+            height: 92%;
+            margin-top: 0;
+        }
+    }
+}

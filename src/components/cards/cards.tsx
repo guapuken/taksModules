@@ -15,17 +15,13 @@ const Cards = (props: cardIntrfc) => {
 	return (
 		//Contenedor general de la card
 		<div
-			className={
-				Content
-					? `ctn${Aside ? 'Asd' : ''}${rounded ? 'Rnd' : ''}${modo}_CC`
-					: `noCtn${modo}_CC ${className}`
-			}
+			className={`ctn${modo}_CC ${className}`}
+			asd-ctn={Aside ? 'Asd' : 'NoAsd'}
+			rnd-ctn={rounded ? 'Rnd' : 'NoRnd'}
+			ctn-ctn={Content ? 'Ctn' : 'NoCtn'}
 		>
 			{/* Si no existe contenido para ser mostrado en las cards se renderiza este bloque de código */}
-			{Content ?? <ErrorNC />}
-
-			{/* Cuando existe el Contente se ejecuta esta acción */}
-			{Content && (
+			{Content ? (
 				<div className="contentCtn">
 					{/* Contenedor general del children */}
 					<div className="childrenCtn">{<Content data={data} />}</div>
@@ -39,6 +35,8 @@ const Cards = (props: cardIntrfc) => {
 						</div>
 					)}
 				</div>
+			) : (
+				<ErrorNC />
 			)}
 		</div>
 	);

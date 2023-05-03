@@ -5,13 +5,14 @@ import Button from '../button';
 // componentes principales
 import { Menu } from './files';
 // importación de estilos
-import css from './container.module.scss';
+import './styles/container.scss';
 // types
-import { container } from './types';
+import { container } from './types/container';
 
 // types que se usan en documentación NO BORRAR
 import { Modo } from '../../types';
-import { header, onClicks } from './types';
+import { header } from './types/header';
+import { onClicks } from './types/aside';
 
 /** documentación de componente
  * @param {any} props.children - recibe un children dentro del componente o cualquier elemento
@@ -39,38 +40,49 @@ import { header, onClicks } from './types';
 * @param {Modo} props.modo - recibe la propiedad de selección de temas disponible
  * @returns - contenedor que incluye el aside, menu, un contenido y un footer
  */
-const Container = (props: container) => {
+const Container = ({
+	children,
+	AsideContent,
+	FooterContent,
+	header,
+	onCl_menus,
+	style,
+	headerStyle,
+	contentStyle,
+	footerStyle,
+	modo = 'Light',
+}: container) => {
 	// desestructuración de propiedades
-	const datos = { ...props };
 	return (
-		<div className={`ctn${datos.modo}_CtnC`} style={datos.style}>
-			<div className={'menu'}>
-				<Menu modo={datos.modo} onClick={datos.onCl_menus} />
+		<div
+			className={`ctn${modo}_CtnC`}
+			style={style}
+			as-ctn={AsideContent !== null ? 'wthAsd' : 'noAsd'}
+		>
+			<div className={'menu'} style={{ zIndex: 1 }}>
+				<Menu modo={modo} onClick={onCl_menus} />
 			</div>
-			{datos.AsideContent && <div className={'asideCtn'}>{datos.AsideContent}</div>}
-			<div
-				className={`ctnChild${datos.AsideContent ? 'Asd' : ''}${
-					datos.FooterContent ? 'Ftr' : ''
-				}`}
-			>
-				{datos.header && (
-					<div className={'header'} style={datos.headerStyle}>
-						<h2 style={{ marginRight: '10px' }}>{datos.header.legend}</h2>
-						{datos.header.legendBtn && datos.header.onCl_btn && (
+			{AsideContent !== null && <div className={'asideCtn'}>{AsideContent}</div>}
+			<div className={`ctnChild${AsideContent ? 'Asd' : ''}${FooterContent ? 'Ftr' : ''}`}>
+				{header && (
+					<div className={'header'} style={headerStyle}>
+						<h3>{header.legend}</h3>
+						{header.legendBtn && header.onCl_btn && (
 							<Button
-								legend={datos.header.legendBtn}
+								size="small"
+								legend={header.legendBtn}
 								primary
-								onCl={datos.header.onCl_btn}
+								onCl={header.onCl_btn}
 							/>
 						)}
 					</div>
 				)}
-				<div className="children" style={datos.contentStyle}>
-					{datos.children}
+				<div className="children" style={contentStyle}>
+					{children}
 				</div>
-				{datos.FooterContent && (
-					<div style={datos.footerStyle} className={'footer'}>
-						{datos.FooterContent}
+				{FooterContent && (
+					<div style={footerStyle} className={'footer'}>
+						{FooterContent}
 					</div>
 				)}
 			</div>

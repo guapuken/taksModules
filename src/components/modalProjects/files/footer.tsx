@@ -7,12 +7,15 @@ import { clickButtons } from '../types';
 
 // footer que regresa los botones que se renderizarán
 const Footer = (props: clickButtons) => {
-	const { onCl_confirm, onCl_abort } = props;
+	const { onCl_confirm, onCl_abort, edit } = props;
 	return (
 		<div style={{ width: '90%', margin: '0 auto' }}>
 			<Buttons
 				buttons={{ primary: true, secondary: true }}
-				legends={{ primary: 'Crear proyecto', secondary: 'Cancelar' }}
+				legends={{
+					primary: edit ? 'Guardar cambios' : 'Crear proyecto',
+					secondary: edit ? 'Descartar cambios' : 'Cancelar',
+				}}
 				onCl_buttons={{ primary: onCl_confirm, secondary: onCl_abort }}
 			/>
 		</div>

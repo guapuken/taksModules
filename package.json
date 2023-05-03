@@ -1,6 +1,6 @@
 {
   "name": "@guapuken/tasks-modules",
-  "version": "0.1.37",
+  "version": "0.1.40",
   "description": "librería con paquetes actualizados",
   "scripts": {
     "rollup": "rollup -c",
@@ -36,7 +36,7 @@
     "@storybook/manager-webpack4": "^6.5.16",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/preset-typescript": "^3.0.0",
-    "@storybook/react": "^6.5.13",
+    "@storybook/react": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/react": "^13.4.0",
     "@types/jest": "^29.4.0",

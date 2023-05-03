@@ -12,8 +12,7 @@ const Modal = (props: modalProps) => {
 	return (
 		<div className={`ctn${modo}_MC`} style={style}>
 			{header && <HeaderStr {...props} />}
-			{Content ?? <ErrorNC />}
-			{Content && <ContentStr {...props} />}
+			{Content ? <ContentStr {...props} /> : <ErrorNC />}
 			{Footer && <FooterStr {...props} />}
 		</div>
 	);

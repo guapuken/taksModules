@@ -7,7 +7,7 @@ import AddTask from '../task/files/addTask';
 import { onChangeType, tasksTemplates } from '../../types';
 import { modalTemplates } from './types';
 
-const ModalTamplates = ({
+const ModalTemplates = ({
 	onCl_confirm,
 	onCl_abort,
 	onCl_addTask,
@@ -15,6 +15,7 @@ const ModalTamplates = ({
 	templateNameValue,
 	tasks,
 	idTemplate,
+	edit,
 }: modalTemplates) => {
 	//DESESTRUCTURACIÓN DEL PROPIEDADES COMPONENTE PRINCIPAL
 
@@ -23,7 +24,10 @@ const ModalTamplates = ({
 		<div style={{ width: '90%', margin: '0 auto' }}>
 			<Buttons
 				buttons={{ primary: true, secondary: true }}
-				legends={{ primary: 'Crear plantilla', secondary: 'Cancelar' }}
+				legends={{
+					primary: edit ? 'Guardar cambios' : 'Crear plantilla',
+					secondary: edit ? 'Descartar cambios' : 'Cancelar',
+				}}
 				onCl_buttons={{ primary: onCl_confirm, secondary: onCl_abort }}
 			/>
 		</div>
@@ -46,7 +50,10 @@ const ModalTamplates = ({
 					paddingLeft: '20px',
 				}}
 			>
-				{tasks && tasks.map((indTask: tasksTemplates) => <Task plantillas {...indTask} />)}
+				{tasks &&
+					tasks.map((indTask: tasksTemplates) => (
+						<Task key={indTask.idTask} plantillas {...indTask} />
+					))}
 			</div>
 		</div>
 	);
@@ -60,4 +67,4 @@ const ModalTamplates = ({
 	return <Modal {...args} />;
 };
 
-export default ModalTamplates;
+export default ModalTemplates;

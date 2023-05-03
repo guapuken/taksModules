@@ -11,17 +11,18 @@ import './iconDropdown.scss';
 const IconDropdown = (props: iconDrps) => {
 	let optionsInitialValue = [
 		{
+			id: '1',
 			title: 'Opction 1',
 			submenus: [
-				{ title: 'Option 1.1' },
-				{ title: 'Option 1.2' },
-				{ title: 'Option 1.3' },
-				{ title: 'Option 1.4' },
-				{ title: 'Option 1.5' },
+				{ id: '4', title: 'Option 1.1' },
+				{ id: '5', title: 'Option 1.2' },
+				{ id: '6', title: 'Option 1.3' },
+				{ id: '7', title: 'Option 1.4' },
+				{ id: '8', title: 'Option 1.5' },
 			],
 		},
-		{ title: 'Opction 2' },
-		{ title: 'Opction 3' },
+		{ id: '2', title: 'Opction 2' },
+		{ id: '3', title: 'Opction 3' },
 	];
 	// desestructuración de propiedades
 	const datos = { ...props };
@@ -32,7 +33,7 @@ const IconDropdown = (props: iconDrps) => {
 		<div>
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger disabled={datos.disabled}>
-					<button
+					<span
 						style={datos.iconStyles}
 						className={`trggr${modo}_IcnDrpC`}
 						title={datos.title}
@@ -41,12 +42,11 @@ const IconDropdown = (props: iconDrps) => {
 						{datos.svg && datos.svg}
 						{datos.legend && !datos.icon && datos.legend}
 						{!datos.legend && !datos.icon && !datos.svg && 'ICON'}
-					</button>
+					</span>
 				</DropdownMenu.Trigger>
 				<DropdownMenu.Portal>
 					<DropdownMenu.Content
 						onClick={datos.onCl}
-						// className={`SubmenuContainer${''} ${className}`}
 						className={`sbCtn${modo}_IcnDrpC ${datos.className}`}
 						style={{ cursor: 'pointer', ...datos.style }}
 					>

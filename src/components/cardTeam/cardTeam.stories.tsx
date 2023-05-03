@@ -14,13 +14,13 @@ initialState.args = {};
 export const withProperties = Template.bind({});
 withProperties.args = {
 	members: [
-		'Jorge Correa',
-		'Ivan Flores',
-		'Denisse Hernández',
-		'Olaf Ruvalcaba',
-		'Adan Moreno',
-		'Rene Carrillo',
-		'Victor Galván',
+		{ id: 1, name: 'Jorge Correa' },
+		{ id: 2, name: 'Ivan Flores' },
+		{ id: 3, name: 'Denisse Hernández' },
+		{ id: 4, name: 'Olaf Ruvalcaba' },
+		{ id: 5, name: 'Adan Moreno' },
+		{ id: 6, name: 'Rene Carrillo' },
+		{ id: 7, name: 'Victor Galván' },
 	],
 	teamName: 'Sistemas TI',
 	teamColor: '#126EFA',

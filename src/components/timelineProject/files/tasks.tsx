@@ -2,7 +2,7 @@ import React from 'react';
 // estilos
 import { tasks } from '../types';
 import '../timelineProject.scss';
-import Button from '../../button/button';
+import Button from '../../button/Button';
 
 const Tasks = (props: tasks) => {
 	const { completed, taskName, duration, onCl_showDetails, legendBtn } = props;

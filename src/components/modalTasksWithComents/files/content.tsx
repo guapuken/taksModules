@@ -34,16 +34,20 @@ const Content = (props: contentProps) => {
 				{showTasks ? (
 					subtasks ? (
 						<div className="subtaskCtn">
-							{subtasks?.map((e: subtasks) => (
-								<div
-									className={`subtasksElements${
-										e.complete ? 'Check' : 'Incompleted'
-									}`}
-								>
-									<h6>{e.taskName}</h6>
-									<p>{e.taskDescription}</p>
-								</div>
-							))}
+							{subtasks?.map((e: subtasks) => {
+								console.log(e);
+								return (
+									<div
+										className={`subtasksElements${
+											e.complete ? 'Check' : 'Incompleted'
+										}`}
+										key={e.id}
+									>
+										<h6>{e.taskName}</h6>
+										<p>{e.taskDescription}</p>
+									</div>
+								);
+							})}
 						</div>
 					) : (
 						<p> no hay tareas para mostrar</p>

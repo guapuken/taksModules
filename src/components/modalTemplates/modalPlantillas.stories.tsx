@@ -35,6 +35,7 @@ const templateOptions = [
 ];
 const ChildrenTask1 = () => (
 	<Task
+		idTask=""
 		idCheckbox={'189045'}
 		equipos={equipos as any}
 		onCh_descriptionTask={() => alert('Cambio la descripción')}
@@ -64,7 +65,8 @@ const ChildrenTask1 = () => (
 export const WithProperties = Template.bind({});
 WithProperties.args = {
 	templateNameValue: 'Dummies plazas principales',
-	Children: [
+	edit: true,
+	tasks: [
 		{
 			idTask: '1024',
 			equipos: equipos,

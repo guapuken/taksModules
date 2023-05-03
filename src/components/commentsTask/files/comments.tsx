@@ -6,13 +6,19 @@ const Comments = (props: commentsComponent) => {
 	return (
 		<>
 			{comments &&
-				comments.map((comment: comments) => (
-					<div className={`comments${comment.personalMsn ? 'Personal' : ''}`}>
-						<p className="user">{comment.user}</p>
-						<p className="comment">{comment.comment}</p>
-						<p className="dateAndTime">{comment.dateAndTime}</p>
-					</div>
-				))}
+				comments.map((comment: comments) => {
+					console.log(comment);
+					return (
+						<div
+							className={`comments${comment.personalMsn ? 'Personal' : ''}`}
+							key={`${comment.id}`}
+						>
+							<p className="user">{comment.user}</p>
+							<p className="comment">{comment.comment}</p>
+							<p className="dateAndTime">{comment.dateAndTime}</p>
+						</div>
+					);
+				})}
 		</>
 	);
 };

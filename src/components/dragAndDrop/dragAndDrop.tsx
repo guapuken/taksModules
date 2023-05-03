@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 //Importaciones de dnd-kit-core----------------------------------------------------------------------------------------------------------
 import {
 	useSensors,
@@ -24,12 +24,13 @@ import { BoardSections, dragAndDrop } from './types';
 import { findBoardSectionContainer, getTaskById, initializeBoard } from './files/functions';
 //importaciones de estilos
 import './dragAndDrop.scss';
+import Carousel from '../carousel/carousel';
+import icon from '../../img/bell.svg';
 
 const DragAndDrop = (props: dragAndDrop) => {
 	const scrSize = useWindowSize();
 	// desestructuración de propiedades
 	const datos = { ...props };
-	// console.log('props componente inicial: ', datos);
 	// inicialización de propiedades
 	const {
 		tasks = [
@@ -169,15 +170,71 @@ const DragAndDrop = (props: dragAndDrop) => {
 
 	//se encarga de ver qué tarea es la que se encuentra activa
 	const task = activeTaskId ? getTaskById(datos.tasks, activeTaskId) : null;
-	return (
+
+	//
+	return scrSize.width < 1024 ? (
+		Object.keys(boardSections).map((boardSectionKey) => {
+			console.log('boardSections', boardSections[boardSectionKey]);
+			return (
+				<div style={{ width: '95%', margin: '0 auto' }}>
+					<Carousel
+						data={boardSections[boardSectionKey]}
+						Card={(e: any) => {
+							console.log('boardSections', boardSections);
+							return datos.Card ? (
+								<datos.Card {...e.property} />
+							) : (
+								<NoCard taskName={e.taskName} />
+							);
+						}}
+						width={scrSize.width > 768 ? scrSize.width / 2 : scrSize.width - 50}
+						height={scrSize.height / 4}
+						titleContent={
+							<div
+								style={{
+									position: 'absolute',
+									left: '50%',
+									transform: 'translateX(-50%)',
+								}}
+								key={boardSectionKey}
+							>
+								<div
+									style={{
+										display: 'flex',
+										gap: '20px',
+									}}
+								>
+									<p>{boardSectionKey}</p>
+									<img
+										src={icon}
+										alt=""
+										style={{ height: '20px', width: 'auto' }}
+									/>
+								</div>
+							</div>
+						}
+					/>
+				</div>
+			);
+		})
+	) : (
 		<DndContext
 			sensors={sensors}
 			collisionDetection={closestCorners}
-			onDragStart={handleDragStart}
-			onDragOver={handleDragOver}
+			onDragStart={(e) => {
+				console.log('onDragStart');
+				handleDragStart(e);
+			}}
+			onDragOver={(e) => {
+				console.log('onDragOver');
+				handleDragOver(e);
+			}}
 			onDragEnd={(e) => {
+				console.log('onDragEnd');
 				handleDragEnd(e);
-				datos.onDragEnd({ boards: boardSections, data: e });
+				if (datos.onDragEnd) {
+					datos.onDragEnd({ boards: boardSections, data: e });
+				}
 			}}
 		>
 			<div className={`ctn${modo}_DDC`}>

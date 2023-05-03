@@ -5,6 +5,7 @@ export interface modalTemplates {
 	onCl_abort?: onClickType;
 	onCl_addTask?: onClickType;
 	onCh_templateName?: onChangeType;
+	edit?: boolean;
 	templateNameValue?: string;
 	idTemplate?: string;
 	tasks?: tasksTemplates[];

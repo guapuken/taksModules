@@ -3,6 +3,7 @@ import { Modo, css, onBlurType, onChangeType, onClickType } from '../../types';
 export type clickButtons = {
 	onCl_confirm?: onClickType;
 	onCl_abort?: onClickType;
+	edit?: boolean;
 };
 //TYPES
 export interface submenus {
@@ -60,6 +61,7 @@ export interface modalTeams {
 
 	onCl_confirm?: onClickType;
 	onCl_abort?: onClickType;
+	edit?: boolean;
 }
 
 export type content = {

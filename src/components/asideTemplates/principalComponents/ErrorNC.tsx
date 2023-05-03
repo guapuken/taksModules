@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ErrorNc = () => {
+const ErrorNC = () => {
 	return (
 		<div className={`noCtn`}>
 			<h2>Ups!</h2>
@@ -9,4 +9,4 @@ const ErrorNc = () => {
 	);
 };
 
-export default ErrorNc;
+export default ErrorNC;

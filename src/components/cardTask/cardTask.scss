@@ -10,7 +10,9 @@
     margin-right: 0 !important;
     height: calc(100% - 5px) !important;
     display: flex;
-    justify-content: flex-end !important;
+    flex-direction: column;
+    justify-content: space-between;
+    // justify-content: flex-end !important;
     position: relative;
     .ctnTexts{
         // max-height: 50%;
@@ -45,6 +47,9 @@
             position: relative;
         }
     }
+    .ctnCircularProgressBar{
+        display: none;
+    }
 }
 
 // ---------------------------------------------------------------------------------------------------------
@@ -73,6 +78,7 @@
             color: #dedede75;
         }
     }
+
 }
 
 // ---------------------------------------------------------------------------------------------------------
@@ -86,19 +92,16 @@
             span{
                 -webkit-line-clamp: 1;
             }
-        }
-        .ctnProgressBar_showDtls{
-            .ctnDtls{
-                display: none;
-            }
-        }
+        }        
     }
 }
 
-@media (max-width: 767px){
+@media (max-width: 1024px){
     .ctnLight_CTaskC, 
     .ctnDark_CTaskC 
     {
+        max-width: calc(100%) !important;
+        margin: 10px auto 0 auto !important;
         .descTask{
             span{
                 -webkit-line-clamp: 2;
@@ -121,6 +124,9 @@
         }
         .ctnProgressBar_showDtls{
             display: none;
+        }
+        .ctnCircularProgressBar{
+            bottom: -10px;
         }
     }
 }

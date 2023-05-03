@@ -17,33 +17,39 @@ WithProperties.args = {
 	modo: 'Dark',
 	comments: [
 		{
+			id: 1,
 			user: 'Jorge Correa',
 			comment: 'Los componentes tienen que salir al 100 antes del jueves',
 			dateAndTime: '08-04-2023',
 		},
 		{
+			id: 2,
 			user: 'Victor Galván',
 			comment: 'Estamos en eso, sin problemas salen',
 			dateAndTime: 'hace 5 minutos',
 			personalMsn: true,
 		},
 		{
+			id: 3,
 			user: 'Victor Galván',
 			comment: 'Estamos en eso, sin problemas salen',
 			dateAndTime: 'hace 5 minutos',
 			personalMsn: true,
 		},
 		{
+			id: 4,
 			user: 'Jorge Correa',
 			comment: 'Los componentes tienen que salir al 100 antes del jueves',
 			dateAndTime: 'hace 5 minutos',
 		},
 		{
+			id: 5,
 			user: 'Jorge Correa',
 			comment: 'Los componentes tienen que salir al 100 antes del jueves',
 			dateAndTime: 'hace 5 minutos',
 		},
 		{
+			id: 6,
 			user: 'Jorge Correa',
 			comment: 'Los componentes tienen que salir al 100 antes del jueves',
 			dateAndTime: 'hace 5 minutos',

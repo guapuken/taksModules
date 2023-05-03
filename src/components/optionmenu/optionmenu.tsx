@@ -4,11 +4,13 @@ import './optionmenu.scss';
 import { Modo } from '../../types';
 
 interface menusOptionsTypes {
+	id: string;
 	title?: string;
 	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	href?: string;
 }
 interface conCategoriaTypes {
+	id: string;
 	title?: string;
 	menus?: menusOptionsTypes[];
 }

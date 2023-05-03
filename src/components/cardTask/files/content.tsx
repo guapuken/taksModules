@@ -2,11 +2,12 @@ import React from 'react';
 
 //componentes auxiliares
 import { CardContainer, SimpleButtonText, Spans, TitleCard } from '../../../utils/cardsUtils';
-import { ProgressBar } from '../../../components';
+import { Button, CircularProgressBar, IconDropdown, ProgressBar } from '../../../components';
 //funciones auxiliares
 import { cardW } from '../../../utils/functions/functions';
 // estilos
 import '../cardTask.scss';
+import { IconMoreOptions } from '../../task/files';
 
 //componente principal
 const Content = ({
@@ -18,31 +19,42 @@ const Content = ({
 	subtasks = 0,
 	modo = 'Light',
 	className,
+	onCl_edit,
+	onCl_reasignDate,
+	onCl_asignTask,
+	onCl_follow,
+	onCl_reminder,
+	onCl_status,
 }: any) => {
+	const options = [
+		{
+			id: 'edit',
+			title: 'Editar',
+			onClick: onCl_edit,
+		},
+		{
+			id: 'reasignDate',
+			title: 'Reasignar fecha',
+			onClick: onCl_reasignDate,
+		},
+		{
+			id: 'reasignTask',
+			title: 'Reasignar tarea',
+			onClick: onCl_asignTask,
+		},
+		{
+			id: 'follow',
+			title: 'Seguir tarea',
+			onClick: onCl_follow,
+		},
+		{
+			id: 'reminder',
+			title: 'Programar recordatorio',
+			onClick: onCl_reminder,
+		},
+	];
 	return (
-		<CardContainer className={`ctn${modo}_CTaskC`}>
-			{/* {useWindowSize().width > 768 && (
-                <div
-                    className={`ContainerTitleAndiconsCardProject${
-                        sizeCard() * 10 < 350 ? 'Small' : ''
-                    }`}
-                >
-                    <IconAsign
-                        involucrados={involucrados(valueResponsable, valueRevision)}
-                        responsables={responsables}
-                        equipos={equipos}
-                        revision={revision}
-                        valueResponsable={valueResponsable}
-                        valueRevision={valueRevision}
-                        style={{ marginRight: '2rem' }}
-                    />
-                    <Notifications
-                        idNotification={idNotification}
-                        onChange={onChangeNotificationSwitch}
-                        checkValue={followNotificationsValue}
-                    />
-                </div>
-            )} */}
+		<CardContainer className={`ctn${modo}_CTaskC ${className}`}>
 			<div className="ctnTexts">
 				<div>
 					<TitleCard modo={modo} title={taskName} />
@@ -71,6 +83,26 @@ const Content = ({
 						legend="mostrar detalles..."
 						onClick={onCl_showDetails}
 					/>
+				</div>
+			</div>
+			<div className="ctnCircularProgressBar">
+				<div>
+					<CircularProgressBar
+						percentTask={percentTask}
+						statusTask={statusTask}
+						size={40}
+					/>
+					<p>{`${percentTask}%`}</p>
+				</div>
+				<div>
+					<Button
+						legend="Cambiar estatus"
+						size="small"
+						style={{ height: '25px', padding: '2px 10px' }}
+						primary
+						onCl={onCl_status}
+					/>
+					<IconMoreOptions options={options} />
 				</div>
 			</div>
 		</CardContainer>

@@ -6,9 +6,7 @@ import Task from '../task/task';
 import DragAndDrop from './dragAndDrop';
 import { dragAndDrop } from './types';
 
-const Template: Story<dragAndDrop> = (args) => <DragAndDrop {...args} />;
-
-export const Initial = Template.bind({});
+const Template: Story<dragAndDrop> = (args) => <DragAndDrop {...args} {...args.tasks} />;
 const tasks = [
 	{
 		id: '15',
@@ -28,7 +26,18 @@ const tasks = [
 		taskName: 'Bloqueos',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
-		percentTask: 15,
+		percentTask: 35,
+		onCh_follow: (e) => !e,
+		subtasks: 10,
+	},
+	{
+		id: '19',
+		idNotification: '19',
+		status: 'Completas / Revisión',
+		taskName: 'Impresión de comidas',
+		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
+		statusTask: 'outOfTime',
+		percentTask: 59,
 		onCh_follow: (e) => !e,
 		subtasks: 10,
 	},
@@ -39,7 +48,7 @@ const tasks = [
 		taskName: 'Negociaciones',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
-		percentTask: 15,
+		percentTask: 10,
 		onCh_follow: (e) => !e,
 		subtasks: 10,
 	},
@@ -50,18 +59,7 @@ const tasks = [
 		taskName: 'Impresión',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
-		percentTask: 15,
-		onCh_follow: (e) => !e,
-		subtasks: 10,
-	},
-	{
-		id: '19',
-		idNotification: '19',
-		status: 'En proceso',
-		taskName: 'Impresión de comidas',
-		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
-		statusTask: 'outOfTime',
-		percentTask: 15,
+		percentTask: 0,
 		onCh_follow: (e) => !e,
 		subtasks: 10,
 	},
@@ -72,7 +70,7 @@ const tasks = [
 		taskName: 'Impresión de locas',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
-		percentTask: 15,
+		percentTask: 60,
 		onCh_follow: (e) => !e,
 		subtasks: 10,
 	},
@@ -83,11 +81,12 @@ const tasks = [
 		taskName: 'Impresión por medio de Bigfoot print para ayr',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
-		percentTask: 15,
+		percentTask: 99,
 		onCh_follow: (e) => !e,
 		subtasks: 10,
 	},
 ];
+export const Initial = Template.bind({});
 
 Initial.args = {
 	tasks: tasks,

@@ -24,6 +24,9 @@
         box-shadow: inset 0 0 0 3px #282828;
         .progressBar{
             background: #282828;
+            width: 100%;
+            height: inherit;
+            border-radius: 100px;
         }
     }
     // texto que muestra el porcentaje

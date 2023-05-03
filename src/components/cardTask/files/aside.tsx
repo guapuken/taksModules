@@ -6,6 +6,7 @@ import { AsideContainer, ButtonsArray } from '../../../utils/asideUtils';
 //archivos multimedia
 import editIcon from '../../../img/editar.svg';
 import calendarIcon from '../../../img/calendario.svg';
+import asign from '../../../img/addUser.svg';
 // types
 import { aside } from '../types';
 
@@ -18,6 +19,7 @@ const Aside = ({
 	onCl_reminder,
 	follow,
 	modo = 'Light',
+	idTask,
 }: aside) => {
 	// retorno del componente
 	return (
@@ -26,29 +28,36 @@ const Aside = ({
 				modo={modo}
 				buttons={[
 					{
+						id: `edit${idTask}`,
 						img: editIcon,
 						onClick: onCl_edit,
 						titleToShow: 'Editar',
 					},
 					{
+						id: `calendar${idTask}`,
 						img: calendarIcon,
 						onClick: onCl_reasignDate,
 						titleToShow: 'Reasignar fecha',
 					},
 					{
-						img: editIcon,
+						id: `asignTask${idTask}`,
+						img: asign,
 						onClick: onCl_asignTask,
 						titleToShow: 'Asignar tarea',
 					},
+					// TODO: asignar el icono de recordatorio
 					{
-						img: calendarIcon,
-						onClick: onCl_follow,
-						titleToShow: follow ? 'Dejar de seguir tarea' : 'Seguir tarea',
-					},
-					{
+						id: `reminder${idTask}`,
 						img: editIcon,
 						onClick: onCl_reminder,
 						titleToShow: 'Programar recordatorio',
+					},
+					// TODO: asignar el icono de follow
+					{
+						id: `follow${idTask}`,
+						img: calendarIcon,
+						onClick: onCl_follow,
+						titleToShow: follow ? 'Dejar de seguir tarea' : 'Seguir tarea',
 					},
 				]}
 				vertical

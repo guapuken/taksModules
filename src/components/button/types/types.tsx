@@ -1,20 +1,15 @@
-import React from 'react';
-// types externos
-import { Modo, onClickType, size } from '../../types';
+import { Modo, css, onClickType, size } from '../../../types';
 
 export interface button {
+	id?: string;
 	onCl?: onClickType;
 	size?: size;
 	//css properties
-	style?: React.CSSProperties;
-	styleIcon?: React.CSSProperties;
+	style?: css;
+	styleIcon?: css;
 	//string properties
 	legend?: string;
-	color?: string;
-	id?: string;
-	key?: string;
 	icon?: string;
-	colorHover?: string;
 	className?: string;
 	//boolean properties
 	primary?: boolean;

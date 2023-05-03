@@ -38,6 +38,8 @@ export type boards = {
 	scrSize: screenSize;
 	Card?: any;
 	styleTaskContainer?: css;
+	property?: any;
+	setProperty?: any;
 };
 
 export type task = {

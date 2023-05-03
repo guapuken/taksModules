@@ -4,6 +4,7 @@ import NoCard from './noCard';
 
 export const TaskItem = (props: taskItem) => {
 	const datos = { ...props };
+	console.log('render card');
 	return (
 		<>
 			{datos.Card ? (

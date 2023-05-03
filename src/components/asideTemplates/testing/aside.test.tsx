@@ -1,8 +1,8 @@
 import React from 'react';
-import AsideTemplates from './asideTemplates';
+import AsideTemplates from '../asideTemplates';
 
 describe('AsideTemplates', () => {
 	test('renders the AsideTemplates component', () => {
-		expect(<></>);
+		expect(<AsideTemplates />);
 	});
 });

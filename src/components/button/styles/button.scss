@@ -1,0 +1,158 @@
+@import '../../../global.scss';
+
+// jeraquias (primary, secondary, tertiary) ----------------------
+.ctnLight_BtnC, .ctnDark_BtnC
+{
+    position: relative;
+    padding: 8px 20px;
+    border-radius: 5px;
+    max-width: 100%;
+    width: auto;
+    cursor: pointer;
+    // buttons hierarchy
+    &[jrq-btn='Pr']{
+        background: #126EFA; 
+        color: #fff;
+        &:hover{
+         background: #0445a7;
+        }
+    }
+    &[jrq-btn='Sc']{
+        box-shadow: inset 0 0 0 2px #FC3D38; 
+        background: transparent;
+        color: #FC3D38;
+        &:hover{
+            background: #FC3D38; 
+            color: #fff;
+        }
+    }
+    &[jrq-btn='Tr']{
+        color: #7BAFFF;
+        background: transparent;
+        &:hover{
+          background: #7BAFFF; 
+          color: #fff;
+        }
+    }
+    // rounded buttons
+    &[rd-btn='rounded']{
+        border-radius: 100px;
+    }
+    // border buttons
+    &[brd-btn='border']{
+        &[ds-btn='']{
+
+            &[jrq-btn='Pr']{
+                box-shadow: inset 0 0 0 2px #126EFA; 
+                background: transparent;
+                color: #126EFA;
+                &:hover{
+                    box-shadow: none;
+                    background: #0445a7; 
+                    color: #fff;
+                }  
+            }        
+            &[jrq-btn='Sc']{
+                box-shadow: inset 0 0 0 2px #FC3D38; 
+                background: transparent;
+                color: #FC3D38;
+                &:hover{
+                    background: #FC3D38; 
+                    color: #fff;
+                }
+            }  
+            &[jrq-btn='Tr']{
+                box-shadow: inset 0 0 0 2px #7BAFFF; 
+                background: transparent;
+                color: #7BAFFF;
+                &:hover{
+                    background: #7BAFFF; 
+                    color: #fff;
+                }
+            }  
+        }
+    }
+    // size buttons
+    &[sz-btn='small'], 
+    &[sz-btn='medium'], 
+    &[sz-btn='large']
+    {
+        .ctnIcnLgnd_medium,.ctnIcnLgnd_small,.ctnIcnLgnd_large{
+            display: flex;
+            align-items: center;
+            .icn{
+                margin: 0 10px 0 -5px;
+            }
+        }
+    }
+    &[sz-btn='small']{
+        .icn{  height: 15px; }
+        .lgnd{ font-size: clamp(13px, 1.1vw, 32px); }
+    }
+    &[sz-btn='medium']{
+        .icn{ height: 20px; }
+        .lgnd{ font-size: clamp(15px, 1.3vw, 35px); }
+    }
+    &[sz-btn='large']{
+        .icn{ height: 25px; }
+        .lgnd{ font-size: clamp(18px, 1.5vw, 38px); }
+    }
+    // float buttons
+    &[fl-btn='float']{
+        &[sz-btn='small'], &[sz-btn='medium'], &[sz-btn='large']{
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .icn{
+                margin: 0;
+            }
+            .lgnd{
+                display: none;
+            }
+        }
+        &[sz-btn='small']{
+            height: 30px;
+            width: 30px;
+            .icn{
+                height: 15px ;
+            }  
+        }
+        &[sz-btn='medium']{
+            height: 40px;
+            width: 40px;
+            .icn{
+                height: 20px ;
+            }
+        }
+        &[sz-btn='large']{
+            height: 50px;
+            width: 50px;
+            .icn{
+                height: 25px ;
+            }
+        }
+    }
+    // disabled buttons
+    &[ds-btn='disabled']{
+        background: #dedede;
+        color: #00000075;
+        cursor: not-allowed;
+        .lgnd{
+            cursor: not-allowed
+        }
+        &:hover{
+            background: #dedede;
+            color: #00000075;
+        }
+    }
+}
+// estado inicial del componente
+.ctnLight_BtnC{
+    background: #dedede;
+    color: #000;
+    &:hover{
+        background: #525252;
+        color: #fff;
+    }
+}

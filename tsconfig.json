@@ -113,7 +113,7 @@
     // "skipLibCheck": true,
     // "emitDeclarationOnly": true,
   },
-  "include": ["src//*"],
+  "include": ["src//*", "src/img"],
   "exclude": [
     "node_modules",
     "dist",
