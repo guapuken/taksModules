@@ -2,10 +2,10 @@ import React from 'react';
 // utilidades de storybook
 import { Meta, Story } from '@storybook/react';
 // componente principal
-import AutoresizeInput from '.';
-import { autoresizeInput } from './types';
+import AutoresizeInput from '../autoresizeInput';
+import { autoresizeInput } from '../types/types';
 // utilidades de storybook
-import { boolean, functions, number, object, taskType, text } from '../../storyUtils';
+import { boolean, functions, modo, number, object, taskType, text } from '../../../storyUtils';
 
 // creación de plantilla donde se almacenará el componente
 const Template: Story<autoresizeInput> = (args) => <AutoresizeInput {...args} />;
@@ -26,6 +26,7 @@ export default {
 	component: AutoresizeInput,
 	// definición de argumentos
 	argTypes: {
+		id: text(),
 		style: object(),
 		onCh: functions(),
 		taskType: taskType(),
@@ -33,5 +34,6 @@ export default {
 		placeholder: text(),
 		tabIndex: number(),
 		disabled: boolean(),
+		modo: modo(),
 	},
 } as Meta;

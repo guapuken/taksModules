@@ -1,15 +1,15 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 // componente principal
-import AsideTemplates from './asideTemplates';
+import AsideTemplates from '../asideTemplates';
 // types
-import { aside } from './types/types';
+import { aside } from '../types/types';
 
 // utilidades del storybook
-import { boolean, functions, modo, object, text } from '../../storyUtils';
+import { boolean, functions, modo, object, text } from '../../../storyUtils';
 
 // componentes auxiliares
-import Cards from '../cards';
+import Cards from '../../cards';
 
 // creación de plantilla donde se colocará el componente
 const Template: Story<aside> = (args) => <AsideTemplates {...args} />;
@@ -30,36 +30,36 @@ WithProperties.args = {
 	priText: `Sin tareas por el momento?`,
 	secText: `Déjate de huevonadas 😎`,
 	legendBtn: 'Nueva tarea',
-	// tasks: [
-	// 	{
-	// 		id: '1',
-	// 		taskName: 'Hacer Dummies',
-	// 		taskDescription: 'Recordar hacer los dummies de la campaña de uber',
-	// 		statusTask: 3,
-	// 		onCl_showDetails: () => alert('ver detalles'),
-	// 	},
-	// 	{
-	// 		id: '1',
-	// 		taskName: 'Hacer Dummies',
-	// 		taskDescription: 'Recordar hacer los dummies de la campaña de uber',
-	// 		statusTask: 3,
-	// 		onCl_showDetails: () => alert('ver detalles'),
-	// 	},
-	// 	{
-	// 		id: '1',
-	// 		taskName: 'Hacer Dummies',
-	// 		taskDescription: 'Recordar hacer los dummies de la campaña de uber',
-	// 		statusTask: 3,
-	// 		onCl_showDetails: () => alert('ver detalles'),
-	// 	},
-	// 	{
-	// 		id: '1',
-	// 		taskName: 'Hacer Dummies',
-	// 		taskDescription: 'Recordar hacer los dummies de la campaña de uber',
-	// 		statusTask: 3,
-	// 		onCl_showDetails: () => alert('ver detalles'),
-	// 	},
-	// ],
+	tasks: [
+		{
+			id: '1',
+			taskName: 'Hacer Dummies',
+			taskDescription: 'Recordar hacer los dummies de la campaña de uber',
+			statusTask: 3,
+			onCl_showDetails: () => alert('ver detalles'),
+		},
+		{
+			id: '1',
+			taskName: 'Hacer Dummies',
+			taskDescription: 'Recordar hacer los dummies de la campaña de uber',
+			statusTask: 3,
+			onCl_showDetails: () => alert('ver detalles'),
+		},
+		{
+			id: '1',
+			taskName: 'Hacer Dummies',
+			taskDescription: 'Recordar hacer los dummies de la campaña de uber',
+			statusTask: 3,
+			onCl_showDetails: () => alert('ver detalles'),
+		},
+		{
+			id: '1',
+			taskName: 'Hacer Dummies',
+			taskDescription: 'Recordar hacer los dummies de la campaña de uber',
+			statusTask: 3,
+			onCl_showDetails: () => alert('ver detalles'),
+		},
+	],
 };
 
 //exportación de valores default

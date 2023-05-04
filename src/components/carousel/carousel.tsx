@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
 // types
-import { carousel, elements } from './types';
+import { carousel, elements } from './types/types';
 // estilos
-import './carousel.scss';
+import './styles/carousel.scss';
 // elemento auxiliares
-import { ButtonsPrevNext, Examples, dataExample } from './files';
-import { asignIndex } from './functions/functions';
+import { ButtonsPrevNext, Examples, dataExample } from './principalComponents';
+import { asignIndex, sizeElement } from './functions/functions';
 
-const Carousel = ({
-	Card,
-	width = 500,
-	data = dataExample,
-	height = 264,
-	titleContent,
-}: carousel) => {
+const Carousel = ({ Card, data = dataExample, height = 264, titleContent }: carousel) => {
 	// recibe la data y les asigna un index automático
 	asignIndex(data, 'index');
 	// seleciona la propiedad activa
@@ -30,7 +24,9 @@ const Carousel = ({
 				<div
 					className={`cards-slider-wrapper`}
 					style={{
-						transform: `translateX(-${property?.index * width}px)`,
+						transform: `translateX(-${
+							property?.index * (sizeElement(data)?.width ?? 0)
+						}px)`,
 					}}
 				>
 					{data.map((prop: elements) => {
@@ -38,10 +34,12 @@ const Carousel = ({
 							<div
 								className={`card card${prop.index}`}
 								style={{
-									display: 'grid',
-									placeItems: 'center',
+									display: 'flex',
+									justifyContent: 'center',
+									alignItems: 'center',
 								}}
 								key={prop.id}
+								id={`card${prop.id}`}
 							>
 								{Card ? (
 									<Card key={prop.id} property={prop} />

@@ -1,11 +1,10 @@
 import React from 'react';
-import { Modo, onBlurType, taskType } from '../../types';
+import { Modo, onChangeType, taskType } from '../../../types';
 
 export interface autoresizeInput {
 	id: string;
 	style?: React.CSSProperties;
-	// onChange?: onBlurType;
-	onCh?: onBlurType;
+	onCh?: onChangeType;
 	taskType?: taskType;
 	initialValue?: string;
 	placeholder?: string;

@@ -1,5 +1,5 @@
 import React from 'react';
-import AutoresizeInput from '.';
+import AutoresizeInput from '../autoresizeInput';
 import { storiesOf } from '@storybook/react';
 
 // función para ver si funciona correctamente el onChange
