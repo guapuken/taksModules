@@ -19,6 +19,7 @@ const Button = ({
 	border,
 	float,
 	modo = 'Light',
+	textStyle,
 }: button) => {
 	return (
 		<button
@@ -34,7 +35,7 @@ const Button = ({
 			fl-btn={float ? 'float' : ''}
 			sz-btn={size}
 		>
-			<span className={`ctnIcnLgnd_${size}`}>
+			<span className={`ctnIcnLgnd_${size}`} style={textStyle}>
 				{icon && <img className="icn" src={icon} style={styleIcon} />}
 				<span className="lgnd">{legend}</span>
 			</span>
