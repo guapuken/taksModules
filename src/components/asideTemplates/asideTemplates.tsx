@@ -55,12 +55,7 @@ const AsideTemplates = ({
 								/>
 							))
 						) : (
-							<Carousel
-								data={tasks}
-								Card={CardTaskReview}
-								width={scrnW}
-								height={scrnH / 4 - 25}
-							/>
+							<Carousel data={tasks} Card={CardTaskReview} height={scrnH / 4 - 25} />
 						)}
 					</div>
 				)}
