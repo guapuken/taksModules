@@ -6,6 +6,8 @@ import './styles/chat.scss';
 import Dropdown from '../dropdown/dropdown';
 //componentes principales
 import { AddComment } from './principalComponents';
+// archivos multimedia
+import exampleAvatar from '../../img/example_1.jpg';
 const Chat = ({
 	modo = 'Light',
 	multiplesChats,
@@ -36,20 +38,27 @@ const Chat = ({
 			</div>
 			<div>
 				<div className="ctnMsns">
-					<span className="avatar_user">
-						<span className="image"></span>
-						<span>Jorge Correa</span>
-					</span>
-					<h2>hola</h2>
-					<h2>hola</h2>
-					<h2>hola</h2>
-					<h2>hola</h2>
-					<h2>hola</h2>
-					<h2>hola</h2>
-					<h2>hola</h2>
-					<h2>hola</h2>
-					<h2>hola</h2>
-					<h2>hola</h2>
+					<div className="msn" ty-msn={'Received'}>
+						<div className="avatar_user">
+							<p
+								className="image"
+								style={{ backgroundImage: `url(${exampleAvatar})` }}
+							></p>
+							<p className="userName">Jorge Correa</p>
+						</div>
+						<div className="msn_text">
+							<span>Hola cómo vamos con las tareas</span>
+							<span className="date">hace 2 minutos</span>
+						</div>
+						<div className="msn_text">
+							<span>Hola cómo vamos con las tareas</span>
+							<span className="date">hace 2 minutos</span>
+						</div>
+						<div className="msn_text">
+							<span>Hola cómo vamos con las tareas</span>
+							<span className="date">hace 2 minutos</span>
+						</div>
+					</div>
 				</div>
 				<AddComment
 					onCh_addFile={onCh_addFile}

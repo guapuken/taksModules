@@ -6,10 +6,10 @@ import { aside } from '../types';
 import { AsideContainer, ButtonsArray } from '../../../utils/asideUtils';
 // archivos multimedia
 import del from '../../../img/vaciar.svg';
-import prev from '../../../img/previsualizar.svg';
+// import prev from '../../../img/previsualizar.svg';
 import edit from '../../../img/editar.svg';
 
-const Aside = ({ onCl_delete, onCl_preview, onCl_edit, modo = 'Light' }: aside) => (
+const Aside = ({ onCl_delete, /* onCl_preview, */ onCl_edit, modo = 'Light' }: aside) => (
 	<AsideContainer>
 		<ButtonsArray
 			modo={modo}
@@ -20,12 +20,12 @@ const Aside = ({ onCl_delete, onCl_preview, onCl_edit, modo = 'Light' }: aside) 
 					onClick: onCl_edit,
 					titleToShow: 'Editar',
 				},
-				{
-					id: 'preview',
-					img: prev,
-					onClick: onCl_preview,
-					titleToShow: 'Previsualizar',
-				},
+				// {
+				// 	id: 'preview',
+				// 	img: prev,
+				// 	onClick: onCl_preview,
+				// 	titleToShow: 'Previsualizar',
+				// },
 				{
 					id: 'delete',
 					img: del,

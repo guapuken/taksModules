@@ -3,7 +3,7 @@ import AutoResizeInput from '../../autoResizeInput';
 import { SimpleButtonText } from '../../../utils/cardsUtils';
 import Button from '../../button';
 
-const AddComment = ({ onCh_addFile, onCl_addComment, onCh_comment }) => {
+const AddComment = ({ onCh_addFile, onCl_addComment, onCh_comment }: any) => {
 	return (
 		<div className="ctnBlockComents_TWCC">
 			<fieldset>

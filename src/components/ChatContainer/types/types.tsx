@@ -7,3 +7,7 @@ export interface chatProps {
 	onCl_addComment?: onClickType;
 	onCh_comment?: onChangeType;
 }
+
+export type msns = {
+	type?: 'received' | 'sent' | 'system';
+};

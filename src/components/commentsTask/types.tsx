@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modo, onChangeType, onClickType } from '../../types';
+import { Modo, onBlurType, onChangeType, onClickType } from '../../types';
 
 // exportación de interfaz principal
 export interface commentsTask {
@@ -31,5 +31,5 @@ export type commentTask = {
 	onCl_addComment?: onClickType;
 	onCh_addFile?: onChangeType;
 	idComment?: string;
-	onCh_comment?: onChangeType;
+	onCh_comment: onBlurType;
 };

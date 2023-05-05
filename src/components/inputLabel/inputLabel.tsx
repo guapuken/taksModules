@@ -1,7 +1,7 @@
 import React, { CSSProperties, useState } from 'react';
 import '../../global.scss';
 import './inputLabel.scss';
-import { inputLabel } from './types';
+import { inputLabel } from './types/types';
 
 const InputLabel = ({
 	legend = 'Change the legend',
@@ -34,12 +34,16 @@ const InputLabel = ({
 				max={max}
 				value={value}
 				id={id}
-				onChange={(e) => handleTextChange(e.target.value)}
-				onBlur={(e) => {
-					if (onCh) {
-						onCh(e);
-					}
+				onChange={(e: any) => {
+					if (onCh) onCh(e);
+					handleTextChange(e.target.value);
 				}}
+				// onChange={(e) => handleTextChange(e.target.value)}
+				// onBlur={(e) => {
+				// 	if (onCh) {
+				// 		onCh(e);
+				// 	}
+				// }}
 			/>
 
 			<label

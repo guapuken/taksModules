@@ -1,4 +1,4 @@
-import { css, onBlurType } from '../../types';
+import { css, onBlurType, onChangeType } from '../../../types';
 
 export interface inputLabel {
 	type?: 'text' | 'number' | 'email' | 'password';
@@ -6,7 +6,7 @@ export interface inputLabel {
 	initialValue?: string;
 	min?: number;
 	max?: number;
-	onCh?: onBlurType;
+	onCh?: onChangeType;
 	style?: css;
 	id: string;
 }

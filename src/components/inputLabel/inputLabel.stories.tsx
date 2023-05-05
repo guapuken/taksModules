@@ -2,9 +2,10 @@ import React from 'react';
 //importación de elementos del storybook a utilizar
 import { Meta, Story } from '@storybook/react';
 //importación del componente principal
-import InputLabel, { InputLabelProps } from './inputLabel';
+import InputLabel from './inputLabel';
+import { inputLabel } from './types/types';
 
-const Template: Story<InputLabelProps> = (args) => <InputLabel {...args} />;
+const Template: Story<inputLabel> = (args) => <InputLabel {...args} />;
 
 //estado inicial del componente
 export const InitialState = Template.bind({});
@@ -16,6 +17,7 @@ WithProperties.args = {
 	type: 'text',
 	legend: 'Digita el responsable',
 	initialValue: 'Jorge Correa',
+	onCh: (e) => console.log(e.target.value),
 };
 
 export default {
