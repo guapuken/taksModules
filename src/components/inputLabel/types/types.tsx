@@ -6,7 +6,7 @@ export interface inputLabel {
 	initialValue?: string;
 	min?: number;
 	max?: number;
-	onCh?: onChangeType;
+	onCh?: onBlurType;
 	style?: css;
 	id: string;
 }

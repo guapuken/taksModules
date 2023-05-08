@@ -82,9 +82,8 @@ function DemoComponent() {
 	return (
 		<ModalProjects
 			modo="Light"
-			onCh_nameproject={(e: any) => {
+			onCh_nameProject={(e: any) => {
 				setProjectName(e.target.value);
-				console.log('id: ', e.target.id);
 			}}
 			templateOptions={[
 				{

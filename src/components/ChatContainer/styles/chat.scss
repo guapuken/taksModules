@@ -22,23 +22,41 @@
         min-height: calc(100% - 225px);
         overflow-y: auto;
         overflow-x: hidden;
-        .msn{
-            position: relative;
-            &:first-of-type(span){
-                margin-top: 50px !important;
+
+        // línea que une los mensajes con sus usuarios
+        // .ctnMsn{
+        .blockMsns{
+            &:before{
+                content: '';
+                position: absolute;
+                border-left: 2px solid #dedede;
+                top: 0;
+                height: calc(100% - 55px);
+                z-index: -1;
             }
+        }
+        .ctnMsn,.msn{
+            position: relative;
             .avatar_user{
                 display: flex;
                 gap:15px;
                 align-items: center;
-                .image{
-                    background: red;
+                position: relative;
+                .image,.noImage{
                     min-width: 40px;
                     min-height: 40px;
                     border-radius: 40px;
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center center;
+                }
+                .noImage{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 20px;
+                    background: #282828;
+                    color:#dedede;
                 }
                 .userName{
                     opacity: .5;
@@ -47,34 +65,71 @@
                 }
             }
             .msn_text{
-                // background: red;
-                padding-left: 70px;
                 display: flex;
                 flex-direction: column;
 
                 &:before{
                     content: ' ';
                     position: absolute;
-                    border-left: 2px solid #dedede;
-                    border-bottom: 2px solid #dedede;
-                    border-bottom-left-radius: 15px;
                     height: 30px;
                     width: 40px;
-                    left: 20px;
-                    // bottom: 50%;
+                    bottom: 40px;
+                    z-index: -1;
                 }
                 .date{
+                    margin: 5px 0;
                     font-size: clamp(10px, 1.2vw, 30px);
                     opacity: .3;
                 }
             }
+        }
+        // estado de mensaje recibido
+        .ctnMsn[ty-msn='Received']{
             &:before{
-                content: '';
-                position: absolute;
                 left: 20px;
-                height: calc(100% - 60px);
-                z-index: -1;
-                border-left: 2px solid #dedede;
+            }
+            .blockMsns:before{
+                left: 20px;
+            }
+            .msn_text{
+                padding-left: 70px;
+            }
+            .msn_text{
+                &:before{
+                    border-left: 2px solid #dedede;
+                    border-bottom: 2px solid #dedede;
+                    border-bottom-left-radius: 15px;
+                    left: 20px;
+                    // bottom: 0px;
+                }
+            }
+        }
+        // estado de mensaje enviado
+        .ctnMsn[ty-msn='Sent']{
+            &:before{
+                right: 20px;
+            }
+            .blockMsns:before{
+                right: 20px;
+            }
+            &, .msn{
+                .avatar_user{
+                    flex-direction: row-reverse;
+                }
+                .msn_text{
+                    span{
+                        text-align: right;
+                    }
+                    padding-right: 70px;
+                }
+            }
+            .msn_text{
+                &:before{
+                    border-right: 2px solid #dedede;
+                    border-bottom: 2px solid #dedede;
+                    border-bottom-right-radius: 15px;
+                    right: 20px;
+                }
             }
         }
     }

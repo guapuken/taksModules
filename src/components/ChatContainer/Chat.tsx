@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 // types
 import { chatProps } from './types/types';
 // styles
 import './styles/chat.scss';
 import Dropdown from '../dropdown/dropdown';
 //componentes principales
-import { AddComment } from './principalComponents';
-// archivos multimedia
-import exampleAvatar from '../../img/example_1.jpg';
+import { AddComment, Msn } from './principalComponents';
 const Chat = ({
 	modo = 'Light',
 	multiplesChats,
@@ -15,7 +13,13 @@ const Chat = ({
 	onCl_addComment,
 	onCh_addFile,
 	onCh_comment,
+	onCh_dropdown,
+	messages,
 }: chatProps) => {
+	const [chatCanal, setCanalChat] = useState({
+		id: '1',
+		title: 'Chat comercial',
+	});
 	return (
 		<div className={`ctn${modo}_ChC`}>
 			<div>
@@ -28,37 +32,27 @@ const Chat = ({
 								{ id: '2', title: 'Chat operacional' },
 							]}
 							placeHolder="Selecciona un chat"
-							onCh={() => {}}
+							onCh={(e: any) => {
+								console.log(e);
+								setCanalChat(e);
+								if (onCh_dropdown) {
+									onCh_dropdown(e);
+								}
+							}}
+							initialValue={{
+								id: '1',
+								title: 'Chat comercial',
+							}}
 							modo={modo}
 						/>
 					</div>
 				)}
-				<h5>{`Chat de proyecto`}</h5>
+				<h5>{chatCanal.title}</h5>
 				<p>{projectName}</p>
 			</div>
 			<div>
 				<div className="ctnMsns">
-					<div className="msn" ty-msn={'Received'}>
-						<div className="avatar_user">
-							<p
-								className="image"
-								style={{ backgroundImage: `url(${exampleAvatar})` }}
-							></p>
-							<p className="userName">Jorge Correa</p>
-						</div>
-						<div className="msn_text">
-							<span>Hola cómo vamos con las tareas</span>
-							<span className="date">hace 2 minutos</span>
-						</div>
-						<div className="msn_text">
-							<span>Hola cómo vamos con las tareas</span>
-							<span className="date">hace 2 minutos</span>
-						</div>
-						<div className="msn_text">
-							<span>Hola cómo vamos con las tareas</span>
-							<span className="date">hace 2 minutos</span>
-						</div>
-					</div>
+					<Msn messages={messages} />
 				</div>
 				<AddComment
 					onCh_addFile={onCh_addFile}

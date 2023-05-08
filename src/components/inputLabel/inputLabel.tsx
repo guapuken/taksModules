@@ -34,16 +34,12 @@ const InputLabel = ({
 				max={max}
 				value={value}
 				id={id}
-				onChange={(e: any) => {
-					if (onCh) onCh(e);
-					handleTextChange(e.target.value);
+				onChange={(e) => handleTextChange(e.target.value)}
+				onBlur={(e) => {
+					if (onCh) {
+						onCh(e);
+					}
 				}}
-				// onChange={(e) => handleTextChange(e.target.value)}
-				// onBlur={(e) => {
-				// 	if (onCh) {
-				// 		onCh(e);
-				// 	}
-				// }}
 			/>
 
 			<label
