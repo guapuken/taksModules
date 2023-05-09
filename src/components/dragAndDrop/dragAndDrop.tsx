@@ -187,7 +187,6 @@ const DragAndDrop = (props: dragAndDrop) => {
 								<NoCard taskName={e.taskName} />
 							);
 						}}
-						width={scrSize.width > 768 ? scrSize.width / 2 : scrSize.width - 50}
 						height={scrSize.height / 4}
 						titleContent={
 							<div

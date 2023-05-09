@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 // types que se utilizan en el componente
-import { autoresizeInput } from './types';
+import { autoresizeInput } from './types/types';
 // estilos del componente
-import './autoresizeInput.scss';
+import './styles/autoresizeInput.scss';
 // types que se usan en documentación, (NO BORRAR)--------------------------------------------------------------------------------------
-import { css, onBlurType, taskType } from '../../types';
+import { css, onBlurType, onChangeType, taskType } from '../../types';
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /** documentación del componente
@@ -16,19 +16,22 @@ import { css, onBlurType, taskType } from '../../types';
  * @param {string} props.placeholder - texto que se mostrará hasta el momentos que se escriba dentro del textarea
  * @param {number} props.tabIndex - número de orden que tiene el text área al moverse de uno a otro con tab
  * @param {boolean} props.disabled - propiedad que define si se encuentra desabilitado el input o no
- 
- * Resultado del componente
+ * 
  * @returns - input de textarea que se ajusta automaticamente al tamaño del texto
  */
-const AutoresizeInput = (props: autoresizeInput) => {
-	//desestructuración de propiedades
-	const datos = { ...props };
-
-	// inicialización de propiedades
-	const { taskType = 'task', modo = 'Light' } = props;
-
+const AutoresizeInput = ({
+	id,
+	style,
+	onCh,
+	taskType = 'task',
+	initialValue,
+	placeholder,
+	tabIndex,
+	disabled,
+	modo = 'Light',
+}: autoresizeInput) => {
 	//Hooks
-	const [value, setValue] = useState(datos.initialValue);
+	const [value, setValue] = useState(initialValue);
 	const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
 	// se encarga de reiniciar el tamaño del textarea y se setea el tamaño del mismo
@@ -47,21 +50,23 @@ const AutoresizeInput = (props: autoresizeInput) => {
 	//construcción de componente
 	return (
 		<textarea
-			id={datos.id}
+			id={id}
 			ref={textAreaRef}
-			disabled={datos.disabled}
-			onChange={(e: any) => setValue(e.target?.value)}
-			onBlur={(e: any) => {
-				if (datos.onCh) {
-					datos.onCh(e);
-				}
+			disabled={disabled}
+			onChange={(e: any) => {
+				setValue(e.target.value);
 			}}
-			tabIndex={datos.tabIndex}
-			placeholder={datos.placeholder}
+			onBlur={(e: any) => {
+				if (onCh) onCh(e);
+			}}
+			tabIndex={tabIndex}
+			placeholder={placeholder}
 			rows={1}
 			value={value}
-			className={`ctn${modo}-${taskType}_AIPTC`}
-			style={{ width: '100%', ...datos.style }}
+			className={`ctn${modo}_AIPTC`}
+			style={{ width: '100%', ...style }}
+			// atributos que aayudan en la construcción de los estilos de los componentes
+			hrc-inpt={taskType}
 		/>
 	);
 };

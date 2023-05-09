@@ -1,5 +1,6 @@
 import {
 	Modo,
+	onBlurType,
 	onChangeType,
 	onClickType,
 	optionsDropdown,
@@ -19,7 +20,7 @@ export interface ModalProjectsProps {
 	onCl_confirm?: onClickType;
 	onCl_abort?: onClickType;
 	onCl_addTask?: onClickType;
-	onCh_nameProject?: onChangeType;
+	onCh_nameProject?: onBlurType;
 	projectNameValue?: string;
 	subtasks?: subtasksProps[];
 	templateOptions: optionsIcnDrp[];
@@ -33,7 +34,7 @@ export interface ModalProjectsProps {
 }
 
 export type content = {
-	onCh_nameProject?: onChangeType;
+	onCh_nameProject?: onBlurType;
 	projectNameValue?: string;
 	onCl_addTask?: onClickType;
 	modo?: Modo;

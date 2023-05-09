@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Dropdown, IconDropdown, InputLabel, Task } from '../../../components';
 import { AddTask } from '../../task/files';
 import { optionsPlantillas } from '../../task/task';
@@ -7,21 +7,29 @@ import { onChangeType } from '../../../types';
 import { Spans } from '../../../utils/cardsUtils';
 
 //COMPONENTE QUE REGRESA TODO EL CONTENIDO DEL MODAL
-const Content = (props: content) => {
-	// desestructuración de propiedades
-	const datos = { ...props };
-	// inicialización de propiedades
-	const { modo = 'Light' } = props;
-
+const Content = ({
+	idProject,
+	onCh_nameProject,
+	projectNameValue,
+	onCh_asignTeam,
+	teamOptions,
+	initialTeamValue,
+	onCl_addTask,
+	templateOptions,
+	onCl_newTemplate,
+	subtasks,
+	modo = 'Light',
+}: content) => {
 	//
+	useEffect(() => {}, [subtasks]);
 	return (
 		<div>
 			<InputLabel
-				id={datos.idProject}
+				id={idProject}
 				legend="Nombre del proyecto"
-				onCh={datos.onCh_nameProject}
+				onCh={onCh_nameProject}
 				style={{ marginBottom: '10px' }}
-				initialValue={datos.projectNameValue}
+				initialValue={projectNameValue}
 			/>
 			<Spans
 				boldLegend={'Equipo encargado'}
@@ -29,16 +37,16 @@ const Content = (props: content) => {
 				style={{ opacity: '.5' }}
 			/>
 			<Dropdown
-				onCh={datos.onCh_asignTeam}
-				options={datos.teamOptions}
+				onCh={onCh_asignTeam}
+				options={teamOptions}
 				placeHolder="Asignar proyecto a un equipo"
 				isSearchable
 				modo={modo}
 				style={{ margin: '5px 0 5px 0' }}
-				initialValue={datos.initialTeamValue}
+				initialValue={initialTeamValue}
 			/>
 			<div style={{ display: 'flex', alignItems: 'baseline' }}>
-				<AddTask legend="+ Añadir tarea" onClick={datos.onCl_addTask} />
+				<AddTask legend="+ Añadir tarea" onClick={onCl_addTask} />
 				<IconDropdown
 					modo={modo}
 					legend="Cargar plantilla"
@@ -47,8 +55,8 @@ const Content = (props: content) => {
 						fontSize: '15px',
 					}}
 					options={optionsPlantillas({
-						templateOptions: datos.templateOptions,
-						onCl_newTemplate: datos.onCl_newTemplate,
+						templateOptions: templateOptions,
+						onCl_newTemplate: onCl_newTemplate,
 					})}
 				/>
 			</div>
@@ -59,8 +67,8 @@ const Content = (props: content) => {
 						paddingLeft: '20px',
 					}}
 				>
-					{datos.subtasks &&
-						datos.subtasks.map((e: any) => (
+					{subtasks &&
+						subtasks.map((e: any) => (
 							<Task
 								key={e.idTask}
 								idTask={e.idTask}

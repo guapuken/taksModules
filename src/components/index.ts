@@ -109,3 +109,7 @@ export {default as DragAndDrop} from './dragAndDrop';
  * @returns - timeline
  */
 export {default as TimelineProject} from './timelineProject';
+/**
+ * @returns - chat que recibe distintas propiedades
+ */
+export {default as Chat} from './ChatContainer';

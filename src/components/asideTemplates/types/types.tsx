@@ -2,18 +2,15 @@ import { Modo, onClickType, statusTask } from '../../../types';
 
 // interface principal
 export interface aside {
-	isWhite?: boolean;
-	children?: any;
 	modo?: Modo;
 	visible?: boolean;
 	imageNoTasks?: string;
 	priText?: string;
 	secText?: string;
+	tasks?: tasks[];
 	legendBtn?: string;
 	idSection?: string;
 	onCl_btn?: onClickType;
-	buttonNoTasks?: string;
-	tasks?: tasks[];
 }
 
 // componente NoTasks

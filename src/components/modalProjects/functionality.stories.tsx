@@ -82,9 +82,8 @@ function DemoComponent() {
 	return (
 		<ModalProjects
 			modo="Light"
-			onCh_nameproject={(e: any) => {
+			onCh_nameProject={(e: any) => {
 				setProjectName(e.target.value);
-				console.log('id: ', e.target.id);
 			}}
 			templateOptions={[
 				{
@@ -106,10 +105,9 @@ function DemoComponent() {
 			subtasks={[
 				{
 					idTask: idTask,
-					valueTask: 'Hola que hace',
+					valueTask: nameTask,
 					valueDescription: descriptionTask,
 					onCh_nameTask: (e) => {
-						console.log('id de tarea: ', e.target.id);
 						setNameTask(e.target.value);
 					},
 					onCh_descriptionTask: (e) => setDescriptionTask(e.target.value),

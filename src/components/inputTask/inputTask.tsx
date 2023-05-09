@@ -4,55 +4,67 @@ import { CheckboxInput } from './complements/checkboxInput';
 import { AutoresizeInput } from '../../components';
 import { inputTasks } from './types';
 
-const InputTask = (props: inputTasks) => {
-	//desestucturación de propiedades
-	const datos = { ...props };
-
+const InputTask = ({
+	check,
+	showTask,
+	style,
+	modo,
+	principalTask,
+	disabled,
+	onCh_checkbox,
+	idCheckbox,
+	id,
+	onCh_nameTask,
+	valueTask,
+	onCh_descriptionTask,
+	valueDescription,
+	isSubtask,
+}: inputTasks) => {
 	// Estilos que se asignan al componente
 	let nameTaskStyles = {
-		textDecoration: datos.check ? 'line-through' : 'none',
-		opacity: datos.check ? '.7' : '1',
+		textDecoration: check ? 'line-through' : 'none',
+		opacity: check ? '.7' : '1',
 		with: '100%',
 	};
 	let descriptionTaskStyles = {
-		opacity: datos.check ? '.5' : '.8',
-		marginLeft: datos.showTask ? '0' : '20px',
+		opacity: check ? '.5' : '.8',
+		marginLeft: showTask ? '0' : '20px',
 	};
 	return (
-		<div style={{ display: 'flex', flexDirection: 'column', ...datos.style }}>
+		<div style={{ display: 'flex', flexDirection: 'column', ...style }}>
 			<div style={{ display: 'flex', width: '100%', alignItems: 'flex-start' }}>
 				{/* Si existe la propiedad de showTask no se muestra el componente de Checkbox */}
-				{datos.showTask && (
+				{showTask && (
 					<CheckboxInput
 						style={{ marginTop: '.5vh' }}
-						modo={datos.modo}
-						principalTask={datos.principalTask}
-						disabled={datos.disabled}
-						onCh_checkbox={datos.onCh_checkbox}
-						check={datos.check}
-						idCheckbox={datos.idCheckbox}
+						modo={modo}
+						principalTask={principalTask}
+						disabled={disabled}
+						onCh_checkbox={onCh_checkbox}
+						check={check}
+						idCheckbox={idCheckbox}
 					/>
 				)}
 				<div style={{ width: '100%' }}>
 					<AutoresizeInput
-						id={datos.id}
-						taskType={datos.principalTask ? 'principal' : 'task'}
+						id={`task${id}`}
+						taskType={principalTask ? 'principal' : 'task'}
 						style={nameTaskStyles}
-						onCh={datos.onCh_nameTask}
-						initialValue={datos.valueTask}
-						placeholder={`Nombre de la ${datos.isSubtask ? 'subtarea' : 'tarea'}`}
+						onCh={onCh_nameTask}
+						initialValue={valueTask}
+						placeholder={`Nombre de la ${isSubtask ? 'subtarea' : 'tarea'}`}
 						tabIndex={1}
-						disabled={datos.check ? true : datos.disabled ? datos.disabled : false}
+						disabled={check ? true : disabled ? disabled : false}
 					/>
 					<AutoresizeInput
-						id={datos.id}
+						id={`description${id}`}
 						taskType={'subtask'}
 						style={descriptionTaskStyles}
-						onCh={datos.onCh_descriptionTask}
-						initialValue={datos.valueDescription}
-						placeholder={`Descripción de la ${datos.isSubtask ? 'subtarea' : 'tarea'}`}
+						onCh={onCh_descriptionTask}
+						initialValue={valueDescription}
+						placeholder={`Descripción de la ${isSubtask ? 'subtarea' : 'tarea'}`}
 						tabIndex={2}
-						disabled={datos.check ? true : datos.disabled ? datos.disabled : false}
+						disabled={check ? true : disabled ? disabled : false}
 					/>
 				</div>
 			</div>

@@ -39,7 +39,7 @@ const ModalTemplates = ({
 			<InputLabel
 				id={idTemplate as any}
 				legend="Nombre de la plantilla"
-				onCh={onCh_templateName as onChangeType}
+				onCh={onCh_templateName}
 				style={{ maxWidth: '98%' }}
 				initialValue={templateNameValue}
 			/>

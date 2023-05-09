@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 // types
 import { aside } from './types/types';
 // componentes principales
@@ -8,9 +8,9 @@ import { Modo } from '../../types';
 
 // estilos del componente
 import './styles/aside.scss';
-import Button from '../button/Button';
 import CardTaskReview from '../cardTaskReview/cardTaskReview';
 import { useWindowSize } from '../../utils/windowSize';
+import Carousel from '../carousel/carousel';
 
 /** documentación del componente
  *
@@ -32,6 +32,13 @@ const AsideTemplates = ({
 	idSection,
 	onCl_btn,
 }: aside) => {
+	const scrnW = useWindowSize().width;
+	const scrnH = useWindowSize().height;
+	function aspectRatio() {
+		const size = scrnH / 10 > scrnW / 7 ? true : false;
+		console.log(size);
+		return size;
+	}
 	return (
 		// <div className={`ctn${isWhite ? 'White' : ''}${visible ? 'Vis' : ''}${modo}_ATC`}>
 		<div className={`ctn${modo}_ATC`} vs-asd={visible ? 'Visible' : 'Normal'}>
@@ -40,12 +47,16 @@ const AsideTemplates = ({
 					<ErrorNc />
 				) : (
 					<div className="ctnCards">
-						{tasks?.map((individualTask) => (
-							<CardTaskReview
-								modo={!visible && modo === 'Light' ? 'Light' : 'Dark'}
-								{...individualTask}
-							/>
-						))}
+						{!aspectRatio() ? (
+							tasks?.map((individualTask) => (
+								<CardTaskReview
+									modo={!visible && modo === 'Light' ? 'Light' : 'Dark'}
+									{...individualTask}
+								/>
+							))
+						) : (
+							<Carousel data={tasks} Card={CardTaskReview} height={scrnH / 4 - 25} />
+						)}
 					</div>
 				)}
 				{!tasks && (priText || secText) && (

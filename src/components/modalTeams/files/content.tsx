@@ -4,7 +4,7 @@ import { InputLabel } from '../../../components';
 import { Spans } from '../../../utils/cardsUtils';
 import { Members } from '.';
 // types
-import { onBlurType, onChangeType } from '../../../types';
+import { onChangeType } from '../../../types';
 // estilos
 import '../modalTeams.scss';
 import { content } from '../types';
@@ -35,7 +35,7 @@ const Content = ({
 				<InputLabel
 					id={idTeam as any}
 					legend="Nombre del equipo"
-					onCh={onCh_teamName as onBlurType}
+					onCh={onCh_teamName as onChangeType}
 					style={{ height: '30px', width: '45%' }}
 					initialValue={nameTeam}
 				/>

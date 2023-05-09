@@ -38,33 +38,64 @@ export const optionsPlantillas = (props: templateOptions) => {
 };
 
 //COMPONENTE PRINCIPAL
-const Task = (props: tasks) => {
-	//desestructuración de propiedades
-	const datos = { ...props };
-	// inicialización de propiedaddes
-	const { modo = 'Light', prioridadInicial = 'none' } = props;
-
-	const showTask = () => (datos.plantillas ? false : true);
+const Task = ({
+	plantillas,
+	idTask,
+	principalTask,
+	taskDisabled,
+	taskComplete,
+	onCh_checkbox,
+	isSubtask,
+	check,
+	onCh_nameTask,
+	onCh_descriptionTask,
+	valueTask,
+	valueDescription,
+	onCh_duration,
+	disabledEndDate,
+	disabledStartDate,
+	onCh_endDate,
+	onCh_startDate,
+	startDateValue,
+	endDateValue,
+	className,
+	durationValue,
+	valueResponsable,
+	valueRevision,
+	responsables,
+	equipos,
+	revision,
+	onCl_selectPriority,
+	onCl_delete,
+	onCl_reminder,
+	moreOptions,
+	subtaskForbbiden,
+	onCl_addTask,
+	templateOptions,
+	onCl_newTemplate,
+	subtasks,
+	modo = 'Light',
+	prioridadInicial = 'none',
+}: tasks) => {
+	const showTask = () => (plantillas ? false : true);
 
 	return (
-		<div id={datos.idTask} className={`ctn${modo}_TascC`}>
+		<div id={idTask} className={`ctn${modo}_TascC`}>
 			<InputTask
-				id={datos.idTask}
+				id={idTask}
 				modo={modo}
-				principalTask={datos.principalTask}
-				showTask={datos.plantillas ? false : true}
-				disabled={
-					datos.taskDisabled ? datos.taskDisabled : datos.taskComplete ? true : false
-				}
-				onCh_checkbox={datos.onCh_checkbox}
-				checked={datos.taskComplete}
-				isSubtask={datos.isSubtask}
-				check={datos.check}
-				onCh_nameTask={datos.onCh_nameTask}
-				onCh_descriptionTask={datos.onCh_descriptionTask}
-				valueTask={datos.valueTask}
-				valueDescription={datos.valueDescription}
-				idCheckbox={datos.idTask}
+				principalTask={principalTask}
+				showTask={plantillas ? false : true}
+				disabled={taskDisabled ? taskDisabled : taskComplete ? true : false}
+				onCh_checkbox={onCh_checkbox}
+				checked={taskComplete}
+				isSubtask={isSubtask}
+				check={check}
+				onCh_nameTask={onCh_nameTask}
+				onCh_descriptionTask={onCh_descriptionTask}
+				valueTask={valueTask}
+				valueDescription={valueDescription}
+				idCheckbox={idTask}
 			/>
 			<div
 				className={'icnsCtn'}
@@ -73,47 +104,47 @@ const Task = (props: tasks) => {
 				}}
 			>
 				<IconDates
-					idTask={datos.idTask}
+					idTask={idTask}
 					modo={modo}
-					onCh_duration={datos.onCh_duration}
-					plantillas={datos.plantillas}
-					disabledEndDate={datos.check ? datos.check : datos.disabledEndDate}
-					disabledStartDate={datos.check ? datos.check : datos.disabledStartDate}
-					onCh_endDate={datos.onCh_endDate}
-					onCh_startDate={datos.onCh_startDate}
-					startDateValue={datos.startDateValue}
-					endDateValue={datos.endDateValue}
-					className={datos.className}
-					durationValue={datos.durationValue}
+					onCh_duration={onCh_duration}
+					plantillas={plantillas}
+					disabledEndDate={check ? check : disabledEndDate}
+					disabledStartDate={check ? check : disabledStartDate}
+					onCh_endDate={onCh_endDate}
+					onCh_startDate={onCh_startDate}
+					startDateValue={startDateValue}
+					endDateValue={endDateValue}
+					className={className}
+					durationValue={durationValue}
 				/>
 				<IconAsign
 					modo={modo}
-					involucrados={involucrados(datos.valueResponsable, datos.valueRevision)}
-					responsables={datos.responsables}
-					equipos={datos.equipos}
-					revision={datos.revision}
-					valueResponsable={datos.valueResponsable}
-					valueRevision={datos.valueRevision}
+					involucrados={involucrados(valueResponsable, valueRevision)}
+					responsables={responsables}
+					equipos={equipos}
+					revision={revision}
+					valueResponsable={valueResponsable}
+					valueRevision={valueRevision}
 					style={{ marginRight: '20px' }}
-					disabled={datos.check ? datos.check : false}
+					disabled={check ? check : false}
 				/>
-				{!datos.plantillas && (
+				{!plantillas && (
 					<IconPriority
 						modo={modo}
-						onCl_selectPriority={datos.onCl_selectPriority}
+						onCl_selectPriority={onCl_selectPriority}
 						prioridadInicial={prioridadInicial}
 					/>
 				)}
 				<IconMoreOptions
 					modo={modo}
-					onCl_delete={datos.onCl_delete}
-					onCl_reminder={datos.onCl_reminder}
-					options={datos.moreOptions}
+					onCl_delete={onCl_delete}
+					onCl_reminder={onCl_reminder}
+					options={moreOptions}
 				/>
 			</div>
-			{datos.subtaskForbbiden ?? (
+			{subtaskForbbiden ?? (
 				<div style={{ display: 'flex', alignItems: 'baseline' }}>
-					<AddTask legend="+ Añadir subtarea" onClick={datos.onCl_addTask} />
+					<AddTask legend="+ Añadir subtarea" onClick={onCl_addTask} />
 					<IconDropdown
 						modo={modo}
 						legend="Cargar plantilla"
@@ -122,18 +153,18 @@ const Task = (props: tasks) => {
 							fontSize: '15px',
 						}}
 						options={optionsPlantillas({
-							templateOptions: datos.templateOptions,
-							onCl_newTemplate: datos.onCl_newTemplate,
+							templateOptions: templateOptions,
+							onCl_newTemplate: onCl_newTemplate,
 						})}
 					/>
 				</div>
 			)}
-			{datos.subtasks && (
+			{subtasks && (
 				<div className={'ChildrenContainerTaskModules'}>
 					<div style={{ borderLeft: '3px solid #28282830', paddingLeft: '20px' }}>
-						{datos.subtasks.map((e: tasks) => (
+						{subtasks.map((e: tasks) => (
 							<div style={{ margin: '.5vh 0' }} key={e.idTask}>
-								{datos.plantillas ? (
+								{plantillas ? (
 									<Task
 										idTask={e.idTask}
 										taskDisabled={e.taskDisabled}

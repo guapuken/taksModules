@@ -8,6 +8,7 @@ function DemoComponent() {
 	return (
 		<ModalTemplates
 			idTemplate="1"
+			onCh_templateName={(e) => console.log(e.target.value)}
 			tasks={[
 				{
 					idTask: '1',

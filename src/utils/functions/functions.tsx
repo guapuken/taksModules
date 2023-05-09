@@ -15,3 +15,13 @@ export function cardH() {
 	const scrH = useWindowSize().height;
 	return scrH / 10 / 4 - 3;
 }
+
+/**
+ * @param {string} text - recibe una cadena de texto
+ * @example "Juan Carlos Almada"
+ * @returns las letras iniciales de la cadena de texto
+ * @example - initialLetters("Juan Calos Almada") → return → "JCA"
+ */
+export function initialLetters(text: string) {
+	return text ? text.split(' ').map((word) => word.charAt(0)) : '';
+}

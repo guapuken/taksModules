@@ -7,6 +7,7 @@ export interface button {
 	//css properties
 	style?: css;
 	styleIcon?: css;
+	textStyle?: css;
 	//string properties
 	legend?: string;
 	icon?: string;

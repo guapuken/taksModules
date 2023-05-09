@@ -1,12 +1,12 @@
 import React from 'react';
 // utilidades storybook
 import { Meta, Story, storiesOf } from '@storybook/react';
-import { object } from '../../storyUtils';
+import { object } from '../../../storyUtils';
 // componentes auxiliares
-import { CardTask } from '../../components';
+import { CardTask } from '../../../components';
 
 // componente principal
-import Carousel from './carousel';
+import Carousel from '../carousel';
 
 // generación de plantilla donde se colocará el componente
 storiesOf('carousel', module).add('setData', () => {
