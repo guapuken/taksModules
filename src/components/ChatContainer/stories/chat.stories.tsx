@@ -18,7 +18,7 @@ export const InitialState = {
 		modo: 'Dark',
 		multiplesChats: true,
 		projectName: 'Uber Eats-2536-Esp-Noviembre',
-		onCh_comment: (e) => console.log(e.target.value),
+		// onCh_comment: (e) => console.log(e.target.value),
 	},
 };
 

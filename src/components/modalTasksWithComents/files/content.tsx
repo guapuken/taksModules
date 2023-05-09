@@ -14,6 +14,7 @@ const Content = (props: contentProps) => {
 		taskComplete,
 		onCh_addFile,
 		onCl_addComent,
+		onCh_comment,
 	} = props;
 	const [showTasks, setShowTasks] = React.useState(false);
 	return (
@@ -57,6 +58,7 @@ const Content = (props: contentProps) => {
 				)}
 			</div>
 			<Comentarios
+				onCh_comment={onCh_comment}
 				comments={comments}
 				showTasks={showTasks}
 				onCh_addFile={onCh_addFile}

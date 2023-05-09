@@ -12,8 +12,8 @@ export interface chatProps {
 
 export type msns = {
 	avatar?: string | undefined;
-	type?: 'Received' | 'Sent' | 'System';
+	type: 'Received' | 'Sent' | 'System';
 	userName?: string;
-	message?: string;
-	date?: string;
+	message: string;
+	date: Date;
 };

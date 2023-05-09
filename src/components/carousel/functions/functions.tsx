@@ -45,18 +45,15 @@ export function sizeElement(data: elements[]) {
 		let height = 0;
 		for (let i = 0; i < data.length; i++) {
 			if (elementWidth !== width) {
-				width = width + (elementWidth ? elementWidth : 0);
+				width += elementWidth ?? 0;
 			}
 			if (elementHeight !== height) {
-				height = height + (elementHeight ? elementHeight : 0);
+				height += elementHeight ?? 0;
 			}
 		}
-		console.log(width, height);
 		if (width !== 0 && height !== 0) {
 			return { key: prop.id, width, height };
 		}
-		console.log('No se retornaron datos');
 	});
-	console.log('elementSize: ', elementSize);
 	return elementSize[0];
 }

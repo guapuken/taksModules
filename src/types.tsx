@@ -54,8 +54,10 @@ export interface tasks {
 	valueTask?: string;
 	valueDescription?: string;
 	onClickCheck?: onClickType;
-	onCh_nameTask: onBlurType;
-	onCh_descriptionTask: onBlurType;
+	onCh_nameTask: onChangeType;
+	// onCh_nameTask: onBlurType;
+	onCh_descriptionTask: onChangeType;
+	// onCh_descriptionTask: onBlurType;
 	idCheckbox?: string;
 	onCh_checkbox?: onChangeType;
 
@@ -192,8 +194,10 @@ export type subtasksProps = {
 	check?: boolean;
 	valueTask?: string;
 	valueDescription?: string;
-	onCh_nameTask: onBlurType;
-	onCh_descriptionTask: onBlurType;
+	// onCh_nameTask: onBlurType;
+	onCh_nameTask: onChangeType;
+	// onCh_descriptionTask: onBlurType;
+	onCh_descriptionTask: onChangeType;
 	onCh_checkbox?: onChangeType;
 
 	//Icon Dates

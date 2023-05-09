@@ -1,13 +1,16 @@
 import React from 'react';
-import AutoResizeInput from '../../autoResizeInput';
-import { SimpleButtonText } from '../../../utils/cardsUtils';
-import Button from '../../button';
+import { AutoresizeInput, Button } from '../../../components';
 
 const AddComment = ({ onCh_addFile, onCl_addComment, onCh_comment }: any) => {
 	return (
 		<div className="ctnBlockComents_TWCC">
 			<fieldset>
-				<AutoResizeInput id="" placeholder="Comentar" taskType="task" onCh={onCh_comment} />
+				<AutoresizeInput
+					id="addCommentInput"
+					placeholder="Comentar"
+					taskType="task"
+					onCh={onCh_comment}
+				/>
 			</fieldset>
 			{/* Cuando se habilite la subida de archivos a los chats se agergaará esta parte del código */}
 			{/* <div className="ctnButtons">

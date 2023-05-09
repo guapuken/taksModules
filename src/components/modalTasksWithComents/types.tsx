@@ -19,6 +19,7 @@ export interface contentProps {
 	// on changes
 	onCh_addFile?: onChangeType;
 	onCh_dropdown?: onChangeType;
+	onCh_comment: onChangeType;
 
 	// comentarios
 	comments?: comentarios[];
@@ -36,6 +37,7 @@ export type comentarios = {
 export type functions = {
 	onCh_addFile?: onChangeType;
 	onCl_addComent?: onClickType;
+	onCh_comment: onChangeType;
 	onCl_reWork?: onClickType;
 	onCl_confirm?: onClickType;
 	onCl_approve?: onClickType;
@@ -48,6 +50,7 @@ export type itemComments = {
 	showTasks?: boolean;
 	onCh_addFile?: onChangeType;
 	onCl_addComent?: onClickType;
+	onCh_comment: onChangeType;
 };
 // estructura de las subtareas
 export type subtasks = {

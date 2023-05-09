@@ -25,3 +25,9 @@ export function cardH() {
 export function initialLetters(text: string) {
 	return text ? text.split(' ').map((word) => word.charAt(0)) : '';
 }
+
+let id = 0;
+export function autoIncrementalId(diferencial?: string) {
+	id++;
+	return `${diferencial ?? ''}-${id}`;
+}

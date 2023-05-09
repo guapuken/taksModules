@@ -44,12 +44,10 @@ export function arrayMsns(msns: msns[]) {
 					},
 				],
 			};
-			console.log('objeto 0: ', temporaryObject);
 		}
 		if (counter - 1 >= 0) {
 			if (msns[counter].userName !== msns[counter - 1].userName) {
 				newArray.push(temporaryObject);
-				console.log('Nombre diferente');
 				temporaryObject = {
 					userName: msns[counter].userName,
 					avatar: msns[counter].avatar,
@@ -61,14 +59,12 @@ export function arrayMsns(msns: msns[]) {
 						},
 					],
 				};
-				console.log('objeto diferente: ', temporaryObject);
 			}
 			if (msns[counter].userName === msns[counter - 1].userName) {
 				temporaryObject.messages.push({
 					message: msns[counter].message,
 					date: msns[counter].date,
 				});
-				console.log('objeto iguaal: ', temporaryObject);
 			}
 		}
 		counter++;

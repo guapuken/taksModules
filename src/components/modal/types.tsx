@@ -33,4 +33,5 @@ export type content = {
 	Content?: any;
 	Footer?: any;
 	styleContent?: css;
+	[key: string]: any;
 };

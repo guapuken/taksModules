@@ -4,7 +4,7 @@
 /**
  * @returns - button que puede incluir un icono, ser flotante y su legenda
  */
-export {default as Button} from './button';
+export {default as Button} from './Button';
 /**
  * @returns - conjunto de botones que tienen cierta composición
  */

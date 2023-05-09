@@ -31,5 +31,6 @@ export type commentTask = {
 	onCl_addComment?: onClickType;
 	onCh_addFile?: onChangeType;
 	idComment?: string;
-	onCh_comment: onBlurType;
+	// onCh_comment: onBlurType;
+	onCh_comment: onChangeType;
 };

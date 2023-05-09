@@ -11,8 +11,8 @@ const ModalProjects = (props: ModalProjectsProps) => {
 	return (
 		<Modal
 			header="Creación de proyectos"
-			Content={() => <Content {...props} />}
-			Footer={() => <Footer {...props} />}
+			Content={<Content {...props} />}
+			Footer={<Footer {...props} />}
 			modo={props.modo}
 		/>
 	);

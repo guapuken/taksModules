@@ -161,8 +161,13 @@ const Task = ({
 			)}
 			{subtasks && (
 				<div className={'ChildrenContainerTaskModules'}>
-					<div style={{ borderLeft: '3px solid #28282830', paddingLeft: '20px' }}>
-						{subtasks.map((e: tasks) => (
+					<div
+						style={{
+							borderLeft: '3px solid #28282830',
+							paddingLeft: '20px',
+						}}
+					>
+						{subtasks.map((e: any) => (
 							<div style={{ margin: '.5vh 0' }} key={e.idTask}>
 								{plantillas ? (
 									<Task

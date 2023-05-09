@@ -8,7 +8,7 @@ const ContentStr = (props: content) => {
 			className={`ctn${header ? 'Header' : ''}${Footer ? 'Footer' : ''}Children`}
 			style={styleContent}
 		>
-			<Content />
+			{Content}
 		</div>
 	);
 };

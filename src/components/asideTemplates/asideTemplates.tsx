@@ -36,7 +36,7 @@ const AsideTemplates = ({
 	const scrnH = useWindowSize().height;
 	function aspectRatio() {
 		const size = scrnH / 10 > scrnW / 7 ? true : false;
-		console.log(size);
+		// console.log(size);
 		return size;
 	}
 	return (
