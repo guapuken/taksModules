@@ -1,7 +1,7 @@
 import React from 'react';
 
 //componentes auxiliares
-import Button from '../button';
+import { Button } from '../../components';
 // componentes principales
 import { Menu } from './files';
 // importación de estilos

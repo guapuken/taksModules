@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { AutoresizeInput } from '../../../components';
+import { AutoresizeInput, Button } from '../../../components';
 import { SimpleButtonText } from '../../../utils/cardsUtils';
-import Button from '../../button';
 import { commentTask } from '../types';
 
 const CommentTask = (props: commentTask) => {

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import Button from '../../button/Button';
+// import Button from '../../button/Button';
+import { Button } from '../../../components';
 import image from '../../../img/reloj.svg';
 import { noTasksProps } from '../types/types';
 
