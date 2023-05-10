@@ -21,6 +21,7 @@ const Buttons = (props: buttons) => {
 	function returnButtons() {
 		function dataButton(tipo = 'primary') {
 			return {
+				modo: datos.modo,
 				legend:
 					tipo === 'primary'
 						? datos.legends?.primary
@@ -29,14 +30,6 @@ const Buttons = (props: buttons) => {
 						: tipo === 'tertiary'
 						? datos.legends?.tertiary
 						: 'clic here',
-				onCl:
-					tipo === 'primary'
-						? onCl_buttons?.primary
-						: tipo === 'secondary'
-						? onCl_buttons?.secondary
-						: tipo === 'tertiary'
-						? onCl_buttons?.tertiary
-						: undefined,
 				size: size,
 				color:
 					tipo === 'primary'
@@ -176,20 +169,23 @@ const Buttons = (props: buttons) => {
 		};
 		return composition === 'horizontal' ? (
 			<div style={{ ...compositionStyles.horizontal, ...datos.styleComposition }}>
-				{datos.buttons?.secondary && (
+				{datos.buttons.secondary && (
 					<Button
+						onCl={onCl_buttons.secondary}
 						{...dataButton('secondary')}
 						style={{ ...buttonsStyles.horizontal.secondary, ...datos.style?.secondary }}
 					/>
 				)}
-				{datos.buttons?.tertiary && (
+				{datos.buttons.tertiary && (
 					<Button
+						onCl={onCl_buttons.tertiary}
 						{...dataButton('tertiary')}
 						style={{ ...buttonsStyles.horizontal.tertiary, ...datos.style?.tertiary }}
 					/>
 				)}
-				{datos.buttons?.primary && (
+				{datos.buttons.primary && (
 					<Button
+						onCl={onCl_buttons.primary}
 						{...dataButton('primary')}
 						style={{ ...buttonsStyles.horizontal.primary, ...datos.style?.primary }}
 					/>
@@ -205,20 +201,23 @@ const Buttons = (props: buttons) => {
 					...datos.styleComposition,
 				}}
 			>
-				{datos.buttons?.primary && (
+				{datos.buttons.primary && (
 					<Button
+						onCl={onCl_buttons.primary}
 						{...dataButton('primary')}
 						style={{ ...buttonsStyles.vertical, ...datos.style?.primary }}
 					/>
 				)}
-				{datos.buttons?.secondary && (
+				{datos.buttons.secondary && (
 					<Button
+						onCl={onCl_buttons.secondary}
 						{...dataButton('secondary')}
 						style={{ ...buttonsStyles.vertical, ...datos.style?.secondary }}
 					/>
 				)}
-				{datos.buttons?.tertiary && (
+				{datos.buttons.tertiary && (
 					<Button
+						onCl={onCl_buttons.tertiary}
 						{...dataButton('tertiary')}
 						style={{ ...buttonsStyles.vertical, ...datos.style?.tertiary }}
 					/>
@@ -233,8 +232,9 @@ const Buttons = (props: buttons) => {
 					...datos.styleComposition,
 				}}
 			>
-				{datos.buttons?.primary && (
+				{datos.buttons.primary && (
 					<Button
+						onCl={onCl_buttons.primary}
 						{...dataButton('primary')}
 						style={{ ...buttonsStyles.box.primary, ...datos.style?.primary }}
 					/>
@@ -247,8 +247,9 @@ const Buttons = (props: buttons) => {
 						justifyContent: 'right',
 					}}
 				>
-					{datos.buttons?.tertiary && (
+					{datos.buttons.tertiary && (
 						<Button
+							onCl={onCl_buttons.tertiary}
 							{...dataButton('tertiary')}
 							style={{
 								...buttonsStyles.box.tertiaryAndSecondary,
@@ -256,8 +257,9 @@ const Buttons = (props: buttons) => {
 							}}
 						/>
 					)}
-					{datos.buttons?.secondary && (
+					{datos.buttons.secondary && (
 						<Button
+							onCl={onCl_buttons.secondary}
 							{...dataButton('secondary')}
 							style={{
 								...buttonsStyles.box.tertiaryAndSecondary,

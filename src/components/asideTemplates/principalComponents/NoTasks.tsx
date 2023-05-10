@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 import { Button } from '../../../components';
 import image from '../../../img/reloj.svg';
 import { noTasksProps } from '../types/types';
+import { onClickType } from '../../../types';
 
 const NoTasks = ({
 	priText,
@@ -11,6 +12,7 @@ const NoTasks = ({
 	idSection,
 	onCl_btn,
 	imageNoTasks,
+	modo,
 }: noTasksProps) => {
 	return (
 		<Fragment>
@@ -20,7 +22,13 @@ const NoTasks = ({
 					{priText && <h2 className="ttlAsd">{priText}</h2>}
 					{secText && <p className="descrAsd">{secText}</p>}
 					{legendBtn && (
-						<Button legend={legendBtn} id={idSection} onCl={onCl_btn} primary />
+						<Button
+							legend={legendBtn}
+							id={idSection}
+							onCl={onCl_btn as onClickType}
+							primary
+							modo={modo}
+						/>
 					)}
 				</div>
 			</div>

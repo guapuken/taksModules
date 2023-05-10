@@ -1,6 +1,7 @@
 import React from 'react';
 import { content } from '../types';
 import { Task } from '../../../components';
+import { onChangeType } from '../../../types';
 
 const Content = (props: content) => {
 	const datos = { ...props };
@@ -14,8 +15,8 @@ const Content = (props: content) => {
 				equipos={datos.equipos}
 				subtasks={datos.subtasks}
 				principalTask
-				onCh_descriptionTask={datos.onCh_descriptionTask}
-				onCh_nameTask={datos.onCh_nameTask}
+				onCh_descriptionTask={datos.onCh_descriptionTask as onChangeType}
+				onCh_nameTask={datos.onCh_nameTask as onChangeType}
 				onCl_addTask={datos.onCl_addTask}
 				onCl_newTemplate={datos.onCl_newTemplate}
 				onCl_selectPriority={datos.onCl_selectPriority}

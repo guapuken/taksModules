@@ -59,6 +59,7 @@ const Content = ({
 
 			<div className=".ctnProgressBar_showDtls">
 				<ProgressBar
+					modo={modo}
 					status={statusTasks}
 					valor={
 						completedTask === 0 || incompletedTask === 0

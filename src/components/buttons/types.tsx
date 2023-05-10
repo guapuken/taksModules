@@ -1,9 +1,9 @@
 // types externos
-import { compositions, css, onClickType, size } from '../../types';
+import { Modo, compositions, css, onClickType, size } from '../../types';
 
 export interface buttons {
-	onCl_buttons?: functions;
-	buttons?: booleanTypes;
+	onCl_buttons: functions;
+	buttons: booleanTypes;
 	disabled?: booleanTypes;
 	styleIcon?: styles;
 	style?: styles;
@@ -16,10 +16,11 @@ export interface buttons {
 	id?: stringTypes;
 	size?: size;
 	styleComposition?: css;
-	composition?: compositions;
+	composition: compositions;
 	rounded?: boolean;
 	border?: boolean;
 	float?: boolean;
+	modo: Modo;
 }
 
 // strings
@@ -45,7 +46,7 @@ type styles = {
 
 // funciones
 type functions = {
-	primary?: onClickType;
-	secondary?: onClickType;
-	tertiary?: onClickType;
+	primary: onClickType;
+	secondary: onClickType;
+	tertiary: onClickType;
 };

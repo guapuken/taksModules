@@ -3,8 +3,8 @@ import { Modo, css } from '../../types';
 export interface information {
 	width?: number;
 	height?: number;
-	info?: string;
-	positionInfo?:
+	info: string;
+	positionInfo:
 		| 'left'
 		| 'right'
 		| 'top'

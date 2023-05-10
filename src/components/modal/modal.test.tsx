@@ -8,9 +8,20 @@ describe('Modal', () => {
 	test('render the Modal component', () => {
 		expect(
 			<Modal
+				modo="Light"
 				Content={() => (
 					<div style={{ position: 'relative', height: '100%', width: '760px' }}>
-						<InputTask idCheckbox="1" id="1" />
+						<InputTask
+							check
+							modo="Light"
+							onCh_checkbox={() => {}}
+							onCh_descriptionTask={() => {}}
+							onCh_nameTask={() => {}}
+							valueDescription=""
+							valueTask=""
+							idCheckbox="1"
+							id="1"
+						/>
 						<div
 							style={{
 								marginLeft: '20px',
@@ -19,14 +30,79 @@ describe('Modal', () => {
 								paddingLeft: '10px',
 							}}
 						>
-							<InputTask idCheckbox="1" id="1" isSubtask checked />
-							<InputTask idCheckbox="1" id="1" isSubtask checked />
-							<InputTask idCheckbox="1" id="1" isSubtask />
-							<InputTask idCheckbox="1" id="1" isSubtask />
-							<InputTask idCheckbox="1" id="1" isSubtask />
+							<InputTask
+								check
+								modo="Light"
+								onCh_checkbox={() => {}}
+								onCh_descriptionTask={() => {}}
+								onCh_nameTask={() => {}}
+								valueDescription=""
+								valueTask=""
+								idCheckbox="1"
+								id="1"
+								isSubtask
+							/>
+							<InputTask
+								check
+								modo="Light"
+								onCh_checkbox={() => {}}
+								onCh_descriptionTask={() => {}}
+								onCh_nameTask={() => {}}
+								valueDescription=""
+								valueTask=""
+								idCheckbox="1"
+								id="1"
+								isSubtask
+							/>
+							<InputTask
+								check
+								modo="Light"
+								onCh_checkbox={() => {}}
+								onCh_descriptionTask={() => {}}
+								onCh_nameTask={() => {}}
+								valueDescription=""
+								valueTask=""
+								idCheckbox="1"
+								id="1"
+								isSubtask
+							/>
+							<InputTask
+								check
+								modo="Light"
+								onCh_checkbox={() => {}}
+								onCh_descriptionTask={() => {}}
+								onCh_nameTask={() => {}}
+								valueDescription=""
+								valueTask=""
+								idCheckbox="1"
+								id="1"
+								isSubtask
+							/>
+							<InputTask
+								check
+								modo="Light"
+								onCh_checkbox={() => {}}
+								onCh_descriptionTask={() => {}}
+								onCh_nameTask={() => {}}
+								valueDescription=""
+								valueTask=""
+								idCheckbox="1"
+								id="1"
+								isSubtask
+							/>
 						</div>
 						<div style={{ marginTop: '10px' }}>
-							<InputTask idCheckbox="1" id="1" />
+							<InputTask
+								check
+								modo="Light"
+								onCh_checkbox={() => {}}
+								onCh_descriptionTask={() => {}}
+								onCh_nameTask={() => {}}
+								valueDescription=""
+								valueTask=""
+								idCheckbox="1"
+								id="1"
+							/>
 							<div
 								style={{
 									marginLeft: '20px',
@@ -35,14 +111,71 @@ describe('Modal', () => {
 									paddingLeft: '10px',
 								}}
 							>
-								<InputTask idCheckbox="1" id="1" isSubtask />
-								<InputTask idCheckbox="1" id="1" isSubtask />
-								<InputTask idCheckbox="1" id="1" isSubtask />
-								<InputTask idCheckbox="1" id="1" isSubtask />
-								<InputTask idCheckbox="1" id="1" isSubtask />
+								<InputTask
+									check
+									modo="Light"
+									onCh_checkbox={() => {}}
+									onCh_descriptionTask={() => {}}
+									onCh_nameTask={() => {}}
+									valueDescription=""
+									valueTask=""
+									idCheckbox="1"
+									id="1"
+									isSubtask
+								/>
+								<InputTask
+									check
+									modo="Light"
+									onCh_checkbox={() => {}}
+									onCh_descriptionTask={() => {}}
+									onCh_nameTask={() => {}}
+									valueDescription=""
+									valueTask=""
+									idCheckbox="1"
+									id="1"
+									isSubtask
+								/>
+								<InputTask
+									check
+									modo="Light"
+									onCh_checkbox={() => {}}
+									onCh_descriptionTask={() => {}}
+									onCh_nameTask={() => {}}
+									valueDescription=""
+									valueTask=""
+									idCheckbox="1"
+									id="1"
+									isSubtask
+								/>
+								<InputTask
+									check
+									modo="Light"
+									onCh_checkbox={() => {}}
+									onCh_descriptionTask={() => {}}
+									onCh_nameTask={() => {}}
+									valueDescription=""
+									valueTask=""
+									idCheckbox="1"
+									id="1"
+									isSubtask
+								/>
+								<InputTask
+									check
+									modo="Light"
+									onCh_checkbox={() => {}}
+									onCh_descriptionTask={() => {}}
+									onCh_nameTask={() => {}}
+									valueDescription=""
+									valueTask=""
+									idCheckbox="1"
+									id="1"
+									isSubtask
+								/>
 							</div>
 						</div>
 						<Buttons
+							modo="Light"
+							onCl_buttons={{} as any}
 							styleComposition={{
 								marginTop: '20px',
 								width: 'inherit',

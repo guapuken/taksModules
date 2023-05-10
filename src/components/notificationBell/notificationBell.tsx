@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import { selectRandomText } from '../../utils/randomTexts';
-import Cards from '../cards';
 // import { useTimeCounter } from './hooks/useCounter';
 import bellIcon from '../../img/bell.svg';
 import '../../global.scss';
 import './notificationBell.scss';
-import { TitleCard } from '../../utils/cardsUtils';
 import { Modo } from '../../types';
 import Notification from './files/notification';
 import WithoutNotifications from './files/withoutNotifications';
 
 export interface NotificationBellProps {
-	Children?: any;
 	notifications?: {
 		title: string;
-		onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+		onClick: (e: React.MouseEvent<HTMLElement>) => void;
 	}[];
 	modo: Modo;
 }

@@ -3,7 +3,7 @@ import { Button, Buttons, Dropdown } from '../../../components';
 import { functions } from '../types';
 
 const Footer = (props: functions) => {
-	const { onCl_reWork, onCh_dropdown, onCl_approve, onCl_confirm, reasonToRework } = props;
+	const { onCl_reWork, onCh_dropdown, onCl_approve, onCl_confirm, reasonToRework, modo } = props;
 	const [reWork, setReWork] = React.useState(false);
 	const [reasonToWorkAgain, setReasonToWorkAgain] = React.useState(reasonToRework);
 	React.useEffect(() => {}, [reWork]);
@@ -35,6 +35,7 @@ const Footer = (props: functions) => {
 							setReWork(true);
 							// onCl_reWork;
 						}}
+						modo={modo}
 					/>
 				)}
 				{reWork && (
@@ -48,6 +49,7 @@ const Footer = (props: functions) => {
 						}}
 					>
 						<Dropdown
+							modo={modo}
 							isSearchable
 							placeHolder="Selecciona la razón"
 							onCh={(e) => {
@@ -72,7 +74,10 @@ const Footer = (props: functions) => {
 							onCl_buttons={{
 								primary: onCl_confirm,
 								secondary: () => setReWork(false),
+								tertiary: () => {},
 							}}
+							modo={modo}
+							composition="horizontal"
 						/>
 					</div>
 				)}
@@ -83,6 +88,7 @@ const Footer = (props: functions) => {
 					style={{ width: '100%', height: '20px' }}
 					primary
 					onCl={onCl_approve}
+					modo={modo}
 				/>
 			)}
 		</div>

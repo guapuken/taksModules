@@ -31,6 +31,8 @@ export interface contentProps {
 	onCl_reminder: onClickType;
 	onCl_approve: onClickType;
 	onCl_confirm: onClickType;
+	onCl_reWork: onClickType;
+
 	// onCl_reWork: onClickType;
 	//string
 	taskName: string;
@@ -57,27 +59,32 @@ export interface contentProps {
 // botones que se utilizan
 export type functions = {
 	onCh_addFile?: onChangeType;
-	onCl_addComment?: onClickType;
+	onCl_addComment: onClickType;
 	onCh_comment: onChangeType;
-	onCl_reWork?: onClickType;
-	onCl_confirm?: onClickType;
-	onCl_approve?: onClickType;
-	onCh_dropdown?: onChangeType;
+	onCl_reWork: onClickType;
+	onCl_confirm: onClickType;
+	onCl_approve: onClickType;
+	onCh_dropdown: onChangeType;
 	reasonToRework?: optionsDropdown;
+	modo: Modo;
 };
 // types del componente complemenetario Item Comments
 export type itemComments = {
 	messages: msnsChats[];
 	showTasks?: boolean;
 	onCh_addFile?: onChangeType;
-	onCl_addComment?: onClickType;
+	onCl_addComment: onClickType;
 	onCh_comment: onChangeType;
+	onCl_reWork: onClickType;
+	onCl_confirm: onClickType;
+	onCl_approve: onClickType;
+	onCh_dropdown: onChangeType;
 	modo: Modo;
 };
 // estructura de las subtareas
 export type subtasks = {
 	id: string;
-	taskName?: string;
-	taskDescription?: string;
+	taskName: string;
+	taskDescription: string;
 	complete: boolean;
 };

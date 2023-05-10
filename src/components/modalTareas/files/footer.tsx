@@ -13,7 +13,13 @@ const Footer = (props: footer) => {
 					primary: datos.edit ? 'Guardar cambios' : 'Crear tarea',
 					secondary: datos.edit ? 'Descartar cambios' : 'Cancelar',
 				}}
-				onCl_buttons={{ primary: datos.onCl_confirm, secondary: datos.onCl_abort }}
+				onCl_buttons={{
+					primary: datos.onCl_confirm,
+					secondary: datos.onCl_abort,
+					tertiary: () => {},
+				}}
+				modo={datos.modo}
+				composition="horizontal"
 			/>
 		</div>
 	);

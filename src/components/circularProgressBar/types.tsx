@@ -1,10 +1,10 @@
 import { statusTask } from '../../types';
 
 export interface circularProgressBar {
-	percentTask?: number;
+	percentTask: number;
 	strokeColor?: string;
 	strokeWidth?: number;
 	trailStrokeColor?: string;
 	size?: number;
-	statusTask?: statusTask;
+	statusTask: statusTask;
 }

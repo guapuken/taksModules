@@ -5,7 +5,7 @@ import '../timelineProject.scss';
 import { Button } from '../../../components';
 
 const Tasks = (props: tasks) => {
-	const { completed, taskName, duration, onCl_showDetails, legendBtn } = props;
+	const { completed, taskName, duration, onCl_showDetails, legendBtn, modo } = props;
 	return (
 		<div className="ctnTasks">
 			<div className={`circle${completed ? 'Complete' : ''}`}></div>
@@ -18,6 +18,7 @@ const Tasks = (props: tasks) => {
 						<div>
 							<p className="nmTask">{taskName}</p>
 							<Button
+								modo={modo}
 								border
 								primary
 								legend={legendBtn}

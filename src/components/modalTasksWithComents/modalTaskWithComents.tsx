@@ -8,6 +8,7 @@ const ModalTaskWithComments = (props: contentProps) => {
 		Content: <Content {...props} />,
 		Footer: <Footer {...props} />,
 		header: 'Detalles de tarea',
+		modo: props.modo,
 	};
 	return <Modal {...args} />;
 };

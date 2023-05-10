@@ -37,7 +37,7 @@ const RangeDatePicker = ({
 					className={'DatePickerTaskComponent'}
 					value={String(startDate)}
 					disabled={disabledStartDate}
-					onChange={(e) => {
+					onChange={(e: any) => {
 						setStartDate(e.target.value);
 						if (onCh_startDate) {
 							onCh_startDate(e);
@@ -59,7 +59,7 @@ const RangeDatePicker = ({
 					min={String(startDate)}
 					value={String(endDate)}
 					className={`${'DatePickerTaskComponent'} ${'CalendarOpenTaskModules'}`}
-					onChange={(e) => {
+					onChange={(e: any) => {
 						setEndDate(e.target.value);
 						if (onCh_endDate) onCh_endDate(e);
 					}}

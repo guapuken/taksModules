@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react';
-import { contentProps, subtasks } from '../types';
+import { contentProps } from '../types';
 import { Comentarios } from './index';
-import '../modalTaskWithComents.scss';
 import { SimpleButtonText } from '../../../utils/cardsUtils';
-import InputTask from '../../inputTask/inputTask';
 import { Task } from '../../../components';
 import { optionsIcnDrp } from '../../../types';
+import '../modalTaskWithComents.scss';
 
 const Content = ({
 	modo = 'Light',
@@ -38,6 +37,10 @@ const Content = ({
 	valueRevision,
 	valueResponsable,
 	prioridadInicial,
+	onCh_dropdown,
+	onCl_approve,
+	onCl_confirm,
+	onCl_reWork,
 }: contentProps) => {
 	const [showTasks, setShowTasks] = React.useState(false);
 	return (
@@ -131,6 +134,10 @@ const Content = ({
 				</div>
 			</div>
 			<Comentarios
+				onCh_dropdown={onCh_dropdown}
+				onCl_approve={onCl_approve}
+				onCl_confirm={onCl_confirm}
+				onCl_reWork={onCl_reWork}
 				onCh_comment={onCh_comment}
 				messages={messages}
 				showTasks={showTasks}

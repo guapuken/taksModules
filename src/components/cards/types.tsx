@@ -2,9 +2,9 @@ import { Modo } from '../../types';
 //definición de interfaces
 export interface cardIntrfc {
 	// tema de visualización
-	modo?: Modo;
+	modo: Modo;
 	//componentes
-	Content?: any;
+	Content: any;
 	Aside?: any;
 	data?: any;
 	// booleanos

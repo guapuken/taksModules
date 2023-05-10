@@ -3,8 +3,8 @@ import { Modo, css, onChangeType, onClickType, statusTask, submenusArray } from 
 //componente principal que returna el drag and drop------------------------------------------------------------------------------------------
 export interface dragAndDrop {
 	tasks: task[];
-	modo?: Modo;
-	nameBoards?: { [key: string]: string };
+	modo: Modo;
+	nameBoards: { [key: string]: string };
 	withAside?: boolean;
 	width?: number;
 	vertical?: boolean;
@@ -47,23 +47,23 @@ export type task = {
 	// status: Status;
 	status: string;
 	//TaskName
-	modo?: Modo;
+	modo: Modo;
 	idNotification: string;
-	taskName?: string;
-	taskDescription?: string;
-	valueResponsable?: string;
+	taskName: string;
+	taskDescription: string;
+	valueResponsable: string;
 	valueRevision?: string;
 	subtasks?: number;
-	percentTask?: number;
-	followNotificationsValue?: boolean;
-	statusTask?: statusTask;
-	onCl_showDetails?: onClickType;
-	onCl_edit?: onClickType;
-	onCl_follow?: onClickType;
-	onCl_remimder?: onClickType;
-	onCl_asignTask?: onClickType;
-	onCl_reasignDate?: onClickType;
-	onCh_follow?: onChangeType;
+	percentTask: number;
+	followNotificationsValue: boolean;
+	statusTask: statusTask;
+	onCl_showDetails: onClickType;
+	onCl_edit: onClickType;
+	onCl_follow: onClickType;
+	onCl_remimder: onClickType;
+	onCl_asignTask: onClickType;
+	onCl_reasignDate: onClickType;
+	onCh_follow: onChangeType;
 	responsables?: submenusArray[];
 	equipos?: submenusArray[];
 	revision?: submenusArray[];

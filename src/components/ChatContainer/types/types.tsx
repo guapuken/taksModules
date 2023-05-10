@@ -1,12 +1,12 @@
 import { Modo, onBlurType, onChangeType, onClickType } from '../../../types';
 export interface chatProps {
-	modo?: Modo;
+	modo: Modo;
 	multiplesChats?: boolean;
-	projectName?: string;
+	projectName: string;
 	onCh_addFile?: onChangeType;
-	onCl_addComment?: onClickType;
-	onCh_comment?: onBlurType;
-	onCh_dropdown?: onChangeType;
+	onCl_addComment: onClickType;
+	onCh_comment: onBlurType;
+	onCh_dropdown: onChangeType;
 	messages: msns[];
 	height?: string;
 	chatValue: { id: string; title: string };

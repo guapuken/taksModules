@@ -1,7 +1,7 @@
 import { Modo, msnsChats } from '../../../types';
 
 export interface msnsProps {
-	messages?: msnsChats[];
+	messages: msnsChats[];
 	height?: string;
 	modo: Modo;
 }

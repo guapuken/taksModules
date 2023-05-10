@@ -1,11 +1,12 @@
 import React from 'react';
 import { AutoresizeInput, Button } from '../../../components';
 
-const AddComment = ({ onCh_addFile, onCl_addComment, onCh_comment }: any) => {
+const AddComment = ({ onCh_addFile, onCl_addComment, onCh_comment, modo }: any) => {
 	return (
 		<div className="ctnBlockComents_TWCC">
 			<fieldset>
 				<AutoresizeInput
+					modo={modo}
 					id="addCommentInput"
 					placeholder="Comentar"
 					taskType="task"
@@ -29,6 +30,7 @@ const AddComment = ({ onCh_addFile, onCl_addComment, onCh_comment }: any) => {
 				<Button primary size="small" legend="Comentar" onCl={onCl_addComment} />
 			</div> */}
 			<Button
+				modo={modo}
 				primary
 				size="small"
 				legend="Comentar"

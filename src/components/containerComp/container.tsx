@@ -10,7 +10,7 @@ import './styles/container.scss';
 import { container } from './types/container';
 
 // types que se usan en documentación NO BORRAR
-import { Modo } from '../../types';
+import { Modo, onClickType } from '../../types';
 import { header } from './types/header';
 import { onClicks } from './types/aside';
 
@@ -73,6 +73,7 @@ const Container = ({
 								legend={header.legendBtn}
 								primary
 								onCl={header.onCl_btn}
+								modo={modo}
 							/>
 						)}
 					</div>

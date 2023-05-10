@@ -10,6 +10,7 @@ const CommentsTask = (props: commentsTask) => {
 	const { modo = 'Light', comments, onCl_addComment, onCh_addFile, onCh_comment } = props;
 	return (
 		<>
+			{/* TODO: Agregar el componente de mensajes */}
 			<div className={`ctn${modo}_CTC`}>
 				<h2>Comentarios</h2>
 				{comments && <Comments comments={comments} />}

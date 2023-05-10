@@ -22,15 +22,6 @@ const Content = ({
 }: content) => {
 	//
 
-	const [onChValue, SetOnChValue] = useState(null);
-	const handleClick = (e) => {
-		SetOnChValue(
-			/* (prev) => ({ */
-			// ...prev,
-			e.target.value /* ,
-		}) */
-		);
-	};
 	return (
 		<div>
 			<InputLabel

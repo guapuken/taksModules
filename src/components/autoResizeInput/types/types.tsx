@@ -11,5 +11,5 @@ export interface autoresizeInput {
 	placeholder?: string;
 	tabIndex?: number;
 	disabled?: boolean;
-	modo?: Modo;
+	modo: Modo;
 }

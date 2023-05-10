@@ -10,70 +10,92 @@ function DemoComponent() {
 
 	return (
 		<ModalTask
-			content={{
-				idTask: '1',
-				equipos: [],
-				// moreOptions: [],
-				onCl_newTemplate: () => alert('nueva palntilla'),
-				onCl_addTask: () => alert('nueva palntilla'),
-				responsables: [],
-				revision: [],
-				templateOptions: [],
-				onCl_delete: () => alert('Hola'),
-				check: checkValue,
-				onCh_checkbox: (e) => setCheckValue(!checkValue),
-				subtasks: [
-					{
-						equipos: [],
-						idTask: '1',
-						onCl_newTemplate: () => {},
-						responsables: [],
-						revision: [],
-						templateOptions: [],
-						subtasks: [
-							{
-								equipos: [],
-								idTask: '1',
-								onCl_newTemplate: () => {},
-								responsables: [],
-								revision: [],
-								templateOptions: [],
-								subtasks: [
-									{
-										equipos: [],
-										idTask: '1',
-										onCl_newTemplate: () => {},
-										responsables: [],
-										revision: [],
-										templateOptions: [],
-										subtasks: [
-											{
-												equipos: [],
-												idTask: '1',
-												onCl_newTemplate: () => {},
-												responsables: [],
-												revision: [],
-												templateOptions: [],
-												subtasks: [
-													{
-														equipos: [],
-														idTask: '1',
-														onCl_newTemplate: () => {},
-														responsables: [],
-														revision: [],
-														templateOptions: [],
-													},
-												],
-											},
-										],
-									},
-								],
-							},
-						],
-					},
-				],
-			}}
-			footer={{}}
+			idTask="1"
+			equipos={[]}
+			endDateValue={''}
+			startDateValue={''}
+			modo="Light"
+			onCh_descriptionTask={() => {}}
+			onCh_endDate={() => {}}
+			onCh_nameTask={() => {}}
+			onCh_startDate={() => {}}
+			onCheck={() => {}}
+			onCl_abort={() => {}}
+			onCl_confirm={() => {}}
+			onCl_reminder={() => {}}
+			onCl_selectPriority={() => {}}
+			valueResponsable={'Juan PErez'}
+			// moreOptions= []
+			onCl_newTemplate={() => alert('nueva palntilla')}
+			onCl_addTask={() => alert('nueva palntilla')}
+			responsables={[]}
+			revision={[]}
+			templateOptions={[]}
+			onCl_delete={() => alert('Hola')}
+			valueTask="Hola que hace"
+			valueDescription="Nada y tu?"
+			check={checkValue}
+			onCh_checkbox={(e) => setCheckValue(!checkValue)}
+			subtasks={[
+				{
+					onCh_descriptionTask: () => {},
+					onCh_nameTask: () => {},
+					equipos: [],
+					idTask: '1',
+					onCl_newTemplate: () => {},
+					responsables: [],
+					revision: [],
+					templateOptions: [],
+					subtasks: [
+						{
+							onCh_descriptionTask: () => {},
+							onCh_nameTask: () => {},
+							equipos: [],
+							idTask: '1',
+							onCl_newTemplate: () => {},
+							responsables: [],
+							revision: [],
+							templateOptions: [],
+							subtasks: [
+								{
+									onCh_descriptionTask: () => {},
+									onCh_nameTask: () => {},
+									equipos: [],
+									idTask: '1',
+									onCl_newTemplate: () => {},
+									responsables: [],
+									revision: [],
+									templateOptions: [],
+									subtasks: [
+										{
+											onCh_descriptionTask: () => {},
+											onCh_nameTask: () => {},
+											equipos: [],
+											idTask: '1',
+											onCl_newTemplate: () => {},
+											responsables: [],
+											revision: [],
+											templateOptions: [],
+											subtasks: [
+												{
+													onCh_descriptionTask: () => {},
+													onCh_nameTask: () => {},
+													equipos: [],
+													idTask: '1',
+													onCl_newTemplate: () => {},
+													responsables: [],
+													revision: [],
+													templateOptions: [],
+												},
+											],
+										},
+									],
+								},
+							],
+						},
+					],
+				},
+			]}
 		/>
 	);
 }

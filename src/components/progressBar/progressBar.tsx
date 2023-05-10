@@ -6,12 +6,12 @@ import './progressBar.scss';
 
 //interface
 export interface ProgressBarProps {
-	status?: statusTask;
-	onClick?: onClickType;
+	status: statusTask;
+	onClick: onClickType;
 	styleContent?: React.CSSProperties;
 	valor?: number;
 	width?: number;
-	modo?: Modo;
+	modo: Modo;
 }
 
 const ProgressBar = ({

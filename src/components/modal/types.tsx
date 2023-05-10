@@ -12,7 +12,7 @@ export interface modalProps {
 	styleContent?: css;
 	styleFooter?: css;
 	// theme
-	modo?: Modo;
+	modo: Modo;
 }
 
 // componente header

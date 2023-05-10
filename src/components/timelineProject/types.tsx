@@ -13,8 +13,9 @@ export type tasks = {
 	completed?: boolean;
 	taskName: string;
 	duration: number | string;
-	onCl_showDetails?: onClickType;
+	onCl_showDetails: onClickType;
 	legendBtn?: string;
+	modo: Modo;
 };
 
 //componente Header

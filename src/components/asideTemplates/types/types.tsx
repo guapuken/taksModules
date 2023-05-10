@@ -2,7 +2,7 @@ import { Modo, onClickType, statusTask } from '../../../types';
 
 // interface principal
 export interface aside {
-	modo?: Modo;
+	modo: Modo;
 	visible?: boolean;
 	imageNoTasks?: string;
 	priText?: string;
@@ -21,12 +21,13 @@ export type noTasksProps = {
 	legendBtn?: string;
 	idSection?: string;
 	onCl_btn?: onClickType;
+	modo: Modo;
 };
 
 export type tasks = {
 	id: string;
-	taskName?: string;
-	taskDescription?: string;
-	statusTask?: statusTask;
-	onCl_showDetails?: onClickType;
+	taskName: string;
+	taskDescription: string;
+	statusTask: statusTask;
+	onCl_showDetails: onClickType;
 };

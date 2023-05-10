@@ -61,6 +61,7 @@ const Content = ({
 			</div>
 			<div>
 				<Members
+					modo={modo}
 					principal
 					memberValue={memberValue}
 					membersOptions={membersOptions}

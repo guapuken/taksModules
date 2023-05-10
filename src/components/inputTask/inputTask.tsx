@@ -47,6 +47,7 @@ const InputTask = ({
 				)}
 				<div style={{ width: '100%' }}>
 					<AutoresizeInput
+						modo={modo}
 						id={`task${id}`}
 						taskType={principalTask ? 'principal' : 'task'}
 						style={nameTaskStyles}
@@ -57,6 +58,7 @@ const InputTask = ({
 						disabled={check ? true : disabled ? disabled : false}
 					/>
 					<AutoresizeInput
+						modo={modo}
 						id={`description${id}`}
 						taskType={'subtask'}
 						style={descriptionTaskStyles}

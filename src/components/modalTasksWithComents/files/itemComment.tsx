@@ -7,7 +7,18 @@ import { CommentTask } from '.';
 import { Msns } from '../../../components';
 
 const Comentarios = (props: itemComments) => {
-	const { messages, onCl_addComment, onCh_addFile, showTasks, onCh_comment, modo } = props;
+	const {
+		messages,
+		onCl_addComment,
+		onCh_addFile,
+		showTasks,
+		onCh_comment,
+		modo,
+		onCh_dropdown,
+		onCl_approve,
+		onCl_confirm,
+		onCl_reWork,
+	} = props;
 	return (
 		<div className={`ctnComents${showTasks ? 'Full' : ''}_TWCC`} style={{ overflow: 'hidden' }}>
 			<h5 className="ttlComents" style={{ fontWeight: 'lighter', marginBottom: '20px' }}>
@@ -19,6 +30,11 @@ const Comentarios = (props: itemComments) => {
 				modo={modo}
 			/>
 			<CommentTask
+				modo={modo}
+				onCh_dropdown={onCh_dropdown}
+				onCl_approve={onCl_approve}
+				onCl_confirm={onCl_confirm}
+				onCl_reWork={onCl_reWork}
 				onCh_addFile={onCh_addFile}
 				onCl_addComment={onCl_addComment}
 				onCh_comment={onCh_comment}
