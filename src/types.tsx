@@ -68,8 +68,10 @@ export interface tasks {
 	disabledStartDate?: boolean;
 	onCh_endDate?: onChangeType;
 	onCh_startDate?: onChangeType;
-	startDateValue?: Date;
-	endDateValue?: Date;
+	startDateValue?: string;
+	// startDateValue?: Date;
+	endDateValue?: string;
+	// endDateValue?: Date;
 	className?: string;
 	durationValue?: string;
 
@@ -235,6 +237,32 @@ export type subtasksProps = {
 	templateOptions: optionsIcnDrp[];
 	modo?: Modo;
 };
+
+/** Estructura de los mensajes que debe de recibir el componente
+ * @example -
+ *      {
+ *          userName: 'Juan Pérez',
+ *          message: 'Como estás?',
+ *          date: '2023-09-05 GMT-0600 12:00:00'
+ *          type: 'Received',
+ *          avatar: undefined
+ *      }
+ * en caso de ser un mensaje del sistema sólo tiene que incluir (type, message, date)
+ * @example -
+ *      {
+ *          type:'System',
+ *          message:'Juan Pérez se unió al grupo',
+ *          date:'2023-09-05 GMT-0600 12:00:00'
+ *      }
+ */
+export type msnsChats = {
+	avatar?: string | undefined;
+	type: 'Received' | 'Sent' | 'System';
+	userName?: string;
+	message: string;
+	date: string; // tiene que llegar en timestamp
+};
+
 // ---------------------------------------------------------------------------------------------------------
 //      funciones
 // ---------------------------------------------------------------------------------------------------------

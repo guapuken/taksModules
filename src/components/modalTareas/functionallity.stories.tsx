@@ -8,10 +8,6 @@ function DemoComponent() {
 	// console.clear();
 	const [checkValue, setCheckValue] = React.useState(false);
 
-	useEffect(() => {
-		console.log(checkValue);
-	}, [checkValue]);
-
 	return (
 		<ModalTask
 			content={{
@@ -24,8 +20,6 @@ function DemoComponent() {
 				revision: [],
 				templateOptions: [],
 				onCl_delete: () => alert('Hola'),
-				onCh_nameTask: (e) => console.log(e.target.value),
-				onCh_descriptionTask: (e) => console.log(e.target.value),
 				check: checkValue,
 				onCh_checkbox: (e) => setCheckValue(!checkValue),
 				subtasks: [

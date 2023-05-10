@@ -7,10 +7,6 @@ function DemoComponent() {
 	const [nameTask, setNameTask] = React.useState(true);
 	const [descriptionTask, setDescriptionTask] = React.useState('Realizar dummies GDL');
 
-	// consoles para revisar que sse generen de manera correcta los setteos
-	console.clear();
-	console.log(nameTask);
-	console.log(descriptionTask);
 	return (
 		<CardProject
 			modo="Light"

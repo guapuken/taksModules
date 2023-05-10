@@ -10,12 +10,6 @@ function DemoComponent(props) {
 	const [teamName, setTeamName] = React.useState(teamNameValue || '');
 	const [member, setMember] = React.useState(memberSelectedValue || '');
 
-	// consoles para ver que funcionen correctamente los setteos
-	console.clear();
-	console.log('team name:', teamName);
-	console.log('team color:', teamColor);
-	console.log('user select:', member);
-
 	const members = [
 		{ id: '1', title: 'Olaf' },
 		{ id: '2', title: 'Adan' },
@@ -34,7 +28,6 @@ function DemoComponent(props) {
 			role="Ux/Ui Designer"
 			membersOptions={members}
 			onCh_user={(e) => {
-				console.log('entró en add user');
 				setMember(e);
 			}}
 			memberValue={member}

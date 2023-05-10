@@ -62,7 +62,6 @@ const Members = ({
 				>
 					{members &&
 						members.map((member: members) => {
-							console.log(member);
 							return (
 								<div>
 									<Members

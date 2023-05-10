@@ -1,21 +1,26 @@
 import React from 'react';
 //
-import { functions, itemComments } from '../types';
+import { itemComments } from '../types';
 // estilos
 import '../modalTaskWithComents.scss';
-import { CommentTask, CommentCtn } from '.';
+import { CommentTask } from '.';
+import { Msns } from '../../../components';
 
 const Comentarios = (props: itemComments) => {
-	const { comments, onCl_addComent, onCh_addFile, showTasks, onCh_comment } = props;
+	const { messages, onCl_addComment, onCh_addFile, showTasks, onCh_comment, modo } = props;
 	return (
 		<div className={`ctnComents${showTasks ? 'Full' : ''}_TWCC`} style={{ overflow: 'hidden' }}>
-			<h5 className="ttlComents" style={{ fontWeight: 'lighter' }}>
+			<h5 className="ttlComents" style={{ fontWeight: 'lighter', marginBottom: '20px' }}>
 				Comentarios
 			</h5>
-			{comments && CommentCtn(comments)}
+			<Msns
+				messages={messages}
+				// height={`calc(100% - ${heightComments}px)`}
+				modo={modo}
+			/>
 			<CommentTask
 				onCh_addFile={onCh_addFile}
-				onCl_addComent={onCl_addComent}
+				onCl_addComment={onCl_addComment}
 				onCh_comment={onCh_comment}
 			/>
 		</div>

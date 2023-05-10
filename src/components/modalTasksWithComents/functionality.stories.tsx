@@ -4,63 +4,112 @@ import { storiesOf } from '@storybook/react';
 // componentes principales
 import ModalTaskWithComments from '.';
 import { optionsType } from '../modalTeams/types';
+import { autoIncrementalId } from '../../utils/functions/functions';
 
 type options = {
 	id: string;
 	title: string;
 };
 function DemoComponent(props: any) {
-	const [file, setFile] = React.useState('');
-
-	const [reasonToReWork, setReasonToReWork] = React.useState<options>();
-
-	// consoles para ver que funcionen correctamente los setteos
-	// console.clear();
-	console.log('Archivo', file);
-	console.log('Retrabajar: ', reasonToReWork);
-
+	const [check, setCheck] = React.useState(false);
 	return (
 		<ModalTaskWithComments
-			taskName="Dummies plazas principales"
-			taskComplete={false}
+			onCh_descriptionTask={(e) => console.log('descriptionTask: ', e.target.value)}
+			onCh_nameTask={(e) => console.log('nameTask: ', e.target.value)}
+			onCh_comment={(e) => console.log('comments: ', e.target.value)}
+			onCh_checkbox={(e) => {
+				setCheck(!check);
+			}}
+			onCh_endDate={(e) => console.log('endDate: ', e.target.value)}
+			onCh_startDate={(e) => console.log('startDate: ', e.target.value)}
+			onCl_newTemplate={(e) => alert('newtemplate: ')}
+			onCl_addComment={(e) => alert('addComment: ')}
+			onCl_approve={(e) => alert('aprobar: ')}
+			onCl_addTask={(e) => alert('addTask: ')}
+			onCl_selectPriority={(e) => alert('seleconCl_selectPriority: ')}
+			onCl_delete={(e) => alert('delete: ')}
+			onCl_reminder={(e) => alert('reminder: ')}
+			taskName="Dummies plazas principales Name"
+			taskDescription="Dummies plazas principales Description"
+			idTask={String(autoIncrementalId())}
+			endDateValue="2023-09-05 GMT-0600 00:00:00"
+			startDateValue="2023-09-05 GMT-0600 00:00:00"
+			modo="Light"
+			messages={[
+				{
+					userName: 'kaori Soto',
+					type: 'Received',
+					message:
+						'Por que aún no se termina si eso tiene que estar montado a más tardar el martes por la mañana',
+					date: '2023-05-09 GMT-0600 12:00:00',
+				},
+				{
+					userName: 'Giselle Ascencio',
+					message: 'Hubo unos problemas al recibir los artes de parte del cliente',
+					date: '2023-05-09 GMT-0600 13:00:00',
+					type: 'Sent',
+				},
+				{
+					userName: 'Giselle Ascencio',
+					message: 'Pero ya estamos en eso',
+					date: '2023-05-09 GMT-0600 13:01:00',
+					type: 'Sent',
+				},
+				{
+					userName: 'kaori Soto',
+					type: 'Received',
+					message: 'Perfecto, quedo al pendiente',
+					date: '2023-05-09 GMT-0600 13:15:00',
+				},
+			]}
+			templateOptions={[
+				{
+					id: String(autoIncrementalId()),
+					title: 'Espectaculares',
+				},
+				{
+					id: String(autoIncrementalId()),
+					title: 'Muros',
+				},
+			]}
+			check={check}
+			prioridadInicial="baja"
+			onCh_addFile={() => {}}
+			isReviewer={false}
+			valueResponsable="Juan"
+			equipos={[{ id: String(autoIncrementalId()), title: 'Creative' }]}
+			responsables={[{ id: String(autoIncrementalId()), title: 'Juan' }]}
+			revision={[{ id: String(autoIncrementalId()), title: 'Juan' }]}
 			subtasks={[
 				{
-					taskName: 'Dummies CDMX',
-					taskDescription: 'Dummies de la plaza CDMX',
-					complete: false,
+					equipos: [],
+					idTask: String(autoIncrementalId()),
+					onCh_descriptionTask: () => {},
+					onCh_nameTask: () => {},
+					onCl_newTemplate: () => {},
+					responsables: [],
+					revision: [],
+					templateOptions: [],
+					valueTask: 'Dummies CDMX',
+					valueDescription: 'Dummies de la plaza CDMX',
+					check: false,
 				},
 				{
-					taskName: 'Dummies MTY',
-					taskDescription: 'Dummies de la plaza CDMX',
-					complete: false,
-				},
-				{
-					taskName: 'Dummies GDL',
-					taskDescription: 'Dummies de la plaza CDMX',
-					complete: true,
+					equipos: [],
+					idTask: String(autoIncrementalId()),
+					onCh_descriptionTask: () => {},
+					onCh_nameTask: () => {},
+					onCl_newTemplate: () => {},
+					responsables: [],
+					revision: [],
+					templateOptions: [],
+					valueTask: 'Dummies CDMX',
+					valueDescription: 'Dummies de la plaza CDMX',
+					check: true,
 				},
 			]}
-			modo="Dark"
-			onCl_addComent={() => alert('Agregar comentario')}
-			onCl_confirm={() => alert('confirmar retrabajar')}
-			onCl_reWork={() => alert('Retrabajar tarea')}
-			onCl_approve={() => alert('Aprobar tarea')}
-			onCh_dropdown={(e) => setReasonToReWork(e)}
-			onCh_addFile={(e) => setFile(e.value)}
-			comments={[
-				{
-					user: 'kaori Soto',
-					comentario:
-						'Por que aún no se termina si eso tiene que estar montado a más tardar el martes por la mañana',
-					dateAndTime: 'hace 5 minutos',
-				},
-				{
-					user: 'Giselle Ascencio',
-					comentario: 'Hubo unos problemas al recibir los artes de parte del cliente',
-					personalMsn: true,
-					dateAndTime: 'hace 3 minutos',
-				},
-			]}
+			onCh_dropdown={(e) => console.log(e)}
+			onCl_confirm={() => alert('confirmar')}
 		/>
 	);
 }

@@ -9,16 +9,11 @@ import { chatProps } from '../types/types';
 
 const Template: Story<chatProps> = (args) => <Chat {...args} />;
 
-// estado inicial del componente
-// export const InitialState = Template.bind({
-// });
-// Template.args = {multiplesChats: true,}
 export const InitialState = {
 	args: {
 		modo: 'Dark',
 		multiplesChats: true,
 		projectName: 'Uber Eats-2536-Esp-Noviembre',
-		// onCh_comment: (e) => console.log(e.target.value),
 	},
 };
 

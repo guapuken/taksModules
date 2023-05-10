@@ -1,42 +1,63 @@
-import { Modo, onChangeType, onClickType, optionsDropdown } from '../../types';
+import {
+	Modo,
+	msnsChats,
+	onChangeType,
+	onClickType,
+	optionsDropdown,
+	optionsIcnDrp,
+	prioritys,
+	tasks,
+} from '../../types';
 
 // exportación de la interfaz princiapl
+export interface modalTaskWC {}
+
 export interface contentProps {
-	// propiedades de la tarea principal
-	taskName?: String;
-	taskComplete?: boolean;
-	subtasks?: subtasks[];
-
-	// tema de color
-	modo?: Modo;
-
-	// botones
-	onCl_addComent?: onClickType;
-	onCl_reWork?: onClickType;
-	onCl_confirm?: onClickType;
-	onCl_approve?: onClickType;
-
-	// on changes
-	onCh_addFile?: onChangeType;
-	onCh_dropdown?: onChangeType;
+	//require properties -----------------------------------------------------
+	//onChange
+	onCh_descriptionTask: onChangeType;
+	onCh_nameTask: onChangeType;
 	onCh_comment: onChangeType;
-
-	// comentarios
-	comments?: comentarios[];
-	reasonToRework?: optionsDropdown;
+	onCh_checkbox: onChangeType;
+	onCh_endDate: onChangeType;
+	onCh_startDate: onChangeType;
+	onCh_dropdown: onChangeType;
+	//onClick
+	onCl_newTemplate: onClickType;
+	onCl_addComment: onClickType;
+	onCl_addTask: onClickType;
+	onCl_selectPriority: onClickType;
+	onCl_delete: onClickType;
+	onCl_reminder: onClickType;
+	onCl_approve: onClickType;
+	onCl_confirm: onClickType;
+	// onCl_reWork: onClickType;
+	//string
+	taskName: string;
+	taskDescription: string;
+	idTask: string;
+	endDateValue: string; // recibe un timestamp YYYY-MM-DD TM HH:MM:SS
+	startDateValue: string; // recibe un timestamp YYYY-MM-DD TM HH:MM:SS
+	valueResponsable: string;
+	modo: Modo;
+	messages: msnsChats[];
+	templateOptions: optionsIcnDrp[];
+	check: boolean;
+	reasonToRework: { id: string; title: string };
+	prioridadInicial: prioritys;
+	// optional properties ---------------------------------------------------
+	onCh_addFile?: onChangeType;
+	isReviewer?: boolean;
+	valueRevision?: string;
+	equipos?: optionsIcnDrp[];
+	responsables?: optionsIcnDrp[];
+	revision?: optionsIcnDrp[];
+	subtasks?: tasks[];
 }
-// estructura de los comentarios
-export type comentarios = {
-	id: string;
-	user?: string;
-	comentario?: string;
-	personalMsn?: boolean;
-	dateAndTime?: string;
-};
 // botones que se utilizan
 export type functions = {
 	onCh_addFile?: onChangeType;
-	onCl_addComent?: onClickType;
+	onCl_addComment?: onClickType;
 	onCh_comment: onChangeType;
 	onCl_reWork?: onClickType;
 	onCl_confirm?: onClickType;
@@ -46,11 +67,12 @@ export type functions = {
 };
 // types del componente complemenetario Item Comments
 export type itemComments = {
-	comments?: comentarios[];
+	messages: msnsChats[];
 	showTasks?: boolean;
 	onCh_addFile?: onChangeType;
-	onCl_addComent?: onClickType;
+	onCl_addComment?: onClickType;
 	onCh_comment: onChangeType;
+	modo: Modo;
 };
 // estructura de las subtareas
 export type subtasks = {

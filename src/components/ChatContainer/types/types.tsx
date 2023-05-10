@@ -7,7 +7,10 @@ export interface chatProps {
 	onCl_addComment?: onClickType;
 	onCh_comment?: onBlurType;
 	onCh_dropdown?: onChangeType;
-	messages?: msns[];
+	messages: msns[];
+	height?: string;
+	chatValue: { id: string; title: string };
+	chats: { id: string; title: string }[];
 }
 
 export type msns = {
@@ -15,5 +18,5 @@ export type msns = {
 	type: 'Received' | 'Sent' | 'System';
 	userName?: string;
 	message: string;
-	date: Date;
+	date: string;
 };

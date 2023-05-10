@@ -24,7 +24,6 @@ const Content = ({
 
 	const [onChValue, SetOnChValue] = useState(null);
 	const handleClick = (e) => {
-		console.log(e);
 		SetOnChValue(
 			/* (prev) => ({ */
 			// ...prev,

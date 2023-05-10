@@ -5,8 +5,8 @@ import { contentProps } from './types';
 
 const ModalTaskWithComments = (props: contentProps) => {
 	const args = {
-		Content: () => <Content {...props} />,
-		Footer: () => <Footer {...props} />,
+		Content: <Content {...props} />,
+		Footer: <Footer {...props} />,
 		header: 'Detalles de tarea',
 	};
 	return <Modal {...args} />;

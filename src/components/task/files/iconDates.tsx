@@ -11,8 +11,10 @@ interface IconDatesProps {
 	onCh_duration?: onBlurType;
 	onCh_endDate?: (e: React.FormEvent<HTMLInputElement>) => void;
 	onCh_startDate?: (e: React.FormEvent<HTMLInputElement>) => void;
-	endDateValue?: Date;
-	startDateValue?: Date;
+	endDateValue?: string;
+	// endDateValue?: Date;
+	startDateValue?: string;
+	// startDateValue?: Date;
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
 	durationValue?: string;

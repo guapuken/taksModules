@@ -9,18 +9,12 @@ import AsideTemplates from '../asideTemplates/asideTemplates';
 function DemoComponent() {
 	const [notifications, setNotifications] = React.useState(false);
 	const [dragEnd, setDragEnd] = React.useState({});
-	// consoles para revisar que sse generen de manera correcta los setteos
-	// console.clear();
 	React.useEffect(() => {}, [notifications]);
-	console.log('notifications: ', notifications);
-	console.log('dragEnd: ', dragEnd);
 
 	return (
 		<Container AsideContent={<AsideTemplates />}>
 			<DragAndDrop
 				Card={CardTask}
-				// onDragEnd={(e) => setDragEnd(e)}
-				onDragEnd={(e) => console.log(e)}
 				tasks={[
 					{
 						id: '1',
@@ -49,7 +43,6 @@ function DemoComponent() {
 						statusTask: 'outOfTime',
 						percentTask: 25,
 						onCl_follow: () => {
-							console.log('entró en notificaciones');
 							setNotifications(!notifications);
 						},
 						followNotificationsValue: notifications,
@@ -65,7 +58,6 @@ function DemoComponent() {
 						statusTask: 'outOfTime',
 						percentTask: 25,
 						onCl_follow: () => {
-							console.log('entró en notificaciones');
 							setNotifications(!notifications);
 						},
 						followNotificationsValue: notifications,
@@ -82,7 +74,6 @@ function DemoComponent() {
 						statusTask: 'outOfTime',
 						percentTask: 25,
 						onCl_follow: () => {
-							console.log('entró en notificaciones');
 							setNotifications(!notifications);
 						},
 						followNotificationsValue: notifications,
@@ -99,7 +90,6 @@ function DemoComponent() {
 						statusTask: 'outOfTime',
 						percentTask: 25,
 						onCl_follow: () => {
-							console.log('entró en notificaciones');
 							setNotifications(!notifications);
 						},
 						followNotificationsValue: notifications,

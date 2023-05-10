@@ -17,7 +17,6 @@ WithProperties.args = {
 	type: 'text',
 	legend: 'Digita el responsable',
 	initialValue: 'Jorge Correa',
-	onCh: (e) => console.log(e.target.value),
 };
 
 export default {

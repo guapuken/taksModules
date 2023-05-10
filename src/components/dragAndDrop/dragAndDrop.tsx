@@ -174,13 +174,11 @@ const DragAndDrop = (props: dragAndDrop) => {
 	//
 	return scrSize.width < 1024 ? (
 		Object.keys(boardSections).map((boardSectionKey) => {
-			// console.log('boardSections', boardSections[boardSectionKey]);
 			return (
 				<div style={{ width: '95%', margin: '0 auto' }}>
 					<Carousel
 						data={boardSections[boardSectionKey]}
 						Card={(e: any) => {
-							// console.log('boardSections', boardSections);
 							return datos.Card ? (
 								<datos.Card {...e.property} />
 							) : (
@@ -221,15 +219,12 @@ const DragAndDrop = (props: dragAndDrop) => {
 			sensors={sensors}
 			collisionDetection={closestCorners}
 			onDragStart={(e) => {
-				// console.log('onDragStart');
 				handleDragStart(e);
 			}}
 			onDragOver={(e) => {
-				// console.log('onDragOver');
 				handleDragOver(e);
 			}}
 			onDragEnd={(e) => {
-				// console.log('onDragEnd');
 				handleDragEnd(e);
 				if (datos.onDragEnd) {
 					datos.onDragEnd({ boards: boardSections, data: e });

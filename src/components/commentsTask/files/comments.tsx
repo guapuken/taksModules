@@ -7,7 +7,6 @@ const Comments = (props: commentsComponent) => {
 		<>
 			{comments &&
 				comments.map((comment: comments) => {
-					console.log(comment);
 					return (
 						<div
 							className={`comments${comment.personalMsn ? 'Personal' : ''}`}

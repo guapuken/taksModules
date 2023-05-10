@@ -113,3 +113,8 @@ export {default as TimelineProject} from './timelineProject';
  * @returns - chat que recibe distintas propiedades
  */
 export {default as Chat} from './ChatContainer';
+
+/**
+ * @returns - estructura de los mensajes según su estatus y tipo de mensaje
+ */
+export {default as Msns} from './msns';

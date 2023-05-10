@@ -28,7 +28,6 @@ function DemoComponent() {
 		{
 			id: '2',
 			title: 'Kaori Soto',
-			onClick: (e) => console.log(e),
 		},
 	];
 	const equiposD = [
@@ -51,7 +50,6 @@ function DemoComponent() {
 		{
 			id: '2',
 			title: 'Kaori Soto',
-			onClick: (e) => console.log(e),
 		},
 	];
 	const responsableUs = [
@@ -64,21 +62,8 @@ function DemoComponent() {
 		{
 			id: '2',
 			title: 'Kaori Soto',
-			onClick: (e) => console.log(e),
 		},
 	];
-	// consoles para revisar que sse generen de manera correcta los setteos
-	// console.clear();
-	console.log('nombre proyecto: ', projectName);
-	console.log('id proyecto: ', idProject);
-	console.log('id task: ', idTask);
-	console.log('nombre tarea: ', nameTask);
-	console.log('descripción: ', descriptionTask);
-	console.log('prioridad: ', priority);
-	console.log('startDate: ', startDate);
-	console.log('endDate: ', endDate);
-	console.log('responsable: ', responsable);
-	console.log('revision: ', revision);
 	return (
 		<ModalProjects
 			modo="Light"
@@ -93,7 +78,6 @@ function DemoComponent() {
 				},
 			]}
 			teamOptions={equiposD}
-			onCh_asignTeam={(e) => console.log('team asign: ', e)}
 			projectNameValue={projectName}
 			// button clicks
 			onCl_addTask={() => alert('Tarea nueva')}
@@ -117,11 +101,9 @@ function DemoComponent() {
 					onCh_checkbox: (e) => setCheckedd(!checked),
 					startDateValue: startDate,
 					onCh_tartDate: (e) => {
-						console.log('función start date: ');
 						setStartDate(e.target.value);
 					},
 					onCh_endDate: (e) => {
-						console.log('función end date: ');
 						setEndDate(e.target.value);
 					},
 					endDateValue: endDate,
@@ -143,7 +125,6 @@ function DemoComponent() {
 							idTask: '27',
 							valueTask: 'CDMX',
 							valueDescription: descriptionTask,
-							onCh_nameTask: (e) => console.log(e.target.value),
 							onCh_descriptionTask: (e) => setDescriptionTask(e.target.value),
 							onCl_Priority: (e) => setPriority(e.target.id),
 							prioridadInicial: priority,

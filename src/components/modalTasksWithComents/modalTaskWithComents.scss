@@ -10,16 +10,14 @@
 .ctnLightnoCmts_TWCC,
 .ctnDarknoCmts_TWCC
 {
-    div{
-        user-select: none;
-    }
+    user-select: none;
     .ctnTaskDtls{
         overflow: auto;
         height: auto;
         position: relative;
         .ctnPrnlTask{
             overflow: hidden;
-            max-height: 70px;
+            // max-height: 70px;
             height: auto;
             background: #fff;
             position: sticky;
@@ -59,44 +57,6 @@
              }
          }
     }
-    
-    div {
-        .ctnComentsIndividual{
-            overflow-y: auto;
-        }
-        .comentCtn,
-        .comentCtnPersonal
-        {
-            height: auto;
-            width: 90%;
-            margin: 10px 0 0 0;
-            border-radius: 10px;
-            overflow: hidden;
-            // nombre del usuario en los comentarios
-            .userName{
-                font-weight: bold;
-                color: #000;
-                margin-block: 0;
-                font-size: 12px;
-                margin-bottom: -5px;
-            }
-            // estilo del cuerpo de comentario
-            .coments{
-                color: #000;
-                line-height: 1.5;
-                font-size: 14px;
-            }
-            // estilos de las fechas y horas
-            .dateAndTime{
-                font-size: 12px !important;
-                margin-top: 0;
-                opacity: .5;
-            }
-        }
-        .comentCtnPersonal{
-            text-align: right;
-        }
-    }
 }
 .ctnComentsFull_TWCC
 .ctnComents_TWCC{
@@ -107,17 +67,8 @@
     min-height: 100% !important;
     .ttlComents{
         height: 30px;
-        box-shadow: var(--boxShadow);
         background: #fff;
-        position: sticky;
-        top: 0;
         width: 100%;
-
-    }
-    .ctnComentsIndividual{
-        background: blue ;
-        // overflow: auto !important;
-        // min-height: 100%;
 
     }
 }

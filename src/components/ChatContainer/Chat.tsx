@@ -1,12 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // types
 import { chatProps } from './types/types';
 import Dropdown from '../dropdown/dropdown';
 //componentes principales
-import { AddComment, Msn } from './principalComponents';
+import { AddComment } from './principalComponents';
+import { Msns } from '../../components';
 // styles
 import './styles/chat.scss';
-import Task from '../task';
 const Chat = ({
 	modo = 'Light',
 	multiplesChats,
@@ -32,15 +32,13 @@ const Chat = ({
 	useEffect(() => {
 		if (heigthCommentArea('addComments')) {
 			const height = heigthCommentArea('addComments').height ?? 0;
-			setHeightComments(height /* + 1 */);
+			setHeightComments(height);
 		}
 		if (heigthCommentArea('ctnTtl')) {
 			const height = heigthCommentArea('ctnTtl').height ?? 0;
 			setHeightTitle(height);
 		}
 	}, [comment]);
-	console.log(heightComments);
-	console.log(heightTitle);
 
 	function heigthCommentArea(id: string) {
 		const refButton = document.getElementById(id);
@@ -59,7 +57,6 @@ const Chat = ({
 		}
 		return { widthElement, heightElement };
 	}
-	console.log(heigthCommentArea('addComments'));
 
 	return (
 		<div className={`ctn${modo}_ChC`}>
@@ -93,9 +90,13 @@ const Chat = ({
 				</div>
 			</div>
 			<div style={{ height: `calc(100% - ${heightTitle}px )` }}>
-				<div className="ctnMsns" style={{ height: `calc(100% - ${heightComments}px)` }}>
-					<Msn messages={messages} />
-				</div>
+				{messages && (
+					<Msns
+						messages={messages}
+						height={`calc(100% - ${heightComments}px)`}
+						modo={modo}
+					/>
+				)}
 				<div id="addComments">
 					<AddComment
 						onCh_addFile={onCh_addFile}

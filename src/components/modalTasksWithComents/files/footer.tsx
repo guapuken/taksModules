@@ -6,10 +6,7 @@ const Footer = (props: functions) => {
 	const { onCl_reWork, onCh_dropdown, onCl_approve, onCl_confirm, reasonToRework } = props;
 	const [reWork, setReWork] = React.useState(false);
 	const [reasonToWorkAgain, setReasonToWorkAgain] = React.useState(reasonToRework);
-	React.useEffect(() => {
-		console.log('cambio rework:');
-		console.log('reasonToWorkAgain: ', reasonToWorkAgain);
-	}, [reWork]);
+	React.useEffect(() => {}, [reWork]);
 	return (
 		<div
 			style={{
@@ -36,7 +33,7 @@ const Footer = (props: functions) => {
 						secondary
 						onCl={() => {
 							setReWork(true);
-							onCl_reWork;
+							// onCl_reWork;
 						}}
 					/>
 				)}

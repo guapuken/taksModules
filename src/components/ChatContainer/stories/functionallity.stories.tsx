@@ -9,9 +9,8 @@ import giselle from '../../../img/giselle.png';
 import dani from '../../../img/DanielCor.png';
 
 function DemoComponent() {
-	const [chatCanal, setChatCanal] = useState({ id: '1', title: 'Chat operacional' });
+	const [chatCanal, setChatCanal] = useState({ id: '1', title: 'Chat comercial' });
 	const [comment, setComment] = useState('');
-	console.log(comment);
 
 	const comercialMsns = [
 		// estructura de mensajes de sitema
@@ -119,9 +118,6 @@ function DemoComponent() {
 			type: 'Received',
 		},
 	];
-	useEffect(() => {
-		// console.log(operacionalMsns);
-	}, [operacionalMsns]);
 	return (
 		<Chat
 			messages={chatCanal.title === 'Chat comercial' ? comercialMsns : operacionalMsns}
@@ -137,6 +133,17 @@ function DemoComponent() {
 					type: 'Sent',
 				})
 			}
+			chatValue={chatCanal}
+			chats={[
+				{
+					id: '1',
+					title: 'Chat comercial',
+				},
+				{
+					id: '2',
+					title: 'Chat operacional',
+				},
+			]}
 			projectName="AT&T NEW MODELS-2635-ESP-NOV"
 		/>
 	);

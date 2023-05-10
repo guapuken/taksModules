@@ -8,10 +8,6 @@ function DemoComponent() {
 	const [description, setDescription] = useState('');
 	const [name, setName] = useState('');
 
-	console.clear();
-	console.log('description: ', description);
-	console.log('name: ', name);
-
 	return (
 		<Task
 			equipos={[]}

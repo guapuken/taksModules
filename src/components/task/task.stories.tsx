@@ -142,7 +142,6 @@ Initial.args = {
 };
 
 const Childrens = [] as any;
-// console.log(Childrens);
 export const Tasks = Template.bind({});
 Tasks.args = {
 	//Input Task
