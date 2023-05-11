@@ -50,24 +50,24 @@ export interface tasks {
 	taskDisabled?: boolean;
 	taskComplete?: boolean;
 	isSubtask?: boolean;
-	check?: boolean;
-	valueTask?: string;
-	valueDescription?: string;
+	check: boolean;
+	valueTask: string;
+	valueDescription: string;
 	onClickCheck?: onClickType;
 	onCh_nameTask: onChangeType;
 	// onCh_nameTask: onChangeType;
 	onCh_descriptionTask: onChangeType;
 	// onCh_descriptionTask: onChangeType;
 	idCheckbox?: string;
-	onCh_checkbox?: onChangeType;
+	onCh_checkbox: onChangeType;
 
 	//Icon Dates
 	plantillas?: boolean;
 	onCh_duration?: onChangeType;
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
-	onCh_endDate?: onChangeType;
-	onCh_startDate?: onChangeType;
+	onCh_endDate: onChangeType;
+	onCh_startDate: onChangeType;
 	startDateValue?: string;
 	// startDateValue?: Date;
 	endDateValue?: string;
@@ -106,8 +106,8 @@ export interface tasksTemplates {
 	//Input Task
 	idTask: string;
 	taskDisabled?: boolean;
-	valueTask?: string;
-	valueDescription?: string;
+	valueTask: string;
+	valueDescription: string;
 
 	onCh_nameTask: onChangeType;
 	onCh_descriptionTask: onChangeType;
@@ -145,19 +145,19 @@ export type subtaskTemplates = {
 	idTask: string;
 	taskDisabled?: boolean;
 	taskComplete?: boolean;
-	check?: boolean;
-	valueTask?: string;
-	valueDescription?: string;
+	check: boolean;
+	valueTask: string;
+	valueDescription: string;
 	onCh_nameTask: onChangeType;
 	onCh_descriptionTask: onChangeType;
-	onCh_checkbox?: onChangeType;
+	onCh_checkbox: onChangeType;
 	onCh_duration?: onChangeType;
 
 	//Icon Dates
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
-	onCh_endDate?: onChangeType;
-	onCh_startDate?: onChangeType;
+	onCh_endDate: onChangeType;
+	onCh_startDate: onChangeType;
 	startDateValue?: Date;
 	endDateValue?: Date;
 	plantillas?: boolean;
@@ -193,20 +193,20 @@ export type subtasksProps = {
 	idTask: string;
 	taskDisabled?: boolean;
 	taskComplete?: boolean;
-	check?: boolean;
-	valueTask?: string;
-	valueDescription?: string;
+	check: boolean;
+	valueTask: string;
+	valueDescription: string;
 	// onCh_nameTask: onChangeType;
 	onCh_nameTask: onChangeType;
 	// onCh_descriptionTask: onChangeType;
 	onCh_descriptionTask: onChangeType;
-	onCh_checkbox?: onChangeType;
+	onCh_checkbox: onChangeType;
 
 	//Icon Dates
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
-	onCh_endDate?: onChangeType;
-	onCh_startDate?: onChangeType;
+	onCh_endDate: onChangeType;
+	onCh_startDate: onChangeType;
 	startDateValue?: Date;
 	endDateValue?: Date;
 	onCh_duration?: onChangeType;

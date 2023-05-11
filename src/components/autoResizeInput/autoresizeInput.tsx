@@ -31,7 +31,7 @@ const AutoresizeInput = ({
 	modo = 'Light',
 }: autoresizeInput) => {
 	//Hooks
-	const [value, setValue] = useState(initialValue);
+	const [value, setValue] = useState(initialValue || undefined);
 	const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
 	// se encarga de reiniciar el tamaño del textarea y se setea el tamaño del mismo
@@ -45,8 +45,7 @@ const AutoresizeInput = ({
 			// Trying to set this with state or a ref will product an incorrect value.
 			textAreaRef.current.style.height = `${scrollHeight}px`;
 		}
-	}, [value]);
-	// }, [initialValue]);
+	}, [value, initialValue]);
 
 	const handleChange = (e: any) => {
 		setValue(e.target.value);

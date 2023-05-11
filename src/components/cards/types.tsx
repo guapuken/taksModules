@@ -10,4 +10,5 @@ export interface cardIntrfc {
 	// booleanos
 	rounded?: boolean;
 	className?: string;
+	height?: string;
 }

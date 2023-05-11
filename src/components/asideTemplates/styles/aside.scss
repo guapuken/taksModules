@@ -30,6 +30,7 @@
             display: flex;
             gap:20px;
             flex-wrap: wrap;
+            justify-content: center ;
         }
         .ctnTextAndImage{
             height: 100%;
@@ -130,6 +131,11 @@
         .children {
             height: 92%;
             margin-top: 0;
+        }
+        .dropdownCtn{
+            height: 30px !important;
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
         }
     }
 }

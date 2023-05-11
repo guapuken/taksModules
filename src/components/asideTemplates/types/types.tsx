@@ -1,4 +1,4 @@
-import { Modo, onClickType, statusTask } from '../../../types';
+import { Modo, onChangeType, onClickType, statusTask } from '../../../types';
 
 // interface principal
 export interface aside {
@@ -7,10 +7,11 @@ export interface aside {
 	imageNoTasks?: string;
 	priText?: string;
 	secText?: string;
-	tasks?: tasks[];
+	tasks: tasks[];
 	legendBtn?: string;
 	idSection?: string;
 	onCl_btn?: onClickType;
+	onCh_dropdown?: onChangeType;
 }
 
 // componente NoTasks

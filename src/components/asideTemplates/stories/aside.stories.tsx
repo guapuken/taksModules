@@ -22,6 +22,45 @@ InitialState.args = {
 	modo: 'Dark',
 };
 
+const tareasRevisar = [
+	{
+		id: '25',
+		taskName: 'a',
+		taskDescription: 'Recordar hacer los dummies de la campaña de uber',
+		statusTask: 2,
+		onCl_showDetails: () => alert('ver detalles'),
+	},
+	{
+		id: '2',
+		taskName: 'z',
+		taskDescription: 'Recordar hacer los dummies de la campaña de uber',
+		statusTask: 3,
+		onCl_showDetails: () => alert('ver detalles'),
+	},
+	{
+		id: '30',
+		taskName: 'k',
+		taskDescription: 'Recordar hacer los dummies de la campaña de uber',
+		statusTask: 1,
+		onCl_showDetails: () => alert('ver detalles'),
+	},
+	{
+		id: '1',
+		taskName: 'd',
+		taskDescription: 'Recordar hacer los dummies de la campaña de uber',
+		statusTask: 3,
+		onCl_showDetails: () => alert('ver detalles'),
+	},
+];
+const tareasRevision = [
+	{
+		id: '25',
+		taskName: 'a',
+		taskDescription: 'Recordar hacer los dummies de la campaña de uber',
+		statusTask: 2,
+		onCl_showDetails: () => alert('ver detalles'),
+	},
+];
 //estado del componente con propiedades
 export const WithProperties = Template.bind({});
 WithProperties.args = {
@@ -30,36 +69,7 @@ WithProperties.args = {
 	priText: `Sin tareas por el momento?`,
 	secText: `Déjate de huevonadas 😎`,
 	legendBtn: 'Nueva tarea',
-	tasks: [
-		{
-			id: '1',
-			taskName: 'Hacer Dummies',
-			taskDescription: 'Recordar hacer los dummies de la campaña de uber',
-			statusTask: 3,
-			onCl_showDetails: () => alert('ver detalles'),
-		},
-		{
-			id: '1',
-			taskName: 'Hacer Dummies',
-			taskDescription: 'Recordar hacer los dummies de la campaña de uber',
-			statusTask: 3,
-			onCl_showDetails: () => alert('ver detalles'),
-		},
-		{
-			id: '1',
-			taskName: 'Hacer Dummies',
-			taskDescription: 'Recordar hacer los dummies de la campaña de uber',
-			statusTask: 3,
-			onCl_showDetails: () => alert('ver detalles'),
-		},
-		{
-			id: '1',
-			taskName: 'Hacer Dummies',
-			taskDescription: 'Recordar hacer los dummies de la campaña de uber',
-			statusTask: 3,
-			onCl_showDetails: () => alert('ver detalles'),
-		},
-	],
+	tasks: tareasRevisar,
 };
 
 //exportación de valores default

@@ -24,6 +24,8 @@ const Carousel = ({ Card, data = dataExample, height = 264, titleContent }: caro
 				<div
 					className={`cards-slider-wrapper`}
 					style={{
+						display: 'flex',
+						marginLeft: '8px',
 						transform: `translateX(-${
 							property?.index * (sizeElement(data)?.width ?? 0)
 						}px)`,
