@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
 import '../../global.scss';
 import './inputLabel.scss';
 import { inputLabel } from './types/types';
@@ -25,6 +25,9 @@ const InputLabel = ({
 			setIsActive(false);
 		}
 	}
+	useEffect(() => {
+		setValue(initialValue as string);
+	}, [initialValue]);
 
 	return (
 		<div id="LblInpt_ILC" style={style}>

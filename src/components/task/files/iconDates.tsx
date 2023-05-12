@@ -3,17 +3,17 @@ import { useWindowSize } from '../../../utils/windowSize';
 import Information from '../../information/information';
 import InputLabel from '../../inputLabel';
 import RangeDatePicker from '../../rangeDatePicker';
-import { Modo, onBlurType } from '../../../types';
+import { Modo, onBlurType, onChangeType } from '../../../types';
 
 interface IconDatesProps {
 	plantillas?: boolean;
 	className?: string;
-	onCh_duration?: onBlurType;
-	onCh_endDate?: (e: React.FormEvent<HTMLInputElement>) => void;
-	onCh_startDate?: (e: React.FormEvent<HTMLInputElement>) => void;
-	endDateValue?: string;
+	onCh_duration: onChangeType;
+	onCh_endDate: (e: React.FormEvent<HTMLInputElement>) => void;
+	onCh_startDate: (e: React.FormEvent<HTMLInputElement>) => void;
+	endDateValue: string;
 	// endDateValue?: Date;
-	startDateValue?: string;
+	startDateValue: string;
 	// startDateValue?: Date;
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;

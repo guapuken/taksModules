@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // componentes principales
 import { CloseIcon, Icon } from './files';
 // types
@@ -37,6 +37,14 @@ const Dropdown = (props: dropdown) => {
 	const [searchValue, setSearchValue] = React.useState<any>('');
 	const searchRef = React.useRef<any>(null);
 	const inputRef = React.useRef<any>(null);
+
+	useEffect(() => {
+		setSelectedValue(datos.initialValue);
+	}, [datos.initialValue]);
+
+	useEffect(() => {
+		setSelectedValue(datos.values);
+	}, [datos.values]);
 
 	React.useEffect(() => {
 		setSearchValue('');

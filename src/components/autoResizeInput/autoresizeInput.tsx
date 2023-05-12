@@ -45,7 +45,11 @@ const AutoresizeInput = ({
 			// Trying to set this with state or a ref will product an incorrect value.
 			textAreaRef.current.style.height = `${scrollHeight}px`;
 		}
-	}, [value, initialValue]);
+	}, [value]);
+	// se encarga de reiniciar el tamaño del textarea y se setea el tamaño del mismo
+	useEffect(() => {
+		setValue(initialValue);
+	}, [initialValue]);
 
 	const handleChange = (e: any) => {
 		setValue(e.target.value);

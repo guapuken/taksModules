@@ -49,8 +49,8 @@ const AsideTemplates = ({
 		return size;
 	}
 
-	function filterResult(array, property, order) {
-		array.sort((a, b) => {
+	function filterResult(array: any, property: any, order: any) {
+		array.sort((a: any, b: any) => {
 			let sortOrder = order ? -1 : 1;
 			if (a[property] > b[property]) {
 				return sortOrder;

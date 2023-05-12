@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // componentes auxiliares
 import { InputLabel } from '../../../components';
 import { Spans } from '../../../utils/cardsUtils';
@@ -28,7 +28,10 @@ const Content = ({
 	modo = 'Light',
 }: content) => {
 	const [asignColor, setAsignColor] = React.useState(teamColor || '');
-	const [nameTeam] = React.useState(teamName || '');
+
+	useEffect(() => {
+		setAsignColor(teamColor);
+	}, [teamColor]);
 	return (
 		<div className={`ctn${modo}_MTC`}>
 			<div className={'inptsCtn'}>
@@ -37,7 +40,7 @@ const Content = ({
 					legend="Nombre del equipo"
 					onCh={onCh_teamName as onChangeType}
 					style={{ height: '30px', width: '45%' }}
-					initialValue={nameTeam}
+					initialValue={teamName}
 				/>
 				<div className="ctnColorLbl">
 					<Spans

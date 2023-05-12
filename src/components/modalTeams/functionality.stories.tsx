@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 // utilidades del storybook
 import { storiesOf } from '@storybook/react';
 // componentes principales
 import ModalTeams from '.';
+import Button from '../button/Button';
 
 function DemoComponent(props) {
 	const { initialTeamColor, teamNameValue, memberSelectedValue } = props;
@@ -19,50 +20,67 @@ function DemoComponent(props) {
 		{ id: '6', title: 'Renes' },
 	];
 	return (
-		<ModalTeams
-			idTeam="1"
-			onCh_teamColor={(e) => setTeamColor(e.target.value)}
-			teamColor={teamColor}
-			teamName={teamName}
-			onCh_teamName={(e) => setTeamName(e.target.value)}
-			role="Ux/Ui Designer"
-			membersOptions={members}
-			onCh_user={(e) => {
-				setMember(e);
-			}}
-			memberValue={member}
-			onCl_abort={() => alert('Ccancelar')}
-			onCl_confirm={() => alert('Confirmar')}
-			onCl_delete={() => alert('borrar')}
-			members={[
-				{
-					role: 'Ux/Ui Designer',
-					membersOptions: members,
-					onCh_user: (e) => setMember(e),
-					memberValue: member,
-					members: [
-						{
-							role: 'Ux/Ui Designer',
-							membersOptions: members,
-							onCh_user: (e) => setMember(e),
-							memberValue: member,
-						},
-						{
-							role: 'Ux/Ui Designer',
-							membersOptions: members,
-							onCh_user: (e) => setMember(e),
-							memberValue: member,
-						},
-					],
-				},
-				{
-					role: 'Ux/Ui Designer',
-					membersOptions: members,
-					onCh_user: (e) => setMember(e),
-					memberValue: member,
-				},
-			]}
-		/>
+		<Fragment>
+			<Button modo="Light" onCl={() => setMember({ id: '4', title: 'Jorge' })} />
+			<ModalTeams
+				modo="Light"
+				onCl_addUser={() => {}}
+				idTeam="1"
+				onCh_teamColor={(e) => setTeamColor(e.target.value)}
+				teamColor={teamColor}
+				teamName={teamName}
+				onCh_teamName={(e) => setTeamName(e.target.value)}
+				role="Ux/Ui Designer"
+				membersOptions={members}
+				onCh_user={(e) => {
+					setMember(e);
+				}}
+				memberValue={member}
+				onCl_abort={() => alert('Ccancelar')}
+				onCl_confirm={() => alert('Confirmar')}
+				onCl_delete={() => alert('borrar')}
+				members={[
+					{
+						modo: 'Light',
+						onCl_addUser: () => {},
+						onCl_delete: () => {},
+						role: 'Ux/Ui Designer',
+						membersOptions: members,
+						onCh_user: (e) => setMember(e),
+						memberValue: member,
+						members: [
+							{
+								modo: 'Light',
+								onCl_addUser: () => {},
+								onCl_delete: () => {},
+								role: 'Ux/Ui Designer',
+								membersOptions: members,
+								onCh_user: (e) => setMember(e),
+								memberValue: member,
+							},
+							{
+								modo: 'Light',
+								onCl_addUser: () => {},
+								onCl_delete: () => {},
+								role: 'Ux/Ui Designer',
+								membersOptions: members,
+								onCh_user: (e) => setMember(e),
+								memberValue: member,
+							},
+						],
+					},
+					{
+						modo: 'Light',
+						onCl_addUser: () => {},
+						onCl_delete: () => {},
+						role: 'Ux/Ui Designer',
+						membersOptions: members,
+						onCh_user: (e) => setMember(e),
+						memberValue: member,
+					},
+				]}
+			/>
+		</Fragment>
 	);
 }
 

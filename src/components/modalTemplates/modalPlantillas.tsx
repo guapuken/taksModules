@@ -51,7 +51,13 @@ const ModalTemplates = (props: modalTemplates) => {
 			>
 				{tasks &&
 					tasks.map((indTask: tasksTemplates) => (
-						<Task key={indTask.idTask} plantillas {...indTask} />
+						<Task
+							key={indTask.idTask}
+							plantillas
+							{...indTask}
+							onCh_endDate={{} as any}
+							onCh_startDate={{} as any}
+						/>
 					))}
 			</div>
 		</div>

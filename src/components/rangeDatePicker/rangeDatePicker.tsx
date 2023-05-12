@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
 
 // styles
 import './rangeDatePicker.scss';
@@ -23,6 +23,12 @@ const RangeDatePicker = ({
 	const [startDate, setStartDate] = useState(startDateValue || '');
 	const [endDate, setEndDate] = useState(endDateValue || '');
 
+	useEffect(() => {
+		setStartDate(startDateValue);
+	}, [startDateValue]);
+	useEffect(() => {
+		setEndDate(endDateValue);
+	}, [endDateValue]);
 	return (
 		<div id={`dates${modo}_RDatePC`} style={style} className={`ctn${modo}_RDatePC`}>
 			<div>

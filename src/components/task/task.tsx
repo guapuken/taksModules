@@ -5,7 +5,7 @@ import { IconDropdown, InputTask } from '../../components';
 import { AddTask, IconAsign, IconDates, IconMoreOptions, IconPriority } from './files';
 // types
 import { templateOptions } from './types';
-import { tasks } from '../../types';
+import { onChangeType, tasks } from '../../types';
 // estilos
 import './task.scss';
 
@@ -106,14 +106,14 @@ const Task = ({
 				<IconDates
 					idTask={idTask}
 					modo={modo}
-					onCh_duration={onCh_duration}
+					onCh_duration={onCh_duration as onChangeType}
 					plantillas={plantillas}
 					disabledEndDate={check ? check : disabledEndDate}
 					disabledStartDate={check ? check : disabledStartDate}
 					onCh_endDate={onCh_endDate}
 					onCh_startDate={onCh_startDate}
-					startDateValue={startDateValue}
-					endDateValue={endDateValue}
+					startDateValue={startDateValue as string}
+					endDateValue={endDateValue as string}
 					className={className}
 					durationValue={durationValue}
 				/>
@@ -171,6 +171,10 @@ const Task = ({
 							<div style={{ margin: '.5vh 0' }} key={e.idTask}>
 								{plantillas ? (
 									<Task
+										check={e.check}
+										onCh_checkbox={e.onCh_checkbox}
+										onCh_endDate={e.onCh_endDate}
+										onCh_startDate={e.onCh_startDate}
 										idTask={e.idTask}
 										taskDisabled={e.taskDisabled}
 										taskComplete={e.taskComplete}
