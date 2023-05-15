@@ -4,7 +4,7 @@ import { aside } from './types/types';
 // componentes principales
 import { ErrorNc, NoTasks } from './principalComponents';
 // types que se utilizan en documentación
-import { Modo, onChangeType } from '../../types';
+import { Modo, onChangeType, optionsDropdown } from '../../types';
 
 import CardTaskReview from '../cardTaskReview/cardTaskReview';
 import { useWindowSize } from '../../utils/windowSize';
@@ -37,6 +37,8 @@ const AsideTemplates = ({
 	idSection,
 	onCl_btn,
 	onCh_dropdown,
+	initialValueDropdown,
+	optionsDropdown,
 }: aside) => {
 	const scrnW = useWindowSize().width;
 	const scrnH = useWindowSize().height;
@@ -48,7 +50,6 @@ const AsideTemplates = ({
 		const size = scrnH / 10 > scrnW / 7 ? true : false;
 		return size;
 	}
-
 	function filterResult(array: any, property: any, order: any) {
 		array.sort((a: any, b: any) => {
 			let sortOrder = order ? -1 : 1;
@@ -62,7 +63,6 @@ const AsideTemplates = ({
 		});
 		return array;
 	}
-
 	useEffect(() => {
 		if (tasks) {
 			filterResult(tasks, filterBy, order);
@@ -72,62 +72,50 @@ const AsideTemplates = ({
 	return (
 		<div className={`ctn${modo}_ATC`} vs-asd={visible ? 'Visible' : 'Normal'}>
 			<div className="children">
+				<div
+					className="dropdownCtn"
+					style={{ width: '90%', display: 'flex', gap: '10px', height: '30px' }}
+				>
+					<Dropdown
+						modo={visible ? 'Dark' : modo}
+						onCh={onCh_dropdown as onChangeType}
+						options={optionsDropdown as optionsDropdown[]}
+						placeHolder="Selecciona las tareas"
+						initialValue={initialValueDropdown}
+						style={{
+							width: `calc(100% - ${!aspectRatio() ? '40px' : '0px'})`,
+						}}
+					/>
+					{!aspectRatio() && (
+						<>
+							<IconDropdown
+								modo={visible ? 'Dark' : modo}
+								icon={filter}
+								options={[
+									{
+										id: 'status',
+										title: 'Por estatus',
+										onClick: () => setFilterBY('statusTask'),
+									},
+									{
+										id: 'name',
+										title: 'Por nombre',
+										onClick: () => setFilterBY('taskName'),
+									},
+								]}
+							/>
+							<ButtonItem
+								id="orderArray"
+								img={orderIcon}
+								onClick={() => setOrder(!order)}
+							/>
+						</>
+					)}
+				</div>
 				{!tasks && !priText && !secText ? (
 					<ErrorNc />
 				) : (
 					<div className="ctnCards">
-						<div
-							className="dropdownCtn"
-							style={{ width: '90%', display: 'flex', gap: '10px', height: '30px' }}
-						>
-							<Dropdown
-								modo={visible ? 'Dark' : modo}
-								onCh={onCh_dropdown as onChangeType}
-								options={[
-									{
-										id: 'revision',
-										title: 'Tareas en revisión',
-									},
-									{
-										id: 'porRevisar',
-										title: 'Tareas para revisar',
-									},
-								]}
-								placeHolder="Selecciona tus tareas"
-								initialValue={{
-									id: 'revision',
-									title: 'Tareas en revisión',
-								}}
-								style={{
-									width: `calc(100% - ${!aspectRatio() ? '40px' : '0px'})`,
-								}}
-							/>
-							{!aspectRatio() && (
-								<>
-									<IconDropdown
-										modo={visible ? 'Dark' : modo}
-										icon={filter}
-										options={[
-											{
-												id: 'status',
-												title: 'Por estatus',
-												onClick: () => setFilterBY('statusTask'),
-											},
-											{
-												id: 'name',
-												title: 'Por nombre',
-												onClick: () => setFilterBY('taskName'),
-											},
-										]}
-									/>
-									<ButtonItem
-										id="orderArray"
-										img={orderIcon}
-										onClick={() => setOrder(!order)}
-									/>
-								</>
-							)}
-						</div>
 						{!aspectRatio() ? (
 							tasks?.map((individualTask) => (
 								<CardTaskReview
@@ -150,7 +138,7 @@ const AsideTemplates = ({
 						)}
 					</div>
 				)}
-				{!tasks && (priText || secText) && (
+				{(!tasks || tasks.length === 0) && (priText || secText) && (
 					<NoTasks
 						modo={modo}
 						idSection={idSection}

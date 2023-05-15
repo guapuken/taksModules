@@ -9,7 +9,7 @@ const Footer = ({ onCl_confirm, onCl_abort, edit, modo }: clickButtons) => {
 			<Buttons
 				buttons={{ primary: true, secondary: true }}
 				legends={{
-					primary: edit ? 'Guaardar cambios' : 'Crear equipo',
+					primary: edit ? 'Guardar cambios' : 'Crear equipo',
 					secondary: edit ? 'Descartar cambios' : 'Cancelar',
 				}}
 				onCl_buttons={{ primary: onCl_confirm, secondary: onCl_abort, tertiary: () => {} }}

@@ -11,10 +11,12 @@ const CardTaskReview = (props: cardTaskReview) => {
 	const { modo } = props;
 	const scrnW = useWindowSize().width;
 	const scrnH = useWindowSize().height;
+
 	function aspectRatio() {
 		const size = scrnH / 10 > scrnW / 7 ? true : false;
 		return size;
 	}
+
 	return (
 		<Cards
 			rounded

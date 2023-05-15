@@ -1,4 +1,4 @@
-import { Modo, onChangeType, onClickType, statusTask } from '../../../types';
+import { Modo, onChangeType, onClickType, optionsDropdown, statusTask } from '../../../types';
 
 // interface principal
 export interface aside {
@@ -12,6 +12,8 @@ export interface aside {
 	idSection?: string;
 	onCl_btn?: onClickType;
 	onCh_dropdown?: onChangeType;
+	initialValueDropdown?: any;
+	optionsDropdown?: optionsDropdown[];
 }
 
 // componente NoTasks

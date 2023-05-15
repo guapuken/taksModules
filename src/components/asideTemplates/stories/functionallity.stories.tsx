@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { AsideTemplates } from '../..';
+import { tasks } from '../types/types';
 
 const tareasRevisar = [
 	{
@@ -38,36 +39,49 @@ const tareasRevision = [
 		id: '25',
 		taskName: 'a',
 		taskDescription: 'Recordar hacer los dummies de la campaña de uber',
-		statusTask: 2,
+		statusTask: 3,
 		onCl_showDetails: () => alert('ver detalles'),
 	},
 ];
+const tareasEmpezar = [];
 export function ComponentDemo() {
-	const [tasks, setTasks] = useState('revision');
-	const [tiposTask, setTiposTask] = useState([
-		{
-			id: undefined,
-			title: undefined,
-		},
-	]);
+	const [tasks, setTasks] = useState({
+		id: 'revision',
+		title: 'Tareas en revisión',
+	});
+	const [tiposTask, setTiposTasks] = useState(tareasRevisar);
 
-	useEffect(() => {
-		if (tasks === 'revision') {
-			setTiposTask(tareasRevision);
-		}
-		if (tasks === 'porRevisar') {
-			setTiposTask(tareasRevisar);
-		}
-		// setTiposTask(tasks.title === 'revision' ? tareasRevision : tareasRevisar);
-	}, [tasks]);
 	return (
 		<AsideTemplates
 			modo="Light"
-			tasks={tiposTask}
-			priText="Hola"
-			secText="no agregaste datos"
+			initialValueDropdown={{
+				id: 'revision',
+				title: 'Tareas en revisión',
+			}}
+			optionsDropdown={[
+				{
+					id: 'revision',
+					title: 'Tareas en revisión',
+				},
+				{
+					id: 'porRevisar',
+					title: 'Tareas para revisar',
+				},
+			]}
+			// tasks={tiposTask as tasks[]}
+			tasks={[]}
+			priText={tiposTask.length === 0 ? 'No hay nada por aquí' : 'No tenemos nada de tareas'}
+			secText={
+				tiposTask.length === 0
+					? 'Por qué no empezar ahora mismo'
+					: 'Agradezcamos a Jesús 😇'
+			}
+			legendBtn={tiposTask.length === 0 ? 'Tarea nueva' : ''}
 			onCh_dropdown={(e: any) => {
-				setTasks(e.id);
+				setTasks(e);
+				if (e.id === 'revision') setTiposTasks(tareasRevision);
+				if (e.id === 'porRevisar') setTiposTasks(tareasRevisar);
+				if (e.id === 'porEmpezar') setTiposTasks(tareasEmpezar);
 			}}
 		/>
 	);
