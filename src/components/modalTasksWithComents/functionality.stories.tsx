@@ -17,27 +17,14 @@ function DemoComponent(props: any) {
 			onCl_close={() => alert('Cerrar')}
 			onCl_reWork={() => {}}
 			reasonToRework={{ id: '1', title: 'No hay material' }}
-			onCh_descriptionTask={(e) => console.log('descriptionTask: ', e.target.value)}
-			onCh_nameTask={(e) => console.log('nameTask: ', e.target.value)}
 			onCh_comment={(e) => console.log('comments: ', e.target.value)}
-			onCh_checkbox={(e) => {
-				setCheck(!check);
-			}}
-			onCh_endDate={(e) => console.log('endDate: ', e.target.value)}
-			onCh_startDate={(e) => console.log('startDate: ', e.target.value)}
-			onCl_newTemplate={(e) => alert('newtemplate: ')}
 			onCl_addComment={(e) => alert('addComment: ')}
 			onCl_approve={(e) => alert('aprobar: ')}
-			onCl_addTask={(e) => alert('addTask: ')}
-			onCl_selectPriority={(e) => alert('seleconCl_selectPriority: ')}
-			onCl_delete={(e) => alert('delete: ')}
-			onCl_reminder={(e) => alert('reminder: ')}
 			taskName="Dummies plazas principales Name"
 			taskDescription="Dummies plazas principales Description"
-			idTask={String(autoIncrementalId())}
-			endDateValue="2023-09-05 GMT-0600 00:00:00"
-			startDateValue="2023-09-05 GMT-0600 00:00:00"
 			modo="Light"
+			reasonsToWorkAgain={[]}
+			valueComment={''}
 			messages={[
 				{
 					userName: 'kaori Soto',
@@ -65,50 +52,50 @@ function DemoComponent(props: any) {
 					date: '2023-05-09 GMT-0600 13:15:00',
 				},
 			]}
-			templateOptions={[
-				{
-					id: String(autoIncrementalId()),
-					title: 'Espectaculares',
-				},
-				{
-					id: String(autoIncrementalId()),
-					title: 'Muros',
-				},
-			]}
-			check={check}
-			prioridadInicial="baja"
 			onCh_addFile={() => {}}
-			isReviewer={false}
-			valueResponsable="Juan"
-			equipos={[{ id: String(autoIncrementalId()), title: 'Creative' }]}
-			responsables={[{ id: String(autoIncrementalId()), title: 'Juan' }]}
-			revision={[{ id: String(autoIncrementalId()), title: 'Juan' }]}
 			subtasks={[
 				{
-					equipos: [],
-					idTask: String(autoIncrementalId()),
-					onCh_descriptionTask: () => {},
-					onCh_nameTask: () => {},
-					onCl_newTemplate: () => {},
-					responsables: [],
-					revision: [],
-					templateOptions: [],
-					valueTask: 'Dummies CDMX',
-					valueDescription: 'Dummies de la plaza CDMX',
-					check: false,
+					taskName: 'Dummies CDMX',
+					taskDescription: 'Dummies de la plaza CDMX',
+					subtasks: [
+						{
+							taskName: 'Dummies GDL',
+							taskDescription: 'Hacer dummies',
+							subtasks: [
+								{
+									taskName: 'Dummies GDL',
+									taskDescription: 'Hacer dummies',
+								},
+								{
+									taskName: 'Dummies GDL',
+									taskDescription: 'Hacer dummies',
+									completed: true,
+								},
+							],
+						},
+						{
+							taskName: 'Dummies GDL',
+							taskDescription: 'Hacer dummies',
+							completed: true,
+						},
+					],
 				},
 				{
-					equipos: [],
-					idTask: String(autoIncrementalId()),
-					onCh_descriptionTask: () => {},
-					onCh_nameTask: () => {},
-					onCl_newTemplate: () => {},
-					responsables: [],
-					revision: [],
-					templateOptions: [],
-					valueTask: 'Dummies CDMX',
-					valueDescription: 'Dummies de la plaza CDMX',
-					check: true,
+					taskName: 'Dummies CDMX',
+					taskDescription: 'Dummies de la plaza CDMX',
+					completed: true,
+					subtasks: [
+						{
+							taskName: 'Dummies GDL',
+							taskDescription: 'Hacer dummies',
+							completed: true,
+						},
+						{
+							taskName: 'Dummies GDL',
+							taskDescription: 'Hacer dummies',
+							completed: true,
+						},
+					],
 				},
 			]}
 			onCh_dropdown={(e) => console.log(e)}

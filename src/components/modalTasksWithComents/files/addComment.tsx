@@ -5,7 +5,7 @@ import { Button } from '../../../components';
 import { functions } from '../types';
 
 const CommentTask = (props: functions) => {
-	const { onCl_addComment, onCh_addFile, onCh_comment, modo } = props;
+	const { onCl_addComment, onCh_addFile, onCh_comment, modo, valueComment } = props;
 	return (
 		<div className="ctnBlockComents_TWCC">
 			<fieldset>
@@ -15,6 +15,7 @@ const CommentTask = (props: functions) => {
 					onCh={onCh_comment}
 					placeholder="Comentar"
 					taskType="task"
+					initialValue={valueComment}
 				/>
 			</fieldset>
 			<div className="ctnButtons" style={{}}>

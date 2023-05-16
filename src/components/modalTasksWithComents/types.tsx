@@ -15,48 +15,28 @@ export interface modalTaskWC {}
 export interface contentProps {
 	//require properties -----------------------------------------------------
 	//onChange
-	onCh_descriptionTask: onChangeType;
-	onCh_nameTask: onChangeType;
 	onCh_comment: onChangeType;
-	onCh_checkbox: onChangeType;
-	onCh_endDate: onChangeType;
-	onCh_startDate: onChangeType;
 	onCh_dropdown: onChangeType;
 	//onClick
-	onCl_newTemplate: onClickType;
 	onCl_addComment: onClickType;
-	onCl_addTask: onClickType;
-	onCl_selectPriority: onClickType;
-	onCl_delete: onClickType;
-	onCl_reminder: onClickType;
 	onCl_approve: onClickType;
 	onCl_confirm: onClickType;
 	onCl_reWork: onClickType;
 	onCl_close: onClickType;
+	completed?: boolean;
 
 	// onCl_reWork: onClickType;
 	//string
 	taskName: string;
 	taskDescription: string;
-	idTask: string;
-	endDateValue: string; // recibe un timestamp YYYY-MM-DD TM HH:MM:SS
-	startDateValue: string; // recibe un timestamp YYYY-MM-DD TM HH:MM:SS
-	valueResponsable: string;
 	reasonsToWorkAgain: optionsDropdown[];
 	modo: Modo;
 	messages: msnsChats[];
-	templateOptions: optionsIcnDrp[];
-	check: boolean;
 	reasonToRework: { id: string; title: string };
-	prioridadInicial: prioritys;
 	// optional properties ---------------------------------------------------
 	onCh_addFile?: onChangeType;
-	isReviewer?: boolean;
-	valueRevision?: string;
-	equipos?: optionsIcnDrp[];
-	responsables?: optionsIcnDrp[];
-	revision?: optionsIcnDrp[];
-	subtasks?: tasks[];
+	subtasks?: subtasksComponent[];
+	valueComment?: string;
 }
 // botones que se utilizan
 export type functions = {
@@ -70,11 +50,14 @@ export type functions = {
 	valueReasonToWorkAgain?: optionsDropdown;
 	modo: Modo;
 	onCl_close: onClickType;
+	valueComment?: string;
 	reasonsToWorkAgain: optionsDropdown[];
 };
 // types del componente complemenetario Item Comments
 export type itemComments = {
 	messages: msnsChats[];
+	valueComment?: string;
+
 	showTasks?: boolean;
 	onCl_close: onClickType;
 	reasonsToWorkAgain: optionsDropdown[];
@@ -94,4 +77,11 @@ export type subtasks = {
 	taskName: string;
 	taskDescription: string;
 	complete: boolean;
+};
+
+export type subtasksComponent = {
+	taskName?: string;
+	taskDescription?: string;
+	subtasks?: subtasksComponent[];
+	completed?: boolean;
 };

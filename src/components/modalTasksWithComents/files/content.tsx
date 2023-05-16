@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { contentProps } from '../types';
+import { contentProps, subtasksComponent } from '../types';
 import { Comentarios } from './index';
 import { SimpleButtonText } from '../../../utils/cardsUtils';
 import { Task } from '../../../components';
@@ -9,121 +9,114 @@ import '../modalTaskWithComents.scss';
 const Content = ({
 	modo = 'Light',
 	messages,
-	isReviewer,
 	taskName = 'Tarea',
 	taskDescription = 'Tarea',
-	idTask,
-	equipos,
-	responsables,
-	revision,
-	onCl_newTemplate,
-	templateOptions,
-	check,
-	endDateValue,
-	startDateValue,
-	onCh_descriptionTask,
-	onCh_nameTask,
+	completed,
 	subtasks,
 	onCh_comment,
 	onCh_addFile,
 	onCl_addComment,
-	onCl_addTask,
-	onCh_checkbox,
-	onCh_endDate,
-	onCh_startDate,
-	onCl_selectPriority,
-	onCl_delete,
-	onCl_reminder,
-	valueRevision,
-	valueResponsable,
-	prioridadInicial,
 	onCh_dropdown,
 	onCl_approve,
 	onCl_confirm,
 	onCl_reWork,
+	reasonsToWorkAgain,
+	onCl_close,
+	valueComment,
 }: contentProps) => {
 	const [showTasks, setShowTasks] = React.useState(false);
+	const Subtasks = ({ taskName, taskDescription, subtasks, completed }: subtasksComponent) => {
+		console.log(completed);
+		return (
+			<div
+				style={{
+					marginLeft: '15px',
+					marginTop: '15px',
+				}}
+			>
+				<p
+					style={{
+						textDecoration: completed ? 'line-through' : 'none',
+						textDecorationColor: 'red',
+						fontWeight: 'bold',
+					}}
+				>
+					{taskName}
+				</p>
+				<p
+					style={{
+						opacity: '.5',
+						textDecoration: completed ? 'line-through' : 'none',
+						textDecorationColor: 'red',
+					}}
+				>
+					{taskDescription}
+				</p>
+				{subtasks && (
+					<div
+						style={{
+							borderLeft: '2px solid #dedede',
+							marginLeft: '10px',
+							paddingLeft: '5px',
+						}}
+					>
+						{subtasks.map((indSubTask) => (
+							<Subtasks
+								taskName={indSubTask.taskName}
+								subtasks={indSubTask.subtasks}
+								taskDescription={indSubTask.taskDescription}
+								completed={indSubTask.completed}
+							/>
+						))}
+					</div>
+				)}
+			</div>
+		);
+	};
 	return (
 		<div className={`ctn${modo}${messages ? 'Cmts' : 'noCmts'}_TWCC`}>
 			<div className="ctnTaskDtls" /* style={{ overflow: 'hidden', height: '100%' }} */>
 				<div className="ctnPrnlTask">
-					{isReviewer ? (
-						<Fragment>
-							<h5
-								className={`taskName${check ? 'Check' : 'Incompleted'}`}
+					<div>
+						<h5
+							className={`taskName${completed ? 'Check' : 'Incompleted'}`}
+							style={{
+								textDecoration: completed ? 'line-through' : '',
+								textDecorationColor: 'red',
+							}}
+						>
+							{taskName}
+						</h5>
+						<p
+							style={{
+								textDecoration: completed ? 'line-through' : '',
+								textDecorationColor: 'red',
+							}}
+						>
+							{taskDescription}
+						</p>
+						{showTasks ? (
+							<div
 								style={{
-									textDecoration: check ? 'line-through' : '',
-									textDecorationColor: check ? 'red' : '',
+									borderLeft: '2px solid #dedede',
+									marginLeft: '10px',
+									paddingLeft: '5px',
 								}}
 							>
-								{taskName}
-							</h5>
-							<p
-								style={{
-									textDecoration: check ? 'line-through' : '',
-									textDecorationColor: check ? 'red' : '',
-								}}
-							>
-								{taskDescription}
-							</p>
-							{showTasks ? (
-								subtasks?.map((individualSubtask) => (
-									<div style={{ marginLeft: '15px', marginTop: '15px' }}>
-										<p
-											style={{
-												textDecoration: 'line-through',
-												textDecorationColor: 'red',
-												fontWeight: 'bold',
-											}}
-										>
-											{individualSubtask.valueTask}
-										</p>
-										<p
-											style={{
-												opacity: '.5',
-												textDecoration: 'line-through',
-												textDecorationColor: 'red',
-											}}
-										>
-											{individualSubtask.valueDescription}
-										</p>
-									</div>
-								))
-							) : (
-								<></>
-							)}
-						</Fragment>
-					) : (
-						<Task
-							idTask={idTask}
-							equipos={equipos as optionsIcnDrp[]}
-							responsables={responsables as optionsIcnDrp[]}
-							revision={revision as optionsIcnDrp[]}
-							onCl_newTemplate={onCl_newTemplate}
-							templateOptions={templateOptions}
-							check={check}
-							endDateValue={endDateValue}
-							startDateValue={startDateValue}
-							idCheckbox={idTask}
-							onCh_descriptionTask={onCh_descriptionTask}
-							onCh_nameTask={onCh_nameTask}
-							valueTask={taskName as string}
-							valueDescription={taskDescription as string}
-							subtasks={showTasks ? (subtasks as []) : []}
-							modo={modo}
-							onCl_addTask={onCl_addTask}
-							onCh_checkbox={onCh_checkbox}
-							onCh_endDate={onCh_endDate}
-							onCh_startDate={onCh_startDate}
-							onCl_selectPriority={onCl_selectPriority}
-							onCl_delete={onCl_delete}
-							onCl_reminder={onCl_reminder}
-							valueRevision={valueRevision}
-							valueResponsable={valueResponsable}
-							prioridadInicial={prioridadInicial}
-							taskComplete={check ? true : false}
-						/>
-					)}
+								{subtasks?.map((individualSubtask) => (
+									<Subtasks
+										taskName={individualSubtask.taskName}
+										taskDescription={individualSubtask.taskDescription}
+										subtasks={individualSubtask.subtasks}
+										completed={individualSubtask.completed}
+									/>
+								))}
+							</div>
+						) : (
+							<></>
+						)}
+					</div>
+
 					<SimpleButtonText
 						legend={`${showTasks ? 'Ocultar' : 'Ver'} ${
 							subtasks?.length || 0
@@ -134,6 +127,9 @@ const Content = ({
 				</div>
 			</div>
 			<Comentarios
+				valueComment={valueComment}
+				reasonsToWorkAgain={reasonsToWorkAgain}
+				onCl_close={onCl_close}
 				onCh_dropdown={onCh_dropdown}
 				onCl_approve={onCl_approve}
 				onCl_confirm={onCl_confirm}
