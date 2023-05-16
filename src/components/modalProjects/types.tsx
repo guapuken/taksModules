@@ -31,6 +31,7 @@ export interface ModalProjectsProps {
 	teamOptions: optionsDropdown[];
 	initialTeamValue?: optionsDropdown;
 	edit?: boolean;
+	onCl_close: onClickType;
 }
 
 export type content = {

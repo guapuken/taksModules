@@ -11,6 +11,7 @@ const ModalTask = (props: tasksProps) => (
 		header="Creación de tareas"
 		Content={<Content {...props} />}
 		Footer={<Footer {...props} />}
+		onCl_close={props.onCl_close}
 	/>
 );
 

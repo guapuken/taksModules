@@ -5,6 +5,7 @@ export interface modalTemplates {
 	onCl_abort: onClickType;
 	onCl_addTask: onClickType;
 	onCh_templateName: onChangeType;
+	onCl_close: onClickType;
 
 	onCh_dropDownTipoMedio: onChangeType;
 	optionsTipoMedio?: optionsDropdown[];

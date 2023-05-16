@@ -48,6 +48,7 @@ export type members = {
 // //INTERFACES
 export interface modalTeams {
 	teamColor: string;
+	onCl_close: onClickType;
 	onCh_teamColor: onBlurType;
 	onCh_teamName: onBlurType;
 	onCh_user: onChangeType;

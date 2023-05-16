@@ -42,6 +42,7 @@ export interface contentProps {
 	endDateValue: string; // recibe un timestamp YYYY-MM-DD TM HH:MM:SS
 	startDateValue: string; // recibe un timestamp YYYY-MM-DD TM HH:MM:SS
 	valueResponsable: string;
+	reasonsToWorkAgain: optionsDropdown[];
 	modo: Modo;
 	messages: msnsChats[];
 	templateOptions: optionsIcnDrp[];
@@ -75,6 +76,9 @@ export type functions = {
 export type itemComments = {
 	messages: msnsChats[];
 	showTasks?: boolean;
+	onCl_close: onClickType;
+	reasonsToWorkAgain: optionsDropdown[];
+
 	onCh_addFile?: onChangeType;
 	onCl_addComment: onClickType;
 	onCh_comment: onChangeType;

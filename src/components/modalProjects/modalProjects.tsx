@@ -14,6 +14,7 @@ const ModalProjects = (props: ModalProjectsProps) => {
 			Content={<Content {...props} />}
 			Footer={<Footer {...props} />}
 			modo={props.modo}
+			onCl_close={props.onCl_close}
 		/>
 	);
 };

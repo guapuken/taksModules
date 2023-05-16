@@ -180,6 +180,7 @@ const ModalTemplates = (props: modalTemplates) => {
 		Content: <Content {...props} />,
 		Footer: <Footer {...props} />,
 		modo: props.modo,
+		onCl_close: props.onCl_close,
 	};
 	return <Modal {...args} />;
 };
