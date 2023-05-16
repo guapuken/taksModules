@@ -17,6 +17,7 @@ import filter from '../../img/filter.svg';
 import orderIcon from '../../img/order.svg';
 import { ButtonItem } from '../../utils/asideUtils';
 import IconDropdown from '../iconDropdown/iconDropdown';
+import { aspectRatio } from '../../utils/functions/functions';
 
 /** documentación del componente
  * @param {boolean} isWhite - define si el Aside contiene un color de fondo
@@ -46,10 +47,6 @@ const AsideTemplates = ({
 	const [order, setOrder] = useState(true);
 	const [filterBy, setFilterBY] = useState('');
 
-	function aspectRatio() {
-		const size = scrnH / 10 > scrnW / 7 ? true : false;
-		return size;
-	}
 	function filterResult(array: any, property: any, order: any) {
 		array.sort((a: any, b: any) => {
 			let sortOrder = order ? -1 : 1;
@@ -112,18 +109,24 @@ const AsideTemplates = ({
 						</>
 					)}
 				</div>
-				{!tasks && !priText && !secText ? (
+				{(!tasks || tasks.length === 0) && !priText && !secText ? (
 					<ErrorNc />
 				) : (
 					<div className="ctnCards">
 						{!aspectRatio() ? (
-							tasks?.map((individualTask) => (
-								<CardTaskReview
-									key={individualTask.id}
-									modo={visible ? 'Dark' : modo}
-									{...individualTask}
-								/>
-							))
+							tasks.length === 0 ? (
+								<></>
+							) : (
+								tasks?.map((individualTask) => (
+									<CardTaskReview
+										key={individualTask.id}
+										modo={visible ? 'Dark' : modo}
+										{...individualTask}
+									/>
+								))
+							)
+						) : tasks.length === 0 ? (
+							<></>
 						) : (
 							<Carousel
 								data={tasks}

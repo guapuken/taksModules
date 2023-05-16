@@ -32,6 +32,7 @@ export interface contentProps {
 	onCl_approve: onClickType;
 	onCl_confirm: onClickType;
 	onCl_reWork: onClickType;
+	onCl_close: onClickType;
 
 	// onCl_reWork: onClickType;
 	//string
@@ -65,8 +66,10 @@ export type functions = {
 	onCl_confirm: onClickType;
 	onCl_approve: onClickType;
 	onCh_dropdown: onChangeType;
-	reasonToRework?: optionsDropdown;
+	valueReasonToWorkAgain?: optionsDropdown;
 	modo: Modo;
+	onCl_close: onClickType;
+	reasonsToWorkAgain: optionsDropdown[];
 };
 // types del componente complemenetario Item Comments
 export type itemComments = {

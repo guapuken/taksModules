@@ -31,3 +31,10 @@ export function autoIncrementalId(diferencial?: string) {
 	id++;
 	return `${diferencial ?? ''}-${id}`;
 }
+
+export function aspectRatio() {
+	const scrnW = useWindowSize().width;
+	const scrnH = useWindowSize().height;
+	const size = scrnH / 10 > scrnW / 7 ? true : false;
+	return size;
+}

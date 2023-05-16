@@ -14,7 +14,7 @@ const InputLabel = ({
 	style,
 }: inputLabel) => {
 	const [isActive, setIsActive] = useState(false);
-	const [value, setValue] = useState(initialValue || '');
+	const [value, setValue] = useState(initialValue);
 
 	function handleTextChange(text: string) {
 		setValue(text);

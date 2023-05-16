@@ -14,6 +14,7 @@ function DemoComponent(props: any) {
 	const [check, setCheck] = React.useState(false);
 	return (
 		<ModalTaskWithComments
+			onCl_close={() => alert('Cerrar')}
 			onCl_reWork={() => {}}
 			reasonToRework={{ id: '1', title: 'No hay material' }}
 			onCh_descriptionTask={(e) => console.log('descriptionTask: ', e.target.value)}

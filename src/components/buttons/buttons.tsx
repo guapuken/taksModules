@@ -2,278 +2,112 @@ import React from 'react';
 import { Button } from '../../components';
 
 import { buttons } from './types';
+// styles
+import './styles/buttons.scss';
 
 //component
-const Buttons = (props: buttons) => {
-	// desestructuración de props
-	const datos = { ...props };
+const Buttons = ({
+	icons,
+	modo = 'Light',
+	composition /* = 'horizontal' */,
+	styleComposition,
+	buttons,
+	id,
+	border,
+	rounded,
+	size = 'small',
+	onCl_buttons,
+	disabled,
+	legends,
+	style,
+	className,
+}: buttons) => {
 	// inicialización de props
-	const {
-		size = 'medium',
-		composition = 'horizontal',
-		onCl_buttons = {
-			primary: () => alert('change the function'),
-			secondary: () => alert('change the function'),
-			tertiary: () => alert('change the function'),
-		},
-	} = props;
 
-	function returnButtons() {
-		function dataButton(tipo = 'primary') {
-			return {
-				modo: datos.modo,
-				legend:
-					tipo === 'primary'
-						? datos.legends?.primary
-						: tipo === 'secondary'
-						? datos.legends?.secondary
-						: tipo === 'tertiary'
-						? datos.legends?.tertiary
-						: 'clic here',
-				size: size,
-				color:
-					tipo === 'primary'
-						? datos.colorButtons?.primary
-						: tipo === 'secondary'
-						? datos.colorButtons?.secondary
-						: tipo === 'tertiary'
-						? datos.colorButtons?.tertiary
-						: undefined,
-				colorHover:
-					tipo === 'primary'
-						? datos.colorHover?.primary
-						: tipo === 'secondary'
-						? datos.colorHover?.secondary
-						: tipo === 'tertiary'
-						? datos.colorHover?.tertiary
-						: undefined,
-				className:
-					tipo === 'primary'
-						? datos.className?.primary
-						: tipo === 'secondary'
-						? datos.className?.secondary
-						: tipo === 'tertiary'
-						? datos.className?.tertiary
-						: undefined,
-				primary: tipo === 'primary' ? datos.buttons?.primary : false,
-				secondary: tipo === 'secondary' ? datos.buttons?.secondary : false,
-				tertiary: tipo === 'tertiary' ? datos.buttons?.tertiary : false,
-				rounded: datos.rounded ? datos.rounded : false,
-				disabled:
-					tipo === 'primary'
-						? datos.disabled?.primary
-						: tipo === 'secondary'
-						? datos.disabled?.secondary
-						: tipo === 'tertiary'
-						? datos.disabled?.tertiary
-						: undefined,
-				style:
-					tipo === 'primary'
-						? datos.style?.primary
-						: tipo === 'secondary'
-						? { ...datos.style?.secondary }
-						: tipo === 'tertiary'
-						? datos.style?.tertiary
-						: undefined,
-				styleIcon:
-					tipo === 'primary'
-						? datos.styleIcon?.primary
-						: tipo === 'secondary'
-						? datos.styleIcon?.secondary
-						: tipo === 'tertiary'
-						? datos.styleIcon?.tertiary
-						: undefined,
-				border: datos.border ? datos.border : false,
-				id:
-					tipo === 'primary'
-						? datos.id?.primary
-						: tipo === 'secondary'
-						? datos.id?.secondary
-						: tipo === 'tertiary'
-						? datos.id?.tertiary
-						: undefined,
-				key:
-					tipo === 'primary'
-						? datos.keys?.primary
-						: tipo === 'secondary'
-						? datos.keys?.secondary
-						: tipo === 'tertiary'
-						? datos.keys?.tertiary
-						: undefined,
-				icon:
-					tipo === 'primary'
-						? datos.icons?.primary
-						: tipo === 'secondary'
-						? datos.icons?.secondary
-						: tipo === 'tertiary'
-						? datos.icons?.tertiary
-						: undefined,
-			};
-		}
-
-		//styles
-		let compositionStyles = {
-			horizontal: {
-				display: 'flex',
-				justifyContent:
-					datos.buttons?.secondary && !datos.buttons?.primary && !datos.buttons?.tertiary
-						? 'right'
-						: 'space-between',
-				gap: '10px',
-				width: '100%',
-			},
-			vertical: {
-				display: 'flex',
-				justifyContent:
-					datos.buttons?.secondary && !datos.buttons?.primary && !datos.buttons?.tertiary
-						? 'right'
-						: 'space-between',
-				gap: '10px',
-				width: '100%',
-			},
-			box: {
-				display: 'flex',
-				justifyContent:
-					datos.buttons?.secondary && !datos.buttons?.primary && !datos.buttons?.tertiary
-						? 'right'
-						: 'space-between',
-				gap: '10px',
-				width: '100%',
-			},
-		};
-
-		let buttonsStyles = {
-			horizontal: {
-				secondary: {
-					width: !datos.buttons?.primary ? '50%' : '25%',
-				},
-				primary: {
-					width: '50%',
-				},
-				tertiary: {
-					width: '25%',
-				},
-			},
-			vertical: {
-				width: '100%',
-				// maxHeight: '2rem',
-			},
-			box: {
-				primary: {
-					width: '100%',
-				},
-				tertiaryAndSecondary: {
-					width: '50%',
-				},
-			},
-		};
-		return composition === 'horizontal' ? (
-			<div style={{ ...compositionStyles.horizontal, ...datos.styleComposition }}>
-				{datos.buttons.secondary && (
-					<Button
-						onCl={onCl_buttons.secondary}
-						{...dataButton('secondary')}
-						style={{ ...buttonsStyles.horizontal.secondary, ...datos.style?.secondary }}
-					/>
-				)}
-				{datos.buttons.tertiary && (
-					<Button
-						onCl={onCl_buttons.tertiary}
-						{...dataButton('tertiary')}
-						style={{ ...buttonsStyles.horizontal.tertiary, ...datos.style?.tertiary }}
-					/>
-				)}
-				{datos.buttons.primary && (
-					<Button
-						onCl={onCl_buttons.primary}
-						{...dataButton('primary')}
-						style={{ ...buttonsStyles.horizontal.primary, ...datos.style?.primary }}
-					/>
-				)}
-			</div>
-		) : composition === 'vertical' ? (
-			<div
-				style={{
-					flexDirection: 'column',
-					flexWrap: 'wrap',
-					maxWidth: '100%',
-					...compositionStyles.vertical,
-					...datos.styleComposition,
-				}}
-			>
-				{datos.buttons.primary && (
-					<Button
-						onCl={onCl_buttons.primary}
-						{...dataButton('primary')}
-						style={{ ...buttonsStyles.vertical, ...datos.style?.primary }}
-					/>
-				)}
-				{datos.buttons.secondary && (
-					<Button
-						onCl={onCl_buttons.secondary}
-						{...dataButton('secondary')}
-						style={{ ...buttonsStyles.vertical, ...datos.style?.secondary }}
-					/>
-				)}
-				{datos.buttons.tertiary && (
-					<Button
-						onCl={onCl_buttons.tertiary}
-						{...dataButton('tertiary')}
-						style={{ ...buttonsStyles.vertical, ...datos.style?.tertiary }}
-					/>
-				)}
-			</div>
-		) : composition === 'box' ? (
-			<div
-				style={{
-					flexDirection: 'column',
-					flexWrap: 'wrap',
-					...compositionStyles.box,
-					...datos.styleComposition,
-				}}
-			>
-				{datos.buttons.primary && (
-					<Button
-						onCl={onCl_buttons.primary}
-						{...dataButton('primary')}
-						style={{ ...buttonsStyles.box.primary, ...datos.style?.primary }}
-					/>
-				)}
-				<div
+	return (
+		<div
+			className={`ctn${modo}_BtnsC`}
+			comp-btns={composition}
+			style={styleComposition}
+			ty-btns={`${buttons.primary ? 'Pr' : ''}${buttons.secondary ? 'Sc' : ''}${
+				buttons.tertiary ? 'Tr' : ''
+			}`}
+		>
+			{buttons.primary && (
+				<Button
+					icon={icons?.primary}
+					id={id?.primary}
+					border={border}
+					rounded={rounded}
+					size={size}
+					modo={modo}
+					primary
+					onCl={onCl_buttons.primary}
+					disabled={disabled?.primary}
+					legend={legends?.primary}
 					style={{
-						display: 'flex',
-						gap: '10px',
-						maxWidth: '100%',
-						justifyContent: 'right',
+						width:
+							composition === 'horizontal'
+								? buttons.secondary && buttons.tertiary
+									? '40%'
+									: buttons.secondary || buttons.tertiary
+									? '50%'
+									: ''
+								: '100%',
+						maxWidth: '100%;',
+						// se aplican los estilos que recibe
+						...style?.primary,
 					}}
-				>
-					{datos.buttons.tertiary && (
-						<Button
-							onCl={onCl_buttons.tertiary}
-							{...dataButton('tertiary')}
-							style={{
-								...buttonsStyles.box.tertiaryAndSecondary,
-								...datos.style?.tertiary,
-							}}
-						/>
-					)}
-					{datos.buttons.secondary && (
-						<Button
-							onCl={onCl_buttons.secondary}
-							{...dataButton('secondary')}
-							style={{
-								...buttonsStyles.box.tertiaryAndSecondary,
-								...datos.style?.secondary,
-							}}
-						/>
-					)}
-				</div>
-			</div>
-		) : (
-			<></>
-		);
-	}
-	return returnButtons();
+					className={className?.primary}
+				/>
+			)}
+			{buttons.secondary && (
+				<Button
+					icon={icons?.secondary}
+					id={id?.secondary}
+					border={border}
+					rounded={rounded}
+					size={size}
+					modo={modo}
+					secondary
+					onCl={onCl_buttons.secondary}
+					disabled={disabled?.secondary}
+					legend={legends?.secondary}
+					style={{
+						width:
+							buttons.primary && buttons.tertiary
+								? '25%'
+								: buttons.primary || buttons.tertiary
+								? '50%'
+								: '',
+						//se aplican cuando reciben los estilos
+						...style?.secondary,
+					}}
+					className={className?.secondary}
+				/>
+			)}
+			{buttons.tertiary && (
+				<Button
+					icon={icons?.tertiary}
+					id={id?.tertiary}
+					border={border}
+					rounded={rounded}
+					size={size}
+					tertiary
+					modo={modo}
+					onCl={onCl_buttons.tertiary}
+					disabled={disabled?.tertiary}
+					legend={legends?.tertiary}
+					style={{
+						maxWidth: 'calc(20%- 20px)',
+						//se aplican cuando reciben los estilos
+						...style?.tertiary,
+					}}
+					className={className?.tertiary}
+				/>
+			)}
+		</div>
+	);
 };
 
 export default Buttons;

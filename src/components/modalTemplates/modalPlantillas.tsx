@@ -42,11 +42,11 @@ const ModalTemplates = (props: modalTemplates) => {
 		valueTipoMedio,
 		onCh_checkboxCampaign,
 		onCh_checkboxMedio,
+		isMannager,
 	}: modalTemplates) => {
 		const [tipoMedio, setTipoMedio] = useState(false);
 		const [campanha, setCampanha] = useState(false);
-		console.log('tipoMedio: ', tipoMedio);
-		console.log('campaña: ', campanha);
+
 		return (
 			<div>
 				<InputLabel
@@ -56,7 +56,8 @@ const ModalTemplates = (props: modalTemplates) => {
 					style={{ maxWidth: '98%' }}
 					initialValue={templateNameValue}
 				/>
-				{!campanha && (
+
+				{!campanha && isMannager && (
 					<div
 						style={{ display: 'flex', width: '98%', gap: '20px', alignItems: 'center' }}
 					>
@@ -88,6 +89,7 @@ const ModalTemplates = (props: modalTemplates) => {
 							<Dropdown
 								style={{ width: '100%', height: '30px' }}
 								modo={modo}
+								placeHolder="Selecciona el medio"
 								onCh={onCh_dropDownTipoMedio}
 								options={optionsTipoMedio as optionsDropdown[]}
 								initialValue={valueTipoMedio}
@@ -95,7 +97,7 @@ const ModalTemplates = (props: modalTemplates) => {
 						)}
 					</div>
 				)}
-				{!tipoMedio && (
+				{!tipoMedio && isMannager && (
 					<div
 						style={{ display: 'flex', width: '98%', gap: '20px', alignItems: 'center' }}
 					>

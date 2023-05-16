@@ -12,6 +12,7 @@ function DemoComponent() {
 		<ModalTemplates
 			idTemplate="1"
 			modo="Light"
+			isMannager
 			onCh_checkboxMedio={() => {}}
 			onCh_dropDownTipoMedio={() => {}}
 			onCh_templateName={() => {}}

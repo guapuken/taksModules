@@ -17,4 +17,5 @@ export interface modalTemplates {
 	idTemplate: string;
 	tasks?: tasksTemplates[];
 	modo: Modo;
+	isMannager?: boolean;
 }

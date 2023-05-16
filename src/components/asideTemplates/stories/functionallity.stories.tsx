@@ -46,18 +46,15 @@ const tareasRevision = [
 const tareasEmpezar = [];
 export function ComponentDemo() {
 	const [tasks, setTasks] = useState({
-		id: 'revision',
-		title: 'Tareas en revisión',
+		id: 'porRevisar',
+		title: 'Tareas para revisar',
 	});
 	const [tiposTask, setTiposTasks] = useState(tareasRevisar);
 
 	return (
 		<AsideTemplates
 			modo="Light"
-			initialValueDropdown={{
-				id: 'revision',
-				title: 'Tareas en revisión',
-			}}
+			initialValueDropdown={tasks}
 			optionsDropdown={[
 				{
 					id: 'revision',
@@ -66,6 +63,10 @@ export function ComponentDemo() {
 				{
 					id: 'porRevisar',
 					title: 'Tareas para revisar',
+				},
+				{
+					id: 'porhacer',
+					title: 'Tareas por hacer',
 				},
 			]}
 			// tasks={tiposTask as tasks[]}
@@ -78,6 +79,7 @@ export function ComponentDemo() {
 			}
 			legendBtn={tiposTask.length === 0 ? 'Tarea nueva' : ''}
 			onCh_dropdown={(e: any) => {
+				console.log(e);
 				setTasks(e);
 				if (e.id === 'revision') setTiposTasks(tareasRevision);
 				if (e.id === 'porRevisar') setTiposTasks(tareasRevisar);

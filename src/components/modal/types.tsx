@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modo, css } from '../../types';
+import { Modo, css, onClickType } from '../../types';
 
 export interface modalProps {
 	// elements
@@ -13,12 +13,14 @@ export interface modalProps {
 	styleFooter?: css;
 	// theme
 	modo: Modo;
+	onCl_close: onClickType;
 }
 
 // componente header
 export type header = {
 	header?: string;
 	styleHeader?: css;
+	onCl_close: onClickType;
 };
 
 // componente footer
