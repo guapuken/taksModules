@@ -96,7 +96,7 @@ export {default as ModalTask} from './modalTareas';
 export {default as ModalTemplates} from './modalTemplates';
 export {default as ModalProjects} from './modalProjects';
 export {default as ModalTeams} from './modalTeams';
-export {default as ModalTaskWithComents} from './modalTasksWithComents';
+export {default as ModalTaskWithComments} from './modalTasksWithComents';
 
 // ---------------------------------------------------------------------------------------------------------
 //      componentes complejos
