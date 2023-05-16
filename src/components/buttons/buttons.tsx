@@ -46,6 +46,7 @@ const Buttons = ({
 					disabled={disabled?.primary}
 					legend={legends?.primary}
 					style={{
+						display: 'block',
 						width:
 							composition === 'horizontal'
 								? buttons.secondary && buttons.tertiary
@@ -54,7 +55,7 @@ const Buttons = ({
 									? '50%'
 									: ''
 								: '100%',
-						maxWidth: '100%;',
+						// maxWidth: '100%;',
 						// se aplican los estilos que recibe
 						...style?.primary,
 					}}
@@ -75,7 +76,9 @@ const Buttons = ({
 					legend={legends?.secondary}
 					style={{
 						width:
-							buttons.primary && buttons.tertiary
+							composition === 'box'
+								? '40%'
+								: buttons.primary && buttons.tertiary
 								? '25%'
 								: buttons.primary || buttons.tertiary
 								? '50%'
@@ -99,7 +102,14 @@ const Buttons = ({
 					disabled={disabled?.tertiary}
 					legend={legends?.tertiary}
 					style={{
-						maxWidth: 'calc(20%- 20px)',
+						width:
+							composition === 'box'
+								? '40%'
+								: buttons.primary && buttons.secondary
+								? '25%'
+								: buttons.primary || buttons.secondary
+								? '50%'
+								: '',
 						//se aplican cuando reciben los estilos
 						...style?.tertiary,
 					}}
