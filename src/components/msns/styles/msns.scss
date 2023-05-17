@@ -1,5 +1,5 @@
-.ctnLight_MsnsC,
-.ctnDark_MsnsC
+@import '../../../global.scss';
+.ctn_MsnsC
 {
     // min-height: calc(100% - 225px);
     overflow-y: auto;
@@ -74,10 +74,8 @@
             .avatar_user{
                 .noImage, .image{
                     background-color: #dedede;
-                    color: #282828;
                 }
                 .userName{
-                    color: #282828;
                     opacity: 1;
                 }
             }
@@ -88,7 +86,6 @@
         .msn_text{
             padding-left: 50px;
             span:not(:last-child){
-                color: #282828;
                 opacity: 1;
             }
         }
@@ -117,7 +114,6 @@
                     background-color: #282828;
                 }
                 .userName{
-                    color: #282828 ;
                     opacity: 1;
                 }
             }
@@ -127,7 +123,6 @@
                 }
                 span:not(:last-child){
                     opacity: .6;
-                    color: #282828;
                 }
                 padding-right: 50px;
             }

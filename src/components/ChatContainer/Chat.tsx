@@ -59,7 +59,9 @@ const Chat = ({
 	}
 
 	return (
-		<div className={`ctn${modo}_ChC`}>
+		<div className={`ctn_ChC ${modo}`}>
+			{' '}
+			{/* ctnLight_ChC  ctn_ChC Light */}
 			<div id="ctnTtl">
 				{multiplesChats && (
 					<div className="ctnDropdown">

@@ -120,6 +120,7 @@ function DemoComponent() {
 	];
 	return (
 		<Chat
+			modo="Light"
 			messages={chatCanal.title === 'Chat comercial' ? comercialMsns : operacionalMsns}
 			multiplesChats
 			onCh_dropdown={(e) => setChatCanal(e)}

@@ -14,7 +14,8 @@ import ItemMsn from './principalComponents/ItemMsn';
 
 const Msns = ({ messages = messagesExample, height = 'auto', modo = 'Light' }: msnsProps) => {
 	return (
-		<div className={`ctn${modo}_MsnsC`} style={{ height: `${height}` }}>
+		// <div className={`ctn${modo}_MsnsC`} style={{ height: `${height}` }}>
+		<div className={`ctn_MsnsC ${modo}`} style={{ height: `${height}` }}>
 			{messages.length === 0 ? (
 				<></>
 			) : (

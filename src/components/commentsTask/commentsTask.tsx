@@ -6,12 +6,20 @@ import { Comments, CommentTask } from './files';
 // estilos
 import './commentsTask.scss';
 
-const CommentsTask = (props: commentsTask) => {
-	const { modo = 'Light', comments, onCl_addComment, onCh_addFile, onCh_comment } = props;
+const CommentsTask = ({
+	modo = 'Light',
+	comments,
+	onCl_addComment,
+	onCh_addFile,
+	onCh_comment,
+}: commentsTask) => {
 	return (
 		<>
 			{/* TODO: Agregar el componente de mensajes */}
-			<div className={`ctn${modo}_CTC`}>
+			{/* <div className={`ctn${modo}_CTC`}>  ctnLight_CTC   ctnundefined_CTC  */}
+			<div className={`ctn_CTC ${modo}`}>
+				{' '}
+				{/* ctn_CTC undefined  */}
 				<h2>Comentarios</h2>
 				{comments && <Comments comments={comments} />}
 				<CommentTask
