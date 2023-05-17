@@ -37,10 +37,14 @@ export interface contentProps {
 	onCh_addFile?: onChangeType;
 	subtasks?: subtasksComponent[];
 	valueComment?: string;
+	isReviewer?: boolean;
+	onCl_edit: onClickType;
+	onCl_abort: onClickType;
 }
 // botones que se utilizan
 export type functions = {
 	onCh_addFile?: onChangeType;
+	isReviewer?: boolean;
 	onCl_addComment: onClickType;
 	onCh_comment: onChangeType;
 	onCl_reWork: onClickType;
@@ -52,6 +56,8 @@ export type functions = {
 	onCl_close: onClickType;
 	valueComment?: string;
 	reasonsToWorkAgain: optionsDropdown[];
+	onCl_edit: onClickType;
+	onCl_abort: onClickType;
 };
 // types del componente complemenetario Item Comments
 export type itemComments = {

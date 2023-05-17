@@ -23,6 +23,9 @@ function DemoComponent(props: any) {
 			taskName="Dummies plazas principales Name"
 			taskDescription="Dummies plazas principales Description"
 			modo="Light"
+			onCl_abort={() => alert('cancelar')}
+			onCl_edit={() => alert('editar')}
+			isReviewer
 			reasonsToWorkAgain={[]}
 			valueComment={''}
 			messages={[

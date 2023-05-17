@@ -11,11 +11,14 @@ const Footer = (props: functions) => {
 		valueReasonToWorkAgain,
 		modo,
 		reasonsToWorkAgain,
+		isReviewer,
+		onCl_edit,
+		onCl_abort,
 	} = props;
 	const [reWork, setReWork] = React.useState(false);
 	return (
 		<div style={{ width: '100%', position: 'relative' }}>
-			{!reWork && (
+			{!reWork && isReviewer && (
 				<Buttons
 					buttons={{
 						primary: true,
@@ -36,7 +39,7 @@ const Footer = (props: functions) => {
 					}}
 				/>
 			)}
-			{reWork && (
+			{reWork && isReviewer && (
 				<div
 					style={{
 						display: 'flex',
@@ -69,6 +72,20 @@ const Footer = (props: functions) => {
 						composition="horizontal"
 					/>
 				</div>
+			)}
+			{!isReviewer && (
+				<Buttons
+					styleComposition={{ width: '100%' }}
+					buttons={{ primary: true, secondary: true }}
+					legends={{ primary: 'Editar', secondary: 'Cancelar' }}
+					onCl_buttons={{
+						primary: onCl_edit,
+						secondary: onCl_abort,
+						tertiary: {} as any,
+					}}
+					modo={modo}
+					composition="horizontal"
+				/>
 			)}
 		</div>
 	);
