@@ -3,7 +3,7 @@ import React from 'react';
 //      eementos auxiliares
 // ---------------------------------------------------------------------------------------------------------
 // componentes
-import { CardContainer, SimpleButtonText, Spans, TitleCard } from '../../../utils/cardsUtils';
+import { CardContainer, Spans } from '../../../utils/cardsUtils';
 import { ButtonItem } from '../../../utils/asideUtils';
 import { Notifications, ProgressBar } from '../../../components';
 // funciones
@@ -15,6 +15,7 @@ import shareIcon from '../../../img/share.svg';
 // estilos
 import '../cardProject.scss';
 import { cardProject } from '../types';
+import { TextButton, Title } from '../../Atoms';
 
 // ---------------------------------------------------------------------------------------------------------
 //      creación de componente
@@ -35,7 +36,9 @@ const Content = ({
 	return (
 		<CardContainer className="ctn_CProjectC">
 			<div className="title">
-				<TitleCard modo={modo} title={projectName} className="ttlProject" />
+				<Title modo={modo} className="ttlProject">
+					{projectName}
+				</Title>
 			</div>
 			<div className="ctnBtns">
 				<ButtonItem
@@ -52,9 +55,7 @@ const Content = ({
 				/>
 			</div>
 			<div className="ctnEjecutivoBtns">
-				<SimpleButtonText style={{ fontSize: '14px' }}>
-					<Spans boldLegend="Ejecutivo: " legend={ejecutivo} positionBold="start" />
-				</SimpleButtonText>
+				<Spans boldLegend="Ejecutivo: " legend={ejecutivo} positionBold="start" />
 			</div>
 
 			<div className=".ctnProgressBar_showDtls">
@@ -71,26 +72,9 @@ const Content = ({
 					styleContent={{ cursor: 'pointer' }}
 				/>
 				<div className="ftr">
-					<SimpleButtonText style={{ fontSize: '14px' }}>
-						{useWindowSize().width > 1750 && (
-							<Spans
-								boldLegend={completedTask}
-								legend="tareas terminadas"
-								positionBold="start"
-							/>
-						)}
-						<Spans
-							boldLegend={incompletedTask}
-							legend="pendientes"
-							positionBold="start"
-							styleBold={{ marginLeft: '10px' }}
-						/>
-					</SimpleButtonText>
-					<SimpleButtonText
-						legend="mostrar detalles..."
-						onClick={onCl_showDetails}
-						style={{ fontSize: '14px' }}
-					/>
+					<TextButton modo={modo} onClick={onCl_showDetails}>
+						Mostrar detalles...
+					</TextButton>
 				</div>
 			</div>
 		</CardContainer>

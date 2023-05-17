@@ -1,8 +1,9 @@
 import React from 'react';
-import { CardContainer, SimpleButtonText, Spans, TitleCard } from '../../../utils/cardsUtils';
+import { CardContainer, Spans } from '../../../utils/cardsUtils';
 import { content } from '../types';
 import ProgressBar from '../../progressBar/progressBar';
 import { cardW } from '../../../utils/functions/functions';
+import { Title } from '../../Atoms';
 
 export const Content = ({
 	modo = 'Light',
@@ -15,7 +16,9 @@ export const Content = ({
 	return (
 		<CardContainer style={{ display: 'grid', placeItems: 'center' }}>
 			<div>
-				<TitleCard modo={modo} title={title} />
+				<Title modo={modo} maxLines={2}>
+					{title}
+				</Title>
 				<div style={{ margin: '10px 0' }}>
 					<Spans
 						modo={modo}

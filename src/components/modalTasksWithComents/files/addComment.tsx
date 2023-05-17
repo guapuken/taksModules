@@ -1,6 +1,5 @@
 import React from 'react';
 import { AutoresizeInput } from '../../../components';
-import { SimpleButtonText } from '../../../utils/cardsUtils';
 import { Button } from '../../../components';
 import { functions } from '../types';
 
@@ -30,7 +29,7 @@ const CommentTask = (props: functions) => {
 					}}
 				/>
 				<label htmlFor="file">
-					<SimpleButtonText legend="Adjuntar archivo" />
+					<Texts>Adjuntar</Texts>
 				</label> */}
 				<Button
 					modo={modo}

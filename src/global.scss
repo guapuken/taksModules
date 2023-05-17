@@ -2,13 +2,18 @@
 //      normalize
 // ---------------------------------------------------------------------------------------------------------
 @import './normalize.scss';
+// ---------------------------------------------------------------------------------------------------------
+//      fonts
+// ---------------------------------------------------------------------------------------------------------
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
 
 // ---------------------------------------------------------------------------------------------------------
-//      roots de variables
+//      variables
 // ---------------------------------------------------------------------------------------------------------
 :root{
   --bg : #ffffff;
   --bgDark: #282828;
+  --fcLight: #282828;
   --fcDark: #dedede;
   --contrastDark: #525252;
   --border: inset 0 0 0 2px #dedede;
@@ -34,7 +39,6 @@
 //      estilos generales
 // ---------------------------------------------------------------------------------------------------------
 *{
-    // font-size: 62.5%;
     font-family: 'Open Sans', sans-serif;
   }
   //Modificación en los estilos del scrollbar
@@ -48,10 +52,9 @@
   }
   ::-webkit-scrollbar-thumb {
     background-color: transparent !important;
-    // border: 1px solid #dedede;
     border-radius: 10px;
   }
-  //buttons
+  // elimina todos los estilos que contiene el button por defecto
   button {
     all: unset;
   }
@@ -75,16 +78,6 @@
     font-weight: bold;
   }
   //definición de tamaños en tipografías
-  .Light{
-    h1, h2,h3,h4,h5,h6,p,button,span,a{
-      color: var(--bgDark);
-    }
-  }
-  .Dark{
-    h1, h2,h3,h4,h5,h6,p,button,span,a{
-      color: var(--fcDark);
-    }
-  }
   h1{
     font-size: clamp(30px, 3.2vw, 40px);
   }
@@ -105,6 +98,16 @@
   }
   p, span{
     font-size: clamp(13px, 1.5vw, 22px);
+  }
+  .Light{
+    h1, h2,h3,h4,h5,h6,p,button,span,a{
+      color: var(--bgDark);
+    }
+  }
+  .Dark{
+    h1, h2,h3,h4,h5,h6,p,button,span,a{
+      color: var(--fcDark);
+    }
   }
 
 // ---------------------------------------------------------------------------------------------------------

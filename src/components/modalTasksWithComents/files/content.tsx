@@ -1,10 +1,8 @@
-import React, { Fragment } from 'react';
+import React, { useState } from 'react';
 import { contentProps, subtasksComponent } from '../types';
 import { Comentarios } from './index';
-import { SimpleButtonText } from '../../../utils/cardsUtils';
-import { Task } from '../../../components';
-import { optionsIcnDrp } from '../../../types';
 import '../modalTaskWithComents.scss';
+import { TextButton } from '../../Atoms';
 
 const Content = ({
 	modo = 'Light',
@@ -24,7 +22,7 @@ const Content = ({
 	onCl_close,
 	valueComment,
 }: contentProps) => {
-	const [showTasks, setShowTasks] = React.useState(false);
+	const [showTasks, setShowTasks] = useState(false);
 	const Subtasks = ({ taskName, taskDescription, subtasks, completed }: subtasksComponent) => {
 		console.log(completed);
 		return (
@@ -117,13 +115,9 @@ const Content = ({
 						)}
 					</div>
 
-					<SimpleButtonText
-						legend={`${showTasks ? 'Ocultar' : 'Ver'} ${
-							subtasks?.length || 0
-						} subtareas más`}
-						style={{ fontSize: '13px', marginTop: '5px' }}
-						onClick={() => setShowTasks(!showTasks)}
-					/>
+					<TextButton modo={modo} onClick={() => setShowTasks(!showTasks)}>
+						{`${showTasks ? 'Ocultar' : 'Ver'} ${subtasks?.length || 0} subtareas más`}
+					</TextButton>
 				</div>
 			</div>
 			<Comentarios

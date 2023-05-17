@@ -13,8 +13,9 @@ const AddComment = ({ onCh_addFile, onCl_addComment, onCh_comment, modo }: any) 
 					onCh={onCh_comment}
 				/>
 			</fieldset>
-			{/* Cuando se habilite la subida de archivos a los chats se agergaará esta parte del código */}
-			{/* <div className="ctnButtons">
+			{/* 
+			TODO: Implementar cuando se active la subida de archivos
+			<div className="ctnButtons">
 				<input
 					type="file"
 					id="file"
@@ -25,10 +26,10 @@ const AddComment = ({ onCh_addFile, onCl_addComment, onCh_comment, modo }: any) 
 					}}
 				/>
 				<label htmlFor="file">
-					<SimpleButtonText legend="Adjuntar archivo" style={{ fontSize: '10px' }} />
+					<Texts>Adjuntar</Texts>
 				</label>
-				<Button primary size="small" legend="Comentar" onCl={onCl_addComment} />
-			</div> */}
+			</div> 
+			*/}
 			<Button
 				modo={modo}
 				primary

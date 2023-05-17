@@ -1,13 +1,14 @@
 import React from 'react';
 
 //componentes auxiliares
-import { CardContainer, SimpleButtonText, Spans, TitleCard } from '../../../utils/cardsUtils';
-import { Button, CircularProgressBar, IconDropdown, ProgressBar } from '../../../components';
+import { CardContainer, Spans } from '../../../utils/cardsUtils';
+import { Button, CircularProgressBar, ProgressBar } from '../../../components';
 //funciones auxiliares
 import { cardW } from '../../../utils/functions/functions';
 // estilos
 import '../cardTask.scss';
 import { IconMoreOptions } from '../../task/files';
+import { TextButton, Texts, Title } from '../../Atoms';
 
 //componente principal
 const Content = ({
@@ -56,14 +57,12 @@ const Content = ({
 	return (
 		<CardContainer className={`ctn${modo}_CTaskC ${className}`}>
 			<div className="ctnTexts">
-				<div>
-					<TitleCard modo={modo} title={taskName} />
-					<SimpleButtonText className="descTask ttlTask">
-						<span className="TextOverflow" title={taskDescription}>
-							{taskDescription}
-						</span>
-					</SimpleButtonText>
-				</div>
+				<Title modo={modo} maxLines={1}>
+					{taskName}
+				</Title>
+				<Texts modo={modo} className="descTask ttlTask" maxLines={2}>
+					{taskDescription}
+				</Texts>
 			</div>
 
 			<div className="ctnProgressBar_showDtls">
@@ -76,14 +75,10 @@ const Content = ({
 					styleContent={{ cursor: 'pointer' }}
 				/>
 				<div className="ctnDtls">
-					<SimpleButtonText className="tasks">
-						<Spans boldLegend={subtasks} legend="más" />
-					</SimpleButtonText>
-					<SimpleButtonText
-						className="showDtls"
-						legend="mostrar detalles..."
-						onClick={onCl_showDetails}
-					/>
+					<Spans boldLegend={subtasks} legend="más" />
+					<TextButton className={'showDtls'} onClick={onCl_showDetails} modo={modo}>
+						Mostrar detalles...
+					</TextButton>
 				</div>
 			</div>
 			<div className="ctnCircularProgressBar">

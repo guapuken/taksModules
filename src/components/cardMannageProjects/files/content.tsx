@@ -1,12 +1,13 @@
 import React from 'react';
 // componentes auxiliares
-import { CardContainer, Spans, TitleCard } from '../../../utils/cardsUtils';
+import { CardContainer, Spans } from '../../../utils/cardsUtils';
 import ProgressBar from '../../progressBar/progressBar';
 // types
 import { content } from '../types';
 import CircularProgressBar from '../../circularProgressBar';
 import { IconMoreOptions } from '../../task/files';
 import { useWindowSize } from '../../../utils/windowSize';
+import { Title } from '../../Atoms';
 
 const Content = ({
 	modo = 'Light',
@@ -47,7 +48,9 @@ const Content = ({
 				}}
 			>
 				<div>
-					<TitleCard modo={modo} title={title} />
+					<Title modo={modo} maxLines={2}>
+						{title}
+					</Title>
 					<div style={{ margin: '10px 0' }}>
 						<Spans
 							modo={modo}

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { AutoresizeInput, Button } from '../../../components';
-import { SimpleButtonText } from '../../../utils/cardsUtils';
 import { commentTask } from '../types';
+import { Texts } from '../../Atoms';
 
 const CommentTask = (props: commentTask) => {
 	const { onCl_addComment, onCh_addFile, idComment, onCh_comment, modo } = props;
@@ -29,7 +29,7 @@ const CommentTask = (props: commentTask) => {
 					}}
 				/>
 				<label htmlFor="file" style={{ userSelect: 'none', cursor: 'pointer' }}>
-					<SimpleButtonText legend="Adjuntar" />
+					<Texts modo={modo}>Adjuntar</Texts>
 				</label>
 				<Button
 					modo={modo}

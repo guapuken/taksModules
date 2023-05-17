@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles/button.scss';
+import Title from '../Atoms/titles/Title';
 import { button } from './types/types';
 
 const Button = ({

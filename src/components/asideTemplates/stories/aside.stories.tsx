@@ -25,7 +25,7 @@ InitialState.args = {
 const tareasRevisar = [
 	{
 		id: '25',
-		taskName: 'a',
+		taskName: 'a shgn kgs dgsnd khsgdh nskdj gnksjh dnghkjs dng',
 		taskDescription: 'Recordar hacer los dummies de la campaña de uber',
 		statusTask: 2,
 		onCl_showDetails: () => alert('ver detalles'),
