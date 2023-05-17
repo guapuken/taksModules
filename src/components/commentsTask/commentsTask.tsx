@@ -15,6 +15,8 @@ const CommentsTask = (props: commentsTask) => {
 				<h2>Comentarios</h2>
 				{comments && <Comments comments={comments} />}
 				<CommentTask
+					idComment=""
+					modo={modo}
 					onCh_addFile={onCh_addFile}
 					onCl_addComment={onCl_addComment}
 					onCh_comment={onCh_comment}
