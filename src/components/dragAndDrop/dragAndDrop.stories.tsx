@@ -41,6 +41,7 @@ const tasks = [
 		percentTask: 59,
 		onCh_follow: (e) => !e,
 		subtasks: 10,
+		approved: true,
 	},
 	{
 		id: '17',

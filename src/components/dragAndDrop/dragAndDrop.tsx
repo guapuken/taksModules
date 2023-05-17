@@ -191,7 +191,25 @@ const DragAndDrop = (props: dragAndDrop) => {
 						data={boardSections[boardSectionKey]}
 						Card={(e: any) => {
 							return datos.Card ? (
-								<datos.Card {...e.property} />
+								<div style={{ position: 'relative' }}>
+									{datos.approved && (
+										<h3
+											style={{
+												position: 'absolute',
+												right: '20px',
+												top: '-10px',
+												fontSize: '12px',
+												background: '#1cbf59',
+												padding: '5px',
+												borderRadius: '5px',
+												color: '#fff',
+											}}
+										>
+											Revisada
+										</h3>
+									)}
+									<datos.Card {...e.property} />
+								</div>
 							) : (
 								<NoCard taskName={e.taskName} />
 							);

@@ -43,7 +43,11 @@ const BoardSection = (props: boards) => {
 						return (
 							<div className={`ctnDrgbl`} key={task.id}>
 								<SortableTaskItem id={task.id}>
-									<TaskItem data={task} Card={datos.Card} />
+									<TaskItem
+										data={task}
+										Card={datos.Card}
+										approved={task.approved}
+									/>
 								</SortableTaskItem>
 							</div>
 						);

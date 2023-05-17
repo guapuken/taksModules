@@ -13,6 +13,7 @@ export interface dragAndDrop {
 	data?: any;
 	onDragStart?: any;
 	onDragEnd?: any;
+	approved?: boolean;
 }
 
 // type Status = 'Pendientes' | 'En progreso' | 'Completas';
@@ -25,6 +26,7 @@ export type screenSize = { width: number; height: number };
 export type taskItem = {
 	Card?: any;
 	data?: any;
+	approved?: boolean;
 };
 
 // tableros
@@ -67,4 +69,5 @@ export type task = {
 	responsables?: submenusArray[];
 	equipos?: submenusArray[];
 	revision?: submenusArray[];
+	approved?: boolean;
 };
