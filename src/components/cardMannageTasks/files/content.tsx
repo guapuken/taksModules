@@ -10,6 +10,7 @@ export const Content = ({
 	statusTask,
 	percentTask,
 	pendingTasks = 0,
+	onCl_preview,
 }: content) => {
 	return (
 		<CardContainer style={{ display: 'grid', placeItems: 'center' }}>
@@ -23,7 +24,13 @@ export const Content = ({
 						style={{ color: '#00000075' }}
 					/>
 				</div>
-				<ProgressBar status={statusTask} width={cardW(true) - 5} valor={percentTask} />
+				<ProgressBar
+					modo={modo}
+					onClick={onCl_preview}
+					status={statusTask}
+					width={cardW(true) - 5}
+					valor={percentTask}
+				/>
 			</div>
 		</CardContainer>
 	);

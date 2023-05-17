@@ -96,7 +96,7 @@ export {default as ModalTask} from './modalTareas';
 export {default as ModalTemplates} from './modalTemplates';
 export {default as ModalProjects} from './modalProjects';
 export {default as ModalTeams} from './modalTeams';
-export {default as ModalTaskWithComents} from './modalTasksWithComents';
+export {default as ModalTaskWithComments} from './modalTasksWithComents';
 
 // ---------------------------------------------------------------------------------------------------------
 //      componentes complejos
@@ -113,3 +113,8 @@ export {default as TimelineProject} from './timelineProject';
  * @returns - chat que recibe distintas propiedades
  */
 export {default as Chat} from './ChatContainer';
+
+/**
+ * @returns - estructura de los mensajes según su estatus y tipo de mensaje
+ */
+export {default as Msns} from './msns';

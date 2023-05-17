@@ -25,3 +25,16 @@ export function cardH() {
 export function initialLetters(text: string) {
 	return text ? text.split(' ').map((word) => word.charAt(0)) : '';
 }
+
+let id = 0;
+export function autoIncrementalId(diferencial?: string) {
+	id++;
+	return `${diferencial ?? ''}-${id}`;
+}
+
+export function aspectRatio() {
+	const scrnW = useWindowSize().width;
+	const scrnH = useWindowSize().height;
+	const size = scrnH / 10 > scrnW / 7 ? true : false;
+	return size;
+}

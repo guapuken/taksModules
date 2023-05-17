@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // componentes principales
 import { CloseIcon, Icon } from './files';
 // types
@@ -29,10 +29,12 @@ import './dropdown.scss';
  * 
  */
 const Dropdown = (props: dropdown) => {
+	// debugger;
+
 	const datos = { ...props };
-	const [showMenu, setShowMenu] = React.useState(false);
-	const [selectedValue, setSelectedValue] = React.useState<any>(
-		datos.isMulti ? datos.values || [] : datos.initialValue || null
+	const [showMenu, setShowMenu] = useState(false);
+	const [selectedValue, setSelectedValue] = useState<any>(
+		datos.isMulti ? datos.values : datos.initialValue
 	);
 	const [searchValue, setSearchValue] = React.useState<any>('');
 	const searchRef = React.useRef<any>(null);
@@ -57,15 +59,23 @@ const Dropdown = (props: dropdown) => {
 			window.removeEventListener('click', handler);
 		};
 	});
+
+	// use effect que vuelve a settear el valor inicial cuando cambia desde las props que recibe
+	useEffect(() => {
+		setSelectedValue(datos.initialValue || datos.values);
+	}, [datos.initialValue || datos.values]);
+
 	const handleInputClick = (e: any) => {
 		setShowMenu(!showMenu);
 	};
 
+	// muestra los valores dentro del dropdown que se existen dependiendo si es de múltiple selección o de selección simple
 	const getDisplay = () => {
-		if (!selectedValue || (datos.isMulti && selectedValue.length) === 0) {
+		// si no enecuenta un valor seleccionado o valor inicial se coloca el placeholder
+		if (!selectedValue || (datos.isMulti && selectedValue.length) === 0)
 			return datos.placeHolder;
-		}
-		if (datos.isMulti) {
+		// si el dropdown es de selección múltiple se crean las tags para encapsular las opciones seleccionadas
+		if (datos.isMulti)
 			return (
 				<div className={'dropdownTags'}>
 					{selectedValue.map((option: optionsDropdown) => (
@@ -81,7 +91,7 @@ const Dropdown = (props: dropdown) => {
 					))}
 				</div>
 			);
-		}
+		// se regresa la propiedad de title del valor seleccionado
 		return selectedValue.title;
 	};
 

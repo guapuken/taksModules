@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Dropdown, IconDropdown, InputLabel, Task } from '../../../components';
 import { AddTask } from '../../task/files';
 import { optionsPlantillas } from '../../task/task';
@@ -21,7 +21,7 @@ const Content = ({
 	modo = 'Light',
 }: content) => {
 	//
-	useEffect(() => {}, [subtasks]);
+
 	return (
 		<div>
 			<InputLabel

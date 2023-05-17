@@ -2,12 +2,9 @@ import React from 'react';
 // componentes auxiliares
 import { CardContainer, Spans, TitleCard } from '../../../utils/cardsUtils';
 import ProgressBar from '../../progressBar/progressBar';
-// functions
-import { cardW } from '../../../utils/functions/functions';
 // types
 import { content } from '../types';
 import CircularProgressBar from '../../circularProgressBar';
-import Button from '../../button';
 import { IconMoreOptions } from '../../task/files';
 import { useWindowSize } from '../../../utils/windowSize';
 
@@ -62,6 +59,7 @@ const Content = ({
 				</div>
 				<div className="ctnProgressBar_showDtls">
 					<ProgressBar
+						modo={modo}
 						status={statusTask}
 						width={scrW / 10 / 4 - 8}
 						valor={percentTask}

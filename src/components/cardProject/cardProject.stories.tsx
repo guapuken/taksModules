@@ -18,7 +18,6 @@ withProperties.args = {
 	completedTask: 15,
 	incompletedTask: 10,
 	status: 'outOfTime',
-	onCh_follow: (e) => console.log(e.target.value),
 	// modo: 'Dark',
 };
 

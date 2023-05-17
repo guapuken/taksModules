@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
 
 // styles
 import './rangeDatePicker.scss';
@@ -7,78 +7,67 @@ import { rangeDatePicker } from './types';
 // functions
 import { MonthName } from './files/functions';
 
-const RangeDatePicker = (props: rangeDatePicker) => {
-	// desestructuración de propiedades
-	const datos = { ...props };
-	// inicialización de propiedades
-	const { modo = 'Light' } = props;
-	// hooks de setteos de fechas
-	const [startDate, setStartDate] = useState(datos.startDateValue || '');
-	const [endDate, setEndDate] = useState(datos.endDateValue || '');
-	const nextinput = React.useRef<any>(null);
+const RangeDatePicker = ({
+	startDateValue,
+	endDateValue,
+	style,
+	modo,
+	disabledEndDate,
+	disabledStartDate,
+	onCh_endDate,
+	onCh_startDate,
+}: rangeDatePicker) => {
+	/**
+	 * Hooks que definen la fecha inicial y fecha final
+	 */
+	const [startDate, setStartDate] = useState(startDateValue || '');
+	const [endDate, setEndDate] = useState(endDateValue || '');
 
-	// function focusNext() {
-	// 	const inputElement = nextinput.current;
-	// 	if (inputElement) {
-	// 		inputElement.click();
-	// 	}
-	// }
-
+	useEffect(() => {
+		setStartDate(startDateValue);
+	}, [startDateValue]);
+	useEffect(() => {
+		setEndDate(endDateValue);
+	}, [endDateValue]);
 	return (
-		<div id={`dates${modo}_RDatePC`} style={datos.style} className={`ctn${modo}_RDatePC`}>
+		<div id={`dates${modo}_RDatePC`} style={style} className={`ctn${modo}_RDatePC`}>
 			<div>
 				<p>Inicio</p>
-				<label htmlFor="start-date" className={`${startDate === '' ? 'No' : ''}Dt`}>
+				<label htmlFor="startDate" className={`${startDate === '' ? 'No' : ''}Dt`}>
 					{startDate === '' ? 'Inicio' : MonthName(String(startDate))}
 				</label>
 				<input
 					type="datetime-local"
-					id="start-date"
+					id="startDate"
 					name="start-date"
 					className={'DatePickerTaskComponent'}
 					value={String(startDate)}
-					disabled={datos.disabledStartDate}
-					onChange={(e) => {
+					disabled={disabledStartDate}
+					onChange={(e: any) => {
 						setStartDate(e.target.value);
-					}}
-					onBlur={(e) => {
-						console.log('cambió');
-						if (datos.onCh_startDate) {
-							datos.onCh_startDate(e);
+						if (onCh_startDate) {
+							onCh_startDate(e);
 						}
-						document.getElementById('end-date')?.focus();
-						// focusNext();
 					}}
 				/>
 			</div>
 			<h2>→</h2>
 			<div>
 				<p>Entrega</p>
-				<label
-					htmlFor="endDate"
-					className={`${endDate === '' ? 'No' : ''}Dt`}
-					ref={nextinput}
-					onClick={() => {
-						// document.getElementById('end-date')?.focus();
-					}}
-				>
-					{endDate.toString() === '' ? 'Fin' : MonthName(String(endDate))}
+				<label id="lblEnd" htmlFor="endDate" className={`${endDate === '' ? 'No' : ''}Dt`}>
+					{endDate === '' ? 'Fin' : MonthName(String(endDate))}
 				</label>
 				<input
 					type="datetime-local"
-					id="end-date"
+					id="endDate"
 					name="endDate"
-					disabled={datos.disabledEndDate}
+					disabled={disabledEndDate}
 					min={String(startDate)}
 					value={String(endDate)}
 					className={`${'DatePickerTaskComponent'} ${'CalendarOpenTaskModules'}`}
-					onChange={(e) => {
+					onChange={(e: any) => {
 						setEndDate(e.target.value);
-					}}
-					onBlur={(e) => {
-						if (datos.onCh_endDate) {
-							datos.onCh_endDate(e);
-						}
+						if (onCh_endDate) onCh_endDate(e);
 					}}
 				/>
 			</div>

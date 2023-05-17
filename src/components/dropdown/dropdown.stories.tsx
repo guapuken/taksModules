@@ -47,7 +47,6 @@ withProperties.args = {
 	// isMulti: true,
 	placeHolder: 'Selecciona el encargado',
 	options: options,
-	onCh: (value) => console.log(value),
 	initialValue: { value: 'Jorge Correa', label: 'Jorge Correa' },
 	// topPosition: true,
 };

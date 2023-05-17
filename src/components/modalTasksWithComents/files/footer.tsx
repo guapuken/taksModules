@@ -1,91 +1,90 @@
 import React from 'react';
 import { Button, Buttons, Dropdown } from '../../../components';
 import { functions } from '../types';
+import { aspectRatio } from '../../../utils/functions/functions';
 
 const Footer = (props: functions) => {
-	const { onCl_reWork, onCh_dropdown, onCl_approve, onCl_confirm, reasonToRework } = props;
+	const {
+		onCh_dropdown,
+		onCl_approve,
+		onCl_confirm,
+		valueReasonToWorkAgain,
+		modo,
+		reasonsToWorkAgain,
+		isReviewer,
+		onCl_edit,
+		onCl_abort,
+	} = props;
 	const [reWork, setReWork] = React.useState(false);
-	const [reasonToWorkAgain, setReasonToWorkAgain] = React.useState(reasonToRework);
-	React.useEffect(() => {
-		console.log('cambio rework:');
-		console.log('reasonToWorkAgain: ', reasonToWorkAgain);
-	}, [reWork]);
 	return (
-		<div
-			style={{
-				display: 'flex',
-				justifyContent: 'space-between',
-				width: '90%',
-				gap: '20px',
-				margin: '0 auto',
-			}}
-		>
-			<div
-				style={{
-					width: '100%',
-					paddingRight: '30px',
-					display: 'flex',
-					flexDirection: 'column',
-					gap: '10px',
-				}}
-			>
-				{!reWork && (
-					<Button
-						legend={'Volver a trabajar tarea'}
-						style={{ width: '100%', height: '20px' }}
-						secondary
-						onCl={() => {
-							setReWork(true);
-							onCl_reWork;
-						}}
+		<div style={{ width: '100%', position: 'relative' }}>
+			{!reWork && isReviewer && (
+				<Buttons
+					buttons={{
+						primary: true,
+						secondary: true,
+						// tertiary: true,
+					}}
+					composition={'horizontal'}
+					modo={modo}
+					legends={{
+						primary: 'Aprobar tarea',
+						secondary: 'Volver a trabajar',
+						// tertiary: 'Regresar',
+					}}
+					onCl_buttons={{
+						primary: onCl_approve,
+						secondary: () => setReWork(true),
+						tertiary: {} as any,
+					}}
+				/>
+			)}
+			{reWork && isReviewer && (
+				<div
+					style={{
+						display: 'flex',
+						gap: '20px',
+						width: '100%',
+						flexWrap: 'wrap',
+						margin: '0 auto',
+					}}
+				>
+					<Dropdown
+						modo={modo}
+						isSearchable
+						placeHolder="Selecciona la razón"
+						onCh={onCh_dropdown}
+						options={reasonsToWorkAgain}
+						initialValue={valueReasonToWorkAgain}
+						topPosition
+						style={{ minWidth: '100%' }}
 					/>
-				)}
-				{reWork && (
-					<div
-						style={{
-							display: 'flex',
-							gap: '20px',
-							width: '100%',
-							flexWrap: 'wrap',
-							margin: '0 auto',
+					<Buttons
+						styleComposition={{ width: '100%' }}
+						buttons={{ primary: true, secondary: true }}
+						legends={{ primary: 'Confirmar', secondary: 'Cancelar' }}
+						onCl_buttons={{
+							primary: onCl_confirm,
+							secondary: () => setReWork(false),
+							tertiary: {} as any,
 						}}
-					>
-						<Dropdown
-							isSearchable
-							placeHolder="Selecciona la razón"
-							onCh={(e) => {
-								if (onCh_dropdown) {
-									onCh_dropdown(e);
-								}
-							}}
-							options={[
-								{ title: 'Faltó corregir camiones', id: '1' },
-								{ title: 'Viene mal editada', id: '2' },
-								{ title: 'El proveedor cambio el sitio', id: '3' },
-								{ title: 'La prueba de color viene rayada', id: '4' },
-							]}
-							initialValue={reasonToWorkAgain}
-							topPosition
-							style={{ minWidth: '100%' }}
-						/>
-						<Buttons
-							styleComposition={{ width: '100%' }}
-							buttons={{ primary: true, secondary: true }}
-							legends={{ primary: 'Confirmar', secondary: 'Cancelar' }}
-							onCl_buttons={{
-								primary: onCl_confirm,
-								secondary: () => setReWork(false),
-							}}
-						/>
-					</div>
-				)}
-			</div>
-			{!reWork && (
-				<Button
-					legend={'Aprobar tarea'}
-					style={{ width: '100%', height: '20px' }}
-					primary
-					onCl={onCl_approve}
+						modo={modo}
+						composition="horizontal"
+					/>
+				</div>
+			)}
+			{!isReviewer && (
+				<Buttons
+					styleComposition={{ width: '100%' }}
+					buttons={{ primary: true, secondary: true }}
+					legends={{ primary: 'Editar', secondary: 'Cancelar' }}
+					onCl_buttons={{
+						primary: onCl_edit,
+						secondary: onCl_abort,
+						tertiary: {} as any,
+					}}
+					modo={modo}
+					composition="horizontal"
 				/>
 			)}
 		</div>

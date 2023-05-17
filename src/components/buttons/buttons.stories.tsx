@@ -4,10 +4,12 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 
 // importación del componente principal
-import Buttons, { ButtonsProps } from './buttons';
+import Buttons from './buttons';
+// types
+import { buttons } from './types';
 
 //creación de la plantilla donde se colocarán las historias
-const Template: Story<ButtonsProps> = (args) => <Buttons {...args} />;
+const Template: Story<buttons> = (args) => <Buttons {...args} />;
 
 //estado inicial del componente
 export const Basic = Template.bind({});

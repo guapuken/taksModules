@@ -1,11 +1,13 @@
-import { Modo, css, onBlurType } from '../../types';
+import { Modo, css, onChangeType } from '../../types';
 export interface rangeDatePicker {
-	startDateValue?: Date;
-	endDateValue?: Date;
+	startDateValue: string;
+	// startDateValue?: Date;
+	endDateValue: string;
+	// endDateValue?: Date;
 	style?: css;
 	disabledStartDate?: boolean;
 	disabledEndDate?: boolean;
-	onCh_startDate?: onBlurType;
-	onCh_endDate?: onBlurType;
+	onCh_startDate: onChangeType;
+	onCh_endDate: onChangeType;
 	modo: Modo;
 }

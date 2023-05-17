@@ -1,5 +1,5 @@
 import {
-	onBlurType,
+	Modo,
 	onChangeType,
 	onClickType,
 	optionsIcnDrp,
@@ -11,19 +11,19 @@ import {
 // interface principal
 export interface tasksProps {
 	idTask: string;
-	check?: boolean;
-	onCh_checkbox?: onChangeType;
+	check: boolean;
+	onCl_close: onClickType;
+	onCh_checkbox: onChangeType;
 	equipos: submenusArray[];
 	subtasks?: subtasksProps[];
-
-	onCheck?: onChangeType;
-	onCh_descriptionTask?: onBlurType;
-	onCh_nameTask?: onBlurType;
-	onCl_addTask?: onClickType;
+	onCheck: onChangeType;
+	onCh_descriptionTask: onChangeType;
+	onCh_nameTask: onChangeType;
+	onCl_addTask: onClickType;
 	onCl_newTemplate: onClickType;
-	onCl_selectPriority?: onClickType;
-	onCl_delete?: onClickType;
-	onCl_reminder?: onClickType;
+	onCl_selectPriority: onClickType;
+	onCl_delete: onClickType;
+	onCl_reminder: onClickType;
 	priorityValue?: prioritys;
 	revision: submenusArray[];
 	valueRevision?: string;
@@ -32,37 +32,38 @@ export interface tasksProps {
 	taskDisabled?: boolean;
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
-	endDateValue?: Date;
-	startDateValue?: Date;
-	valueTask?: string;
-	valueDescription?: string;
-	valueResponsable?: string;
+	endDateValue: string;
+	startDateValue: string;
+	valueTask: string;
+	valueDescription: string;
+	valueResponsable: string;
 	subtaskForbbiden?: boolean;
-	onCh_startDate?: onChangeType;
-	onCh_endDate?: onChangeType;
+	onCh_startDate: onChangeType;
+	onCh_endDate: onChangeType;
 	templateOptions: optionsIcnDrp[];
 	moreOptions?: optionsIcnDrp[];
 	className?: string;
-	onCl_confirm?: onClickType;
-	onCl_abort?: onClickType;
+	onCl_confirm: onClickType;
+	onCl_abort: onClickType;
 	edit?: boolean;
+	modo: Modo;
 }
 
 export type content = {
 	idTask: string;
-	check?: boolean;
-	onCh_checkbox?: onChangeType;
+	check: boolean;
+	onCh_checkbox: onChangeType;
 	equipos: submenusArray[];
 	subtasks?: subtasksProps[];
 
-	onCheck?: onChangeType;
-	onCh_descriptionTask?: onBlurType;
-	onCh_nameTask?: onBlurType;
-	onCl_addTask?: onClickType;
+	onCheck: onChangeType;
+	onCh_descriptionTask: onChangeType;
+	onCh_nameTask: onChangeType;
+	onCl_addTask: onClickType;
 	onCl_newTemplate: onClickType;
-	onCl_selectPriority?: onClickType;
-	onCl_delete?: onClickType;
-	onCl_reminder?: onClickType;
+	onCl_selectPriority: onClickType;
+	onCl_delete: onClickType;
+	onCl_reminder: onClickType;
 	priorityValue?: prioritys;
 	revision: submenusArray[];
 	valueRevision?: string;
@@ -71,20 +72,21 @@ export type content = {
 	taskDisabled?: boolean;
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
-	endDateValue?: Date;
-	startDateValue?: Date;
-	valueTask?: string;
-	valueDescription?: string;
-	valueResponsable?: string;
+	endDateValue: string;
+	startDateValue: string;
+	valueTask: string;
+	valueDescription: string;
+	valueResponsable: string;
 	subtaskForbbiden?: boolean;
-	onCh_startDate?: onChangeType;
-	onCh_endDate?: onChangeType;
+	onCh_startDate: onChangeType;
+	onCh_endDate: onChangeType;
 	templateOptions: optionsIcnDrp[];
 	moreOptions?: optionsIcnDrp[];
 	className?: string;
 };
 export type footer = {
-	onCl_confirm?: onClickType;
-	onCl_abort?: onClickType;
+	onCl_confirm: onClickType;
+	onCl_abort: onClickType;
 	edit?: boolean;
+	modo: Modo;
 };

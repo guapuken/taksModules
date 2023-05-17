@@ -8,16 +8,6 @@ function DemoComponent() {
 	// console.clear();
 	const [checkValue, setCheckValue] = React.useState(false);
 
-	useEffect(() => {
-		console.log(checkValue);
-	}, [checkValue]);
-
-	return (
-		<CommentTask
-			onCl_addComment={() => alert('comentario agregado')}
-			onCh_addFile={(e) => console.log(e.target.value)}
-			onCh_comment={(e) => console.log(e.target.value)}
-		/>
-	);
+	return <CommentTask onCl_addComment={() => alert('comentario agregado')} />;
 }
 storiesOf('Pruebas funcionalidad/commnt task', module).add('setData', () => <DemoComponent />);

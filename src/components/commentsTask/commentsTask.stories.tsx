@@ -3,6 +3,7 @@ import { Meta, Story } from '@storybook/react';
 
 import CommentsTask from './commentsTask';
 import { commentsComponent } from './types';
+import { modo } from '../../storyUtils';
 
 const Template: Story<commentsComponent> = (args) => <CommentsTask {...args} />;
 
@@ -61,5 +62,7 @@ export default {
 	title: 'Modales/comentarios en tareas',
 	component: CommentsTask,
 	// definición de argumentos
-	argTypes: {},
+	argTypes: {
+		modo: modo(),
+	},
 } as Meta;

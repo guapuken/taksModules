@@ -3,9 +3,9 @@ import './notifications.scss';
 import { Modo } from '../../types';
 
 export interface NotificationsProps {
-	checkValue?: boolean;
-	onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
-	idNotification?: string;
+	checkValue: boolean;
+	onChange: (e: React.FormEvent<HTMLInputElement>) => void;
+	idNotification: string;
 	modo: Modo;
 }
 

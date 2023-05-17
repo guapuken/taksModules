@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
 import '../../global.scss';
 import './inputLabel.scss';
 import { inputLabel } from './types/types';
@@ -14,7 +14,7 @@ const InputLabel = ({
 	style,
 }: inputLabel) => {
 	const [isActive, setIsActive] = useState(false);
-	const [value, setValue] = useState(initialValue || '');
+	const [value, setValue] = useState(initialValue);
 
 	function handleTextChange(text: string) {
 		setValue(text);
@@ -25,6 +25,9 @@ const InputLabel = ({
 			setIsActive(false);
 		}
 	}
+	useEffect(() => {
+		setValue(initialValue as string);
+	}, [initialValue]);
 
 	return (
 		<div id="LblInpt_ILC" style={style}>
@@ -34,11 +37,9 @@ const InputLabel = ({
 				max={max}
 				value={value}
 				id={id}
-				onChange={(e) => handleTextChange(e.target.value)}
-				onBlur={(e) => {
-					if (onCh) {
-						onCh(e);
-					}
+				onChange={(e: any) => {
+					handleTextChange(e.target.value);
+					if (onCh) onCh(e);
 				}}
 			/>
 

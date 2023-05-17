@@ -18,6 +18,7 @@ const Members = ({
 	onCl_addUser,
 	members,
 	onCh_user,
+	modo,
 }: members) => {
 	return (
 		<>
@@ -28,6 +29,7 @@ const Members = ({
 						style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}
 					>
 						<Dropdown
+							modo={modo}
 							isSearchable
 							placeHolder="Selecciona el encargado"
 							options={membersOptions as membersOptions[]}
@@ -62,10 +64,10 @@ const Members = ({
 				>
 					{members &&
 						members.map((member: members) => {
-							console.log(member);
 							return (
 								<div>
 									<Members
+										modo={modo}
 										style={style}
 										memberValue={member.memberValue}
 										membersOptions={membersOptions}

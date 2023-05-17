@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { AutoresizeInput } from '../../../components';
+import { AutoresizeInput, Button } from '../../../components';
 import { SimpleButtonText } from '../../../utils/cardsUtils';
-import Button from '../../button';
 import { commentTask } from '../types';
 
 const CommentTask = (props: commentTask) => {
-	const { onCl_addComment, onCh_addFile, idComment, onCh_comment } = props;
+	const { onCl_addComment, onCh_addFile, idComment, onCh_comment, modo } = props;
 
 	return (
 		<div className="ctnBlockComents_TWCC" style={{ padding: '10px' }}>
 			<fieldset>
 				<AutoresizeInput
+					modo={modo}
 					id={idComment as string}
 					placeholder="Agregar comentario"
 					taskType="task"
@@ -32,6 +32,7 @@ const CommentTask = (props: commentTask) => {
 					<SimpleButtonText legend="Adjuntar" />
 				</label>
 				<Button
+					modo={modo}
 					primary
 					legend="Comentar"
 					onCl={onCl_addComment}

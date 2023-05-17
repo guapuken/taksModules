@@ -2,7 +2,7 @@ import { Modo, css, onClickType, size } from '../../../types';
 
 export interface button {
 	id?: string;
-	onCl?: onClickType;
+	onCl: onClickType;
 	size?: size;
 	//css properties
 	style?: css;
@@ -20,5 +20,5 @@ export interface button {
 	disabled?: boolean;
 	border?: boolean;
 	float?: boolean;
-	modo?: Modo;
+	modo: Modo;
 }

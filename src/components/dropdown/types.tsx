@@ -13,5 +13,5 @@ export interface dropdown {
 	isSearchable?: boolean;
 	topPosition?: boolean;
 	style?: css;
-	modo?: Modo;
+	modo: Modo;
 }

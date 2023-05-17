@@ -39,7 +39,7 @@ const InputTask = ({
 						style={{ marginTop: '.5vh' }}
 						modo={modo}
 						principalTask={principalTask}
-						disabled={disabled}
+						// disabled={disabled}
 						onCh_checkbox={onCh_checkbox}
 						check={check}
 						idCheckbox={idCheckbox}
@@ -47,6 +47,7 @@ const InputTask = ({
 				)}
 				<div style={{ width: '100%' }}>
 					<AutoresizeInput
+						modo={modo}
 						id={`task${id}`}
 						taskType={principalTask ? 'principal' : 'task'}
 						style={nameTaskStyles}
@@ -57,6 +58,7 @@ const InputTask = ({
 						disabled={check ? true : disabled ? disabled : false}
 					/>
 					<AutoresizeInput
+						modo={modo}
 						id={`description${id}`}
 						taskType={'subtask'}
 						style={descriptionTaskStyles}

@@ -2,7 +2,7 @@ import React from 'react';
 // utilidaes del storybook
 import { Meta, Story } from '@storybook/react';
 // componente principal
-import Button from './Button';
+import { Button } from '../../components';
 // types
 import { button } from './types/types';
 // storybook utils

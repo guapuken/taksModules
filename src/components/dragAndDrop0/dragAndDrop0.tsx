@@ -43,7 +43,6 @@ const DragAndDrop0 = () => {
 			...column,
 			taskIds: newTaskIds,
 		};
-		console.log('new column: ', newColumn);
 
 		const newData = {
 			...data,
@@ -54,7 +53,6 @@ const DragAndDrop0 = () => {
 		};
 
 		setData(newData);
-		console.log('new data: ', newData);
 	}
 
 	return (

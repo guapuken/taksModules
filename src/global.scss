@@ -9,6 +9,7 @@
 :root{
   --bg : #ffffff;
   --bgDark: #282828;
+  --fcDark: #dedede;
   --contrastDark: #525252;
   --border: inset 0 0 0 2px #dedede;
   --borderDark: inset 0 0 0 calc(2px + 0.390625vw) #525252;
@@ -63,7 +64,7 @@
   a,li,ul{
     text-decoration: none;
     list-style: none;
-    font-size: clamp(13px, 1.5vw, 32px);
+    font-size: clamp(13px, 1.5vw, 22px);
     color: inherit;
   }
   span{
@@ -74,26 +75,36 @@
     font-weight: bold;
   }
   //definición de tamaños en tipografías
+  .Light{
+    h1, h2,h3,h4,h5,h6,p,button,span,a{
+      color: var(--bgDark);
+    }
+  }
+  .Dark{
+    h1, h2,h3,h4,h5,h6,p,button,span,a{
+      color: var(--fcDark);
+    }
+  }
   h1{
-    font-size: clamp(30px, 3.2vw, 50px);
+    font-size: clamp(30px, 3.2vw, 40px);
   }
   h2{ 
-    font-size: clamp(20px, 2.2vw, 40px);
+    font-size: clamp(20px, 2.2vw, 30px);
   }
   h3{ 
-    font-size: clamp(18px, 2vw, 38px);
+    font-size: clamp(18px, 2vw, 28px);
   }
   h4{  
-    font-size: clamp(16px,1.8vw, 36px);
+    font-size: clamp(16px,1.8vw, 26px);
   }
   h5{
-    font-size: clamp(14px, 1.6vw, 34px);
+    font-size: clamp(14px, 1.6vw, 24px);
   }
   h6{
-    font-size: clamp(13px,1.5vw, 32px);
+    font-size: clamp(13px,1.5vw, 22px);
   }
   p, span{
-    font-size: clamp(13px, 1.5vw, 32px);
+    font-size: clamp(13px, 1.5vw, 22px);
   }
 
 // ---------------------------------------------------------------------------------------------------------

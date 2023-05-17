@@ -1,0 +1,185 @@
+@import '../../../global.scss';
+.ctn_MsnsC
+{
+    // min-height: calc(100% - 225px);
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    // línea que une los mensajes con sus usuarios
+    // .ctnMsn{
+    .blockMsns{
+        &:before{
+            content: '';
+            position: absolute;
+            border-left: 2px solid #dedede;
+            top: 0;
+            height: calc(100% - 55px);
+            z-index: -1;
+        }
+    }
+    .ctnMsn,.msn{
+        position: relative;
+        .avatar_user{
+            display: flex;
+            gap:15px;
+            align-items: center;
+            position: relative;
+            .image,.noImage{
+                min-width: 40px;
+                min-height: 40px;
+                border-radius: 40px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+            .noImage{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 20px;
+                background: #282828;
+                color:#dedede;
+            }
+            .userName{
+                opacity: .5;
+                font-weight: bold;
+                font-size: clamp(11px, 1.3vw, 31px);
+            }
+        }
+        .msn_text{
+            display: flex;
+            flex-direction: column;
+
+            &:before{
+                content: ' ';
+                position: absolute;
+                height: 30px;
+                width: 20px;
+                bottom: 40px;
+                z-index: -1;
+            }
+            .date{
+                margin: 5px 0;
+                font-size: clamp(10px, 1.2vw, 30px);
+                opacity: .3;
+            }
+        }
+    }
+    // estado de mensaje recibido
+    .ctnMsn[ty-msn='Received']{
+        &:before{
+            left: 20px;
+        }
+        &, .msn{
+            .avatar_user{
+                .noImage, .image{
+                    background-color: #dedede;
+                }
+                .userName{
+                    opacity: 1;
+                }
+            }
+        }
+        .blockMsns:before{
+            left: 20px;
+        }
+        .msn_text{
+            padding-left: 50px;
+            span:not(:last-child){
+                opacity: 1;
+            }
+        }
+        .msn_text{
+            &:before{
+                border-left: 2px solid #dedede;
+                border-bottom: 2px solid #dedede;
+                border-bottom-left-radius: 15px;
+                left: 20px;
+                // bottom: 0px;
+            }
+        }
+    }
+    // estado de mensaje enviado
+    .ctnMsn[ty-msn='Sent']{
+        &:before{
+            right: 20px;
+        }
+        .blockMsns:before{
+            right: 20px;
+        }
+        &, .msn{
+            .avatar_user{
+                flex-direction: row-reverse;
+                .noImage,.image{
+                    background-color: #282828;
+                }
+                .userName{
+                    opacity: 1;
+                }
+            }
+            .msn_text{
+                span{
+                    text-align: right;
+                }
+                span:not(:last-child){
+                    opacity: .6;
+                }
+                padding-right: 50px;
+            }
+        }
+        .msn_text{
+            &:before{
+                border-right: 2px solid #dedede;
+                border-bottom: 2px solid #dedede;
+                border-bottom-right-radius: 15px;
+                right: 20px;
+            }
+        }
+    }
+    // estado del mensaje cuando es del sistema
+    .ctnMsn[ty-msn='System']{
+        .blockMsns{
+            text-align: center;
+            background: #52525260;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 15px 0;
+            color: #fff;
+            &::before{
+                display:none;
+            }
+            span{
+                font-size: clamp(10px, 1.2vw, 20px);
+                margin: 10px 0;
+            }
+            .date{
+                font-size: clamp(8px, 1vw, 18px);
+                display: none;
+            }
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      media queries
+// ---------------------------------------------------------------------------------------------------------
+@media (max-aspect-ratio: 4/3){ // relación aspecto con dispositivos mayores a móviles tales como tablets
+    .ctn_MsnsC
+    {
+     .msn_text{
+         &:before{
+             bottom: 30px !important;
+         }
+     }
+    }
+ }
+ @media (max-aspect-ratio: 7/10){ // Relación aspecto de dispositivos móviles
+    .ctn_MsnsC
+     {
+      .msn_text{
+         &:before{
+             bottom: 25px !important;
+         }
+     }
+     }
+ }

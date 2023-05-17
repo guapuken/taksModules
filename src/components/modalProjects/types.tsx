@@ -1,6 +1,5 @@
 import {
 	Modo,
-	onBlurType,
 	onChangeType,
 	onClickType,
 	optionsDropdown,
@@ -10,34 +9,36 @@ import {
 
 // botones
 export type clickButtons = {
-	onCl_confirm?: onClickType;
-	onCl_abort?: onClickType;
+	onCl_confirm: onClickType;
+	onCl_abort: onClickType;
 	edit?: boolean;
+	modo: Modo;
 };
 
 // interfaz principal
 export interface ModalProjectsProps {
-	onCl_confirm?: onClickType;
-	onCl_abort?: onClickType;
-	onCl_addTask?: onClickType;
-	onCh_nameProject?: onBlurType;
-	projectNameValue?: string;
+	onCl_confirm: onClickType;
+	onCl_abort: onClickType;
+	onCl_addTask: onClickType;
+	onCh_nameProject: onChangeType;
+	projectNameValue: string;
 	subtasks?: subtasksProps[];
 	templateOptions: optionsIcnDrp[];
 	onCl_newTemplate: onClickType;
-	modo?: Modo;
+	modo: Modo;
 	idProject: string;
 	onCh_asignTeam: onChangeType;
 	teamOptions: optionsDropdown[];
 	initialTeamValue?: optionsDropdown;
 	edit?: boolean;
+	onCl_close: onClickType;
 }
 
 export type content = {
-	onCh_nameProject?: onBlurType;
-	projectNameValue?: string;
-	onCl_addTask?: onClickType;
-	modo?: Modo;
+	onCh_nameProject: onChangeType;
+	projectNameValue: string;
+	onCl_addTask: onClickType;
+	modo: Modo;
 	idProject: string;
 	templateOptions: optionsIcnDrp[];
 	onCl_newTemplate: onClickType;

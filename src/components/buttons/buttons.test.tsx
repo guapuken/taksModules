@@ -6,6 +6,7 @@ describe('Button', () => {
 	test('renders the Button component', () => {
 		expect(
 			<Buttons
+				modo="Light"
 				buttons={{
 					primary: true,
 					secondary: true,

@@ -17,7 +17,7 @@ const TimelineProject = (props: timelineProps) => {
 	//
 	return (
 		<div className={`ctn${modo}_TLPC`}>
-			<Header />
+			<Header modo={modo} />
 			<h2 className="ttlTimeline">Progreso del proyecto</h2>
 			<div className="ctnTimeline">
 				<div
@@ -29,6 +29,7 @@ const TimelineProject = (props: timelineProps) => {
 				{tasks &&
 					tasks?.map((e: tasks) => (
 						<Tasks
+							modo={modo}
 							completed={e?.completed}
 							duration={e?.duration}
 							taskName={e?.taskName}

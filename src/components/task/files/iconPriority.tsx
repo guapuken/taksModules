@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import IconDropdown from '../../iconDropdown';
 import FlagIcon from '../../../img/flagICon';
-import { Modo } from '../../../types';
+import { Modo, statusTask } from '../../../types';
 
 interface IconPriorityProps {
 	prioridadInicial?: 'none' | 'baja' | 'media' | 'alta';
@@ -23,6 +23,9 @@ const IconPriority = (props: IconPriorityProps) => {
 			onCl_selectPriority(prioridad);
 		}
 	};
+	useEffect(() => {
+		setPrioridad(prioridadInicial as 'none' | 'baja' | 'media' | 'alta');
+	}, [prioridadInicial]);
 	//Opciones de prioridades
 	const optionsPriority = [
 		{

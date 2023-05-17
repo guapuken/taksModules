@@ -37,10 +37,21 @@ const DragAndDrop = (props: dragAndDrop) => {
 			{
 				id: '1',
 				status: 'Pendientes',
-				taskName: 'Tarea 1',
-				idNotification: '1',
 				modo: 'Light',
+				idNotification: '1',
+				taskName: 'Tarea 1',
 				taskDescription: 'Tarea 1 por hacer',
+				valueResponsable: '',
+				followNotificationsValue: false,
+				onCh_follow: () => {},
+				onCl_asignTask: () => {},
+				onCl_edit: () => {},
+				onCl_follow: () => {},
+				onCl_reasignDate: () => {},
+				onCl_remimder: () => {},
+				onCl_showDetails: () => {},
+				percentTask: 0,
+				statusTask: 'onTime',
 			},
 		],
 		modo = 'Light',
@@ -174,15 +185,31 @@ const DragAndDrop = (props: dragAndDrop) => {
 	//
 	return scrSize.width < 1024 ? (
 		Object.keys(boardSections).map((boardSectionKey) => {
-			console.log('boardSections', boardSections[boardSectionKey]);
 			return (
 				<div style={{ width: '95%', margin: '0 auto' }}>
 					<Carousel
 						data={boardSections[boardSectionKey]}
 						Card={(e: any) => {
-							console.log('boardSections', boardSections);
 							return datos.Card ? (
-								<datos.Card {...e.property} />
+								<div style={{ position: 'relative' }}>
+									{datos.approved && (
+										<h3
+											style={{
+												position: 'absolute',
+												right: '20px',
+												top: '-10px',
+												fontSize: '12px',
+												background: '#1cbf59',
+												padding: '5px',
+												borderRadius: '5px',
+												color: '#fff',
+											}}
+										>
+											Revisada
+										</h3>
+									)}
+									<datos.Card {...e.property} />
+								</div>
 							) : (
 								<NoCard taskName={e.taskName} />
 							);
@@ -221,15 +248,12 @@ const DragAndDrop = (props: dragAndDrop) => {
 			sensors={sensors}
 			collisionDetection={closestCorners}
 			onDragStart={(e) => {
-				console.log('onDragStart');
 				handleDragStart(e);
 			}}
 			onDragOver={(e) => {
-				console.log('onDragOver');
 				handleDragOver(e);
 			}}
 			onDragEnd={(e) => {
-				console.log('onDragEnd');
 				handleDragEnd(e);
 				if (datos.onDragEnd) {
 					datos.onDragEnd({ boards: boardSections, data: e });

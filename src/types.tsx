@@ -50,24 +50,28 @@ export interface tasks {
 	taskDisabled?: boolean;
 	taskComplete?: boolean;
 	isSubtask?: boolean;
-	check?: boolean;
-	valueTask?: string;
-	valueDescription?: string;
+	check: boolean;
+	valueTask: string;
+	valueDescription: string;
 	onClickCheck?: onClickType;
-	onCh_nameTask: onBlurType;
-	onCh_descriptionTask: onBlurType;
+	onCh_nameTask: onChangeType;
+	// onCh_nameTask: onChangeType;
+	onCh_descriptionTask: onChangeType;
+	// onCh_descriptionTask: onChangeType;
 	idCheckbox?: string;
-	onCh_checkbox?: onChangeType;
+	onCh_checkbox: onChangeType;
 
 	//Icon Dates
 	plantillas?: boolean;
 	onCh_duration?: onChangeType;
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
-	onCh_endDate?: onChangeType;
-	onCh_startDate?: onChangeType;
-	startDateValue?: Date;
-	endDateValue?: Date;
+	onCh_endDate: onChangeType;
+	onCh_startDate: onChangeType;
+	startDateValue?: string;
+	// startDateValue?: Date;
+	endDateValue?: string;
+	// endDateValue?: Date;
 	className?: string;
 	durationValue?: string;
 
@@ -101,12 +105,16 @@ export interface tasks {
 export interface tasksTemplates {
 	//Input Task
 	idTask: string;
-	taskDisabled?: boolean;
-	valueTask?: string;
-	valueDescription?: string;
+	// taskDisabled?: boolean;
+	valueTask: string;
+	valueDescription: string;
+	// check: boolean;
+	// onCh_checkbox: onChangeType;
+	// onCh_endDate: onChangeType;
+	// onCh_startDate: onChangeType;
 
-	onCh_nameTask: onBlurType;
-	onCh_descriptionTask: onBlurType;
+	onCh_nameTask: onChangeType;
+	onCh_descriptionTask: onChangeType;
 
 	//Icon Dates
 	className?: string;
@@ -122,8 +130,8 @@ export interface tasksTemplates {
 
 	//Icon MoreOptions
 	moreOptions?: optionsIcnDrp[];
-	onCl_delete?: onClickType;
-	plantillas?: boolean;
+	onCl_delete: onClickType;
+	// plantillas?: boolean;
 
 	//addTask
 	subtaskForbbiden?: boolean;
@@ -131,9 +139,9 @@ export interface tasksTemplates {
 
 	//botones agregar
 	onCl_newTemplate: onClickType;
-	onCl_addTask?: onClickType;
+	onCl_addTask: onClickType;
 	templateOptions: optionsIcnDrp[];
-	modo?: Modo;
+	modo: Modo;
 }
 
 export type subtaskTemplates = {
@@ -141,68 +149,70 @@ export type subtaskTemplates = {
 	idTask: string;
 	taskDisabled?: boolean;
 	taskComplete?: boolean;
-	check?: boolean;
-	valueTask?: string;
-	valueDescription?: string;
-	onCh_nameTask: onBlurType;
-	onCh_descriptionTask: onBlurType;
-	onCh_checkbox?: onChangeType;
+	// check: boolean;
+	valueTask: string;
+	valueDescription: string;
+	onCh_nameTask: onChangeType;
+	onCh_descriptionTask: onChangeType;
+	// onCh_checkbox: onChangeType;
 	onCh_duration?: onChangeType;
 
 	//Icon Dates
-	disabledEndDate?: boolean;
-	disabledStartDate?: boolean;
-	onCh_endDate?: onChangeType;
-	onCh_startDate?: onChangeType;
-	startDateValue?: Date;
-	endDateValue?: Date;
-	plantillas?: boolean;
+	// disabledEndDate?: boolean;
+	// disabledStartDate?: boolean;
+	// onCh_endDate: onChangeType;
+	// onCh_startDate: onChangeType;
+	// startDateValue: string;
+	// endDateValue: string;
+	// plantillas?: boolean;
 
 	//Icon Asign
 	responsables: submenusArray[];
 	equipos: submenusArray[];
 	revision: submenusArray[];
-	valueResponsable?: string;
+	valueResponsable: string;
 	valueRevision?: string;
 
 	//Icon Priority
-	prioridadInicial?: prioritys;
-	onCl_selectPriority?: onClickType;
+	// prioridadInicial?: prioritys;
+	// onCl_selectPriority: onClickType;
 
 	//Icon MoreOptions
 	moreOptions?: optionsIcnDrp[];
-	onCl_delete?: onClickType;
-	onCl_reminder?: onClickType;
+	onCl_delete: onClickType;
+	// onCl_reminder: onClickType;
 
 	//addTask
 	subtaskForbbiden?: boolean;
-	subtasks?: subtasksProps[];
+	subtasks?: subtaskTemplates[];
 
 	//botones agregar
 	onCl_newTemplate: onClickType;
-	onCl_addTask?: onClickType;
+	onCl_addTask: onClickType;
 	templateOptions: optionsIcnDrp[];
-	modo?: Modo;
+	modo: Modo;
 };
 export type subtasksProps = {
 	//Input Task
 	idTask: string;
 	taskDisabled?: boolean;
 	taskComplete?: boolean;
-	check?: boolean;
-	valueTask?: string;
-	valueDescription?: string;
-	onCh_nameTask: onBlurType;
-	onCh_descriptionTask: onBlurType;
-	onCh_checkbox?: onChangeType;
+	check: boolean;
+	valueTask: string;
+	valueDescription: string;
+	// onCh_nameTask: onChangeType;
+	onCh_nameTask: onChangeType;
+	// onCh_descriptionTask: onChangeType;
+	onCh_descriptionTask: onChangeType;
+	onCh_checkbox: onChangeType;
 
 	//Icon Dates
 	disabledEndDate?: boolean;
 	disabledStartDate?: boolean;
-	onCh_endDate?: onChangeType;
-	onCh_startDate?: onChangeType;
-	startDateValue?: Date;
-	endDateValue?: Date;
+	onCh_endDate: onChangeType;
+	onCh_startDate: onChangeType;
+	startDateValue?: string;
+	endDateValue?: string;
 	onCh_duration?: onChangeType;
 
 	//Icon Asign
@@ -231,6 +241,32 @@ export type subtasksProps = {
 	templateOptions: optionsIcnDrp[];
 	modo?: Modo;
 };
+
+/** Estructura de los mensajes que debe de recibir el componente
+ * @example -
+ *      {
+ *          userName: 'Juan Pérez',
+ *          message: 'Como estás?',
+ *          date: '2023-09-05 GMT-0600 12:00:00'
+ *          type: 'Received',
+ *          avatar: undefined
+ *      }
+ * en caso de ser un mensaje del sistema sólo tiene que incluir (type, message, date)
+ * @example -
+ *      {
+ *          type:'System',
+ *          message:'Juan Pérez se unió al grupo',
+ *          date:'2023-09-05 GMT-0600 12:00:00'
+ *      }
+ */
+export type msnsChats = {
+	avatar?: string | undefined;
+	type: 'Received' | 'Sent' | 'System';
+	userName?: string;
+	message: string;
+	date: string; // tiene que llegar en timestamp
+};
+
 // ---------------------------------------------------------------------------------------------------------
 //      funciones
 // ---------------------------------------------------------------------------------------------------------

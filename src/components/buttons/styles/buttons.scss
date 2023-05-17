@@ -1,0 +1,57 @@
+@import '../../../global.scss';
+
+// ---------------------------------------------------------------------------------------------------------
+//      Estilos generales
+// ---------------------------------------------------------------------------------------------------------
+.ctnLight_BtnsC,
+.ctnDark_BtnsC{
+    &[comp-btns='horizontal'],
+    &[comp-btns='vertical'],
+    &[comp-btns='box']{
+        display:flex;
+        justify-content: space-between;
+        gap: 10px;
+        width: 100%;   
+    }
+    &[comp-btns='horizontal']{
+        flex-direction: row-reverse;
+    }
+    &[comp-btns='vertical']{
+        flex-direction: column;
+    }
+    &[comp-btns='box']{
+        flex-wrap: wrap;
+    }
+}
+// ---------------------------------------------------------------------------------------------------------
+//      modo oscuro
+// ---------------------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo claro
+// ---------------------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------------------
+//      media queries
+// ---------------------------------------------------------------------------------------------------------
+@media (max-aspect-ratio: 4/3){ // relación aspecto con dispositivos mayores a móviles tales como tablets
+    .ctnLight_BtnsC,
+    .ctnDark_BtnsC
+    {
+
+    }    
+}
+@media (max-aspect-ratio: 7/10){ // Relación aspecto de dispositivos móviles
+    .ctnLight_BtnsC,
+    .ctnDark_BtnsC
+    {
+        &[comp-btns='horizontal']{
+            &[ty-btns='PrSc'],
+            &[ty-btns='ScTr'],
+            &[ty-btns='PrTr']{
+                flex-direction: row-reverse;
+            }
+            flex-direction: column;
+        }
+    }
+}

@@ -12,7 +12,6 @@ const SortableTaskItem = ({ children, id }: SortableTaskItemProps) => {
 	const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
 		id,
 	});
-	console.log('Atributos definidos');
 
 	const style = {
 		transform: CSS.Transform.toString(transform),
