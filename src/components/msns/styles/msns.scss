@@ -164,8 +164,7 @@
 //      media queries
 // ---------------------------------------------------------------------------------------------------------
 @media (max-aspect-ratio: 4/3){ // relación aspecto con dispositivos mayores a móviles tales como tablets
-    .ctnLight_MsnsC,
-    .ctnDark_MsnsC
+    .ctn_MsnsC
     {
      .msn_text{
          &:before{
@@ -175,8 +174,7 @@
     }
  }
  @media (max-aspect-ratio: 7/10){ // Relación aspecto de dispositivos móviles
-    .ctnLight_MsnsC,
-    .ctnDark_MsnsC
+    .ctn_MsnsC
      {
       .msn_text{
          &:before{
