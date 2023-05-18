@@ -30,7 +30,7 @@ function DemoComponent(props: any) {
 			valueComment={''}
 			messages={[
 				{
-					userName: 'kaori Soto',
+					userName: 'Kaori Soto',
 					type: 'Received',
 					message:
 						'Por que aún no se termina si eso tiene que estar montado a más tardar el martes por la mañana',
@@ -49,7 +49,7 @@ function DemoComponent(props: any) {
 					type: 'Sent',
 				},
 				{
-					userName: 'kaori Soto',
+					userName: 'Kaori Soto',
 					type: 'Received',
 					message: 'Perfecto, quedo al pendiente',
 					date: '2023-05-09 GMT-0600 13:15:00',

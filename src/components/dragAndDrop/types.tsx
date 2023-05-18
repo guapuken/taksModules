@@ -64,6 +64,7 @@ export type task = {
 	onCl_follow: onClickType;
 	onCl_remimder: onClickType;
 	onCl_asignTask: onClickType;
+	onCl_status: onClickType;
 	onCl_reasignDate: onClickType;
 	onCh_follow: onChangeType;
 	responsables?: submenusArray[];

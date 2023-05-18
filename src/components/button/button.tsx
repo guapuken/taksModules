@@ -1,7 +1,14 @@
 import React from 'react';
-import './styles/button.scss';
-import Title from '../Atoms/titles/Title';
+
+// types
 import { button } from './types/types';
+import { Modo } from '../../types';
+
+// componentes auxiliares
+import { SimpleContainer, Texts, ValidationComponent } from '../Atoms';
+
+// styles
+import './styles/button.scss';
 
 const Button = ({
 	id,
@@ -36,10 +43,14 @@ const Button = ({
 			fl-btn={float ? 'float' : ''}
 			sz-btn={size}
 		>
-			<span className={`ctnIcnLgnd_${size}`} style={textStyle}>
-				{icon && <img className="icn" src={icon} style={styleIcon} />}
-				<span className="lgnd">{legend}</span>
-			</span>
+			<SimpleContainer className={`ctnIcnLgnd_${size}`} style={textStyle}>
+				<ValidationComponent validate={icon}>
+					<img className="icn" src={icon} style={styleIcon} />
+				</ValidationComponent>
+				<Texts modo={'' as Modo} className="lgnd">
+					{legend}
+				</Texts>
+			</SimpleContainer>
 		</button>
 	);
 };

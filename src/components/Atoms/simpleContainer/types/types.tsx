@@ -1,6 +1,7 @@
 import { css } from '../../../../types';
-export interface simpleContainerProps {
+export type simpleContainerProps = {
 	children: any;
 	style?: css;
 	className?: string;
-}
+	id?: string;
+};

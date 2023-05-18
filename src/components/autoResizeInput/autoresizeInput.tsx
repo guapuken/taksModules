@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-// types que se utilizan en el componente
+
+// types
 import { autoresizeInput } from './types/types';
-// estilos del componente
+
+// styles
 import './styles/autoresizeInput.scss';
-// types que se usan en documentación, (NO BORRAR)--------------------------------------------------------------------------------------
+
+// documentation types, (NO BORRAR, NO DELETE)-----------------------------------------------------------------------------------------
 import { css, onBlurType, onChangeType, taskType } from '../../types';
 //--------------------------------------------------------------------------------------------------------------------------------------
 
@@ -65,12 +68,13 @@ const AutoresizeInput = ({
 			tabIndex={tabIndex}
 			placeholder={placeholder}
 			rows={1}
-			value={value}
 			className={`ctn${modo}_AIPTC`}
 			style={{ width: '100%', ...style }}
 			// atributos que aayudan en la construcción de los estilos de los componentes
 			hrc-inpt={taskType}
-		/>
+		>
+			{value}
+		</textarea>
 	);
 };
 

@@ -14,9 +14,16 @@ function DemoComponent() {
 	return (
 		<Container AsideContent={<AsideTemplates />}>
 			<DragAndDrop
+				modo="Light"
 				Card={CardTask}
 				tasks={[
 					{
+						modo: 'Light',
+						onCl_asignTask: () => {},
+						onCl_reasignDate: () => {},
+						onCl_remimder: {} as any,
+						onCl_showDetails: {} as any,
+						valueResponsable: '',
 						id: '1',
 						idNotification: '1',
 						status: 'To Do',
@@ -31,6 +38,7 @@ function DemoComponent() {
 						},
 						onCl_edit: () => alert('editar'),
 						onCh_follow: () => alert('editar'),
+						onCl_status: () => alert('hola'),
 					},
 					{
 						id: '2',

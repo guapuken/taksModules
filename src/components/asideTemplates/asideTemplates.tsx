@@ -1,23 +1,30 @@
 import React, { useEffect, useState } from 'react';
+
 // types
 import { aside } from './types/types';
+
 // componentes principales
 import { ErrorNc, NoTasks } from './principalComponents';
-// types que se utilizan en documentación
-import { Modo, onChangeType, optionsDropdown } from '../../types';
 
-import CardTaskReview from '../cardTaskReview/cardTaskReview';
+// componentes auxiliares
+import { CardTaskReview, IconDropdown, Carousel, Dropdown } from '../../components';
+import { SimpleContainer, ValidationComponent } from '../Atoms';
+import { ButtonItem } from '../../utils/asideUtils';
+
+// funciones
 import { useWindowSize } from '../../utils/windowSize';
-import Carousel from '../carousel/carousel';
-import Dropdown from '../dropdown/dropdown';
-// estilos del componente
-import './styles/aside.scss';
+import { aspectRatio } from '../../utils/functions/functions';
 
+// archivos multimedia
 import filter from '../../img/filter.svg';
 import orderIcon from '../../img/order.svg';
-import { ButtonItem } from '../../utils/asideUtils';
-import IconDropdown from '../iconDropdown/iconDropdown';
-import { aspectRatio } from '../../utils/functions/functions';
+
+// styles
+import './styles/aside.scss';
+
+// types que se utilizan en documentación ----------------------------------------------------------------------
+import { Modo, onChangeType, optionsDropdown } from '../../types';
+//--------------------------------------------------------------------------------------------------------------
 
 /** documentación del componente
  * @param {boolean} isWhite - define si el Aside contiene un color de fondo
@@ -68,8 +75,8 @@ const AsideTemplates = ({
 
 	return (
 		<div className={`ctn${modo}_ATC`} vs-asd={visible ? 'Visible' : 'Normal'}>
-			<div className="children">
-				<div
+			<SimpleContainer className="children">
+				<SimpleContainer
 					className="dropdownCtn"
 					style={{ width: '90%', display: 'flex', gap: '10px', height: '30px' }}
 				>
@@ -83,51 +90,44 @@ const AsideTemplates = ({
 							width: `calc(100% - ${!aspectRatio() ? '40px' : '0px'})`,
 						}}
 					/>
-					{!aspectRatio() && (
-						<>
-							<IconDropdown
-								modo={visible ? 'Dark' : modo}
-								icon={filter}
-								options={[
-									{
-										id: 'status',
-										title: 'Por estatus',
-										onClick: () => setFilterBY('statusTask'),
-									},
-									{
-										id: 'name',
-										title: 'Por nombre',
-										onClick: () => setFilterBY('taskName'),
-									},
-								]}
-							/>
-							<ButtonItem
-								id="orderArray"
-								img={orderIcon}
-								onClick={() => setOrder(!order)}
-							/>
-						</>
-					)}
-				</div>
+					<ValidationComponent validate={!aspectRatio()}>
+						<IconDropdown
+							modo={visible ? 'Dark' : modo}
+							icon={filter}
+							options={[
+								{
+									id: 'status',
+									title: 'Por estatus',
+									onClick: () => setFilterBY('statusTask'),
+								},
+								{
+									id: 'name',
+									title: 'Por nombre',
+									onClick: () => setFilterBY('taskName'),
+								},
+							]}
+						/>
+						<ButtonItem
+							id="orderArray"
+							img={orderIcon}
+							onClick={() => setOrder(!order)}
+						/>
+					</ValidationComponent>
+				</SimpleContainer>
 				{(!tasks || tasks.length === 0) && !priText && !secText ? (
 					<ErrorNc />
 				) : (
-					<div className="ctnCards">
-						{!aspectRatio() ? (
-							tasks.length === 0 ? (
-								<></>
-							) : (
-								tasks?.map((individualTask) => (
-									<CardTaskReview
-										key={individualTask.id}
-										modo={visible ? 'Dark' : modo}
-										{...individualTask}
-									/>
-								))
-							)
-						) : tasks.length === 0 ? (
-							<></>
-						) : (
+					<SimpleContainer className="ctnCards">
+						<ValidationComponent validate={!aspectRatio() && tasks.length > 0}>
+							{tasks?.map((individualTask) => (
+								<CardTaskReview
+									key={individualTask.id}
+									modo={visible ? 'Dark' : modo}
+									{...individualTask}
+								/>
+							))}
+						</ValidationComponent>
+						<ValidationComponent validate={aspectRatio() && tasks.length > 0}>
 							<Carousel
 								data={tasks}
 								Card={(e: any) => (
@@ -138,10 +138,12 @@ const AsideTemplates = ({
 								)}
 								height={scrnH / 4 - 90}
 							/>
-						)}
-					</div>
+						</ValidationComponent>
+					</SimpleContainer>
 				)}
-				{(!tasks || tasks.length === 0) && (priText || secText) && (
+				<ValidationComponent
+					validate={(!tasks || tasks.length < 1) && (priText || secText)}
+				>
 					<NoTasks
 						modo={modo}
 						idSection={idSection}
@@ -151,8 +153,8 @@ const AsideTemplates = ({
 						priText={priText}
 						secText={secText}
 					/>
-				)}
-			</div>
+				</ValidationComponent>
+			</SimpleContainer>
 		</div>
 	);
 };

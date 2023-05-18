@@ -7,6 +7,7 @@ import { AddComment } from './principalComponents';
 import { Msns } from '../../components';
 // styles
 import './styles/chat.scss';
+import { ImportantText, SimpleContainer, Texts, Title, ValidationComponent } from '../Atoms';
 const Chat = ({
 	modo = 'Light',
 	multiplesChats,
@@ -59,13 +60,11 @@ const Chat = ({
 	}
 
 	return (
-		<div className={`ctn_ChC ${modo}`}>
-			{' '}
-			{/* ctnLight_ChC  ctn_ChC Light */}
-			<div id="ctnTtl">
-				{multiplesChats && (
-					<div className="ctnDropdown">
-						<label>Selecciona el chat</label>
+		<SimpleContainer className={`ctn_ChC ${modo}`}>
+			<SimpleContainer id="ctnTtl">
+				<ValidationComponent validate={multiplesChats}>
+					<SimpleContainer className="ctnDropdown">
+						<Texts modo={modo}>Selecciona el chat</Texts>
 						<Dropdown
 							options={chats}
 							placeHolder="Selecciona un chat"
@@ -78,28 +77,24 @@ const Chat = ({
 							initialValue={chatCanal}
 							modo={modo}
 						/>
-					</div>
-				)}
-				<div className="ttlChat">
-					<h5>{chatCanal.title}</h5>
-					<p
-						className="TextOverflow"
-						title={projectName}
-						style={{ WebkitLineClamp: '1' }}
-					>
+					</SimpleContainer>
+				</ValidationComponent>
+				<SimpleContainer className="ttlChat">
+					<Title modo={modo}>{chatCanal.title}</Title>
+					<Texts modo={modo} maxLines={2}>
 						{projectName}
-					</p>
-				</div>
-			</div>
-			<div style={{ height: `calc(100% - ${heightTitle}px )` }}>
-				{messages && (
+					</Texts>
+				</SimpleContainer>
+			</SimpleContainer>
+			<SimpleContainer style={{ height: `calc(100% - ${heightTitle}px )` }}>
+				<ValidationComponent validate={messages}>
 					<Msns
 						messages={messages}
 						height={`calc(100% - ${heightComments}px)`}
 						modo={modo}
 					/>
-				)}
-				<div id="addComments">
+				</ValidationComponent>
+				<SimpleContainer id="addComments">
 					<AddComment
 						onCh_addFile={onCh_addFile}
 						onCl_addComment={onCl_addComment}
@@ -110,9 +105,9 @@ const Chat = ({
 							}
 						}}
 					/>
-				</div>
-			</div>
-		</div>
+				</SimpleContainer>
+			</SimpleContainer>
+		</SimpleContainer>
 	);
 };
 
