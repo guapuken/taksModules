@@ -16,10 +16,12 @@
     justify-content: space-between;
     align-items: center;
     height: 30px;
+    min-height: 30px;
     position: relative;
     // contebnedor de la barra de progreso
     .ctnBarra{
         height: 20px;
+        min-height: 20px;
 		border-radius: 100px;
         box-shadow: inset 0 0 0 3px #282828;
         .progressBar{

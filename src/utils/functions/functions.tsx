@@ -44,11 +44,18 @@ export function aspectRatio() {
  * @param {string} idToSelect - se requiere de un string con el nombre del id que se quiere saber su ancho
  * @returns - el tamaño a lo ancho del elemento con el id seleccionado
  */
-export function getElementWidth(idToSelect: string) {
+export function getWidth(idToSelect: string) {
+	console.log(idToSelect);
 	let width = 0;
+	let height = 0;
 	const element = document.getElementById(idToSelect);
+	console.log(element);
 	if (element && element.clientWidth) {
 		width = element?.clientWidth;
 	}
-	return width;
+	if (element && element.clientHeight) {
+		height = element?.clientHeight;
+	}
+
+	return { width, height };
 }

@@ -9,7 +9,7 @@ import { IconMoreOptions } from '../../task/files';
 import { SimpleContainer, Texts, Title } from '../../Atoms';
 
 //functions
-import { getElementWidth } from '../../../utils/functions/functions';
+import { getWidth } from '../../../utils/functions/functions';
 
 // styles
 import '../styles/cardMannageProjects.scss';
@@ -63,7 +63,7 @@ const Content = ({
 					<ProgressBar
 						modo={modo}
 						status={statusTask}
-						width={getElementWidth('gnrlCtnCMProjects') / 10}
+						width={getWidth('gnrlCtnCMProjects').width}
 						valor={percentTask}
 						onClick={onCl_preview}
 					/>
