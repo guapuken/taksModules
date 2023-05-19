@@ -16,6 +16,8 @@ const Content = ({
 	onCl_addComment,
 	onCh_dropdown,
 	onCl_approve,
+	onCl_abort,
+	onCl_edit,
 	onCl_confirm,
 	onCl_reWork,
 	reasonsToWorkAgain,
@@ -121,6 +123,8 @@ const Content = ({
 				</div>
 			</div>
 			<Comentarios
+				onCl_abort={onCl_abort}
+				onCl_edit={onCl_edit}
 				valueComment={valueComment}
 				reasonsToWorkAgain={reasonsToWorkAgain}
 				onCl_close={onCl_close}

@@ -74,6 +74,9 @@ export type itemComments = {
 	onCl_reWork: onClickType;
 	onCl_confirm: onClickType;
 	onCl_approve: onClickType;
+	onCl_edit: onClickType;
+	onCl_abort: onClickType;
+
 	onCh_dropdown: onChangeType;
 	modo: Modo;
 };

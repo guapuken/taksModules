@@ -21,6 +21,8 @@ const Comentarios = (props: itemComments) => {
 		onCl_close,
 		reasonsToWorkAgain,
 		valueComment,
+		onCl_abort,
+		onCl_edit,
 	} = props;
 	return (
 		<div className={`ctnComents${showTasks ? 'Full' : ''}_TWCC`} style={{ overflow: 'hidden' }}>
@@ -33,6 +35,8 @@ const Comentarios = (props: itemComments) => {
 				modo={modo}
 			/>
 			<CommentTask
+				onCl_abort={onCl_abort}
+				onCl_edit={onCl_edit}
 				valueComment={valueComment}
 				onCl_close={onCl_close}
 				reasonsToWorkAgain={reasonsToWorkAgain}

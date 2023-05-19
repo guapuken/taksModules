@@ -52,6 +52,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 				onCl_showDetails: () => {},
 				percentTask: 0,
 				statusTask: 'onTime',
+				onCl_status: () => {},
 			},
 		],
 		modo = 'Light',
