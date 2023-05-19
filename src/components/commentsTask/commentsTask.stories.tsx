@@ -2,10 +2,10 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 
 import CommentsTask from './commentsTask';
-import { commentsComponent } from './types';
+import { commentsTask } from './types';
 import { modo } from '../../storyUtils';
 
-const Template: Story<commentsComponent> = (args) => <CommentsTask {...args} />;
+const Template: Story<commentsTask> = (args) => <CommentsTask {...args} />;
 
 // estado inicial del componente
 export const InitialState = Template.bind({});
@@ -16,44 +16,48 @@ export const WithProperties = Template.bind({});
 WithProperties.args = {
 	// personalMsn: true,
 	modo: 'Dark',
-	comments: [
+	messages: [
 		{
 			id: 1,
-			user: 'Jorge Correa',
-			comment: 'Los componentes tienen que salir al 100 antes del jueves',
-			dateAndTime: '08-04-2023',
+			userName: 'Jorge Correa',
+			message: 'Los componentes tienen que salir al 100 antes del jueves',
+			date: '2023-04-04 GMT-600 00:00:00',
+			type: 'Received',
 		},
 		{
 			id: 2,
-			user: 'Victor Galván',
-			comment: 'Estamos en eso, sin problemas salen',
-			dateAndTime: 'hace 5 minutos',
-			personalMsn: true,
+			userName: 'Victor Galván',
+			message: 'Estamos en eso, sin problemas salen',
+			date: '2023-04-04 GMT-600 00:00:00',
+			type: 'Sent',
 		},
 		{
 			id: 3,
-			user: 'Victor Galván',
-			comment: 'Estamos en eso, sin problemas salen',
-			dateAndTime: 'hace 5 minutos',
-			personalMsn: true,
+			userName: 'Victor Galván',
+			message: 'Estamos en eso, sin problemas salen',
+			date: '2023-04-04 GMT-600 00:00:00',
+			type: 'Sent',
 		},
 		{
 			id: 4,
-			user: 'Jorge Correa',
-			comment: 'Los componentes tienen que salir al 100 antes del jueves',
-			dateAndTime: 'hace 5 minutos',
+			userName: 'Jorge Correa',
+			message: 'Los componentes tienen que salir al 100 antes del jueves',
+			date: '2023-04-04 GMT-600 00:00:00',
+			type: 'Received',
 		},
 		{
 			id: 5,
-			user: 'Jorge Correa',
-			comment: 'Los componentes tienen que salir al 100 antes del jueves',
-			dateAndTime: 'hace 5 minutos',
+			userName: 'Jorge Correa',
+			message: 'Los componentes tienen que salir al 100 antes del jueves',
+			date: '2023-04-04 GMT-600 00:00:00',
+			type: 'Received',
 		},
 		{
 			id: 6,
-			user: 'Jorge Correa',
-			comment: 'Los componentes tienen que salir al 100 antes del jueves',
-			dateAndTime: 'hace 5 minutos',
+			userName: 'Jorge Correa',
+			message: 'Los componentes tienen que salir al 100 antes del jueves',
+			date: '2023-04-04 GMT-600 00:00:00',
+			type: 'Received',
 		},
 	],
 };

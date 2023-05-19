@@ -101,7 +101,7 @@ export const Spans = (props: SpansProps) => {
 
 //renderiza el icono de atraso en una tarea
 //components
-export const LateIcon = () => {
+export const LateIcon = ({ height = 54 }) => {
 	let outOfTimeICon = {
 		left: '50%',
 		top: '50%',
@@ -110,10 +110,10 @@ export const LateIcon = () => {
 	return (
 		<div style={{ position: 'absolute', ...outOfTimeICon }}>
 			<div>
-				<svg width="54" height="54" viewBox="-50 -50 300 300">
+				<svg width={height} height={height} viewBox="-50 -50 300 300">
 					<polygon
 						style={{ fill: '#FC3D38', stroke: '#fff', strokeWidth: '15' }}
-						stroke-linejoin="round"
+						strokeLinejoin="round"
 						points="100,0 0,200 200,200"
 					/>
 				</svg>
@@ -122,7 +122,8 @@ export const LateIcon = () => {
 						position: 'absolute',
 						top: '30%',
 						left: '45%',
-						fontSize: '20px',
+						// fontSize: `${height - 14}px`,
+						fontSize: `${height / 2.5}px`,
 						color: '#fff',
 					}}
 				>

@@ -1,11 +1,13 @@
 import React from 'react';
-
+// componentes auxiliares
 import { AutoresizeInput, Button } from '../../../components';
+// types
 import { commentTask } from '../types';
-import { Texts } from '../../Atoms';
+// import { Texts } from '../../Atoms';
 
 const CommentTask = (props: commentTask) => {
-	const { onCl_addComment, onCh_addFile, idComment, onCh_comment, modo } = props;
+	const { onCl_addComment, onCh_addFile, idComment, onCh_comment, modo, initialValueComment } =
+		props;
 
 	return (
 		<div className="ctnBlockComents_TWCC" style={{ padding: '10px' }}>
@@ -16,9 +18,12 @@ const CommentTask = (props: commentTask) => {
 					placeholder="Agregar comentario"
 					taskType="task"
 					onCh={onCh_comment}
+					initialValue={initialValueComment}
 				/>
 			</fieldset>
 			<div className="ctnButtons">
+				{/* 
+				TODO: Esta parte se activará cuando se solucione lo de los archivos
 				<input
 					type="file"
 					id="file"
@@ -30,7 +35,8 @@ const CommentTask = (props: commentTask) => {
 				/>
 				<label htmlFor="file" style={{ userSelect: 'none', cursor: 'pointer' }}>
 					<Texts modo={modo}>Adjuntar</Texts>
-				</label>
+				</label> 
+				*/}
 				<Button
 					modo={modo}
 					primary

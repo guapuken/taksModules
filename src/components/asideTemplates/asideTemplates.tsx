@@ -7,24 +7,24 @@ import { aside } from './types/types';
 import { ErrorNc, NoTasks } from './principalComponents';
 
 // componentes auxiliares
-import { CardTaskReview, IconDropdown, Carousel, Dropdown } from '../../components';
+import { /* IconDropdown, */ Carousel, Dropdown } from '../../components';
 import { SimpleContainer, ValidationComponent } from '../Atoms';
-import { ButtonItem } from '../../utils/asideUtils';
+// import { ButtonItem } from '../../utils/asideUtils';
 
 // funciones
 import { useWindowSize } from '../../utils/windowSize';
 import { aspectRatio } from '../../utils/functions/functions';
 
-// archivos multimedia
-import filter from '../../img/filter.svg';
-import orderIcon from '../../img/order.svg';
+// // archivos multimedia
+// import filter from '../../img/filter.svg';
+// import orderIcon from '../../img/order.svg';
+
+// types que se utilizan en documentación ----------------------------------------------------------------------
+import { Modo, onChangeType, optionsDropdown, optionsIcnDrp } from '../../types';
+//--------------------------------------------------------------------------------------------------------------
 
 // styles
 import './styles/aside.scss';
-
-// types que se utilizan en documentación ----------------------------------------------------------------------
-import { Modo, onChangeType, optionsDropdown } from '../../types';
-//--------------------------------------------------------------------------------------------------------------
 
 /** documentación del componente
  * @param {boolean} isWhite - define si el Aside contiene un color de fondo
@@ -40,16 +40,22 @@ const AsideTemplates = ({
 	imageNoTasks,
 	priText,
 	secText,
-	tasks,
+	tasks = [],
 	legendBtn,
 	idSection,
 	onCl_btn,
 	onCh_dropdown,
 	initialValueDropdown,
 	optionsDropdown,
+	Card,
+	// optionsFilter,
+	// onCl_reorder,
+	placeholderDropdown,
 }: aside) => {
-	const scrnW = useWindowSize().width;
 	const scrnH = useWindowSize().height;
+
+	/*
+	TODO: Activar los filtros
 
 	const [order, setOrder] = useState(true);
 	const [filterBy, setFilterBY] = useState('');
@@ -72,55 +78,53 @@ const AsideTemplates = ({
 			filterResult(tasks, filterBy, order);
 		}
 	}, [order, filterBy]);
-
+	*/
 	return (
 		<div className={`ctn${modo}_ATC`} vs-asd={visible ? 'Visible' : 'Normal'}>
 			<SimpleContainer className="children">
-				<SimpleContainer
-					className="dropdownCtn"
-					style={{ width: '90%', display: 'flex', gap: '10px', height: '30px' }}
-				>
-					<Dropdown
-						modo={visible ? 'Dark' : modo}
-						onCh={onCh_dropdown as onChangeType}
-						options={optionsDropdown as optionsDropdown[]}
-						placeHolder="Selecciona las tareas"
-						initialValue={initialValueDropdown}
+				<ValidationComponent validate={optionsDropdown}>
+					<SimpleContainer
+						className="dropdownCtn"
 						style={{
-							width: `calc(100% - ${!aspectRatio() ? '40px' : '0px'})`,
+							width: '90%',
+							display: 'flex',
+							gap: '10px',
+							height: '30px',
+							margin: '0 auto',
 						}}
-					/>
-					<ValidationComponent validate={!aspectRatio()}>
-						<IconDropdown
+					>
+						<Dropdown
 							modo={visible ? 'Dark' : modo}
-							icon={filter}
-							options={[
-								{
-									id: 'status',
-									title: 'Por estatus',
-									onClick: () => setFilterBY('statusTask'),
-								},
-								{
-									id: 'name',
-									title: 'Por nombre',
-									onClick: () => setFilterBY('taskName'),
-								},
-							]}
+							onCh={onCh_dropdown as onChangeType}
+							options={optionsDropdown as optionsDropdown[]}
+							placeHolder={placeholderDropdown}
+							initialValue={initialValueDropdown}
+							style={{
+								// width: `calc(100% - ${!aspectRatio() ? '40px' : '0px'})`,
+								width: `100%`,
+							}}
 						/>
-						<ButtonItem
-							id="orderArray"
-							img={orderIcon}
-							onClick={() => setOrder(!order)}
-						/>
-					</ValidationComponent>
-				</SimpleContainer>
+						{/* 
+						FIXME: Cuando se vayan a activar los filtros se activará esta parte 
+
+						 <ValidationComponent validate={!aspectRatio()}>
+							<IconDropdown
+								modo={visible ? 'Dark' : modo}
+								icon={filter}
+								options={optionsFilter as optionsIcnDrp[]}
+							/>
+							<ButtonItem id="orderArray" img={orderIcon} onClick={onCl_reorder} />
+						</ValidationComponent>
+						*/}
+					</SimpleContainer>
+				</ValidationComponent>
 				{(!tasks || tasks.length === 0) && !priText && !secText ? (
 					<ErrorNc />
 				) : (
 					<SimpleContainer className="ctnCards">
 						<ValidationComponent validate={!aspectRatio() && tasks.length > 0}>
 							{tasks?.map((individualTask) => (
-								<CardTaskReview
+								<Card
 									key={individualTask.id}
 									modo={visible ? 'Dark' : modo}
 									{...individualTask}
@@ -131,10 +135,7 @@ const AsideTemplates = ({
 							<Carousel
 								data={tasks}
 								Card={(e: any) => (
-									<CardTaskReview
-										modo={visible ? 'Dark' : modo}
-										{...e.property}
-									/>
+									<Card modo={visible ? 'Dark' : modo} {...e.property} />
 								)}
 								height={scrnH / 4 - 90}
 							/>

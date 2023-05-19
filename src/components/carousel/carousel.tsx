@@ -40,7 +40,7 @@ const Carousel = ({ Card, data = dataExample, height = 264, titleContent }: caro
 									justifyContent: 'center',
 									alignItems: 'center',
 								}}
-								key={prop.id}
+								key={prop.id ?? prop.index}
 								id={`card${prop.id}`}
 							>
 								{Card ? (

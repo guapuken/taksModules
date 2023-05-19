@@ -1,4 +1,6 @@
+import { optionsIcnDrp } from '../../../types';
 import { Modo, onChangeType, onClickType, optionsDropdown, statusTask } from '../../../types';
+import { iconDrps } from '../../iconDropdown/types';
 
 // interface principal
 export interface aside {
@@ -7,13 +9,17 @@ export interface aside {
 	imageNoTasks?: string;
 	priText?: string;
 	secText?: string;
-	tasks: tasks[];
+	tasks: any[];
 	legendBtn?: string;
 	idSection?: string;
 	onCl_btn?: onClickType;
 	onCh_dropdown?: onChangeType;
 	initialValueDropdown?: any;
 	optionsDropdown?: optionsDropdown[];
+	Card: any;
+	placeholderDropdown?: string;
+	optionsFilter?: optionsIcnDrp[];
+	onCl_reorder: onClickType;
 }
 
 // componente NoTasks

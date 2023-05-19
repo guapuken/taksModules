@@ -5,9 +5,13 @@
 //      estilos generales
 // ---------------------------------------------------------------------------------------------------------
 .ctn_CProjectC{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    .infoCtn{
+        height: 75%;
+    }
     .title{
-        // display: flex;
-        // justify-content: space-between;
         max-width: 100%;
         
         .ttlProject{
@@ -23,6 +27,11 @@
         align-items: center;
         justify-content: space-between;
         width: 100%; 
+        .progress{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
     }
     .ctnBtns{
             display:flex;

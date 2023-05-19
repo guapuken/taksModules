@@ -1,36 +1,21 @@
-import { Modo, onChangeType, onClickType } from '../../types';
+import { Modo, msnsChats, onChangeType, onClickType } from '../../types';
 
 // exportación de interfaz principal
 export interface commentsTask {
 	modo: Modo;
-	comments: comments[];
+	messages: msnsChats[];
 	onCl_addComment: onClickType;
 	onCh_addFile?: onChangeType;
 	onCh_comment: onChangeType;
+	initialValueComment?: string;
 }
-
-// comments component
-export type commentsComponent = {
-	comments: comments[];
-	onCl_addComment: onClickType;
-	onCh_AddFile?: onChangeType;
-};
-
-// estructura de los comentarios
-export type comments = {
-	id: string | number;
-	user: string;
-	comment: string;
-	personalMsn?: boolean;
-	dateAndTime?: string;
-};
 
 // commentTaskComponent
 export type commentTask = {
+	initialValueComment?: string;
 	onCl_addComment: onClickType;
 	onCh_addFile?: onChangeType;
 	idComment: string;
 	modo: Modo;
-	// onCh_comment: onBlurType;
 	onCh_comment: onChangeType;
 };

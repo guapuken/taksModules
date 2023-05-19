@@ -5,24 +5,28 @@ import { commentsTask } from './types';
 import { Comments, CommentTask } from './files';
 // estilos
 import './commentsTask.scss';
+import Msns from '../msns/Msns';
+import { ValidationComponent } from '../Atoms';
 
 const CommentsTask = ({
 	modo = 'Light',
-	comments,
+	messages,
 	onCl_addComment,
 	onCh_addFile,
 	onCh_comment,
+	initialValueComment,
 }: commentsTask) => {
 	return (
 		<>
 			{/* TODO: Agregar el componente de mensajes */}
-			{/* <div className={`ctn${modo}_CTC`}>  ctnLight_CTC   ctnundefined_CTC  */}
 			<div className={`ctn_CTC ${modo}`}>
-				{' '}
-				{/* ctn_CTC undefined  */}
 				<h2>Comentarios</h2>
-				{comments && <Comments comments={comments} />}
+				<ValidationComponent validate={messages}>
+					<Msns messages={messages} modo={modo} />
+				</ValidationComponent>
+				{messages && <Msns messages={messages} modo={modo} />}
 				<CommentTask
+					initialValueComment={initialValueComment}
 					idComment=""
 					modo={modo}
 					onCh_addFile={onCh_addFile}

@@ -4,6 +4,9 @@ export { default as Title } from './titles/Title';
 // Contenedor que devuelve un texto con formato de texto
 export { default as Texts } from './texts/Texts';
 
+// Contenedor que devuelve un texto con una parte en bold y una parte en light
+export { default as TextBoldLight } from './textBoldLight/TextBoldLight';
+
 // Contenedor que devuelve un botón con formato de texto
 export { default as TextButton } from './textButton/TextButton';
 
