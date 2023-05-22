@@ -14,11 +14,12 @@ function DemoComponent() {
 	);
 	const [priority, setPriority] = React.useState('none');
 	const [checked, setCheckedd] = React.useState(false);
-	const [startDate, setStartDate] = React.useState();
-	const [endDate, setEndDate] = React.useState();
-	const [responsable, setResponsable] = React.useState({ id: '', title: '' });
+	const [startDate, setStartDate] = React.useState('');
+	const [endDate, setEndDate] = React.useState('');
+	const [responsable, setResponsable] = React.useState({});
 	const [revision, setRevision] = React.useState({ id: undefined, name: undefined });
 
+	console.log(nameTask);
 	const equipos = [
 		{
 			id: '1',
@@ -67,9 +68,16 @@ function DemoComponent() {
 	];
 	return (
 		<Fragment>
+			{/* <Button modo="Light" onCl={() => setNameTask('hola')} /> */}
 			<Button
 				modo="Light"
-				onCl={() => setResponsable({ id: '1', title: 'TortugasNinjas' })}
+				onCl={() => {
+					setStartDate('2023-08-15 GMT-600 00:00:00');
+					setEndDate('2023-08-16 GMT-600 00:00:00');
+					setResponsable({ id: '1', title: 'Jorge Correa' });
+					setPriority('alta');
+					setNameTask('Hola que hace');
+				}}
 			/>
 			<ModalProjects
 				modo="Light"
@@ -89,7 +97,7 @@ function DemoComponent() {
 				// button clicks
 				onCl_addTask={() => alert('Tarea nueva')}
 				onCl_newTemplate={() => alert('Crear plantilla')}
-				onCl_confirm={() => alert('Hola')}
+				onCl_confirm={() => setNameTask('hola')}
 				onCl_abort={() => alert('Adios')}
 				idProject={idProject}
 				// por probar
@@ -97,7 +105,7 @@ function DemoComponent() {
 					{
 						idTask: idTask,
 						valueTask: nameTask,
-						valueDescription: descriptionTask,
+						valueDescription: nameTask,
 						onCh_nameTask: (e) => {
 							setNameTask(e.target.value);
 						},
@@ -117,7 +125,7 @@ function DemoComponent() {
 						responsables: responsableUs,
 						revision: revisionUs,
 						equipos: equipos,
-						valueResponsable: responsable.name,
+						valueResponsable: responsable.title,
 						valueRevision: revision.name,
 						onCl_newTemplate: () => alert('crear plantilla'),
 						templateOptions: [
@@ -130,7 +138,7 @@ function DemoComponent() {
 						subtasks: [
 							{
 								idTask: '27',
-								valueTask: 'CDMX',
+								valueTask: nameTask,
 								valueDescription: descriptionTask,
 								onCh_descriptionTask: (e) => setDescriptionTask(e.target.value),
 								onCl_Priority: (e) => setPriority(e.target.id),
@@ -156,7 +164,7 @@ function DemoComponent() {
 								subtasks: [
 									{
 										idTask: '252',
-										valueTask: 'CDMX',
+										valueTask: nameTask,
 										valueDescription: descriptionTask,
 										onCh_nameTask: (e) => setNameTask(e.target.value),
 										onCh_descriptionTask: (e) =>
@@ -184,7 +192,7 @@ function DemoComponent() {
 									},
 									{
 										idTask: '215',
-										valueTask: 'CDMX',
+										valueTask: nameTask,
 										valueDescription: descriptionTask,
 										onCh_nameTask: (e) => setNameTask(e.target.value),
 										onCh_descriptionTask: (e) =>

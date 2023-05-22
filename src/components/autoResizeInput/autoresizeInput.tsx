@@ -34,7 +34,7 @@ const AutoresizeInput = ({
 	modo = 'Light',
 }: autoresizeInput) => {
 	//Hooks
-	const [value, setValue] = useState(initialValue || undefined);
+	const [value, setValue] = useState(initialValue);
 	const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
 	// se encarga de reiniciar el tamaño del textarea y se setea el tamaño del mismo
@@ -70,11 +70,10 @@ const AutoresizeInput = ({
 			rows={1}
 			className={`ctn${modo}_AIPTC`}
 			style={{ width: '100%', ...style }}
+			value={value}
 			// atributos que aayudan en la construcción de los estilos de los componentes
 			hrc-inpt={taskType}
-		>
-			{value}
-		</textarea>
+		/>
 	);
 };
 

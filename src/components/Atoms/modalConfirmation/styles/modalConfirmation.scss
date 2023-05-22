@@ -1,0 +1,71 @@
+@import '../../../../global.scss';
+
+// ---------------------------------------------------------------------------------------------------------
+//      estilos generales
+// ---------------------------------------------------------------------------------------------------------
+.modalBgFW{ // se le agregan estos estilos para poder hacer clic fuera del modal y cerrarlo
+    width: 100vw;
+    height: 100vh;
+    // background: #28282875;
+    backdrop-filter: blur(5px);
+    position: fixed !important;
+    top: 0;
+    left: 0;
+}
+.ctn_MdlConfirmation{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    .ctnModal{
+        width: 50vw;
+        height: 50vh;
+        border-radius: 20px;
+        padding: 20px;
+        position: relative;
+        .header{
+            height: 25%;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            .iconClose{
+                cursor: pointer;
+                height: 30px;
+            }
+        }
+        .children{
+            height: 65%;
+            width: 100%;
+            .content{
+                height: 100%;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+    }
+    }
+// ---------------------------------------------------------------------------------------------------------
+//      modo claro
+// ---------------------------------------------------------------------------------------------------------
+    &.Light{
+        .ctnModal{
+            box-shadow: var(--boxShadow);
+            background: var(--bg);
+        }
+    }
+// ---------------------------------------------------------------------------------------------------------
+//      modo oscuro
+// ---------------------------------------------------------------------------------------------------------
+    &.Dark{
+        .ctnModal{
+            box-shadow: var(--boxShadowDark);
+            background: var(--bgDark);
+        }
+    }
+}

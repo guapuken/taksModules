@@ -55,7 +55,6 @@ const Buttons = ({
 									? '50%'
 									: ''
 								: '100%',
-						// maxWidth: '100%;',
 						// se aplican los estilos que recibe
 						...style?.primary,
 					}}

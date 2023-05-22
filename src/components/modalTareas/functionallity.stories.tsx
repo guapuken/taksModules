@@ -7,6 +7,7 @@ function DemoComponent() {
 	// consoles para revisar que sse generen de manera correcta los setteos
 	// console.clear();
 	const [checkValue, setCheckValue] = React.useState(false);
+	const [valueTask, setValueTask] = React.useState('');
 
 	return (
 		<ModalTask
@@ -21,13 +22,13 @@ function DemoComponent() {
 			onCh_startDate={() => {}}
 			onCheck={() => {}}
 			onCl_abort={() => {}}
-			onCl_confirm={() => {}}
+			onCl_confirm={() => setValueTask('Hola')}
 			onCl_reminder={() => {}}
 			onCl_selectPriority={() => {}}
 			valueResponsable={'Juan PErez'}
 			// moreOptions= []
 			onCl_newTemplate={() => alert('nueva palntilla')}
-			onCl_addTask={() => alert('nueva palntilla')}
+			onCl_addTask={() => setValueTask('Hola')}
 			responsables={[]}
 			revision={[]}
 			templateOptions={[]}
@@ -38,6 +39,12 @@ function DemoComponent() {
 			onCh_checkbox={(e) => setCheckValue(!checkValue)}
 			subtasks={[
 				{
+					check: false,
+					onCh_checkbox: {} as any,
+					onCh_endDate: {} as any,
+					onCh_startDate: {} as any,
+					valueDescription: '',
+					valueTask: valueTask,
 					onCh_descriptionTask: () => {},
 					onCh_nameTask: () => {},
 					equipos: [],
@@ -48,6 +55,12 @@ function DemoComponent() {
 					templateOptions: [],
 					subtasks: [
 						{
+							check: false,
+							onCh_checkbox: {} as any,
+							onCh_endDate: {} as any,
+							onCh_startDate: {} as any,
+							valueDescription: '',
+							valueTask: valueTask,
 							onCh_descriptionTask: () => {},
 							onCh_nameTask: () => {},
 							equipos: [],
@@ -58,6 +71,12 @@ function DemoComponent() {
 							templateOptions: [],
 							subtasks: [
 								{
+									check: false,
+									onCh_checkbox: {} as any,
+									onCh_endDate: {} as any,
+									onCh_startDate: {} as any,
+									valueDescription: '',
+									valueTask: valueTask,
 									onCh_descriptionTask: () => {},
 									onCh_nameTask: () => {},
 									equipos: [],
@@ -68,6 +87,12 @@ function DemoComponent() {
 									templateOptions: [],
 									subtasks: [
 										{
+											check: false,
+											onCh_checkbox: {} as any,
+											onCh_endDate: {} as any,
+											onCh_startDate: {} as any,
+											valueDescription: '',
+											valueTask: valueTask,
 											onCh_descriptionTask: () => {},
 											onCh_nameTask: () => {},
 											equipos: [],
@@ -78,6 +103,12 @@ function DemoComponent() {
 											templateOptions: [],
 											subtasks: [
 												{
+													check: false,
+													onCh_checkbox: {} as any,
+													onCh_endDate: {} as any,
+													onCh_startDate: {} as any,
+													valueDescription: '',
+													valueTask: valueTask,
 													onCh_descriptionTask: () => {},
 													onCh_nameTask: () => {},
 													equipos: [],

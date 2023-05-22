@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // componentes auxiliares
 import { involucrados } from '../../utils/cardsUtils';
 import { IconDropdown, InputTask } from '../../components';
@@ -167,101 +167,103 @@ const Task = ({
 							paddingLeft: '20px',
 						}}
 					>
-						{subtasks.map((e: any) => (
-							<div style={{ margin: '.5vh 0' }} key={e.idTask}>
-								{plantillas ? (
-									<Task
-										check={e.check}
-										onCh_checkbox={e.onCh_checkbox}
-										onCh_endDate={e.onCh_endDate}
-										onCh_startDate={e.onCh_startDate}
-										idTask={e.idTask}
-										taskDisabled={e.taskDisabled}
-										taskComplete={e.taskComplete}
-										valueTask={e.valueTask}
-										valueDescription={e.valueDescription}
-										onCh_nameTask={e.onCh_nameTask}
-										onCh_descriptionTask={e.onCh_descriptionTask}
-										plantillas
-										onCh_duration={e.onCh_duration}
-										durationValue={e.durationValue}
-										className={e.className}
-										responsables={e.responsables}
-										equipos={e.equipos}
-										revision={e.revision}
-										valueResponsable={e.valueResponsable}
-										valueRevision={e.valueRevision}
-										moreOptions={
-											e.moreOptions ?? [
-												{
-													id: 'delete',
-													title: 'Eliminar',
-													onClick: e.onCl_delete,
-												},
-											]
-										}
-										onCl_delete={e.onCl_delete}
-										subtaskForbbiden={e.subtaskForbbiden}
-										subtasks={e.subtasks}
-										onCl_newTemplate={e.onCl_newTemplate}
-										onCl_addTask={e.onCl_addTask}
-										templateOptions={e.templateOptions}
-										modo={modo}
-									/>
-								) : (
-									<Task
-										idTask={e.idTask}
-										taskDisabled={e.taskDisabled}
-										taskComplete={e.taskComplete}
-										check={e.check}
-										valueTask={e.valueTask}
-										valueDescription={e.valueDescription}
-										onClickCheck={e.onClickCheck}
-										onCh_nameTask={e.onCh_nameTask}
-										onCh_descriptionTask={e.onCh_descriptionTask}
-										idCheckbox={e.idTask}
-										onCh_checkbox={e.onCh_checkbox}
-										//
-										disabledEndDate={e.disabledEndDate}
-										disabledStartDate={e.disabledStartDate}
-										onCh_endDate={e.onCh_endDate}
-										onCh_startDate={e.onCh_startDate}
-										startDateValue={e.startDateValue}
-										endDateValue={e.endDateValue}
-										className={e.className}
-										//
-										responsables={e.responsables}
-										equipos={e.equipos}
-										revision={e.revision}
-										valueResponsable={e.valueResponsable}
-										valueRevision={e.valueRevision}
-										//
-										prioridadInicial={e.prioridadInicial}
-										onCl_selectPriority={e.onCl_selectPriority}
-										//
-										moreOptions={
-											e.moreOptions ?? [
-												{
-													id: 'deleteTask',
-													title: 'Eliminar',
-													onClick: e.onCl_delete,
-												},
-											]
-										}
-										onCl_delete={e.onCl_delete}
-										onCl_reminder={e.onCl_reminder}
-										//
-										subtaskForbbiden={e.subtaskForbbiden}
-										subtasks={e.subtasks}
-										//
-										onCl_newTemplate={e.onCl_newTemplate}
-										onCl_addTask={e.onCl_addTask}
-										templateOptions={e.templateOptions}
-										modo={modo}
-									/>
-								)}
-							</div>
-						))}
+						{subtasks.map((e: any) => {
+							return (
+								<div style={{ margin: '.5vh 0' }} key={e.idTask}>
+									{plantillas ? (
+										<Task
+											check={e.check}
+											onCh_checkbox={e.onCh_checkbox}
+											onCh_endDate={e.onCh_endDate}
+											onCh_startDate={e.onCh_startDate}
+											idTask={e.idTask}
+											taskDisabled={e.taskDisabled}
+											taskComplete={e.taskComplete}
+											valueTask={e.valueTask}
+											valueDescription={e.valueDescription}
+											onCh_nameTask={e.onCh_nameTask}
+											onCh_descriptionTask={e.onCh_descriptionTask}
+											plantillas
+											onCh_duration={e.onCh_duration}
+											durationValue={e.durationValue}
+											className={e.className}
+											responsables={e.responsables}
+											equipos={e.equipos}
+											revision={e.revision}
+											valueResponsable={e.valueResponsable}
+											valueRevision={e.valueRevision}
+											moreOptions={
+												e.moreOptions ?? [
+													{
+														id: 'delete',
+														title: 'Eliminar',
+														onClick: e.onCl_delete,
+													},
+												]
+											}
+											onCl_delete={e.onCl_delete}
+											subtaskForbbiden={e.subtaskForbbiden}
+											subtasks={e.subtasks}
+											onCl_newTemplate={e.onCl_newTemplate}
+											onCl_addTask={e.onCl_addTask}
+											templateOptions={e.templateOptions}
+											modo={modo}
+										/>
+									) : (
+										<Task
+											idTask={e.idTask}
+											taskDisabled={e.taskDisabled}
+											taskComplete={e.taskComplete}
+											check={e.check}
+											valueTask={e.valueTask}
+											valueDescription={e.valueDescription}
+											onClickCheck={e.onClickCheck}
+											onCh_nameTask={e.onCh_nameTask}
+											onCh_descriptionTask={e.onCh_descriptionTask}
+											idCheckbox={e.idTask}
+											onCh_checkbox={e.onCh_checkbox}
+											//
+											disabledEndDate={e.disabledEndDate}
+											disabledStartDate={e.disabledStartDate}
+											onCh_endDate={e.onCh_endDate}
+											onCh_startDate={e.onCh_startDate}
+											startDateValue={e.startDateValue}
+											endDateValue={e.endDateValue}
+											className={e.className}
+											//
+											responsables={e.responsables}
+											equipos={e.equipos}
+											revision={e.revision}
+											valueResponsable={e.valueResponsable}
+											valueRevision={e.valueRevision}
+											//
+											prioridadInicial={e.prioridadInicial}
+											onCl_selectPriority={e.onCl_selectPriority}
+											//
+											moreOptions={
+												e.moreOptions ?? [
+													{
+														id: 'deleteTask',
+														title: 'Eliminar',
+														onClick: e.onCl_delete,
+													},
+												]
+											}
+											onCl_delete={e.onCl_delete}
+											onCl_reminder={e.onCl_reminder}
+											//
+											subtaskForbbiden={e.subtaskForbbiden}
+											subtasks={e.subtasks}
+											//
+											onCl_newTemplate={e.onCl_newTemplate}
+											onCl_addTask={e.onCl_addTask}
+											templateOptions={e.templateOptions}
+											modo={modo}
+										/>
+									)}
+								</div>
+							);
+						})}
 					</div>
 				</div>
 			)}

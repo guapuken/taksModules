@@ -12,7 +12,13 @@ function DemoComponent() {
 
 	return (
 		<Fragment>
-			<Button modo="Light" onCl={() => setPriority('alta')} />
+			<Button
+				modo="Light"
+				onCl={() => {
+					setPriority('alta');
+					setDescription('Hacerte guaje');
+				}}
+			/>
 			<Task
 				equipos={[]}
 				idTask="1"
