@@ -6,4 +6,4 @@ import Title from '../titles/Title';
 export function DemoComponent() {
 	return <Title modo="Light">Hola</Title>;
 }
-storiesOf('Gral-Atoms/ Title', module).add('title', () => <DemoComponent />);
+storiesOf('Gral-Atoms/Title', module).add('Title', () => <DemoComponent />);

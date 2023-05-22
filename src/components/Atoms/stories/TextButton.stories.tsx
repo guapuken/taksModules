@@ -11,4 +11,4 @@ export function DemoComponent() {
 		</TextButton>
 	);
 }
-storiesOf('Gral-Atoms/TextButton', module).add('textButton', () => <DemoComponent />);
+storiesOf('Gral-Atoms/TextButton', module).add('TextButton', () => <DemoComponent />);
