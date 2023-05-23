@@ -1,10 +1,19 @@
 import React from 'react';
 
 import { SimpleContainer, ValidationComponent } from '../../Atoms';
+import { modalConfirmationProps } from './types/types';
 import './styles/modalConfirmation.scss';
+
 import close from '../../../img/close.svg';
 
-const ModalConfirmation = ({ modo = 'Light', children, handleClose, footer, isActive, header }) => {
+const ModalConfirmation = ({
+	modo = 'Light',
+	children,
+	handleClose,
+	footer,
+	isActive,
+	header,
+}: modalConfirmationProps) => {
 	return (
 		<ValidationComponent validate={isActive}>
 			<SimpleContainer

@@ -120,3 +120,6 @@ export {default as Chat} from './ChatContainer';
  * @returns - estructura de los mensajes según su estatus y tipo de mensaje
  */
 export {default as Msns} from './msns';
+
+
+export {default as useModal} from './Atoms/hooks/useModal.jsx'
