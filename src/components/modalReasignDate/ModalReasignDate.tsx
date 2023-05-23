@@ -14,7 +14,6 @@ const ModalReasignDate = ({
 	onCh_startDate,
 	onCl_confirm,
 }: modalReasignDateProps) => {
-	// const [isOpened, setIsOpened, toggle] = useModal();
 	const { isOpened, setIsOpened, toggle: handleClick } = useModal();
 	return (
 		<SimpleContainer>

@@ -97,6 +97,7 @@ export {default as ModalTemplates} from './modalTemplates';
 export {default as ModalProjects} from './modalProjects';
 export {default as ModalTeams} from './modalTeams';
 export {default as ModalTaskWithComments} from './modalTasksWithComents';
+export {default as ModalConfirmation} from './Atoms/modalConfirmation/ModalConfirmation';
 export {default as ModalReasignDate} from './modalReasignDate';
 export {default as ModalReasignUser} from './modalReasignUser';
 
