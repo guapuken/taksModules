@@ -1,11 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const useModal = (initialMode = false) => {
 	const [isOpened, setIsOpened] = useState(initialMode);
-
-	useEffect(() => {
-		setIsOpened(initialMode);
-	}, [initialMode]);
 
 	const toggle = () => setIsOpened(!isOpened);
 

@@ -8,6 +8,8 @@ export interface commentsTask {
 	onCh_addFile?: onChangeType;
 	onCh_comment: onChangeType;
 	initialValueComment?: string;
+	isActive?: boolean;
+	handleClose: onClickType;
 }
 
 // commentTaskComponent

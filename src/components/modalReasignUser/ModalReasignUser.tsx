@@ -1,5 +1,5 @@
 import React from 'react';
-import useModal from '../Atoms/hooks/useModal.jsx';
+import useModalWidthData from '../Atoms/hooks/useModalWidthData.jsx';
 import { ImportantText, SimpleContainer, ValidationComponent } from '../Atoms';
 import ModalConfirmation from '../Atoms/modalConfirmation/ModalConfirmation';
 import Buttons from '../buttons';
@@ -7,23 +7,24 @@ import Dropdown from '../dropdown/dropdown';
 import { modalReasignUserProps } from './types/types';
 
 const ModalReasignUser = ({
-	Trigger,
 	modo,
 	onCl_confirm,
 	optionsDropdown,
 	initialValueDropdown,
 	onCh_dropdown,
+	isOpened,
+	setData,
 }: modalReasignUserProps) => {
-	const { isOpened, setIsOpened, toggle: handleClick } = useModal();
+	// const { isOpened, setData, data: handleClick } = useModalWidthData();
 	return (
 		<SimpleContainer>
-			<SimpleContainer>
+			{/* <SimpleContainer>
 				<ValidationComponent validate={Trigger}>
 					<Trigger onClick={handleClick} />
 				</ValidationComponent>
-			</SimpleContainer>
+			</SimpleContainer> */}
 			<ModalConfirmation
-				handleClose={() => setIsOpened(false)}
+				handleClose={() => setData(null)}
 				header={<ImportantText modo={modo}>Reasignar tarea a alguien más</ImportantText>}
 				isActive={isOpened}
 				modo={modo}
@@ -35,7 +36,7 @@ const ModalReasignUser = ({
 						onCl_buttons={{
 							tertiary: {} as any,
 							primary: onCl_confirm,
-							secondary: () => setIsOpened(false),
+							secondary: () => setData(null),
 						}}
 						legends={{
 							primary: 'Reasignar tarea',

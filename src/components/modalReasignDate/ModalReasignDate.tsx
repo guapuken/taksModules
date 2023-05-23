@@ -6,24 +6,26 @@ import { Buttons, RangeDatePicker } from '../../components';
 import { modalReasignDateProps } from './types/types';
 
 const ModalReasignDate = ({
-	Trigger,
+	// Trigger,
 	modo,
 	endDateValue,
 	onCh_endDate,
 	startDateValue,
 	onCh_startDate,
 	onCl_confirm,
+	isOpened,
+	setData,
 }: modalReasignDateProps) => {
-	const { isOpened, setIsOpened, toggle: handleClick } = useModal();
+	// const { isOpened, setIsOpened, toggle: handleClick } = useModal();
 	return (
 		<SimpleContainer>
-			<SimpleContainer>
+			{/* <SimpleContainer>
 				<ValidationComponent validate={Trigger}>
 					<Trigger onClick={handleClick} />
 				</ValidationComponent>
-			</SimpleContainer>
+			</SimpleContainer> */}
 			<ModalConfirmation
-				handleClose={() => setIsOpened(false)}
+				handleClose={() => setData(null)}
 				header={<ImportantText modo={modo}>Reasignar fecha de entrega</ImportantText>}
 				isActive={isOpened}
 				modo={modo}
@@ -35,7 +37,7 @@ const ModalReasignDate = ({
 						onCl_buttons={{
 							tertiary: {} as any,
 							primary: onCl_confirm,
-							secondary: () => setIsOpened(false),
+							secondary: () => setData(null),
 						}}
 						legends={{
 							primary: 'Cambiar fecha',

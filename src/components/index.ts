@@ -100,6 +100,7 @@ export {default as ModalTaskWithComments} from './modalTasksWithComents';
 export {default as ModalConfirmation} from './Atoms/modalConfirmation/ModalConfirmation';
 export {default as ModalReasignDate} from './modalReasignDate';
 export {default as ModalReasignUser} from './modalReasignUser';
+export {default as CommentsTask} from './commentsTask';
 
 // ---------------------------------------------------------------------------------------------------------
 //      componentes complejos
@@ -123,4 +124,5 @@ export {default as Chat} from './ChatContainer';
 export {default as Msns} from './msns';
 
 
-export {default as useModal} from './Atoms/hooks/useModal.jsx'
+export {default as useModal} from './Atoms/hooks/useModal.jsx';
+export {default as useModalWithData} from './Atoms/hooks/useModalWithData.jsx';
