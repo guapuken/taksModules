@@ -9,7 +9,13 @@ export default function MenusCc(props: any) {
 					<ul>
 						{categoria.menus?.map((menu: any) => {
 							return (
-								<li onClick={menu.onClick} key={menu.id}>
+								<li
+									onClick={(e) => {
+										props.setIsOpen(false);
+										if (menu.onClick) menu.onClick(e);
+									}}
+									key={menu.id}
+								>
 									<a href={menu.href}>{menu.title}</a>
 								</li>
 							);
