@@ -1,5 +1,5 @@
 import React from 'react';
-import { useModal } from '../Atoms/hooks/useModal';
+import useModal from '../Atoms/hooks/useModal.jsx';
 import { ImportantText, SimpleContainer, ValidationComponent } from '../Atoms';
 import ModalConfirmation from '../Atoms/modalConfirmation/ModalConfirmation';
 import Buttons from '../buttons';
