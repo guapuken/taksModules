@@ -2,7 +2,7 @@ import React from 'react';
 // types
 import { commentsTask } from './types';
 // componentes principales
-import { Comments, CommentTask } from './files';
+import { CommentTask } from './files';
 // estilos
 import './commentsTask.scss';
 import Msns from '../msns/Msns';

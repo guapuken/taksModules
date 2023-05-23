@@ -2,20 +2,24 @@ import React, { useState } from 'react';
 // utilidades del storybook
 import { storiesOf } from '@storybook/react';
 // componentes principales
-import ModalTemplates from '.';
-import { autoIncrementalId } from '../../utils/functions/functions';
+import ModalTemplates from '..';
+import { autoIncrementalId } from '../../../utils/functions/functions';
+import { equipos, responsables, revision, templateOptions } from '../data/exampleData';
 
 function DemoComponent() {
-	const [campaign, setCampaign] = useState(false);
-	console.log(campaign);
+	const [template, setTemplate] = useState(undefined);
+	console.table({
+		template: template,
+	});
 	return (
 		<ModalTemplates
+			onCl_close={() => {}}
 			idTemplate="1"
 			modo="Light"
 			isMannager
 			onCh_checkboxMedio={() => {}}
 			onCh_dropDownTipoMedio={() => {}}
-			onCh_templateName={() => {}}
+			onCh_templateName={(e) => setTemplate(e.target.value)}
 			onCl_abort={() => {}}
 			onCl_addTask={() => {}}
 			onCl_confirm={() => {}}
@@ -37,11 +41,11 @@ function DemoComponent() {
 					onCl_addTask: () => {},
 					onCh_duration: (e) => console.log(e.target.value),
 					onCl_delete: () => {},
-					equipos: [],
-					templateOptions: [],
+					equipos: equipos,
+					templateOptions: templateOptions,
 					onCl_newTemplate: () => {},
-					responsables: [],
-					revision: [],
+					responsables: responsables,
+					revision: revision,
 					subtasks: [
 						{
 							onCh_descriptionTask: () => {},
@@ -53,19 +57,19 @@ function DemoComponent() {
 							valueTask: '',
 							modo: 'Light',
 							idTask: String(autoIncrementalId()),
-							equipos: [],
+							equipos: equipos,
 							onCl_newTemplate: () => {},
-							responsables: [],
-							revision: [],
-							templateOptions: [],
+							responsables: responsables,
+							revision: revision,
+							templateOptions: templateOptions,
 						},
 						{
 							idTask: String(autoIncrementalId()),
-							equipos: [],
+							equipos: equipos,
 							onCl_newTemplate: () => {},
-							responsables: [],
-							revision: [],
-							templateOptions: [],
+							responsables: responsables,
+							revision: revision,
+							templateOptions: templateOptions,
 							modo: 'Light',
 							onCh_descriptionTask: (e) => console.log(e.target.value),
 							onCh_nameTask: (e) => console.log(e.target.value),
@@ -78,11 +82,11 @@ function DemoComponent() {
 							subtasks: [
 								{
 									idTask: String(autoIncrementalId()),
-									equipos: [],
+									equipos: equipos,
 									onCl_newTemplate: () => {},
-									responsables: [],
-									revision: [],
-									templateOptions: [],
+									responsables: responsables,
+									revision: revision,
+									templateOptions: templateOptions,
 									modo: 'Light',
 									onCh_descriptionTask: (e) => console.log(e),
 									onCh_nameTask: (e) => console.log(e),
@@ -97,11 +101,11 @@ function DemoComponent() {
 								},
 								{
 									idTask: String(autoIncrementalId()),
-									equipos: [],
+									equipos: equipos,
 									onCl_newTemplate: () => {},
-									responsables: [],
-									revision: [],
-									templateOptions: [],
+									responsables: responsables,
+									revision: revision,
+									templateOptions: templateOptions,
 									modo: 'Light',
 									onCh_descriptionTask: (e) => console.log(e),
 									onCh_nameTask: (e) => console.log(e),

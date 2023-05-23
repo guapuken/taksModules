@@ -1,40 +1,22 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import ModalTemplates from '.';
-import Task from '../task';
-import ModalPlantillas, { ModalTemplatesProps } from './modalPlantillas';
+import ModalTemplates from '..';
+import Task from '../../task';
+import ModalPlantillas from '../modalPlantillas';
+import { modalTemplates } from '../types/types';
+import { equipos, responsables, revision, templateOptions } from '../data/exampleData.js';
 
-const Template: Story<ModalTemplatesProps> = (args) => <ModalTemplates {...args} />;
+const Template: Story<modalTemplates> = (args) => <ModalTemplates {...args} />;
 
 export const InitialState = Template.bind({});
 InitialState.args = {};
 
-const equipos = [
-	{
-		title: 'creactive',
-	},
-	{ title: 'Saales' },
-];
-const revision = [
-	{
-		title: 'creactive',
-	},
-	{ title: 'Saales' },
-];
-const responsables = [
-	{
-		title: 'creactive',
-	},
-	{ title: 'Saales' },
-];
-const templateOptions = [
-	{
-		title: 'creactive',
-	},
-	{ title: 'Saales' },
-];
 const ChildrenTask1 = () => (
 	<Task
+		check={false}
+		onCh_checkbox={{} as any}
+		onCh_endDate={{} as any}
+		onCh_startDate={{} as any}
 		idTask=""
 		idCheckbox={'189045'}
 		equipos={equipos as any}

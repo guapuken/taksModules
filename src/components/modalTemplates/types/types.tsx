@@ -1,4 +1,4 @@
-import { Modo, onChangeType, onClickType, optionsDropdown, tasksTemplates } from '../../types';
+import { Modo, onChangeType, onClickType, optionsDropdown, tasksTemplates } from '../../../types';
 //INTERFACES
 export interface modalTemplates {
 	onCl_confirm: onClickType;
