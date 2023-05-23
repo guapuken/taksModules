@@ -9,7 +9,7 @@ export const useModal = (initialMode = false) => {
 
 	const toggle = () => setIsOpened(!isOpened);
 
-	return [isOpened, setIsOpened, toggle];
+	return {isOpened, setIsOpened, toggle};
 };
 
 // este hook funciona cuando se le va a pasar información adicional a un modal que necesita mostrar información dependiendo la selección que se realizó
@@ -17,6 +17,7 @@ export const useModalWithData = (initialIsOpened = false, initialData = null) =>
 	const [isModalOpened, setIsModalOpened] = useModal(initialIsOpened);
 	// setteo de la data inicial
 	const [data, setData] = useState(initialData);
+	
 	useEffect(() => {
 		setData(initialData);
 	}, [initialData]);

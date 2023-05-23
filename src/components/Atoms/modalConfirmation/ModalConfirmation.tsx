@@ -7,23 +7,40 @@ import close from '../../../img/close.svg';
 const ModalConfirmation = ({ modo = 'Light', children, handleClose, footer, isActive, header }) => {
 	return (
 		<ValidationComponent validate={isActive}>
-			{/* Modal Bg */}
-			<SimpleContainer className="modalBgFW" onClick={handleClose} children={null} />
-			<SimpleContainer className={`ctn_MdlConfirmation ${modo}`}>
-				{/* Modal content */}
-				<SimpleContainer className={`ctnModal`} draggable={true}>
+			<SimpleContainer
+				// contenedor general del componente
+				className={`ctn_MdlConfirmation ${modo}`}
+			>
+				<SimpleContainer
+					// background que permite cerrar el modal dando clic fuera del modal
+					className="modalBgFW"
+					children={undefined}
+					onClick={handleClose}
+				/>
+				<SimpleContainer className={`ctnModal`}>
 					<SimpleContainer className="children">
 						<SimpleContainer className="header">
 							<img src={close} alt="" className="iconClose" onClick={handleClose} />
 						</SimpleContainer>
-						{/* content */}
-						<SimpleContainer className="content">
-							<ValidationComponent validate={header}>
-								<SimpleContainer children={header} />
-							</ValidationComponent>
-							{children}
+						<SimpleContainer
+							//comienza contenido del modal
+							className="content"
+						>
+							<ValidationComponent
+								//Se valida si existe o no el header
+								validate={header}
+								children={<SimpleContainer children={header} />}
+							/>
+							{
+								//Se construye el children del modal
+								children
+							}
 						</SimpleContainer>
-						<SimpleContainer children={footer} />
+						<ValidationComponent
+							//Se valida si existe o no el footer
+							validate={footer}
+							children={<SimpleContainer children={footer} />}
+						/>
 					</SimpleContainer>
 				</SimpleContainer>
 			</SimpleContainer>

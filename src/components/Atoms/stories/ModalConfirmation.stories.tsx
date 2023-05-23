@@ -10,38 +10,39 @@ import ImportantText from '../importantText/ImportantText';
 import Texts from '../texts/Texts';
 
 storiesOf('Gral-Atoms/ModalConfirmation', module).add('ModalConfirmation', () => {
-	const [isOpened, setIsOpened, toggle] = useModal();
+	const { isOpened, setIsOpened, toggle } = useModal();
 	return (
 		<SimpleContainer>
-			<TextButton modo="Light" onClick={toggle}>
+			<TextButton modo="Dark" onClick={toggle}>
 				Abrir Modal
 			</TextButton>
 			<ModalConfirmation
 				handleClose={() => setIsOpened(false)}
 				isActive={isOpened}
-				modo="Light"
-				header={<ImportantText modo="Light">Esta acción no puede deshacerse</ImportantText>}
+				modo="Dark"
+				header={<ImportantText modo="Dark">Esta acción no puede deshacerse</ImportantText>}
 				children={
-					<Texts modo="Light">
+					<Texts modo="Dark">
 						¿Seguro que quieres eliminarlo?, una vez hecho tu tarea ya no podrá
 						recuperarse
 					</Texts>
 				}
 				footer={
-					<div style={{ display: 'flex' }}>
-						{' '}
-						<Buttons
-							buttons={{ primary: true, secondary: true }}
-							composition="horizontal"
-							modo="Light"
-							size="small"
-							legends={{
-								primary: 'Eliminar tarea',
-								secondary: 'Cancelar',
-							}}
-							onCl_buttons={{} as any}
-						/>
-					</div>
+					<Buttons
+						buttons={{ primary: true, secondary: true }}
+						composition="horizontal"
+						modo="Dark"
+						size="small"
+						legends={{
+							primary: 'Eliminar tarea',
+							secondary: 'Cancelar',
+						}}
+						onCl_buttons={{
+							primary: () => alert('Confirmar'),
+							secondary: () => setIsOpened(false),
+							tertiary: {} as any,
+						}}
+					/>
 				}
 			/>
 		</SimpleContainer>
