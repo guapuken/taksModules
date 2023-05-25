@@ -21,6 +21,10 @@ export interface ModalProjectsProps {
 	onCl_abort: onClickType;
 	onCl_addTask: onClickType;
 	onCh_nameProject: onChangeType;
+	maxEndDate?: string;
+	maxStartDate?: string;
+	minEndDate?: string;
+	minStartDate?: string;
 	projectNameValue: string;
 	subtasks?: subtasksProps[];
 	templateOptions: optionsIcnDrp[];

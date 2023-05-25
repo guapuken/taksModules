@@ -20,9 +20,12 @@ WithProperties.args = {
 	onCl_abort: () => alert('cancelar'),
 	onCl_addTask: () => alert('añadir tarea'),
 	onCl_newTemplate: () => alert('crear plantilla'),
-	startDateValue: '2023-05-06 GTM-600 18:00:00',
-	endDateValue: '2023-05-06 GTM-600 19:00:00',
-	maxStartDate: '2023-05-09 GTM-600 00:00:00',
+	startDateValue: '2023-05-06 18:00:00',
+	endDateValue: '2023-05-06 19:00:00',
+	maxStartDate: '2023-05-09 00:00:00',
+	minStartDate: '2023-05-01 00:00:00',
+	maxEndDate: '2023-05-09 00:00:00',
+	minEndDate: '2023-05-01 00:00:00',
 	edit: true,
 	subtasks: [
 		{

@@ -224,6 +224,10 @@ export type subtasksProps = {
 	equipos: submenusArray[];
 	revision: submenusArray[];
 	valueResponsable?: string;
+	maxEndDate?: string;
+	maxStartDate?: string;
+	minEndDate?: string;
+	minStartDate?: string;
 	valueRevision?: string;
 
 	//Icon Priority

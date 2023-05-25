@@ -230,6 +230,10 @@ const Task = ({
 											onCh_descriptionTask={e.onCh_descriptionTask}
 											idCheckbox={e.idTask}
 											onCh_checkbox={e.onCh_checkbox}
+											maxEndDate={e.maxEndDate}
+											maxStartDate={e.maxStartDate}
+											minEndDate={e.minEndDate}
+											minStartDate={e.minStartDate}
 											//
 											disabledEndDate={e.disabledEndDate}
 											disabledStartDate={e.disabledStartDate}

@@ -103,6 +103,8 @@ function DemoComponent() {
 				// por probar
 				subtasks={[
 					{
+						minStartDate: '2023-02-02 00:00:00',
+						maxStartDate: '2023-02-10 00:00:00',
 						idTask: idTask,
 						valueTask: nameTask,
 						valueDescription: nameTask,

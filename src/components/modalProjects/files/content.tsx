@@ -88,6 +88,10 @@ const Content = ({
 								onCh_startDate={e.onCh_startDate}
 								startDateValue={e.startDateValue}
 								endDateValue={e.endDateValue}
+								maxEndDate={e.maxEndDate}
+								maxStartDate={e.maxStartDate}
+								minEndDate={e.minEndDate}
+								minStartDate={e.minStartDate}
 								//
 								responsables={e.responsables}
 								equipos={e.equipos}
