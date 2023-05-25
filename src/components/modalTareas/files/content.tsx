@@ -8,6 +8,10 @@ const Content = (props: content) => {
 	return (
 		<Task
 			idTask={datos.idTask}
+			maxEndDate={datos.maxEndDate}
+			maxStartDate={datos.maxStartDate}
+			minEndDate={datos.minEndDate}
+			minStartDate={datos.minStartDate}
 			check={datos.check}
 			onCh_checkbox={datos.onCh_checkbox}
 			idCheckbox={datos.idTask}

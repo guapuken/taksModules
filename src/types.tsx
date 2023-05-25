@@ -55,6 +55,10 @@ export interface tasks {
 	valueDescription: string;
 	onClickCheck?: onClickType;
 	onCh_nameTask: onChangeType;
+	maxEndDate?: string;
+	maxStartDate?: string;
+	minEndDate?: string;
+	minStartDate?: string;
 	// onCh_nameTask: onChangeType;
 	onCh_descriptionTask: onChangeType;
 	// onCh_descriptionTask: onChangeType;

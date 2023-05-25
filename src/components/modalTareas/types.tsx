@@ -34,6 +34,10 @@ export interface tasksProps {
 	disabledStartDate?: boolean;
 	endDateValue: string;
 	startDateValue: string;
+	maxEndDate?: string;
+	maxStartDate?: string;
+	minEndDate?: string;
+	minStartDate?: string;
 	valueTask: string;
 	valueDescription: string;
 	valueResponsable: string;
@@ -55,6 +59,10 @@ export type content = {
 	onCh_checkbox: onChangeType;
 	equipos: submenusArray[];
 	subtasks?: subtasksProps[];
+	maxEndDate?: string;
+	maxStartDate?: string;
+	minEndDate?: string;
+	minStartDate?: string;
 
 	onCheck: onChangeType;
 	onCh_descriptionTask: onChangeType;

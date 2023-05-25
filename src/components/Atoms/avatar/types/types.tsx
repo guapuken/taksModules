@@ -1,4 +1,4 @@
-import { Modo } from '../../../../types';
+import { Modo, css } from '../../../../types';
 
 /** Estructura que recibe el avatar en caso de exisstir un username
  * @example -
@@ -12,4 +12,5 @@ export interface avatar {
 	userName: string;
 	modo: Modo;
 	className?: string;
+	style?: css;
 }

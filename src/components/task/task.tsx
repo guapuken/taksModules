@@ -76,6 +76,10 @@ const Task = ({
 	subtasks,
 	modo = 'Light',
 	prioridadInicial = 'none',
+	maxEndDate,
+	maxStartDate,
+	minEndDate,
+	minStartDate,
 }: tasks) => {
 	const showTask = () => (plantillas ? false : true);
 
@@ -105,6 +109,10 @@ const Task = ({
 			>
 				<IconDates
 					idTask={idTask}
+					maxEndDate={maxEndDate}
+					maxStartDate={maxStartDate}
+					minEndDate={minEndDate}
+					minStartDate={minStartDate}
 					modo={modo}
 					onCh_duration={onCh_duration as onChangeType}
 					plantillas={plantillas}

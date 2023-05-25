@@ -7,15 +7,15 @@ import { Texts, SimpleContainer } from '../../Atoms';
 // styles
 import './styles/avatar.scss';
 
-const Avatar = ({ avatar, userName, modo, className }: avatar) => {
+const Avatar = ({ avatar, userName, modo, className, style }: avatar) => {
 	return avatar ? (
 		<SimpleContainer
 			className={`ctn_Avtr ${modo} ${className}`}
-			style={{ backgroundImage: `url(${avatar})` }}
+			style={{ backgroundImage: `url(${avatar})`, ...style }}
 			children={null}
 		/>
 	) : (
-		<Texts modo={modo} className={`ctn_Avtr ${modo} ${className}`}>
+		<Texts modo={modo} className={`ctn_Avtr ${modo} ${className}`} style={style}>
 			{initialLetters(userName ?? 'NU')}
 		</Texts>
 	);

@@ -1,8 +1,12 @@
 import { Modo, css, onChangeType } from '../../types';
 export interface rangeDatePicker {
-	startDateValue: string;
+	startDateValue?: string;
 	// startDateValue?: Date;
-	endDateValue: string;
+	endDateValue?: string;
+	minStartDate?: string;
+	maxStartDate?: string;
+	minEndDate?: string;
+	maxEndDate?: string;
 	// endDateValue?: Date;
 	style?: css;
 	disabledStartDate?: boolean;
