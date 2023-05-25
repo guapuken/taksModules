@@ -100,6 +100,8 @@ export {default as ModalTaskWithComments} from './modalTasksWithComents';
 export {default as ModalConfirmation} from './Atoms/modalConfirmation/ModalConfirmation';
 export {default as ModalReasignDate} from './modalReasignDate';
 export {default as ModalReasignUser} from './modalReasignUser';
+export {default as MdlDeleteTeam} from './Modales/Delete/Team/MdlDeleteTeam';
+export {default as MdlDeleteTask} from './Modales/Delete/Task/MdlDeleteTask';
 export {default as CommentsTask} from './commentsTask';
 
 // ---------------------------------------------------------------------------------------------------------
