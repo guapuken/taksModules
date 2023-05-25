@@ -21,3 +21,6 @@ export { default as ImportantText } from './importantText/ImportantText';
 
 // Contenedor que realiza una validación de una propiedad
 export { default as ValidationComponent } from './validationComponent/ValidationComponent';
+
+// Contenedor que realiza un modal
+export { default as ModalConfirmation } from './modalConfirmation/ModalConfirmation';

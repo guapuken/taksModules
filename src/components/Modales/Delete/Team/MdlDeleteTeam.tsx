@@ -1,19 +1,17 @@
 import React from 'react';
-import useModal from '../Atoms/hooks/useModal.jsx';
-import { ImportantText, SimpleContainer, Texts, ValidationComponent } from '../Atoms';
-import ModalConfirmation from '../Atoms/modalConfirmation/ModalConfirmation';
-import { Buttons, RangeDatePicker } from '../../components';
-import { modalDeleteTeamProps } from './types/types';
+import { SimpleContainer, ModalConfirmation, ImportantText, Texts } from '../../../Atoms';
+import { Buttons } from '../../../../components';
+import { Modo, onClickType } from '../../../../types';
 
-const ModalDeleteTeam = ({
-	// Trigger,
-	modo,
-	onCl_confirm,
-	isOpened,
-	setData,
-	data,
-}: modalDeleteTeamProps) => {
-	// const { isOpened, setIsOpened, toggle: handleClick } = useModal();
+export interface modalDeleteTeamProps {
+	modo: Modo;
+	onCl_confirm: onClickType;
+	isOpened: boolean;
+	setData?: any;
+	data?: any;
+}
+
+const MdlDeleteTeam = ({ modo, onCl_confirm, isOpened, setData, data }: modalDeleteTeamProps) => {
 	return (
 		<SimpleContainer>
 			<ModalConfirmation
@@ -50,4 +48,4 @@ const ModalDeleteTeam = ({
 	);
 };
 
-export default ModalDeleteTeam;
+export default MdlDeleteTeam;

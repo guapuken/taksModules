@@ -18,7 +18,7 @@ export const Content = ({
 	return (
 		<CardContainer className={`ctn${modo}_CTR`}>
 			<SimpleContainer>
-				<Title modo={modo} maxLines={1}>
+				<Title modo={modo} maxLines={1} title={taskName}>
 					{taskName}
 				</Title>
 				<Texts modo={modo} maxLines={2} className="descr">

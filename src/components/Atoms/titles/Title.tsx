@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import './styles/title.scss';
 import { titleProps } from './types/types';
 
-const Title = ({ children, modo, className, style, maxLines }: titleProps) => {
+const Title = ({ children, modo, className, style, maxLines, title }: titleProps) => {
 	return (
 		<p
 			className={`ctn_Ttls ${modo} ${className}`}
@@ -10,6 +10,7 @@ const Title = ({ children, modo, className, style, maxLines }: titleProps) => {
 				WebkitLineClamp: maxLines,
 				...style,
 			}}
+			title={title}
 		>
 			{children}
 		</p>

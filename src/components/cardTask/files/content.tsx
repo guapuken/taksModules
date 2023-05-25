@@ -57,7 +57,7 @@ const Content = ({
 	return (
 		<CardContainer className={`ctn${modo}_CTaskC ${className}`}>
 			<div className="ctnTexts">
-				<Title modo={modo} maxLines={1}>
+				<Title modo={modo} maxLines={1} title={taskName}>
 					{taskName}
 				</Title>
 				<Texts modo={modo} className="descTask ttlTask" maxLines={2}>
