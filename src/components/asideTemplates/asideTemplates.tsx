@@ -6,8 +6,8 @@ import { ErrorNc, NoTasks } from './principalComponents';
 // types que se utilizan en documentación
 import { Modo, onChangeType, optionsDropdown } from '../../types';
 
-import CardTaskReview from '../cardTaskReview/cardTaskReview';
 import { useWindowSize } from '../../utils/windowSize';
+import CardTaskReview from '../cardTaskReview/cardTaskReview';
 import Carousel from '../carousel/carousel';
 import Dropdown from '../dropdown/dropdown';
 // estilos del componente
@@ -16,8 +16,8 @@ import './styles/aside.scss';
 import filter from '../../img/filter.svg';
 import orderIcon from '../../img/order.svg';
 import { ButtonItem } from '../../utils/asideUtils';
-import IconDropdown from '../iconDropdown/iconDropdown';
 import { aspectRatio } from '../../utils/functions/functions';
+import IconDropdown from '../iconDropdown/iconDropdown';
 
 /** documentación del componente
  * @param {boolean} isWhite - define si el Aside contiene un color de fondo
@@ -67,7 +67,8 @@ const AsideTemplates = ({
 	}, [order, filterBy]);
 
 	return (
-		<div className={`ctn${modo}_ATC`} vs-asd={visible ? 'Visible' : 'Normal'}>
+		// <div className={`ctn${modo}_ATC`} vs-asd={visible ? 'Visible' : 'Normal'}>
+		<div className={`ctn_ATC  ${modo}`} vs-asd={visible ? 'Visible' : 'Normal'}>
 			<div className="children">
 				<div
 					className="dropdownCtn"

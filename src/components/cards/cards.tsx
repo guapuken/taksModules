@@ -15,7 +15,7 @@ const Cards = (props: cardIntrfc) => {
 	return (
 		//Contenedor general de la card
 		<div
-			className={`ctn${modo}_CC ${className ?? ''}`}
+			className={`ctn_CC  ${modo} ${className ?? ''}`}
 			asd-ctn={Aside ? 'Asd' : 'NoAsd'}
 			rnd-ctn={rounded ? 'Rnd' : 'NoRnd'}
 			ctn-ctn={Content ? 'Ctn' : 'NoCtn'}

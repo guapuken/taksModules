@@ -24,7 +24,7 @@ export const TaskItem = (props: taskItem) => {
 							Revisada
 						</h3>
 					)}
-					<datos.Card {...datos.data} />
+					<datos.Card modo={datos.modo} {...datos.data} />
 				</div>
 			) : (
 				<NoCard taskName={datos.data.taskName} />

@@ -1,31 +1,31 @@
 import React, { Fragment } from 'react';
 //Importaciones de dnd-kit-core----------------------------------------------------------------------------------------------------------
 import {
-	useSensors,
-	useSensor,
-	PointerSensor,
-	KeyboardSensor,
 	DndContext,
-	closestCorners,
 	DragEndEvent,
-	DragStartEvent,
 	DragOverEvent,
 	DragOverlay,
+	DragStartEvent,
 	DropAnimation,
+	KeyboardSensor,
+	PointerSensor,
+	closestCorners,
 	defaultDropAnimation,
+	useSensor,
+	useSensors,
 } from '@dnd-kit/core';
-import { sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
+import { arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 //importación de componentes principales--------------------------------------------------------------------------------------------------
-import { TaskItem, BoardSection, NoCard } from './files';
+import { BoardSection, NoCard, TaskItem } from './files';
 //Importación de elementos multimedia a usar------------------------------------------------------------------------------------------
 import { useWindowSize } from '../../utils/windowSize';
 import { BoardSections, dragAndDrop } from './types';
 // functions to use
 import { findBoardSectionContainer, getTaskById, initializeBoard } from './files/functions';
 //importaciones de estilos
-import './dragAndDrop.scss';
-import Carousel from '../carousel/carousel';
 import icon from '../../img/bell.svg';
+import Carousel from '../carousel/carousel';
+import './dragAndDrop.scss';
 
 const DragAndDrop = (props: dragAndDrop) => {
 	const scrSize = useWindowSize();
@@ -208,7 +208,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 											Revisada
 										</h3>
 									)}
-									<datos.Card {...e.property} />
+									<datos.Card modo={datos.modo} {...e.property} />
 								</div>
 							) : (
 								<NoCard taskName={e.taskName} />
@@ -260,7 +260,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 				}
 			}}
 		>
-			<div className={`ctn${modo}_DDC`}>
+			<div className={`ctn_DDC ${modo}`}>
 				{Object.keys(boardSections).map((boardSectionKey) => {
 					//genera los elementos droppables
 					return (
@@ -281,7 +281,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 				<DragOverlay dropAnimation={dropAnimation}>
 					{task ? (
 						datos.Card ? (
-							<TaskItem data={task} Card={datos.Card} />
+							<TaskItem modo={modo} data={task} Card={datos.Card} />
 						) : (
 							<NoCard taskName={task.taskName} />
 						)

@@ -3,8 +3,9 @@
 // ---------------------------------------------------------------------------------------------------------
 //      Estilos generales 
 // ---------------------------------------------------------------------------------------------------------
-.ctnDark_ATC,
-.ctnLight_ATC
+// .ctnDark_ATC,
+// .ctnLight_ATC
+.ctn_ATC
 {
     position: relative;
     margin-block: 0;
@@ -78,43 +79,86 @@
             color: #fff;
         }
     }
+    // ---------------------------------------------------------------------------------------------------------
+//      modo claro
+// ---------------------------------------------------------------------------------------------------------
+    &.Light{
+    background: var(--bgDark);
+    &[vs-asd='Visible']{
+        .noCtn, .ttlAsd, .descrAsd{
+            color: #fff!important;
+
+        }
+    }
+    &[vs-asd='Normal']{
+                background: var(--bg);
+                color: #525252;
+                .ttlAsd, .descrAsd{
+                    color: #fff!important;
+        
+                }
+            }
+            color: var(--bg)
+    }
+// ---------------------------------------------------------------------------------------------------------
+//      modo Oscuro
+// ---------------------------------------------------------------------------------------------------------
+    &.Dark{
+    background: var(--fcDark);
+    &[vs-asd='Visible']{
+        background: var(--contrastDark);
+        .noCtn, .ttlAsd, .descrAsd{
+            color: #fff!important;
+
+        }
+    }
+    &[vs-asd='Normal']{
+                background: var(--bgDark);
+                color: #525252;
+                .ttlAsd, .descrAsd{
+                    color: #fff!important;
+        
+                }
+            }
+    }
 }
 
 // ---------------------------------------------------------------------------------------------------------
 //      modo claro
 // ---------------------------------------------------------------------------------------------------------
-.ctnLight_ATC
-{
-    &[vs-asd='Visible']{
-        background: var(--bgDark) !important;
-    }
-    &[vs-asd='Normal']{
-        background: var(--bg);
-        color: #525252;
-    }
-    color: #fff;
-}
+// .ctnLight_ATC
+// {
+//     &[vs-asd='Visible']{
+//         background: var(--bgDark) !important;
+//     }
+//     &[vs-asd='Normal']{
+//         background: var(--bg);
+//         color: #525252;
+//     }
+//     color: #fff;
+// }
 
-// ---------------------------------------------------------------------------------------------------------
-//      Modo oscuro
-// ---------------------------------------------------------------------------------------------------------
-.ctnDark_ATC{
-    .noCtn{
-        color: #dedede;
-    }
-    &[vs-asd='Visible']{
-        background: var(--contrastDark) !important;
-    }
-    &[vs-asd='Normal']{
-        background: var(--bgDark);
-    }
-}
+// // ---------------------------------------------------------------------------------------------------------
+// //      Modo oscuro
+// // ---------------------------------------------------------------------------------------------------------
+// .ctnDark_ATC{
+//     .noCtn{
+//         color: #dedede;
+//     }
+//     &[vs-asd='Visible']{
+//         background: var(--contrastDark) !important;
+//     }
+//     &[vs-asd='Normal']{
+//         background: var(--bgDark);
+//     }
+// }
 // ---------------------------------------------------------------------------------------------------------
 //      media queries 
 // ---------------------------------------------------------------------------------------------------------
 @media (max-aspect-ratio: 4/3){ // relación aspecto con dispositivos mayores a móviles tales como tablets
-    .ctnLight_ATC,
-    .ctnDark_ATC
+    // .ctnLight_ATC,
+    // .ctnDark_ATC
+    .ctn_ATC
     {
         width: calc(50% - 20px);
         .children{
@@ -123,8 +167,9 @@
     }    
 }
 @media (max-aspect-ratio: 7/10){ // Relación aspecto de dispositivos móviles
-    .ctnLight_ATC,
-    .ctnDark_ATC
+    // .ctnLight_ATC,
+    // .ctnDark_ATC
+    .ctn_ATC
     {
         width: 100%;
         height: calc(100vh /4);

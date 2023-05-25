@@ -4,13 +4,13 @@ import { boards } from '../types';
 // dnd librería
 import { useDroppable } from '@dnd-kit/core';
 import {
+	SortableContext,
 	horizontalListSortingStrategy,
 	verticalListSortingStrategy,
-	SortableContext,
 } from '@dnd-kit/sortable';
 // componentes principales
-import TaskItem from './taskItem';
 import SortableTaskItem from './sortableItem';
+import TaskItem from './taskItem';
 // archivos multimedia
 import bell from '../../../img/bell.svg';
 
@@ -47,6 +47,7 @@ const BoardSection = (props: boards) => {
 										data={task}
 										Card={datos.Card}
 										approved={task.approved}
+										modo={datos.modo}
 									/>
 								</SortableTaskItem>
 							</div>

@@ -53,7 +53,7 @@ export function ComponentDemo() {
 
 	return (
 		<AsideTemplates
-			modo="Light"
+			modo="Dark"
 			initialValueDropdown={tasks}
 			optionsDropdown={[
 				{
@@ -71,6 +71,7 @@ export function ComponentDemo() {
 			]}
 			// tasks={tiposTask as tasks[]}
 			tasks={[]}
+			visible
 			priText={tiposTask.length === 0 ? 'No hay nada por aquí' : 'No tenemos nada de tareas'}
 			secText={
 				tiposTask.length === 0

@@ -3,13 +3,13 @@ import React from 'react';
 //      eementos auxiliares
 // ---------------------------------------------------------------------------------------------------------
 // componentes
-import { CardContainer, SimpleButtonText, Spans, TitleCard } from '../../../utils/cardsUtils';
-import { ButtonItem } from '../../../utils/asideUtils';
 import { Notifications, ProgressBar } from '../../../components';
+import { ButtonItem } from '../../../utils/asideUtils';
+import { CardContainer, SimpleButtonText, Spans, TitleCard } from '../../../utils/cardsUtils';
 // funciones
-import { useWindowSize } from '../../../utils/windowSize';
-import { percent } from '../../../utils/percent';
 import { cardW } from '../../../utils/functions/functions';
+import { percent } from '../../../utils/percent';
+import { useWindowSize } from '../../../utils/windowSize';
 //archivos multimedia
 import shareIcon from '../../../img/share.svg';
 // estilos

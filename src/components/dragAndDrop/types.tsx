@@ -27,6 +27,7 @@ export type taskItem = {
 	Card?: any;
 	data?: any;
 	approved?: boolean;
+	modo: Modo;
 };
 
 // tableros

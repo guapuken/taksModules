@@ -97,6 +97,7 @@ Initial.args = {
 		'Completas / Revisión': 'done',
 	},
 	Card: CardTask,
+	modo: 'Dark',
 };
 
 export default {
