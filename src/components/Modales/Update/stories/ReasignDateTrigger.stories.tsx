@@ -1,11 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import ModalReasignDate from '../ModalReasignDate';
-import IconDropdown from '../../iconDropdown/iconDropdown';
-import useModalWithData from '../../Atoms/hooks/useModalWithData.jsx';
+import MdlReasignDate from '../ReasignDate/ModalReasignDate';
+import IconDropdown from '../../../iconDropdown/iconDropdown';
+import useModalWithData from '../../../Atoms/hooks/useModalWithData.jsx';
 
-storiesOf('Modales/modalReasignDate/Examples/text trigger', module).add('text trigger', () => {
+storiesOf('Modales/Reasign Date/Examples/icon trigger', module).add('text trigger', () => {
 	const { data, setData, isOpened } = useModalWithData();
 	return (
 		<div>
@@ -27,7 +27,7 @@ storiesOf('Modales/modalReasignDate/Examples/text trigger', module).add('text tr
 					},
 				]}
 			/>
-			<ModalReasignDate
+			<MdlReasignDate
 				isOpened={isOpened()}
 				setData={setData}
 				data={data}

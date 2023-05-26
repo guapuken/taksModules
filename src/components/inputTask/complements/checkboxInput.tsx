@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './checkboxInput.scss';
 import { Modo, css } from '../../../types';
 
@@ -16,8 +16,12 @@ interface CheckboxInputProps {
 export const CheckboxInput = (props: CheckboxInputProps) => {
 	const { disabled, onCh_checkbox, check, idCheckbox = '1', modo = 'Light', style } = props;
 
-	const [checkValue, setCheckValue] = React.useState(check || false);
+	const [checkValue, setCheckValue] = React.useState(check);
 	const inputRef = React.useRef<any>(null);
+
+	useEffect(() => {
+		setCheckValue(check);
+	}, [check]);
 
 	function handleClick() {
 		const inputElement = inputRef.current;
@@ -41,7 +45,7 @@ export const CheckboxInput = (props: CheckboxInputProps) => {
 					}
 				}}
 			/>
-			<label htmlFor={idCheckbox} onClick={handleClick}></label>
+			<label htmlFor={idCheckbox} /* onClick={handleClick} */></label>
 		</div>
 	);
 };

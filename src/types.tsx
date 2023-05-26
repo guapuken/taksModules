@@ -103,6 +103,7 @@ export interface tasks {
 	onCl_newTemplate: onClickType;
 	onCl_addTask?: onClickType;
 	templateOptions: optionsIcnDrp[];
+	reasignForbidden?: boolean;
 	modo?: Modo;
 }
 //INTERFACES

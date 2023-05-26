@@ -1,11 +1,10 @@
 import React from 'react';
-import useModal from '../Atoms/hooks/useModal.jsx';
-import { ImportantText, SimpleContainer, Texts, ValidationComponent } from '../Atoms';
-import ModalConfirmation from '../Atoms/modalConfirmation/ModalConfirmation';
-import { Buttons, RangeDatePicker } from '../../components';
+import { ImportantText, SimpleContainer, Texts } from '../../../Atoms';
+import ModalConfirmation from '../../../Atoms/modalConfirmation/ModalConfirmation';
+import { Buttons, RangeDatePicker } from '../../../../components';
 import { modalReasignDateProps } from './types/types';
 
-const ModalReasignDate = ({
+const MdlReasignDate = ({
 	// Trigger,
 	modo,
 	endDateValue,
@@ -64,4 +63,4 @@ const ModalReasignDate = ({
 	);
 };
 
-export default ModalReasignDate;
+export default MdlReasignDate;

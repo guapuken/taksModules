@@ -9,7 +9,7 @@ const Template: Story<modalDeleteTaskProps> = (args) => <MdlDeleteTask {...args}
 export const InitialState = Template.bind({});
 InitialState.args = {};
 export default {
-	title: 'Modales/ModalDeleteTask/InitialState',
+	title: 'Modales/Delete Task/InitialState',
 	component: MdlDeleteTask,
 	argTypes: {},
 } as Meta;

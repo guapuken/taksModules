@@ -2,9 +2,9 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import MdlDeleteTeam from '../Team/MdlDeleteTeam';
-import { useModalWithData, ModalReasignDate, IconDropdown } from '../../../../components';
+import { useModalWithData, IconDropdown } from '../../../../components';
 
-storiesOf('Modales/ModalDeleteTeam/Examples/Icon Trigger', module).add('Icon Trigger', () => {
+storiesOf('Modales/Delete Team/Examples/Icon Trigger', module).add('Icon Trigger', () => {
 	const {
 		isOpened: isOpenedDeleteTeam,
 		setData: setDataDeleteTeam,

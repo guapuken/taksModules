@@ -91,17 +91,24 @@ export {default as CardMannageTasks} from './cardMannageTasks';
 // ---------------------------------------------------------------------------------------------------------
 //      Modales preestablecidos
 // ---------------------------------------------------------------------------------------------------------
+// sin información, reciben un children
 export {default as Modal} from './modal'; // genérica
+export {default as ModalConfirmation} from './Atoms/modalConfirmation/ModalConfirmation';
+// Modales de creación
+export {default as ModalProjects} from './Modales/Create/Projects/modalProjects';
 export {default as ModalTask} from './modalTareas';
 export {default as ModalTemplates} from './modalTemplates';
-export {default as ModalProjects} from './modalProjects';
 export {default as ModalTeams} from './modalTeams';
 export {default as ModalTaskWithComments} from './modalTasksWithComents';
-export {default as ModalConfirmation} from './Atoms/modalConfirmation/ModalConfirmation';
-export {default as ModalReasignDate} from './modalReasignDate';
-export {default as ModalReasignUser} from './modalReasignUser';
-export {default as MdlDeleteTeam} from './Modales/Delete/Team/MdlDeleteTeam';
-export {default as MdlDeleteTask} from './Modales/Delete/Task/MdlDeleteTask';
+// Modales de eliminación
+export {default as MdlDeleteTeam} from './Modales/Delete/Team/MdlDeleteTeam'; // equipos
+export {default as MdlDeleteTask} from './Modales/Delete/Task/MdlDeleteTask'; // tareas
+export {default as MdlDeleteTemplate} from './Modales/Delete/Template/MdlDeleteTemplate'; // plantillas
+export {default as MdlDeleteProject} from './Modales/Delete/Project/MdlDeleteProject'; // proyectos
+// Modales de actualización
+export {default as MdlReasignDate} from './Modales/Update/ReasignDate/ModalReasignDate';
+export {default as MdlReasignUser} from './Modales/Update/ReasignUser/ModalReasignUser';
+// Casos específicos
 export {default as CommentsTask} from './commentsTask';
 
 // ---------------------------------------------------------------------------------------------------------

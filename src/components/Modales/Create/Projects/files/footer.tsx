@@ -1,9 +1,9 @@
 import React from 'react';
 
 //componentes auxiliares
-import { Buttons } from '../../../components';
+import { Buttons } from '../../../../../components';
 // types
-import { clickButtons } from '../types';
+import { clickButtons } from '../types/types';
 
 // footer que regresa los botones que se renderizarán
 const Footer = (props: clickButtons) => {

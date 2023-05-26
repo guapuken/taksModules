@@ -9,7 +9,7 @@ const Template: Story<modalDeleteTeamProps> = (args) => <MdlDeleteTeam {...args}
 export const InitialState = Template.bind({});
 InitialState.args = {};
 export default {
-	title: 'Modales/ModalDeleteTeam/InitialState',
+	title: 'Modales/Delete Team/InitialState',
 	component: MdlDeleteTeam,
 	argTypes: {},
 } as Meta;

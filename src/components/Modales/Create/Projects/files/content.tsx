@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Dropdown, IconDropdown, InputLabel, Task } from '../../../components';
-import { AddTask } from '../../task/files';
-import { optionsPlantillas } from '../../task/task';
-import { content } from '../types';
-import { onChangeType } from '../../../types';
-import { Spans } from '../../../utils/cardsUtils';
+import { Dropdown, IconDropdown, InputLabel, Task } from '../../../../../components';
+import { AddTask } from '../../../../task/files';
+import { optionsPlantillas } from '../../../../task/task';
+import { content } from '../types/types';
+import { onChangeType } from '../../../../../types';
+import { Spans } from '../../../../../utils/cardsUtils';
 
 //COMPONENTE QUE REGRESA TODO EL CONTENIDO DEL MODAL
 const Content = ({
@@ -70,6 +70,7 @@ const Content = ({
 					{subtasks &&
 						subtasks.map((e: any) => (
 							<Task
+								reasignForbidden={e.reasignForbidden}
 								key={e.idTask}
 								idTask={e.idTask}
 								taskDisabled={e.taskDisabled}

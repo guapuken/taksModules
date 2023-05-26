@@ -2,9 +2,9 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { useModalWithData, IconDropdown } from '../../../../components';
-import MdlDeleteTask from '../Task/MdlDeleteTask';
+import MdlDeleteTemplate from '../Template/MdlDeleteTemplate';
 
-storiesOf('Modales/Delete Task/Examples/Icon Trigger', module).add('Icon Trigger', () => {
+storiesOf('Modales/Delete Template/Examples/Icon Trigger', module).add('Icon Trigger', () => {
 	const {
 		isOpened: isOpenedDeleteTeam,
 		setData: setDataDeleteTeam,
@@ -20,17 +20,14 @@ storiesOf('Modales/Delete Task/Examples/Icon Trigger', module).add('Icon Trigger
 						id: '1',
 						title: 'Eliminar',
 						onClick: () =>
-							setDataDeleteTeam({
-								id: '1',
-								taskName: 'Dummies - UBER EATS-2536-ESP-NOV',
-							} as any),
+							setDataDeleteTeam({ id: '1', templateName: 'Espectaculares' } as any),
 					},
 				]}
 			/>
-			<MdlDeleteTask
+			<MdlDeleteTemplate
 				isOpened={isOpenedDeleteTeam()}
 				setData={setDataDeleteTeam}
-				modo="Light"
+				modo="Dark"
 				onCl_confirm={() => {}}
 				data={dataDeleteTeam}
 			/>

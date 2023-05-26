@@ -11,7 +11,7 @@
     width: 100vw;
     height: 100vh;
     z-index: 0;
-    .modalBgFW{ // se le agregan estos estilos para poder hacer clic fuera del modal y cerrarlo
+    .modalBgFW_MdlConfirmation{ // se le agregan estos estilos para poder hacer clic fuera del modal y cerrarlo
         width: 100vw;
         height: 100vh;
         backdrop-filter: blur(5px);
@@ -20,7 +20,7 @@
         top: 0;
         left: 0;
     }
-    .ctnModal{
+    .ctnModal_MdlConfirmation{
         width: 50vw;
         height: 50vh;
         border-radius: 20px;
@@ -29,20 +29,20 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%,-50%);
-        .header{
+        .header_MdlConfirmation{
             height: 25%;
             width: 100%;
             display: flex;
             justify-content: flex-end;
-            .iconClose{
+            .iconClose_MdlConfirmation{
                 cursor: pointer;
                 height: 30px;
             }
         }
-        .children{
+        .children_MdlConfirmation{
             height: 65%;
             width: 100%;
-            .content{
+            .content_MdlConfirmation{
                 height: 100%;
                 width: 100%;
                 display: flex;
@@ -57,7 +57,7 @@
 //      modo claro
 // ---------------------------------------------------------------------------------------------------------
     &.Light{
-        .ctnModal{
+        .ctnModal_MdlConfirmation{
             box-shadow: var(--boxShadow);
             background: var(--bg);
         }
@@ -66,7 +66,7 @@
 //      modo oscuro
 // ---------------------------------------------------------------------------------------------------------
     &.Dark{
-        .ctnModal{
+        .ctnModal_MdlConfirmation{
             box-shadow: var(--boxShadowDark);
             background: var(--bgDark);
         }
@@ -79,7 +79,7 @@
 @media (max-aspect-ratio: 4/3){ // relación aspecto con dispositivos mayores a móviles tales como tablets
     .ctn_MdlConfirmation
     {
-        .ctnModal{
+        .ctnModal_MdlConfirmation{
             width: 100vw;
         }
     }    
@@ -87,7 +87,7 @@
 @media (max-aspect-ratio: 7/10){ // Relación aspecto de dispositivos móviles
     .ctn_MdlConfirmation
     {
-        .ctnModal{
+        .ctnModal_MdlConfirmation{
             width: 100vw;
             height: 50vh;
             transform: translateX(-50%);

@@ -5,7 +5,7 @@ import {
 	optionsDropdown,
 	optionsIcnDrp,
 	subtasksProps,
-} from '../../types';
+} from '../../../../types';
 
 // botones
 export type clickButtons = {

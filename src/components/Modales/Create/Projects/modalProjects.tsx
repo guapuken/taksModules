@@ -1,11 +1,11 @@
 import React from 'react';
 
 //componentes principales
-import { Content, Footer } from './files';
+import { Content, Footer } from '../Projects/files';
 //componentes auxiliares
-import Modal from '../modal';
+import Modal from '../../../modal';
 // types
-import { ModalProjectsProps } from './types';
+import { ModalProjectsProps } from './types/types';
 
 const ModalProjects = (props: ModalProjectsProps) => {
 	return (

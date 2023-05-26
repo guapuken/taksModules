@@ -1,4 +1,4 @@
-import { autoIncrementalId } from '../../../utils/functions/functions';
+import { autoIncrementalId } from '../../../../../utils/functions/functions';
 
 export const users = [
 	{
@@ -20,5 +20,19 @@ export const users = [
 	{
 		id: String(autoIncrementalId()),
 		title: 'Benito',
+	},
+];
+export const teams = [
+	{
+		id: String(autoIncrementalId()),
+		title: 'Creative',
+	},
+	{
+		id: String(autoIncrementalId()),
+		title: 'Traffic',
+	},
+	{
+		id: String(autoIncrementalId()),
+		title: 'TI',
 	},
 ];

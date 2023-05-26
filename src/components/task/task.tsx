@@ -8,6 +8,7 @@ import { templateOptions } from './types';
 import { onChangeType, tasks } from '../../types';
 // estilos
 import './task.scss';
+import { ValidationComponent } from '../Atoms';
 
 //Valida si existe la propiedad de plantillas y las agrega al dropdown de cargar plantilla en caso de que si exista
 export const optionsPlantillas = (props: templateOptions) => {
@@ -80,6 +81,7 @@ const Task = ({
 	maxStartDate,
 	minEndDate,
 	minStartDate,
+	reasignForbidden,
 }: tasks) => {
 	const showTask = () => (plantillas ? false : true);
 
@@ -92,7 +94,6 @@ const Task = ({
 				showTask={plantillas ? false : true}
 				disabled={taskDisabled ? taskDisabled : taskComplete ? true : false}
 				onCh_checkbox={onCh_checkbox}
-				// checked={taskComplete}
 				isSubtask={isSubtask}
 				check={check}
 				onCh_nameTask={onCh_nameTask}
@@ -125,17 +126,19 @@ const Task = ({
 					className={className}
 					durationValue={durationValue}
 				/>
-				<IconAsign
-					modo={modo}
-					involucrados={involucrados(valueResponsable, valueRevision)}
-					responsables={responsables}
-					equipos={equipos}
-					revision={revision}
-					valueResponsable={valueResponsable}
-					valueRevision={valueRevision}
-					style={{ marginRight: '20px' }}
-					disabled={check ? check : false}
-				/>
+				<ValidationComponent validate={!reasignForbidden}>
+					<IconAsign
+						modo={modo}
+						involucrados={involucrados(valueResponsable, valueRevision)}
+						responsables={responsables}
+						equipos={equipos}
+						revision={revision}
+						valueResponsable={valueResponsable}
+						valueRevision={valueRevision}
+						style={{ marginRight: '20px' }}
+						disabled={check ? check : false}
+					/>
+				</ValidationComponent>
 				{!plantillas && (
 					<IconPriority
 						modo={modo}

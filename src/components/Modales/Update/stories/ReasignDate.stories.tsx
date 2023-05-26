@@ -1,17 +1,17 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { functions, modo, text } from '../../../storyUtils';
+import { functions, modo, text } from '../../../../storyUtils';
 
-import ModalReasignDate from '../ModalReasignDate';
-import { modalReasignDateProps } from '../types/types';
+import MdlReasignDate from '../ReasignDate/ModalReasignDate';
+import { modalReasignDateProps } from '../ReasignDate/types/types';
 
-const Template: Story<modalReasignDateProps> = (args) => <ModalReasignDate {...args} />;
+const Template: Story<modalReasignDateProps> = (args) => <MdlReasignDate {...args} />;
 export const InitialState = Template.bind({});
 InitialState.args = {};
 
 export default {
-	title: 'Modales/ModalReasignDate/Initial State',
-	component: ModalReasignDate,
+	title: 'Modales/Reasign Date/Initial State',
+	component: MdlReasignDate,
 	argTypes: {
 		Trigger: functions(),
 		modo: modo(),

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import ModalReasignUser from '../ModalReasignUser';
-import { Texts } from '../../Atoms';
-import { users } from '../data/example';
-import useModalWithData from '../../Atoms/hooks/useModalWithData';
+import MdlReasignUser from '../ReasignUser/ModalReasignUser';
+import { Texts } from '../../../Atoms';
+import { teams, users } from '../ReasignUser/data/example';
+import useModalWithData from '../../../Atoms/hooks/useModalWithData';
 
-storiesOf('Modales/modalReasignUser/Examples/text trigger', module).add('text trigger', () => {
+storiesOf('Modales/Reasign User/Examples/text trigger', module).add('text trigger', () => {
 	const [user, setUser] = useState(null as any);
 	const { data, setData, isOpened } = useModalWithData();
 	return (
@@ -14,16 +14,17 @@ storiesOf('Modales/modalReasignUser/Examples/text trigger', module).add('text tr
 			<Texts modo="Light" onClick={() => setData({ id: '1', title: '2' } as any)}>
 				Hola
 			</Texts>
-			<ModalReasignUser
-				// Trigger={(e) => <Texts modo="Light" {...e} children={'Reasignar Tarea'} />}
+			<MdlReasignUser
+				isPM
 				modo="Light"
 				data={data}
 				setData={setData}
 				isOpened={isOpened()}
-				optionsDropdown={users}
+				responsables={users}
+				equipos={teams}
 				onCl_confirm={() => alert('confirmar')}
 				onCh_dropdown={(e) => setUser(e)}
-				initialValueDropdown={user}
+				initialValueDropdown={users[0]}
 			/>
 		</div>
 	);
