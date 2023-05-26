@@ -1,4 +1,4 @@
-import { Modo, onChangeType, onClickType } from '../../../types';
+import { Modo, onChangeType, onClickType } from '../../../../../types';
 
 export interface modalReasignDateProps {
 	// Trigger: any;
