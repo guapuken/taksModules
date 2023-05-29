@@ -43,7 +43,7 @@ const Content = ({
 				<SimpleContainer className="progress">
 					<CircularProgressBar
 						percentTask={
-							completedTask === 0 || incompletedTask === 0
+							completedTask === 0 && incompletedTask === 0
 								? 0
 								: percent(completedTask + incompletedTask, completedTask)
 						}
@@ -51,7 +51,7 @@ const Content = ({
 						size={40}
 					/>
 					<Texts modo={modo}>{`${
-						completedTask === 0 || incompletedTask === 0
+						completedTask === 0 && incompletedTask === 0
 							? 0
 							: percent(completedTask + incompletedTask, completedTask)
 					}%`}</Texts>
