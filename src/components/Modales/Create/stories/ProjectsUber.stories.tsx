@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import ModalProjects from '../Projects/modalProjects';
 import { storiesOf } from '@storybook/react';
 import Button from '../../../button/Button';
-import { equipos } from '../Projects/data/exampleData';
+import { equipos } from '../../data/exampleData';
 
 // función para ver si funciona correctamente el onChange
 function DemoComponent() {

@@ -3,7 +3,7 @@ import React from 'react';
 //componentes principales
 import { Content, Footer } from '../Projects/files';
 //componentes auxiliares
-import Modal from '../../../modal';
+import Modal from '../../../Atoms/modal/modal';
 // types
 import { ModalProjectsProps } from './types/types';
 

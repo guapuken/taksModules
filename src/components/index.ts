@@ -4,7 +4,7 @@
 /**
  * @returns - button que puede incluir un icono, ser flotante y su legenda
  */
-export {default as Button} from './button';
+export {default as Button} from './button/Button';
 /**
  * @returns - conjunto de botones que tienen cierta composición
  */
@@ -92,14 +92,14 @@ export {default as CardMannageTasks} from './cardMannageTasks';
 //      Modales preestablecidos
 // ---------------------------------------------------------------------------------------------------------
 // sin información, reciben un children
-export {default as Modal} from './modal'; // genérica
+// export {default as Modal} from './Atoms/modal/'; // genérica
 export {default as ModalConfirmation} from './Atoms/modalConfirmation/ModalConfirmation';
 // Modales de creación
 export {default as ModalProjects} from './Modales/Create/Projects/modalProjects';
-export {default as ModalTask} from './modalTareas';
-export {default as ModalTemplates} from './modalTemplates';
-export {default as ModalTeams} from './modalTeams';
-export {default as ModalTaskWithComments} from './modalTasksWithComents';
+export {default as ModalTask} from './Modales/Create/Tasks/modalTareas';
+export {default as ModalTemplates} from './Modales/Create/Templates/modalPlantillas';
+export {default as ModalTeams} from './Modales/Create/Teams/modalTeams';
+export {default as ModalTaskWithComments} from './Modales/Create/TasksWithComments/modalTaskWithComents';
 // Modales de eliminación
 export {default as MdlDeleteTeam} from './Modales/Delete/Team/MdlDeleteTeam'; // equipos
 export {default as MdlDeleteTask} from './Modales/Delete/Task/MdlDeleteTask'; // tareas

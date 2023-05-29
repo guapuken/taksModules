@@ -24,3 +24,6 @@ export { default as ValidationComponent } from './validationComponent/Validation
 
 // Contenedor que realiza un modal
 export { default as ModalConfirmation } from './modalConfirmation/ModalConfirmation';
+
+// contenedor que realiza un modal más grande
+export { default as Modal } from './modal/modal';
