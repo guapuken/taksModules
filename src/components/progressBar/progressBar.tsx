@@ -23,15 +23,8 @@ const ProgressBar = ({
 }: ProgressBarProps) => {
 	return (
 		<div
-			className={`ctn${
-				status === 'outOfTime' || status === 3
-					? 'OtOfTm'
-					: status === 'onTime' || status === 1
-					? 'OnTm'
-					: status === 'delayed' || status === 2
-					? 'Dld'
-					: ''
-			}${modo}_PBC`}
+			className={`ctn_PBC ${modo}`}
+			stts-tsk={status}
 			style={{ width: '100%', ...styleContent }}
 			onClick={onClick}
 		>

@@ -40,7 +40,7 @@ storiesOf('Organigrama/Examples/Organigrama TI', module).add('Organigrama TI', (
 					members: [
 						{
 							memberValue: { id: '15', title: 'Denisse Hernández' },
-							role: 'Fullstack',
+							role: 'Diseñador Ux / Ui',
 							lowLevel: true,
 						},
 					],

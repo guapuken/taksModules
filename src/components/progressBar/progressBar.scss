@@ -3,14 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------
 //      estilos generales
 // ---------------------------------------------------------------------------------------------------------
-.ctnOtOfTmLight_PBC,
-.ctnOtOfTmDark_PBC,
-.ctnOnTmLight_PBC,
-.ctnOnTmDark_PBC,
-.ctnDldDark_PBC,
-.ctnDldLight_PBC,
-.ctnLight_PBC,
-.ctnDark_PBC
+.ctn_PBC
 {
     display: flex;
     justify-content: space-between;
@@ -39,37 +32,31 @@
 		font-weight: lighter;
 		justify-content: right;
     }
-}
-// estilos de barra de progreso OutOfTime
-.ctnOtOfTmLight_PBC,
-.ctnOtOfTmDark_PBC{
-    .ctnBarra{
-        box-shadow: inset 0 0 0 3px #FC3D38;
-        .progressBar{
-            background: #FC3D38;
+    &[stts-tsk='outOfTime']{
+        .ctnBarra{
+            box-shadow: inset 0 0 0 3px #FC3D38;
+            .progressBar{
+                background: #FC3D38;
+            }
+        }
+        .txtPrcnt{
+            color: #FC3D38;
         }
     }
-    .txtPrcnt{
-        color: #FC3D38;
-    }
-}
-// estilos de barra de progreso OnTime
-.ctnOnTmLight_PBC,
-.ctnOnTmDark_PBC{
-    .ctnBarra{
-        box-shadow: inset 0 0 0 3px #1CBF59;
-        .progressBar{
-            background: #1CBF59;
+    &[stts-tsk='onTime']{
+        .ctnBarra{
+            box-shadow: inset 0 0 0 3px #1CBF59;
+            .progressBar{
+                background: #1CBF59;
+            }
         }
     }
-}
-// estilos de barra de progreso Delayed
-.ctnDldDark_PBC,
-.ctnDldLight_PBC{
-    .ctnBarra{
-        box-shadow: inset 0 0 0 3px #FCB24F;
-        .progressBar{
-            background: #FCB24F;
+    &[stts-tsk='delayed']{
+        .ctnBarra{
+            box-shadow: inset 0 0 0 3px #FCB24F;
+            .progressBar{
+                background: #FCB24F;
+            }
         }
     }
 }

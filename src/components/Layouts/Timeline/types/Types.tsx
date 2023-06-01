@@ -1,26 +1,28 @@
-import { onClickType, statusTask } from '../../../../types';
+import { Modo, onChangeType, onClickType, optionsDropdown, statusTask } from '../../../../types';
 
-export type fijos = {
-	porcentajeMedio: number;
-	nombreMedio: string;
-	statusMedio: statusTask;
-	onCl_medio?: onClickType;
+export type medios = {
+	porcentaje: number;
+	nombre: string;
+	status: statusTask;
+	onClick?: onClickType;
 };
-export type urbanos = {
-	porcentajeRuta: number;
-	nombreRuta: string;
-	statusRuta: statusTask;
-	onCl_medio?: onClickType;
-};
-export type vallas = {
-	porcentajeValla: number;
-	nombreValla: string;
-	statusValla: statusTask;
-	onCl_medio?: onClickType;
+export type tasksTimeline = {
+	completed?: boolean;
+	taskName: string;
+	duration: number;
+	onCl_showDetails?: onClickType;
+	legendBtn?: string;
 };
 export interface timelineProjectProps {
-	fijos?: fijos[];
-	urbanos?: urbanos[];
-	indoors?: fijos[];
-	vallas?: vallas[];
+	tasks: tasksTimeline[];
+	nombreProyecto: string;
+	fijos?: medios[];
+	urbanos?: medios[];
+	indoors?: medios[];
+	vallas?: medios[];
+	modo: Modo;
+	onCh_dropdown: onChangeType;
+	opcionesDropdown: optionsDropdown[];
+	valorInicialDropdown?: optionsDropdown;
+	onCl_compartir: onClickType;
 }

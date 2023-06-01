@@ -133,6 +133,13 @@ export {default as Chat} from './ChatContainer';
  */
 export {default as Msns} from './msns';
 
+// ---------------------------------------------------------------------------------------------------------
+//      layouts
+// ---------------------------------------------------------------------------------------------------------
+export {default as TimelineProject} from './Layouts/Timeline/TimelineProject';
 
+// ---------------------------------------------------------------------------------------------------------
+//      Hooks
+// ---------------------------------------------------------------------------------------------------------
 export {default as useModal} from './Atoms/hooks/useModal.jsx';
 export {default as useModalWithData} from './Atoms/hooks/useModalWithData.jsx';

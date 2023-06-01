@@ -1,22 +1,19 @@
-import React, { Fragment } from 'react';
-import { SimpleContainer, Texts, Title, ValidationComponent } from '../../Atoms';
-import { CircularProgressBar, Dropdown, Timeline } from '../../../components';
+import React from 'react';
+// elementos auxiliares
+import { SimpleContainer, Title } from '../../Atoms';
+import { Dropdown, Timeline } from '../../../components';
 import { ButtonItem } from '../../../utils/asideUtils';
+import VisualizacionMedios from './componentesPrincipales/VisualizacionMedios';
+// types
+import { timelineProjectProps } from './types/Types';
+import { onChangeType } from '../../../types';
+// archivos multimedia
 import close from '../../../img/close.svg';
 import logo from '../../../img/ByImjSimple.svg';
-import { tasks } from './data/dataExample';
+import share from '../../../img/share.svg';
+//styles
 import './styles/TimelineProject.scss';
-import { timelineProjectProps } from './types/Types';
 
-const Medio = ({ projectName, percentTask, statusTask, modo, onCl_medio }) => (
-	<SimpleContainer className="CtnMedio_TimelineProject" onClick={onCl_medio}>
-		<SimpleContainer style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
-			<CircularProgressBar percentTask={percentTask} statusTask={statusTask} />
-			<Texts modo={modo}>{`${percentTask}%`}</Texts>
-		</SimpleContainer>
-		<Texts modo={modo}>{projectName}</Texts>
-	</SimpleContainer>
-);
 const TimelineProject = ({
 	fijos,
 	vallas,
@@ -26,128 +23,42 @@ const TimelineProject = ({
 	onCh_dropdown,
 	opcionesDropdown,
 	valorInicialDropdown,
+	tasks,
+	nombreProyecto,
+	onCl_compartir,
 }: timelineProjectProps) => {
 	return (
 		<SimpleContainer className="ctnGeneral_TimelineProject">
 			<SimpleContainer className="header_TimelineProject">
-				<img src={logo} alt="" style={{ height: '10vh' }} />
+				<img src={logo} alt="" style={{ height: '10vh' }} onClick={onCl_compartir} />
 				<ButtonItem id="1" img={close} />
 			</SimpleContainer>
 			<Title modo="Light" className="projectName_TimelineProject">
-				2536-Uber_Eats-Noviembre
+				{nombreProyecto}
 			</Title>
 			<SimpleContainer
 				className="CtnContenido_TimelineProject"
 				style={{ maxHeight: '80vh', overflow: 'auto' }}
 			>
 				<SimpleContainer style={{ maxHeight: '80vh', overflowY: 'scroll' }}>
-					<Dropdown
-						modo={modo}
-						onCh={onCh_dropdown}
-						options={opcionesDropdown ?? []}
-						placeHolder="Selecciona los medios"
-						initialValue={valorInicialDropdown}
-						style={{ marginBottom: '10px' }}
-					/>
-					<Timeline modo="Light" tasks={tasks as any} />
+					<SimpleContainer style={{ width: '30vw', display: 'flex', gap: '10px' }}>
+						<Dropdown
+							modo={modo}
+							onCh={onCh_dropdown as onChangeType}
+							options={opcionesDropdown ?? []}
+							placeHolder="Selecciona los medios"
+							initialValue={valorInicialDropdown}
+							style={{ marginBottom: '10px', width: 'calc(100% - 60px)' }}
+						/>
+						<img src={share} alt="" style={{ height: '30px' }} />
+					</SimpleContainer>
+					<Timeline modo={modo} tasks={tasks as any} />
 				</SimpleContainer>
 				<SimpleContainer className="CtnMediosGenerales_TimelineProject">
-					<ValidationComponent validate={fijos}>
-						<SimpleContainer
-							style={{
-								display: 'flex',
-								flexDirection: 'column',
-								alignItems: 'center',
-							}}
-						>
-							<Title style={{ marginBottom: '15px' }} modo="Light">
-								Sitios fijos
-							</Title>
-							<SimpleContainer className="CtnMedios_TimelineProject">
-								{fijos?.map((fijo) => (
-									<Medio
-										modo={modo}
-										percentTask={fijo.porcentajeMedio}
-										projectName={fijo.nombreMedio}
-										statusTask={fijo.statusMedio}
-										onCl_medio={fijo.onCl_medio}
-									/>
-								))}
-							</SimpleContainer>
-						</SimpleContainer>
-					</ValidationComponent>
-					<ValidationComponent validate={urbanos}>
-						<SimpleContainer
-							style={{
-								display: 'flex',
-								flexDirection: 'column',
-								alignItems: 'center',
-							}}
-						>
-							<Title style={{ margin: '15px 0' }} modo="Light">
-								Urbanos
-							</Title>
-							<SimpleContainer className="CtnMedios_TimelineProject">
-								{urbanos?.map((urbano) => (
-									<Medio
-										modo={modo}
-										percentTask={urbano.porcentajeRuta}
-										projectName={urbano.nombreRuta}
-										statusTask={urbano.statusRuta}
-										onCl_medio={urbano.onCl_medio}
-									/>
-								))}
-							</SimpleContainer>
-						</SimpleContainer>
-					</ValidationComponent>
-					<ValidationComponent validate={indoors}>
-						<SimpleContainer
-							style={{
-								display: 'flex',
-								flexDirection: 'column',
-								alignItems: 'center',
-							}}
-						>
-							<Title style={{ margin: '15px 0' }} modo="Light">
-								Indoors
-							</Title>
-							<SimpleContainer className="CtnMedios_TimelineProject">
-								{indoors?.map((indoor) => (
-									<Medio
-										modo={modo}
-										percentTask={indoor.porcentajeMedio}
-										projectName={indoor.nombreMedio}
-										statusTask={indoor.statusMedio}
-										onCl_medio={indoor.onCl_medio}
-									/>
-								))}
-							</SimpleContainer>
-						</SimpleContainer>
-					</ValidationComponent>
-					<ValidationComponent validate={vallas}>
-						<SimpleContainer
-							style={{
-								display: 'flex',
-								flexDirection: 'column',
-								alignItems: 'center',
-							}}
-						>
-							<Title style={{ margin: '15px 0' }} modo="Light">
-								Vallas móviles
-							</Title>
-							<SimpleContainer className="CtnMedios_TimelineProject">
-								{vallas?.map((valla) => (
-									<Medio
-										modo={modo}
-										percentTask={valla.porcentajeValla}
-										projectName={valla.nombreValla}
-										statusTask={valla.statusValla}
-										onCl_medio={valla.onCl_medio}
-									/>
-								))}
-							</SimpleContainer>
-						</SimpleContainer>
-					</ValidationComponent>
+					<VisualizacionMedios arreglo={fijos} modo={modo} titulo={'Sitios fijos'} />
+					<VisualizacionMedios arreglo={urbanos} modo={modo} titulo={'Urbanos'} />
+					<VisualizacionMedios arreglo={indoors} modo={modo} titulo={'Indoors'} />
+					<VisualizacionMedios arreglo={vallas} modo={modo} titulo={'Vallas móviles'} />
 				</SimpleContainer>
 			</SimpleContainer>
 		</SimpleContainer>
