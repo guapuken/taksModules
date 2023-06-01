@@ -1,9 +1,9 @@
 import React from 'react';
 import { SimpleContainer, Title, ValidationComponent } from '../../../Atoms';
 import Medio from './Medio';
-import { medios } from '../types/Types';
+import { medios, visualizacionMedios } from '../types/Types';
 
-const VisualizacionMedios = ({ arreglo, modo, titulo }) => {
+const VisualizacionMedios = ({ arreglo, modo, titulo }: visualizacionMedios) => {
 	return (
 		<ValidationComponent validate={arreglo}>
 			<SimpleContainer
@@ -20,10 +20,10 @@ const VisualizacionMedios = ({ arreglo, modo, titulo }) => {
 					{arreglo?.map((element: medios) => (
 						<Medio
 							modo={modo}
-							percentTask={element.porcentaje}
-							projectName={element.nombre}
-							statusTask={element.status}
-							onCl_medio={element.onClick}
+							porcentaje={element.porcentaje}
+							nombre={element.nombre}
+							status={element.status}
+							onClick={element.onClick}
 						/>
 					))}
 				</SimpleContainer>

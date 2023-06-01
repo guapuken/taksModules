@@ -1,10 +1,17 @@
 import { Modo, onChangeType, onClickType, optionsDropdown, statusTask } from '../../../../types';
 
+export type visualizacionMedios = {
+	arreglo?: medios[];
+	modo: Modo;
+	titulo?: string;
+};
+
 export type medios = {
 	porcentaje: number;
 	nombre: string;
 	status: statusTask;
 	onClick?: onClickType;
+	modo?: Modo;
 };
 export type tasksTimeline = {
 	completed?: boolean;
