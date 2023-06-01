@@ -75,6 +75,8 @@ export {default as Carousel} from './carousel';
 //      Cards preestablecidas
 // ---------------------------------------------------------------------------------------------------------
 export {default as Cards} from './cards'; // genérica
+// Card de proyectos
+export {default as CardCampaign} from './cards/Campaigns/CardCampaign';
 export {default as CardTeam} from  './cardTeam';
 export {default as CardProject} from './cardProject';
 export {default as CardTask} from './cardTask';
@@ -91,7 +93,6 @@ export {default as CardMannageTasks} from './cardMannageTasks';
 // ---------------------------------------------------------------------------------------------------------
 //      Modales preestablecidos
 // ---------------------------------------------------------------------------------------------------------
-// sin información, reciben un children
 // export {default as Modal} from './Atoms/modal/'; // genérica
 export {default as ModalConfirmation} from './Atoms/modalConfirmation/ModalConfirmation';
 // Modales de creación
@@ -121,7 +122,7 @@ export {default as DragAndDrop} from './dragAndDrop';
 /**
  * @returns - timeline
  */
-export {default as TimelineProject} from './timelineProject';
+export {default as Timeline} from './timelineProject';
 /**
  * @returns - chat que recibe distintas propiedades
  */

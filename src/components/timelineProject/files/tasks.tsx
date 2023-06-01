@@ -10,7 +10,11 @@ const Tasks = (props: tasks) => {
 		<div className="ctnTasks">
 			<div className={`circle${completed ? 'Complete' : ''}`}></div>
 			<div className="ctnDrtnTaks">
-				{duration && <p className="drtnTask">{duration} días hábiles</p>}
+				{duration && (
+					<p className="drtnTask">{`${duration} ${
+						duration <= 1 ? 'día hábil' : 'días hábiles'
+					}`}</p>
+				)}
 				<div>
 					{taskName && !onCl_showDetails ? (
 						<p className="nmTask">{taskName}</p>
@@ -23,7 +27,7 @@ const Tasks = (props: tasks) => {
 								primary
 								legend={legendBtn}
 								style={{ margin: '10px 0' }}
-								onCl={onCl_showDetails}
+								onCl={onCl_showDetails as any}
 							/>
 						</div>
 					)}
