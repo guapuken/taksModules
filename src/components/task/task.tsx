@@ -17,32 +17,32 @@ import { autoIncrementalId } from '../../utils/functions/functions';
 import { optionsIcnDrp } from '../../types';
 
 //Valida si existe la propiedad de plantillas y las agrega al dropdown de cargar plantilla en caso de que si exista
-export const optionsPlantillas = (props: templateOptions) => {
-	const { templateOptions, onCl_newTemplate } = props;
-	templateOptions?.map((e: any) => {
-		return {
-			title: e.title,
-			onClick: e.onClick,
-			id: e.id,
-		};
-	});
-	return !templateOptions
-		? [
-				{
-					id: 'createTemplate',
-					title: '+ Crear plantilla',
-					onClick: onCl_newTemplate,
-				},
-		  ]
-		: [
-				{
-					id: 'createTemplate',
-					title: '+ Crear plantilla',
-					onClick: onCl_newTemplate,
-				},
-				...templateOptions,
-		  ];
-};
+// export const optionsPlantillas = (props: templateOptions) => {
+// 	const { templateOptions, onCl_newTemplate } = props;
+// 	templateOptions?.map((e: any) => {
+// 		return {
+// 			title: e.title,
+// 			onClick: e.onClick,
+// 			id: e.id,
+// 		};
+// 	});
+// 	return !templateOptions
+// 		? [
+// 				{
+// 					id: 'createTemplate',
+// 					title: '+ Crear plantilla',
+// 					onClick: onCl_newTemplate,
+// 				},
+// 		  ]
+// 		: [
+// 				{
+// 					id: 'createTemplate',
+// 					title: '+ Crear plantilla',
+// 					onClick: onCl_newTemplate,
+// 				},
+// 				...templateOptions,
+// 		  ];
+// };
 
 //COMPONENTE PRINCIPAL
 const Task = ({
@@ -79,7 +79,7 @@ const Task = ({
 	subtaskForbbiden,
 	onCl_addTask,
 	templateOptions,
-	onCl_newTemplate,
+	// onCl_newTemplate,
 	subtasks,
 	modo = 'Light',
 	prioridadInicial = 'none',
@@ -89,7 +89,7 @@ const Task = ({
 	minStartDate,
 	reasignForbidden,
 	dependenciesOptions,
-	dependencie,
+	dependence,
 	forbbidenDependencies,
 }: tasks) => {
 	return (
@@ -154,14 +154,14 @@ const Task = ({
 						dropdownOptions={dependenciesOptions as optionsIcnDrp[]}
 						legend={1}
 						modo={modo}
-						validateToShowIcon={dependencie}
+						validateToShowIcon={dependence}
 						title="Esta tarea se iniciará una vez finalice la tarea de la que depende"
 					>
-						<ValidationComponent validate={dependencie}>
+						<ValidationComponent validate={dependence}>
 							<span>
 								<strong>Depende de la tarea: </strong>
 
-								<span style={{ display: 'block' }}>{dependencie?.taskName}</span>
+								<span style={{ display: 'block' }}>{dependence?.taskName}</span>
 							</span>
 						</ValidationComponent>
 					</DropdownWithPopup>
@@ -183,10 +183,12 @@ const Task = ({
 							marginLeft: '20px',
 							fontSize: '15px',
 						}}
-						options={optionsPlantillas({
+						options={
+							/* optionsPlantillas({
 							templateOptions: templateOptions,
 							onCl_newTemplate: onCl_newTemplate,
-						})}
+						}) */ templateOptions ?? []
+						}
 					/>
 				</div>
 			)}
@@ -220,7 +222,7 @@ const Task = ({
 											durationValue={e.durationValue}
 											className={e.className}
 											dependenciesOptions={e.dependenciesOptions}
-											dependencie={e.dependencie}
+											dependence={e.dependence}
 											responsables={e.responsables}
 											equipos={e.equipos}
 											revision={e.revision}
@@ -238,7 +240,7 @@ const Task = ({
 											onCl_delete={e.onCl_delete}
 											subtaskForbbiden={e.subtaskForbbiden}
 											subtasks={e.subtasks}
-											onCl_newTemplate={e.onCl_newTemplate}
+											// onCl_newTemplate={e.onCl_newTemplate}
 											onCl_addTask={e.onCl_addTask}
 											templateOptions={e.templateOptions}
 											modo={modo}
@@ -257,7 +259,7 @@ const Task = ({
 											idCheckbox={e.idTask}
 											onCh_checkbox={e.onCh_checkbox}
 											dependenciesOptions={e.dependenciesOptions}
-											dependencie={e.dependencie}
+											dependence={e.dependence}
 											maxEndDate={e.maxEndDate}
 											maxStartDate={e.maxStartDate}
 											minEndDate={e.minEndDate}
@@ -295,7 +297,7 @@ const Task = ({
 											subtaskForbbiden={e.subtaskForbbiden}
 											subtasks={e.subtasks}
 											//
-											onCl_newTemplate={e.onCl_newTemplate}
+											// onCl_newTemplate={e.onCl_newTemplate}
 											onCl_addTask={e.onCl_addTask}
 											templateOptions={e.templateOptions}
 											modo={modo}

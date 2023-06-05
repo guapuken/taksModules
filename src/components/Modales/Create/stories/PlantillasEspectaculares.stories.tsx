@@ -30,6 +30,17 @@ function DemoComponent() {
 			onCh_checkboxCampaign={() => {}}
 			tasks={[
 				{
+					dependence: { id: '1', taskName: 'Dummies' },
+					dependenciesOptions: [
+						{
+							id: '1',
+							title: 'Dummies',
+						},
+						{
+							id: '2',
+							title: 'Bloqueos',
+						},
+					],
 					idTask: String(autoIncrementalId()),
 					valueTask: 'Bloqueos',
 					valueDescription: 'Realizar los bloqueos de los siguientes sitios',

@@ -1,12 +1,13 @@
 import React from 'react';
 import { content } from '../types/types';
 import { Task } from '../../../../../components';
-import { onChangeType } from '../../../../../types';
 
 const Content = (props: content) => {
 	const datos = { ...props };
 	return (
 		<Task
+			dependence={datos.dependence}
+			dependenciesOptions={datos.dependenciesOptions ?? []}
 			idTask={datos.idTask}
 			maxEndDate={datos.maxEndDate}
 			maxStartDate={datos.maxStartDate}
@@ -18,10 +19,9 @@ const Content = (props: content) => {
 			equipos={datos.equipos}
 			subtasks={datos.subtasks}
 			principalTask
-			onCh_descriptionTask={datos.onCh_descriptionTask as onChangeType}
-			onCh_nameTask={datos.onCh_nameTask as onChangeType}
+			onCh_descriptionTask={datos.onCh_descriptionTask}
+			onCh_nameTask={datos.onCh_nameTask}
 			onCl_addTask={datos.onCl_addTask}
-			onCl_newTemplate={datos.onCl_newTemplate}
 			onCl_selectPriority={datos.onCl_selectPriority}
 			onCl_delete={datos.onCl_delete}
 			onCl_reminder={datos.onCl_reminder}

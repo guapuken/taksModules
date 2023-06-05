@@ -8,12 +8,23 @@ function DemoComponent() {
 	// consoles para revisar que sse generen de manera correcta los setteos
 	// console.clear();
 	const [checkValue, setCheckValue] = React.useState(false);
+	const [checkValue2, setCheckValue2] = React.useState(false);
 	const [valueTask, setValueTask] = React.useState('');
 
 	return (
 		<ModalTask
 			onCl_close={() => alert('closeModal')}
 			idTask="1"
+			dependenciesOptions={[
+				{
+					id: '1',
+					title: 'Dummies',
+				},
+			]}
+			dependence={{
+				id: '1',
+				taskName: 'Dummies',
+			}}
 			equipos={equipos}
 			endDateValue={''}
 			startDateValue={''}
@@ -41,8 +52,8 @@ function DemoComponent() {
 			onCh_checkbox={(e) => setCheckValue(!checkValue)}
 			subtasks={[
 				{
-					check: false,
-					onCh_checkbox: {} as any,
+					check: checkValue2,
+					onCh_checkbox: () => setCheckValue2(!checkValue2),
 					onCh_endDate: {} as any,
 					onCh_startDate: {} as any,
 					valueDescription: '',

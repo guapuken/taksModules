@@ -52,13 +52,17 @@ function DemoComponent() {
 			onCl_confirm={() => setNameTask('hola')}
 			onCl_abort={() => alert('Adios')}
 			idProject={idProject}
-			// por probar
 			subtasks={[
 				{
 					onCh_startDate: () => {},
 					minStartDate: '2023-02-02 00:00:00',
 					maxStartDate: '2023-02-10 00:00:00',
 					idTask: '1',
+					dependence: {
+						id: '2',
+						taskName: 'Dummies',
+					},
+					dependenciesOptions: [{ id: '2', title: 'Dummies' }],
 					reasignForbidden: true,
 					valueTask: 'CDMX - Uber Eats-2536-Espectaculares-Noviembre',
 					valueDescription: '',

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Dropdown, IconDropdown, InputLabel, Task } from '../../../../../components';
 import { AddTask } from '../../../../task/files';
-import { optionsPlantillas } from '../../../../task/task';
+// import { optionsPlantillas } from '../../../../task/task';
 import { content } from '../types/types';
 import { onChangeType } from '../../../../../types';
 import { Spans } from '../../../../../utils/cardsUtils';
@@ -54,10 +54,7 @@ const Content = ({
 						marginLeft: '20px',
 						fontSize: '15px',
 					}}
-					options={optionsPlantillas({
-						templateOptions: templateOptions,
-						onCl_newTemplate: onCl_newTemplate,
-					})}
+					options={templateOptions ?? []}
 				/>
 			</div>
 			<div style={{ paddingLeft: '15px' }}>
@@ -78,6 +75,8 @@ const Content = ({
 									taskDisabled={e.taskDisabled}
 									taskComplete={e.taskComplete}
 									check={e.check}
+									dependence={e.dependence}
+									dependenciesOptions={e.dependenciesOptions ?? []}
 									valueTask={e.valueTask}
 									valueDescription={e.valueDescription}
 									onCh_nameTask={e.onCh_nameTask}
@@ -118,7 +117,7 @@ const Content = ({
 									subtaskForbbiden={e.subtaskForbbiden}
 									subtasks={e.subtasks}
 									//
-									onCl_newTemplate={e.onCl_newTemplate}
+									// onCl_newTemplate={e.onCl_newTemplate}
 									onCl_addTask={e.onCl_addTask}
 									templateOptions={e.templateOptions}
 									modo={modo}

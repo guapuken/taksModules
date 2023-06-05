@@ -51,6 +51,12 @@ export interface tasksProps {
 	onCl_abort: onClickType;
 	edit?: boolean;
 	modo: Modo;
+	dependenciesOptions?: optionsIcnDrp[];
+	dependence?: {
+		id: string;
+		taskName: string;
+		onClick?: onClickType;
+	} | null;
 }
 
 export type content = {
@@ -91,6 +97,12 @@ export type content = {
 	templateOptions: optionsIcnDrp[];
 	moreOptions?: optionsIcnDrp[];
 	className?: string;
+	dependenciesOptions?: optionsIcnDrp[];
+	dependence?: {
+		id: string;
+		taskName: string;
+		onClick?: onClickType;
+	} | null;
 };
 export type footer = {
 	onCl_confirm: onClickType;
