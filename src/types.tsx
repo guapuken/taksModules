@@ -46,6 +46,7 @@ export interface submenusArray {
 export interface tasks {
 	//Input Task
 	idTask: string;
+	forbbidenDependencies?: boolean;
 	principalTask?: boolean;
 	taskDisabled?: boolean;
 	taskComplete?: boolean;
@@ -105,6 +106,12 @@ export interface tasks {
 	templateOptions: optionsIcnDrp[];
 	reasignForbidden?: boolean;
 	modo?: Modo;
+	dependenciesOptions?: optionsIcnDrp[];
+	dependencie?: {
+		id: string;
+		taskName: string;
+		onClick?: onClickType;
+	} | null;
 }
 //INTERFACES
 export interface tasksTemplates {

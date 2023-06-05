@@ -27,3 +27,6 @@ export { default as ModalConfirmation } from './modalConfirmation/ModalConfirmat
 
 // contenedor que realiza un modal más grande
 export { default as Modal } from './modal/modal';
+
+// contenedor que realiza un pop up
+export { default as PopUp } from './popUp/PopUp';
