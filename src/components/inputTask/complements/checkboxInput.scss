@@ -1,11 +1,13 @@
 .ctnLight_CBIC,
 .ctnDark_CBIC
 {
+  position: relative;
   [type="checkbox"]:not(:checked),
   [type="checkbox"]:checked {
     position: absolute;
     left: 0;
     opacity: 0.01;
+    z-index: 1;
   }
   [type="checkbox"]:not(:checked) + label,
   [type="checkbox"]:checked + label {
