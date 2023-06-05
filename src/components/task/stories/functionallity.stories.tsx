@@ -1,25 +1,31 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
 import { storiesOf } from '@storybook/react';
 
 import { Button, Task } from '../..';
+import { autoIncrementalId } from '../../../utils/functions/functions';
 
 function DemoComponent() {
 	const [description, setDescription] = useState('');
 	const [startDate, setStartDate] = useState('');
 	const [endDate, setEndDate] = useState('');
 	const [priority, setPriority] = useState('baja');
+	const [dependencie, setDependencie] = useState(null);
+	const [dependencie2, setDependencie2] = useState(null);
+	const [check, setCheck] = useState(false);
 
+	useEffect(() => {
+		console.log(check);
+	}, [check]);
+	// console.log(check);
 	return (
 		<Fragment>
-			<Button
-				modo="Light"
-				onCl={() => {
-					setPriority('alta');
-					setDescription('Hacerte guaje');
-				}}
-			/>
 			<Task
+				check={check}
+				modo="Light"
+				principalTask
+				onCh_checkbox={() => setCheck(!check)}
+				//
 				equipos={[]}
 				idTask="1"
 				onCh_descriptionTask={(e) => setDescription(e.target.value)}
@@ -27,12 +33,13 @@ function DemoComponent() {
 				onCl_newTemplate={() => alert('newTemplate')}
 				responsables={[]}
 				revision={[]}
-				prioridadInicial={priority}
+				forbbidenDependencies
+				prioridadInicial={'none'}
+				valueResponsable="Hola"
+				valueRevision="Adios"
 				// onCl_selectPriority={()=>}
 				templateOptions={[]}
 				valueTask={'name'}
-				check={false}
-				onCh_checkbox={() => {}}
 				onCh_endDate={(e) => setStartDate(e.target.value)}
 				onCh_startDate={(e) => setEndDate(e.target.value)}
 				valueDescription={description}
@@ -40,14 +47,26 @@ function DemoComponent() {
 				startDateValue={startDate}
 				subtasks={[
 					{
-						check: false,
-						onCh_checkbox: (e) => {},
+						check: check,
+						onCh_checkbox: () => setCheck(!check),
 						onCh_endDate: () => {},
 						onCh_startDate: () => {},
 						valueDescription: description,
 						valueTask: 'name',
 						equipos: [],
 						idTask: '2',
+						dependencie: dependencie,
+						dependenciesOptions: [
+							{
+								id: '1',
+								title: 'Dummies CDMX',
+								onClick: (e) => {
+									console.log(e);
+									setDependencie({ id: '1', taskName: 'Dummies CDMX' });
+								},
+							},
+							{ id: '2', title: 'Bloqueos' },
+						],
 						onCh_descriptionTask: (e) => setDescription(e.target.value),
 						onCh_nameTask: (e) => {},
 						onCl_newTemplate: () => alert('newTemplate'),

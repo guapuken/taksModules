@@ -68,60 +68,63 @@ const Content = ({
 					}}
 				>
 					{subtasks &&
-						subtasks.map((e: any) => (
-							<Task
-								reasignForbidden={e.reasignForbidden}
-								key={e.idTask}
-								idTask={e.idTask}
-								taskDisabled={e.taskDisabled}
-								taskComplete={e.taskComplete}
-								check={e.check}
-								valueTask={e.valueTask}
-								valueDescription={e.valueDescription}
-								onCh_nameTask={e.onCh_nameTask}
-								onCh_descriptionTask={e.onCh_descriptionTask}
-								idCheckbox={e.idTask}
-								onCh_checkbox={e.onCh_checkbox}
-								//
-								disabledEndDate={e.disabledEndDate}
-								disabledStartDate={e.disabledStartDate}
-								onCh_endDate={e.onCh_endDate}
-								onCh_startDate={e.onCh_startDate}
-								startDateValue={e.startDateValue}
-								endDateValue={e.endDateValue}
-								maxEndDate={e.maxEndDate}
-								maxStartDate={e.maxStartDate}
-								minEndDate={e.minEndDate}
-								minStartDate={e.minStartDate}
-								//
-								responsables={e.responsables}
-								equipos={e.equipos}
-								revision={e.revision}
-								valueResponsable={e.valueResponsable}
-								valueRevision={e.valueRevision}
-								//
-								prioridadInicial={e.prioridadInicial}
-								onCl_selectPriority={e.onCl_selectPriority}
-								//
-								moreOptions={
-									e.moreOptions ?? [
-										{
-											id: 'deleteTask',
-											title: 'Eliminar',
-											onClick: e.onCl_delete,
-										},
-									]
-								}
-								//
-								subtaskForbbiden={e.subtaskForbbiden}
-								subtasks={e.subtasks}
-								//
-								onCl_newTemplate={e.onCl_newTemplate}
-								onCl_addTask={e.onCl_addTask}
-								templateOptions={e.templateOptions}
-								modo={modo}
-							/>
-						))}
+						subtasks.map((e: any) => {
+							console.table(e);
+							return (
+								<Task
+									reasignForbidden={e.reasignForbidden}
+									key={e.idTask}
+									idTask={e.idTask}
+									taskDisabled={e.taskDisabled}
+									taskComplete={e.taskComplete}
+									check={e.check}
+									valueTask={e.valueTask}
+									valueDescription={e.valueDescription}
+									onCh_nameTask={e.onCh_nameTask}
+									onCh_descriptionTask={e.onCh_descriptionTask}
+									idCheckbox={e.idTask}
+									onCh_checkbox={e.onCh_checkbox}
+									//
+									disabledEndDate={e.disabledEndDate}
+									disabledStartDate={e.disabledStartDate}
+									onCh_endDate={e.onCh_endDate}
+									onCh_startDate={e.onCh_startDate}
+									startDateValue={e.startDateValue}
+									endDateValue={e.endDateValue}
+									maxEndDate={e.maxEndDate}
+									maxStartDate={e.maxStartDate}
+									minEndDate={e.minEndDate}
+									minStartDate={e.minStartDate}
+									//
+									responsables={e.responsables}
+									equipos={e.equipos}
+									revision={e.revision}
+									valueResponsable={e.valueResponsable}
+									valueRevision={e.valueRevision}
+									//
+									prioridadInicial={e.prioridadInicial}
+									onCl_selectPriority={e.onCl_selectPriority}
+									//
+									moreOptions={
+										e.moreOptions ?? [
+											{
+												id: 'deleteTask',
+												title: 'Eliminar',
+												onClick: e.onCl_delete,
+											},
+										]
+									}
+									//
+									subtaskForbbiden={e.subtaskForbbiden}
+									subtasks={e.subtasks}
+									//
+									onCl_newTemplate={e.onCl_newTemplate}
+									onCl_addTask={e.onCl_addTask}
+									templateOptions={e.templateOptions}
+									modo={modo}
+								/>
+							);
+						})}
 				</div>
 			</div>
 		</div>

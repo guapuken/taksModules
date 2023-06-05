@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from 'react';
 // componentes auxiliares
 import { involucrados } from '../../utils/cardsUtils';
-import { IconDropdown, InputTask } from '../../components';
+import { Dropdown, IconDropdown, InputTask } from '../../components';
 import { AddTask, IconAsign, IconDates, IconMoreOptions, IconPriority } from './files';
+import { ValidationComponent } from '../Atoms';
 // types
 import { templateOptions } from './types';
 import { onChangeType, tasks } from '../../types';
+// archivos multimedia
+import dependencieIcon from '../../img/dependencies.svg';
 // estilos
 import './task.scss';
-import { ValidationComponent } from '../Atoms';
+import DropdownWithPopup from '../DropdownWithPopup/DropdownWithPopup';
+import { ButtonItem } from '../../utils/asideUtils';
+import { autoIncrementalId } from '../../utils/functions/functions';
+import { optionsIcnDrp } from '../../types';
 
 //Valida si existe la propiedad de plantillas y las agrega al dropdown de cargar plantilla en caso de que si exista
 export const optionsPlantillas = (props: templateOptions) => {
@@ -82,32 +88,28 @@ const Task = ({
 	minEndDate,
 	minStartDate,
 	reasignForbidden,
+	dependenciesOptions,
+	dependencie,
+	forbbidenDependencies,
 }: tasks) => {
-	const showTask = () => (plantillas ? false : true);
-
 	return (
 		<div id={idTask} className={`ctn${modo}_TascC`}>
 			<InputTask
-				id={idTask}
+				check={check ?? false}
+				showTask={plantillas ? false : true}
 				modo={modo}
 				principalTask={principalTask}
-				showTask={plantillas ? false : true}
-				disabled={taskDisabled ? taskDisabled : taskComplete ? true : false}
+				// disabled={taskDisabled ? taskDisabled : taskComplete ? true : false}
 				onCh_checkbox={onCh_checkbox}
-				isSubtask={isSubtask}
-				check={check}
-				onCh_nameTask={onCh_nameTask}
-				onCh_descriptionTask={onCh_descriptionTask}
-				valueTask={valueTask}
-				valueDescription={valueDescription}
 				idCheckbox={idTask}
+				id={idTask}
+				onCh_nameTask={onCh_nameTask}
+				valueTask={valueTask}
+				onCh_descriptionTask={onCh_descriptionTask}
+				valueDescription={valueDescription}
+				isSubtask={isSubtask}
 			/>
-			<div
-				className={'icnsCtn'}
-				style={{
-					padding: showTask() ? '0 0 0 20px' : '0',
-				}}
-			>
+			<div className="icnsCtn">
 				<IconDates
 					idTask={idTask}
 					maxEndDate={maxEndDate}
@@ -139,13 +141,31 @@ const Task = ({
 						disabled={check ? check : false}
 					/>
 				</ValidationComponent>
-				{!plantillas && (
+				<ValidationComponent validate={!plantillas}>
 					<IconPriority
 						modo={modo}
 						onCl_selectPriority={onCl_selectPriority}
 						prioridadInicial={prioridadInicial}
 					/>
-				)}
+				</ValidationComponent>
+				<ValidationComponent validate={!forbbidenDependencies}>
+					<DropdownWithPopup
+						dropdownIcon={dependencieIcon}
+						dropdownOptions={dependenciesOptions as optionsIcnDrp[]}
+						legend={1}
+						modo={modo}
+						validateToShowIcon={dependencie}
+						title="Esta tarea se iniciará una vez finalice la tarea de la que depende"
+					>
+						<ValidationComponent validate={dependencie}>
+							<span>
+								<strong>Depende de la tarea: </strong>
+
+								<span style={{ display: 'block' }}>{dependencie?.taskName}</span>
+							</span>
+						</ValidationComponent>
+					</DropdownWithPopup>
+				</ValidationComponent>
 				<IconMoreOptions
 					modo={modo}
 					onCl_delete={onCl_delete}
@@ -179,6 +199,7 @@ const Task = ({
 						}}
 					>
 						{subtasks.map((e: any) => {
+							console.log(e);
 							return (
 								<div style={{ margin: '.5vh 0' }} key={e.idTask}>
 									{plantillas ? (
@@ -198,6 +219,8 @@ const Task = ({
 											onCh_duration={e.onCh_duration}
 											durationValue={e.durationValue}
 											className={e.className}
+											dependenciesOptions={e.dependenciesOptions}
+											dependencie={e.dependencie}
 											responsables={e.responsables}
 											equipos={e.equipos}
 											revision={e.revision}
@@ -233,6 +256,8 @@ const Task = ({
 											onCh_descriptionTask={e.onCh_descriptionTask}
 											idCheckbox={e.idTask}
 											onCh_checkbox={e.onCh_checkbox}
+											dependenciesOptions={e.dependenciesOptions}
+											dependencie={e.dependencie}
 											maxEndDate={e.maxEndDate}
 											maxStartDate={e.maxStartDate}
 											minEndDate={e.minEndDate}

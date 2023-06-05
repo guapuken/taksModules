@@ -26,6 +26,7 @@
         margin-top: 8px;
         display: flex;
         align-items: center;
+        gap: 15px;
         .DatePickerTaskComponent{
             width:126px;
             font-size: 14px;
@@ -36,16 +37,9 @@
 
         }
         .ContainerIconAsignUsers{
-            width: auto; 
             display: flex;
             position: relative;
-        }
-        div{
-            margin-right: 20px;
-            height:30px ;
-            label{
-                padding-top:5px;
-            }
+            margin: 0 !important;
         }
         .InputsTaskContainer{
             position: relative;
@@ -137,6 +131,8 @@
         margin-block: 0;
         padding: 0 5px;
         border-radius: 20px;
+        color: #fff;
+        font-size: 14px;
         color: #fff;
     }
 

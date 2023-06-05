@@ -16,12 +16,15 @@ function DemoComponent() {
 		'Dummies Uber Eats-2536-Espectaculares-Noviembre'
 	);
 	const [priority, setPriority] = React.useState('none');
-	const [checked, setCheckedd] = React.useState(false);
+	const [checked, setChecked] = React.useState(false);
 	const [startDate, setStartDate] = React.useState('');
 	const [endDate, setEndDate] = React.useState('');
 	const [responsable, setResponsable] = React.useState({});
 	const [revision, setRevision] = React.useState({ id: undefined, name: undefined });
 
+	console.log({
+		checked: checked,
+	});
 	return (
 		<ModalProjects
 			onCh_asignTeam={(e) => console.log(e)}
@@ -52,12 +55,13 @@ function DemoComponent() {
 			// por probar
 			subtasks={[
 				{
+					onCh_startDate: () => {},
 					minStartDate: '2023-02-02 00:00:00',
 					maxStartDate: '2023-02-10 00:00:00',
-					idTask: idTask,
+					idTask: '1',
 					reasignForbidden: true,
 					valueTask: 'CDMX - Uber Eats-2536-Espectaculares-Noviembre',
-					valueDescription: null,
+					valueDescription: '',
 					onCh_nameTask: (e) => {
 						setNameTask(e.target.value);
 					},
@@ -65,7 +69,7 @@ function DemoComponent() {
 					onCl_Priority: (e) => setPriority(e.target.id),
 					prioridadInicial: priority,
 					check: checked,
-					onCh_checkbox: (e) => setCheckedd(!checked),
+					onCh_checkbox: () => setChecked(!checked),
 					startDateValue: '2023-02-10 00:00:00',
 					endDateValue: '2023-02-11 00:00:00',
 					onCh_tartDate: (e) => {
