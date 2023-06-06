@@ -2,8 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import { Button, Task } from '../..';
-import { autoIncrementalId } from '../../../utils/functions/functions';
+import { Task } from '../..';
 
 function DemoComponent() {
 	const [description, setDescription] = useState('');
@@ -15,7 +14,7 @@ function DemoComponent() {
 	const [check, setCheck] = useState(false);
 
 	useEffect(() => {
-		console.log(check);
+		console.log({ check, dependencie });
 	}, [check]);
 	// console.log(check);
 	return (
@@ -30,7 +29,6 @@ function DemoComponent() {
 				idTask="1"
 				onCh_descriptionTask={(e) => setDescription(e.target.value)}
 				onCh_nameTask={(e) => {}}
-				onCl_newTemplate={() => alert('newTemplate')}
 				responsables={[]}
 				revision={[]}
 				forbbidenDependencies
@@ -55,14 +53,14 @@ function DemoComponent() {
 						valueTask: 'name',
 						equipos: [],
 						idTask: '2',
-						dependencie: dependencie,
+						dependence: dependencie,
 						dependenciesOptions: [
 							{
 								id: '1',
 								title: 'Dummies CDMX',
 								onClick: (e) => {
 									console.log(e);
-									setDependencie({ id: '1', taskName: 'Dummies CDMX' });
+									setDependencie({ id: '1', title: 'Dummies CDMX' });
 								},
 							},
 							{ id: '2', title: 'Bloqueos' },

@@ -1,48 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 // componentes auxiliares
 import { involucrados } from '../../utils/cardsUtils';
-import { Dropdown, IconDropdown, InputTask } from '../../components';
+import { IconDropdown, InputTask } from '../../components';
 import { AddTask, IconAsign, IconDates, IconMoreOptions, IconPriority } from './files';
 import { ValidationComponent } from '../Atoms';
 // types
-import { templateOptions } from './types';
 import { onChangeType, tasks } from '../../types';
 // archivos multimedia
 import dependencieIcon from '../../img/dependencies.svg';
 // estilos
 import './task.scss';
 import DropdownWithPopup from '../DropdownWithPopup/DropdownWithPopup';
-import { ButtonItem } from '../../utils/asideUtils';
-import { autoIncrementalId } from '../../utils/functions/functions';
 import { optionsIcnDrp } from '../../types';
-
-//Valida si existe la propiedad de plantillas y las agrega al dropdown de cargar plantilla en caso de que si exista
-// export const optionsPlantillas = (props: templateOptions) => {
-// 	const { templateOptions, onCl_newTemplate } = props;
-// 	templateOptions?.map((e: any) => {
-// 		return {
-// 			title: e.title,
-// 			onClick: e.onClick,
-// 			id: e.id,
-// 		};
-// 	});
-// 	return !templateOptions
-// 		? [
-// 				{
-// 					id: 'createTemplate',
-// 					title: '+ Crear plantilla',
-// 					onClick: onCl_newTemplate,
-// 				},
-// 		  ]
-// 		: [
-// 				{
-// 					id: 'createTemplate',
-// 					title: '+ Crear plantilla',
-// 					onClick: onCl_newTemplate,
-// 				},
-// 				...templateOptions,
-// 		  ];
-// };
 
 //COMPONENTE PRINCIPAL
 const Task = ({
@@ -79,7 +48,6 @@ const Task = ({
 	subtaskForbbiden,
 	onCl_addTask,
 	templateOptions,
-	// onCl_newTemplate,
 	subtasks,
 	modo = 'Light',
 	prioridadInicial = 'none',
@@ -99,7 +67,7 @@ const Task = ({
 				showTask={plantillas ? false : true}
 				modo={modo}
 				principalTask={principalTask}
-				// disabled={taskDisabled ? taskDisabled : taskComplete ? true : false}
+				disabled={taskDisabled}
 				onCh_checkbox={onCh_checkbox}
 				idCheckbox={idTask}
 				id={idTask}
@@ -141,13 +109,6 @@ const Task = ({
 						disabled={check ? check : false}
 					/>
 				</ValidationComponent>
-				<ValidationComponent validate={!plantillas}>
-					<IconPriority
-						modo={modo}
-						onCl_selectPriority={onCl_selectPriority}
-						prioridadInicial={prioridadInicial}
-					/>
-				</ValidationComponent>
 				<ValidationComponent validate={!forbbidenDependencies}>
 					<DropdownWithPopup
 						dropdownIcon={dependencieIcon}
@@ -161,10 +122,17 @@ const Task = ({
 							<span>
 								<strong>Depende de la tarea: </strong>
 
-								<span style={{ display: 'block' }}>{dependence?.taskName}</span>
+								<span style={{ display: 'block' }}>{dependence?.title}</span>
 							</span>
 						</ValidationComponent>
 					</DropdownWithPopup>
+				</ValidationComponent>
+				<ValidationComponent validate={!plantillas}>
+					<IconPriority
+						modo={modo}
+						onCl_selectPriority={onCl_selectPriority}
+						prioridadInicial={prioridadInicial}
+					/>
 				</ValidationComponent>
 				<IconMoreOptions
 					modo={modo}
@@ -173,8 +141,8 @@ const Task = ({
 					options={moreOptions}
 				/>
 			</div>
-			{subtaskForbbiden ?? (
-				<div style={{ display: 'flex', alignItems: 'baseline' }}>
+			<ValidationComponent validate={!subtaskForbbiden}>
+				<div style={{ display: 'flex', alignItems: 'baseline', position: 'relative' }}>
 					<AddTask legend="+ Añadir subtarea" onClick={onCl_addTask} />
 					<IconDropdown
 						modo={modo}
@@ -183,15 +151,10 @@ const Task = ({
 							marginLeft: '20px',
 							fontSize: '15px',
 						}}
-						options={
-							/* optionsPlantillas({
-							templateOptions: templateOptions,
-							onCl_newTemplate: onCl_newTemplate,
-						}) */ templateOptions ?? []
-						}
+						options={templateOptions ?? []}
 					/>
 				</div>
-			)}
+			</ValidationComponent>
 			{subtasks && (
 				<div className={'ChildrenContainerTaskModules'}>
 					<div
@@ -221,7 +184,7 @@ const Task = ({
 											onCh_duration={e.onCh_duration}
 											durationValue={e.durationValue}
 											className={e.className}
-											dependenciesOptions={e.dependenciesOptions}
+											dependenciesOptions={e.dependenciesOptions ?? []}
 											dependence={e.dependence}
 											responsables={e.responsables}
 											equipos={e.equipos}
@@ -240,7 +203,6 @@ const Task = ({
 											onCl_delete={e.onCl_delete}
 											subtaskForbbiden={e.subtaskForbbiden}
 											subtasks={e.subtasks}
-											// onCl_newTemplate={e.onCl_newTemplate}
 											onCl_addTask={e.onCl_addTask}
 											templateOptions={e.templateOptions}
 											modo={modo}
@@ -258,13 +220,12 @@ const Task = ({
 											onCh_descriptionTask={e.onCh_descriptionTask}
 											idCheckbox={e.idTask}
 											onCh_checkbox={e.onCh_checkbox}
-											dependenciesOptions={e.dependenciesOptions}
+											dependenciesOptions={e.dependenciesOptions ?? []}
 											dependence={e.dependence}
 											maxEndDate={e.maxEndDate}
 											maxStartDate={e.maxStartDate}
 											minEndDate={e.minEndDate}
 											minStartDate={e.minStartDate}
-											//
 											disabledEndDate={e.disabledEndDate}
 											disabledStartDate={e.disabledStartDate}
 											onCh_endDate={e.onCh_endDate}
@@ -272,16 +233,13 @@ const Task = ({
 											startDateValue={e.startDateValue}
 											endDateValue={e.endDateValue}
 											className={e.className}
-											//
 											responsables={e.responsables}
 											equipos={e.equipos}
 											revision={e.revision}
 											valueResponsable={e.valueResponsable}
 											valueRevision={e.valueRevision}
-											//
 											prioridadInicial={e.prioridadInicial}
 											onCl_selectPriority={e.onCl_selectPriority}
-											//
 											moreOptions={
 												e.moreOptions ?? [
 													{
@@ -293,11 +251,8 @@ const Task = ({
 											}
 											onCl_delete={e.onCl_delete}
 											onCl_reminder={e.onCl_reminder}
-											//
 											subtaskForbbiden={e.subtaskForbbiden}
 											subtasks={e.subtasks}
-											//
-											// onCl_newTemplate={e.onCl_newTemplate}
 											onCl_addTask={e.onCl_addTask}
 											templateOptions={e.templateOptions}
 											modo={modo}

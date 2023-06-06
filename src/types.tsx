@@ -109,7 +109,7 @@ export interface tasks {
 	dependenciesOptions?: optionsIcnDrp[];
 	dependence?: {
 		id: string;
-		taskName: string;
+		title: string;
 		onClick?: onClickType;
 	} | null;
 }
@@ -139,7 +139,7 @@ export interface tasksTemplates {
 	dependenciesOptions?: optionsIcnDrp[];
 	dependence?: {
 		id: string;
-		taskName: string;
+		title: string;
 		onClick?: onClickType;
 	} | null;
 }
@@ -169,7 +169,7 @@ export type subtaskTemplates = {
 	dependenciesOptions?: optionsIcnDrp[];
 	dependence?: {
 		id: string;
-		taskName: string;
+		title: string;
 		onClick?: onClickType;
 	} | null;
 };
@@ -225,6 +225,12 @@ export type subtasksProps = {
 	onCl_addTask?: onClickType;
 	templateOptions: optionsIcnDrp[];
 	modo?: Modo;
+	dependenciesOptions?: optionsIcnDrp[];
+	dependence?: {
+		id: string;
+		title: string;
+		onClick?: onClickType;
+	} | null;
 };
 
 /** Estructura de los mensajes que debe de recibir el componente
