@@ -32,7 +32,7 @@
 		font-weight: lighter;
 		justify-content: right;
     }
-    &[stts-tsk='outOfTime']{
+    &[stts-tsk='outOfTime'],&[stts-tsk='3']{
         .ctnBarra{
             box-shadow: inset 0 0 0 3px #FC3D38;
             .progressBar{
@@ -43,7 +43,7 @@
             color: #FC3D38;
         }
     }
-    &[stts-tsk='onTime']{
+    &[stts-tsk='onTime'],&[stts-tsk='1']{
         .ctnBarra{
             box-shadow: inset 0 0 0 3px #1CBF59;
             .progressBar{
@@ -51,7 +51,7 @@
             }
         }
     }
-    &[stts-tsk='delayed']{
+    &[stts-tsk='delayed'],&[stts-tsk='2']{
         .ctnBarra{
             box-shadow: inset 0 0 0 3px #FCB24F;
             .progressBar{
