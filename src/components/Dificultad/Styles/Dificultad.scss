@@ -14,7 +14,7 @@ $starHue: 38;
 	font-size: calc(24px + (30 - 24) * (100vw - 320px) / (1280 - 320));
 }
 body {
-	color: var(--fg);
+	// color: var(--fg);
 	transition:
 		background-color var(--trans-dur),
 		color var(--trans-dur);

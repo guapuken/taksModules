@@ -4,8 +4,23 @@ import Timeline from '../../../timelineProject/timelineProject';
 // archivos multimedia
 import close from '../../../../img/close.svg';
 import Button from '../../../button/Button';
+import { Modo, onClickType } from '../../../../types';
 
-const TimelineMedio = ({ isActive, handleClose, modo, tasks }) => {
+export type tasks = {
+	completed?: boolean;
+	taskName: string;
+	duration: number;
+	onCl_showDetails?: onClickType;
+	legendBtn?: string;
+	modo: Modo;
+};
+export interface timelineMedioProps {
+	isActive: boolean;
+	handleClose: any;
+	modo: Modo;
+	tasks: tasks[];
+}
+const TimelineMedio = ({ isActive, handleClose, modo, tasks }: timelineMedioProps) => {
 	return (
 		<ValidationComponent validate={isActive}>
 			<div
