@@ -53,13 +53,13 @@ export interface tasksProps {
 	modo: Modo;
 	dependenciesOptions?: optionsIcnDrp[];
 	dependence?: {
-		id: string;
-		taskName: string;
+		id?: string;
+		title?: string;
 		onClick?: onClickType;
 	} | null;
 	valueDificultad?: {
-		id: string;
-		title: string;
+		id?: string;
+		title?: string;
 	};
 	onCh_dificultad?: onChangeType;
 }
@@ -105,7 +105,7 @@ export type content = {
 	dependenciesOptions?: optionsIcnDrp[];
 	dependence?: {
 		id: string;
-		title: string;
+		title: string | undefined;
 		onClick?: onClickType;
 	} | null;
 	valueDificultad?: {

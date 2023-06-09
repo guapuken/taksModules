@@ -6,14 +6,14 @@ const Content = (props: content) => {
 	const datos = { ...props };
 	return (
 		<Task
-			dependence={datos.dependence}
+			dependence={datos.dependence as any}
 			dependenciesOptions={datos.dependenciesOptions ?? []}
 			idTask={datos.idTask}
 			maxEndDate={datos.maxEndDate}
 			maxStartDate={datos.maxStartDate}
 			minEndDate={datos.minEndDate}
 			minStartDate={datos.minStartDate}
-			valueDificultad={datos.valueDificultad}
+			valueDificultad={datos.valueDificultad as any}
 			onCh_dificultad={datos.onCh_dificultad}
 			check={datos.check}
 			onCh_checkbox={datos.onCh_checkbox}

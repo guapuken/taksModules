@@ -109,11 +109,11 @@ export interface tasks {
 	modo?: Modo;
 	dependenciesOptions?: optionsIcnDrp[];
 	dependence?: {
-		id: string;
-		title: string;
+		id?: string;
+		title?: string;
 		onClick?: onClickType;
 	} | null;
-	valueDificultad?: { id: string | number; title: string };
+	valueDificultad?: { id?: string | number; title?: string };
 	onCh_dificultad?: onChangeType;
 }
 //INTERFACES
@@ -141,13 +141,13 @@ export interface tasksTemplates {
 	modo: Modo;
 	dependenciesOptions?: optionsIcnDrp[];
 	dependence?: {
-		id: string;
-		title: string;
+		id?: string;
+		title?: string;
 		onClick?: onClickType;
 	} | null;
 	valueDificultad?: {
-		id: string;
-		title: string;
+		id?: string;
+		title?: string;
 	};
 	onCh_dificultad?: onChangeType;
 }

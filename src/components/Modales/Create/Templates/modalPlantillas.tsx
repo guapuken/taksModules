@@ -12,7 +12,7 @@ const ModalTemplates = (props: modalTemplates) => {
 	//DESESTRUCTURACIÓN DE PROPIEDADES DEL COMPONENTE DE MODAL
 	const args = {
 		header: 'Creación de plantillas',
-		Content: <Content {...props} />,
+		Content: <Content {...(props as any)} />,
 		Footer: <Footer {...props} />,
 		modo: props.modo,
 		onCl_close: props.onCl_close,

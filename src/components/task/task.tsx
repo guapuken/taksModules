@@ -225,7 +225,7 @@ const Task = (props: tasks) => {
 							<span>
 								<strong>Depende de la tarea: </strong>
 
-								<span style={{ display: 'block' }}>{dependence?.title}</span>
+								<span style={{ display: 'block' }}>{dependence?.title ?? ''}</span>
 							</span>
 						</ValidationComponent>
 					</DropdownWithPopup>

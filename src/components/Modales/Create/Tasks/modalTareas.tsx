@@ -9,7 +9,7 @@ const ModalTask = (props: tasksProps) => (
 	<Modal
 		modo={props.modo}
 		header="Creación de tareas"
-		Content={<Content {...props} />}
+		Content={<Content {...(props as any)} />}
 		Footer={<Footer {...props} />}
 		onCl_close={props.onCl_close}
 	/>

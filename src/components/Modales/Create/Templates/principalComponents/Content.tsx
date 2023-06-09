@@ -136,12 +136,12 @@ export const Content = ({
 							plantillas
 							// no necesarios
 							check={false}
-							onCh_checkbox={null}
+							onCh_checkbox={() => {}}
 							disabledEndDate={false}
 							disabledStartDate={false}
 							endDateValue={undefined}
-							onCh_endDate={null}
-							onCh_startDate={null}
+							onCh_endDate={() => {}}
+							onCh_startDate={() => {}}
 						/>
 					))}
 			</div>

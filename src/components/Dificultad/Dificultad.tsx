@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Styles/Dificultad.scss';
 import { SimpleContainer } from '../Atoms';
 
-const InputStar = ({ value, color, onChange, checked, id }) => {
+const InputStar = ({ value, color, onChange, checked, id }: any) => {
 	return (
 		<input
 			id={`rating-${value}${id}`}
@@ -16,7 +16,7 @@ const InputStar = ({ value, color, onChange, checked, id }) => {
 		/>
 	);
 };
-const LabelStar = ({ value, color, id }) => {
+const LabelStar = ({ value, color, id }: any) => {
 	return (
 		<label className="rating__label" htmlFor={`rating-${value}${id}`}>
 			<svg
