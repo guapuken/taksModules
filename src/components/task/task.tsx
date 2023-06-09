@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // componentes auxiliares
 import { involucrados } from '../../utils/cardsUtils';
-import { IconDropdown, InputTask } from '../../components';
+import { Dificultad, IconDropdown, InputTask } from '../../components';
 import { AddTask, IconAsign, IconDates, IconMoreOptions, IconPriority } from './files';
-import { ValidationComponent } from '../Atoms';
+import { SimpleContainer, ValidationComponent } from '../Atoms';
 // types
 import { onChangeType, tasks } from '../../types';
 // archivos multimedia
@@ -13,53 +13,73 @@ import './task.scss';
 import DropdownWithPopup from '../DropdownWithPopup/DropdownWithPopup';
 import { optionsIcnDrp } from '../../types';
 
+// archivos multimedia
+import flame from '../../img/flame.svg';
+import { FlameIcon } from '../../img/flame';
+
 //COMPONENTE PRINCIPAL
-const Task = ({
-	plantillas,
-	idTask,
-	principalTask,
-	taskDisabled,
-	taskComplete,
-	onCh_checkbox,
-	isSubtask,
-	check,
-	onCh_nameTask,
-	onCh_descriptionTask,
-	valueTask,
-	valueDescription,
-	onCh_duration,
-	disabledEndDate,
-	disabledStartDate,
-	onCh_endDate,
-	onCh_startDate,
-	startDateValue,
-	endDateValue,
-	className,
-	durationValue,
-	valueResponsable,
-	valueRevision,
-	responsables,
-	equipos,
-	revision,
-	onCl_selectPriority,
-	onCl_delete,
-	onCl_reminder,
-	moreOptions,
-	subtaskForbbiden,
-	onCl_addTask,
-	templateOptions,
-	subtasks,
-	modo = 'Light',
-	prioridadInicial = 'none',
-	maxEndDate,
-	maxStartDate,
-	minEndDate,
-	minStartDate,
-	reasignForbidden,
-	dependenciesOptions,
-	dependence,
-	forbbidenDependencies,
-}: tasks) => {
+const Task = (props: tasks) => {
+	const {
+		plantillas,
+		idTask,
+		principalTask,
+		taskDisabled,
+		onCh_checkbox,
+		isSubtask,
+		check,
+		onCh_nameTask,
+		onCh_descriptionTask,
+		valueTask,
+		valueDescription,
+		onCh_duration,
+		disabledEndDate,
+		disabledStartDate,
+		onCh_endDate,
+		onCh_startDate,
+		startDateValue,
+		endDateValue,
+		className,
+		durationValue,
+		valueResponsable,
+		valueRevision,
+		responsables,
+		equipos,
+		revision,
+		onCl_selectPriority,
+		onCl_delete,
+		onCl_reminder,
+		moreOptions,
+		subtaskForbbiden,
+		onCl_addTask,
+		templateOptions,
+		subtasks,
+		modo = 'Light',
+		prioridadInicial = 'none',
+		maxEndDate,
+		maxStartDate,
+		minEndDate,
+		minStartDate,
+		reasignForbidden,
+		dependenciesOptions,
+		dependence,
+		forbbidenDependencies,
+		valueDificultad,
+		onCh_dificultad,
+	} = props;
+
+	const [dificultad, setDificultad] = useState({ ...valueDificultad });
+
+	console.log('dificultad', dificultad);
+	useEffect(() => {
+		setDificultad({ ...valueDificultad });
+	}, [valueDificultad]);
+
+	const handleClick = (e: any) => {
+		e.preventDefault();
+		if (onCh_dificultad) onCh_dificultad(e);
+		setDificultad({ id: e.target.id, title: e.target.outerText });
+	};
+
 	return (
 		<div id={idTask} className={`ctn${modo}_TascC`}>
 			<InputTask
@@ -96,6 +116,7 @@ const Task = ({
 					className={className}
 					durationValue={durationValue}
 				/>
+
 				<ValidationComponent validate={!reasignForbidden}>
 					<IconAsign
 						modo={modo}
@@ -109,6 +130,88 @@ const Task = ({
 						disabled={check ? check : false}
 					/>
 				</ValidationComponent>
+				<IconDropdown
+					modo={modo}
+					options={[
+						{
+							id: '1',
+							title: 'Muy fácil',
+							onClick: handleClick,
+						},
+						{
+							id: '2',
+							title: 'Fácil',
+							onClick: handleClick,
+						},
+						{
+							id: '3',
+							title: 'Normal',
+							onClick: handleClick,
+						},
+						{
+							id: '4',
+							title: 'Dificil',
+							onClick: handleClick,
+						},
+						{
+							id: '5',
+							title: 'Muy dificil',
+							onClick: handleClick,
+						},
+					]}
+					svg={
+						<SimpleContainer>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 384 512"
+								fill={
+									dificultad.id === '1'
+										? 'green'
+										: dificultad.id === '2'
+										? 'greenyellow'
+										: dificultad.id === '3'
+										? 'yellow'
+										: dificultad.id === '4'
+										? 'orange'
+										: dificultad.id === '5'
+										? 'red'
+										: '#525252'
+								}
+								style={{ height: '30px' }}
+							>
+								<path d="M384 319.1C384 425.9 297.9 512 192 512s-192-86.13-192-192c0-58.67 27.82-106.8 54.57-134.1C69.54 169.3 96 179.8 96 201.5v85.5c0 35.17 27.97 64.5 63.16 64.94C194.9 352.5 224 323.6 224 288c0-88-175.1-96.12-52.15-277.2c13.5-19.72 44.15-10.77 44.15 13.03C215.1 127 384 149.7 384 319.1z" />
+							</svg>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 384 512"
+								fill={
+									dificultad.id === '1'
+										? 'green'
+										: dificultad.id === '2'
+										? 'greenyellow'
+										: dificultad.id === '3'
+										? 'yellow'
+										: dificultad.id === '4'
+										? 'orange'
+										: dificultad.id === '5'
+										? 'red'
+										: '#000'
+								}
+								style={{
+									height: '30px',
+									position: 'absolute',
+									left: '3px',
+									opacity: 0.3,
+									zIndex: -1,
+								}}
+							>
+								<path d="M384 319.1C384 425.9 297.9 512 192 512s-192-86.13-192-192c0-58.67 27.82-106.8 54.57-134.1C69.54 169.3 96 179.8 96 201.5v85.5c0 35.17 27.97 64.5 63.16 64.94C194.9 352.5 224 323.6 224 288c0-88-175.1-96.12-52.15-277.2c13.5-19.72 44.15-10.77 44.15 13.03C215.1 127 384 149.7 384 319.1z" />
+							</svg>
+						</SimpleContainer>
+					}
+					iconStyles={{ fill: 'red' }}
+					title={`Dificultad ${dificultad.title ?? ''}`}
+				/>
 				<ValidationComponent validate={!forbbidenDependencies}>
 					<DropdownWithPopup
 						dropdownIcon={dependencieIcon}
@@ -164,7 +267,6 @@ const Task = ({
 						}}
 					>
 						{subtasks.map((e: any) => {
-							console.log(e);
 							return (
 								<div style={{ margin: '.5vh 0' }} key={e.idTask}>
 									{plantillas ? (
@@ -174,6 +276,8 @@ const Task = ({
 											onCh_endDate={e.onCh_endDate}
 											onCh_startDate={e.onCh_startDate}
 											idTask={e.idTask}
+											valueDificultad={e.valueDificultad}
+											onCh_dificultad={e.onCh_dificultad}
 											taskDisabled={e.taskDisabled}
 											taskComplete={e.taskComplete}
 											valueTask={e.valueTask}
@@ -212,6 +316,8 @@ const Task = ({
 											idTask={e.idTask}
 											taskDisabled={e.taskDisabled}
 											taskComplete={e.taskComplete}
+											valueDificultad={e.valueDificultad}
+											onCh_dificultad={e.onCh_dificultad}
 											check={e.check}
 											valueTask={e.valueTask}
 											valueDescription={e.valueDescription}

@@ -13,7 +13,7 @@ function DemoComponent() {
 			onCl_close={() => {}}
 			idTemplate="1"
 			modo="Light"
-			// isMannager
+			isMannager
 			onCh_checkboxMedio={() => {}}
 			onCh_dropDownTipoMedio={() => {}}
 			onCh_templateName={(e) => setTemplate(e.target.value)}
@@ -45,6 +45,7 @@ function DemoComponent() {
 					valueTask: 'Bloqueos',
 					valueDescription: 'Realizar los bloqueos de los siguientes sitios',
 					modo: 'Light',
+					valueDificultad: { id: '2', title: 'Fácil' },
 					onCh_descriptionTask: (e) => console.log(e.target.value),
 					onCh_nameTask: (e) => console.log(e.target.value),
 					onCl_addTask: () => {},
@@ -67,6 +68,8 @@ function DemoComponent() {
 					onCl_addTask: () => {},
 					onCh_duration: (e) => console.log(e.target.value),
 					onCl_delete: () => {},
+					valueDificultad: { id: '4', title: 'Dificil' },
+
 					equipos: equipos,
 					templateOptions: templateOptions,
 					onCl_newTemplate: () => {},
@@ -77,6 +80,8 @@ function DemoComponent() {
 				{
 					idTask: String(autoIncrementalId()),
 					valueTask: 'PDC',
+					valueDificultad: { id: '5', title: 'Muy dificil' },
+
 					valueDescription: 'Realizar la prueba de color',
 					modo: 'Light',
 					onCh_descriptionTask: (e) => console.log(e.target.value),

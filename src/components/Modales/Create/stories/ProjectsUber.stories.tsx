@@ -58,6 +58,10 @@ function DemoComponent() {
 					minStartDate: '2023-02-02 00:00:00',
 					maxStartDate: '2023-02-10 00:00:00',
 					idTask: '1',
+					valueDificultad: {
+						id: '3',
+						title: 'Normal',
+					},
 					dependence: {
 						id: '2',
 						taskName: 'Dummies',

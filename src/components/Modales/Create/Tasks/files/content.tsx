@@ -13,6 +13,8 @@ const Content = (props: content) => {
 			maxStartDate={datos.maxStartDate}
 			minEndDate={datos.minEndDate}
 			minStartDate={datos.minStartDate}
+			valueDificultad={datos.valueDificultad}
+			onCh_dificultad={datos.onCh_dificultad}
 			check={datos.check}
 			onCh_checkbox={datos.onCh_checkbox}
 			idCheckbox={datos.idTask}

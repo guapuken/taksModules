@@ -35,6 +35,9 @@ export {default as Task} from './task';
 // carrousel
 export {default as Carousel} from './carousel';
 
+// dificultad
+export {default as Dificultad} from './Dificultad/Dificultad';
+
 // ---------------------------------------------------------------------------------------------------------
 //      Cards preestablecidas
 // ---------------------------------------------------------------------------------------------------------

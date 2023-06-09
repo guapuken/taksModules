@@ -60,6 +60,7 @@ function DemoComponent() {
 					valueTask: valueTask,
 					onCh_descriptionTask: () => {},
 					onCh_nameTask: () => {},
+					valueDificultad: { id: '2', title: 'Fácil' },
 					equipos: [],
 					idTask: '1',
 					onCl_newTemplate: () => {},

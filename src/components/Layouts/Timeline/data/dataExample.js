@@ -19,6 +19,7 @@ export const tasks = {
 		{
 			duration: 5,
 			taskName: 'Impresión',
+			completed: false,
 		},
 		{
 			duration: 10,
@@ -119,7 +120,7 @@ export const fijos = [
 	{
 		nombre: 'IMJ-CDMX-ESP-1526',
 		porcentaje: 25,
-		status: 'onTime',
+		status: 1,
 		onClick: () => alert('IMJ-CDMX-ESP-1526'),
 	},
 	{

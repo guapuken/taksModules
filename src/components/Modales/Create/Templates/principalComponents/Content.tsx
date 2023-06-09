@@ -109,6 +109,8 @@ export const Content = ({
 				{tasks &&
 					tasks.map((indTask: tasksTemplates) => (
 						<Task
+							valueDificultad={indTask.valueDificultad}
+							onCh_dificultad={indTask.onCh_dificultad}
 							key={indTask.idTask}
 							modo={modo}
 							equipos={indTask.equipos}
@@ -134,12 +136,12 @@ export const Content = ({
 							plantillas
 							// no necesarios
 							check={false}
-							onCh_checkbox={{} as any}
+							onCh_checkbox={null}
 							disabledEndDate={false}
 							disabledStartDate={false}
 							endDateValue={undefined}
-							onCh_endDate={{} as any}
-							onCh_startDate={{} as any}
+							onCh_endDate={null}
+							onCh_startDate={null}
 						/>
 					))}
 			</div>

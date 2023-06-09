@@ -103,6 +103,8 @@ const Content = ({
 									//
 									prioridadInicial={e.prioridadInicial}
 									onCl_selectPriority={e.onCl_selectPriority}
+									valueDificultad={e.valueDificultad}
+									onCh_dificultad={e.onCh_dificultad}
 									//
 									moreOptions={
 										e.moreOptions ?? [

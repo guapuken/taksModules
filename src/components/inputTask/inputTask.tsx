@@ -30,6 +30,7 @@ const InputTask = ({
 		textDecoration: check ? 'line-through' : 'none',
 		opacity: check ? '.7' : '1',
 		with: '100%',
+		marginBottom: '0',
 	};
 	let descriptionTaskStyles = {
 		opacity: check ? '.5' : '.8',

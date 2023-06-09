@@ -57,6 +57,11 @@ export interface tasksProps {
 		taskName: string;
 		onClick?: onClickType;
 	} | null;
+	valueDificultad?: {
+		id: string;
+		title: string;
+	};
+	onCh_dificultad?: onChangeType;
 }
 
 export type content = {
@@ -100,9 +105,14 @@ export type content = {
 	dependenciesOptions?: optionsIcnDrp[];
 	dependence?: {
 		id: string;
-		taskName: string;
+		title: string;
 		onClick?: onClickType;
 	} | null;
+	valueDificultad?: {
+		id: string;
+		title: string;
+	};
+	onCh_dificultad?: onChangeType;
 };
 export type footer = {
 	onCl_confirm: onClickType;

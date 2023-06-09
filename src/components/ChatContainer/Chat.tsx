@@ -20,12 +20,7 @@ const Chat = ({
 	chatValue,
 	chats,
 }: chatProps) => {
-	const [chatCanal, setCanalChat] = useState(
-		chatValue || {
-			id: undefined,
-			title: undefined,
-		}
-	);
+	const [chatCanal, setCanalChat] = useState(chatValue || null);
 	const [comment, setComment] = useState('');
 	const [heightComments, setHeightComments] = useState(0);
 	const [heightTitle, setHeightTitle] = useState(0);
@@ -74,7 +69,7 @@ const Chat = ({
 									onCh_dropdown(e);
 								}
 							}}
-							initialValue={chatCanal}
+							initialValue={chatCanal ?? null}
 							modo={modo}
 						/>
 					</SimpleContainer>

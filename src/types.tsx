@@ -1,4 +1,5 @@
 import React from 'react';
+import { getTaskById } from './components/dragAndDrop/files/functions';
 //Exportación de types que se pueden repetir en múltiples archivos
 // ---------------------------------------------------------------------------------------------------------
 //      themas de color
@@ -112,6 +113,8 @@ export interface tasks {
 		title: string;
 		onClick?: onClickType;
 	} | null;
+	valueDificultad?: { id: string | number; title: string };
+	onCh_dificultad?: onChangeType;
 }
 //INTERFACES
 export interface tasksTemplates {
@@ -142,6 +145,11 @@ export interface tasksTemplates {
 		title: string;
 		onClick?: onClickType;
 	} | null;
+	valueDificultad?: {
+		id: string;
+		title: string;
+	};
+	onCh_dificultad?: onChangeType;
 }
 
 export type subtaskTemplates = {
@@ -172,6 +180,11 @@ export type subtaskTemplates = {
 		title: string;
 		onClick?: onClickType;
 	} | null;
+	valueDificultad?: {
+		id: string;
+		title: string;
+	};
+	onCh_dificultad?: onChangeType;
 };
 export type subtasksProps = {
 	//Input Task
@@ -231,6 +244,11 @@ export type subtasksProps = {
 		title: string;
 		onClick?: onClickType;
 	} | null;
+	valueDificultad?: {
+		id: string;
+		title: string;
+	};
+	onCh_dificultad?: onChangeType;
 };
 
 /** Estructura de los mensajes que debe de recibir el componente
