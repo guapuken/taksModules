@@ -74,8 +74,9 @@ export {default as MdlDeleteProject} from './Modales/Delete/Project/MdlDeletePro
 // Modales de actualización
 export {default as MdlReasignDate} from './Modales/Update/ReasignDate/ModalReasignDate';
 export {default as MdlReasignUser} from './Modales/Update/ReasignUser/ModalReasignUser';
-// Casos específicos
+// Modales de previsualización
 export {default as CommentsTask} from './commentsTask';
+export {default as TimelineMedio} from './Modales/Preview/TimelineMedio/TimelineMedio';
 
 // ---------------------------------------------------------------------------------------------------------
 //      componentes complejos
