@@ -14,7 +14,7 @@ const Template: Story<modalProps> = (args) => <Modal {...args} />;
 export const InitialState = Template.bind({});
 InitialState.args = {
 	modo: 'Light',
-	themeStyle: 'Fw',
+	// themeStyle: 'Fw',
 };
 
 // estado del componente con propiedades

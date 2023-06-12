@@ -2,7 +2,7 @@ import React from 'react';
 
 const ErrorNC = () => {
 	return (
-		<div className={'noCtn'}>
+		<div className={'modal__noCtn'}>
 			<div>
 				<h2>Without content 😥</h2>
 				<p>Add property Content and see it </p>

@@ -6,7 +6,7 @@ const ContentStr = (props: content) => {
 	return (
 		<div
 			// className={`ctn${header ? 'Header' : ''}${Footer ? 'Footer' : ''}Children`}
-			className={`children__modal`}
+			className={`modal__children`}
 			ctn-header={header ? 'header' : ''}
 			ctn-footer={Footer ? 'footer' : ''}
 			style={styleContent}

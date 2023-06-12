@@ -10,7 +10,7 @@ import './styles/modal.scss';
 const Modal = (props: modalProps) => {
 	const { header, Content, Footer, modo = 'Light', style, themeStyle } = props;
 	return (
-		<div className={`ctn_modal`} style={style} theme-config={modo} theme-style={themeStyle}>
+		<div className={`modal`} style={style} theme-config={modo} theme-style={themeStyle}>
 			{header && <HeaderStr {...props} />}
 			{Content ? <ContentStr {...props} /> : <ErrorNC />}
 			{Footer && <FooterStr {...props} />}

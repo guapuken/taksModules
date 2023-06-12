@@ -1,5 +1,4 @@
 @import '../../../../global.scss';
-
 // root iniciales
 :root{
     --bgModal: var(--bg);
@@ -25,7 +24,7 @@
 //variables _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 $altura: 100vh;
 
-.ctn_modal
+.modal
 {
     background: var(--bgModal);
     box-shadow: var(--sombra);
@@ -37,8 +36,9 @@ $altura: 100vh;
     height: $altura;
     max-height: $altura;
     margin: 0 auto;
+
     // estilos del header
-    .header__modal{
+    &__header{
         display: flex;
         justify-content: space-between;
         height: 6vh;
@@ -56,15 +56,9 @@ $altura: 100vh;
             cursor: pointer;
         }
     }
+
     // estilos del children
-    .noCtn{
-        display: grid;
-        place-items: center;
-        width: 100%;
-        height:$altura;
-    }
-    // posibles clases del children
-    .children__modal{
+    &__children{
         padding-top: 2.5vh;
         height: calc($altura - 5vh);
         overflow-y: auto;
@@ -80,15 +74,21 @@ $altura: 100vh;
         &[ctn-footer='footer']{
             height: 86vh;
         }
-
     }
-    .footer__modal{
+    // estilos del footer
+    &__footer{
         width: 100%;
         padding: 20px;
         height: 14vh;
     }
 }
-
+// estilos del modal sin propiedades
+.modal__noCtn{
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height:$altura;
+}
 
 // media queries _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 @media (max-aspect-ratio: 4/3){ // tabletas
