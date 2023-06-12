@@ -60,7 +60,7 @@ const Information = ({
 			onMouseEnter={onHoverMouse}
 			onMouseLeave={onLeaveMouse}
 			onClick={() => setIsHover(true)}
-			className={`ctn${modo}_InfoC ${className}`}
+			className={`ctn${modo}_InfoC`}
 			style={{
 				background: color,
 				width: `${!width ? height : width}px`,

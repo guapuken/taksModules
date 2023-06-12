@@ -14,6 +14,7 @@ import { SimpleContainer, ValidationComponent } from '../Atoms';
 // funciones
 import { useWindowSize } from '../../utils/windowSize';
 import { aspectRatio } from '../../utils/functions/functions';
+import IconDropdown from '../iconDropdown/iconDropdown';
 
 // // archivos multimedia
 // import filter from '../../img/filter.svg';
@@ -80,7 +81,7 @@ const AsideTemplates = ({
 	}, [order, filterBy]);
 	*/
 	return (
-		<div className={`ctn${modo}_ATC`} vs-asd={visible ? 'Visible' : 'Normal'}>
+		<div className={`ctn_ATC  ${modo}`} vs-asd={visible ? 'Visible' : 'Normal'}>
 			<SimpleContainer className="children">
 				<ValidationComponent validate={optionsDropdown}>
 					<SimpleContainer

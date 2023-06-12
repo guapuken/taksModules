@@ -1,11 +1,10 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import DragAndDrop from './dragAndDrop';
-import { dragAndDrop } from './types';
-import Task from '../task/task';
+import React from 'react';
 import CardTask from '../cardTask';
 import Cards from '../cards';
-import { useWindowSize } from '../../utils/windowSize';
+import Task from '../task/task';
+import DragAndDrop from './dragAndDrop';
+import { dragAndDrop } from './types';
 
 const Template: Story<dragAndDrop> = (args) => <DragAndDrop {...args} {...args.tasks} />;
 const tasks = [
@@ -98,6 +97,7 @@ Initial.args = {
 		'Completas / Revisión': 'done',
 	},
 	Card: CardTask,
+	modo: 'Dark',
 };
 
 export default {

@@ -68,9 +68,9 @@ const AutoresizeInput = ({
 			tabIndex={tabIndex}
 			placeholder={placeholder}
 			rows={1}
-			className={`ctn${modo}_AIPTC`}
-			style={{ width: '100%', ...style }}
 			value={value}
+			className={`ctn_AIPTC ${modo}`}
+			style={{ width: '100%', ...style }}
 			// atributos que aayudan en la construcción de los estilos de los componentes
 			hrc-inpt={taskType}
 		/>
