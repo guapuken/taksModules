@@ -13,7 +13,8 @@ const Template: Story<modalProps> = (args) => <Modal {...args} />;
 //estado inicial del componente
 export const InitialState = Template.bind({});
 InitialState.args = {
-	modo: 'Dark',
+	modo: 'Light',
+	themeStyle: 'Fw',
 };
 
 // estado del componente con propiedades
@@ -77,7 +78,8 @@ WithProperties.args = {
 			composition="vertical"
 		/>
 	),
-	modo: 'Light',
+	modo: '',
+	themeConfig: 'Fw',
 };
 
 // exportación de valores default

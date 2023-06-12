@@ -14,6 +14,7 @@ export interface modalProps {
 	// theme
 	modo: Modo;
 	onCl_close: onClickType;
+	themeStyle?: string;
 }
 
 // componente header

@@ -8,9 +8,9 @@ import './styles/modal.scss';
 
 // construcción del componente principal
 const Modal = (props: modalProps) => {
-	const { header, Content, Footer, modo = 'Light', style } = props;
+	const { header, Content, Footer, modo = 'Light', style, themeStyle } = props;
 	return (
-		<div className={`ctn${modo}_MC`} style={style}>
+		<div className={`ctn_modal`} style={style} theme-config={modo} theme-style={themeStyle}>
 			{header && <HeaderStr {...props} />}
 			{Content ? <ContentStr {...props} /> : <ErrorNC />}
 			{Footer && <FooterStr {...props} />}

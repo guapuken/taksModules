@@ -1,28 +1,59 @@
 @import '../../../../global.scss';
 
-// ---------------------------------------------------------------------------------------------------------
-//      estilos generales
-// ---------------------------------------------------------------------------------------------------------
-.ctnLight_MC,
-.ctnDark_MC
+// root iniciales
+:root{
+    --bgModal: var(--bg);
+    --sombra: var(--boxShadow); 
+    --width: 50vw;
+}
+
+// temas _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[theme-config='Dark']{
+    --bgModal: var(--bgDark);
+    --sombra: var(--boxShadowDark);
+}
+[theme-config='Light']{
+    --bgModal: var(--bg);
+    --sombra: var(--boxShadow);
+}
+
+// estilos _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[theme-style='Fw']{
+    --width : 100vw;
+}
+
+//variables _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+$altura: 100vh;
+
+.ctn_modal
 {
+    background: var(--bgModal);
+    box-shadow: var(--sombra);
     position: fixed;
     left: 50%;
     top: 0;
-    width:50vw;
+    width:var(--width);
     transform: translateX(-50%);
-    height: 100vh;
-    max-height: 100vh;
+    height: $altura;
+    max-height: $altura;
     margin: 0 auto;
     // estilos del header
-    .headerCtn{
+    .header__modal{
+        display: flex;
+        justify-content: space-between;
         height: 6vh;
         display: flex;
         align-items: center;
-        h3{
+        box-shadow: inset 0 0 0 2px red;
+        &-title{
             margin-block: 0; 
             font-weight: lighter; 
             margin-left: 20px;
+        }
+        &-img{
+            height: 30px;
+            padding-right: 15px; 
+            cursor: pointer;
         }
     }
     // estilos del children
@@ -30,74 +61,43 @@
         display: grid;
         place-items: center;
         width: 100%;
-        height:100vh;
+        height:$altura;
     }
     // posibles clases del children
-    .ctnHeaderFooterChildren,
-    .ctnHeaderChildren,
-    .ctnFooterChildren,
-    .ctnChildren
-    {
+    .children__modal{
+        padding-top: 2.5vh;
+        height: calc($altura - 5vh);
         overflow-y: auto;
         width: 90%;
         overflow-x: hidden;
         margin: 0 auto;
+        &[ctn-header='header'],&[ctn-footer='footer']{
+            height: calc(86vh - 40px);
+        }
+        &[ctn-header='header']{
+            height: calc($altura - 10vh);
+        }
+        &[ctn-footer='footer']{
+            height: 86vh;
+        }
+
     }
-    // children con header y footer
-    .ctnHeaderFooterChildren{
-        height: calc(86vh - 40px);
-    }
-    // children con header
-    .ctnHeaderChildren{
-        height: calc(100vh - 10vh);
-    }
-    // children con footer
-    .ctnFooterChildren{
-        height: 86vh;
-    }
-    // children solo
-    .ctnChildren{
-        padding-top: 2.5vh;
-        height: calc(100vh - 5vh);
-    }
-    // estilos del footer
-    .footer{
+    .footer__modal{
         width: 100%;
         padding: 20px;
         height: 14vh;
     }
 }
-// ---------------------------------------------------------------------------------------------------------
-//     modo claro
-// ---------------------------------------------------------------------------------------------------------
-.ctnLight_MC{
-    background: #fff;
-    box-shadow: var(--boxShadow);
-    .noCtn{
-        color: #282828;
-    }
-}
-// ---------------------------------------------------------------------------------------------------------
-//     modo oscuro
-// ---------------------------------------------------------------------------------------------------------
-.ctnDark_MC{
-    background: #282828;
-    box-shadow: var(--boxShadowDark);
-    .noCtn{
-        color: #dedede;
-    }
-}
-// ---------------------------------------------------------------------------------------------------------
-//     media queries
-// ---------------------------------------------------------------------------------------------------------
 
-// tablet
-@media (max-width:834px){
-    .ctnLight_MC{
-        width: 100vw;
+
+// media queries _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+@media (max-aspect-ratio: 4/3){ // tabletas
+    :root{
+        --width: 100vw;
     }
 }
-
-// cel
-@media (max-width:415px){
+@media (max-aspect-ratio: 7/10){ // dispositivos móviles
+    :root{
+        --width: 100vw;
+    }
 }

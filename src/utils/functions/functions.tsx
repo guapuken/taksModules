@@ -60,7 +60,7 @@ export function getWidth(idToSelect: string) {
 	return { width, height };
 }
 
-function obtenerColorLetra(colorFondo: any) {
+export function obtenerColorLetra(colorFondo: any) {
 	/*
 	 * Devuelve el color de letra (blanco o negro) en función del color de fondo proporcionado.
 	 */
@@ -80,9 +80,9 @@ function obtenerColorLetra(colorFondo: any) {
 
 	// Determinar el color de letra en función de la luminosidad del fondo
 	if (luminosidad > 0.5) {
-		return 'black'; // Fondo claro, usar letra negra
+		return '#282828'; // Fondo claro, usar letra negra
 	} else {
-		return 'white'; // Fondo oscuro, usar letra blanca
+		return '#dedede'; // Fondo oscuro, usar letra blanca
 	}
 }
 
