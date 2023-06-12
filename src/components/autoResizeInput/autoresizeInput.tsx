@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-// types que se utilizan en el componente
+
+// types
 import { autoresizeInput } from './types/types';
-// estilos del componente
+
+// styles
 import './styles/autoresizeInput.scss';
-// types que se usan en documentación, (NO BORRAR)--------------------------------------------------------------------------------------
+
+// documentation types, (NO BORRAR, NO DELETE)-----------------------------------------------------------------------------------------
 import { css, onBlurType, onChangeType, taskType } from '../../types';
 //--------------------------------------------------------------------------------------------------------------------------------------
 
@@ -31,7 +34,7 @@ const AutoresizeInput = ({
 	modo = 'Light',
 }: autoresizeInput) => {
 	//Hooks
-	const [value, setValue] = useState(initialValue || undefined);
+	const [value, setValue] = useState(initialValue);
 	const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
 	// se encarga de reiniciar el tamaño del textarea y se setea el tamaño del mismo

@@ -1,0 +1,48 @@
+@import '../../../../global.scss';
+
+.ContainerC{
+    width: 100vw;
+    height: 90vh;
+    background: red;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    display: flex;
+    &__children{
+        height: calc(90vh);
+        width: 75%;
+        box-shadow: inset 0 0 0 5px green;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        position: relative;
+        &_header, &_children, &_footer{
+            padding: 10px;
+            width: 100%;
+        }
+        &_header{
+            height: 40px;
+            padding: 1vh;
+            box-shadow: inset 0 0 0 5px blue;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        &_children{
+            overflow-y: auto;
+            height: calc(90vh - 20vh);
+            box-shadow: inset 0 0 0 5px yellow;
+        }
+        &_footer{
+            height: 20vh;
+            box-shadow: inset 0 0 0 5px blueviolet;
+        }
+
+    }
+    &__chat{
+        width: calc(100vw / 4 - 50px);
+        height: 100%;
+        background: yellowgreen;
+    }
+}

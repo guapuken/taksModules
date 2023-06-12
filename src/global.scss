@@ -2,21 +2,32 @@
 //      normalize
 // ---------------------------------------------------------------------------------------------------------
 @import './normalize.scss';
+// ---------------------------------------------------------------------------------------------------------
+//      fonts
+// ---------------------------------------------------------------------------------------------------------
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
 
 // ---------------------------------------------------------------------------------------------------------
-//      roots de variables
+//      variables
 // ---------------------------------------------------------------------------------------------------------
 :root{
+  //backgrounds
   --bg : #ffffff;
   --bgDark: #282828;
-  --fcDark: #dedede;
   --contrastDark: #525252;
+  // fuentes
+  --fcLight: #282828;
+  --fcDark: #dedede;
+  // inputs
   --border: inset 0 0 0 2px #dedede;
   --borderDark: inset 0 0 0 calc(2px + 0.390625vw) #525252;
+  // contenedores
   --boxShadow: 0 0 calc(10px + 0.390625vw) #dedede75;
   --boxShadowDark: 0 0 calc(10px + 0.390625vw)#00000075;
+  // medidas
   --cardWidth: calc(100vw * .25);
   --cardHeight: calc(100vh * .25);
+  // colores
   --aqua: #1CB5B2;
   --aquaContrast: #127574;
 }
@@ -34,7 +45,6 @@
 //      estilos generales
 // ---------------------------------------------------------------------------------------------------------
 *{
-    // font-size: 62.5%;
     font-family: 'Open Sans', sans-serif;
   }
   //Modificación en los estilos del scrollbar
@@ -48,10 +58,9 @@
   }
   ::-webkit-scrollbar-thumb {
     background-color: transparent !important;
-    // border: 1px solid #dedede;
     border-radius: 10px;
   }
-  //buttons
+  // elimina todos los estilos que contiene el button por defecto
   button {
     all: unset;
   }
@@ -79,35 +88,14 @@
 //      modos claro y oscuro
 // ---------------------------------------------------------------------------------------------------------
   .Light{
-    h1, h2,h3,h4,h5,h6,p,button,span,a{
+    h1, h2,h3,h4,h5,h6,p,button,span,a, textarea{
       color: var(--bgDark);
     }
   }
   .Dark{
-    h1, h2,h3,h4,h5,h6,p,button,span,a{
+    h1, h2,h3,h4,h5,h6,p,button,span,a, textarea{
       color: var(--fcDark);
     }
-  }
-  h1{
-    font-size: clamp(30px, 3.2vw, 40px);
-  }
-  h2{ 
-    font-size: clamp(20px, 2.2vw, 30px);
-  }
-  h3{ 
-    font-size: clamp(18px, 2vw, 28px);
-  }
-  h4{  
-    font-size: clamp(16px,1.8vw, 26px);
-  }
-  h5{
-    font-size: clamp(14px, 1.6vw, 24px);
-  }
-  h6{
-    font-size: clamp(13px,1.5vw, 22px);
-  }
-  p, span{
-    font-size: clamp(13px, 1.5vw, 22px);
   }
 
 // ---------------------------------------------------------------------------------------------------------
@@ -121,7 +109,7 @@
     white-space: pre-wrap; /* let the text wrap preserving spaces */
   }
   .ttlTask{
-    font-size: clamp(12px, 2.5vh, 32px);
+    font-size: clamp(12px, 2.5vh, 15px);
     font-weight: bold;
   }
   .ContainerCardTeamComponent{

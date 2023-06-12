@@ -139,6 +139,7 @@ Initial.args = {
 		{ title: 'Buscar coincidencias', onClick: () => alert('coincidencias') },
 	],
 	plantillas: true,
+	dependencie: { taskName: 'Hola' },
 };
 
 const Childrens = [] as any;
@@ -148,7 +149,7 @@ Tasks.args = {
 	principalTask: true,
 	taskDisabled: false,
 	taskComplete: false,
-	check: true,
+	check: false,
 	// onChangeNameTask: () => alert('change Task'),
 	// onChangeDescriptionTask: () => alert('change description task'),
 	// valueTask: ,
@@ -178,6 +179,14 @@ Tasks.args = {
 	onCl_addTask: Childrens.push(
 		<Task
 			idTask="1"
+			check={false}
+			onCh_checkbox={(e) => console.log(e.target.value)}
+			onCh_endDate={{} as any}
+			valueDescription=""
+			valueTask=""
+			onCh_startDate={{} as any}
+			onCh_nameTask={(e) => console.log(e.target.value)}
+			onCh_descriptionTask={(e) => console.log(e.target.value)}
 			equipos={[]}
 			onCl_newTemplate={() => {}}
 			responsables={[]}

@@ -1,11 +1,11 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
 
-// styles
-import './rangeDatePicker.scss';
 // types
 import { rangeDatePicker } from './types';
 // functions
 import { MonthName } from './files/functions';
+// styles
+import './rangeDatePicker.scss';
 
 const RangeDatePicker = ({
 	startDateValue,
@@ -16,6 +16,10 @@ const RangeDatePicker = ({
 	disabledStartDate,
 	onCh_endDate,
 	onCh_startDate,
+	minStartDate,
+	maxStartDate,
+	minEndDate,
+	maxEndDate,
 }: rangeDatePicker) => {
 	/**
 	 * Hooks que definen la fecha inicial y fecha final
@@ -24,10 +28,10 @@ const RangeDatePicker = ({
 	const [endDate, setEndDate] = useState(endDateValue || '');
 
 	useEffect(() => {
-		setStartDate(startDateValue);
+		if (startDateValue) setStartDate(startDateValue);
 	}, [startDateValue]);
 	useEffect(() => {
-		setEndDate(endDateValue);
+		if (endDateValue) setEndDate(endDateValue);
 	}, [endDateValue]);
 	return (
 		<div id={`dates${modo}_RDatePC`} style={style} className={`ctn${modo}_RDatePC`}>
@@ -40,6 +44,8 @@ const RangeDatePicker = ({
 					type="datetime-local"
 					id="startDate"
 					name="start-date"
+					min={minStartDate}
+					max={maxStartDate}
 					className={'DatePickerTaskComponent'}
 					value={String(startDate)}
 					disabled={disabledStartDate}
@@ -62,7 +68,8 @@ const RangeDatePicker = ({
 					id="endDate"
 					name="endDate"
 					disabled={disabledEndDate}
-					min={String(startDate)}
+					min={minEndDate ?? String(startDate)}
+					max={maxEndDate}
 					value={String(endDate)}
 					className={`${'DatePickerTaskComponent'} ${'CalendarOpenTaskModules'}`}
 					onChange={(e: any) => {

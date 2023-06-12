@@ -1,4 +1,5 @@
 import React from 'react';
+import { getTaskById } from './components/dragAndDrop/files/functions';
 //Exportación de types que se pueden repetir en múltiples archivos
 // ---------------------------------------------------------------------------------------------------------
 //      themas de color
@@ -46,6 +47,7 @@ export interface submenusArray {
 export interface tasks {
 	//Input Task
 	idTask: string;
+	forbbidenDependencies?: boolean;
 	principalTask?: boolean;
 	taskDisabled?: boolean;
 	taskComplete?: boolean;
@@ -55,6 +57,10 @@ export interface tasks {
 	valueDescription: string;
 	onClickCheck?: onClickType;
 	onCh_nameTask: onChangeType;
+	maxEndDate?: string;
+	maxStartDate?: string;
+	minEndDate?: string;
+	minStartDate?: string;
 	// onCh_nameTask: onChangeType;
 	onCh_descriptionTask: onChangeType;
 	// onCh_descriptionTask: onChangeType;
@@ -96,101 +102,89 @@ export interface tasks {
 	subtasks?: subtasksProps[];
 
 	//botones agregar
-	onCl_newTemplate: onClickType;
+	// onCl_newTemplate: onClickType;
 	onCl_addTask?: onClickType;
 	templateOptions: optionsIcnDrp[];
+	reasignForbidden?: boolean;
 	modo?: Modo;
+	dependenciesOptions?: optionsIcnDrp[];
+	dependence?: {
+		id?: string;
+		title?: string;
+		onClick?: onClickType;
+	} | null;
+	valueDificultad?: { id?: string | number; title?: string };
+	onCh_dificultad?: onChangeType;
 }
 //INTERFACES
 export interface tasksTemplates {
-	//Input Task
 	idTask: string;
-	// taskDisabled?: boolean;
 	valueTask: string;
 	valueDescription: string;
-	// check: boolean;
-	// onCh_checkbox: onChangeType;
-	// onCh_endDate: onChangeType;
-	// onCh_startDate: onChangeType;
-
 	onCh_nameTask: onChangeType;
 	onCh_descriptionTask: onChangeType;
-
-	//Icon Dates
 	className?: string;
 	durationValue?: string;
 	onCh_duration?: onChangeType;
-
-	//Icon Asign
 	responsables: submenusArray[];
 	equipos: submenusArray[];
 	revision: submenusArray[];
 	valueResponsable?: string;
 	valueRevision?: string;
-
-	//Icon MoreOptions
 	moreOptions?: optionsIcnDrp[];
 	onCl_delete: onClickType;
-	// plantillas?: boolean;
-
-	//addTask
 	subtaskForbbiden?: boolean;
 	subtasks?: subtaskTemplates[];
-
-	//botones agregar
 	onCl_newTemplate: onClickType;
 	onCl_addTask: onClickType;
 	templateOptions: optionsIcnDrp[];
 	modo: Modo;
+	dependenciesOptions?: optionsIcnDrp[];
+	dependence?: {
+		id?: string;
+		title?: string;
+		onClick?: onClickType;
+	} | null;
+	valueDificultad?: {
+		id?: string;
+		title?: string;
+	};
+	onCh_dificultad?: onChangeType;
 }
 
 export type subtaskTemplates = {
-	//Input Task
 	idTask: string;
 	taskDisabled?: boolean;
 	taskComplete?: boolean;
-	// check: boolean;
 	valueTask: string;
 	valueDescription: string;
 	onCh_nameTask: onChangeType;
 	onCh_descriptionTask: onChangeType;
-	// onCh_checkbox: onChangeType;
 	onCh_duration?: onChangeType;
-
-	//Icon Dates
-	// disabledEndDate?: boolean;
-	// disabledStartDate?: boolean;
-	// onCh_endDate: onChangeType;
-	// onCh_startDate: onChangeType;
-	// startDateValue: string;
-	// endDateValue: string;
-	// plantillas?: boolean;
-
-	//Icon Asign
 	responsables: submenusArray[];
 	equipos: submenusArray[];
 	revision: submenusArray[];
 	valueResponsable: string;
 	valueRevision?: string;
-
-	//Icon Priority
-	// prioridadInicial?: prioritys;
-	// onCl_selectPriority: onClickType;
-
-	//Icon MoreOptions
 	moreOptions?: optionsIcnDrp[];
 	onCl_delete: onClickType;
-	// onCl_reminder: onClickType;
-
-	//addTask
 	subtaskForbbiden?: boolean;
 	subtasks?: subtaskTemplates[];
-
-	//botones agregar
 	onCl_newTemplate: onClickType;
 	onCl_addTask: onClickType;
 	templateOptions: optionsIcnDrp[];
 	modo: Modo;
+	dependenciesOptions?: optionsIcnDrp[];
+	dependence?: {
+		id: string;
+		title: string;
+		onClick?: onClickType;
+	} | null;
+	valueDificultad?: {
+		id: string;
+		title: string;
+	};
+	onCh_dificultad?: onChangeType;
 };
 export type subtasksProps = {
 	//Input Task
@@ -220,6 +214,10 @@ export type subtasksProps = {
 	equipos: submenusArray[];
 	revision: submenusArray[];
 	valueResponsable?: string;
+	maxEndDate?: string;
+	maxStartDate?: string;
+	minEndDate?: string;
+	minStartDate?: string;
 	valueRevision?: string;
 
 	//Icon Priority
@@ -240,6 +238,17 @@ export type subtasksProps = {
 	onCl_addTask?: onClickType;
 	templateOptions: optionsIcnDrp[];
 	modo?: Modo;
+	dependenciesOptions?: optionsIcnDrp[];
+	dependence?: {
+		id: string;
+		title: string;
+		onClick?: onClickType;
+	} | null;
+	valueDificultad?: {
+		id: string;
+		title: string;
+	};
+	onCh_dificultad?: onChangeType;
 };
 
 /** Estructura de los mensajes que debe de recibir el componente

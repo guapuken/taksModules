@@ -1,20 +1,14 @@
 import React from 'react';
-// ---------------------------------------------------------------------------------------------------------
-//      eementos auxiliares
-// ---------------------------------------------------------------------------------------------------------
-// componentes
-import { Notifications, ProgressBar } from '../../../components';
-import { ButtonItem } from '../../../utils/asideUtils';
-import { CardContainer, SimpleButtonText, Spans, TitleCard } from '../../../utils/cardsUtils';
+// componentes auxiliares
+import { CircularProgressBar } from '../../../components';
+import { CardContainer } from '../../../utils/cardsUtils';
+import { SimpleContainer, TextBoldLight, TextButton, Texts, Title } from '../../Atoms';
+// types
+import { cardProject } from '../types';
 // funciones
-import { cardW } from '../../../utils/functions/functions';
 import { percent } from '../../../utils/percent';
-import { useWindowSize } from '../../../utils/windowSize';
-//archivos multimedia
-import shareIcon from '../../../img/share.svg';
 // estilos
 import '../cardProject.scss';
-import { cardProject } from '../types';
 
 // ---------------------------------------------------------------------------------------------------------
 //      creación de componente
@@ -22,77 +16,52 @@ import { cardProject } from '../types';
 const Content = ({
 	modo,
 	projectName = 'Projecto',
-	follow,
-	onCl_share,
 	ejecutivo = 'Ejecutivo',
 	statusTasks,
 	completedTask = 0,
 	incompletedTask = 10,
 	onCl_showDetails,
-	onCh_follow,
-	idProject,
 }: cardProject) => {
 	return (
 		<CardContainer className="ctn_CProjectC">
-			<div className="title">
-				<TitleCard modo={modo} title={projectName} className="ttlProject" />
-			</div>
-			<div className="ctnBtns">
-				<ButtonItem
-					id={idProject as string}
-					img={shareIcon}
-					onClick={onCl_share}
-					style={{ marginBottom: '10px' }}
-				/>
-				<Notifications
-					modo={modo}
-					idNotification={idProject}
-					onChange={onCh_follow}
-					checkValue={follow}
-				/>
-			</div>
-			<div className="ctnEjecutivoBtns">
-				<SimpleButtonText style={{ fontSize: '14px' }}>
-					<Spans boldLegend="Ejecutivo: " legend={ejecutivo} positionBold="start" />
-				</SimpleButtonText>
-			</div>
-
-			<div className=".ctnProgressBar_showDtls">
-				<ProgressBar
-					modo={modo}
-					status={statusTasks}
-					valor={
-						completedTask === 0 || incompletedTask === 0
+			<SimpleContainer className="infoCtn">
+				<SimpleContainer className="title">
+					<Title modo={modo} className="ttlProject" maxLines={1}>
+						{projectName}
+					</Title>
+				</SimpleContainer>
+				<SimpleContainer className="ctnEjecutivoBtns">
+					<TextBoldLight
+						modo={modo}
+						boldLegend="Ejecutivo: "
+						legend={ejecutivo}
+						positionBold="start"
+					/>
+				</SimpleContainer>
+			</SimpleContainer>
+			<SimpleContainer className="ftr">
+				<SimpleContainer className="progress">
+					<CircularProgressBar
+						percentTask={
+							completedTask === 0 && incompletedTask === 0
+								? 0
+								: percent(completedTask + incompletedTask, completedTask)
+						}
+						statusTask={statusTasks}
+						size={40}
+					/>
+					<Texts modo={modo}>{`${
+						completedTask === 0 && incompletedTask === 0
 							? 0
 							: percent(completedTask + incompletedTask, completedTask)
-					}
-					width={cardW(false) - 3}
-					onClick={onCl_showDetails}
-					styleContent={{ cursor: 'pointer' }}
-				/>
-				<div className="ftr">
-					<SimpleButtonText style={{ fontSize: '14px' }}>
-						{useWindowSize().width > 1750 && (
-							<Spans
-								boldLegend={completedTask}
-								legend="tareas terminadas"
-								positionBold="start"
-							/>
-						)}
-						<Spans
-							boldLegend={incompletedTask}
-							legend="pendientes"
-							positionBold="start"
-							styleBold={{ marginLeft: '10px' }}
-						/>
-					</SimpleButtonText>
-					<SimpleButtonText
-						legend="mostrar detalles..."
-						onClick={onCl_showDetails}
-						style={{ fontSize: '14px' }}
-					/>
-				</div>
-			</div>
+					}%`}</Texts>
+				</SimpleContainer>
+				<SimpleContainer>
+					<TextButton modo={modo} onClick={onCl_showDetails}>
+						Mostrar detalles...
+					</TextButton>
+				</SimpleContainer>
+			</SimpleContainer>
 		</CardContainer>
 	);
 };

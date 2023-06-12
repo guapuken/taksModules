@@ -42,23 +42,11 @@ export type messageWorked = {
 	messages: message[];
 };
 
-/** Estructura que recibe el avatar en caso de exisstir un username
- * @example -
- * 		{
- * 			avatar: undefined, *** Puede ser indefinido o mandar la url de la imagen
- * 			userName:'Juan Pérez'
- * 		}
- */
-export type avatar = {
-	avatar?: string | undefined;
-	userName: string;
-};
-
 /** Estructura de los items que generarán los mensajes
  *
  */
 export type itemMsn = {
-	key?: string;
 	message: string;
 	date: string;
+	modo: Modo;
 };

@@ -61,7 +61,7 @@ const CircularProgressBar = ({
 				</svg>
 				{statusTask === 'outOfTime' || statusTask === 3 ? (
 					<div className="iconOtOfTm">
-						<LateIcon />
+						<LateIcon height={40} />
 					</div>
 				) : (
 					<></>

@@ -1,0 +1,44 @@
+.ctn_CCampaign{
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 20px;
+    min-width: calc(100vw / 4 - 30px);
+    max-width: calc(100vw / 4 - 30px);
+    max-height: 250px;
+    position: relative;
+    cursor: pointer;
+    .header_CCampaign{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .CtnPercent_CCampaign{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .Percent_CCampaign{
+        position: relative !important;
+        .TextPercent_CCampaign{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            font-size: 12px;
+        }
+    }
+// ---------------------------------------------------------------------------------------------------------
+//      modo claro
+// ---------------------------------------------------------------------------------------------------------
+    &.Light{
+        background: var(--bg);
+        box-shadow: var(--boxShadow);
+    }
+// ---------------------------------------------------------------------------------------------------------
+//      modo oscuro
+// ---------------------------------------------------------------------------------------------------------
+    &.Dark{
+        background: var(--bgDark);
+        box-shadow: var(--boxShadowDark);
+    }
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './checkboxInput.scss';
 import { Modo, css } from '../../../types';
 
@@ -14,17 +14,15 @@ interface CheckboxInputProps {
 	style?: css;
 }
 export const CheckboxInput = (props: CheckboxInputProps) => {
-	const { disabled, onCh_checkbox, check, idCheckbox = '1', modo = 'Light', style } = props;
+	const { disabled, onCh_checkbox, check, idCheckbox, modo = 'Light', style } = props;
 
-	const [checkValue, setCheckValue] = React.useState(check || false);
-	const inputRef = React.useRef<any>(null);
+	const [checkValue, setCheckValue] = useState(check);
+	const inputRef = useRef<any>(null);
 
-	function handleClick() {
-		const inputElement = inputRef.current;
-		if (inputElement) {
-			inputElement.click();
-		}
-	}
+	useEffect(() => {
+		console.log('nivelInicial', check);
+		setCheckValue(check);
+	}, [check]);
 
 	return (
 		<div className={`ctn${modo}_CBIC`} style={style}>
@@ -34,14 +32,9 @@ export const CheckboxInput = (props: CheckboxInputProps) => {
 				id={idCheckbox}
 				checked={checkValue}
 				disabled={disabled}
-				onChange={(e) => {
-					setCheckValue(!checkValue);
-					if (onCh_checkbox) {
-						onCh_checkbox(e);
-					}
-				}}
+				onChange={onCh_checkbox}
 			/>
-			<label htmlFor={idCheckbox} onClick={handleClick}></label>
+			<label htmlFor={idCheckbox}></label>
 		</div>
 	);
 };

@@ -1,0 +1,18 @@
+@import '../../../../global.scss';
+
+.ctn_Ttls{
+    position: relative;
+    font-weight: 700 !important;
+    line-height: 1.4;
+    // Se utilizan para establecer el número máximo de líneas que se verán
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    white-space: pre-wrap;
+    &.Light{
+        color: var(--fcLight);
+    }
+    &.Dark{
+        color: var(--fcDark);
+    }
+}

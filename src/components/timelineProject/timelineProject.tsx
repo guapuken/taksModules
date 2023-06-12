@@ -2,23 +2,22 @@ import React from 'react';
 // types
 import { tasks, timelineProps } from './types';
 // componentes princiaples
-import { Header, Tasks } from './files';
+import { Tasks } from './files';
 // estilos
 import './timelineProject.scss';
 
 // componente principal
-const TimelineProject = (props: timelineProps) => {
+const Timeline = (props: timelineProps) => {
 	const { modo = 'Light', tasks } = props;
 	// constantes que validan si la tarea final contiene boton y con base a ello renderiza la altura de la linea correctamente
 	let mapTask = tasks ? tasks?.map((e) => e) : [];
 	let finalTask = mapTask.length - 1;
-	let isBtninFinalTask = mapTask[finalTask].legendBtn ? true : false;
+	let isBtninFinalTask =
+		mapTask[finalTask]?.legendBtn || mapTask[finalTask]?.onCl_showDetails ? true : false;
 
 	//
 	return (
 		<div className={`ctn${modo}_TLPC`}>
-			<Header modo={modo} />
-			<h2 className="ttlTimeline">Progreso del proyecto</h2>
 			<div className="ctnTimeline">
 				<div
 					className="line"
@@ -43,4 +42,4 @@ const TimelineProject = (props: timelineProps) => {
 };
 
 // exportación del componente principal
-export default TimelineProject;
+export default Timeline;

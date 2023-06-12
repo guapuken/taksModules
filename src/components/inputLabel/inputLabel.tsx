@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../global.scss';
 import './inputLabel.scss';
 import { inputLabel } from './types/types';

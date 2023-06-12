@@ -1,7 +1,8 @@
 import React from 'react';
 
 // componentes auxiliares
-import { CardContainer, LateIcon, SimpleButtonText, TitleCard } from '../../../utils/cardsUtils';
+import { CardContainer, LateIcon } from '../../../utils/cardsUtils';
+import { Title, Texts, TextButton, SimpleContainer } from '../../Atoms';
 // types
 import { cardTaskReview } from '../types';
 //importación de estilos
@@ -16,31 +17,23 @@ export const Content = ({
 }: cardTaskReview) => {
 	return (
 		<CardContainer className={`ctn${modo}_CTR`}>
-			{/* Renderea el título de la tarea */}
-			<div>
-				<TitleCard title={taskName} modo={modo} />
-				{statusTask === 'outOfTime' ||
-					(statusTask === 3 && (
-						<div className={'lateIcon'}>
-							<LateIcon />
-						</div>
-					))}
-				{/* renderea la descripción de la tarea */}
-				<SimpleButtonText className={'description'}>
-					<span className="TextOverflow" title={taskDescription}>
-						{taskDescription}
-					</span>
-				</SimpleButtonText>
-			</div>
-
-			{/*  renderea el boton para abrir el modal de edición de la tarea  */}
-			<div className=".ctnProgressBar_showDtls">
-				<SimpleButtonText
-					legend={`mostrar detalles...`}
-					onClick={onCl_showDetails}
-					className={'btnShowDtls'}
-				/>
-			</div>
+			<SimpleContainer>
+				<Title modo={modo} maxLines={1} title={taskName}>
+					{taskName}
+				</Title>
+				<Texts modo={modo} maxLines={2} className="descr">
+					{taskDescription}
+				</Texts>
+			</SimpleContainer>
+			{statusTask === 'outOfTime' ||
+				(statusTask === 3 && (
+					<div className={'lateIcon'}>
+						<LateIcon />
+					</div>
+				))}
+			<TextButton onClick={onCl_showDetails} modo={modo}>
+				mostrar detalles...
+			</TextButton>
 		</CardContainer>
 	);
 };

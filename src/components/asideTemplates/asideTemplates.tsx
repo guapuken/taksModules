@@ -1,23 +1,31 @@
 import React, { useEffect, useState } from 'react';
+
 // types
 import { aside } from './types/types';
+
 // componentes principales
 import { ErrorNc, NoTasks } from './principalComponents';
-// types que se utilizan en documentación
-import { Modo, onChangeType, optionsDropdown } from '../../types';
 
+// componentes auxiliares
+import { /* IconDropdown, */ Carousel, Dropdown } from '../../components';
+import { SimpleContainer, ValidationComponent } from '../Atoms';
+// import { ButtonItem } from '../../utils/asideUtils';
+
+// funciones
 import { useWindowSize } from '../../utils/windowSize';
-import CardTaskReview from '../cardTaskReview/cardTaskReview';
-import Carousel from '../carousel/carousel';
-import Dropdown from '../dropdown/dropdown';
-// estilos del componente
-import './styles/aside.scss';
-
-import filter from '../../img/filter.svg';
-import orderIcon from '../../img/order.svg';
-import { ButtonItem } from '../../utils/asideUtils';
 import { aspectRatio } from '../../utils/functions/functions';
 import IconDropdown from '../iconDropdown/iconDropdown';
+
+// // archivos multimedia
+// import filter from '../../img/filter.svg';
+// import orderIcon from '../../img/order.svg';
+
+// types que se utilizan en documentación ----------------------------------------------------------------------
+import { Modo, onChangeType, optionsDropdown, optionsIcnDrp } from '../../types';
+//--------------------------------------------------------------------------------------------------------------
+
+// styles
+import './styles/aside.scss';
 
 /** documentación del componente
  * @param {boolean} isWhite - define si el Aside contiene un color de fondo
@@ -33,16 +41,22 @@ const AsideTemplates = ({
 	imageNoTasks,
 	priText,
 	secText,
-	tasks,
+	tasks = [],
 	legendBtn,
 	idSection,
 	onCl_btn,
 	onCh_dropdown,
 	initialValueDropdown,
 	optionsDropdown,
+	Card,
+	// optionsFilter,
+	// onCl_reorder,
+	placeholderDropdown,
 }: aside) => {
-	const scrnW = useWindowSize().width;
 	const scrnH = useWindowSize().height;
+
+	/*
+	TODO: Activar los filtros
 
 	const [order, setOrder] = useState(true);
 	const [filterBy, setFilterBY] = useState('');
@@ -65,84 +79,73 @@ const AsideTemplates = ({
 			filterResult(tasks, filterBy, order);
 		}
 	}, [order, filterBy]);
-
+	*/
 	return (
-		// <div className={`ctn${modo}_ATC`} vs-asd={visible ? 'Visible' : 'Normal'}>
 		<div className={`ctn_ATC  ${modo}`} vs-asd={visible ? 'Visible' : 'Normal'}>
-			<div className="children">
-				<div
-					className="dropdownCtn"
-					style={{ width: '90%', display: 'flex', gap: '10px', height: '30px' }}
-				>
-					<Dropdown
-						modo={visible ? 'Dark' : modo}
-						onCh={onCh_dropdown as onChangeType}
-						options={optionsDropdown as optionsDropdown[]}
-						placeHolder="Selecciona las tareas"
-						initialValue={initialValueDropdown}
+			<SimpleContainer className="children">
+				<ValidationComponent validate={optionsDropdown}>
+					<SimpleContainer
+						className="dropdownCtn"
 						style={{
-							width: `calc(100% - ${!aspectRatio() ? '40px' : '0px'})`,
+							width: '90%',
+							display: 'flex',
+							gap: '10px',
+							height: '30px',
+							margin: '0 auto',
 						}}
-					/>
-					{!aspectRatio() && (
-						<>
+					>
+						<Dropdown
+							modo={visible ? 'Dark' : modo}
+							onCh={onCh_dropdown as onChangeType}
+							options={optionsDropdown as optionsDropdown[]}
+							placeHolder={placeholderDropdown}
+							initialValue={initialValueDropdown}
+							style={{
+								// width: `calc(100% - ${!aspectRatio() ? '40px' : '0px'})`,
+								width: `100%`,
+							}}
+						/>
+						{/* 
+						FIXME: Cuando se vayan a activar los filtros se activará esta parte 
+
+						 <ValidationComponent validate={!aspectRatio()}>
 							<IconDropdown
 								modo={visible ? 'Dark' : modo}
 								icon={filter}
-								options={[
-									{
-										id: 'status',
-										title: 'Por estatus',
-										onClick: () => setFilterBY('statusTask'),
-									},
-									{
-										id: 'name',
-										title: 'Por nombre',
-										onClick: () => setFilterBY('taskName'),
-									},
-								]}
+								options={optionsFilter as optionsIcnDrp[]}
 							/>
-							<ButtonItem
-								id="orderArray"
-								img={orderIcon}
-								onClick={() => setOrder(!order)}
-							/>
-						</>
-					)}
-				</div>
+							<ButtonItem id="orderArray" img={orderIcon} onClick={onCl_reorder} />
+						</ValidationComponent>
+						*/}
+					</SimpleContainer>
+				</ValidationComponent>
 				{(!tasks || tasks.length === 0) && !priText && !secText ? (
 					<ErrorNc />
 				) : (
-					<div className="ctnCards">
-						{!aspectRatio() ? (
-							tasks.length === 0 ? (
-								<></>
-							) : (
-								tasks?.map((individualTask) => (
-									<CardTaskReview
-										key={individualTask.id}
-										modo={visible ? 'Dark' : modo}
-										{...individualTask}
-									/>
-								))
-							)
-						) : tasks.length === 0 ? (
-							<></>
-						) : (
+					<SimpleContainer className="ctnCards">
+						<ValidationComponent validate={!aspectRatio() && tasks.length > 0}>
+							{tasks?.map((individualTask) => (
+								<Card
+									key={individualTask.id}
+									modo={visible ? 'Dark' : modo}
+									{...individualTask}
+								/>
+							))}
+						</ValidationComponent>
+						<ValidationComponent validate={aspectRatio() && tasks.length > 0}>
 							<Carousel
 								data={tasks}
 								Card={(e: any) => (
-									<CardTaskReview
-										modo={visible ? 'Dark' : modo}
-										{...e.property}
-									/>
+									<Card modo={visible ? 'Dark' : modo} {...e.property} />
 								)}
 								height={scrnH / 4 - 90}
 							/>
-						)}
-					</div>
+						</ValidationComponent>
+					</SimpleContainer>
 				)}
-				{(!tasks || tasks.length === 0) && (priText || secText) && (
+				<ValidationComponent
+					validate={(!tasks || tasks.length < 1) && (priText || secText)}
+				>
 					<NoTasks
 						modo={modo}
 						idSection={idSection}
@@ -152,8 +155,8 @@ const AsideTemplates = ({
 						priText={priText}
 						secText={secText}
 					/>
-				)}
-			</div>
+				</ValidationComponent>
+			</SimpleContainer>
 		</div>
 	);
 };

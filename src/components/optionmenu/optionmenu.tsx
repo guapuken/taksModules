@@ -34,8 +34,8 @@ const OptionMenu = (props: OptionMenuProps) => {
 			<div className={`menus`}>
 				<div className="centerElement">
 					<div>
-						<MenusSc menus={menus} />
-						<MenusCc menus={menus} />
+						<MenusSc menus={menus} setIsOpen={setIsOpen} />
+						<MenusCc menus={menus} setIsOpen={setIsOpen} />
 					</div>
 				</div>
 			</div>

@@ -1,32 +1,52 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import { Button, Task } from '../..';
+import { Task } from '../..';
 
 function DemoComponent() {
 	const [description, setDescription] = useState('');
 	const [startDate, setStartDate] = useState('');
 	const [endDate, setEndDate] = useState('');
 	const [priority, setPriority] = useState('baja');
+	const [dependencie, setDependencie] = useState(null);
+	const [dependencie2, setDependencie2] = useState(null);
+	const [check, setCheck] = useState(false);
 
+	const [dificultad, setDificultad] = useState({
+		id: '4',
+		title: 'Dificil',
+	});
+
+	useEffect(() => {
+		console.log({ check, dependencie });
+	}, [check]);
+	// console.log(check);
 	return (
 		<Fragment>
-			<Button modo="Light" onCl={() => setPriority('alta')} />
 			<Task
+				check={check}
+				modo="Dark"
+				valueDificultad={dificultad}
+				onCh_dificultad={(e) =>
+					setDificultad({ id: e.target.id, title: e.target.outerText })
+				}
+				principalTask
+				onCh_checkbox={() => setCheck(!check)}
+				//
 				equipos={[]}
 				idTask="1"
 				onCh_descriptionTask={(e) => setDescription(e.target.value)}
 				onCh_nameTask={(e) => {}}
-				onCl_newTemplate={() => alert('newTemplate')}
 				responsables={[]}
 				revision={[]}
-				prioridadInicial={priority}
+				forbbidenDependencies
+				prioridadInicial={'none'}
+				valueResponsable="Hola"
+				valueRevision="Adios"
 				// onCl_selectPriority={()=>}
 				templateOptions={[]}
 				valueTask={'name'}
-				check={false}
-				onCh_checkbox={() => {}}
 				onCh_endDate={(e) => setStartDate(e.target.value)}
 				onCh_startDate={(e) => setEndDate(e.target.value)}
 				valueDescription={description}
@@ -34,14 +54,58 @@ function DemoComponent() {
 				startDateValue={startDate}
 				subtasks={[
 					{
-						check: false,
-						onCh_checkbox: (e) => {},
+						check: check,
+						onCh_checkbox: () => setCheck(!check),
 						onCh_endDate: () => {},
 						onCh_startDate: () => {},
 						valueDescription: description,
 						valueTask: 'name',
 						equipos: [],
 						idTask: '2',
+						valueDificultad: 5,
+						dependence: dependencie,
+						dependenciesOptions: [
+							{
+								id: '1',
+								title: 'Dummies CDMX',
+								onClick: (e) => {
+									console.log(e);
+									setDependencie({ id: '1', title: 'Dummies CDMX' });
+								},
+							},
+							{ id: '2', title: 'Bloqueos' },
+						],
+						onCh_descriptionTask: (e) => setDescription(e.target.value),
+						onCh_nameTask: (e) => {},
+						onCl_newTemplate: () => alert('newTemplate'),
+						responsables: [],
+						revision: [],
+						templateOptions: [],
+						endDateValue: '2023-09-05 00:00:00',
+						startDateValue: '2023-09-05 00:00:00',
+					},
+					{
+						check: check,
+						onCh_checkbox: () => setCheck(!check),
+						onCh_endDate: () => {},
+						onCh_startDate: () => {},
+						valueDescription: description,
+						valueTask: 'name',
+						equipos: [],
+						idTask: '3',
+						valueDificultad: 5,
+						dependence: dependencie,
+						dependenciesOptions: [
+							{
+								id: '1',
+								title: 'Dummies CDMX',
+								onClick: (e) => {
+									console.log(e);
+									setDependencie({ id: '1', title: 'Dummies CDMX' });
+								},
+							},
+							{ id: '2', title: 'Bloqueos' },
+						],
 						onCh_descriptionTask: (e) => setDescription(e.target.value),
 						onCh_nameTask: (e) => {},
 						onCl_newTemplate: () => alert('newTemplate'),

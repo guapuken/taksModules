@@ -22,6 +22,7 @@ initialState.args = {};
 export const withProperties = Template.bind({});
 withProperties.args = {
 	rounded: true,
+	modo: 'Dark',
 	Content: () => {
 		return (
 			<div className="hola" style={{ display: 'grid', placeItems: 'center', height: '100%' }}>

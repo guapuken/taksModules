@@ -24,7 +24,7 @@ Delayed.args = {
 export const OutOfTime = Template.bind({});
 OutOfTime.args = {
 	valor: 75,
-	status: 'outOfTime',
+	status: 3,
 };
 
 //exportación de valores default

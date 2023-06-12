@@ -1,0 +1,134 @@
+// Estilos globales
+@import '../../../../../global.scss';
+
+// ---------------------------------------------------------------------------------------------------------
+//      estilos generales
+// ---------------------------------------------------------------------------------------------------------
+// generales
+.ctnLightCmts_TWCC,
+.ctnDarkCmts_TWCC,
+.ctnLightnoCmts_TWCC,
+.ctnDarknoCmts_TWCC
+{
+    user-select: none;
+    .ctnTaskDtls{
+        overflow: auto;
+        height: auto;
+        position: relative;
+        .ctnPrnlTask{
+            overflow: hidden;
+            // max-height: 70px;
+            height: auto;
+            background: #fff;
+            position: sticky;
+            top:0;
+            margin-bottom: 20px;
+            .taskNameCheck{
+                text-decoration: line-through;
+                color: #28282875;
+             }
+             .taskNameIncompleted{
+                 text-decoration: none;
+                 color: #282828;  
+             }
+        }
+        
+         .subtaskCtn{
+             margin: 10px 0 50px 10px;
+             position: relative;
+             overflow: auto !important;
+             z-index: -1;
+             .subtasksElementsCheck, 
+             .subtasksElementsIncompleted
+             {
+                 margin-block: 0;
+                 height: auto;
+                 overflow: hidden;
+                 margin-bottom: 10px;
+                 color: #28282875;
+             }
+             // elementos de tareas terminados
+             .subtasksElementsCheck{
+                 text-decoration:line-through;
+             }
+             // elementos de tareas incompletas
+             .subtasksElementsIncompleted{
+                 text-decoration:none;
+             }
+         }
+    }
+}
+.ctnComentsFull_TWCC
+.ctnComents_TWCC{
+    background: red;
+    position: relative;
+    overflow: auto;
+    height: 100%;
+    min-height: 100% !important;
+    .ttlComents{
+        height: 30px;
+        background: #fff;
+        width: 100%;
+
+    }
+}
+.ctnBlockComents_TWCC{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: right;
+    fieldset{
+        padding: 10px;
+        border-radius: 10px;
+        margin-top: 20px;
+        width: 100%;
+    }
+    .ctnButtons{
+        display: flex; 
+        gap: 20px; 
+        align-items: center;
+        input{
+            display:none;
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo claro
+// ---------------------------------------------------------------------------------------------------------
+.ctnLightCmts_TWCC,
+.ctnLightnoCmts_TWCC
+{
+
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      modo oscuro
+// ---------------------------------------------------------------------------------------------------------
+.ctnDarkCmts_TWCC,
+.ctnDarknoCmts_TWCC
+{
+
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      media queries
+// ---------------------------------------------------------------------------------------------------------
+// tablet
+@media (max-width:834px){
+    .ctnLightCmts_TWCC,
+    .ctnDarkCmts_TWCC,
+    .ctnLightnoCmts_TWCC,
+    .ctnDarknoCmts_TWCC
+    {
+    }  
+} 
+// celular
+@media (max-width:415px){
+    .ctnLightCmts_TWCC,
+    .ctnDarkCmts_TWCC,
+    .ctnLightnoCmts_TWCC,
+    .ctnDarknoCmts_TWCC
+    {
+    }  
+} 

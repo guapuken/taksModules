@@ -20,6 +20,10 @@ interface IconDatesProps {
 	durationValue?: string;
 	modo: Modo;
 	idTask: string;
+	maxEndDate?: string;
+	maxStartDate?: string;
+	minEndDate?: string;
+	minStartDate?: string;
 }
 
 //Visualización de componente si la propiedad de plantillas es true
@@ -37,6 +41,10 @@ const IconDates = (props: IconDatesProps) => {
 		durationValue,
 		idTask,
 		modo,
+		maxEndDate,
+		maxStartDate,
+		minEndDate,
+		minStartDate,
 	} = props;
 	return plantillas ? (
 		<div style={{ position: 'relative', zIndex: '2' }} className={className}>
@@ -59,6 +67,10 @@ const IconDates = (props: IconDatesProps) => {
 	) : (
 		<RangeDatePicker
 			modo={modo}
+			maxEndDate={maxEndDate}
+			maxStartDate={maxStartDate}
+			minEndDate={minEndDate}
+			minStartDate={minStartDate}
 			endDateValue={endDateValue}
 			startDateValue={startDateValue}
 			disabledEndDate={disabledEndDate}

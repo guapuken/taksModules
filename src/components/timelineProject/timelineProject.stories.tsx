@@ -3,12 +3,12 @@ import React from 'react';
 // utilidades de storybook
 import { Story, Meta } from '@storybook/react';
 // componente principal
-import TimelineProject from '.';
+import Timeline from '.';
 // interface
 import { timelineProps } from './types';
 
 // creación de plantilla en la que se colocará la historia
-const Template: Story<timelineProps> = (args) => <TimelineProject {...args} />;
+const Template: Story<timelineProps> = (args) => <Timeline {...args} />;
 
 // componente en su estado inicial
 export const InitialState = Template.bind({});
@@ -82,5 +82,5 @@ WithProperties.args = {
 // exportación de historia y argumentos
 export default {
 	title: 'Línea de tiempo',
-	component: TimelineProject,
+	component: Timeline,
 } as Meta;

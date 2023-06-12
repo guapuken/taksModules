@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { LateIcon } from '../../utils/cardsUtils';
 import { Modo, onClickType, statusTask } from '../../types';
 // estilos
@@ -17,26 +17,18 @@ export interface ProgressBarProps {
 const ProgressBar = ({
 	valor = 0,
 	status = 'onTime',
-	width = 35,
 	onClick,
 	styleContent,
 	modo = 'Light',
 }: ProgressBarProps) => {
 	return (
 		<div
-			className={`ctn${
-				status === 'outOfTime' || status === 3
-					? 'OtOfTm'
-					: status === 'onTime' || status === 1
-					? 'OnTm'
-					: status === 'delayed' || status === 2
-					? 'Dld'
-					: ''
-			}${modo}_PBC`}
-			style={styleContent}
+			className={`ctn_PBC ${modo}`}
+			stts-tsk={status}
+			style={{ width: '100%', ...styleContent }}
 			onClick={onClick}
 		>
-			<div className={`ctnBarra`} style={{ width: `${width * 10 - 55}px` }}>
+			<div className={`ctnBarra`} style={{ width: 'calc(100% - 55px)' }}>
 				{status === 'outOfTime' || (status === 3 && <LateIcon />)}
 				<div className="progressBar" style={{ width: `${valor}%` }}></div>
 			</div>

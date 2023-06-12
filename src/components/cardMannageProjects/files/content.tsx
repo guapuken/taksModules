@@ -1,12 +1,18 @@
 import React from 'react';
 // componentes auxiliares
-import { CardContainer, Spans, TitleCard } from '../../../utils/cardsUtils';
+import { CardContainer, Spans } from '../../../utils/cardsUtils';
 import ProgressBar from '../../progressBar/progressBar';
 // types
 import { content } from '../types';
 import CircularProgressBar from '../../circularProgressBar';
 import { IconMoreOptions } from '../../task/files';
-import { useWindowSize } from '../../../utils/windowSize';
+import { SimpleContainer, Texts, Title } from '../../Atoms';
+
+//functions
+import { getWidth } from '../../../utils/functions/functions';
+
+// styles
+import '../styles/cardMannageProjects.scss';
 
 const Content = ({
 	modo = 'Light',
@@ -18,8 +24,7 @@ const Content = ({
 	onCl_edit,
 	onCl_delete,
 }: content) => {
-	const scrW = useWindowSize().width;
-	const options = [
+	const optionsIconMoreOptions = [
 		{
 			id: 'edit',
 			title: 'Editar',
@@ -37,49 +42,46 @@ const Content = ({
 		},
 	];
 	return (
-		<CardContainer>
-			<div
-				style={{
-					display: 'flex',
-					flexDirection: 'column',
-					justifyContent: 'space-between',
-					height: '100%',
-				}}
-			>
-				<div>
-					<TitleCard modo={modo} title={title} />
-					<div style={{ margin: '10px 0' }}>
-						<Spans
-							modo={modo}
-							legend={`tareas pendientes`}
-							boldLegend={tasks}
-							style={{ color: '#00000075' }}
-						/>
-					</div>
-				</div>
-				<div className="ctnProgressBar_showDtls">
+		<CardContainer className="ctn_CMProjects">
+			<SimpleContainer id="gnrlCtnCMProjects" className="gnrlCtn">
+				<SimpleContainer className="infoCtn">
+					<SimpleContainer>
+						<Title modo={modo} maxLines={2}>
+							{title}
+						</Title>
+						<SimpleContainer>
+							<Spans
+								modo={modo}
+								legend={`tareas pendientes`}
+								boldLegend={tasks}
+								style={{ color: '#00000075' }}
+							/>
+						</SimpleContainer>
+					</SimpleContainer>
+				</SimpleContainer>
+				<SimpleContainer className="ctnProgressBar_showDtls">
 					<ProgressBar
 						modo={modo}
 						status={statusTask}
-						width={scrW / 10 / 4 - 8}
+						width={getWidth('gnrlCtnCMProjects').width}
 						valor={percentTask}
 						onClick={onCl_preview}
 					/>
-				</div>
-				<div className="ctnCircularProgressBar" style={{ width: '100%' }}>
-					<div>
+				</SimpleContainer>
+				<SimpleContainer className="ctnCircularProgressBar" style={{ width: '100%' }}>
+					<SimpleContainer>
 						<CircularProgressBar
 							percentTask={percentTask}
 							statusTask={statusTask}
 							size={40}
 						/>
-						<p>{`${percentTask}%`}</p>
-					</div>
-					<div>
-						<IconMoreOptions options={options} />
-					</div>
-				</div>
-			</div>
+						<Texts modo={modo}>{`${percentTask}%`}</Texts>
+					</SimpleContainer>
+					<SimpleContainer>
+						<IconMoreOptions options={optionsIconMoreOptions} />
+					</SimpleContainer>
+				</SimpleContainer>
+			</SimpleContainer>
 		</CardContainer>
 	);
 };

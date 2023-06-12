@@ -2,23 +2,25 @@ import React from 'react';
 
 // componentes
 import { Cards } from '../../../components';
-import { TitleCard } from '../../../utils/cardsUtils';
 import { onClickType } from '../../../types';
+import { SimpleContainer, TextButton, Title } from '../../Atoms';
 
 const Notification = (props: any) => {
 	const { notifications, modo } = props;
 	return notifications ? (
 		notifications?.map((e: { id: string; title: string; onClick: onClickType }) => (
-			<div style={{ marginBottom: '15px', cursor: 'pointer' }} onClick={e.onClick} key={e.id}>
+			<div style={{ marginBottom: '15px', cursor: 'pointer' }} key={e.id}>
 				<Cards
 					rounded
 					Content={() => (
-						<div style={{ padding: '20px' }}>
-							<TitleCard modo={modo} title={e.title} />
-							<button className={'showDetails'} onClick={e.onClick}>
+						<SimpleContainer style={{ padding: '20px', height: '100%' }}>
+							<Title modo={modo} maxLines={2}>
+								{e.title}
+							</Title>
+							<TextButton className={'showDetails'} modo={modo} onClick={e.onClick}>
 								Mostrar detalles...
-							</button>
-						</div>
+							</TextButton>
+						</SimpleContainer>
 					)}
 					modo={modo}
 				/>

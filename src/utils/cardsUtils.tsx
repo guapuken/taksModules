@@ -13,6 +13,7 @@ export function involucrados(valueResponsable: any, valueRevision: any) {
 		return 1;
 	} else return 0;
 }
+
 export function sizeCard() {
 	const sizetoShow = (useWindowSize().width * 0.21) / 10;
 	useEffect(() => {
@@ -20,6 +21,7 @@ export function sizeCard() {
 	}, [useWindowSize()]);
 	return sizetoShow;
 }
+
 export function returnSize() {
 	return useWindowSize().width < 415
 		? useWindowSize().width / 10 - 7
@@ -49,52 +51,6 @@ export const CardContainer = (props: CardContainerProps) => {
 		</div>
 	);
 };
-
-interface TitleCardProps {
-	title: string;
-	modo: Modo;
-	className?: string;
-}
-export const TitleCard = (props: TitleCardProps) => {
-	const { title, modo, className } = props;
-	return (
-		<p
-			className={`TextOverflow ${className} ttlTask`}
-			style={{
-				color: modo === 'Dark' ? '#dedede' : '#282828',
-			}}
-			title={title}
-		>
-			{title}
-		</p>
-	);
-};
-interface SimpleButtonTextProps {
-	onClick?: onClickType;
-	style?: CSSProperties;
-	className?: string;
-	legend?: string;
-	children?: any;
-}
-export const SimpleButtonText = (props: SimpleButtonTextProps) => {
-	const { onClick, legend, style, children, className } = props;
-	return (
-		<p
-			style={{
-				marginBlock: '0',
-				paddingRight: '10px',
-				cursor: onClick ? 'pointer' : '',
-				...style,
-			}}
-			onClick={onClick}
-			className={className}
-		>
-			{children && !legend && children}
-			{legend && !children && legend}
-		</p>
-	);
-};
-
 //Renderiza un conjunto de spans con un estilo en el que se aplican con diferentes pesos visuales
 interface SpansProps {
 	legend?: string | number;
@@ -145,7 +101,7 @@ export const Spans = (props: SpansProps) => {
 
 //renderiza el icono de atraso en una tarea
 //components
-export const LateIcon = () => {
+export const LateIcon = ({ height = 54 }) => {
 	let outOfTimeICon = {
 		left: '50%',
 		top: '50%',
@@ -154,24 +110,25 @@ export const LateIcon = () => {
 	return (
 		<div style={{ position: 'absolute', ...outOfTimeICon }}>
 			<div>
+				<svg width={height} height={height} viewBox="-50 -50 300 300">
+					<polygon
+						style={{ fill: '#FC3D38', stroke: '#fff', strokeWidth: '15' }}
+						strokeLinejoin="round"
+						points="100,0 0,200 200,200"
+					/>
+				</svg>
 				<h2
 					style={{
 						position: 'absolute',
 						top: '30%',
 						left: '45%',
-						fontSize: '20px',
+						// fontSize: `${height - 14}px`,
+						fontSize: `${height / 2.5}px`,
 						color: '#fff',
 					}}
 				>
 					!
 				</h2>
-				<svg width="54" height="54" viewBox="-50 -50 300 300">
-					<polygon
-						style={{ fill: '#FC3D38', stroke: '#fff', strokeWidth: '15' }}
-						stroke-linejoin="round"
-						points="100,0 0,200 200,200"
-					/>
-				</svg>
 			</div>
 		</div>
 	);
