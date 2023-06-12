@@ -9,7 +9,7 @@ import { Hover } from '../../../utils/hover';
 const Content = ({ modo, teamName = 'Equipo', onCl_preview, members, teamColor }: any) => {
 	const [mouseEnter, setMouseEnter] = React.useState(false);
 	return (
-		<CardContainer className={`ctn${modo === 'Dark' ? 'Dark' : ''}_CTeamC`}>
+		<CardContainer className={`ctn${modo}_CTeamC`}>
 			<div className={'ctnInfo'}>
 				<div
 					className={'teamName'}
