@@ -77,6 +77,7 @@ export {default as MdlReasignUser} from './Modales/Update/ReasignUser/ModalReasi
 // Modales de previsualización
 export {default as CommentsTask} from './commentsTask';
 export {default as TimelineMedio} from './Modales/Preview/TimelineMedio/TimelineMedio';
+export {default as MdlCambiarEstatus} from './Modales/Update/CambiarStatus/MdlCambiarStatus';
 
 // ---------------------------------------------------------------------------------------------------------
 //      componentes complejos
