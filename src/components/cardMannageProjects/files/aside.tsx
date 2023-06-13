@@ -12,33 +12,35 @@ import del from '../../../img/vaciar.svg';
 import edit from '../../../img/editar.svg';
 import prev from '../../../img/previsualizar.svg';
 
-const Aside = ({ onCl_delete, onCl_preview, onCl_edit, modo }: aside) => (
-	<AsideContainer>
-		<ButtonsArray
-			modo={modo}
-			buttons={[
-				{
-					id: 'edit',
-					img: edit,
-					onClick: onCl_edit,
-					titleToShow: 'Eitar',
-				},
-				{
-					id: 'preview',
-					img: prev,
-					onClick: onCl_preview,
-					titleToShow: 'Previsualizar',
-				},
-				{
-					id: 'delete',
-					img: del,
-					onClick: onCl_delete,
-					titleToShow: 'Eliminar',
-				},
-			]}
-			vertical
-		/>
-	</AsideContainer>
-);
+const Aside = ({ onCl_delete, onCl_preview, onCl_edit, modo }: aside) => {
+	return (
+		<AsideContainer>
+			<ButtonsArray
+				modo={modo}
+				buttons={[
+					{
+						id: 'edit',
+						img: edit,
+						onClick: onCl_edit,
+						titleToShow: 'Editar',
+					},
+					{
+						id: 'preview',
+						img: prev,
+						onClick: onCl_preview,
+						titleToShow: 'Previsualizar',
+					},
+					{
+						id: 'delete',
+						img: del,
+						onClick: onCl_delete,
+						titleToShow: 'Eliminar',
+					},
+				]}
+				vertical
+			/>
+		</AsideContainer>
+	);
+};
 
 export default Aside;

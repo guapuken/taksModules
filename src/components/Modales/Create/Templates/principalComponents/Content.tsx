@@ -29,18 +29,21 @@ export const Content = ({
 				id={idTemplate as any}
 				legend="Nombre de la plantilla"
 				onCh={onCh_templateName}
-				style={{ maxWidth: '98%' }}
 				initialValue={templateNameValue}
 			/>
 
 			{!campanha && isMannager && (
-				<div style={{ display: 'flex', width: '98%', gap: '20px', alignItems: 'center' }}>
+				<div
+					style={{
+						display: 'flex',
+						width: '98%',
+						alignItems: 'center',
+					}}
+				>
 					<div
 						style={{
 							display: 'flex',
 							alignItems: 'center',
-							margin: '20px 0',
-							gap: '10px',
 							width: '100%',
 						}}
 					>
@@ -50,6 +53,7 @@ export const Content = ({
 								setTipoMedio(!tipoMedio);
 								if (onCh_checkboxMedio) onCh_checkboxMedio(e);
 							}}
+							style={{ marginTop: '20px' }}
 						/>
 						<p>Plantilla de medio</p>
 						<Information
@@ -72,13 +76,17 @@ export const Content = ({
 				</div>
 			)}
 			{!tipoMedio && isMannager && (
-				<div style={{ display: 'flex', width: '98%', gap: '20px', alignItems: 'center' }}>
+				<div
+					style={{
+						display: 'flex',
+						width: '98%',
+						alignItems: 'center',
+					}}
+				>
 					<div
 						style={{
 							display: 'flex',
 							alignItems: 'center',
-							margin: campanha ? '20px 0' : '0 0 20px 0',
-							gap: '10px',
 							width: '100%',
 						}}
 					>
@@ -88,6 +96,7 @@ export const Content = ({
 								setCampanha(!campanha);
 								if (onCh_checkboxCampaign) onCh_checkboxCampaign(e);
 							}}
+							style={{ marginTop: '20px' }}
 						/>
 						<p>Plantilla de campaña</p>
 						<Information
@@ -109,6 +118,8 @@ export const Content = ({
 				{tasks &&
 					tasks.map((indTask: tasksTemplates) => (
 						<Task
+							isPM={indTask.isPM}
+							haveSubPersonal={indTask.haveSubPersonal}
 							valueDificultad={indTask.valueDificultad}
 							onCh_dificultad={indTask.onCh_dificultad}
 							key={indTask.idTask}

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import ModalProjects from '../Projects/modalProjects';
 import { storiesOf } from '@storybook/react';
-import { equipos } from '../../data/exampleData';
+import { equipos, revisionarios, responsables } from '../../data/exampleData';
 
 // función para ver si funciona correctamente el onChange
 function DemoComponent() {
@@ -28,7 +28,7 @@ function DemoComponent() {
 		<ModalProjects
 			onCh_asignTeam={(e) => console.log(e)}
 			onCl_close={{} as any}
-			modo="Dark"
+			modo="Light"
 			initialTeamValue={{
 				id: '-22',
 				title: 'Creative',
@@ -53,6 +53,8 @@ function DemoComponent() {
 			idProject={idProject}
 			subtasks={[
 				{
+					isPm: true,
+					haveSubPersonal: true,
 					onCh_startDate: () => {},
 					minStartDate: '2023-02-02 00:00:00',
 					maxStartDate: '2023-02-10 00:00:00',
@@ -63,7 +65,7 @@ function DemoComponent() {
 					},
 					dependence: {
 						id: '2',
-						taskName: 'Dummies',
+						title: 'Dummies',
 					},
 					dependenciesOptions: [{ id: '2', title: 'Dummies' }],
 					reasignForbidden: true,
@@ -85,8 +87,8 @@ function DemoComponent() {
 					onCh_endDate: (e) => {
 						setEndDate(e.target.value);
 					},
-					responsables: responsable,
-					revision: revision,
+					responsables: responsables,
+					revision: revisionarios,
 					equipos: equipos,
 					valueResponsable: responsable.title,
 					valueRevision: revision.name,
@@ -101,6 +103,9 @@ function DemoComponent() {
 					subtasks: [
 						{
 							idTask: '27',
+							responsables: responsables,
+							revision: revisionarios,
+							equipos: equipos,
 							valueTask: nameTask,
 							valueDescription: descriptionTask,
 							onCh_descriptionTask: (e) => setDescriptionTask(e.target.value),
@@ -112,9 +117,6 @@ function DemoComponent() {
 							onCh_tartDate: (e) => setStartDate(e.target.value),
 							endDateValue: endDate,
 							onCh_endDate: (e) => setEndDate(e.target.value),
-							responsables: responsable,
-							revision: revision,
-							equipos: equipos,
 							valueResponsable: responsable.name,
 							valueRevision: revision.name,
 							onCl_newTemplate: () => alert('crear plantilla'),
@@ -139,8 +141,8 @@ function DemoComponent() {
 									onCh_tartDate: (e) => setStartDate(e.target.value),
 									endDateValue: endDate,
 									onCh_endDate: (e) => setEndDate(e.target.value),
-									responsables: responsable,
-									revision: revision,
+									responsables: responsables,
+									revision: revisionarios,
 									equipos: equipos,
 									valueResponsable: responsable.name,
 									valueRevision: revision.name,
@@ -166,9 +168,10 @@ function DemoComponent() {
 									onCh_tartDate: (e) => setStartDate(e.target.value),
 									endDateValue: endDate,
 									onCh_endDate: (e) => setEndDate(e.target.value),
-									responsables: responsable,
-									revision: revision,
+									responsables: responsables,
+									revision: revisionarios,
 									equipos: equipos,
+
 									valueResponsable: responsable.name,
 									valueRevision: revision.name,
 									onCl_newTemplate: () => alert('crear plantilla'),
@@ -195,9 +198,10 @@ function DemoComponent() {
 							onCh_tartDate: (e) => setStartDate(e.target.value),
 							endDateValue: endDate,
 							onCh_endDate: (e) => setEndDate(e.target.value),
-							responsables: responsable,
-							revision: revision,
+							responsables: responsables,
+							revision: revisionarios,
 							equipos: equipos,
+
 							valueResponsable: responsable.name,
 							valueRevision: revision.name,
 							onCl_newTemplate: () => alert('crear plantilla'),
@@ -224,9 +228,10 @@ function DemoComponent() {
 					onCh_tartDate: (e) => setStartDate(e.target.value),
 					endDateValue: endDate,
 					onCh_endDate: (e) => setEndDate(e.target.value),
-					responsables: responsable,
-					revision: revision,
+					responsables: responsables,
+					revision: revisionarios,
 					equipos: equipos,
+
 					valueResponsable: responsable.name,
 					valueRevision: revision.name,
 					onCl_newTemplate: () => alert('crear plantilla'),
@@ -251,9 +256,10 @@ function DemoComponent() {
 					onCh_tartDate: (e) => setStartDate(e.target.value),
 					endDateValue: endDate,
 					onCh_endDate: (e) => setEndDate(e.target.value),
-					responsables: responsable,
-					revision: revision,
+					responsables: responsables,
+					revision: revisionarios,
 					equipos: equipos,
+
 					valueResponsable: responsable.name,
 					valueRevision: revision.name,
 					onCl_newTemplate: () => alert('crear plantilla'),

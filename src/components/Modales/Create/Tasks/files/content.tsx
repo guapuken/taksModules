@@ -10,6 +10,8 @@ const Content = (props: content) => {
 			dependenciesOptions={datos.dependenciesOptions ?? []}
 			idTask={datos.idTask}
 			maxEndDate={datos.maxEndDate}
+			isPM={datos.isPM}
+			haveSubPersonal={datos.haveSubPersonal}
 			maxStartDate={datos.maxStartDate}
 			minEndDate={datos.minEndDate}
 			minStartDate={datos.minStartDate}

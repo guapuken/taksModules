@@ -20,7 +20,7 @@ export const equipos = [
 	},
 ];
 
-export const revision = [
+export const revisionarios = [
 	{
 		id: '1',
 		title: 'Jorge Correa',
@@ -33,7 +33,7 @@ export const revision = [
 	},
 ];
 
-export const responsable = [
+export const responsables = [
 	{
 		id: '1',
 		title: 'Jorge Correa',

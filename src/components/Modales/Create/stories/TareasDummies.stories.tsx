@@ -23,8 +23,10 @@ function DemoComponent() {
 			]}
 			dependence={{
 				id: '1',
-				taskName: 'Dummies',
+				title: 'Dummies',
 			}}
+			isPM
+			// haveSubPersonal
 			equipos={equipos}
 			endDateValue={''}
 			startDateValue={''}
