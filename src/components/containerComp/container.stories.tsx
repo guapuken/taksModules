@@ -22,6 +22,7 @@ export const InitialState = Template.bind({});
 export const WithProperties = Template.bind({});
 const modo = 'Light';
 WithProperties.args = {
+	isPM: true,
 	children: (
 		<DragAndDrop
 			tasks={[

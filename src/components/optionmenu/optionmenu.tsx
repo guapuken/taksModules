@@ -21,10 +21,11 @@ interface menusTypes {
 export interface OptionMenuProps {
 	menus: menusTypes;
 	modo: Modo;
+	isPM?: boolean;
 }
 
 const OptionMenu = (props: OptionMenuProps) => {
-	const { menus, modo = 'Light' } = props;
+	const { menus, modo = 'Light', isPM } = props;
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<div className={`ctn${isOpen ? 'Open' : ''}${modo}_MenuC`}>
@@ -34,8 +35,8 @@ const OptionMenu = (props: OptionMenuProps) => {
 			<div className={`menus`}>
 				<div className="centerElement">
 					<div>
-						<MenusSc menus={menus} setIsOpen={setIsOpen} />
-						<MenusCc menus={menus} setIsOpen={setIsOpen} />
+						<MenusSc menus={menus} setIsOpen={setIsOpen} isPM={isPM} />
+						<MenusCc menus={menus} setIsOpen={setIsOpen} isPM={isPM} />
 					</div>
 				</div>
 			</div>

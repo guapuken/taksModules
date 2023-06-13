@@ -3,26 +3,34 @@ import '../optionmenu.scss';
 
 export default function MenusSc(props: any) {
 	const { menus, setIsOpen } = props;
+	console.log(menus);
 	return (
 		menus &&
-		menus.sinCategoria?.map((sinCategoria: any) => (
-			<div className="menuCtn" key={sinCategoria.id}>
-				<ul>
-					<li>
-						<a
-							href={sinCategoria.href}
-							onClick={(e) => {
-								setIsOpen(false);
-								if (sinCategoria.onClick) {
-									sinCategoria.onClick(e);
-								}
-							}}
-						>
-							{sinCategoria.title}
-						</a>
-					</li>
-				</ul>
-			</div>
-		))
+		menus.sinCategoria?.map((sinCategoria: any) => {
+			console.log(sinCategoria);
+			if (sinCategoria === null) {
+				return null;
+			} else {
+				return (
+					<div className="menuCtn" key={sinCategoria.id}>
+						<ul>
+							<li>
+								<a
+									href={sinCategoria.href}
+									onClick={(e) => {
+										setIsOpen(false);
+										if (sinCategoria.onClick) {
+											sinCategoria.onClick(e);
+										}
+									}}
+								>
+									{sinCategoria.title}
+								</a>
+							</li>
+						</ul>
+					</div>
+				);
+			}
+		})
 	);
 }

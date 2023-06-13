@@ -12,4 +12,5 @@ export interface container {
 	contentStyle?: css;
 	footerStyle?: css;
 	modo?: Modo;
+	isPM?: boolean;
 }
