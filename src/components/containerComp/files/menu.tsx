@@ -3,6 +3,8 @@ import { OptionMenu } from '../../../components';
 
 const Menu = (props: any) => {
 	const { onClick, modo, isPM } = props;
+
+	// definición de menús exclusivos del PM
 	const menusExclisivosPM = {
 		id: 'teamsMenus',
 		title: 'Equipos',
@@ -19,6 +21,8 @@ const Menu = (props: any) => {
 			},
 		],
 	};
+
+	// definición de los menús que pueden ver todos los usuarios
 	let menusOperativos = [
 		{
 			id: 'tasksMenus',
