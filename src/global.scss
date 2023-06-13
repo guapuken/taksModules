@@ -16,7 +16,8 @@
   --bgDark: #282828;
   --contrastDark: #525252;
   // fuentes
-  --fcLight: #282828;
+  // --fc: #dedede;
+  --fc: #282828;
   --fcDark: #dedede;
   // inputs
   --border: inset 0 0 0 2px #dedede;
@@ -30,6 +31,10 @@
   // colores
   --aqua: #1CB5B2;
   --aquaContrast: #127574;
+}
+
+[theme-config='Dark']{
+  --fc: #dedede;
 }
 
 // ---------------------------------------------------------------------------------------------------------
@@ -89,20 +94,6 @@
   h3{ font-size: clamp(16px, 1.8vw, 21px); }
   h4{ font-size: clamp(14px, 1.6vw, 19px); }
   h5,p,li,ul,span,button,textarea{ font-size: clamp(12px, 1.4vw, 17px); }
-
-// ---------------------------------------------------------------------------------------------------------
-//      modos claro y oscuro
-// ---------------------------------------------------------------------------------------------------------
-  .Light{
-    h1, h2,h3,h4,h5,h6,p,button,span,a, textarea{
-      color: var(--bgDark);
-    }
-  }
-  .Dark{
-    h1, h2,h3,h4,h5,h6,p,button,span,a, textarea{
-      color: var(--fcDark);
-    }
-  }
 
 // ---------------------------------------------------------------------------------------------------------
 //      utilidades

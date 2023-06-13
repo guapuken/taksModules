@@ -8,6 +8,7 @@ import { onChangeType } from '../../../../../types';
 import { content } from '../types/types';
 // estilos
 import '../styles/modalTeams.scss';
+import { obtenerColorLetra } from '../../../../../utils/functions/functions';
 
 //COMPONENTE QUE REGRESA TODO EL CONTENIDO DEL MODAL
 const Content = ({
@@ -48,6 +49,7 @@ const Content = ({
 						boldLegend={
 							teamColor === undefined ? 'Color de equipo' : 'Color de quipo: '
 						}
+						style={{ color: obtenerColorLetra(asignColor) }}
 					/>
 					<input
 						id={asignColor}

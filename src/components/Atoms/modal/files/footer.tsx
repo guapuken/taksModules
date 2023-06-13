@@ -5,7 +5,7 @@ const FooterStr = (props: footer) => {
 	const { styleFooter, Footer } = props;
 	return (
 		<div className="modal__footer" style={styleFooter}>
-			<div style={{ maxWidth: '90%' }}>{Footer}</div>
+			{Footer}
 		</div>
 	);
 };

@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import ModalProjects from '../Projects/modalProjects';
 import { storiesOf } from '@storybook/react';
-import Button from '../../../button/Button';
 import { equipos } from '../../data/exampleData';
 
 // función para ver si funciona correctamente el onChange
@@ -28,8 +27,8 @@ function DemoComponent() {
 	return (
 		<ModalProjects
 			onCh_asignTeam={(e) => console.log(e)}
-			onCl_close={null}
-			modo="Light"
+			onCl_close={{} as any}
+			modo="Dark"
 			initialTeamValue={{
 				id: '-22',
 				title: 'Creative',
