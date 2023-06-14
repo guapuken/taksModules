@@ -5,6 +5,7 @@ import { getTaskById } from './components/dragAndDrop/files/functions';
 //      themas de color
 // ---------------------------------------------------------------------------------------------------------
 export type Modo = 'Dark' | 'Light';
+export type themeStyle = string;
 // tamaños a usar
 export type size = 'small' | 'medium' | 'large';
 // export type statusTask = 'onTime' | 'delayed' | 'outOfTime';

@@ -110,6 +110,7 @@
         height: calc(100vh / 4 - 40px);
     } 
 }
+
 @media (max-aspect-ratio: 7/10){ // Relación aspecto de dispositivos móviles
     .ctnLight_CC, .ctnDark_CC,
     .ctnLight_CC[ctn-ctn='NoCtn'], .ctnDark_CC[ctn-ctn='NoCtn']

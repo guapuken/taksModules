@@ -1,4 +1,4 @@
-import { Modo, onBlurType, onChangeType, onClickType } from '../../../types';
+import { Modo, onBlurType, onChangeType, onClickType, themeStyle } from '../../../types';
 export interface chatProps {
 	modo: Modo;
 	multiplesChats?: boolean;
@@ -11,6 +11,7 @@ export interface chatProps {
 	height?: string;
 	chatValue: { id: string; title: string };
 	chats: { id: string; title: string }[];
+	themeStyle: themeStyle;
 }
 
 export type msns = {

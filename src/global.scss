@@ -13,18 +13,16 @@
 :root{
   //backgrounds
   --bg : #ffffff;
-  --bgDark: #282828;
   --contrastDark: #525252;
   // fuentes
   // --fc: #dedede;
-  --fc: #282828;
-  --fcDark: #dedede;
+  --fc90: #28282890;
+  --fc60: #28282860;
+  --fc30: #28282830;
   // inputs
   --border: inset 0 0 0 2px #dedede;
-  --borderDark: inset 0 0 0 calc(2px + 0.390625vw) #525252;
   // contenedores
   --boxShadow: 0 0 calc(10px + 0.390625vw) #dedede75;
-  --boxShadowDark: 0 0 calc(10px + 0.390625vw)#00000075;
   // medidas
   --cardWidth: calc(100vw * .25);
   --cardHeight: calc(100vh * .25);
@@ -35,6 +33,12 @@
 
 [theme-config='Dark']{
   --fc: #dedede;
+  --bg: #282828;
+  --fc90: #dedede90;
+  --fc60: #dedede60;
+  --fc30: #dedede30;
+  --border: inset 0 0 0 calc(2px + 0.390625vw) #525252;
+  --boxShadow: 0 0 calc(10px + 0.390625vw)#00000075;
 }
 
 // ---------------------------------------------------------------------------------------------------------
