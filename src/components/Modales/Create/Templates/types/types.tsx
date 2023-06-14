@@ -25,4 +25,6 @@ export interface modalTemplates {
 	tasks?: tasksTemplates[];
 	modo: Modo;
 	isMannager?: boolean;
+	isPM?: boolean;
+	haveSubPersonal?: boolean;
 }

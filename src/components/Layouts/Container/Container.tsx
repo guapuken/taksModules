@@ -21,13 +21,21 @@ const Container = ({
 	multiplesChats,
 }) => {
 	return (
-		<SimpleContainer className={`ContainerC ${modo}`}>
-			<ValidationComponent validate={AsideContent}>{AsideContent}</ValidationComponent>
-			{/* header */}
-			{/* children */}
-			<SimpleContainer className="ContainerC__children">
+		<div
+			className={`container ${modo}`}
+			aside-content={AsideContent ? 'aside' : 'noAside'}
+			chat-content={chat ? 'chat' : 'noChat'}
+		>
+			<ValidationComponent validate={AsideContent}>
+				<SimpleContainer className="container__aside">{AsideContent}</SimpleContainer>
+			</ValidationComponent>
+			<div
+				className="container__children"
+				header-content={header ? 'header' : 'noHeader'}
+				footer-content={FooterContent ? 'footer' : 'noFooter'}
+			>
 				<ValidationComponent validate={header}>
-					<SimpleContainer className="ContainerC__children_header">
+					<SimpleContainer className="container__children-header">
 						<Title modo={modo}>{header.legend}</Title>
 						<ValidationComponent validate={header.legendBtn}>
 							<Button
@@ -40,18 +48,17 @@ const Container = ({
 						</ValidationComponent>
 					</SimpleContainer>
 				</ValidationComponent>
-				<SimpleContainer className="ContainerC__children_children">
+				<SimpleContainer className="container__children-content">
 					{children}
 				</SimpleContainer>
-				{/* footer */}
 				<ValidationComponent validate={FooterContent}>
-					<SimpleContainer className="ContainerC__children_footer">
+					<SimpleContainer className="container__children-footer">
 						{FooterContent}
 					</SimpleContainer>
 				</ValidationComponent>
-			</SimpleContainer>
+			</div>
 			<ValidationComponent validate={chat}>
-				<SimpleContainer className="ContainerC__chat">
+				<SimpleContainer className="container__chat">
 					<Chat
 						multiplesChats={multiplesChats}
 						onCh_comment={onCh_commentChat}
@@ -66,7 +73,7 @@ const Container = ({
 					{chat}
 				</SimpleContainer>
 			</ValidationComponent>
-		</SimpleContainer>
+		</div>
 	);
 };
 

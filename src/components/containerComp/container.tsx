@@ -51,6 +51,7 @@ const Container = ({
 	contentStyle,
 	footerStyle,
 	modo = 'Light',
+	isPM,
 }: container) => {
 	// desestructuración de propiedades
 	return (
@@ -60,7 +61,7 @@ const Container = ({
 			as-ctn={AsideContent !== null ? 'wthAsd' : 'noAsd'}
 		>
 			<div className={'menu'} style={{ zIndex: 1 }}>
-				<Menu modo={modo} onClick={onCl_menus} />
+				<Menu modo={modo} onClick={onCl_menus} isPM={isPM} />
 			</div>
 			{AsideContent !== null && <div className={'asideCtn'}>{AsideContent}</div>}
 			<div className={`ctnChild${AsideContent ? 'Asd' : ''}${FooterContent ? 'Ftr' : ''}`}>

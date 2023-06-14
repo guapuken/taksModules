@@ -16,7 +16,6 @@ const Content = ({
 	initialTeamValue,
 	onCl_addTask,
 	templateOptions,
-	onCl_newTemplate,
 	subtasks,
 	modo = 'Light',
 	themeStyle,
@@ -72,6 +71,8 @@ const Content = ({
 								<Task
 									reasignForbidden={e.reasignForbidden}
 									key={e.idTask}
+									isPM={e.isPM}
+									haveSubPersonal={e.haveSubPersonal}
 									idTask={e.idTask}
 									taskDisabled={e.taskDisabled}
 									taskComplete={e.taskComplete}

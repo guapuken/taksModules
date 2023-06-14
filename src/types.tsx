@@ -5,6 +5,7 @@ import { getTaskById } from './components/dragAndDrop/files/functions';
 //      themas de color
 // ---------------------------------------------------------------------------------------------------------
 export type Modo = 'Dark' | 'Light';
+export type themeStyle = string;
 // tamaños a usar
 export type size = 'small' | 'medium' | 'large';
 // export type statusTask = 'onTime' | 'delayed' | 'outOfTime';
@@ -114,6 +115,8 @@ export interface tasks {
 		onClick?: onClickType;
 	} | null;
 	valueDificultad?: { id?: string | number; title?: string };
+	isPM?: boolean;
+	haveSubPersonal?: boolean;
 	onCh_dificultad?: onChangeType;
 }
 //INTERFACES
@@ -150,6 +153,8 @@ export interface tasksTemplates {
 		title?: string;
 	};
 	onCh_dificultad?: onChangeType;
+	isPM?: boolean;
+	haveSubPersonal?: boolean;
 }
 
 export type subtaskTemplates = {

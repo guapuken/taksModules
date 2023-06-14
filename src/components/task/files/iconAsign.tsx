@@ -15,6 +15,8 @@ interface IconAsignProps {
 	involucrados?: number;
 	disabled?: boolean;
 	modo: Modo;
+	isPM?: boolean;
+	haveSubPersonal?: boolean;
 }
 //Se construye el componente que regresa el icono de asignar usuario
 const IconAsign = ({
@@ -28,31 +30,37 @@ const IconAsign = ({
 	valueRevision,
 	modo = 'Light',
 	disabled,
+	isPM,
+	haveSubPersonal,
 }: IconAsignProps) => {
 	//Opciones de usuarios
-	const asignUsers = [
-		{
-			id: '1',
-			title: 'Asignar responsable:',
-			submenus: responsables,
-		},
-		{
-			id: '2',
-			title: 'Asignar a equipo:',
-			submenus: equipos,
-		},
+	let menusOperativos = [
 		{
 			id: '3',
 			title: 'Encargado de revisión:',
 			submenus: revision,
 		},
 	];
+	const menusExclusivosPM = {
+		id: '2',
+		title: 'Asignar a equipo:',
+		submenus: equipos,
+	};
+	const personalBajoSuMando = {
+		id: '1',
+		title: 'Asignar responsable:',
+		submenus: responsables,
+	};
+
+	// se hace la validación de si es PM o si tiene personal bajo su mando
+	isPM && menusOperativos.push(menusExclusivosPM);
+	haveSubPersonal && menusOperativos.push(personalBajoSuMando);
 
 	return (
 		<div className={`ContainerIconAsignUsers ${className}`} style={style}>
 			<DropdownWithPopup
 				dropdownIcon={addUserIcon}
-				dropdownOptions={equipos ? asignUsers : [asignUsers[0], asignUsers[2]]}
+				dropdownOptions={menusOperativos}
 				legend={involucrados}
 				modo={modo}
 				validateToShowIcon={involucrados > 0}

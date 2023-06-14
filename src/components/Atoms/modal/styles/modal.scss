@@ -4,82 +4,83 @@
     --bgModal: var(--bg);
     --sombra: var(--boxShadow); 
     --width: 50vw;
+    --gridRowsDisplay: 50px auto 80px;
+    --gridColumnsDisplay: auto;
+    --pr_fc: #282828
+    --gridColumnHeader: auto;
 }
 
 // temas _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 [theme-config='Dark']{
     --bgModal: var(--bgDark);
     --sombra: var(--boxShadowDark);
+    --pr_fc: #dedede;
 }
 [theme-config='Light']{
     --bgModal: var(--bg);
     --sombra: var(--boxShadow);
+    --pr_fc: #282828
 }
 
-// estilos _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
-[theme-style='Fw']{
+// temas de estilos _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[theme-style='box']{
+    --gridColumnHeader: 1/3;
     --width : 100vw;
+    // --bgModal: purple;
+    --gridRowsDisplay: 50px auto;
+    --gridColumnsDisplay: auto 80px;
 }
 
 //variables _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
-$altura: 100vh;
+$altura: 90vh;
 
+//clases _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 .modal
 {
-    background: var(--bgModal);
-    box-shadow: var(--sombra);
+    // centrado del elemento
     position: fixed;
     left: 50%;
     top: 0;
+
+    background: var(--bgModal);
+    box-shadow: var(--sombra);
     width:var(--width);
     transform: translateX(-50%);
     height: $altura;
     max-height: $altura;
-    margin: 0 auto;
+    // creación de grid
+    display: grid;
+    grid-template-rows: var(--gridRowsDisplay);
+    grid-template-columns: var(--gridColumnsDisplay);
+    gap: 10px;
 
     // estilos del header
+    &__header, &__children, &__footer{
+        width: 100%;
+        padding: 15px;
+    }
     &__header{
         display: flex;
         justify-content: space-between;
-        height: 6vh;
-        display: flex;
-        align-items: center;
-        box-shadow: inset 0 0 0 2px red;
+        grid-column: var(--gridColumnHeader);
         &-title{
-            margin-block: 0; 
             font-weight: lighter; 
-            margin-left: 20px;
         }
         &-img{
             height: 30px;
-            padding-right: 15px; 
             cursor: pointer;
         }
     }
 
     // estilos del children
     &__children{
-        padding-top: 2.5vh;
-        height: calc($altura - 5vh);
         overflow-y: auto;
-        width: 90%;
         overflow-x: hidden;
-        margin: 0 auto;
-        &[ctn-header='header'],&[ctn-footer='footer']{
-            height: calc(86vh - 40px);
-        }
-        &[ctn-header='header']{
-            height: calc($altura - 10vh);
-        }
-        &[ctn-footer='footer']{
-            height: 86vh;
-        }
     }
+    
     // estilos del footer
     &__footer{
-        width: 100%;
-        padding: 20px;
-        height: 14vh;
+        //
     }
 }
 // estilos del modal sin propiedades

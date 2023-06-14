@@ -77,6 +77,7 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 				chat?.id === '1' ? messages.comercial : chat?.id === '2' ? messages.operativo : null
 			}
 			AsideContent={
+				// null
 				<AsideTemplates
 					Card={CardMannageProjects}
 					modo="Light"

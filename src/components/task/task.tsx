@@ -65,6 +65,8 @@ const Task = (props: tasks) => {
 		forbbidenDependencies,
 		valueDificultad,
 		onCh_dificultad,
+		isPM,
+		haveSubPersonal,
 	} = props;
 
 	const [dificultad, setDificultad] = useState({ ...valueDificultad });
@@ -128,6 +130,8 @@ const Task = (props: tasks) => {
 						valueRevision={valueRevision}
 						style={{ marginRight: '20px' }}
 						disabled={check ? check : false}
+						isPM={isPM}
+						haveSubPersonal={haveSubPersonal}
 					/>
 				</ValidationComponent>
 				<IconDropdown
@@ -272,6 +276,8 @@ const Task = (props: tasks) => {
 									{plantillas ? (
 										<Task
 											check={e.check}
+											isPM={isPM}
+											haveSubPersonal={haveSubPersonal}
 											onCh_checkbox={e.onCh_checkbox}
 											onCh_endDate={e.onCh_endDate}
 											onCh_startDate={e.onCh_startDate}
@@ -313,6 +319,8 @@ const Task = (props: tasks) => {
 										/>
 									) : (
 										<Task
+											isPM={isPM}
+											haveSubPersonal={haveSubPersonal}
 											idTask={e.idTask}
 											taskDisabled={e.taskDisabled}
 											taskComplete={e.taskComplete}

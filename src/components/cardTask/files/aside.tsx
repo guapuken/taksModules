@@ -20,48 +20,50 @@ const Aside = ({
 	follow,
 	modo = 'Light',
 	idTask,
+	isPM,
+	haveSubPersonal,
 }: aside) => {
+	let options = [
+		{
+			id: `edit${idTask}`,
+			img: editIcon,
+			onClick: onCl_edit,
+			titleToShow: 'Editar',
+		},
+		{
+			id: `calendar${idTask}`,
+			img: calendarIcon,
+			onClick: onCl_reasignDate,
+			titleToShow: 'Reasignar fecha',
+		},
+
+		// TODO: asignar el icono de recordatorio
+		{
+			id: `reminder${idTask}`,
+			img: editIcon,
+			onClick: onCl_reminder,
+			titleToShow: 'Programar recordatorio',
+		},
+		// TODO: asignar el icono de follow
+		{
+			id: `follow${idTask}`,
+			img: calendarIcon,
+			onClick: onCl_follow,
+			titleToShow: follow ? 'Dejar de seguir tarea' : 'Seguir tarea',
+		},
+	];
+
+	(isPM || haveSubPersonal) &&
+		options.push({
+			id: `asignTask${idTask}`,
+			img: asign,
+			onClick: onCl_asignTask,
+			titleToShow: 'Asignar tarea',
+		});
 	// retorno del componente
 	return (
 		<AsideContainer>
-			<ButtonsArray
-				modo={modo}
-				buttons={[
-					{
-						id: `edit${idTask}`,
-						img: editIcon,
-						onClick: onCl_edit,
-						titleToShow: 'Editar',
-					},
-					{
-						id: `calendar${idTask}`,
-						img: calendarIcon,
-						onClick: onCl_reasignDate,
-						titleToShow: 'Reasignar fecha',
-					},
-					{
-						id: `asignTask${idTask}`,
-						img: asign,
-						onClick: onCl_asignTask,
-						titleToShow: 'Asignar tarea',
-					},
-					// TODO: asignar el icono de recordatorio
-					{
-						id: `reminder${idTask}`,
-						img: editIcon,
-						onClick: onCl_reminder,
-						titleToShow: 'Programar recordatorio',
-					},
-					// TODO: asignar el icono de follow
-					{
-						id: `follow${idTask}`,
-						img: calendarIcon,
-						onClick: onCl_follow,
-						titleToShow: follow ? 'Dejar de seguir tarea' : 'Seguir tarea',
-					},
-				]}
-				vertical
-			/>
+			<ButtonsArray modo={modo} buttons={options} vertical />
 		</AsideContainer>
 	);
 };

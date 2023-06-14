@@ -31,6 +31,8 @@ function DemoComponent() {
 				onCh_dificultad={(e) =>
 					setDificultad({ id: e.target.id, title: e.target.outerText })
 				}
+				isPM
+				haveSubPersonal
 				principalTask
 				onCh_checkbox={() => setCheck(!check)}
 				//

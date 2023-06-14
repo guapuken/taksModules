@@ -62,6 +62,8 @@ export interface tasksProps {
 		title?: string;
 	};
 	onCh_dificultad?: onChangeType;
+	isPM?: boolean;
+	haveSubPersonal?: boolean;
 }
 
 export type content = {
@@ -113,6 +115,8 @@ export type content = {
 		title: string;
 	};
 	onCh_dificultad?: onChangeType;
+	isPM?: boolean;
+	haveSubPersonal?: boolean;
 };
 export type footer = {
 	onCl_confirm: onClickType;

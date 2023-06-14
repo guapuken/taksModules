@@ -19,6 +19,7 @@ const Chat = ({
 	messages,
 	chatValue,
 	chats,
+	themeStyle,
 }: chatProps) => {
 	const [chatCanal, setCanalChat] = useState(chatValue || null);
 	const [comment, setComment] = useState('');
@@ -55,10 +56,10 @@ const Chat = ({
 	}
 
 	return (
-		<SimpleContainer className={`ctn_ChC ${modo}`}>
+		<SimpleContainer className={`chat`} theme-config={modo} theme-style={themeStyle}>
 			<SimpleContainer id="ctnTtl">
 				<ValidationComponent validate={multiplesChats}>
-					<SimpleContainer className="ctnDropdown">
+					<SimpleContainer className="chat__selectChat">
 						<Texts modo={modo}>Selecciona el chat</Texts>
 						<Dropdown
 							options={chats}
@@ -74,14 +75,17 @@ const Chat = ({
 						/>
 					</SimpleContainer>
 				</ValidationComponent>
-				<SimpleContainer className="ttlChat">
+				<SimpleContainer className="chat__identificacion">
 					<Title modo={modo}>{chatCanal.title}</Title>
 					<Texts modo={modo} maxLines={2}>
 						{projectName}
 					</Texts>
 				</SimpleContainer>
 			</SimpleContainer>
-			<SimpleContainer style={{ height: `calc(100% - ${heightTitle}px )` }}>
+			<SimpleContainer
+				className="chat__mensajes"
+				style={{ height: `calc(100% - ${heightTitle}px )` }}
+			>
 				<ValidationComponent validate={messages}>
 					<Msns
 						messages={messages}
