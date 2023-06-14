@@ -1,0 +1,12 @@
+@import '../../../../../global.scss';
+
+:root{
+  --fc90: #282828;
+
+
+}
+.modalProjects{
+    color: var(--fc90);
+    display: flex;
+    gap: 10px
+  }

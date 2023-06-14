@@ -1,10 +1,12 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import ModalTemplates from '../Templates/modalPlantillas';
 import Task from '../../../task';
-import ModalPlantillas from '../Templates/modalPlantillas';
-import { modalTemplates } from '../Templates/types/types';
 import { equipos, responsable, revision, templateOptions } from '../../data/exampleData.js';
+import {
+	default as ModalPlantillas,
+	default as ModalTemplates,
+} from '../Templates/modalPlantillas';
+import { modalTemplates } from '../Templates/types/types';
 
 const Template: Story<modalTemplates> = (args) => <ModalTemplates {...args} />;
 
@@ -23,7 +25,6 @@ const ChildrenTask1 = () => (
 		onCh_descriptionTask={() => alert('Cambio la descripción')}
 		onCh_nameTask={() => alert('Cambio la descripción')}
 		onCl_addTask={() => alert('Cambio la descripción')}
-		onCl_newTemplate={() => alert('Cambio la descripción')}
 		revision={revision as any}
 		valueRevision={'Kaori Soto'}
 		responsables={responsable as any}

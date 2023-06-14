@@ -27,6 +27,7 @@ export interface contentProps {
 
 	// onCl_reWork: onClickType;
 	//string
+	themeStyle?: string;
 	taskName: string;
 	taskDescription: string;
 	reasonsToWorkAgain: optionsDropdown[];
