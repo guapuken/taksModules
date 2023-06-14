@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 // utilidades del storybook
 import { storiesOf } from '@storybook/react';
 // componentes principales
-import ModalTemplates from '../Templates/modalPlantillas';
 import { autoIncrementalId } from '../../../../utils/functions/functions';
 import { equipos, responsable, revision, templateOptions } from '../../data/exampleData';
+import ModalTemplates from '../Templates/modalPlantillas';
 
 function DemoComponent() {
 	const [template, setTemplate] = useState(undefined);
@@ -30,7 +30,7 @@ function DemoComponent() {
 			onCh_checkboxCampaign={() => {}}
 			tasks={[
 				{
-					dependence: { id: '1', taskName: 'Dummies' },
+					dependence: { id: '1', title: 'Dummies' },
 					dependenciesOptions: [
 						{
 							id: '1',

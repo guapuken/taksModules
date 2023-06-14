@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Dropdown, IconDropdown, InputLabel, Task } from '../../../../../components';
 import { AddTask } from '../../../../task/files';
 // import { optionsPlantillas } from '../../../../task/task';
-import { content } from '../types/types';
 import { onChangeType } from '../../../../../types';
 import { Spans } from '../../../../../utils/cardsUtils';
+import { content } from '../types/types';
 
 //COMPONENTE QUE REGRESA TODO EL CONTENIDO DEL MODAL
 const Content = ({
@@ -18,11 +18,12 @@ const Content = ({
 	templateOptions,
 	subtasks,
 	modo = 'Light',
+	themeStyle,
 }: content) => {
 	//
 
 	return (
-		<div>
+		<div className="modalProjects" theme-config={modo} theme-style={themeStyle}>
 			<InputLabel
 				id={idProject}
 				legend="Nombre del proyecto"

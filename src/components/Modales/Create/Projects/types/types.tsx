@@ -44,6 +44,7 @@ export interface ModalProjectsProps {
 }
 
 export type content = {
+	themeStyle?: string;
 	onCh_nameProject: onChangeType;
 	projectNameValue: string;
 	onCl_addTask: onClickType;

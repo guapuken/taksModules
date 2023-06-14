@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 // componentes auxiliares
-import { involucrados } from '../../utils/cardsUtils';
 import { Dificultad, IconDropdown, InputTask } from '../../components';
-import { AddTask, IconAsign, IconDates, IconMoreOptions, IconPriority } from './files';
+import { involucrados } from '../../utils/cardsUtils';
 import { SimpleContainer, ValidationComponent } from '../Atoms';
+import { AddTask, IconAsign, IconDates, IconMoreOptions, IconPriority } from './files';
 // types
 import { onChangeType, tasks } from '../../types';
 // archivos multimedia
 import dependencieIcon from '../../img/dependencies.svg';
 // estilos
-import './task.scss';
-import DropdownWithPopup from '../DropdownWithPopup/DropdownWithPopup';
 import { optionsIcnDrp } from '../../types';
+import DropdownWithPopup from '../DropdownWithPopup/DropdownWithPopup';
+import './task.scss';
 
 // archivos multimedia
-import flame from '../../img/flame.svg';
 import { FlameIcon } from '../../img/flame';
+import flame from '../../img/flame.svg';
 
 //COMPONENTE PRINCIPAL
 const Task = (props: tasks) => {
@@ -83,7 +83,7 @@ const Task = (props: tasks) => {
 	};
 
 	return (
-		<div id={idTask} className={`ctn${modo}_TascC`}>
+		<div id={idTask} className={`ctn_TascC`}>
 			<InputTask
 				check={check ?? false}
 				showTask={plantillas ? false : true}

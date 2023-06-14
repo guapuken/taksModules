@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { TextButton } from '../../../../Atoms';
+import '../styles/modalTaskWithComents.scss';
 import { contentProps, subtasksComponent } from '../types/types';
 import { Comentarios } from './index';
-import '../styles/modalTaskWithComents.scss';
-import { TextButton } from '../../../../Atoms';
 
 const Content = ({
 	modo = 'Light',
@@ -23,16 +23,20 @@ const Content = ({
 	reasonsToWorkAgain,
 	onCl_close,
 	valueComment,
+	themeStyle,
 }: contentProps) => {
 	const [showTasks, setShowTasks] = useState(false);
 	const Subtasks = ({ taskName, taskDescription, subtasks, completed }: subtasksComponent) => {
 		console.log(completed);
 		return (
 			<div
-				style={{
-					marginLeft: '15px',
-					marginTop: '15px',
-				}}
+				className="modalTask"
+				theme-config={modo}
+				theme-style={themeStyle}
+				// style={{
+				// 	marginLeft: '15px',
+				// 	marginTop: '15px',
+				// }}
 			>
 				<p
 					style={{
