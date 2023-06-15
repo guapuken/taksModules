@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Dropdown, IconDropdown, InputLabel, Task } from '../../../../../components';
+import { Button, Dropdown, IconDropdown, InputLabel, Task } from '../../../../../components';
 import { AddTask } from '../../../../task/files';
 // import { optionsPlantillas } from '../../../../task/task';
-import { onChangeType } from '../../../../../types';
+import { onChangeType, onClickType } from '../../../../../types';
 import { Spans } from '../../../../../utils/cardsUtils';
 import { content } from '../types/types';
+import { SimpleContainer, Texts, ValidationComponent } from '../../../../Atoms';
 
 //COMPONENTE QUE REGRESA TODO EL CONTENIDO DEL MODAL
 const Content = ({
@@ -19,6 +20,12 @@ const Content = ({
 	subtasks,
 	modo = 'Light',
 	themeStyle,
+	isPM,
+	isMannager,
+	onCl_tomarCampanha,
+	onCh_asignPM,
+	optionsPM,
+	PMSelected,
 }: content) => {
 	//
 
@@ -31,20 +38,52 @@ const Content = ({
 				style={{ marginBottom: '10px' }}
 				initialValue={projectNameValue}
 			/>
-			<Spans
-				boldLegend={'Equipo encargado'}
-				legend={'(Opcional)'}
-				style={{ opacity: '.5' }}
-			/>
-			<Dropdown
-				onCh={onCh_asignTeam}
-				options={teamOptions}
-				placeHolder="Asignar proyecto a un equipo"
-				isSearchable
-				modo={modo}
-				style={{ margin: '5px 0 5px 0' }}
-				initialValue={initialTeamValue}
-			/>
+			<ValidationComponent validate={isPM || isMannager}>
+				<SimpleContainer style={{ display: 'flex', gap: '10px', width: '100%' }}>
+					<SimpleContainer style={{ width: '100%' }}>
+						<Spans
+							boldLegend={'Equipo encargado'}
+							legend={'(Opcional)'}
+							style={{ opacity: '.5' }}
+						/>
+						<Dropdown
+							onCh={onCh_asignTeam}
+							options={teamOptions}
+							placeHolder="Asignar proyecto a un equipo"
+							isSearchable
+							modo={modo}
+							style={{ margin: '5px 0 5px 0' }}
+							initialValue={initialTeamValue}
+						/>
+					</SimpleContainer>
+					{isPM ? (
+						<Button
+							modo={modo}
+							size="small"
+							onCl={onCl_tomarCampanha as onClickType}
+							primary
+							legend="Tomar campaña"
+							style={{ textAlign: 'center' }}
+						/>
+					) : (
+						<SimpleContainer style={{ width: '100%' }}>
+							<Spans
+								boldLegend={'Asignar project mannager'}
+								style={{ opacity: '.5' }}
+							/>
+							<Dropdown
+								modo={modo}
+								onCh={onCh_asignPM as onChangeType}
+								options={optionsPM ?? []}
+								initialValue={PMSelected}
+								isSearchable
+								style={{ margin: '5px 0 5px 0' }}
+								placeHolder="Asignar a un project mannager"
+							/>
+						</SimpleContainer>
+					)}
+				</SimpleContainer>
+			</ValidationComponent>
 			<div style={{ display: 'flex', alignItems: 'baseline' }}>
 				<AddTask legend="+ Añadir tarea" onClick={onCl_addTask} />
 				<IconDropdown

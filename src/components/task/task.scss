@@ -1,6 +1,4 @@
-
-.ctnLight_TascC,
-.ctnDark_TascC
+.ctn_TascC
 {
     ::-webkit-datetime-edit { 
         height: 30px; 
@@ -28,6 +26,7 @@
         margin-top: 8px;
         display: flex;
         align-items: center;
+        flex-direction: row ;
         flex-wrap: wrap;
         gap: 15px;
         .DatePickerTaskComponent{

@@ -56,4 +56,10 @@ export type content = {
 	onCh_asignTeam: onChangeType;
 	teamOptions: optionsDropdown[];
 	initialTeamValue?: optionsDropdown;
+	isPM?: boolean;
+	isMannager?: boolean;
+	onCl_tomarCampanha?: onClickType;
+	onCh_asignPM?: onChangeType;
+	optionsPM?: optionsDropdown[];
+	PMSelected?: optionsDropdown;
 };

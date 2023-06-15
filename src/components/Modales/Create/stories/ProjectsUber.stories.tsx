@@ -33,6 +33,7 @@ function DemoComponent() {
 				id: '-22',
 				title: 'Creative',
 			}}
+			isMannager
 			onCh_nameProject={(e: any) => {
 				setProjectName(e.target.value);
 			}}

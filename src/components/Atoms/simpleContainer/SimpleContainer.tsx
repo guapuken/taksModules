@@ -8,6 +8,7 @@ const SimpleContainer = ({
 	id,
 	onClick,
 	draggable,
+	labels,
 }: simpleContainerProps) => {
 	return (
 		<div
@@ -16,6 +17,7 @@ const SimpleContainer = ({
 			id={id}
 			onClick={onClick}
 			draggable={draggable}
+			{...labels}
 		>
 			{children}
 		</div>
