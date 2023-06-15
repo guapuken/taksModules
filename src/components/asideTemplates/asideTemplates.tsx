@@ -47,11 +47,12 @@ const AsideTemplates = ({
 	onCl_btn,
 	onCh_dropdown,
 	initialValueDropdown,
-	optionsDropdown,
+	optionsDropdown = [],
 	Card,
 	// optionsFilter,
 	// onCl_reorder,
 	placeholderDropdown,
+	themeStyle,
 }: aside) => {
 	const scrnH = useWindowSize().height;
 
@@ -81,23 +82,21 @@ const AsideTemplates = ({
 	}, [order, filterBy]);
 	*/
 	return (
-		<div className={`ctn_ATC  ${modo}`} vs-asd={visible ? 'Visible' : 'Normal'}>
-			<SimpleContainer className="children">
+		<SimpleContainer
+			labels={{
+				className: `aside`,
+				'theme-config': visible ? 'Dark' : modo,
+				'theme-style': themeStyle,
+				'vs-asd': visible ? 'visible' : 'noVisible',
+			}}
+		>
+			<SimpleContainer className="aside__children">
 				<ValidationComponent validate={optionsDropdown}>
-					<SimpleContainer
-						className="dropdownCtn"
-						style={{
-							width: '90%',
-							display: 'flex',
-							gap: '10px',
-							height: '30px',
-							margin: '0 auto',
-						}}
-					>
+					<SimpleContainer className="aside__children-dropdown">
 						<Dropdown
 							modo={visible ? 'Dark' : modo}
 							onCh={onCh_dropdown as onChangeType}
-							options={optionsDropdown as optionsDropdown[]}
+							options={optionsDropdown}
 							placeHolder={placeholderDropdown}
 							initialValue={initialValueDropdown}
 							style={{
@@ -120,9 +119,9 @@ const AsideTemplates = ({
 					</SimpleContainer>
 				</ValidationComponent>
 				{(!tasks || tasks.length === 0) && !priText && !secText ? (
-					<ErrorNc />
+					<ErrorNc modo={visible ? 'Dark' : modo} />
 				) : (
-					<SimpleContainer className="ctnCards">
+					<SimpleContainer className="aside__children-contenido">
 						<ValidationComponent validate={!aspectRatio() && tasks.length > 0}>
 							{tasks?.map((individualTask) => (
 								<Card
@@ -157,7 +156,7 @@ const AsideTemplates = ({
 					/>
 				</ValidationComponent>
 			</SimpleContainer>
-		</div>
+		</SimpleContainer>
 	);
 };
 

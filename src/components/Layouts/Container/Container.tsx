@@ -60,6 +60,7 @@ const Container = ({
 			<ValidationComponent validate={chat}>
 				<SimpleContainer className="container__chat">
 					<Chat
+						themeStyle=""
 						multiplesChats={multiplesChats}
 						onCh_comment={onCh_commentChat}
 						onCh_dropdown={onCh_dropdownChat}

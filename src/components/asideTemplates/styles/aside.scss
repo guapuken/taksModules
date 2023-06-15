@@ -3,9 +3,9 @@
 // ---------------------------------------------------------------------------------------------------------
 //      Estilos generales 
 // ---------------------------------------------------------------------------------------------------------
-// .ctnDark_ATC,
-// .ctnLight_ATC
-.ctn_ATC
+
+
+.aside
 {
     position: relative;
     margin-block: 0;
@@ -13,28 +13,37 @@
     display: flex;
     justify-content: center;
     height: calc(92vh);
-    // width: 25%; 
-    .children {
+    background: var(--bg);
+    &__children {
         width: 100%;
         height: 80vh;
         overflow-y: auto;
         overflow-x: hidden;
         margin-top: 10vh;
-        h2{
-            font-weight: bold;
+        &-noContent{ // se aplican cuando no hay ningún elemento en el aside
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
-        p{
-            font-weight: lighter;
-            opacity: .5;
+        &-dropdown{
+            width: 90%;
+            display: flex;
+            gap: 10px;
+            height: 30px;
+            margin: 0 auto;
         }
-        .ctnCards{
+        &-contenido{
             display: flex;
             gap:20px;
             margin-top: 15px;
             flex-wrap: wrap;
             justify-content: center ;
         }
-        .ctnTextAndImage{
+        &-noTareas{
             height: 100%;
             width: 100%;
             text-align: left;
@@ -43,19 +52,20 @@
             justify-content: center;
             align-items: center;
             z-index: 1;
-            .ctnTexts{
+            &-textos{
                 background: #28282875;
                 padding: 20px;
                 border-radius: 20px;
                 z-index: 1;
                 max-width: 95%;
                 color: #fff;
-                .descrAsd{
+                &-description{
                     margin: 10px auto 20px auto;
                     opacity: 1;
+                    color: var(--fc);
                 }
             }
-            .imgAsd{
+            &-img{
                 position: absolute;
                 right: 0;
                 height: 75%;
@@ -66,17 +76,8 @@
             }
         }
     }
-    .noCtn{
-        text-align: center;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-    &[vs-asd='Visible']{
-        .noCtn{
+    &[vs-asd='visible']{
+        .aside__children-noContent{
             color: #fff;
         }
     }

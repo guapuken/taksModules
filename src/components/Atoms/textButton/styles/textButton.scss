@@ -7,18 +7,11 @@
     width: auto;
     text-align: center;
     cursor: pointer;
-    &.Light{
-        background: var(--bg);
-        &:hover{
-            color: var(--fcLight);
-            box-shadow: inset 0 0 0 2px var(--fcLight);
-        }
-    }
-    &.Dark{
-        color: var(--fcDark);
-        &:hover{
-            color: var(--fcDark);
-            box-shadow: inset 0 0 0 2px var(--fcDark);
-        }
+    background: var(--bg)!important;
+    color: var(--fc30)!important;
+    font-weight: var(--fw300)!important;
+    &:hover{
+        color: var(--fc90 )!important;
+        box-shadow: var(--border)!important;
     }
 }

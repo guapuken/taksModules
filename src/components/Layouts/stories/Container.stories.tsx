@@ -83,6 +83,11 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 					modo="Light"
 					onCl_reorder={() => {}}
 					visible
+					optionsDropdown={[
+						{ id: '1', title: 'Tareas pendientes' },
+						{ id: '2', title: 'Tareas por revisar' },
+					]}
+					placeholderDropdown="Selecciona que traeas quieres ver"
 					tasks={[
 						{
 							id: '1',

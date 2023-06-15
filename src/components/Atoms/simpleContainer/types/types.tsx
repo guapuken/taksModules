@@ -6,6 +6,6 @@ export type simpleContainerProps = {
 	id?: string;
 	onClick?: onClickType;
 	draggable?: boolean;
-	labels?: { [key: string]: string };
+	labels?: { [key: string]: any };
 	// [key:string]?: any;
 };
