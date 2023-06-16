@@ -25,9 +25,9 @@ const Cards = (props: cardIntrfc) => {
 			className={`card ${className}`}
 			theme-config={modo}
 			theme-style={themeStyle}
+			contenido-card={Content ? 'conContenido' : 'sinContenido'}
 			aside-element={Aside ? 'aside' : 'NoAside'}
 			card-style={rounded ? 'redondeada' : 'cuadrada'}
-			contenido-card={Content ? 'conContenido' : 'sinContenido'}
 			style={{ height: height ?? '' }}
 		>
 			{Content ? (

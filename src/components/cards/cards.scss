@@ -16,11 +16,17 @@
 { 
     position: relative; 
     background: var(--bg);
-    // width: calc(100vw / 4 - 2vw);
-    // height: calc(100vh / 4 - 30px);
-    height: auto;
+    width: calc(100vw / 4 - 20px);
     max-height: calc(25vh - 20px);
+    height: auto;
     box-shadow: var(--boxShadow);
+    &[contenido-card='sinContenido']{
+        display: grid;
+        place-content: center; 
+    }
+    &[aside-element='aside']{
+        
+    }
     &__contenido{
         display: grid;
         grid-template-columns: auto 50px;
@@ -45,11 +51,6 @@
                 height: calc(100% - 20px);
             }
         }
-    }
-    //contenedor sin contenido
-    &[ctn-ctn='NoCtn']{
-        display: grid;
-        place-content: center;
     }
     // contenedor con propiedad de redondear esquinas
     &[asd-ctn='Asd'], 

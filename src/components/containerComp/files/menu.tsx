@@ -80,10 +80,10 @@ const Menu = (props: any) => {
 	];
 
 	// Si el usuario que está usando es PM se muestra el menú exclusivo del PM
-	isPM ? menusOperativos.push(menusExclisivosPM) : menusOperativos;
+	/* isPM ? */ menusOperativos.push(menusExclisivosPM) /* : menusOperativos */;
 
 	return (
-		<div style={{ zIndex: '2' }}>
+		<div style={{ zIndex: '1' }}>
 			<OptionMenu
 				modo={modo}
 				menus={{

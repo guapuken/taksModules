@@ -2,7 +2,8 @@ import React from 'react';
 import { SimpleContainer, Title, ValidationComponent } from '../../Atoms';
 
 import './Styles/Container.scss';
-import { Button, Chat } from '../../../components';
+import { Button, Chat, OptionMenu } from '../../../components';
+import Menu from '../../containerComp/files/menu';
 
 const Container = ({
 	header,
@@ -20,7 +21,8 @@ const Container = ({
 	messages,
 	multiplesChats,
 	themeStyle,
-}) => {
+	onCl_menus,
+}: any) => {
 	return (
 		<SimpleContainer
 			labels={{
@@ -31,6 +33,9 @@ const Container = ({
 				'chat-content': chat ? 'chat' : 'noChat',
 			}}
 		>
+			<div className={'menu'} style={{ zIndex: 2 }}>
+				<Menu modo={modo} onClick={onCl_menus} />
+			</div>
 			<ValidationComponent validate={AsideContent}>
 				<SimpleContainer className="container__aside">{AsideContent}</SimpleContainer>
 			</ValidationComponent>
