@@ -92,7 +92,8 @@ export {default as Msns} from './msns';
 // ---------------------------------------------------------------------------------------------------------
 export {default as TimelineProject} from './Layouts/Timeline/TimelineProject';
 // layout de página del módulo de tareas
-export {default as Container} from './containerComp'
+// export {default as Container} from './containerComp'
+export {default as Container} from './Layouts/Container/Container'
 
 // ---------------------------------------------------------------------------------------------------------
 //      Hooks

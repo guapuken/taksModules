@@ -3,22 +3,44 @@
 /// ---------------------------------------------------------------------------------------------------------
 //      estilos generales
 // ---------------------------------------------------------------------------------------------------------
-// .ctnLight_CC,  // aspect-ratio 16:9
-// .ctnDark_CC
-.ctn_CC
+
+:root{
+    --sombraCard: #dedede;
+}
+
+[theme-config='Dark']{
+    --sombraCard: #00000075;
+}
+
+.card
 { 
-    width: calc(100vw / 4 - 2vw);
-    height: calc(100vh / 4 - 30px);
-    .contentCtn{
+    position: relative; 
+    background: var(--bg);
+    // width: calc(100vw / 4 - 2vw);
+    // height: calc(100vh / 4 - 30px);
+    height: auto;
+    max-height: calc(25vh - 20px);
+    box-shadow: var(--boxShadow);
+    &__contenido{
+        display: grid;
+        grid-template-columns: auto 50px;
         height: 100%;
-        .childrenCtn{
+        &-children{
             width: 100%;
             height: 100%;
             position: relative;
+            margin: auto,
         }
-        .asideCtn{
+        &-aside{
             height: 100%;
-            .asideChildren{
+            box-shadow: -15px 0px 21px -12px var(--sombraCard);
+            -webkit-box-shadow: -15px 0px 21px -12px var(--sombraCard);
+            -moz-box-shadow: -15px 0px 21px -12px var(--sombraCard);
+            width: 50px;
+            margin: auto;
+            display: flex;
+            &-children{
+                margin: auto;
                 width: 30px;
                 height: calc(100% - 20px);
             }
@@ -34,80 +56,18 @@
     &[rnd-ctn='Rnd']{
         border-radius: 20px;  
     }
-    .contentCtn{
-        display: flex;
-        position: relative; 
-        //contenedor del children
-        .childrenCtn{
-            margin: auto,
-        }
-        // contenedor del aside
-        .asideCtn{
-            width: 50px;
-            margin: auto;
-            display: flex;
-            .asideChildren{
-                margin: auto,
-            }
-        }
-    }
- // //      modo claro
-// // -------------------------------------------------------------------------------------------------------
-    &.Light, &.Light[ctn-ctn='NoCtn']{
-        background: var(--bg);
-        background: #fff;
-        box-shadow: var(--boxShadow);
-        .asideCtn{
-            box-shadow: -20px 0px 20px -20px #52525275;
-        }
-    }
-    // //      modo Oscuro
-// // -------------------------------------------------------------------------------------------------------
-    &.Dark, &.Dark[ctn-ctn='NoCtn']{
-        background: var(--bgDark);
-        background: #282828;
-        box-shadow: var(--boxShadowDark);
-        h3, p{
-            color: #fff;
-        }
-        .asideCtn{
-            box-shadow: -20px 0px 20px -20px #00000075;
-        }
-    }
 }
-
-// .ctnLight_CC, .ctnLight_CC[ctn-ctn='NoCtn']
-// {
-//     background: #fff;
-//     box-shadow: var(--boxShadow);
-//     .asideCtn{
-//         box-shadow: -20px 0px 20px -20px #52525275;
-//     }
-// }
-// /// ---------------------------------------------------------------------------------------------------------
-// //      modo oscuro
-// // ---------------------------------------------------------------------------------------------------------
-// .ctnDark_CC,.ctnDark_CC[ctn-ctn='NoCtn']
-// {
-//     background: #282828;
-//     box-shadow: var(--boxShadowDark);
-//     h3, p{
-//         color: #fff;
-//     }
-//     .asideCtn{
-//         box-shadow: -20px 0px 20px -20px #00000075;
-//     }
-// }
-
 /// ---------------------------------------------------------------------------------------------------------
 //      media queries
 // ---------------------------------------------------------------------------------------------------------
 @media (max-aspect-ratio: 4/3){ // relación aspecto con dispositivos mayores a móviles tales como tablets
-    .ctnLight_CC, .ctnDark_CC,
-    .ctnLight_CC[ctn-ctn='NoCtn'], .ctnDark_CC[ctn-ctn='NoCtn']
+    .card, .card[ctn-ctn='NoCtn']
     {
         width: calc(100vw / 2 - 70px);
         height: calc(100vh / 4 - 40px);
+        .card__contenido-aside{
+                box-shadow: none ;
+        }
     } 
 }
 

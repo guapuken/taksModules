@@ -53,8 +53,8 @@ const IconAsign = ({
 	};
 
 	// se hace la validación de si es PM o si tiene personal bajo su mando
-	isPM && menusOperativos.push(menusExclusivosPM);
-	(haveSubPersonal || isPM) && menusOperativos.push(personalBajoSuMando);
+	/* isPM && */ menusOperativos.push(menusExclusivosPM);
+	/* (haveSubPersonal || isPM) && */ menusOperativos.push(personalBajoSuMando);
 
 	return (
 		<div className={`ContainerIconAsignUsers ${className}`} style={style}>

@@ -77,92 +77,18 @@
         }
     }
     &[vs-asd='visible']{
-        .aside__children-noContent{
-            color: #fff;
-        }
-    }
-    // ---------------------------------------------------------------------------------------------------------
-//      modo claro
-// ---------------------------------------------------------------------------------------------------------
-    &.Light{
-    background: var(--bgDark);
-    &[vs-asd='Visible']{
-        .noCtn, .ttlAsd, .descrAsd{
-            color: #fff!important;
-
-        }
-    }
-    &[vs-asd='Normal']{
-                background: var(--bg);
-                color: #525252;
-                .ttlAsd, .descrAsd{
-                    color: #fff!important;
-        
-                }
-            }
-            color: var(--bg)
-    }
-// ---------------------------------------------------------------------------------------------------------
-//      modo Oscuro
-// ---------------------------------------------------------------------------------------------------------
-    &.Dark{
-    background: var(--fcDark);
-    &[vs-asd='Visible']{
         background: var(--contrastDark);
-        .noCtn, .ttlAsd, .descrAsd{
-            color: #fff!important;
-
+        .aside__children-noContent{
+            background: var(--contrastDark);
         }
-    }
-    &[vs-asd='Normal']{
-                background: var(--bgDark);
-                color: #525252;
-                .ttlAsd, .descrAsd{
-                    color: #fff!important;
-        
-                }
-            }
     }
 }
-
-// ---------------------------------------------------------------------------------------------------------
-//      modo claro
-// ---------------------------------------------------------------------------------------------------------
-// .ctnLight_ATC
-// {
-//     &[vs-asd='Visible']{
-//         background: var(--bgDark) !important;
-//     }
-//     &[vs-asd='Normal']{
-//         background: var(--bg);
-//         color: #525252;
-//     }
-//     color: #fff;
-// }
-
-// // ---------------------------------------------------------------------------------------------------------
-// //      Modo oscuro
-// // ---------------------------------------------------------------------------------------------------------
-// .ctnDark_ATC{
-//     .noCtn{
-//         color: #dedede;
-//     }
-//     &[vs-asd='Visible']{
-//         background: var(--contrastDark) !important;
-//     }
-//     &[vs-asd='Normal']{
-//         background: var(--bgDark);
-//     }
-// }
 // ---------------------------------------------------------------------------------------------------------
 //      media queries 
 // ---------------------------------------------------------------------------------------------------------
 @media (max-aspect-ratio: 4/3){ // relación aspecto con dispositivos mayores a móviles tales como tablets
-    // .ctnLight_ATC,
-    // .ctnDark_ATC
-    .ctn_ATC
+    .aside
     {
-        // width: calc(50% - 20px);
         .children{
             width: 100%;
         }
@@ -171,11 +97,11 @@
 @media (max-aspect-ratio: 7/10){ // Relación aspecto de dispositivos móviles
     // .ctnLight_ATC,
     // .ctnDark_ATC
-    .ctn_ATC
+    .aside
     {
-        width: 100%;
+        width: 100vw;
         height: calc(100vh /4);
-        .children {
+        &__children {
             height: 92%;
             margin-top: 0;
         }

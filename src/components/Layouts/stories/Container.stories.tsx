@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { AsideTemplates, CardMannageProjects } from '../../../components';
+import { AsideTemplates, CardMannageProjects, CardTask, DragAndDrop } from '../../../components';
 import Container from '../Container/Container';
 import { SimpleContainer } from '../../Atoms';
 
@@ -57,30 +57,30 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 		<Container
 			onCh_commentChat={() => {}}
 			onCl_addCommentChat={() => {}}
-			modo={'Light'}
-			chat
-			chatValue={chat}
-			projectName="1526-Uber_Eats-Noviembre"
-			multiplesChats
-			chats={[
-				{
-					id: '1',
-					title: 'Chat con comercial',
-				},
-				{
-					id: '2',
-					title: 'Chat con operaciones',
-				},
-			]}
-			onCh_dropdownChat={(e) => setChat(e)}
-			messages={
-				chat?.id === '1' ? messages.comercial : chat?.id === '2' ? messages.operativo : null
-			}
+			modo={'Dark'}
+			// chat
+			// chatValue={chat}
+			// projectName="1526-Uber_Eats-Noviembre"
+			// multiplesChats
+			// chats={[
+			// {
+			// id: '1',
+			// title: 'Chat con comercial',
+			// },
+			// {
+			// id: '2',
+			// title: 'Chat con operaciones',
+			// },
+			// ]}
+			// onCh_dropdownChat={(e) => setChat(e)}
+			// messages={
+			// 	chat?.id === '1' ? messages.comercial : chat?.id === '2' ? messages.operativo : null
+			// }
 			AsideContent={
 				// null
 				<AsideTemplates
 					Card={CardMannageProjects}
-					modo="Light"
+					modo="Dark"
 					onCl_reorder={() => {}}
 					visible
 					optionsDropdown={[
@@ -106,7 +106,37 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 				</SimpleContainer>
 			}
 		>
-			<h1>Contenedor</h1>
+			<DragAndDrop
+				modo="Dark"
+				tasks={[
+					{
+						followNotificationsValue: null,
+						id: '1',
+						idNotification: '1',
+						modo: 'Dark',
+						onCh_follow: () => {},
+						onCl_asignTask: () => {},
+						onCl_edit: () => {},
+						onCl_follow: () => {},
+						onCl_reasignDate: () => {},
+						onCl_remimder: () => {},
+						onCl_showDetails: () => {},
+						onCl_status: () => {},
+						percentTask: 10,
+						status: 'In Progress:',
+						statusTask: 'onTime',
+						taskDescription: '',
+						taskName: 'Dummies',
+						valueResponsable: 'Adan',
+					},
+				]}
+				Card={CardTask}
+				nameBoards={{
+					'To do: ': 'To do:',
+					'In Progress:': 'In Progress:',
+					'Done: ': 'Done:',
+				}}
+			/>
 		</Container>
 	);
 });

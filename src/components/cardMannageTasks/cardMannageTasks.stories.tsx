@@ -16,6 +16,7 @@ export const withProperties = Template.bind({});
 withProperties.args = {
 	title: 'Dummies MTY',
 	tasks: 25,
+	modo: 'Dark',
 	percentTask: 25,
 	// statusTask: 'outOfTime',
 	statusTask: 3,

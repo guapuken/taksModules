@@ -19,20 +19,27 @@ const Container = ({
 	chats,
 	messages,
 	multiplesChats,
+	themeStyle,
 }) => {
 	return (
-		<div
-			className={`container ${modo}`}
-			aside-content={AsideContent ? 'aside' : 'noAside'}
-			chat-content={chat ? 'chat' : 'noChat'}
+		<SimpleContainer
+			labels={{
+				className: `container`,
+				'theme-config': modo,
+				'theme-style': themeStyle,
+				'aside-content': AsideContent ? 'aside' : 'noAside',
+				'chat-content': chat ? 'chat' : 'noChat',
+			}}
 		>
 			<ValidationComponent validate={AsideContent}>
 				<SimpleContainer className="container__aside">{AsideContent}</SimpleContainer>
 			</ValidationComponent>
-			<div
-				className="container__children"
-				header-content={header ? 'header' : 'noHeader'}
-				footer-content={FooterContent ? 'footer' : 'noFooter'}
+			<SimpleContainer
+				labels={{
+					className: 'container__children',
+					'header-content': header ? 'header' : 'noHeader',
+					'footer-content': FooterContent ? 'footer' : 'noFooter',
+				}}
 			>
 				<ValidationComponent validate={header}>
 					<SimpleContainer className="container__children-header">
@@ -56,7 +63,7 @@ const Container = ({
 						{FooterContent}
 					</SimpleContainer>
 				</ValidationComponent>
-			</div>
+			</SimpleContainer>
 			<ValidationComponent validate={chat}>
 				<SimpleContainer className="container__chat">
 					<Chat
@@ -74,7 +81,7 @@ const Container = ({
 					{chat}
 				</SimpleContainer>
 			</ValidationComponent>
-		</div>
+		</SimpleContainer>
 	);
 };
 

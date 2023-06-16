@@ -52,7 +52,7 @@ const AsideTemplates = ({
 	// optionsFilter,
 	// onCl_reorder,
 	placeholderDropdown,
-	themeStyle,
+	themeStyle = '',
 }: aside) => {
 	const scrnH = useWindowSize().height;
 

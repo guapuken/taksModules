@@ -9,28 +9,33 @@ import './cards.scss';
 // creación del componente principal
 const Cards = (props: cardIntrfc) => {
 	//desestructuración de propiedades
-	const { rounded = false, Content, data, Aside, modo = 'Light', className, height } = props;
+	const {
+		rounded = false,
+		Content,
+		data,
+		Aside,
+		modo = 'Light',
+		className,
+		height,
+		themeStyle,
+	} = props;
 
-	//renderizado del componente
 	return (
-		//Contenedor general de la card
 		<div
-			className={`ctn_CC  ${modo} ${className ?? ''}`}
-			asd-ctn={Aside ? 'Asd' : 'NoAsd'}
-			rnd-ctn={rounded ? 'Rnd' : 'NoRnd'}
-			ctn-ctn={Content ? 'Ctn' : 'NoCtn'}
+			className={`card ${className}`}
+			theme-config={modo}
+			theme-style={themeStyle}
+			aside-element={Aside ? 'aside' : 'NoAside'}
+			card-style={rounded ? 'redondeada' : 'cuadrada'}
+			contenido-card={Content ? 'conContenido' : 'sinContenido'}
 			style={{ height: height ?? '' }}
 		>
-			{/* Si no existe contenido para ser mostrado en las cards se renderiza este bloque de código */}
 			{Content ? (
-				<div className="contentCtn">
-					{/* Contenedor general del children */}
-					<div className="childrenCtn">{<Content data={data} />}</div>
-					{/* Si existe la propiedad de Aside se renderiza este código */}
+				<div className="card__contenido">
+					<div className="card__contenido-children">{<Content data={data} />}</div>
 					{Aside && (
-						<div className="asideCtn">
-							{/* Contenedor general del Aside */}
-							<div className="asideChildren">
+						<div className="card__contenido-aside">
+							<div className="card__contenido-aside-children">
 								<Aside />
 							</div>
 						</div>

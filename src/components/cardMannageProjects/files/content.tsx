@@ -6,7 +6,7 @@ import ProgressBar from '../../progressBar/progressBar';
 import { content } from '../types';
 import CircularProgressBar from '../../circularProgressBar';
 import { IconMoreOptions } from '../../task/files';
-import { SimpleContainer, Texts, Title } from '../../Atoms';
+import { SimpleContainer, TextBoldLight, Texts, Title } from '../../Atoms';
 
 //functions
 import { getWidth } from '../../../utils/functions/functions';
@@ -50,11 +50,10 @@ const Content = ({
 							{title}
 						</Title>
 						<SimpleContainer>
-							<Spans
+							<TextBoldLight
 								modo={modo}
-								legend={`tareas pendientes`}
 								boldLegend={tasks}
-								style={{ color: '#00000075' }}
+								legend={' tareas pendientes'}
 							/>
 						</SimpleContainer>
 					</SimpleContainer>
