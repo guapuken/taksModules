@@ -3,14 +3,19 @@ import React from 'react';
 import { CardContainer, Spans } from '../../utils/cardsUtils';
 // types
 import { cardMembersTeam } from './types';
+import { TextBoldLight, Texts, Title } from '../Atoms';
 
 const CardMembersTeam = (props: cardMembersTeam) => {
-	const { name = 'Nombre del integrante', role = 'Puesto', incompletedTasks = 0 } = props;
+	const { name = 'Nombre del integrante', role = 'Puesto', incompletedTasks = 0, modo } = props;
 	return (
 		<CardContainer>
-			<h6>{name}</h6>
-			<p style={{ fontSize: '13px', marginBottom: '5px' }}>{role}</p>
-			<Spans boldLegend={'Tareas pendientes: '} legend={incompletedTasks} />
+			<Title modo={modo}>{name}</Title>
+			<Texts modo={modo}>{role}</Texts>
+			<TextBoldLight
+				modo={modo}
+				boldLegend={'Tareas pendientes: '}
+				legend={incompletedTasks}
+			/>
 		</CardContainer>
 	);
 };

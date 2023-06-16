@@ -19,6 +19,7 @@ WithProperties.args = {
 	name: 'Jorge Correa',
 	role: ' Encargado de Sistemas',
 	incompletedTasks: 25,
+	modo: 'Dark',
 };
 
 //exportación de valores default

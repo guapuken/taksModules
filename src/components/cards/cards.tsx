@@ -5,6 +5,7 @@ import { cardIntrfc } from './types';
 import ErrorNC from './files/errorNoContent';
 // importación de estilos
 import './cards.scss';
+import { SimpleContainer, ValidationComponent } from '../Atoms';
 
 // creación del componente principal
 const Cards = (props: cardIntrfc) => {
@@ -21,30 +22,34 @@ const Cards = (props: cardIntrfc) => {
 	} = props;
 
 	return (
-		<div
-			className={`card ${className}`}
-			theme-config={modo}
-			theme-style={themeStyle}
-			contenido-card={Content ? 'conContenido' : 'sinContenido'}
-			aside-element={Aside ? 'aside' : 'NoAside'}
-			card-style={rounded ? 'redondeada' : 'cuadrada'}
-			style={{ height: height ?? '' }}
+		<SimpleContainer
+			labels={{
+				className: `card ${className}`,
+				'theme-config': modo,
+				'theme-style': themeStyle,
+				'contenido-card': Content ? 'conContenido' : 'sinContenido',
+				'aside-element': Aside ? 'aside' : 'NoAside',
+				'card-style': rounded ? 'redondeada' : 'cuadrada',
+				style: { height: height ?? '' },
+			}}
 		>
 			{Content ? (
-				<div className="card__contenido">
-					<div className="card__contenido-children">{<Content data={data} />}</div>
-					{Aside && (
-						<div className="card__contenido-aside">
-							<div className="card__contenido-aside-children">
+				<SimpleContainer className="card__contenido">
+					<SimpleContainer className="card__contenido-children">
+						{<Content data={data} />}
+					</SimpleContainer>
+					<ValidationComponent validate={Aside}>
+						<SimpleContainer className="card__contenido-aside">
+							<SimpleContainer className="card__contenido-aside-children">
 								<Aside />
-							</div>
-						</div>
-					)}
-				</div>
+							</SimpleContainer>
+						</SimpleContainer>
+					</ValidationComponent>
+				</SimpleContainer>
 			) : (
 				<ErrorNC />
 			)}
-		</div>
+		</SimpleContainer>
 	);
 };
 
