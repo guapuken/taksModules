@@ -80,7 +80,6 @@ export function ComponentDemo() {
 			}
 			legendBtn={tiposTask.length === 0 ? 'Tarea nueva' : ''}
 			onCh_dropdown={(e: any) => {
-				console.log(e);
 				setTasks(e);
 				if (e.id === 'revision') setTiposTasks(tareasRevision);
 				if (e.id === 'porRevisar') setTiposTasks(tareasRevisar);

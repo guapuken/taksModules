@@ -38,6 +38,11 @@ const Menu = (props: any) => {
 					title: 'Gestionar tareas',
 					onClick: onClick?.mannageTask,
 				},
+				{
+					id: 'taskHistory',
+					title: 'Historial de tareas',
+					onClick: onClick?.historyTask,
+				},
 			],
 		},
 		{
@@ -74,6 +79,11 @@ const Menu = (props: any) => {
 					id: 'statusProjects',
 					title: 'Estatus de proyectos',
 					onClick: onClick?.projectsStatus,
+				},
+				{
+					id: 'statusCampanhas',
+					title: 'Estatus de campañas',
+					onClick: onClick?.campaignStatus,
 				},
 			],
 		},

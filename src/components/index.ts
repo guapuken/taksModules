@@ -94,6 +94,7 @@ export {default as TimelineProject} from './Layouts/Timeline/TimelineProject';
 // layout de página del módulo de tareas
 // export {default as Container} from './containerComp'
 export {default as Container} from './Layouts/Container/Container'
+export {default as Organigrama} from './organigrama/Organigrama';
 
 // ---------------------------------------------------------------------------------------------------------
 //      Hooks

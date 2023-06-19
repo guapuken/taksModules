@@ -9,13 +9,13 @@ const CardMembersTeam = (props: cardMembersTeam) => {
 	const { name = 'Nombre del integrante', role = 'Puesto', incompletedTasks = 0, modo } = props;
 	return (
 		<CardContainer>
-			<Title modo={modo}>{name}</Title>
-			<Texts modo={modo}>{role}</Texts>
-			<TextBoldLight
-				modo={modo}
-				boldLegend={'Tareas pendientes: '}
-				legend={incompletedTasks}
-			/>
+			<Title modo={modo} maxLines={1}>
+				{name}
+			</Title>
+			<Texts modo={modo} maxLines={1}>
+				{role}
+			</Texts>
+			<TextBoldLight modo={modo} boldLegend={incompletedTasks} legend={' Pendientes'} />
 		</CardContainer>
 	);
 };

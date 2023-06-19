@@ -1,13 +1,24 @@
 import React from 'react';
 //importación de elementos del storybook a usar
 import { Meta, Story } from '@storybook/react';
-import { number, text } from '../../storyUtils';
+import { modo, number, text } from '../../storyUtils';
 
 //importación del componente principal
 import CardMembersTeam from './cardMembersTeam';
 import { cardMembersTeam } from './types';
+import { SimpleContainer } from '../Atoms';
 
-const Template: Story<cardMembersTeam> = (args) => <CardMembersTeam {...args} />;
+const Template: Story<cardMembersTeam> = (args) => (
+	<SimpleContainer style={{ display: 'flex' }}>
+		<CardMembersTeam {...args} />
+		<CardMembersTeam {...args} />
+		<CardMembersTeam {...args} />
+		<CardMembersTeam {...args} />
+		<CardMembersTeam {...args} />
+		<CardMembersTeam {...args} />
+		<CardMembersTeam {...args} />
+	</SimpleContainer>
+);
 
 //estado inicial del componente
 export const InitialState = Template.bind({});
@@ -32,5 +43,6 @@ export default {
 		name: text(),
 		role: text(),
 		incompletedTasks: number(),
+		modo: modo(),
 	},
 } as Meta;

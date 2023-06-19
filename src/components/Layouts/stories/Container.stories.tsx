@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { AsideTemplates, CardMannageProjects, CardTask, DragAndDrop } from '../../../components';
+import {
+	AsideTemplates,
+	Button,
+	CardMannageProjects,
+	CardMembersTeam,
+	CardTask,
+	DragAndDrop,
+	Dropdown,
+} from '../../../components';
 import Container from '../Container/Container';
 import { SimpleContainer } from '../../Atoms';
 
@@ -77,7 +85,6 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 			// 	chat?.id === '1' ? messages.comercial : chat?.id === '2' ? messages.operativo : null
 			// }
 			AsideContent={
-				// null
 				<AsideTemplates
 					Card={CardMannageProjects}
 					modo="Dark"
@@ -102,7 +109,26 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 			}}
 			FooterContent={
 				<SimpleContainer>
-					<h2>Hola</h2>
+					<SimpleContainer style={{ display: 'flex', gap: ' 20px' }}>
+						<Dropdown
+							modo="Dark"
+							onCh={() => {}}
+							options={[
+								{ id: '1', title: 'TI' },
+								{ id: '2', title: 'UX / UI' },
+							]}
+							placeHolder="Selecciona tus equipos disponible"
+							style={{ width: '30vw' }}
+						/>
+						<Button
+							modo="Dark"
+							onCl={() => {}}
+							legend="Tarea rápida"
+							primary
+							size="small"
+						/>
+					</SimpleContainer>
+					<CardMembersTeam modo="Dark" name="Adán Moreno" role="Desarrollador" />
 				</SimpleContainer>
 			}
 		>

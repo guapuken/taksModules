@@ -1,156 +1,132 @@
 @import '../../../global.scss';
 
+:root{
+    --fontSize: clamp(12px 1.3vh 17px);
+    --background: #dedede;
+    --border: none ;
+    --hover: #525252;
+    --fcHover: #fff ;
+    --fontColor: var(--fc90);
+    --sizeIcon: clamp(12px 1.3vh 17px);
+    // para clamp de fuentes
+    --fontSizeMin: 16px;
+    --fontSizePref: 1.7vh;
+    --fontSizeMax: 21px;
+    --sizeButton: auto;
+    --display: block;
+    --paddingIcon: 0;
+    --borderRadius:5px;
+}
+
+// tamaños
+[size-button='small']{
+    --fontSizeMin: 12px;
+    --fontSizePref: 1.3vh;
+    --fontSizeMax: 17px;
+    --sizeIcon: 18px;
+    --sizeButton: 30px;
+}
+[size-button='medium']{
+    --fontSizeMin: 14px;
+    --fontSizePref: 1.5vh;
+    --fontSizeMax: 19px;
+    --sizeIcon: 20px;
+    --sizeButton: 40px;
+}
+[size-button='large']{
+    --fontSizeMin: 16px;
+    --fontSizePref: 1.7vh;
+    --fontSizeMax: 21px;
+    --sizeIcon: 25px;
+    --sizeButton: 50px;
+}
+// colores
+[style-button='primary']{
+    --background:#126EFA;
+    --hover:#126EFA;
+    --border: none;
+    --fontColor: #fff;
+}
+[style-button='secondary']{
+    --background:transparent;
+    --hover:#FC3D38;
+    --border: inset 0 0 0 2px #FC3D38;
+    --fontColor: #FC3D38;
+}
+[style-button='tertiary']{
+    --background:transparent;
+    --hover:#7BAFFF;
+    --fontColor:#7BAFFF;
+    --border: none;
+}
+// flotantes 
+[float-button='float'],[size-button='small']{
+    --display: none;
+}
+[float-button='float'],[size-button='medium']{
+    --display: none;
+}
+[float-button='float'],[size-button='large']{
+    --display: none;
+}
+[float-button='noFloat']{
+    --sizeButton: auto;
+    --display: block;
+    --paddingIcon: 10px;
+}
+// de bordes
+[border-button='border']{
+    --background: transparent;
+    --border: inset 0 0 0 2px #000;
+}
+[border-button='border'][style-button='primary']{
+    --border: inset 0 0 0 2px #126EFA;
+}
+[border-button='border'][style-button='secondary']{
+    --border: inset 0 0 0 2px #FC3D38;
+}
+[border-button='border'][style-button='tertiary']{
+    --border: inset 0 0 0 2px #7BAFFF;
+}
+// estilos de redondeado
+[rounded-button='rounded']{
+    --borderRadius: 50px ;
+}
+
+$padding: 5px 10px;
+
 // jeraquias (primary, secondary, tertiary) ----------------------
-.ctnLight_BtnC, .ctnDark_BtnC
+.boton
 {
     position: relative;
-    padding: 8px 20px;
     border-radius: 5px;
     cursor: pointer;
-    // buttons hierarchy
-    &[jrq-btn='Pr']{
-        background: #126EFA; 
-        color: #fff;
-        &:hover{
-         background: #0445a7;
-        }
-    }
-    &[jrq-btn='Sc']{
-        box-shadow: inset 0 0 0 2px #FC3D38; 
-        background: transparent;
-        color: #FC3D38;
-        &:hover{
-            background: #FC3D38; 
-            color: #fff;
-        }
-    }
-    &[jrq-btn='Tr']{
-        color: #7BAFFF;
-        background: transparent;
-        &:hover{
-          background: #7BAFFF; 
-          color: #fff;
-        }
-    }
-    // rounded buttons
-    &[rd-btn='rounded']{
-        border-radius: 100px;
-    }
-    // border buttons
-    &[brd-btn='border']{
-        &[ds-btn='']{
-
-            &[jrq-btn='Pr']{
-                box-shadow: inset 0 0 0 2px #126EFA; 
-                background: transparent;
-                color: #126EFA;
-                &:hover{
-                    box-shadow: none;
-                    background: #0445a7; 
-                    color: #fff;
-                }  
-            }        
-            &[jrq-btn='Sc']{
-                box-shadow: inset 0 0 0 2px #FC3D38; 
-                background: transparent;
-                color: #FC3D38;
-                &:hover{
-                    background: #FC3D38; 
-                    color: #fff;
-                }
-            }  
-            &[jrq-btn='Tr']{
-                box-shadow: inset 0 0 0 2px #7BAFFF; 
-                background: transparent;
-                color: #7BAFFF;
-                &:hover{
-                    background: #7BAFFF; 
-                    color: #fff;
-                }
-            }  
-        }
-    }
-    // size buttons
-    &[sz-btn='small'], 
-    &[sz-btn='medium'], 
-    &[sz-btn='large']
-    {
-        .ctnIcnLgnd_medium,.ctnIcnLgnd_small,.ctnIcnLgnd_large{
-            display: flex;
-            align-items: center;
-            .icn{
-                margin: 0 10px 0 -5px;
+    background: var(--background) !important;
+    box-shadow: var(--border) !important;
+    // border: none !important;
+    width: var(--sizeButton) !important;
+    height: var(--sizeButton) !important;
+    border-radius: var(--borderRadius);
+    &__contenido{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // border: none;
+        &-legend{
+            display: var(--display);
+            color: var(--fontColor) !important;
+            font-size: clamp(var(--fontSizeMin), var(--fontSizePref), var(--fontSizeMax)) !important;
+            padding: $padding;
+            &:hover{
+                color: var(--fcHover) !important;
             }
         }
-    }
-    &[sz-btn='small']{
-        .icn{  height: 15px; }
-        .lgnd{ font-size: clamp(13px, 1.1vw, 32px); }
-    }
-    &[sz-btn='medium']{
-        .icn{ height: 20px; }
-        .lgnd{ font-size: clamp(15px, 1.3vw, 35px); }
-    }
-    &[sz-btn='large']{
-        .icn{ height: 25px; }
-        .lgnd{ font-size: clamp(18px, 1.5vw, 38px); }
-    }
-    // float buttons
-    &[fl-btn='float']{
-        &[sz-btn='small'], &[sz-btn='medium'], &[sz-btn='large']{
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .icn{
-                margin: 0;
-            }
-            .lgnd{
-                display: none;
-            }
-        }
-        &[sz-btn='small']{
-            height: 30px;
-            width: 30px;
-            .icn{
-                height: 15px ;
-            }  
-        }
-        &[sz-btn='medium']{
-            height: 40px;
-            width: 40px;
-            .icn{
-                height: 20px ;
-            }
-        }
-        &[sz-btn='large']{
-            height: 50px;
-            width: 50px;
-            .icn{
-                height: 25px ;
-            }
+        &-icon{
+            height: var(--sizeIcon);
+            padding-left: var(--paddingIcon);
         }
     }
-    // disabled buttons
-    &[ds-btn='disabled']{
-        background: #dedede;
-        color: #00000075;
-        cursor: not-allowed;
-        .lgnd{
-            cursor: not-allowed
-        }
-        &:hover{
-            background: #dedede;
-            color: #00000075;
-        }
-    }
-}
-// estado inicial del componente
-.ctnLight_BtnC{
-    background: #dedede;
-    color: #000;
     &:hover{
-        background: #525252;
-        color: #fff;
+        background: var(--hover) !important;
     }
 }
