@@ -1,11 +1,11 @@
 import React from 'react';
 // utilidades del storybook
 import { Meta, Story } from '@storybook/react';
-import { functions, modo, object, text } from '../../storyUtils';
+import { functions, modo, object, text } from '../../../storyUtils';
 
 // componente principal
-import CardTeam from './cardTeam';
-import { cardTeam } from './types';
+import CardTeam from '../teams/cardTeam';
+import { cardTeam } from '../teams/types/types';
 
 const Template: Story<cardTeam> = (args) => <CardTeam {...args} />;
 

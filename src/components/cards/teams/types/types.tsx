@@ -1,4 +1,4 @@
-import { Modo, onClickType } from '../../types';
+import { Modo, onClickType } from '../../../../types';
 
 export interface cardTeam {
 	onCl_edit: onClickType;

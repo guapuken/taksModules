@@ -13,10 +13,7 @@
     --columnTertiary: auto;
 }
 
-[composition-buttons='horizontal']{
-    --rows: 1fr;
-}
-
+// composiciones
 [primary-button='botonPrimario'][secondary-button='botonSecundario'][tertiary-button='botonTerciario']{
     &[composition-buttons='horizontal']{
         --rows: 1fr !important;
@@ -30,7 +27,7 @@
         --rowSecondary:  1 / 2;
         --rowTertiary:  1 / 2;
     }
-    &[composition-buttons='box']{
+    &[composition-buttons='vertical']{
         --rows: repeat(3 , 1fr);
         --columns: 1fr;
 
@@ -42,7 +39,58 @@
         --rowTertiary:  2 / 3;
         --rowSecondary:  3 / 4;
     }
+    &[composition-buttons='box']{
+        --rows: repeat(2 , 1fr);
+        --columns: repeat(2, 1fr);
+
+        --columnPrimary: 1 / 3;
+        --columnSecondary: 2 / 3;
+        --columnTertiary: 1 / 2;
+
+        --rowPrimary: 1 / 2;
+        --rowTertiary:  2 / 3;
+        --rowSecondary:  2 / 3;
+    }
 }
+[primary-button='botonPrimario'][secondary-button='botonSecundario'],
+[primary-button='botonPrimario'][tertiary-button='botonTerciario']
+{
+    &[composition-buttons='horizontal']{
+        --rows: 1fr !important;
+        --columns: repeat(3 , 1fr);
+
+        --columnPrimary: 2 / 4;
+        --columnSecondary: 1 / 2;
+        --columnTertiary: 1 / 2;
+
+        --rowPrimary: 1 / 2;
+        --rowSecondary:  1 / 2;
+        --rowTertiary:  1 / 2;
+    }
+    &[composition-buttons='vertical']{
+        --rows: repeat(3 , 1fr);
+        --columns: 1fr;
+
+        --columnPrimary: 1 / 2;
+        --columnSecondary: 1 / 2;
+
+        --rowPrimary: 1 / 2;
+        --rowTertiary:  2 / 3;
+    }
+    &[composition-buttons='box']{
+        --rows: repeat(2 , 1fr);
+        --columns: 1fr;
+
+        --columnPrimary: 1 / 2;
+        --columnSecondary: 1 / 2;
+        --columntertiary: 1 / 2;
+
+        --rowPrimary: 1 / 2;
+        --rowSecondary:  2 / 3;
+        --rowTertiary:  2 / 3;
+    }
+}
+
 
 .botones{
     display: grid;

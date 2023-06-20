@@ -1,0 +1,61 @@
+//importación de estilos globales
+@import '../../../../global.scss';
+
+// estilos generales -----------------------------------------------------------------------------------------------------------------
+.cardTeams{
+    &__contenedor{
+        display: grid; 
+        place-items: center; 
+        height: 100%;
+        &-title{
+            user-select: none;
+            &-members{
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                padding: 10px;
+                position: absolute;
+                border-radius: 20px;
+                top: 100%;
+                width: max-content;
+                background: var(--bg);
+                box-shadow: var(--boxShadow);
+                z-index: 2;
+                &:before{
+                    content:'';
+                    position: absolute;
+                    bottom: 99%;
+                    left:10%;
+                    width:0;
+                    height: 0;
+                    border: none;
+                    border-right: 13px solid transparent;
+                    border-left: 13px solid transparent;
+                    border-top: 13px solid transparent;
+                }
+                &-name{
+                    font-size: 14px;
+                    margin-bottom: 5px;
+                    color: var(--fc90);
+                    &:nth-child(2n){
+                        font-size: 14px;
+                        margin-bottom: 5px;
+                        color: var(--fc30);
+                    }
+                }
+            }
+        }
+    }
+    &__colorTeam{
+        height: calc(100%);
+        width: 15px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+    }
+}
+
+// media queries -------------------------------------------------------------------------------------------
+
+

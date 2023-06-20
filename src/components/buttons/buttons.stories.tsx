@@ -20,17 +20,17 @@ Horizontal.args = {
 	composition: 'horizontal',
 	legends: {
 		primary: 'Comprar ahora',
-		secondary: 'Cancelar',
+		// secondary: 'Cancelar',
 		tertiary: 'Regresar',
 	},
 	buttons: {
 		primary: true,
-		secondary: true,
+		// secondary: true,
 		tertiary: true,
 	},
 	onCl_buttons: {
 		primary: () => alert('Realizando pago...'),
-		secondary: () => alert('Cancelando...'),
+		// secondary: () => alert('Cancelando...'),
 		tertiary: () => alert('Regresando a la página inicial...'),
 	},
 	size: 'large',
@@ -47,17 +47,17 @@ Vertical.args = {
 	legends: {
 		primary: 'Comprar ahora',
 		secondary: 'Cancelar',
-		tertiary: 'Regresar',
+		// tertiary: 'Regresar',
 	},
 	buttons: {
 		primary: true,
 		secondary: true,
-		tertiary: true,
+		// tertiary: true,
 	},
 	onClick: {
 		primary: () => alert('Realizando pago...'),
 		secondary: () => alert('Cancelando...'),
-		tertiary: () => alert('Regresando a la página inicial...'),
+		// tertiary: () => alert('Regresando a la página inicial...'),
 	},
 	size: 'large',
 	styleComposition: {
@@ -72,21 +72,21 @@ Box.args = {
 	composition: 'box',
 	legends: {
 		primary: 'Comprar ahora',
-		secondary: 'Cancelar',
+		// secondary: 'Cancelar',
 		tertiary: 'Regresar',
 	},
 	buttons: {
 		primary: true,
-		secondary: true,
+		// secondary: true,
 		tertiary: true,
 	},
 	onCl_buttons: {
 		primary: () => alert('Realizando pago...'),
-		secondary: () => alert('Cancelando...'),
+		// secondary: () => alert('Cancelando...'),
 		tertiary: () => alert('Regresando a la página inicial...'),
 	},
 	styleComposition: {
-		maxWidth: '25vw',
+		// maxWidth: '25vw',
 	},
 	size: 'small',
 };

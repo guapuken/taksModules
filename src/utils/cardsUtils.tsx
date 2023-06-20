@@ -39,13 +39,15 @@ interface CardContainerProps {
 	className?: string;
 	children?: any;
 	style?: CSSProperties;
+	labels?: any;
 }
 export const CardContainer = (props: CardContainerProps) => {
-	const { width = '100%', height = '100%', children, className, style } = props;
+	const { width = '100%', height = '100%', children, className, style, labels } = props;
 	return (
 		<div
 			style={{ width: width, height: height, ...style }}
 			className={`ContainerCardTeamComponent ${className}`}
+			{...labels}
 		>
 			{children}
 		</div>

@@ -31,9 +31,9 @@ const Buttons = ({
 			theme-config={modo}
 			composition-buttons={composition}
 			style={styleComposition}
-			primary-button={buttons.primary ? 'botonPrimario' : ''}
-			secondary-button={buttons.secondary ? 'botonSecundario' : ''}
-			tertiary-button={buttons.tertiary ? 'botonTerciario' : ''}
+			primary-button={buttons?.primary ? 'botonPrimario' : ''}
+			secondary-button={buttons?.secondary ? 'botonSecundario' : ''}
+			tertiary-button={buttons?.tertiary ? 'botonTerciario' : ''}
 		>
 			<ValidationComponent validate={buttons?.primary}>
 				<Button
@@ -44,7 +44,7 @@ const Buttons = ({
 					size={size}
 					modo={modo}
 					primary
-					onCl={onCl_buttons.primary}
+					onCl={onCl_buttons?.primary}
 					disabled={disabled?.primary}
 					legend={legends?.primary}
 					style={{ ...style?.primary }}
@@ -60,7 +60,7 @@ const Buttons = ({
 					size={size}
 					modo={modo}
 					secondary
-					onCl={onCl_buttons.secondary}
+					onCl={onCl_buttons?.secondary}
 					disabled={disabled?.secondary}
 					legend={legends?.secondary}
 					style={style?.secondary}
@@ -76,7 +76,7 @@ const Buttons = ({
 					size={size}
 					tertiary
 					modo={modo}
-					onCl={onCl_buttons.tertiary}
+					onCl={onCl_buttons?.tertiary}
 					disabled={disabled?.tertiary}
 					legend={legends?.tertiary}
 					style={style?.tertiary}

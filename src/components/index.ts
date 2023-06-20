@@ -43,7 +43,7 @@ export {default as Dificultad} from './Dificultad/Dificultad';
 // ---------------------------------------------------------------------------------------------------------
 export {default as Cards} from './cards'; // genérica
 export {default as CardCampaign} from './cards/Campaigns/CardCampaign';
-export {default as CardTeam} from  './cardTeam';
+export {default as CardTeam} from  './cards/teams';
 export {default as CardProject} from './cardProject';
 export {default as CardTask} from './cardTask';
 export {default as CardMembersTeam} from './cardMembersTeam';
