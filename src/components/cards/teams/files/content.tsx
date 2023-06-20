@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // elementos auxiliares --------------------------------------------------------------------
 //componentes
 import { CardContainer } from '../../../../utils/cardsUtils';
@@ -8,7 +8,7 @@ import { SimpleContainer, Texts, Title, ValidationComponent } from '../../../Ato
 
 //Componente que regresa el contenido de la card
 const Content = ({ modo, teamName = 'Equipo', onCl_preview, members, teamColor }: any) => {
-	const [mouseEnter, setMouseEnter] = React.useState(false);
+	const [mouseEnter, setMouseEnter] = useState(false);
 	return (
 		<CardContainer
 			labels={{
