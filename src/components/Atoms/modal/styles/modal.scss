@@ -53,6 +53,7 @@ $altura: 90vh;
     grid-template-rows: var(--gridRowsDisplay);
     grid-template-columns: var(--gridColumnsDisplay);
     gap: 10px;
+    z-index: 3;
 
     // estilos del header
     &__header, &__children, &__footer{
