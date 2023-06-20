@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // componentes auxiliares
 import { InputLabel } from '../../../../../components';
 import { Spans } from '../../../../../utils/cardsUtils';
@@ -28,7 +28,7 @@ const Content = ({
 	idTeam,
 	modo = 'Light',
 }: content) => {
-	const [asignColor, setAsignColor] = React.useState(teamColor || '');
+	const [asignColor, setAsignColor] = useState(teamColor);
 
 	useEffect(() => {
 		setAsignColor(teamColor);

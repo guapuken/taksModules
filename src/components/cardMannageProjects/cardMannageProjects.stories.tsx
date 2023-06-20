@@ -18,6 +18,7 @@ withProperties.args = {
 
 	// statusTask: 'delayed',
 	statusTask: 1,
+	modo: 'Dark',
 	percentTask: 100,
 	tasks: 35,
 };

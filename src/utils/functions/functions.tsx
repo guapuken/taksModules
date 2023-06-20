@@ -70,9 +70,9 @@ export function obtenerColorLetra(colorFondo: any) {
 	let g = 0;
 	let b = 0;
 	if (colorFondo?.includes('#')) {
-		r = parseInt(colorFondo.slice(1, 3), 16);
-		g = parseInt(colorFondo.slice(3, 5), 16);
-		b = parseInt(colorFondo.slice(5, 7), 16);
+		r = parseInt(colorFondo?.slice(1, 3), 16);
+		g = parseInt(colorFondo?.slice(3, 5), 16);
+		b = parseInt(colorFondo?.slice(5, 7), 16);
 	} else {
 		[r, g, b] = colorFondo;
 	}
