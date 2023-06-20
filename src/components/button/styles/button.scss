@@ -12,7 +12,7 @@
     --fontSizeMin: 16px;
     --fontSizePref: 1.7vh;
     --fontSizeMax: 21px;
-    --sizeButton: auto;
+    --sizeButton: 100%;
     --display: block;
     --paddingIcon: 0;
     --borderRadius:5px;
@@ -44,7 +44,7 @@
 [style-button='primary']{
     --background:#126EFA;
     --hover:#126EFA;
-    --border: none;
+    --border: none !important;
     --fontColor: #fff;
 }
 [style-button='secondary']{
@@ -77,20 +77,25 @@
 // de bordes
 [border-button='border']{
     --background: transparent;
-    --border: inset 0 0 0 2px #000;
+    --border: inset 0 0 0 2px #000 !important;
 }
 [border-button='border'][style-button='primary']{
-    --border: inset 0 0 0 2px #126EFA;
+    --border: inset 0 0 0 2px #126EFA !important;
+    --fontColor: #126EFA;
 }
 [border-button='border'][style-button='secondary']{
-    --border: inset 0 0 0 2px #FC3D38;
+    --border: inset 0 0 0 2px #FC3D38 !important;
 }
 [border-button='border'][style-button='tertiary']{
-    --border: inset 0 0 0 2px #7BAFFF;
+    --border: inset 0 0 0 2px #7BAFFF !important;
 }
 // estilos de redondeado
 [rounded-button='rounded']{
     --borderRadius: 50px ;
+}
+[disabled-button='disabled']{
+    --background: gray;
+    --hover: gray;
 }
 
 $padding: 5px 10px;

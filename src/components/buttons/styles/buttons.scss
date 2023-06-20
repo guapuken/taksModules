@@ -3,55 +3,75 @@
 // ---------------------------------------------------------------------------------------------------------
 //      Estilos generales
 // ---------------------------------------------------------------------------------------------------------
-.ctnLight_BtnsC,
-.ctnDark_BtnsC{
-    &[comp-btns='horizontal'],
-    &[comp-btns='vertical'],
-    &[comp-btns='box']{
-        display:flex;
-        justify-content: space-between;
-        gap: 10px;
-        width: 100%;   
+
+:root{
+    --columns: auto;
+    --rows: auto
+    --rowPrimary: auto;
+    --columnPrimary: auto;
+    --columnSecondary: auto;
+    --columnTertiary: auto;
+}
+
+[composition-buttons='horizontal']{
+    --rows: 1fr;
+}
+
+[primary-button='botonPrimario'][secondary-button='botonSecundario'][tertiary-button='botonTerciario']{
+    &[composition-buttons='horizontal']{
+        --rows: 1fr !important;
+        --columns: repeat(4 , 1fr);
+
+        --columnPrimary: 3 / 5;
+        --columnSecondary: 2 / 3;
+        --columnTertiary: 1 / 2;
+
+        --rowPrimary: 1 / 2;
+        --rowSecondary:  1 / 2;
+        --rowTertiary:  1 / 2;
     }
-    &[comp-btns='horizontal']{
-        flex-direction: row-reverse;
-    }
-    &[comp-btns='vertical']{
-        flex-direction: column;
-    }
-    &[comp-btns='box']{
-        flex-wrap: wrap;
+    &[composition-buttons='box']{
+        --rows: repeat(3 , 1fr);
+        --columns: 1fr;
+
+        --columnPrimary: 1 / 2;
+        --columnSecondary: 1 / 2;
+        --columnTertiary: 1 / 2;
+
+        --rowPrimary: 1 / 2;
+        --rowTertiary:  2 / 3;
+        --rowSecondary:  3 / 4;
     }
 }
-// ---------------------------------------------------------------------------------------------------------
-//      modo oscuro
-// ---------------------------------------------------------------------------------------------------------
 
-// ---------------------------------------------------------------------------------------------------------
-//      modo claro
-// ---------------------------------------------------------------------------------------------------------
+.botones{
+    display: grid;
+    grid-template-columns: var(--columns) !important;
+    grid-template-rows: var(--rows) !important;
+    gap: 20px;
+    width: 100%;
+
+    &__primario{
+        grid-column: var(--columnPrimary) !important;
+        grid-row: var(--rowPrimary) !important;
+    }
+    &__secondary{
+        grid-row: var(--rowSecondary) !important;
+        grid-column: var(--columnSecondary) !important;
+    }
+    &__tertiary{
+        grid-row: var(--rowTertiary) !important;
+        grid-column: var(--columnTertiary) !important;
+        
+    }
+}
 
 // ---------------------------------------------------------------------------------------------------------
 //      media queries
 // ---------------------------------------------------------------------------------------------------------
 @media (max-aspect-ratio: 4/3){ // relación aspecto con dispositivos mayores a móviles tales como tablets
-    .ctnLight_BtnsC,
-    .ctnDark_BtnsC
-    {
 
-    }    
 }
 @media (max-aspect-ratio: 7/10){ // Relación aspecto de dispositivos móviles
-    .ctnLight_BtnsC,
-    .ctnDark_BtnsC
-    {
-        &[comp-btns='horizontal']{
-            &[ty-btns='PrSc'],
-            &[ty-btns='ScTr'],
-            &[ty-btns='PrTr']{
-                flex-direction: row-reverse;
-            }
-            flex-direction: column;
-        }
-    }
+
 }

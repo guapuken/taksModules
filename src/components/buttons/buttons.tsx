@@ -4,6 +4,7 @@ import { Button } from '../../components';
 import { buttons } from './types';
 // styles
 import './styles/buttons.scss';
+import { ValidationComponent } from '../Atoms';
 
 //component
 const Buttons = ({
@@ -26,18 +27,19 @@ const Buttons = ({
 
 	return (
 		<div
-			className={`ctn${modo}_BtnsC`}
-			comp-btns={composition}
+			className={`botones`}
+			theme-config={modo}
+			composition-buttons={composition}
 			style={styleComposition}
-			ty-btns={`${buttons.primary ? 'Pr' : ''}${buttons.secondary ? 'Sc' : ''}${
-				buttons.tertiary ? 'Tr' : ''
-			}`}
+			primary-button={buttons.primary ? 'botonPrimario' : ''}
+			secondary-button={buttons.secondary ? 'botonSecundario' : ''}
+			tertiary-button={buttons.tertiary ? 'botonTerciario' : ''}
 		>
-			{buttons.primary && (
+			<ValidationComponent validate={buttons?.primary}>
 				<Button
 					icon={icons?.primary}
 					id={id?.primary}
-					border={border}
+					border={border ?? false}
 					rounded={rounded}
 					size={size}
 					modo={modo}
@@ -45,23 +47,11 @@ const Buttons = ({
 					onCl={onCl_buttons.primary}
 					disabled={disabled?.primary}
 					legend={legends?.primary}
-					style={{
-						display: 'block',
-						width:
-							composition === 'horizontal'
-								? buttons.secondary && buttons.tertiary
-									? '40%'
-									: buttons.secondary || buttons.tertiary
-									? '50%'
-									: ''
-								: '100%',
-						// se aplican los estilos que recibe
-						...style?.primary,
-					}}
-					className={className?.primary}
+					style={{ ...style?.primary }}
+					className={`botones__primario ${className?.primary}`}
 				/>
-			)}
-			{buttons.secondary && (
+			</ValidationComponent>
+			<ValidationComponent validate={buttons?.secondary}>
 				<Button
 					icon={icons?.secondary}
 					id={id?.secondary}
@@ -73,22 +63,11 @@ const Buttons = ({
 					onCl={onCl_buttons.secondary}
 					disabled={disabled?.secondary}
 					legend={legends?.secondary}
-					style={{
-						width:
-							composition === 'box'
-								? '40%'
-								: buttons.primary && buttons.tertiary
-								? '25%'
-								: buttons.primary || buttons.tertiary
-								? '50%'
-								: '',
-						//se aplican cuando reciben los estilos
-						...style?.secondary,
-					}}
-					className={className?.secondary}
+					style={style?.secondary}
+					className={`botones__secondary ${className?.secondary}`}
 				/>
-			)}
-			{buttons.tertiary && (
+			</ValidationComponent>
+			<ValidationComponent validate={buttons?.tertiary}>
 				<Button
 					icon={icons?.tertiary}
 					id={id?.tertiary}
@@ -100,21 +79,10 @@ const Buttons = ({
 					onCl={onCl_buttons.tertiary}
 					disabled={disabled?.tertiary}
 					legend={legends?.tertiary}
-					style={{
-						width:
-							composition === 'box'
-								? '40%'
-								: buttons.primary && buttons.secondary
-								? '25%'
-								: buttons.primary || buttons.secondary
-								? '50%'
-								: '',
-						//se aplican cuando reciben los estilos
-						...style?.tertiary,
-					}}
-					className={className?.tertiary}
+					style={style?.tertiary}
+					className={`botones__tertiary ${className?.tertiary}`}
 				/>
-			)}
+			</ValidationComponent>
 		</div>
 	);
 };

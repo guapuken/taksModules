@@ -37,8 +37,8 @@ Horizontal.args = {
 	styleComposition: {
 		maxWidth: '100vw',
 	},
-	rounded: true,
-	border: true,
+	// rounded: true,
+	// border: true,
 };
 
 export const Vertical = Template.bind({});

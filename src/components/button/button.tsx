@@ -37,9 +37,9 @@ const Button = ({
 			theme-config={modo}
 			disabled={disabled}
 			style={style}
-			rounded-button={rounded ? 'rounded' : 'square'}
-			ds-btn={disabled ? 'disabled' : ''}
-			border-button={border ? 'border' : 'flat'}
+			rounded-button={rounded ? 'rounded' : ''}
+			disabled-button={disabled ? 'disabled' : ''}
+			border-button={border ? 'border' : ''}
 			style-button={
 				primary ? 'primary' : secondary ? 'secondary' : tertiary ? 'tertiary' : ''
 			}
