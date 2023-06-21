@@ -49,7 +49,7 @@ const IconDropdown = (props: iconDrps) => {
 					<DropdownMenu.Content
 						onClick={datos.onCl}
 						className={`sbCtn${modo}_IcnDrpC ${datos.className}`}
-						style={{ cursor: 'pointer', zIndex: '2', ...datos.style }}
+						style={{ cursor: 'pointer', zIndex: '4', ...datos.style }}
 					>
 						<Menus menus={options} modo={modo} />
 					</DropdownMenu.Content>

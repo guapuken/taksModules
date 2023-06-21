@@ -128,7 +128,6 @@ const Task = (props: tasks) => {
 						revision={revision}
 						valueResponsable={valueResponsable}
 						valueRevision={valueRevision}
-						// style={{ marginRight: '20px' }}
 						disabled={check ? check : false}
 						isPM={isPM}
 						haveSubPersonal={haveSubPersonal}

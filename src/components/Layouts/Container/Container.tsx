@@ -33,7 +33,7 @@ const Container = ({
 				'chat-content': chat ? 'chat' : 'noChat',
 			}}
 		>
-			<div className={'menu'} style={{ zIndex: 2 }}>
+			<div className={'menu'}>
 				<Menu modo={modo} onClick={onCl_menus} />
 			</div>
 			<ValidationComponent validate={AsideContent}>
