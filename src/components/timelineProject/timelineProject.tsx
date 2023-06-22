@@ -5,6 +5,7 @@ import { tasks, timelineProps } from './types';
 import { Tasks } from './files';
 // estilos
 import './timelineProject.scss';
+import { SimpleContainer } from '../Atoms';
 
 // componente principal
 const Timeline = (props: timelineProps) => {
@@ -17,14 +18,23 @@ const Timeline = (props: timelineProps) => {
 
 	//
 	return (
-		<div className={`ctn${modo}_TLPC`}>
-			<div className="ctnTimeline">
-				<div
-					className="line"
-					style={{
-						height: `calc(100% - ${isBtninFinalTask ? '90px' : '30px'})`,
+		<SimpleContainer
+			labels={{
+				className: 'timeline',
+				theme_config: modo,
+			}}
+		>
+			{/* <SimpleContainer className="ctnTimeline"> */}
+			<SimpleContainer className="timeline__contenido">
+				<SimpleContainer
+					labels={{
+						className: 'timeline__contenido-line',
+						style: {
+							height: `calc(100% - ${isBtninFinalTask ? '90px' : '35px'})`,
+						},
 					}}
-				></div>
+					children={null}
+				/>
 				{tasks &&
 					tasks?.map((e: tasks) => (
 						<Tasks
@@ -36,8 +46,8 @@ const Timeline = (props: timelineProps) => {
 							legendBtn={e?.legendBtn}
 						/>
 					))}
-			</div>
-		</div>
+			</SimpleContainer>
+		</SimpleContainer>
 	);
 };
 

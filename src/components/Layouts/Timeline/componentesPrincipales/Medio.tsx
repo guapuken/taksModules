@@ -5,7 +5,10 @@ import { medios } from '../types/Types';
 import { Modo } from '../../../../types';
 
 const Medio = ({ nombre, porcentaje, status, modo, onClick }: medios) => (
-	<SimpleContainer className="CtnMedio_TimelineProject" onClick={onClick}>
+	<SimpleContainer
+		className="timelineProject__contenido-medios-individual-medio"
+		onClick={onClick}
+	>
 		<SimpleContainer style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
 			<CircularProgressBar percentTask={porcentaje} statusTask={status} />
 			<Texts modo={modo as Modo}>{`${porcentaje}%`}</Texts>

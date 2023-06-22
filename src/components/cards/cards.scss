@@ -14,6 +14,26 @@
 
 .card
 { 
+/*     .detalleCardInf, .detalleCardSup{
+        position: absolute !important;
+        width: 20px;
+        height: 20px;
+    }
+    .detalleCardSup{
+        border-right: 3px solid var(--detailColor);
+        border-top: 3px solid var(--detailColor);
+        border-top-right-radius: 7px;
+        right: 10px;
+        top: 10px;
+    }
+    .detalleCardInf{
+        // background: red;
+        border-left: 3px solid var(--detailColor);
+        border-bottom: 3px solid var(--detailColor);
+        border-bottom-left-radius: 7px;
+        left: 10px;
+        bottom: 10px;
+    } */
     position: relative; 
     background: var(--bg);
     width: calc(100vw / 4 - 20px);

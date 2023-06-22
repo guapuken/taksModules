@@ -11,8 +11,9 @@ storiesOf('Layouts/TimelineProject/Examples/Uber', module).add('Uber', () => {
 	});
 	return (
 		<TimelineProject
-			onCh_dropdown={(e) => setTaskGroup(e)}
-			modo="Light"
+			onCh_dropdown={(e: any) => setTaskGroup(e)}
+			modo="Dark"
+			nombreProyecto="2536-Uber_eats-Noviembre"
 			opcionesDropdown={[
 				{
 					id: '1',

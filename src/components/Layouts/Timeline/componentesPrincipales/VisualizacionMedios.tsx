@@ -16,7 +16,7 @@ const VisualizacionMedios = ({ arreglo, modo, titulo }: visualizacionMedios) => 
 				<Title style={{ margin: '15px 0' }} modo={modo}>
 					{titulo}
 				</Title>
-				<SimpleContainer className="CtnMedios_TimelineProject">
+				<SimpleContainer className="timelineProject__contenido-medios-individual">
 					{arreglo?.map((element: medios) => (
 						<Medio
 							modo={modo}

@@ -21,10 +21,12 @@
 //      variables
 // ---------------------------------------------------------------------------------------------------------
 :root{
+  --detailColor: #f1e232;
   //fonts Colors
-  --fc90: #282828;  
-  --fc60: #525252; 
-  --fc30: #818181;
+  --fc100: #2c2926;
+  --fc90: #343232;  
+  --fc60: #54514f; 
+  --fc30: #bdbaba;
   // font weights
   --fw700: 700;
   --fw400: 400;
@@ -36,8 +38,7 @@
   --border: inset 0 0 0 2px #dedede;
 
   // contenedores
-  --boxShadow: 0 0 calc(10px + 0.390625vw) #dedede75;
-  // --boxShadow: 0 0 calc(10px + 0.390625vw) #f1e232;
+  --boxShadow: 0 0 10px #bdbaba50;
   // medidas
   --cardWidth: calc(100vw * .25);
   --cardHeight: calc(100vh * .25);
@@ -46,12 +47,15 @@
   --aquaContrast: #127574;
 }
 [theme-config='Dark']{
-  --fc90: #dedede; 
-  --fc60: #9b9b9b; 
-  --fc30: #7e7e7e;
+  --detailColor: #f1e232;
+  --fc100: #d3d3d3;
+  --fc90: #bdbaba; 
+  --fc60: #8d8989; 
+  --fc30: #656262;
   --bg: #282828; 
   --border: inset 0 0 0 2px #dedede;
-  --boxShadow: 0 0 calc(10px + 0.390625vw)#00000075;
+  // --boxShadow: 0 0 calc(10px + 0.390625vw)#00000075;
+  --boxShadow: 0 0 0 1px #f7ec8a;
 
 }
 

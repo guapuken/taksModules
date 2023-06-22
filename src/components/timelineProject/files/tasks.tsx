@@ -3,30 +3,45 @@ import React from 'react';
 import { tasks } from '../types';
 import '../timelineProject.scss';
 import { Button } from '../../../components';
+import { Texts } from '../../Atoms';
 
 const Tasks = (props: tasks) => {
 	const { completed, taskName, duration, onCl_showDetails, legendBtn, modo } = props;
 	return (
-		<div className="ctnTasks">
-			<div className={`circle${completed ? 'Complete' : ''}`}></div>
-			<div className="ctnDrtnTaks">
+		<div className="timeline__contenido-contenedorTasks">
+			<div
+				className={`timeline__contenido-contenedorTasks-circle ${
+					completed ? 'complete' : ''
+				}`}
+			></div>
+			<div className="timeline__contenido-contenedorTasks-duration">
 				{duration && (
-					<p className="drtnTask">{`${duration} ${
-						duration <= 1 ? 'día hábil' : 'días hábiles'
-					}`}</p>
+					<Texts
+						modo={modo}
+						className="timeline__contenido-contenedorTasks-duration-duration"
+					>{`${duration} ${duration <= 1 ? 'día hábil' : 'días hábiles'}`}</Texts>
 				)}
 				<div>
 					{taskName && !onCl_showDetails ? (
-						<p className="nmTask">{taskName}</p>
+						<Texts
+							modo={modo}
+							className="timeline__contenido-contenedorTasks-duration-name"
+						>
+							{taskName}
+						</Texts>
 					) : (
 						<div>
-							<p className="nmTask">{taskName}</p>
+							<Texts
+								modo={modo}
+								className="timeline__contenido-contenedorTasks-duration-name"
+							>
+								{taskName}
+							</Texts>
 							<Button
 								modo={modo}
 								border
 								primary
 								legend={legendBtn}
-								style={{ margin: '10px 0' }}
 								onCl={onCl_showDetails as any}
 							/>
 						</div>

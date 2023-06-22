@@ -28,19 +28,21 @@ const TimelineProject = ({
 	onCl_compartir,
 }: timelineProjectProps) => {
 	return (
-		<SimpleContainer className="ctnGeneral_TimelineProject">
-			<SimpleContainer className="header_TimelineProject">
-				<img src={logo} alt="" style={{ height: '10vh' }} onClick={onCl_compartir} />
+		<SimpleContainer className="timelineProject">
+			<SimpleContainer className="timelineProject__header">
+				<img
+					className="timelineProject__header-logo"
+					src={logo}
+					alt="OBP By IMJ"
+					onClick={onCl_compartir}
+				/>
 				<ButtonItem id="1" img={close} />
 			</SimpleContainer>
-			<Title modo="Light" className="projectName_TimelineProject">
+			<Title modo="Light" className="timelineProject__infoProject">
 				{nombreProyecto}
 			</Title>
-			<SimpleContainer
-				className="CtnContenido_TimelineProject"
-				style={{ maxHeight: '80vh', overflow: 'auto' }}
-			>
-				<SimpleContainer style={{ maxHeight: '80vh', overflowY: 'scroll' }}>
+			<SimpleContainer className="timelineProject__contenido">
+				<SimpleContainer className="timelineProject__contenido-timeline">
 					<SimpleContainer style={{ width: '30vw', display: 'flex', gap: '10px' }}>
 						<Dropdown
 							modo={modo}
@@ -54,7 +56,7 @@ const TimelineProject = ({
 					</SimpleContainer>
 					<Timeline modo={modo} tasks={tasks as any} />
 				</SimpleContainer>
-				<SimpleContainer className="CtnMediosGenerales_TimelineProject">
+				<SimpleContainer className="timelineProject__contenido-medios">
 					<VisualizacionMedios arreglo={fijos} modo={modo} titulo={'Sitios fijos'} />
 					<VisualizacionMedios arreglo={urbanos} modo={modo} titulo={'Urbanos'} />
 					<VisualizacionMedios arreglo={indoors} modo={modo} titulo={'Indoors'} />
