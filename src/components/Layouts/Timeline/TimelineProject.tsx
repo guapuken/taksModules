@@ -15,7 +15,7 @@ import share from '../../../img/share.svg';
 
 //styles
 import './styles/TimelineProject.scss';
-const NoContent = ({ modo }) => {
+const NoContent = ({ modo }: any) => {
 	return (
 		<SimpleContainer style={{ maxHeight: '70vh', overflow: 'hidden' }}>
 			<p
