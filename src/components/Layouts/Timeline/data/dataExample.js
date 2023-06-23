@@ -198,12 +198,12 @@ export const indoors = [
 
 export const vallas = [
 	{
-		nombre: '254',
+		nombre: 'Valla No.254',
 		porcentaje: 75,
 		status: 'onTime',
 	},
 	{
-		nombre: '7569',
+		nombre: 'Valla No.7569',
 		porcentaje: 20,
 		status: 'onTime',
 	},

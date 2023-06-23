@@ -6,4 +6,5 @@ export interface titleProps {
 	style?: css;
 	maxLines?: number;
 	title?: string;
+	labels?: any;
 }

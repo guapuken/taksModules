@@ -5,48 +5,52 @@ import { fijos, indoors, tasks, urbanos, vallas } from '../Timeline/data/dataExa
 import TimelineProject from '../Timeline/TimelineProject';
 
 storiesOf('Layouts/TimelineProject/Examples/Uber', module).add('Uber', () => {
-	const [taskGroup, setTaskGroup] = useState({
-		id: '',
-		title: '',
-	});
+	const [medios, setMedios] = useState('');
+	console.log('medios: ', medios);
 	return (
 		<TimelineProject
-			onCh_dropdown={(e: any) => setTaskGroup(e)}
-			modo="Dark"
+			onCl_compartir={() => alert('Compartir línea de tiempo')}
+			modo="Light"
 			nombreProyecto="2536-Uber_eats-Noviembre"
-			opcionesDropdown={[
-				{
-					id: '1',
-					title: 'Sitios fijos',
-				},
-				{
-					id: '2',
-					title: 'Urbanos',
-				},
-				{
-					id: '3',
-					title: 'Indoors',
-				},
-				{
-					id: '4',
-					title: 'Vallas móviles',
-				},
-			]}
 			tasks={
-				taskGroup.id === '1'
+				medios === 'sitios'
 					? tasks.fijos
-					: taskGroup.id === '2'
+					: medios === 'urbanos'
 					? tasks.urbanos
-					: taskGroup.id === '3'
+					: medios === 'indoors'
 					? tasks.indoors
-					: taskGroup.id === '4'
+					: medios === 'vallas'
 					? tasks.vallas
-					: []
+					: (null as any)
 			}
-			fijos={fijos}
-			urbanos={urbanos}
-			indoors={indoors}
-			vallas={vallas}
+			percentUrbanos={25}
+			percentSitios={90}
+			percentIndoors={75}
+			percentVallas={69}
+			statusUrbanos={'outOfTime'}
+			statusSitios={3}
+			statusIndoors={1}
+			statusVallas={2}
+			haveIndoors
+			// haveSitios
+			haveUrbanos
+			haveVallas
+			onCl_selectedMedios={(e) => setMedios(e.target.id)}
+			fijos={medios === 'sitios' ? true : false}
+			urbanos={medios === 'urbanos' ? true : false}
+			indoors={medios === 'indoors' ? true : false}
+			vallas={medios === 'vallas' ? true : false}
+			medios={
+				medios === 'sitios'
+					? fijos
+					: medios === 'urbanos'
+					? urbanos
+					: medios === 'indoors'
+					? indoors
+					: medios === 'vallas'
+					? vallas
+					: (null as any)
+			}
 		/>
 	);
 });
