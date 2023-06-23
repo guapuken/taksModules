@@ -38,10 +38,6 @@ export interface timelineProjectProps {
 	tasks: tasksTimeline[];
 	nombreProyecto: string;
 	medios?: medios[] | null;
-	fijos?: boolean;
-	urbanos?: boolean;
-	indoors?: boolean;
-	vallas?: boolean;
 	modo: Modo;
 	onCl_compartir: onClickType;
 	onCl_selectedMedios: onClickType;

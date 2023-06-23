@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // elementos auxiliares
 import { SimpleContainer, TextBoldLight, Texts, Title, ValidationComponent } from '../../Atoms';
 import { Button, Dropdown, Timeline } from '../../../components';
@@ -40,10 +40,6 @@ const NoContent = ({ modo }: any) => {
 };
 
 const TimelineProject = ({
-	fijos,
-	vallas,
-	indoors,
-	urbanos,
 	modo,
 	tasks,
 	nombreProyecto,
@@ -60,6 +56,7 @@ const TimelineProject = ({
 	statusVallas,
 	onCl_close,
 }: timelineProjectProps) => {
+	const [medioSelected, setMedioSelected] = useState('');
 	return (
 		<SimpleContainer className="timelineProject">
 			<SimpleContainer className="timelineProject__header">
@@ -90,19 +87,19 @@ const TimelineProject = ({
 								}}
 							>
 								<ValidationComponent // aquí se valida si se encuentra seleccionadas las tareas
-									validate={fijos || indoors || vallas || urbanos}
+									validate={medioSelected !== ''}
 								>
 									<TextBoldLight
 										modo={modo}
 										legend={'Línea de tiempo de  '}
 										boldLegend={
-											fijos
+											medioSelected === 'sitios'
 												? 'Sitios fijos'
-												: urbanos
+												: medioSelected === 'urbanos'
 												? 'Urbanos'
-												: indoors
+												: medioSelected === 'indoors'
 												? 'Sitios Indoor'
-												: vallas
+												: medioSelected === 'vallas'
 												? 'Vallas fijas'
 												: ''
 										}
@@ -126,7 +123,10 @@ const TimelineProject = ({
 					<VisualizacionMedios
 						tasks={medios ?? (null as any)}
 						modo={modo}
-						onCl_selectedMedios={onCl_selectedMedios}
+						onCl_selectedMedios={(e) => {
+							setMedioSelected(e.target.id);
+							if (onCl_selectedMedios) onCl_selectedMedios(e);
+						}}
 						percentSitios={percentSitios}
 						percentUrbanos={percentUrbanos}
 						percentIndoors={percentIndoors}

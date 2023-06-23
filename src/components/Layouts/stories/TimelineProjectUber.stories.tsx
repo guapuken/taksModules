@@ -33,10 +33,6 @@ storiesOf('Layouts/TimelineProject/Examples/Uber', module).add('Uber', () => {
 			statusIndoors={1}
 			// statusVallas={2}
 			onCl_selectedMedios={(e) => setMedios(e.target.id)}
-			fijos={medios === 'sitios' ? true : false}
-			urbanos={medios === 'urbanos' ? true : false}
-			indoors={medios === 'indoors' ? true : false}
-			vallas={medios === 'vallas' ? true : false}
 			medios={
 				medios === 'sitios'
 					? fijos
