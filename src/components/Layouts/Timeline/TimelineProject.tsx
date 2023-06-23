@@ -58,10 +58,7 @@ const TimelineProject = ({
 	statusUrbanos,
 	statusIndoors,
 	statusVallas,
-	haveSitios,
-	haveUrbanos,
-	haveIndoors,
-	haveVallas,
+	onCl_close,
 }: timelineProjectProps) => {
 	return (
 		<SimpleContainer className="timelineProject">
@@ -72,7 +69,7 @@ const TimelineProject = ({
 					alt="OBP By IMJ"
 					onClick={onCl_compartir}
 				/>
-				<ButtonItem id="1" img={close} />
+				<ButtonItem id="1" img={close} onClick={onCl_close} />
 			</SimpleContainer>
 			<SimpleContainer className="timelineProject__contenido">
 				<SimpleContainer className="timelineProject__contenido-timeline">
@@ -118,14 +115,6 @@ const TimelineProject = ({
 										icon={share}
 										rounded
 										border
-										style={
-											{
-												// position: 'absolute',
-												// top: '0',
-												// right: '20px',
-												// zIndex: '1',
-											}
-										}
 									/>
 								</ValidationComponent>
 							</SimpleContainer>
@@ -146,10 +135,10 @@ const TimelineProject = ({
 						statusUrbanos={statusUrbanos}
 						statusIndoors={statusIndoors}
 						statusVallas={statusVallas}
-						sitiosFijos={haveSitios}
-						unidadesUrbanas={haveUrbanos}
-						sitiosIndoors={haveIndoors}
-						vallasMoviles={haveVallas}
+						sitiosFijos={statusSitios || percentSitios ? true : false}
+						unidadesUrbanas={statusUrbanos || percentUrbanos ? true : false}
+						sitiosIndoors={statusIndoors || percentIndoors ? true : false}
+						vallasMoviles={statusVallas || percentVallas ? true : false}
 					/>
 				</SimpleContainer>
 			</SimpleContainer>

@@ -45,10 +45,6 @@ export interface timelineProjectProps {
 	modo: Modo;
 	onCl_compartir: onClickType;
 	onCl_selectedMedios: onClickType;
-	haveSitios?: boolean;
-	haveUrbanos?: boolean;
-	haveIndoors?: boolean;
-	haveVallas?: boolean;
 	percentSitios?: number;
 	percentUrbanos?: number;
 	percentIndoors?: number;
@@ -57,4 +53,5 @@ export interface timelineProjectProps {
 	statusUrbanos?: statusTask;
 	statusIndoors?: statusTask;
 	statusVallas?: statusTask;
+	onCl_close?: onClickType;
 }

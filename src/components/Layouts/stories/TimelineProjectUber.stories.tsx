@@ -23,18 +23,15 @@ storiesOf('Layouts/TimelineProject/Examples/Uber', module).add('Uber', () => {
 					? tasks.vallas
 					: (null as any)
 			}
+			onCl_close={() => alert('close')}
 			percentUrbanos={25}
 			percentSitios={90}
 			percentIndoors={75}
-			percentVallas={69}
+			// percentVallas={69}
 			statusUrbanos={'outOfTime'}
 			statusSitios={3}
 			statusIndoors={1}
-			statusVallas={2}
-			haveIndoors
-			// haveSitios
-			haveUrbanos
-			haveVallas
+			// statusVallas={2}
 			onCl_selectedMedios={(e) => setMedios(e.target.id)}
 			fijos={medios === 'sitios' ? true : false}
 			urbanos={medios === 'urbanos' ? true : false}
