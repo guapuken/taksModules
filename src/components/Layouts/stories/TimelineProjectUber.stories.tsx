@@ -27,11 +27,11 @@ storiesOf('Layouts/TimelineProject/Examples/Uber', module).add('Uber', () => {
 			percentUrbanos={25}
 			percentSitios={90}
 			percentIndoors={75}
-			// percentVallas={69}
+			percentVallas={69}
 			statusUrbanos={'outOfTime'}
 			statusSitios={3}
 			statusIndoors={1}
-			// statusVallas={2}
+			statusVallas={2}
 			onCl_selectedMedios={(e) => setMedios(e.target.id)}
 			medios={
 				medios === 'sitios'

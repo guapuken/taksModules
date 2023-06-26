@@ -1,84 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { SimpleContainer, Title, ValidationComponent } from '../../../Atoms';
+import { SimpleContainer, ValidationComponent } from '../../../Atoms';
 import Medio from './Medio';
+import CardMedios from './CardMedio';
 import { medios, visualizacionMedios } from '../types/Types';
-import CircularProgressBar from '../../../circularProgressBar/circularProgressBar';
-import { Texts } from '../../../Atoms';
-import sitios from '../../../../img/sitios.svg';
-import urbanos from '../../../../img/urbanos.svg';
-import indoors from '../../../../img/indoors.svg';
-import vallas from '../../../../img/vallas.svg';
-
-const CardMedios = ({
-	selectedElement,
-	modo,
-	onClick,
-	idValue,
-	title,
-	percentTask,
-	statusTask,
-	icon,
-}: any) => {
-	const [idSelected, setIdSelected] = useState(idValue);
-
-	useEffect(() => {
-		setIdSelected(idValue);
-	}, [idValue]);
-	return (
-		<SimpleContainer
-			className={`timelineProject__contenido-medios-titles ${
-				selectedElement ? 'selected' : ''
-			}`}
-			style={{ cursor: 'pointer', marginBottom: '10px' }}
-			labels={{
-				id: idSelected,
-			}}
-			onClick={onClick}
-		>
-			<SimpleContainer
-				style={{
-					display: 'grid',
-					placeItems: 'center',
-					position: 'absolute',
-					top: '10px',
-					right: '10px',
-					pointerEvents: 'none',
-				}}
-			>
-				<Texts
-					modo={modo}
-					style={{
-						position: 'absolute',
-						fontSize: '12px',
-						userSelect: 'none',
-						pointerEvents: 'none',
-					}}
-				>
-					{`${percentTask ?? 0}%`}
-				</Texts>
-				<CircularProgressBar
-					percentTask={percentTask ?? 0}
-					statusTask={statusTask === 'outOfTime' || statusTask === 3 ? 1 : statusTask}
-					strokeColor={
-						statusTask === 'outOfTime' || statusTask === 3 ? '#FC3D38' : undefined
-					}
-					size={50}
-				/>
-			</SimpleContainer>
-			<img
-				src={icon}
-				alt=""
-				style={{ height: '80px', pointerEvents: 'none', userSelect: 'none' }}
-			/>
-			<Title
-				modo={modo}
-				style={{ pointerEvents: 'none', userSelect: 'none', marginTop: '-20px' }}
-			>
-				{title}
-			</Title>
-		</SimpleContainer>
-	);
-};
+import { SitiosIcon } from '../../../../img/sitios';
+import { UrbanosIcon } from '../../../../img/urbanosIcon';
+import { VallaIcon } from '../../../../img/vallasIcon';
+import { IndoorsIcon } from '../../../../img/indoorsIcon';
 
 const VisualizacionMedios = ({
 	tasks,
@@ -100,8 +28,10 @@ const VisualizacionMedios = ({
 	const [selectedElement, setSelectElement] = useState('');
 	const [idSelect, setIdSelect] = useState('');
 
-	const handleClick = (e: any) => {
+	const handleClick = (e: any, selectElement: string, idSelect: string) => {
 		e.preventDefault();
+		setSelectElement(selectElement);
+		setIdSelect(idSelect);
 		if (onCl_selectedMedios) onCl_selectedMedios(e);
 	};
 
@@ -113,64 +43,76 @@ const VisualizacionMedios = ({
 					<CardMedios // card de sitios
 						modo={modo}
 						onClick={(e: any) => {
-							setSelectElement('1');
-							setIdSelect('sitios');
-							handleClick(e);
+							handleClick(e, '1', 'sitios');
 						}}
 						percentTask={percentSitios}
 						statusTask={statusSitios}
 						selectedElement={selectedElement === '1'}
 						idValue={'sitios'}
 						title={'Sitios fijos'}
-						icon={sitios}
+						Icon={() => (
+							<SitiosIcon
+								fill={modo === 'Dark' ? '#d3d3d3' : '#2c2926'}
+								className="timelineProject__contenido-medios-titles-icon"
+							/>
+						)}
 					/>
 				</ValidationComponent>
 				<ValidationComponent validate={unidadesUrbanas}>
 					<CardMedios // card de urbanos
 						modo={modo}
 						onClick={(e: any) => {
-							setSelectElement('2');
-							setIdSelect('urbanos');
-							handleClick(e);
+							handleClick(e, '2', 'urbanos');
 						}}
 						percentTask={percentUrbanos}
 						statusTask={statusUrbanos}
 						selectedElement={selectedElement == '2'}
 						idValue={'urbanos'}
 						title={'Urbanos'}
-						icon={urbanos}
+						Icon={() => (
+							<UrbanosIcon
+								fill={modo === 'Dark' ? '#d3d3d3' : '#2c2926'}
+								className="timelineProject__contenido-medios-titles-icon"
+							/>
+						)}
 					/>
 				</ValidationComponent>
 				<ValidationComponent validate={sitiosIndoors}>
 					<CardMedios // card de indoors
 						modo={modo}
 						onClick={(e: any) => {
-							setSelectElement('3');
-							setIdSelect('indoors');
-							handleClick(e);
+							handleClick(e, '3', 'indoors');
 						}}
 						percentTask={percentIndoors}
 						statusTask={statusIndoors}
 						selectedElement={selectedElement == '3'}
 						idValue={'indoors'}
 						title={'Indoors'}
-						icon={indoors}
+						Icon={() => (
+							<IndoorsIcon
+								fill={modo === 'Dark' ? '#d3d3d3' : '#2c2926'}
+								className="timelineProject__contenido-medios-titles-icon"
+							/>
+						)}
 					/>
 				</ValidationComponent>
 				<ValidationComponent validate={vallasMoviles}>
 					<CardMedios // card de vallas móviles
 						modo={modo}
 						onClick={(e: any) => {
-							setSelectElement('4');
-							setIdSelect('vallas');
-							handleClick(e);
+							handleClick(e, '4', 'vallas');
 						}}
 						percentTask={percentVallas}
 						statusTask={statusVallas}
 						selectedElement={selectedElement == '4'}
 						idValue={'vallas'}
 						title={'Vallas móviles'}
-						icon={vallas}
+						Icon={() => (
+							<VallaIcon
+								fill={modo === 'Dark' ? '#d3d3d3' : '#2c2926'}
+								className="timelineProject__contenido-medios-titles-icon"
+							/>
+						)}
 					/>
 				</ValidationComponent>
 			</SimpleContainer>

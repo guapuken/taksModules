@@ -35,6 +35,9 @@ export type tasksTimeline = {
 	legendBtn?: string;
 };
 export interface timelineProjectProps {
+	onCh_dropdown?: onChangeType;
+	optionsDropdown?: optionsDropdown[];
+	initialValueDropdown?: optionsDropdown;
 	tasks: tasksTimeline[];
 	nombreProyecto: string;
 	medios?: medios[] | null;

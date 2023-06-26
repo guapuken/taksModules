@@ -2,7 +2,7 @@
 
 
 
-.ctn_Ttls{
+.title{
     position: relative;
     line-height: 1.4;
     // Se utilizan para establecer el número máximo de líneas que se verán
@@ -10,6 +10,6 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     white-space: pre-wrap;
-    font-weight: var(--fw700) !important;
+    font-weight: var(--fw700);
     color: var(--fc90) !important;
 }

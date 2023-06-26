@@ -5,11 +5,11 @@ import { tasks, timelineProps } from './types';
 import { Tasks } from './files';
 // estilos
 import './timelineProject.scss';
-import { SimpleContainer } from '../Atoms';
+import { SimpleContainer, ValidationComponent } from '../Atoms';
 
 // componente principal
 const Timeline = (props: timelineProps) => {
-	const { modo = 'Light', tasks } = props;
+	const { modo, tasks } = props;
 	// constantes que validan si la tarea final contiene boton y con base a ello renderiza la altura de la linea correctamente
 	let mapTask = tasks ? tasks?.map((e) => e) : [];
 	let finalTask = mapTask.length - 1;
@@ -21,7 +21,7 @@ const Timeline = (props: timelineProps) => {
 		<SimpleContainer
 			labels={{
 				className: 'timeline',
-				theme_config: modo,
+				'theme-config': modo,
 			}}
 		>
 			{/* <SimpleContainer className="ctnTimeline"> */}
@@ -35,8 +35,8 @@ const Timeline = (props: timelineProps) => {
 					}}
 					children={null}
 				/>
-				{tasks &&
-					tasks?.map((e: tasks) => (
+				<ValidationComponent validate={tasks}>
+					{tasks?.map((e: tasks) => (
 						<Tasks
 							modo={modo}
 							completed={e?.completed}
@@ -46,6 +46,7 @@ const Timeline = (props: timelineProps) => {
 							legendBtn={e?.legendBtn}
 						/>
 					))}
+				</ValidationComponent>
 			</SimpleContainer>
 		</SimpleContainer>
 	);

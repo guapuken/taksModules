@@ -4,40 +4,18 @@ import { SimpleContainer, TextBoldLight, Texts, Title, ValidationComponent } fro
 import { Button, Dropdown, Timeline } from '../../../components';
 import { ButtonItem } from '../../../utils/asideUtils';
 import VisualizacionMedios from './componentesPrincipales/VisualizacionMedios';
+import NoContent from './componentesPrincipales/NoContent';
 // types
 import { timelineProjectProps } from './types/Types';
-import { onChangeType } from '../../../types';
+
 // archivos multimedia
 import close from '../../../img/close.svg';
 import logo from '../../../img/ByImjSimple.svg';
-import image from '../../../img/reloj.svg';
 import share from '../../../img/share.svg';
 
 //styles
 import './styles/TimelineProject.scss';
-const NoContent = ({ modo }: any) => {
-	return (
-		<SimpleContainer style={{ maxHeight: '70vh', overflow: 'hidden' }}>
-			<p
-				style={{
-					background: '#52525290',
-					padding: '10px 20px',
-					maxWidth: '90%',
-					margin: '0 auto',
-					position: 'absolute',
-					top: '50%',
-					transform: 'translateY(-50%)',
-					borderRadius: '20px',
-					color: '#fff',
-					fontWeight: 'bold',
-				}}
-			>
-				Aquí se mostrará la línea del tiempo de cada tipo de medio
-			</p>
-			<img style={{ width: '100%' }} src={image} alt="" />
-		</SimpleContainer>
-	);
-};
+import { onChangeType } from '../../../types';
 
 const TimelineProject = ({
 	modo,
@@ -54,11 +32,19 @@ const TimelineProject = ({
 	statusUrbanos,
 	statusIndoors,
 	statusVallas,
+	onCh_dropdown,
+	optionsDropdown,
+	initialValueDropdown,
 	onCl_close,
 }: timelineProjectProps) => {
 	const [medioSelected, setMedioSelected] = useState('');
 	return (
-		<SimpleContainer className="timelineProject">
+		<SimpleContainer
+			className="timelineProject"
+			labels={{
+				'theme-config': modo,
+			}}
+		>
 			<SimpleContainer className="timelineProject__header">
 				<img
 					className="timelineProject__header-logo"
@@ -115,6 +101,18 @@ const TimelineProject = ({
 									/>
 								</ValidationComponent>
 							</SimpleContainer>
+							<ValidationComponent
+								validate={medioSelected === 'sitios' || medioSelected === 'indoors'}
+							>
+								<Dropdown
+									modo={modo}
+									onCh={onCh_dropdown as onChangeType}
+									options={optionsDropdown ?? []}
+									initialValue={initialValueDropdown}
+									style={{ marginBottom: '20px' }}
+									placeHolder="Selecciona el tipo de medio"
+								/>
+							</ValidationComponent>
 							<Timeline modo={modo} tasks={tasks as any} />
 						</SimpleContainer>
 					</ValidationComponent>
@@ -123,8 +121,8 @@ const TimelineProject = ({
 					<VisualizacionMedios
 						tasks={medios ?? (null as any)}
 						modo={modo}
-						onCl_selectedMedios={(e) => {
-							setMedioSelected(e.target.id);
+						onCl_selectedMedios={(e: any) => {
+							setMedioSelected(e?.target?.id);
 							if (onCl_selectedMedios) onCl_selectedMedios(e);
 						}}
 						percentSitios={percentSitios}

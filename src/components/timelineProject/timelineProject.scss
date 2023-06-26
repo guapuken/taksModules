@@ -2,6 +2,15 @@
 // ---------------------------------------------------------------------------------------------------------
 //      estilos generales
 // ---------------------------------------------------------------------------------------------------------
+
+:root{
+    --detail: #f1e323;
+    --colorPaloma: var(--fc100);
+}
+[theme-config='Light']{
+    --colorPaloma: #fff;
+}
+
 .timeline
 {
     height: 100% !important;
@@ -14,10 +23,12 @@
         flex-direction: column;
         position: relative;
         gap: 20px;
+        z-index: 1;
         &-line{
             width: 2px;
             height: calc(100% - 30px) ;
-            background: #525252;
+            // background: var(--fc90);
+            background: var(--detail);
             position: absolute !important;
             left: 8px;
             z-index: -1;
@@ -35,28 +46,38 @@
                 place-items: center;
             }
             &-circle{
-                background: #fff;
-                box-shadow: inset 0 0 0 2px #282828;
+                // background: #fff;
+                background: var(--bg);
+                // box-shadow: inset 0 0 0 2px var(--fc90);
+                box-shadow: inset 0 0 0 2px var(--detail);
                 &:before{
-                    color: #282828;
+                    color: #282828 ;
                 }
             }
             &-circle.complete{
-                background: #282828;
+                // background: var(--fc90);
+                // background: var(--fc30);
+                background: var(--detail);
                 box-shadow: none;
                 &:before{
                     content: "✔";
                     position: absolute;
                     font-size: 15px;
-                    color: #dedede;
+                    // color: #dedede;
+                    // color: var(--fc30);
+                    color: var(--colorPaloma);
                 }
             }
             &-duration{
                 display: flex;
                 flex-direction: column;
+                
                 &-duration{
                     opacity: .7;
                     font-size: 14px;
+                }
+                &-name{
+                    color: var(--fc90) !important;
                 }
             }
         }

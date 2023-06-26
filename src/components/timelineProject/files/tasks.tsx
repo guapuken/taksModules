@@ -21,32 +21,30 @@ const Tasks = (props: tasks) => {
 						className="timeline__contenido-contenedorTasks-duration-duration"
 					>{`${duration} ${duration <= 1 ? 'día hábil' : 'días hábiles'}`}</Texts>
 				)}
-				<div>
-					{taskName && !onCl_showDetails ? (
+				{taskName && !onCl_showDetails ? (
+					<Texts
+						modo={modo}
+						className="timeline__contenido-contenedorTasks-duration-name"
+					>
+						{taskName}
+					</Texts>
+				) : (
+					<div>
 						<Texts
 							modo={modo}
 							className="timeline__contenido-contenedorTasks-duration-name"
 						>
 							{taskName}
 						</Texts>
-					) : (
-						<div>
-							<Texts
-								modo={modo}
-								className="timeline__contenido-contenedorTasks-duration-name"
-							>
-								{taskName}
-							</Texts>
-							<Button
-								modo={modo}
-								border
-								primary
-								legend={legendBtn}
-								onCl={onCl_showDetails as any}
-							/>
-						</div>
-					)}
-				</div>
+						<Button
+							modo={modo}
+							border
+							primary
+							legend={legendBtn}
+							onCl={onCl_showDetails as any}
+						/>
+					</div>
+				)}
 			</div>
 		</div>
 	);
