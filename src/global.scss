@@ -21,7 +21,7 @@
 //      variables
 // ---------------------------------------------------------------------------------------------------------
 :root{
-  --detailColor: #f1e232;
+  --detailColor: #0095c6;
   //fonts Colors
   --fc100: #2c2926;
   --fc90: #343232;  
@@ -47,15 +47,13 @@
   --aquaContrast: #127574;
 }
 [theme-config='Dark']{
-  --detailColor: #f1e232;
   --fc100: #d3d3d3;
   --fc90: #bdbaba; 
   --fc60: #8d8989; 
   --fc30: #656262;
   --bg: #282828; 
   --border: inset 0 0 0 2px #dedede;
-  // --boxShadow: 0 0 calc(10px + 0.390625vw)#00000075;
-  --boxShadow: 0 0 0 1px #f7ec8a;
+  --boxShadow: 0 0 10px #00000050;
 
 }
 
