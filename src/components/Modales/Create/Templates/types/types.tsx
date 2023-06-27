@@ -27,4 +27,6 @@ export interface modalTemplates {
 	isMannager?: boolean;
 	isPM?: boolean;
 	haveSubPersonal?: boolean;
+	onCh_checkboxPrintBF?: onChangeType;
+	valueCheckboxPrintBF?: boolean;
 }

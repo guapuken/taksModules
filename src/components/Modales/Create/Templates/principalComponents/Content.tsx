@@ -4,7 +4,7 @@ import { CheckboxInput } from '../../../../inputTask/complements/checkboxInput';
 import { AddTask } from '../../../../task/files';
 import { modalTemplates } from '../types/types';
 import { optionsDropdown, tasksTemplates } from '../../../../../types';
-import { SimpleContainer } from '../../../../Atoms';
+import { SimpleContainer, Texts } from '../../../../Atoms';
 
 //COMPONENTE QUE REGRESA TODO EL CONTENIDO DEL MODAL
 export const Content = ({
@@ -20,6 +20,8 @@ export const Content = ({
 	onCh_checkboxCampaign,
 	onCh_checkboxMedio,
 	isMannager,
+	onCh_checkboxPrintBF,
+	valueCheckboxPrintBF,
 }: modalTemplates) => {
 	const [tipoMedio, setTipoMedio] = useState(false);
 	const [campanha, setCampanha] = useState(false);
@@ -40,7 +42,7 @@ export const Content = ({
 						style={{
 							display: 'flex',
 							width: '98%',
-							alignItems: 'center',
+							alignItems: 'flex-start',
 						}}
 					>
 						<div
@@ -67,15 +69,35 @@ export const Content = ({
 							/>
 						</div>
 						{tipoMedio && (
-							<Dropdown
-								style={{ width: '100%', height: '30px' }}
-								modo={modo}
-								placeHolder="Selecciona el medio"
-								onCh={onCh_dropDownTipoMedio}
-								isSearchable
-								options={optionsTipoMedio as optionsDropdown[]}
-								initialValue={valueTipoMedio}
-							/>
+							<SimpleContainer
+								style={{
+									display: 'flex',
+									flexDirection: 'column',
+									gap: '10px',
+									width: '100%',
+									marginTop: '15px',
+								}}
+							>
+								<Dropdown
+									style={{ width: '100%', height: '30px' }}
+									modo={modo}
+									placeHolder="Selecciona el medio"
+									onCh={onCh_dropDownTipoMedio}
+									isSearchable
+									options={optionsTipoMedio as optionsDropdown[]}
+									initialValue={valueTipoMedio}
+								/>
+								<SimpleContainer style={{ display: 'flex', gap: '10px' }}>
+									<CheckboxInput
+										idCheckbox={idTemplate}
+										check={valueCheckboxPrintBF}
+										modo={modo}
+										onCh_checkbox={onCh_checkboxPrintBF}
+										style={{ marginTop: '7px' }}
+									/>
+									<Texts modo={modo}>Impresión en BF</Texts>
+								</SimpleContainer>
+							</SimpleContainer>
 						)}
 					</div>
 				)}
