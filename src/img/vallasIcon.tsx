@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const VallaIcon = ({ className, fill }) => {
+export const VallaIcon = ({ className, fill }: any) => {
 	return (
 		<svg
 			version="1.1"

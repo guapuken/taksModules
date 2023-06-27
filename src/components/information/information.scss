@@ -4,20 +4,21 @@
 // ---------------------------------------------------------------------------------------------------------
 //      estilos generales
 // ---------------------------------------------------------------------------------------------------------
-.ctnLight_InfoC,
-.ctnDark_InfoC{
+.information{
     margin-left: 5px;
     position: relative;
     cursor: pointer;
     margin-block: 0;
     display: grid;
+    background: var(--bg) !important;
+    box-shadow: var(--border);
     place-items: center;
-    .icnBtn{
+    &__icon{
         font-weight: bold;
         margin-block: 0;
-        color: #fff;
+        color: var(--fc90);
     }
-    .popUp{
+    &__popUp{
         position: absolute;
         min-width: 100px;
         min-height: 100px;
@@ -28,11 +29,12 @@
         font-weight: bold;
         padding: 10px;
         color: #fff;
-    }
-    .ctnPopUp{
-        font-size: 13px;
-        line-height: 1.5;
-        font-weight: lighter;
+        &-contenido{
+            font-size: 13px;
+            line-height: 1.5;
+            font-weight: lighter;
+    
+        }
     }
 }
 

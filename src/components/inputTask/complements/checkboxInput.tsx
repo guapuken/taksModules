@@ -25,7 +25,8 @@ export const CheckboxInput = (props: CheckboxInputProps) => {
 	}, [check]);
 
 	return (
-		<div className={`ctn${modo}_CBIC`} style={style}>
+		// <div className={`ctn${modo}_CBIC`} style={style}>
+		<div className={`checkbox`} style={style} theme-config={modo}>
 			<input
 				type="checkbox"
 				ref={inputRef}

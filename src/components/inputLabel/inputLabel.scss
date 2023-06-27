@@ -1,50 +1,34 @@
+@import '../../global.scss';
 
-#LblInpt_ILC {
+.inputLabel {
     display: flex;
     flex-direction: column;
-    // min-width: 350px;
     position: relative;
-      
-  & input {
+  &__input {
     width: 100%;
-    // height: 56px;
     height: 30px;
-    // padding: 14px 16px 0 10px;
-    padding: 10px 0 0 10px;
+    padding: 0 0 0 10px;
     outline: 0;
-    // border: 1px solid #ddd;
-    // border: .2rem solid #dedede;
-    box-shadow: inset 0 0 0 2px  #dedede;
+    box-shadow: var(--border);
     border: none;
-    // border-radius: 4px;
     border-radius: 5px;
     background: transparent;
-    font-family: Arial, Helvetica, sans-serif;
-    // font-size: 16px;
-    font-size: 14px;
+    color: var(--fc60);
   }
-  
-  & label {
-    // font-size: 1.3rem;
+  &__label {
     font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-    // padding: 0 12px;
     padding-left: 10px;
-    color: #999;
+    color: var(--fc30);
     pointer-events: none;
     position: absolute;
-    // transform: translate(0, 26px) scale(1);
-    // transform: translate(0, 1.5rem) scale(1);
-    transform: translate(0, 5px) scale(1);
+    transform: translate(0, 7px) scale(1);
     transform-origin: top left;
     transition: all 0.2s ease-out;
+    &.active {
+      transform: translate(-5px, -13px) scale(0.75);
+    }
   }
-  &:focus-within label {
-    // transform: translate(0, 12px) scale(0.75);
-    transform: translate(0, 0) scale(0.75);
-  }
-  & .isActLbl {
-    //   transform: translate(0, 12px) scale(0.75);
-      transform: translate(0, 0) scale(0.75);
+  &:focus-within &__label {
+    transform: translate(-5px, -13px) scale(0.75);
   }
 }

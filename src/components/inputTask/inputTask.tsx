@@ -69,7 +69,7 @@ const InputTask = ({
 					taskType={'subtask'}
 					style={{
 						opacity: check ? '.5' : '.5',
-						marginLeft: showTask ? '0' : '20px',
+						marginLeft: showTask ? '0' : '10px',
 					}}
 					onCh={onCh_descriptionTask}
 					initialValue={valueDescription}

@@ -3,7 +3,7 @@ import { textsProps } from './types/types';
 // styles
 import './styles/texts.scss';
 
-const Texts = ({ children, modo, className, style, maxLines, onClick }: textsProps) => {
+const Texts = ({ children, modo, className, style, maxLines, onClick, labels }: textsProps) => {
 	return (
 		<Fragment>
 			<p
@@ -15,6 +15,7 @@ const Texts = ({ children, modo, className, style, maxLines, onClick }: textsPro
 					WebkitLineClamp: maxLines,
 					...style,
 				}}
+				{...labels}
 			>
 				{children}
 			</p>

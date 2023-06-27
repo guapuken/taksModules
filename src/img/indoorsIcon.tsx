@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const IndoorsIcon = ({ className, fill }) => {
+export const IndoorsIcon = ({ className, fill }: any) => {
 	return (
 		<svg
 			version="1.1"

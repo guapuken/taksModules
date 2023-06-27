@@ -22,6 +22,7 @@
 // ---------------------------------------------------------------------------------------------------------
 :root{
   --detailColor: #0095c6;
+  --detail: #f1e323;
   //fonts Colors
   --fc100: #2c2926;
   --fc90: #343232;  
@@ -35,7 +36,8 @@
   --bg : #ffffff;
   --contrastDark: #525252;
   // inputs
-  --border: inset 0 0 0 2px #dedede;
+  --border: inset 0 0 0 .5px var(--fc30),
+            0 0 5px var(--fc30);
 
   // contenedores
   --boxShadow: 0 0 10px #bdbaba50;
@@ -52,7 +54,9 @@
   --fc60: #8d8989; 
   --fc30: #656262;
   --bg: #282828; 
-  --border: inset 0 0 0 2px #dedede;
+  --border: inset 0 0 0 .5px var(--fc30),
+          0 0 5px var(--fc30);
+  // --border: inset 0 0 0 2px #dedede;
   --boxShadow: 0 0 10px #00000050;
 
 }
@@ -113,7 +117,7 @@
   h2{ font-size: clamp(18px, 2vw, 23px); }
   h3{ font-size: clamp(16px, 1.8vw, 21px); }
   h4{ font-size: clamp(14px, 1.6vw, 19px); }
-  h5,p,li,ul,span,button,textarea{ font-size: clamp(12px, 1.4vw, 17px); }
+  h5,p,li,ul,span,button,textarea,input{ font-size: clamp(12px, 1.4vw, 17px); }
 
 // ---------------------------------------------------------------------------------------------------------
 //      utilidades

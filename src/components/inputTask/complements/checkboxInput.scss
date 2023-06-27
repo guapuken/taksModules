@@ -1,5 +1,4 @@
-.ctnLight_CBIC,
-.ctnDark_CBIC
+.checkbox
 {
   position: relative;
   [type="checkbox"]:not(:checked),
@@ -42,7 +41,8 @@
   [type="checkbox"]:checked + label:after {
     content: '✔';
     position: absolute;
-    top: calc(30%);
+    top: calc(15%);
+    transform: translate(-50%,-50%);
     left: calc(20%);
     font-size: calc(12px);
     color: #fff;

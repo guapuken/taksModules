@@ -3,7 +3,7 @@ import { popupProps } from './types/Types';
 const PopUp = ({ isHover, className, children }: popupProps) => {
 	return (
 		<span
-			className={`TextInvolucradosTaskComponent ${className}`}
+			className={`dropdownWithPopup__circle-container ${className}`}
 			style={{
 				top: `calc(100% + ${className === 'TabletAndMobileVersion' ? '25px' : '20px'})`,
 				right: className === 'TabletAndMobileVersion' ? '' : '0',
@@ -12,7 +12,7 @@ const PopUp = ({ isHover, className, children }: popupProps) => {
 				zIndex: '1',
 			}}
 		>
-			<span className="IconMsnTaskComponent">{children}</span>
+			<span className="dropdownWithPopup__circle-container-contenido">{children}</span>
 		</span>
 	);
 };

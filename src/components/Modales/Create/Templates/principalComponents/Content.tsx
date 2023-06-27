@@ -4,6 +4,7 @@ import { CheckboxInput } from '../../../../inputTask/complements/checkboxInput';
 import { AddTask } from '../../../../task/files';
 import { modalTemplates } from '../types/types';
 import { optionsDropdown, tasksTemplates } from '../../../../../types';
+import { SimpleContainer } from '../../../../Atoms';
 
 //COMPONENTE QUE REGRESA TODO EL CONTENIDO DEL MODAL
 export const Content = ({
@@ -30,88 +31,92 @@ export const Content = ({
 				legend="Nombre de la plantilla"
 				onCh={onCh_templateName}
 				initialValue={templateNameValue}
+				modo={modo}
 			/>
 
-			{!campanha && isMannager && (
-				<div
-					style={{
-						display: 'flex',
-						width: '98%',
-						alignItems: 'center',
-					}}
-				>
+			<SimpleContainer style={{ display: 'flex' }}>
+				{!campanha && isMannager && (
 					<div
 						style={{
 							display: 'flex',
+							width: '98%',
 							alignItems: 'center',
-							width: '100%',
 						}}
 					>
-						<CheckboxInput
-							idCheckbox=""
-							onCh_checkbox={(e) => {
-								setTipoMedio(!tipoMedio);
-								if (onCh_checkboxMedio) onCh_checkboxMedio(e);
+						<div
+							style={{
+								display: 'flex',
+								alignItems: 'center',
+								width: '100%',
 							}}
-							style={{ marginTop: '20px' }}
-						/>
-						<p>Plantilla de medio</p>
-						<Information
-							modo={modo}
-							positionInfo="center"
-							info="Tareas que se asignarán en un tipo de medio en específico"
-							style={{ zIndex: 10 }}
-						/>
+						>
+							<CheckboxInput
+								idCheckbox=""
+								onCh_checkbox={(e) => {
+									setTipoMedio(!tipoMedio);
+									if (onCh_checkboxMedio) onCh_checkboxMedio(e);
+								}}
+								style={{ marginTop: '20px' }}
+							/>
+							<p>Plantilla de medio</p>
+							<Information
+								modo={modo}
+								positionInfo="center"
+								info="Tareas que se asignarán en un tipo de medio en específico"
+								style={{ zIndex: 10 }}
+							/>
+						</div>
+						{tipoMedio && (
+							<Dropdown
+								style={{ width: '100%', height: '30px' }}
+								modo={modo}
+								placeHolder="Selecciona el medio"
+								onCh={onCh_dropDownTipoMedio}
+								isSearchable
+								options={optionsTipoMedio as optionsDropdown[]}
+								initialValue={valueTipoMedio}
+							/>
+						)}
 					</div>
-					{tipoMedio && (
-						<Dropdown
-							style={{ width: '100%', height: '30px' }}
-							modo={modo}
-							placeHolder="Selecciona el medio"
-							onCh={onCh_dropDownTipoMedio}
-							options={optionsTipoMedio as optionsDropdown[]}
-							initialValue={valueTipoMedio}
-						/>
-					)}
-				</div>
-			)}
-			{!tipoMedio && isMannager && (
-				<div
-					style={{
-						display: 'flex',
-						width: '98%',
-						alignItems: 'center',
-					}}
-				>
+				)}
+				{!tipoMedio && isMannager && (
 					<div
 						style={{
 							display: 'flex',
+							width: '98%',
 							alignItems: 'center',
-							width: '100%',
 						}}
 					>
-						<CheckboxInput
-							idCheckbox=""
-							onCh_checkbox={(e) => {
-								setCampanha(!campanha);
-								if (onCh_checkboxCampaign) onCh_checkboxCampaign(e);
+						<div
+							style={{
+								display: 'flex',
+								alignItems: 'center',
+								width: '100%',
 							}}
-							style={{ marginTop: '20px' }}
-						/>
-						<p>Plantilla de campaña</p>
-						<Information
-							modo={modo}
-							positionInfo="center"
-							info="Tareas que se asignarán a los miembros del equipo de contabilidad de la campaña completa"
-							style={{ zIndex: 10 }}
-						/>
+						>
+							<CheckboxInput
+								idCheckbox=""
+								onCh_checkbox={(e) => {
+									setCampanha(!campanha);
+									if (onCh_checkboxCampaign) onCh_checkboxCampaign(e);
+								}}
+								style={{ marginTop: '20px' }}
+							/>
+							<p>Plantilla de campaña</p>
+							<Information
+								modo={modo}
+								positionInfo="center"
+								info="Tareas que se asignarán a los miembros del equipo de contabilidad de la campaña completa"
+								style={{ zIndex: 10 }}
+							/>
+						</div>
 					</div>
-				</div>
-			)}
+				)}
+			</SimpleContainer>
 			<AddTask legend="+ Añadir tarea" onClick={onCl_addTask} />
-			<div
+			<SimpleContainer
 				style={{
-					borderLeft: '3px solid #28282830',
+					// borderLeft: '3px solid #28282830',
 					paddingLeft: '20px',
 				}}
 			>
@@ -155,7 +160,7 @@ export const Content = ({
 							onCh_startDate={() => {}}
 						/>
 					))}
-			</div>
+			</SimpleContainer>
 		</div>
 	);
 };

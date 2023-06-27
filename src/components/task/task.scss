@@ -1,5 +1,11 @@
-.ctn_TascC
+.tasks
 {
+    &[have-subtask='subtasks']{
+        box-shadow: var(--boxShadow);
+        padding: 10px;
+        border-radius: 0 20px 20px 20px;
+        margin: 20px 0;
+    }
     ::-webkit-datetime-edit { 
         height: 30px; 
     }
@@ -18,7 +24,7 @@
         border-radius: 100px;
     }
 
-    .icnsCtn{
+    &__icons{
         width: 100%;
         height: auto;
         min-height: 50px;
@@ -38,11 +44,6 @@
             border: 2px solid #dedede;
 
         }
-        .ContainerIconAsignUsers{
-            display: flex;
-            position: relative;
-            margin: 0 !important;
-        }
         .InputsTaskContainer{
             position: relative;
             width: auto;
@@ -59,7 +60,33 @@
             }
         }
     }
+    &__subtareas{
+        &:before{
+            content: "";
+            position: absolute;
+            height: calc(70%);
+            // height: calc(100% - 135px);
+            left: 20px;
+            border-left: 2px solid var(--detail);
+        }
+        &[subtask-simple='simple']:before{
+            height: 0 !important;
+        }
 
+        &-individual{
+            padding-left: 20px;
+            &:before{
+                content: "";
+                position: absolute;
+                width: 15px;
+                left: 0px;
+                height: 75px;
+                border-left: 2px solid var(--detail);
+                border-bottom: 2px solid var(--detail);
+                border-bottom-left-radius: 10px;
+            }
+        }
+    }
     .TextPriorityMenu{
         margin-left: 10px;
         color: #dedede; 
@@ -67,52 +94,6 @@
         z-index: 1;
 
     }
-
-    .TextInvolucradosTaskComponent{
-        position: absolute;
-        .IconMsnTaskComponent{
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: column;
-            background: #525252;
-            padding: 10px 20px;
-            position: relative;
-            border: none;
-            border-radius: 10px;
-            color: #fff;
-            &:before{
-                content:'';
-                position: absolute;
-                bottom: 99%;
-                left:50%;
-                width:0;
-                height: 0;
-                border: none;
-                border-bottom: 26px solid #525252;
-                border-right: 13px solid transparent;
-                border-left: 13px solid transparent;
-                border-top: 13px solid transparent;
-            }
-            span{
-                font-size: 13px;
-                margin-block: 0;
-                margin: 0;
-                min-width:160px;
-                padding: 0;
-                //
-                display: flex;
-                flex-direction: column;
-                span, span strong{
-                    font-size: inherit;
-                }
-                &:first-child{
-                    margin-block: 0;
-                    margin-bottom: 10px ;
-                }
-            }
-        }
-    }
-
     .ContainerTaksComponent{
         z-index: 1;
         border-radius: 20px;
@@ -122,29 +103,6 @@
         position: absolute; 
         right: -20px; 
         top: -10px;
-    }
-
-    //Involucrados en tamaño movil y tablet
-    .CircleInvolucradosTaskComponent{
-        position: absolute;
-        top: 0;
-        left: 60%;
-        background-color: red;
-        margin-block: 0;
-        padding: 0 5px;
-        border-radius: 20px;
-        color: #fff;
-        font-size: 14px;
-        color: #fff;
-    }
-
-    //Contenedor del children
-    .ChildrenContainerTaskModules{
-        // margin-left: 5px;
-        // border-left: 1px solid #000;
-        // box-shadow: inset 0 0 10px#dedede;
-        padding-left: 20px;
-        // position:relative;
     }
 }
 @media (max-width:390px){

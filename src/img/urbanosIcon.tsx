@@ -1,5 +1,5 @@
 import React from 'react';
-export const UrbanosIcon = ({ className, fill }) => {
+export const UrbanosIcon = ({ className, fill }: any) => {
 	return (
 		<svg
 			version="1.1"

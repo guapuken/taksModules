@@ -1,4 +1,4 @@
-import { css, onChangeType } from '../../../types';
+import { Modo, css, onChangeType } from '../../../types';
 
 export interface inputLabel {
 	type?: 'text' | 'number' | 'email' | 'password';
@@ -9,4 +9,5 @@ export interface inputLabel {
 	onCh: onChangeType;
 	style?: css;
 	id: string;
+	modo?: Modo;
 }

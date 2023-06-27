@@ -60,7 +60,8 @@ const Information = ({
 			onMouseEnter={onHoverMouse}
 			onMouseLeave={onLeaveMouse}
 			onClick={() => setIsHover(true)}
-			className={`ctn${modo}_InfoC`}
+			className={`information`}
+			theme-config={modo}
 			style={{
 				background: color,
 				width: `${!width ? height : width}px`,
@@ -70,7 +71,7 @@ const Information = ({
 			}}
 		>
 			<span
-				className={'icnBtn'}
+				className={'information__icon'}
 				style={{
 					fontSize: `${width > height ? height - 8 : width - 8}px`,
 				}}
@@ -80,8 +81,8 @@ const Information = ({
 
 			{/* Se valida si hay un Hover en el componente y sólo si existe el hover se renderea el bloque de código, de lo contrario no */}
 			{isHover && (
-				<span className={'popUp'} style={positionStyles}>
-					<span className={'ctnPopUp'}>{info}</span>
+				<span className={'information__popUp'} style={positionStyles}>
+					<span className={'information__popUp-contenido'}>{info}</span>
 				</span>
 			)}
 			{/* Finalización del código con validación */}
