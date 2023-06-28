@@ -45,11 +45,9 @@ export function aspectRatio() {
  * @returns - el tamaño a lo ancho del elemento con el id seleccionado
  */
 export function getWidth(idToSelect: string) {
-	console.log(idToSelect);
 	let width = 0;
 	let height = 0;
 	const element = document.getElementById(idToSelect);
-	console.log(element);
 	if (element && element.clientWidth) {
 		width = element?.clientWidth;
 	}
@@ -94,6 +92,3 @@ const fondoNegro = [0, 0, 0];
 
 const colorLetraBlanca = obtenerColorLetra(fondoBlanco);
 const colorLetraNegra = obtenerColorLetra(fondoNegro);
-
-console.log('Color de letra para fondo blanco:', colorLetraBlanca);
-console.log('Color de letra para fondo negro:', colorLetraNegra);

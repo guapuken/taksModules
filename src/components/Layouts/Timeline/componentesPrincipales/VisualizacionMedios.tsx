@@ -35,7 +35,6 @@ const VisualizacionMedios = ({
 		if (onCl_selectedMedios) onCl_selectedMedios(e);
 	};
 
-	console.log('idSelect: ', idSelect);
 	return (
 		<SimpleContainer style={{ width: '90%', margin: '0 auto' }}>
 			<SimpleContainer style={{ display: 'flex', justifyContent: 'flex-start', gap: '20px' }}>

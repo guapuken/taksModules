@@ -71,7 +71,6 @@ const Task = (props: tasks) => {
 
 	const [dificultad, setDificultad] = useState({ ...valueDificultad });
 
-	console.log('dificultad', dificultad);
 	useEffect(() => {
 		setDificultad({ ...valueDificultad });
 	}, [valueDificultad]);

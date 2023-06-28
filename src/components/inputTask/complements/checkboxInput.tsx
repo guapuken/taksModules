@@ -20,12 +20,10 @@ export const CheckboxInput = (props: CheckboxInputProps) => {
 	const inputRef = useRef<any>(null);
 
 	useEffect(() => {
-		console.log('nivelInicial', check);
 		setCheckValue(check);
 	}, [check]);
 
 	return (
-		// <div className={`ctn${modo}_CBIC`} style={style}>
 		<div className={`checkbox`} style={style} theme-config={modo}>
 			<input
 				type="checkbox"

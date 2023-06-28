@@ -27,7 +27,6 @@ const Content = ({
 }: contentProps) => {
 	const [showTasks, setShowTasks] = useState(false);
 	const Subtasks = ({ taskName, taskDescription, subtasks, completed }: subtasksComponent) => {
-		console.log(completed);
 		return (
 			<div
 				className="modalTask"

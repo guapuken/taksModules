@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { CheckboxInput } from './complements/checkboxInput';
 import { AutoresizeInput } from '../../components';
 import { inputTasks } from './types';
+//Estilos
+import './styles/inputTask.scss';
+import { ValidationComponent } from '../Atoms';
 
 const InputTask = ({
 	check,
@@ -20,23 +23,11 @@ const InputTask = ({
 	valueDescription,
 	isSubtask,
 }: inputTasks) => {
-	// const [checked, setChecked] = useState(check);
-	// useEffect(() => {
-	// 	console.log('checkIn', check);
-	// 	setChecked(check);
-	// }, [check]);
-
 	return (
-		<div
-			style={{
-				display: 'flex',
-				width: '100%',
-				alignItems: 'start',
-				...style,
-			}}
-		>
-			{/* Si existe la propiedad de showTask no se muestra el componente de Checkbox */}
-			{showTask && (
+		<div className="inputTask" style={style}>
+			<ValidationComponent
+				validate={showTask} // valida si existe la propiedad de show task para mostrar u ocultar el checkbox
+			>
 				<CheckboxInput
 					style={{ marginTop: '.5vh' }}
 					modo={modo}
@@ -45,7 +36,8 @@ const InputTask = ({
 					check={check}
 					idCheckbox={idCheckbox}
 				/>
-			)}
+			</ValidationComponent>
+
 			<div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
 				<AutoresizeInput
 					modo={modo}

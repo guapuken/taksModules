@@ -108,7 +108,6 @@ const Content = ({
 				>
 					{subtasks &&
 						subtasks.map((e: any) => {
-							console.table(e);
 							return (
 								<Task
 									reasignForbidden={e.reasignForbidden}

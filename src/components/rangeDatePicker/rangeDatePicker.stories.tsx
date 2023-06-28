@@ -12,10 +12,10 @@ Initial.args = {};
 // estado del componente con propiedades
 export const WithProperties = Template.bind({});
 WithProperties.args = {
-	// startDateValue: '04 06 2023',
-	maxStartDate: '2023-02-02 00:00:00',
-	minStartDate: '2023-02-01 00:00:00',
-	maxEndDate: '2023-02-02 00:00:00',
+	startDateValue: '2023-12-12T12:00:00',
+	maxStartDate: '2023-12-12T12:00:00',
+	endDateValue: '2023-12-12T12:00:00',
+	maxEndDate: '2023-12-18T12:00:00',
 };
 
 //exportación de valores default

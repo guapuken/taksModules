@@ -53,13 +53,13 @@ const Aside = ({
 		},
 	];
 
-	(isPM || haveSubPersonal) &&
-		options.push({
-			id: `asignTask${idTask}`,
-			img: asign,
-			onClick: onCl_asignTask,
-			titleToShow: 'Asignar tarea',
-		});
+	/* (isPM || haveSubPersonal) && */
+	options.push({
+		id: `asignTask${idTask}`,
+		img: asign,
+		onClick: onCl_asignTask,
+		titleToShow: 'Asignar tarea',
+	});
 	// retorno del componente
 	return (
 		<AsideContainer>
