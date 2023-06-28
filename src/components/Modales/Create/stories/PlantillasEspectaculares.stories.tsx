@@ -20,6 +20,9 @@ function DemoComponent() {
 			onCl_abort={() => {}}
 			onCl_addTask={() => {}}
 			onCl_confirm={() => {}}
+			// valueCheckboxMedio
+			// isEditingTemplate
+			valueCheckboxCampaign
 			templateNameValue="Espectaculares"
 			optionsTipoMedio={[
 				{ id: String(autoIncrementalId()), title: 'Urbanos' },

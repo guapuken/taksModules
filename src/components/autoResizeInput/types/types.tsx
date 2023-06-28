@@ -12,4 +12,5 @@ export interface autoresizeInput {
 	tabIndex?: number;
 	disabled?: boolean;
 	modo: Modo;
+	className?: string;
 }

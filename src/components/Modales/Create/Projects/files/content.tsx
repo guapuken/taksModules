@@ -99,8 +99,6 @@ const Content = ({
 			<div style={{ paddingLeft: '15px' }}>
 				<div
 					style={{
-						// borderLeft: '3px solid #28282830',
-						// paddingLeft: '20px',
 						display: 'flex',
 						flexDirection: 'column',
 						gap: '20px',

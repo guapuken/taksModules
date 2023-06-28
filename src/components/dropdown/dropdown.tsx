@@ -67,7 +67,9 @@ const Dropdown = (props: dropdown) => {
 	}, [datos.initialValue || datos.values]);
 
 	const handleInputClick = (e: any) => {
-		setShowMenu(!showMenu);
+		if (!datos.disabled) {
+			setShowMenu(!showMenu);
+		}
 	};
 
 	// muestra los valores dentro del dropdown que se existen dependiendo si es de múltiple selección o de selección simple
@@ -164,7 +166,13 @@ const Dropdown = (props: dropdown) => {
 			: 15;
 	}
 	return (
-		<SimpleContainer className={'dropdown'} style={datos.style}>
+		<SimpleContainer
+			className={'dropdown'}
+			style={datos.style}
+			labels={{
+				'disabled-dropdown': datos.disabled ? 'disabled' : '',
+			}}
+		>
 			<SimpleContainer
 				labels={{ ref: inputRef }}
 				onClick={handleInputClick}
@@ -175,7 +183,10 @@ const Dropdown = (props: dropdown) => {
 				</SimpleContainer>
 				<SimpleContainer className={'dropdown__input-tools'}>
 					<SimpleContainer className={'dropdown__input-tools-tool'}>
-						{Icon(undefined, showMenu ? true : false)}
+						{Icon(
+							datos.modo === 'Dark' || datos.disabled ? '#fff' : '',
+							showMenu ? true : false
+						)}
 					</SimpleContainer>
 				</SimpleContainer>
 			</SimpleContainer>
@@ -191,7 +202,12 @@ const Dropdown = (props: dropdown) => {
 				>
 					<ValidationComponent validate={datos.isSearchable}>
 						<SimpleContainer className={'dropdown__menu-busqueda'}>
-							<input onChange={onSearch} value={searchValue} ref={searchRef} />
+							<input
+								disabled={datos.disabled}
+								onChange={onSearch}
+								value={searchValue}
+								ref={searchRef}
+							/>
 						</SimpleContainer>
 					</ValidationComponent>
 					{getOptions()?.map((option) => {

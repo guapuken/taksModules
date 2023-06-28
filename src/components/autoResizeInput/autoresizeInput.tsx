@@ -32,6 +32,8 @@ const AutoresizeInput = ({
 	tabIndex,
 	disabled,
 	modo = 'Light',
+	className,
+	props,
 }: autoresizeInput) => {
 	//Hooks
 	const [value, setValue] = useState(initialValue);
@@ -69,7 +71,8 @@ const AutoresizeInput = ({
 			placeholder={placeholder}
 			rows={1}
 			value={value}
-			className={`ctn_AIPTC ${modo}`}
+			className={`autoresizeInput ${className ?? ''}`}
+			theme-config={modo}
 			style={{ width: '100%', ...style }}
 			// atributos que aayudan en la construcción de los estilos de los componentes
 			hrc-inpt={taskType}

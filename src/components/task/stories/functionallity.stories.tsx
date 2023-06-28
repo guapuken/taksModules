@@ -26,7 +26,7 @@ function DemoComponent() {
 		<Fragment>
 			<Task
 				check={check}
-				modo="Dark"
+				modo="Light"
 				valueDificultad={dificultad}
 				onCh_dificultad={(e) =>
 					setDificultad({ id: e.target.id, title: e.target.outerText })
@@ -34,6 +34,7 @@ function DemoComponent() {
 				// isPM
 				// haveSubPersonal
 				principalTask
+				// plantillas
 				onCh_checkbox={() => setCheck(!check)}
 				//
 				equipos={[]}

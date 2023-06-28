@@ -29,4 +29,7 @@ export interface modalTemplates {
 	haveSubPersonal?: boolean;
 	onCh_checkboxPrintBF?: onChangeType;
 	valueCheckboxPrintBF?: boolean;
+	isEditingTemplate?: boolean;
+	valueCheckboxMedio?: boolean;
+	valueCheckboxCampaign?: boolean;
 }

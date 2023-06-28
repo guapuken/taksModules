@@ -14,4 +14,5 @@ export interface dropdown {
 	topPosition?: boolean;
 	style?: css;
 	modo: Modo;
+	disabled?: boolean;
 }
