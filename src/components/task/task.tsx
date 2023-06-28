@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 // componentes auxiliares
 import { Dificultad, IconDropdown, InputTask } from '../../components';
 import { involucrados } from '../../utils/cardsUtils';
-import { SimpleContainer, ValidationComponent } from '../Atoms';
+import { SimpleContainer, Texts, Title, ValidationComponent } from '../Atoms';
 import { AddTask, IconAsign, IconDates, IconMoreOptions, IconPriority } from './files';
 // types
 import { onChangeType, tasks } from '../../types';
@@ -81,6 +81,20 @@ const Task = (props: tasks) => {
 		setDificultad({ id: e.target.id, title: e.target.outerText });
 	};
 
+	function heightSubtask() {
+		const element = document.getElementById(`${idTask}Subtask`);
+		const numberLastElement = (subtasks?.length ?? 1) - 1;
+		const lastElement = document.getElementById(
+			subtasks ? `${subtasks[numberLastElement].idTask}Subtask` : ''
+		);
+		element?.style.setProperty(
+			'--heightSubtask',
+			`${element.clientHeight - (lastElement?.clientHeight || 0)}px`
+		);
+	}
+
+	heightSubtask();
+
 	return (
 		<SimpleContainer
 			labels={{
@@ -89,195 +103,196 @@ const Task = (props: tasks) => {
 				'have-subtask': subtasks?.length ?? 0 >= 1 ? 'subtasks' : '',
 			}}
 		>
-			<InputTask
-				check={check ?? false}
-				showTask={plantillas ? false : true}
-				modo={modo}
-				principalTask={principalTask}
-				disabled={taskDisabled}
-				onCh_checkbox={onCh_checkbox}
-				idCheckbox={idTask}
-				id={idTask}
-				onCh_nameTask={onCh_nameTask}
-				valueTask={valueTask}
-				onCh_descriptionTask={onCh_descriptionTask}
-				valueDescription={valueDescription}
-				isSubtask={isSubtask}
-			/>
-			<SimpleContainer className="tasks__icons">
-				<IconDates
-					idTask={idTask}
-					maxEndDate={maxEndDate}
-					maxStartDate={maxStartDate}
-					minEndDate={minEndDate}
-					minStartDate={minStartDate}
+			<SimpleContainer>
+				<InputTask
+					check={check ?? false}
+					showTask={plantillas ? false : true}
 					modo={modo}
-					onCh_duration={onCh_duration as onChangeType}
-					plantillas={plantillas}
-					disabledEndDate={check ? check : disabledEndDate}
-					disabledStartDate={check ? check : disabledStartDate}
-					onCh_endDate={onCh_endDate}
-					onCh_startDate={onCh_startDate}
-					startDateValue={startDateValue as string}
-					endDateValue={endDateValue as string}
-					className={className}
-					durationValue={durationValue}
+					principalTask={principalTask}
+					disabled={taskDisabled}
+					onCh_checkbox={onCh_checkbox}
+					idCheckbox={idTask}
+					id={idTask}
+					onCh_nameTask={onCh_nameTask}
+					valueTask={valueTask}
+					onCh_descriptionTask={onCh_descriptionTask}
+					valueDescription={valueDescription}
+					isSubtask={isSubtask}
 				/>
-
-				<ValidationComponent validate={!reasignForbidden}>
-					<IconAsign
+				<SimpleContainer className="tasks__icons">
+					<IconDates
+						idTask={idTask}
+						maxEndDate={maxEndDate}
+						maxStartDate={maxStartDate}
+						minEndDate={minEndDate}
+						minStartDate={minStartDate}
 						modo={modo}
-						involucrados={involucrados(valueResponsable, valueRevision)}
-						responsables={responsables}
-						equipos={equipos}
-						revision={revision}
-						valueResponsable={valueResponsable}
-						valueRevision={valueRevision}
-						disabled={check ? check : false}
-						isPM={isPM}
-						haveSubPersonal={haveSubPersonal}
+						onCh_duration={onCh_duration as onChangeType}
+						plantillas={plantillas}
+						disabledEndDate={check ? check : disabledEndDate}
+						disabledStartDate={check ? check : disabledStartDate}
+						onCh_endDate={onCh_endDate}
+						onCh_startDate={onCh_startDate}
+						startDateValue={startDateValue as string}
+						endDateValue={endDateValue as string}
+						className="tasks__icons-dates"
+						durationValue={durationValue}
 					/>
-				</ValidationComponent>
-				<IconDropdown
-					modo={modo}
-					options={[
-						{
-							id: '1',
-							title: 'Muy fácil',
-							onClick: handleClick,
-						},
-						{
-							id: '2',
-							title: 'Fácil',
-							onClick: handleClick,
-						},
-						{
-							id: '3',
-							title: 'Normal',
-							onClick: handleClick,
-						},
-						{
-							id: '4',
-							title: 'Dificil',
-							onClick: handleClick,
-						},
-						{
-							id: '5',
-							title: 'Muy dificil',
-							onClick: handleClick,
-						},
-					]}
-					svg={
-						<SimpleContainer>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 384 512"
-								fill={
-									dificultad.id === '1'
-										? 'green'
-										: dificultad.id === '2'
-										? 'greenyellow'
-										: dificultad.id === '3'
-										? 'yellow'
-										: dificultad.id === '4'
-										? 'orange'
-										: dificultad.id === '5'
-										? 'red'
-										: '#525252'
-								}
-								style={{ height: '30px' }}
-							>
-								<path d="M384 319.1C384 425.9 297.9 512 192 512s-192-86.13-192-192c0-58.67 27.82-106.8 54.57-134.1C69.54 169.3 96 179.8 96 201.5v85.5c0 35.17 27.97 64.5 63.16 64.94C194.9 352.5 224 323.6 224 288c0-88-175.1-96.12-52.15-277.2c13.5-19.72 44.15-10.77 44.15 13.03C215.1 127 384 149.7 384 319.1z" />
-							</svg>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 384 512"
-								fill={
-									dificultad.id === '1'
-										? 'green'
-										: dificultad.id === '2'
-										? 'greenyellow'
-										: dificultad.id === '3'
-										? 'yellow'
-										: dificultad.id === '4'
-										? 'orange'
-										: dificultad.id === '5'
-										? 'red'
-										: '#000'
-								}
-								style={{
-									height: '30px',
-									position: 'absolute',
-									left: '3px',
-									opacity: 0.3,
-									zIndex: -1,
-								}}
-							>
-								<path d="M384 319.1C384 425.9 297.9 512 192 512s-192-86.13-192-192c0-58.67 27.82-106.8 54.57-134.1C69.54 169.3 96 179.8 96 201.5v85.5c0 35.17 27.97 64.5 63.16 64.94C194.9 352.5 224 323.6 224 288c0-88-175.1-96.12-52.15-277.2c13.5-19.72 44.15-10.77 44.15 13.03C215.1 127 384 149.7 384 319.1z" />
-							</svg>
-						</SimpleContainer>
-					}
-					iconStyles={{ fill: 'red' }}
-					title={`Dificultad ${dificultad.title ?? ''}`}
-				/>
-				<ValidationComponent validate={!forbbidenDependencies}>
-					<DropdownWithPopup
-						dropdownIcon={dependencieIcon}
-						dropdownOptions={dependenciesOptions as optionsIcnDrp[]}
-						legend={1}
-						modo={modo}
-						validateToShowIcon={dependence}
-						title="Esta tarea se iniciará una vez finalice la tarea de la que depende"
-					>
-						<ValidationComponent validate={dependence}>
-							<span>
-								<strong>Depende de la tarea: </strong>
-
-								<span style={{ display: 'block' }}>{dependence?.title ?? ''}</span>
-							</span>
-						</ValidationComponent>
-					</DropdownWithPopup>
-				</ValidationComponent>
-				<ValidationComponent validate={!plantillas}>
-					<IconPriority
-						modo={modo}
-						onCl_selectPriority={onCl_selectPriority}
-						prioridadInicial={prioridadInicial}
-					/>
-				</ValidationComponent>
-				<IconMoreOptions
-					modo={modo}
-					onCl_delete={onCl_delete}
-					onCl_reminder={onCl_reminder}
-					options={moreOptions}
-				/>
-			</SimpleContainer>
-			<ValidationComponent validate={!subtaskForbbiden}>
-				<SimpleContainer
-					style={{
-						display: 'flex',
-						alignItems: 'baseline',
-						position: 'relative',
-						marginTop: '-15px',
-					}}
-				>
-					<AddTask legend="+ Añadir subtarea" onClick={onCl_addTask} />
+					<ValidationComponent validate={!reasignForbidden}>
+						<IconAsign
+							modo={modo}
+							involucrados={involucrados(valueResponsable, valueRevision)}
+							responsables={responsables}
+							equipos={equipos}
+							revision={revision}
+							valueResponsable={valueResponsable}
+							valueRevision={valueRevision}
+							disabled={check ? check : false}
+							isPM={isPM}
+							haveSubPersonal={haveSubPersonal}
+						/>
+					</ValidationComponent>
 					<IconDropdown
 						modo={modo}
-						legend="Cargar plantilla"
-						iconStyles={{
-							marginLeft: '20px',
-							fontSize: '15px',
-						}}
-						options={templateOptions ?? []}
+						options={[
+							{
+								id: '1',
+								title: 'Muy fácil',
+								onClick: handleClick,
+							},
+							{
+								id: '2',
+								title: 'Fácil',
+								onClick: handleClick,
+							},
+							{
+								id: '3',
+								title: 'Normal',
+								onClick: handleClick,
+							},
+							{
+								id: '4',
+								title: 'Dificil',
+								onClick: handleClick,
+							},
+							{
+								id: '5',
+								title: 'Muy dificil',
+								onClick: handleClick,
+							},
+						]}
+						svg={
+							<SimpleContainer>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 384 512"
+									fill={
+										dificultad.id === '1'
+											? 'green'
+											: dificultad.id === '2'
+											? 'greenyellow'
+											: dificultad.id === '3'
+											? 'yellow'
+											: dificultad.id === '4'
+											? 'orange'
+											: dificultad.id === '5'
+											? 'red'
+											: '#525252'
+									}
+									style={{ height: '30px' }}
+								>
+									<path d="M384 319.1C384 425.9 297.9 512 192 512s-192-86.13-192-192c0-58.67 27.82-106.8 54.57-134.1C69.54 169.3 96 179.8 96 201.5v85.5c0 35.17 27.97 64.5 63.16 64.94C194.9 352.5 224 323.6 224 288c0-88-175.1-96.12-52.15-277.2c13.5-19.72 44.15-10.77 44.15 13.03C215.1 127 384 149.7 384 319.1z" />
+								</svg>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 384 512"
+									fill={
+										dificultad.id === '1'
+											? 'green'
+											: dificultad.id === '2'
+											? 'greenyellow'
+											: dificultad.id === '3'
+											? 'yellow'
+											: dificultad.id === '4'
+											? 'orange'
+											: dificultad.id === '5'
+											? 'red'
+											: '#000'
+									}
+									style={{
+										height: '30px',
+										position: 'absolute',
+										left: '3px',
+										opacity: 0.3,
+										zIndex: -1,
+									}}
+								>
+									<path d="M384 319.1C384 425.9 297.9 512 192 512s-192-86.13-192-192c0-58.67 27.82-106.8 54.57-134.1C69.54 169.3 96 179.8 96 201.5v85.5c0 35.17 27.97 64.5 63.16 64.94C194.9 352.5 224 323.6 224 288c0-88-175.1-96.12-52.15-277.2c13.5-19.72 44.15-10.77 44.15 13.03C215.1 127 384 149.7 384 319.1z" />
+								</svg>
+							</SimpleContainer>
+						}
+						iconStyles={{ fill: 'red' }}
+						title={`Dificultad ${dificultad.title ?? ''}`}
+					/>
+					<ValidationComponent validate={!forbbidenDependencies}>
+						<DropdownWithPopup
+							dropdownIcon={dependencieIcon}
+							dropdownOptions={dependenciesOptions as optionsIcnDrp[]}
+							legend={1}
+							modo={modo}
+							validateToShowIcon={dependence}
+							title="Esta tarea se iniciará una vez finalice la tarea de la que depende"
+						>
+							<ValidationComponent validate={dependence}>
+								<Title modo="Dark" /*  style={{ width: '200px' }} */>
+									Depende de la tarea:
+								</Title>
+								<Texts modo="Dark">{dependence?.title ?? ''}</Texts>
+							</ValidationComponent>
+						</DropdownWithPopup>
+					</ValidationComponent>
+					<ValidationComponent validate={!plantillas}>
+						<IconPriority
+							modo={modo}
+							onCl_selectPriority={onCl_selectPriority}
+							prioridadInicial={prioridadInicial}
+						/>
+					</ValidationComponent>
+					<IconMoreOptions
+						modo={modo}
+						onCl_delete={onCl_delete}
+						onCl_reminder={onCl_reminder}
+						options={moreOptions}
 					/>
 				</SimpleContainer>
-			</ValidationComponent>
+				<ValidationComponent validate={!subtaskForbbiden}>
+					<SimpleContainer
+						style={{
+							display: 'flex',
+							alignItems: 'baseline',
+							position: 'relative',
+							marginTop: '-15px',
+						}}
+					>
+						<AddTask legend="+ Añadir subtarea" onClick={onCl_addTask} />
+						<IconDropdown
+							modo={modo}
+							legend="Cargar plantilla"
+							iconStyles={{
+								marginLeft: '20px',
+								fontSize: '15px',
+							}}
+							options={templateOptions ?? []}
+						/>
+					</SimpleContainer>
+				</ValidationComponent>
+			</SimpleContainer>
 			{subtasks && (
 				<SimpleContainer
 					className="tasks__subtareas"
 					labels={{
-						'subtask-simple': subtasks.length <= 1 ? 'simple' : 'multiple',
+						id: `${idTask}Subtask`,
+						// 'data-content': `${heightSubtask()}`,
 					}}
 					style={{
 						paddingLeft: '20px',

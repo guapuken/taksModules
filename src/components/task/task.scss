@@ -1,3 +1,7 @@
+:root{
+    --heightSubtask: 0;
+}
+
 .tasks
 {
     &[have-subtask='subtasks']{
@@ -35,11 +39,10 @@
         flex-direction: row ;
         flex-wrap: wrap;
         gap: 15px;
-        .DatePickerTaskComponent{
-            width:126px;
-            flex-direction: row-reverse;
-            outline: none;
-
+        &-dates{
+            .IconInformationTaskcomponent{
+                z-index: 5 !important;
+            }
         }
         .InputsTaskContainer{
             position: relative;
@@ -61,15 +64,10 @@
         &:before{
             content: "";
             position: absolute;
-            height: calc(70%);
-            // height: calc(100% - 135px);
+            height: calc(var(--heightSubtask) - 90px);
             left: 20px;
             border-left: 2px solid var(--detail);
         }
-        &[subtask-simple='simple']:before{
-            height: 0 !important;
-        }
-
         &-individual{
             padding-left: 20px;
             &:before{
@@ -96,11 +94,6 @@
         border-radius: 20px;
         margin-bottom: 20px;
     }
-    .IconInformationTaskcomponent{
-        position: absolute; 
-        right: -20px; 
-        top: -10px;
-    }
 }
 @media (max-width:390px){
     .ChildrenContainerTaskModules{
@@ -114,6 +107,6 @@
         padding-left: 7px;
     }
 }
-.ButtonAddTaskComponent:hover{
-    color: #dedede;
-}
+// .ButtonAddTaskComponent:hover{
+//     color: #dedede;
+// }

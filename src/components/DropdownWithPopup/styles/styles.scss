@@ -21,20 +21,23 @@
         z-index: 4;
         &-container{
             position: absolute;
+            // width: 100%;
+            min-width: 200px;
             &-contenido{
                 display: flex;
                 flex-wrap: wrap;
                 background: var(--fc90);
-                padding: 10px 20px;
+                padding: 10px 10px;
                 position: relative;
                 border: none;
                 border-radius: 10px;
                 color: #fff;
+                width: 100%;
                 &:before{
                     content:'';
                     position: absolute;
                     bottom: 100%;
-                    left:66%;
+                    left:50%;
                     width:0;
                     height: 0;
                     border: none;

@@ -33,7 +33,6 @@ const AutoresizeInput = ({
 	disabled,
 	modo = 'Light',
 	className,
-	props,
 }: autoresizeInput) => {
 	//Hooks
 	const [value, setValue] = useState(initialValue);
