@@ -29,6 +29,8 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%,-50%);
+        background: var(--bg);
+        box-shadow: var(--boxShadow);
         &-children{
             &-header{
                 height: 25%;

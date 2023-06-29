@@ -64,7 +64,7 @@
         &:before{
             content: "";
             position: absolute;
-            height: calc(var(--heightSubtask) - 90px);
+            height: calc(var(--heightSubtask) - 100px);
             left: 20px;
             border-left: 2px solid var(--detail);
         }

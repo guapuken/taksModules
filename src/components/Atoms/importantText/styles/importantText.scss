@@ -1,13 +1,8 @@
 @import '../../../../global.scss';
 
-.ctn_ImpText{
+.importantText{
     font-weight: 700;
     position: relative;
     line-height: 1.4;
-    &.Light{
-        color: var(--fcLight);
-    }
-    &.Dark{
-        color: var(--fcDark);
-    }
+    color: var(--fc90);
 }
