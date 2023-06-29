@@ -5,6 +5,13 @@
 
 :root{
     --sombraCard: #dedede;
+    --cardSize: calc(100vw / 4 - 20px);
+    @media (max-aspect-ratio: 4/3){
+        --cardSize: calc(100vw / 2 - 20px);
+    }
+    @media (max-aspect-ratio: 7/10){
+        --cardSize: calc(100vw - 20px);
+    }
 }
 
 [theme-config='Dark']{
@@ -15,7 +22,7 @@
 { 
     position: relative; 
     background: var(--bg);
-    width: calc(100vw / 4 - 20px);
+    width: var(--cardSize);
     height: 100%;
     max-height: calc(50vh - 20px) ;
     box-shadow: var(--boxShadow);

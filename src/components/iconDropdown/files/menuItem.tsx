@@ -33,7 +33,7 @@ const Menus = (props: any) => {
 					<DropdownMenu.Portal>
 						<DropdownMenu.SubContent
 							className={`sbMenuCtn${modo}_IcnDrpC ${menu.className}`}
-							style={{ cursor: 'pointer' }}
+							style={{ cursor: 'pointer', zIndex: '4' }}
 						>
 							{menu.submenus.map((submenu) => {
 								return (
