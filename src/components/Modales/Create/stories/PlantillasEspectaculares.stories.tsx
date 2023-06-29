@@ -8,21 +8,34 @@ import ModalTemplates from '../Templates/modalPlantillas';
 
 function DemoComponent() {
 	const [template, setTemplate] = useState(undefined);
+	const [checkTem, setCheckTem] = useState(false);
+	const [checkCam, setCheckCam] = useState(false);
+	const [tiposMedio, setTiposMedio] = useState(null);
+
+	console.clear();
+	console.log('campaña: ', checkCam, 'Template', checkTem, 'tiposMedio', tiposMedio);
 	return (
 		<ModalTemplates
 			onCl_close={() => {}}
 			idTemplate="1"
 			modo="Light"
 			isMannager
-			onCh_checkboxMedio={() => {}}
-			onCh_dropDownTipoMedio={() => {}}
+			onCh_checkboxMedio={() => {
+				setCheckTem(!checkTem);
+			}}
+			onCh_dropDownTipoMedio={(e) => {
+				setTiposMedio(e);
+			}}
 			onCh_templateName={(e) => setTemplate(e.target.value)}
 			onCl_abort={() => {}}
 			onCl_addTask={() => {}}
-			onCl_confirm={() => {}}
-			// valueCheckboxMedio
+			onCl_confirm={() => {
+				setCheckTem(false);
+				setTiposMedio(null);
+			}}
+			valueCheckboxMedio={checkTem}
 			// isEditingTemplate
-			valueCheckboxCampaign
+			valueCheckboxCampaign={checkCam}
 			templateNameValue="Espectaculares"
 			optionsTipoMedio={[
 				{ id: String(autoIncrementalId()), title: 'Urbanos' },
@@ -30,7 +43,9 @@ function DemoComponent() {
 				{ id: String(autoIncrementalId()), title: 'Muros' },
 				{ id: String(autoIncrementalId()), title: 'Vallas móviles' },
 			]}
-			onCh_checkboxCampaign={() => {}}
+			onCh_checkboxCampaign={() => {
+				setCheckCam(!checkCam);
+			}}
 			tasks={[
 				{
 					dependence: { id: '1', title: 'Dummies' },

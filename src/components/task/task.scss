@@ -60,11 +60,22 @@
             }
         }
     }
+    &__buttons{
+        display: flex;
+        align-items: baseline;
+        position: relative;
+        margin-top: -15px;
+        gap: 20px;
+        & > :hover{
+            color: var(--fc30);
+        }
+    }
     &__subtareas{
+        padding-left: 20px;
         &:before{
             content: "";
             position: absolute;
-            height: calc(var(--heightSubtask) - 120px);
+            height: calc(var(--heightSubtask) - 110px);
             left: 20px;
             border-left: 2px solid var(--detail);
         }

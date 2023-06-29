@@ -8,7 +8,7 @@ const SimpleContainer = ({
 	id,
 	onClick,
 	draggable,
-	labels,
+	labels = {},
 }: simpleContainerProps) => {
 	return (
 		<div

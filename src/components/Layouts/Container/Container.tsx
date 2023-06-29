@@ -2,7 +2,7 @@ import React from 'react';
 import { SimpleContainer, Title, ValidationComponent } from '../../Atoms';
 
 import './Styles/Container.scss';
-import { Button, Chat, OptionMenu } from '../../../components';
+import { Button, Chat } from '../../../components';
 import Menu from '../../containerComp/files/menu';
 
 const Container = ({

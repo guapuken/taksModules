@@ -135,6 +135,7 @@ export const Content = ({
 									setCampanha(!campanha);
 									if (onCh_checkboxCampaign) onCh_checkboxCampaign(e);
 								}}
+								disabled={isEditingTemplate}
 								check={campanha}
 								style={{ marginTop: '20px' }}
 							/>

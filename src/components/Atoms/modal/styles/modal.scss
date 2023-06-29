@@ -1,22 +1,21 @@
-@import '../../../../global.scss';
 // root iniciales
 :root{
     --width: 50vw;
     --gridRowsDisplay: 50px auto 80px;
     --gridColumnsDisplay: auto;
     --gridColumnHeader: auto;
+    @media (max-aspect-ratio: 4/3){
+        --width: 100vw;
+    }
+    @media (max-aspect-ratio: 7/10){
+        --width: 100vw;
+    }
 }
 
 // temas _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 
 
 // temas de estilos _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
-[theme-style='box']{
-    --gridColumnHeader: 1/3;
-    --width : 100vw;
-    --gridRowsDisplay: 50px auto;
-    --gridColumnsDisplay: auto 80px;
-}
 
 //variables _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 $altura: 90vh;
@@ -65,11 +64,6 @@ $altura: 90vh;
         overflow-y: auto;
         overflow-x: hidden;
     }
-    
-    // estilos del footer
-    &__footer{
-        //
-    }
 }
 // estilos del modal sin propiedades
 .modal__noCtn{
@@ -77,16 +71,4 @@ $altura: 90vh;
     place-items: center;
     width: 100%;
     height:$altura;
-}
-
-// media queries _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
-@media (max-aspect-ratio: 4/3){ // tabletas
-    :root{
-        --width: 100vw;
-    }
-}
-@media (max-aspect-ratio: 7/10){ // dispositivos móviles
-    :root{
-        --width: 100vw;
-    }
 }
