@@ -95,7 +95,7 @@ function DemoComponent() {
 						valueDescription: description,
 						valueTask: 'name',
 						equipos: [],
-						idTask: '3',
+						// idTask: '3',
 						valueDificultad: 5,
 						dependence: dependencie,
 						dependenciesOptions: [

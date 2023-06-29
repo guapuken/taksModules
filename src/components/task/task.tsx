@@ -82,7 +82,7 @@ const Task = (props: tasks) => {
 	};
 
 	function heightSubtask() {
-		const element = document.getElementById(`${idTask}Subtask`);
+		const element = document.getElementById(`${idTask ?? ''}Subtask`);
 		const numberLastElement = (subtasks?.length ?? 1) - 1;
 		const lastElement = document.getElementById(
 			subtasks
@@ -95,10 +95,12 @@ const Task = (props: tasks) => {
 					: ''
 				: ''
 		);
-		element?.style.setProperty(
-			'--heightSubtask',
-			`${element.clientHeight - (lastElement?.clientHeight || 0)}px`
-		);
+		if (idTask) {
+			element?.style.setProperty(
+				'--heightSubtask',
+				`${element.clientHeight - (lastElement?.clientHeight || 0)}px`
+			);
+		}
 	}
 
 	heightSubtask();
