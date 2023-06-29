@@ -1,14 +1,14 @@
 import React from 'react';
 
 //componentes auxiliares
-import { CardContainer, Spans } from '../../../utils/cardsUtils';
-import { Button, CircularProgressBar, ProgressBar } from '../../../components';
+import { CardContainer, Spans } from '../../../../utils/cardsUtils';
+import { Button, CircularProgressBar, ProgressBar } from '../../../../components';
 //funciones auxiliares
-import { cardW } from '../../../utils/functions/functions';
+import { cardW } from '../../../../utils/functions/functions';
 // estilos
-import '../cardTask.scss';
-import { IconMoreOptions } from '../../task/files';
-import { TextButton, Texts, Title } from '../../Atoms';
+import '../styles/cardTask.scss';
+import { IconMoreOptions } from '../../../task/files';
+import { TextButton, Texts, Title } from '../../../Atoms';
 
 //componente principal
 const Content = ({

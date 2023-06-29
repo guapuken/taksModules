@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import CardTask from './cardTask';
-import { cardTask } from './types';
-import { boolean, functions, modo, number, statusTasks, text } from '../../storyUtils';
+import CardTask from '../Tasks/cardTask';
+import { cardTask } from '../Tasks/types/types';
+import { boolean, functions, modo, number, statusTasks, text } from '../../../storyUtils';
 
 const Template: Story<cardTask> = (args) => <CardTask {...args} />;
 

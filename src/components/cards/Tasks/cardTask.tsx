@@ -1,12 +1,12 @@
 import React from 'react';
 // funciones
-import { useWindowSize } from '../../utils/windowSize';
 // componentes
 import Cards from '../cards';
 //types
-import { cardTask } from './types';
 //importación de componentes principales
 import { Content, Aside } from './files';
+import { useWindowSize } from '../../../utils/windowSize';
+import { cardTask } from './types/types';
 
 const CardTask = (props: cardTask) => {
 	const { percentTask = 0 } = props;

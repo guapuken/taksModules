@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import CardTask from '../cardTask';
+import { CardTask } from '../../components';
 import Cards from '../cards';
 import Task from '../task/task';
 import DragAndDrop from './dragAndDrop';

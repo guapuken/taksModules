@@ -1,14 +1,13 @@
 import React from 'react';
 
 //importación de auxiliares---------------------------------------------------
-// componentes
-import { AsideContainer, ButtonsArray } from '../../../utils/asideUtils';
 //archivos multimedia
-import editIcon from '../../../img/editar.svg';
-import calendarIcon from '../../../img/calendario.svg';
-import asign from '../../../img/addUser.svg';
+import editIcon from '../../../../img/editar.svg';
+import calendarIcon from '../../../../img/calendario.svg';
+import asign from '../../../../img/addUser.svg';
 // types
-import { aside } from '../types';
+import { aside } from '../types/types';
+import { AsideContainer, ButtonsArray } from '../../../../utils/asideUtils';
 
 //componente principal --------------------------------------------------------------
 const Aside = ({

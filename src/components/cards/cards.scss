@@ -6,6 +6,7 @@
 :root{
     --sombraCard: #dedede;
     --cardSize: calc(100vw / 4 - 20px);
+
     @media (max-aspect-ratio: 4/3){
         --cardSize: calc(100vw / 2 - 20px);
     }
@@ -13,7 +14,6 @@
         --cardSize: calc(100vw - 20px);
     }
 }
-
 [theme-config='Dark']{
     --sombraCard: #00000075;
 }
@@ -23,7 +23,8 @@
     position: relative; 
     background: var(--bg);
     width: var(--cardSize);
-    height: 100%;
+    height: auto;
+    min-height: 15vh;
     max-height: calc(50vh - 20px) ;
     box-shadow: var(--boxShadow);
     &[contenido-card='sinContenido']{
@@ -41,7 +42,9 @@
     }
     &__contenido{
         display: grid;
-        height: 100%;
+        // height: 100%;
+        height: auto;
+        min-height: 15vh;
         &-children{
             width: 100%;
             height: 100%;
@@ -62,21 +65,5 @@
                 height: calc(100% - 20px);
             }
         }
-    }
-}
-/// ---------------------------------------------------------------------------------------------------------
-//      media queries
-// ---------------------------------------------------------------------------------------------------------
-@media (max-aspect-ratio: 4/3){ // relación aspecto con dispositivos mayores a móviles tales como tablets
-    .card
-    {
-        width: calc(100vw / 2 - 20px);
-    } 
-}
-
-@media (max-aspect-ratio: 7/10){ // Relación aspecto de dispositivos móviles
-    .card
-    {
-        width: calc(100vw - 20px);
     }
 }

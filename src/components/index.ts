@@ -42,10 +42,10 @@ export {default as Dificultad} from './Dificultad/Dificultad';
 //      Cards preestablecidas
 // ---------------------------------------------------------------------------------------------------------
 export {default as Cards} from './cards'; // genérica
+export {default as CardTask} from '../components/cards/Tasks/cardTask';
 export {default as CardCampaign} from './cards/Campaigns/CardCampaign';
 export {default as CardTeam} from  './cards/teams';
 export {default as CardProject} from './cardProject';
-export {default as CardTask} from './cardTask';
 export {default as CardMembersTeam} from './cardMembersTeam';
 export {default as CardTaskReview} from './cardTaskReview';
 

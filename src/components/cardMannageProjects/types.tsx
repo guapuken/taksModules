@@ -9,6 +9,7 @@ export interface cardMannageProjects {
 	statusTask: statusTask;
 	tasks?: number;
 	percentTask: number;
+	isCampaignTask?: boolean;
 }
 
 export type aside = {
@@ -16,6 +17,7 @@ export type aside = {
 	onCl_preview: onClickType;
 	onCl_edit: onClickType;
 	modo: Modo;
+	isCampaignTask?: boolean;
 };
 
 export type content = {

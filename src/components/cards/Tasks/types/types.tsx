@@ -1,4 +1,4 @@
-import { Modo, onChangeType, onClickType, statusTask, submenusArray } from '../../types';
+import { Modo, onChangeType, onClickType, statusTask, submenusArray } from '../../../../types';
 
 export interface cardTask {
 	//aside

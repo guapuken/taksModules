@@ -1,7 +1,7 @@
 import React from 'react';
 import DragAndDrop from '.';
 import { storiesOf } from '@storybook/react';
-import CardTask from '../cardTask/cardTask';
+import { CardTask } from '../../components';
 import Container from '../containerComp/container';
 import AsideTemplates from '../asideTemplates/asideTemplates';
 

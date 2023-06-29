@@ -9,6 +9,7 @@ export type cardMannageTasks = {
 	percentTask: number;
 	statusTask: statusTask;
 	modo: Modo;
+	isCampaignTask?: boolean;
 };
 
 export type content = {
@@ -25,4 +26,5 @@ export type aside = {
 	onCl_preview: onClickType;
 	onCl_edit: onClickType;
 	modo: Modo;
+	isCampaignTask?: boolean;
 };

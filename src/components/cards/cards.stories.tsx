@@ -11,6 +11,7 @@ import { AsideContainer, ButtonsArray } from '../../utils/asideUtils';
 //importación de archivos multimedia auxiliares
 import del from '../../img/vaciar.svg';
 import prev from '../../img/previsualizar.svg';
+import { Texts, Title } from '../Atoms';
 
 //creación de la plantilla en la que se colocarán los elementos
 const Template: Story<cardIntrfc> = (args) => <Cards {...args} />;
@@ -39,8 +40,8 @@ withProperties.args = {
 				}}
 			>
 				<div>
-					<h3>Traffic</h3>
-					<p>5 Integrantes...</p>
+					<Title modo="Dark">Traffic</Title>
+					<Texts modo="Dark"> 5 Integrantes...</Texts>
 				</div>
 				<div
 					style={{

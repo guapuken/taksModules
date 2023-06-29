@@ -17,6 +17,7 @@ withProperties.args = {
 	title: 'Dummies MTY',
 	tasks: 25,
 	modo: 'Dark',
+	isCampaignTask: true,
 	percentTask: 25,
 	// statusTask: 'outOfTime',
 	statusTask: 3,
