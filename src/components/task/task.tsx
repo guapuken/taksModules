@@ -78,7 +78,7 @@ const Task = (props: tasks) => {
 	const handleClick = (e: any) => {
 		e.preventDefault();
 		if (onCh_dificultad) onCh_dificultad(e);
-		setDificultad({ id: e.target.id, title: e.target.outerText });
+		setDificultad({ id: e?.target?.id, title: e?.target?.outerText });
 	};
 
 	function heightSubtask() {
@@ -86,16 +86,14 @@ const Task = (props: tasks) => {
 		const numberLastElement = (subtasks?.length ?? 1) - 1;
 		const lastElement = document.getElementById(
 			subtasks
-				? subtasks
-					? [numberLastElement]
-						? subtasks[numberLastElement].idTask
-							? `${subtasks[numberLastElement].idTask}Subtask`
-							: ''
+				? subtasks[numberLastElement]
+					? subtasks[numberLastElement].idTask
+						? `${subtasks[numberLastElement].idTask}Subtask`
 						: ''
 					: ''
 				: ''
 		);
-		if (idTask) {
+		if (subtasks && subtasks[numberLastElement] && subtasks[numberLastElement].idTask) {
 			element?.style.setProperty(
 				'--heightSubtask',
 				`${element.clientHeight - (lastElement?.clientHeight || 0)}px`
