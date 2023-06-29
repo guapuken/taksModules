@@ -85,7 +85,15 @@ const Task = (props: tasks) => {
 		const element = document.getElementById(`${idTask}Subtask`);
 		const numberLastElement = (subtasks?.length ?? 1) - 1;
 		const lastElement = document.getElementById(
-			subtasks ? `${subtasks[numberLastElement].idTask}Subtask` : ''
+			subtasks
+				? subtasks
+					? [numberLastElement]
+						? subtasks[numberLastElement].idTask
+							? `${subtasks[numberLastElement].idTask}Subtask`
+							: ''
+						: ''
+					: ''
+				: ''
 		);
 		element?.style.setProperty(
 			'--heightSubtask',
