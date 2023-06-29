@@ -21,6 +21,7 @@ export interface aside {
 	optionsFilter?: optionsIcnDrp[];
 	onCl_reorder: onClickType;
 	themeStyle?: string;
+	className?: string;
 }
 
 // componente NoTasks

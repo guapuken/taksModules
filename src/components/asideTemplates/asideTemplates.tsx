@@ -53,6 +53,7 @@ const AsideTemplates = ({
 	// onCl_reorder,
 	placeholderDropdown,
 	themeStyle = '',
+	className,
 }: aside) => {
 	const scrnH = useWindowSize().height;
 
@@ -84,7 +85,7 @@ const AsideTemplates = ({
 	return (
 		<SimpleContainer
 			labels={{
-				className: `aside`,
+				className: `aside ${className ?? ''}`,
 				'theme-config': visible ? 'Dark' : modo,
 				'theme-style': themeStyle,
 				'vs-asd': visible ? 'visible' : 'noVisible',
