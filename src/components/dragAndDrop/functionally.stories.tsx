@@ -14,11 +14,10 @@ function DemoComponent() {
 	return (
 		<Container AsideContent={<AsideTemplates />}>
 			<DragAndDrop
-				modo="Light"
+				modo="Dark"
 				Card={CardTask}
 				tasks={[
 					{
-						modo: 'Light',
 						onCl_asignTask: () => {},
 						onCl_reasignDate: () => {},
 						onCl_remimder: {} as any,
@@ -46,7 +45,7 @@ function DemoComponent() {
 						onCl_edit: () => alert('editar'),
 						onCl_showDetails: () => alert('editar'),
 						status: 'Progress',
-						taskName: 'decirle gracias a Adan',
+						taskName: 'Hacer las tareas del día siguiente',
 						taskDescription: 'no pues creo que no',
 						statusTask: 'outOfTime',
 						percentTask: 25,

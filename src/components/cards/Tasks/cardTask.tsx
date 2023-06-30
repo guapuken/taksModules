@@ -7,6 +7,7 @@ import Cards from '../cards';
 import { Content, Aside } from './files';
 import { useWindowSize } from '../../../utils/windowSize';
 import { cardTask } from './types/types';
+import { aspectRatio } from '../../../utils/functions/functions';
 
 const CardTask = (props: cardTask) => {
 	const { percentTask = 0 } = props;
@@ -16,7 +17,7 @@ const CardTask = (props: cardTask) => {
 	const properties = {
 		rounded: true,
 		Content: () => <Content {...props} percentTask={percentTask} />,
-		Aside: scrSize.width >= 1024 ? () => <Aside {...props} /> : null,
+		Aside: !aspectRatio().tablet ? () => <Aside {...props} /> : null,
 		modo: props.modo,
 	};
 	return <Cards {...properties} />;

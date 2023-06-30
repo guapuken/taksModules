@@ -3,6 +3,7 @@ import { LateIcon } from '../../utils/cardsUtils';
 import { Modo, onClickType, statusTask } from '../../types';
 // estilos
 import './progressBar.scss';
+import { SimpleContainer, Title } from '../Atoms';
 
 //interface
 export interface ProgressBarProps {
@@ -22,18 +23,25 @@ const ProgressBar = ({
 	modo = 'Light',
 }: ProgressBarProps) => {
 	return (
-		<div
-			className={`ctn_PBC ${modo}`}
-			stts-tsk={status}
-			style={{ width: '100%', ...styleContent }}
-			onClick={onClick}
+		<SimpleContainer
+			labels={{
+				className: `progressBar`,
+				'stts-tsk': status,
+				style: { width: '100%', ...styleContent },
+				onClick: onClick,
+				'theme-config': modo,
+			}}
 		>
-			<div className={`ctnBarra`} style={{ width: 'calc(100% - 55px)' }}>
+			<SimpleContainer className="progressBar__barra" style={{ width: 'calc(100% - 50px)' }}>
 				{status === 'outOfTime' || (status === 3 && <LateIcon />)}
-				<div className="progressBar" style={{ width: `${valor}%` }}></div>
-			</div>
-			<p className={`txtPrcnt`}>{`${valor}%`}</p>
-		</div>
+				<SimpleContainer
+					className="progressBar__barra-avance"
+					style={{ width: `${valor}%` }}
+					children={null}
+				/>
+			</SimpleContainer>
+			<Title modo={modo}>{`${valor}%`}</Title>
+		</SimpleContainer>
 	);
 };
 

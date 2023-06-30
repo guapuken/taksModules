@@ -35,8 +35,10 @@ export function autoIncrementalId(diferencial?: string) {
 export function aspectRatio() {
 	const scrnW = useWindowSize().width;
 	const scrnH = useWindowSize().height;
-	const size = scrnH / 10 > scrnW / 7 ? true : false;
-	return size;
+	const tablet = scrnH / 3 > scrnW / 4 ? true : false;
+	const mobile = scrnH / 10 > scrnW / 7 ? true : false;
+	console.log('mobile', mobile, 'tablet:', tablet);
+	return { mobile, tablet };
 }
 
 /**

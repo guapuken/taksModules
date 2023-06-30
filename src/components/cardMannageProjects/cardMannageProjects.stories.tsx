@@ -16,6 +16,7 @@ withProperties.args = {
 	onCl_edit: () => alert('editar'),
 	title: 'UBER EATS-1523-Sitios-Noviembre23',
 
+	isCampaignTask: true,
 	// statusTask: 'delayed',
 	statusTask: 1,
 	modo: 'Dark',

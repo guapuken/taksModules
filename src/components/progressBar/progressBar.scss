@@ -1,37 +1,37 @@
-.ctn_PBC
+.progressBar
 {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 30px;
-    min-height: 30px;
     position: relative;
     // contebnedor de la barra de progreso
-    .ctnBarra{
-        height: 20px;
+    &__barra{
+        height: 30px;
         min-height: 20px;
-		border-radius: 100px;
-        box-shadow: inset 0 0 0 3px #282828;
-        .progressBar{
-            background: #282828;
+		border-radius: 0 5px 5px 0;
+        // box-shadow: inset 0 0 0 3px #282828;
+        background: var(--detailColorContrast);
+        &-avance{
+            // background: #282828;
+            background: var(--detailColor);
             width: 100%;
             height: inherit;
-            border-radius: 100px;
+            border-radius: 0 5px 5px 0;
         }
     }
     // texto que muestra el porcentaje
-    .txtPrcnt{
-		font-size: 20px;
-		color: #282828;
-		font-family: 'Open Sans', sans-serif !important;
-		font-weight: lighter;
-		justify-content: right;
-    }
+    // .txtPrcnt{
+	// 	font-size: 20px;
+	// 	color: #282828;
+	// 	font-weight: lighter; 
+	// 	justify-content: right;
+    // }
     &[stts-tsk='outOfTime'],&[stts-tsk='3']{
-        .ctnBarra{
-            box-shadow: inset 0 0 0 3px #FC3D38;
-            .progressBar{
-                background: #FC3D38;
+        .progressBar__barra{
+            // box-shadow: inset 0 0 0 3px #FC3D38;
+            &-avance{
+                // background: #FC3D38;
             }
         }
         .txtPrcnt{
@@ -39,18 +39,18 @@
         }
     }
     &[stts-tsk='onTime'],&[stts-tsk='1']{
-        .ctnBarra{
-            box-shadow: inset 0 0 0 3px #1CBF59;
-            .progressBar{
-                background: #1CBF59;
+        .progressBar__barra{
+            // box-shadow: inset 0 0 0 3px #1CBF59;
+            &-avance{
+                // background: #1CBF59;
             }
         }
     }
     &[stts-tsk='delayed'],&[stts-tsk='2']{
-        .ctnBarra{
-            box-shadow: inset 0 0 0 3px #FCB24F;
-            .progressBar{
-                background: #FCB24F;
+        .progressBar__barra{
+            // box-shadow: inset 0 0 0 3px #FCB24F;
+            &-avance{
+                // background: #FCB24F;a
             }
         }
     }

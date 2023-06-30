@@ -4,11 +4,11 @@ import React from 'react';
 import { CardContainer, Spans } from '../../../../utils/cardsUtils';
 import { Button, CircularProgressBar, ProgressBar } from '../../../../components';
 //funciones auxiliares
-import { cardW } from '../../../../utils/functions/functions';
+import { aspectRatio, cardW } from '../../../../utils/functions/functions';
 // estilos
 import '../styles/cardTask.scss';
 import { IconMoreOptions } from '../../../task/files';
-import { TextButton, Texts, Title } from '../../../Atoms';
+import { SimpleContainer, TextButton, Texts, Title, ValidationComponent } from '../../../Atoms';
 
 //componente principal
 const Content = ({
@@ -26,6 +26,7 @@ const Content = ({
 	onCl_follow,
 	onCl_reminder,
 	onCl_status,
+	dndCard,
 }: any) => {
 	const options = [
 		{
@@ -54,18 +55,23 @@ const Content = ({
 			onClick: onCl_reminder,
 		},
 	];
+	console.log('aspectRatio: ', aspectRatio().tablet);
 	return (
-		<CardContainer className={`ctn${modo}_CTaskC ${className}`}>
-			<div className="ctnTexts">
+		<CardContainer
+			labels={{
+				className: `cardTask ${className}`,
+				'theme-config': modo,
+			}}
+		>
+			<SimpleContainer className={`cardTask__contenido ${'dndCard'}`}>
 				<Title modo={modo} maxLines={1} title={taskName}>
 					{taskName}
 				</Title>
-				<Texts modo={modo} className="descTask ttlTask" maxLines={2}>
+				<Texts modo={modo} maxLines={2}>
 					{taskDescription}
 				</Texts>
-			</div>
-
-			<div className="ctnProgressBar_showDtls">
+			</SimpleContainer>
+			<SimpleContainer className="cardTask__footer">
 				<ProgressBar
 					modo={modo}
 					status={statusTask}
@@ -74,23 +80,29 @@ const Content = ({
 					onClick={onCl_showDetails}
 					styleContent={{ cursor: 'pointer' }}
 				/>
-				<div className="ctnDtls">
-					<Spans boldLegend={subtasks} legend="más" />
-					<TextButton className={'showDtls'} onClick={onCl_showDetails} modo={modo}>
-						Mostrar detalles...
-					</TextButton>
-				</div>
-			</div>
+				<SimpleContainer style={{ display: 'flex', gap: '20px' }}>
+					<button
+						className="cardTask__footer-button"
+						onClick={aspectRatio().tablet ? onCl_showDetails : onCl_status}
+					>
+						{aspectRatio().tablet ? 'Cambiar estatus' : 'Ver más...'}
+					</button>
+					<ValidationComponent validate={aspectRatio().tablet}>
+						<IconMoreOptions options={options} />
+					</ValidationComponent>
+				</SimpleContainer>
+			</SimpleContainer>
+			{/* <Spans boldLegend={subtasks} legend="más" /> */}
 			<div className="ctnCircularProgressBar">
-				<div>
+				{/* <div>
 					<CircularProgressBar
 						percentTask={percentTask}
 						statusTask={statusTask}
 						size={40}
 					/>
 					<p>{`${percentTask}%`}</p>
-				</div>
-				<div>
+				</div> */}
+				{/* <div>
 					<Button
 						modo={modo}
 						legend="Cambiar estatus"
@@ -100,7 +112,7 @@ const Content = ({
 						onCl={onCl_status}
 					/>
 					<IconMoreOptions options={options} />
-				</div>
+				</div> */}
 			</div>
 		</CardContainer>
 	);

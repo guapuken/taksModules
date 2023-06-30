@@ -20,7 +20,7 @@ withProperties.args = {
 	taskName: 'Dummies campaña 1526-UberEats-Sitios-Noviembre-Urbanos',
 	taskDescription: 'Realizar os dummies de la plaza de Ciudad de méxico y Aguascalientes Sun sun',
 	statusTask: 'outOfTime',
-	percentTask: 20,
+	percentTask: 75,
 	onCl_showDetails: () => alert('ver detalles'),
 	subtasks: 15,
 	modo: 'Light',
