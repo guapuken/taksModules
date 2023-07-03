@@ -3,7 +3,7 @@ import { LateIcon } from '../../utils/cardsUtils';
 import { Modo, onClickType, statusTask } from '../../types';
 // estilos
 import './progressBar.scss';
-import { SimpleContainer, Title } from '../Atoms';
+import { SimpleContainer, Title, ValidationComponent } from '../Atoms';
 
 //interface
 export interface ProgressBarProps {
@@ -32,8 +32,12 @@ const ProgressBar = ({
 				'theme-config': modo,
 			}}
 		>
-			<SimpleContainer className="progressBar__barra" style={{ width: 'calc(100% - 50px)' }}>
-				{status === 'outOfTime' || (status === 3 && <LateIcon />)}
+			<SimpleContainer
+				labels={{
+					className: 'progressBar__barra',
+					style: { width: 'calc(100% - 50px)' },
+				}}
+			>
 				<SimpleContainer
 					className="progressBar__barra-avance"
 					style={{ width: `${valor}%` }}

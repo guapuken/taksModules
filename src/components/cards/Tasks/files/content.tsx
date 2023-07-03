@@ -92,28 +92,6 @@ const Content = ({
 					</ValidationComponent>
 				</SimpleContainer>
 			</SimpleContainer>
-			{/* <Spans boldLegend={subtasks} legend="más" /> */}
-			<div className="ctnCircularProgressBar">
-				{/* <div>
-					<CircularProgressBar
-						percentTask={percentTask}
-						statusTask={statusTask}
-						size={40}
-					/>
-					<p>{`${percentTask}%`}</p>
-				</div> */}
-				{/* <div>
-					<Button
-						modo={modo}
-						legend="Cambiar estatus"
-						size="small"
-						style={{ height: '25px', padding: '2px 10px' }}
-						primary
-						onCl={onCl_status}
-					/>
-					<IconMoreOptions options={options} />
-				</div> */}
-			</div>
 		</CardContainer>
 	);
 };

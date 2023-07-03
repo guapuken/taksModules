@@ -11,7 +11,6 @@ import { aspectRatio } from '../../../utils/functions/functions';
 
 const CardTask = (props: cardTask) => {
 	const { percentTask = 0 } = props;
-	const scrSize = useWindowSize();
 
 	//Definición de los argumentos
 	const properties = {

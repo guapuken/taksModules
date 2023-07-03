@@ -157,21 +157,21 @@ body {
 }
 
 // Dark theme
-@media (prefers-color-scheme: dark) {
-	:root {
-		--bg: #{hsl($hue,10%,10%)};
-		--fg: #{hsl($hue,10%,90%)};
-	}
-	.rating {
-		margin: auto;
+// @media (prefers-color-scheme: dark) {
+// 	:root {
+// 		--bg: #{hsl($hue,10%,10%)};
+// 		--fg: #{hsl($hue,10%,90%)};
+// 	}
+// 	.rating {
+// 		margin: auto;
 
-		&__star {
-			&-stroke {
-				stroke: hsl($hue,10%,30%);
-			}
-		}
-	}
-}
+// 		&__star {
+// 			&-stroke {
+// 				stroke: hsl($hue,10%,30%);
+// 			}
+// 		}
+// 	}
+// }
 
 // Animations
 @keyframes starRing {

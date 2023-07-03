@@ -27,6 +27,7 @@ export const withProperties = Template.bind({});
 withProperties.args = {
 	rounded: true,
 	modo: 'Dark',
+	statusTask: 3,
 	Content: () => {
 		return (
 			<div

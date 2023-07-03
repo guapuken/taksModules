@@ -7,6 +7,7 @@
     position: relative;
     // contebnedor de la barra de progreso
     &__barra{
+        position: relative;
         height: 30px;
         min-height: 20px;
 		border-radius: 0 5px 5px 0;
@@ -20,18 +21,29 @@
             border-radius: 0 5px 5px 0;
         }
     }
-    // texto que muestra el porcentaje
-    // .txtPrcnt{
-	// 	font-size: 20px;
-	// 	color: #282828;
-	// 	font-weight: lighter; 
-	// 	justify-content: right;
-    // }
     &[stts-tsk='outOfTime'],&[stts-tsk='3']{
         .progressBar__barra{
-            // box-shadow: inset 0 0 0 3px #FC3D38;
-            &-avance{
-                // background: #FC3D38;
+            &:before{
+                content:'';
+                position: absolute;
+                z-index: 1;
+                border-left: 20px solid transparent;
+                border-right: 20px solid transparent;
+                border-bottom: 40px solid #FC3D38;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            &:after{
+                content: "!";
+                position: absolute;
+                top: 60%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+                font-size: 20px;
+                color: #fff;
+                font-weight: 700;
             }
         }
         .txtPrcnt{
@@ -46,8 +58,31 @@
             }
         }
     }
-    &[stts-tsk='delayed'],&[stts-tsk='2']{
+    &[stts-tsk='delayed'], &[stts-tsk='2']{
         .progressBar__barra{
+            &:before{
+                content:'';
+                position: absolute;
+                z-index: 1;
+                background:  #f8b03d;
+                width: 30px;
+                height: 30px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(45deg) ;
+                border-radius: 5px;
+            }
+            &:after{
+                content: "!" ;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+                font-size: 20px;
+                color: #fff;
+                font-weight: 700;
+            }
             // box-shadow: inset 0 0 0 3px #FCB24F;
             &-avance{
                 // background: #FCB24F;a
