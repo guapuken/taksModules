@@ -8,7 +8,7 @@ storiesOf('Cards/Campaigns/Examples/Uber eats', module).add('Uber eats', () => {
 		<SimpleContainer style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
 			<CardCampaign
 				nombreProyecto="2563-Uber_Eats-Noviembre"
-				porcentajeFijos={45}
+				porcentajeFijos={0}
 				statusFijos={'onTime'}
 				modo={'Light'}
 			/>

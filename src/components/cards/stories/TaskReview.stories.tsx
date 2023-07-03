@@ -1,28 +1,25 @@
 import React from 'react';
 // utilidades para el storybook
 import { Meta, Story } from '@storybook/react';
-import { functions, modo, statusTasks, text } from '../../storyUtils';
+import { functions, modo, statusTasks, text } from '../../../storyUtils';
 // componente principal
-import CardTaskReview from './cardTaskReview';
-import { cardTaskReview } from './types';
+import CardTaskReview from '../TaskReview/cardTaskReview';
+import { cardTaskReview } from '../TaskReview/types/types';
 
 const Template: Story<cardTaskReview> = (args) => <CardTaskReview {...args} />;
 
-//estado inicial del componente
-export const intialState = Template.bind({});
-intialState.args = {};
-
 //Ejemplo ya con Datos
-export const withProperties = Template.bind({});
-withProperties.args = {
+export const Dummies = Template.bind({});
+Dummies.args = {
 	taskName: 'Hace dummies de las principales plazas',
 	taskDescription: 'Realizar dummies de CDMX, Monterrey y Guadalajara',
-	statusTask: 'outOfTime',
+	statusTask: 3,
+	// statusTask: 2,
 	onCl_showDetails: () => alert('Click'),
 	// modo: 'Dark',
 };
 export default {
-	title: 'Cards/task review',
+	title: 'Cards/Task review/Ejemplos/Dummies',
 	component: CardTaskReview,
 	// definición de argumentos
 	argTypes: {

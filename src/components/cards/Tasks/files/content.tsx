@@ -9,6 +9,7 @@ import { aspectRatio, cardW } from '../../../../utils/functions/functions';
 import '../styles/cardTask.scss';
 import { IconMoreOptions } from '../../../task/files';
 import { SimpleContainer, TextButton, Texts, Title, ValidationComponent } from '../../../Atoms';
+import FooterCard from '../../UtilsCards/FooterCard';
 
 //componente principal
 const Content = ({
@@ -59,7 +60,7 @@ const Content = ({
 	return (
 		<CardContainer
 			labels={{
-				className: `cardTask ${className}`,
+				className: `cardTask ${className ?? ''}`,
 				'theme-config': modo,
 			}}
 		>
@@ -71,27 +72,16 @@ const Content = ({
 					{taskDescription}
 				</Texts>
 			</SimpleContainer>
-			<SimpleContainer className="cardTask__footer">
-				<ProgressBar
-					modo={modo}
-					status={statusTask}
-					valor={percentTask}
-					width={cardW(true)}
-					onClick={onCl_showDetails}
-					styleContent={{ cursor: 'pointer' }}
-				/>
-				<SimpleContainer style={{ display: 'flex', gap: '20px' }}>
-					<button
-						className="cardTask__footer-button"
-						onClick={aspectRatio().tablet ? onCl_showDetails : onCl_status}
-					>
-						{aspectRatio().tablet ? 'Cambiar estatus' : 'Ver más...'}
-					</button>
-					<ValidationComponent validate={aspectRatio().tablet}>
-						<IconMoreOptions options={options} />
-					</ValidationComponent>
-				</SimpleContainer>
-			</SimpleContainer>
+			<FooterCard
+				modo={modo}
+				progressBar
+				legendButton={aspectRatio().tablet ? 'Cambiar estatus' : 'Ver más...'}
+				percentTask={percentTask}
+				statusTask={statusTask}
+				onCl_showDetails={aspectRatio().tablet ? onCl_showDetails : onCl_status}
+				moreOptions
+				options={options}
+			/>
 		</CardContainer>
 	);
 };

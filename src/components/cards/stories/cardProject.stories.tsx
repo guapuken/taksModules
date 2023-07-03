@@ -1,28 +1,24 @@
 import React from 'react';
 // utilidades del storybook
 import { Meta, Story } from '@storybook/react';
-import { boolean, functions, modo, number, statusTasks, text } from '../../storyUtils';
+import { boolean, functions, modo, number, statusTasks, text } from '../../../storyUtils';
 // componente principal
-import CardProject from './cardProject';
-import { cardProject } from './types';
+import CardProject from '../Projects/cardProject';
+import { cardProject } from '../Projects/types';
 
 const Template: Story<cardProject> = (args) => <CardProject {...args} />;
 
-export const initialState = Template.bind({});
-initialState.args = {};
-
-export const withProperties = Template.bind({});
-withProperties.args = {
-	projectName: 'UBER EATS-1253-Sitios-Noviembre',
+export const UberEats = Template.bind({});
+UberEats.args = {
+	projectName: '2563-Uber_Eats-Noviembre',
 	ejecutivo: 'Juan C. Almada',
 	completedTask: 15,
 	incompletedTask: 10,
 	status: 'outOfTime',
-	// modo: 'Dark',
 };
 
 export default {
-	title: 'Cards/project',
+	title: 'Cards/Projects/Ejemplos/Uber Eats',
 	component: CardProject,
 	argTypes: {
 		statustask: statusTasks(),

@@ -11,29 +11,6 @@
             padding-left: 50px;
         }
     }
-    &__footer{
-        display: grid;
-        grid-template-columns: auto 140px;
-        gap: 15px;
-        align-items: center;
-        margin-bottom: 15px;
-        &-button{
-            box-shadow: inset 0 0 0 2px var(--detail);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 30px;
-            width: calc(100% - 15px);
-            text-align: center;
-            margin-block: 0 !important;
-            border-radius: 5px 10px 5px 10px;
-            font-size: clamp(10px, 1.2vw, 13px) !important;
-            color: var(--fc60);
-            &:hover{
-                background: var(--detail);
-            }
-        }
-    }
 }
 
 // ---------------------------------------------------------------------------------------------------------
@@ -47,7 +24,6 @@
             }
         }
         &__footer{
-            // grid-template-columns: auto 140px;
             padding-right: 10px;
         }
     }

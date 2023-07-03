@@ -3,6 +3,7 @@ import './circularProgressBar.scss';
 import { circularProgressBar } from './types';
 import { LateIcon } from '../../utils/cardsUtils';
 import * as Files from './files';
+import { SimpleContainer } from '../Atoms';
 
 const CircularProgressBar = ({
 	strokeColor,
@@ -25,8 +26,9 @@ const CircularProgressBar = ({
 	};
 
 	return (
-		<div className="ctn_CPB" style={{ width: size, height: size }}>
-			<div style={{ height: size, width: size }}>
+		// <SimpleContainer className="ctn_CPB" style={{ width: size, height: size }}>
+		<SimpleContainer className="circularProgressBar" style={{ width: size, height: size }}>
+			<SimpleContainer style={{ height: size, width: size }}>
 				<svg viewBox="0 0 38 38">
 					<circle
 						cx={circleConfig.x}
@@ -60,14 +62,14 @@ const CircularProgressBar = ({
 					/>
 				</svg>
 				{statusTask === 'outOfTime' || statusTask === 3 ? (
-					<div className="iconOtOfTm">
+					<SimpleContainer className="circularProgressBar__icon">
 						<LateIcon height={40} />
-					</div>
+					</SimpleContainer>
 				) : (
 					<></>
 				)}
-			</div>
-		</div>
+			</SimpleContainer>
+		</SimpleContainer>
 	);
 };
 

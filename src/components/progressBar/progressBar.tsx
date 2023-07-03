@@ -32,6 +32,13 @@ const ProgressBar = ({
 				'theme-config': modo,
 			}}
 		>
+			<ValidationComponent
+				validate={
+					status === 'delayed' || status === 2 || status === 'outOfTime' || status === 3
+				}
+			>
+				<SimpleContainer className="progressBar__icon" children={null} />
+			</ValidationComponent>
 			<SimpleContainer
 				labels={{
 					className: 'progressBar__barra',
@@ -44,7 +51,7 @@ const ProgressBar = ({
 					children={null}
 				/>
 			</SimpleContainer>
-			<Title modo={modo}>{`${valor}%`}</Title>
+			<Title modo={modo} className="progressBar__text">{`${valor}%`}</Title>
 		</SimpleContainer>
 	);
 };

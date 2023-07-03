@@ -45,9 +45,9 @@ export {default as Cards} from './cards'; // genérica
 export {default as CardTask} from '../components/cards/Tasks/cardTask';
 export {default as CardCampaign} from './cards/Campaigns/CardCampaign';
 export {default as CardTeam} from  './cards/teams';
-export {default as CardProject} from './cardProject';
-export {default as CardMembersTeam} from './cardMembersTeam';
-export {default as CardTaskReview} from './cardTaskReview';
+export {default as CardProject} from './cards/Projects/cardProject';
+export {default as CardMembersTeam} from './cards/MemberTeam/cardMembersTeam';
+export {default as CardTaskReview} from './cards/TaskReview/cardTaskReview';
 
 // ---------------------------------------------------------------------------------------------------------
 //      Cards de gestión

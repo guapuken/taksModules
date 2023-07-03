@@ -8,18 +8,13 @@ import { SimpleContainer } from '../../Atoms';
 const Template: Story<cardTask> = (args) => {
 	return (
 		<SimpleContainer style={{ display: 'flex', gap: '50px', flexWrap: 'wrap' }}>
-			<CardTask statusTask={1} percentTask={10} />
 			<CardTask {...args} />
-			<CardTask statusTask={3} percentTask={85} />
 		</SimpleContainer>
 	);
 };
 
-export const initialState = Template.bind({});
-initialState.args = {};
-
-export const withProperties = Template.bind({});
-withProperties.args = {
+export const Dummies = Template.bind({});
+Dummies.args = {
 	onCl_edit: () => alert('Editar'),
 	onCl_reminder: () => alert('Recordatorio'),
 	onCl_follow: () => alert('seguir'),
@@ -28,7 +23,7 @@ withProperties.args = {
 	follow: true,
 	taskName: 'Dummies campaña 1526-UberEats-Sitios-Noviembre-Urbanos',
 	taskDescription: 'Realizar os dummies de la plaza de Ciudad de méxico y Aguascalientes Sun sun',
-	statusTask: 2,
+	statusTask: 3,
 	percentTask: 75,
 	onCl_showDetails: () => alert('ver detalles'),
 	subtasks: 15,
@@ -36,7 +31,7 @@ withProperties.args = {
 	idTask: '1',
 };
 export default {
-	title: 'Cards/task',
+	title: 'Cards/Task/Ejemplos/Dummies',
 	component: CardTask,
 	// definición de argumentos
 	argTypes: {

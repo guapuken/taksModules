@@ -18,7 +18,7 @@ export const AsideContainer = ({ children }: any) => {
 	return (
 		<div
 			className="ContainerAsideCardTeamComponent"
-			style={{ justifyContent: 'center', alignItems: 'center' }}
+			style={{ justifyContent: 'center', alignItems: 'center', height: '100%' }}
 		>
 			{children}
 		</div>
@@ -175,9 +175,11 @@ export const ButtonsArray = ({
 			className={`buttonsArray`}
 			style={{
 				flexDirection: vertical ? 'column' : 'row',
-				alignItems: vertical ? '' : 'center',
+				// alignItems: vertical ? '' : 'center',
+				alignItems: 'center',
 				justifyContent: vertical ? 'center' : '',
-				height: size ? `${size + 10}px` : `${cardH() * 10 - 20}px`,
+				// height: size ? `${size + 10}px` : `${cardH() * 10 - 20}px`,
+				height: `100%`,
 				...style,
 			}}
 		>
