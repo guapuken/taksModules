@@ -9,7 +9,7 @@ import { cardMembersTeam } from '../MemberTeam/types/types';
 import { SimpleContainer } from '../../Atoms';
 
 const Template: Story<cardMembersTeam> = (args) => (
-	<SimpleContainer style={{ display: 'flex', gap: '20px' }}>
+	<SimpleContainer style={{ display: 'flex', gap: '20px', overflowX: 'auto' }}>
 		<CardMembersTeam
 			{...args}
 			name={'René Carrillo'}

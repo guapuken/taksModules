@@ -5,10 +5,13 @@ import { CardContainer } from '../../../../utils/cardsUtils';
 // funciones
 import { Hover } from '../../../../utils/hover';
 import { SimpleContainer, Texts, Title, ValidationComponent } from '../../../Atoms';
+import { initialLetters } from '../../../../utils/functions/functions';
 
 //Componente que regresa el contenido de la card
 const Content = ({ modo, teamName = 'Equipo', onCl_preview, members, teamColor }: any) => {
 	const [mouseEnter, setMouseEnter] = useState(false);
+
+	const iniciales = initialLetters(teamName);
 	return (
 		<CardContainer
 			labels={{
@@ -31,6 +34,7 @@ const Content = ({ modo, teamName = 'Equipo', onCl_preview, members, teamColor }
 							setMouseEnter(!mouseEnter);
 							onCl_preview;
 						}}
+						className="cardTeams__contenedor-title-integrantes"
 					>{`${members?.length ?? 0} Integrantes...`}</Texts>
 					<ValidationComponent validate={members && members.length > 0 && mouseEnter}>
 						<span className={'cardTeams__contenedor-title-members'}>
@@ -53,6 +57,7 @@ const Content = ({ modo, teamName = 'Equipo', onCl_preview, members, teamColor }
 				labels={{
 					className: 'cardTeams__colorTeam',
 					style: { background: teamColor },
+					'initial-letters': iniciales.length > 1 ? iniciales.join('') : iniciales,
 				}}
 				children={null}
 			/>

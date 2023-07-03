@@ -22,8 +22,13 @@ export function cardH() {
  * @returns las letras iniciales de la cadena de texto
  * @example - initialLetters("Juan Calos Almada") → return → "JCA"
  */
-export function initialLetters(text: string) {
-	return text ? text.split(' ').map((word) => word.charAt(0)) : '';
+export function initialLetters(text: any) {
+	return text
+		? text
+				.toString()
+				.split(' ')
+				.map((word: string) => word.charAt(0))
+		: '';
 }
 
 let id = 0;

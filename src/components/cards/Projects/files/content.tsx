@@ -3,7 +3,7 @@ import React from 'react';
 import { CardContainer } from '../../../../utils/cardsUtils';
 import { SimpleContainer, TextBoldLight, Title } from '../../../Atoms';
 // types
-import { cardProject } from '../types';
+import { cardProject } from '../types/types';
 import FooterCard from '../../UtilsCards/FooterCard';
 import { percent } from '../../../../utils/percent';
 // funciones

@@ -1,6 +1,6 @@
 import React from 'react';
 // types
-import { cardProject } from './types';
+import { cardProject } from './types/types';
 // componentes auxiliares
 import { Cards } from '../../../components';
 // componentes principales

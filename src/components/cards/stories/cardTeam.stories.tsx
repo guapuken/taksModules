@@ -22,12 +22,12 @@ withProperties.args = {
 		{ id: 6, name: 'Rene Carrillo' },
 		{ id: 7, name: 'Victor Galván' },
 	],
-	teamName: 'Sistemas TI',
+	teamName: 'Sistemas Chingones',
+	idTeam: 'TI526',
 	teamColor: '#126EFA',
 	onCl_preview: () => alert('ver'),
 	onCl_edit: () => alert('editar'),
 	onCl_delete: () => alert('eliminar'),
-	// modo: 'Dark',
 };
 
 export default {
