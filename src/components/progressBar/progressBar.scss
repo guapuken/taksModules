@@ -26,7 +26,7 @@
                 z-index: 1;
                 border-left: 20px solid transparent;
                 border-right: 20px solid transparent;
-                border-bottom: 40px solid #FC3D38;
+                border-bottom: 40px solid var(--errorColor);
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
@@ -44,7 +44,7 @@
             }
         }
         .progressBar__text{
-            color: #FC3D38 !important;
+            color: var(--errorColor) !important;
         }
         .progressBar__icon{
             width: calc(100% - 50px);
@@ -73,7 +73,7 @@
                 content:'';
                 position: absolute;
                 z-index: 1;
-                background:  var(--detail);
+                background:  var(--warningColor);
                 width: 30px;
                 height: 30px;
                 top: 50%;
@@ -110,7 +110,7 @@
             } 
         }
         .progressBar__text{
-            color: var(--detail) !important;
+            color: var(--warningColor) !important;
         }
     }
 }

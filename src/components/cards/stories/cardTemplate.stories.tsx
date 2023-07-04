@@ -2,10 +2,10 @@ import React from 'react';
 //importación de elementos del storybook que se utilizarán para definir las historias
 import { Meta, Story } from '@storybook/react';
 //importación del componente y su interfaz que utilizará para definir sus propiedades
-import CardMannageTemplates from './cardMannageTemplate';
-import { cardTemplate } from './types';
+import CardMannageTemplates from '../MannageTemplates/cardMannageTemplate';
+import { cardTemplate } from '../MannageTemplates/types/types';
 // utilidades para el storybook
-import { functions, modo, number, statusTasks, text } from '../../storyUtils';
+import { functions, modo, number, statusTasks, text } from '../../../storyUtils';
 
 //creación de plantilla en la que se colocarán los elementos
 const Template: Story<cardTemplate> = (args) => <CardMannageTemplates {...args} />;

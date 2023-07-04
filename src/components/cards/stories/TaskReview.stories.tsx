@@ -13,8 +13,8 @@ export const Dummies = Template.bind({});
 Dummies.args = {
 	taskName: 'Hace dummies de las principales plazas',
 	taskDescription: 'Realizar dummies de CDMX, Monterrey y Guadalajara',
-	statusTask: 3,
-	// statusTask: 2,
+	// statusTask: 3,
+	statusTask: 2,
 	onCl_showDetails: () => alert('Click'),
 	// modo: 'Dark',
 };

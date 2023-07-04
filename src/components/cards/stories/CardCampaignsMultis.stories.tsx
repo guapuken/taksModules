@@ -11,6 +11,7 @@ storiesOf('Cards/Campaigns/Examples/Uber eats', module).add('Uber eats', () => {
 				porcentajeFijos={0}
 				statusFijos={'onTime'}
 				modo={'Light'}
+				campaignColor="#f1f498"
 			/>
 			<CardCampaign
 				nombreProyecto="4856-Mc_Donalds-Enero"
@@ -19,12 +20,14 @@ storiesOf('Cards/Campaigns/Examples/Uber eats', module).add('Uber eats', () => {
 				statusUrbanos={'onTime'}
 				statusFijos={'onTime'}
 				modo={'Light'}
+				campaignColor="#525252"
 			/>
 			<CardCampaign
 				nombreProyecto="9568-Electrolit-Julio"
 				porcentajeFijos={45}
 				statusFijos={'delayed'}
 				modo={'Light'}
+				campaignColor="#3EDE46"
 			/>
 			<CardCampaign
 				nombreProyecto="9625-Rappy-Agosto"

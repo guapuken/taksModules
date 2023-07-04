@@ -8,22 +8,7 @@ function DemoComponent() {
 	const [projectName, setProjectName] = React.useState(
 		'Dummies - Uber Eats-2536-Espectaculares-Noviembre'
 	);
-	const [idProject, setIdProject] = React.useState('15');
-	const [idTask, setIdTask] = React.useState('18');
-	const [nameTask, setNameTask] = React.useState('Dummies');
-	const [descriptionTask, setDescriptionTask] = React.useState(
-		'Dummies Uber Eats-2536-Espectaculares-Noviembre'
-	);
-	const [priority, setPriority] = React.useState('none');
-	const [checked, setChecked] = React.useState(false);
-	const [startDate, setStartDate] = React.useState('');
-	const [endDate, setEndDate] = React.useState('');
-	const [responsable, setResponsable] = React.useState({});
-	const [revision, setRevision] = React.useState({ id: undefined, name: undefined });
 
-	console.log({
-		checked: checked,
-	});
 	return (
 		<ModalProjects
 			onCh_asignTeam={(e) => console.log(e)}
@@ -46,12 +31,11 @@ function DemoComponent() {
 			]}
 			teamOptions={equipos}
 			projectNameValue={projectName}
-			// button clicks
 			onCl_addTask={() => alert('Tarea nueva')}
 			onCl_newTemplate={() => alert('Crear plantilla')}
-			onCl_confirm={() => setNameTask('hola')}
+			onCl_confirm={() => {}}
 			onCl_abort={() => alert('Adios')}
-			idProject={idProject}
+			idProject={'1'}
 			subtasks={[
 				{
 					check: false,

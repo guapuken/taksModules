@@ -12,4 +12,5 @@ export interface cardCampaignProps {
 	statusVallas?: statusTask;
 	onCl_mostrarDetalles?: onClickType;
 	nombreProyecto: string;
+	campaignColor?: string;
 }

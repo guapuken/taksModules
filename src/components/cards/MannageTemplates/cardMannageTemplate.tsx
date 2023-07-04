@@ -1,7 +1,7 @@
 import React from 'react';
 
 // types
-import { cardTemplate } from './types';
+import { cardTemplate } from './types/types';
 // componentes principales
 import { Aside, Content } from './files';
 // componente contenedor

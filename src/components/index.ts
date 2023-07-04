@@ -52,9 +52,9 @@ export {default as CardTaskReview} from './cards/TaskReview/cardTaskReview';
 // ---------------------------------------------------------------------------------------------------------
 //      Cards de gestión
 // ---------------------------------------------------------------------------------------------------------
-export {default as CardMannageTemplates} from './cardMannageTemplates';
-export {default as CardMannageProjects} from './cardMannageProjects';
-export {default as CardMannageTasks} from './cardMannageTasks';
+export {default as CardMannageTemplates} from './cards/MannageTemplates/cardMannageTemplate';
+export {default as CardMannageProjects} from './cards/MannageProjects/cardMannageProjects';
+export {default as CardMannageTasks} from './cards/MannageTasks/cardMannageTasks';
 
 // ---------------------------------------------------------------------------------------------------------
 //      Modales preestablecidos

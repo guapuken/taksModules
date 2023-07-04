@@ -17,6 +17,7 @@ const CardCampaign = ({
 	statusIndoors,
 	statusVallas,
 	nombreProyecto = 'ProjectName',
+	campaignColor,
 	onCl_mostrarDetalles,
 }: cardCampaignProps) => {
 	function percentCampaign() {
@@ -72,6 +73,15 @@ const CardCampaign = ({
 					</Texts>
 				</SimpleContainer>
 			</SimpleContainer>
+			<ValidationComponent validate={campaignColor}>
+				<SimpleContainer
+					style={{
+						borderBottom: campaignColor ? `4px solid ${campaignColor}` : '',
+						maxWidth: '40%',
+					}}
+					children={null}
+				/>
+			</ValidationComponent>
 			<SimpleContainer className="cardCampaign__contenido">
 				<ValidationComponent validate={porcentajeFijos !== null}>
 					<SimpleContainer className="cardCampaign__contenido-medios">

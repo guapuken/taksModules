@@ -47,7 +47,7 @@ const Content = ({
 					<Spans
 						legend={asignColor}
 						boldLegend={
-							teamColor === undefined ? 'Color de equipo' : 'Color de quipo: '
+							teamColor === undefined ? 'Color de equipo' : 'Color de equipo: '
 						}
 						style={{ color: obtenerColorLetra(asignColor) }}
 					/>

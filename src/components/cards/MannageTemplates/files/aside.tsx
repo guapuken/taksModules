@@ -1,13 +1,13 @@
 import React from 'react';
 
 // types
-import { aside } from '../types';
+import { aside } from '../types/types';
 // componentes auxiliares
-import { AsideContainer, ButtonsArray } from '../../../utils/asideUtils';
+import { AsideContainer, ButtonsArray } from '../../../../utils/asideUtils';
 // archivos multimedia
-import del from '../../../img/vaciar.svg';
+import del from '../../../../img/vaciar.svg';
 // import prev from '../../../img/previsualizar.svg';
-import edit from '../../../img/editar.svg';
+import edit from '../../../../img/editar.svg';
 
 const Aside = ({ onCl_delete, /* onCl_preview, */ onCl_edit, modo = 'Light' }: aside) => (
 	<AsideContainer>

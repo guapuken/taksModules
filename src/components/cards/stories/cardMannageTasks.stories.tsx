@@ -1,19 +1,15 @@
 import React from 'react';
 
 import { Meta, Story } from '@storybook/react';
-import CardMannageTask from './cardMannageTasks';
-import { cardMannageTasks } from './types';
-import { functions, modo, number, statusTasks, text } from '../../storyUtils';
+import CardMannageTask from '../MannageTasks/cardMannageTasks';
+import { cardMannageTasks } from '../MannageTasks/types';
+import { functions, modo, number, statusTasks, text } from '../../../storyUtils';
 
 const Template: Story<cardMannageTasks> = (args) => <CardMannageTask {...args} />;
 
-//estado inicial del componente
-export const initialState = Template.bind({});
-initialState.args = {};
-
 // estado del componente con propiedades
-export const withProperties = Template.bind({});
-withProperties.args = {
+export const Dummies = Template.bind({});
+Dummies.args = {
 	title: 'Dummies MTY',
 	tasks: 25,
 	modo: 'Dark',
@@ -27,7 +23,7 @@ withProperties.args = {
 };
 
 export default {
-	title: 'Cards de gestión/tasks',
+	title: 'Cards/MannageTasks/Ejemplos/Dummies',
 	component: CardMannageTask,
 	// definición de argumentos
 	argTypes: {

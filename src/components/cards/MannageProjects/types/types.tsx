@@ -1,4 +1,4 @@
-import { Modo, onClickType, statusTask } from '../../types';
+import { Modo, onClickType, statusTask } from '../../../../types';
 
 export interface cardMannageProjects {
 	onCl_delete: onClickType;
