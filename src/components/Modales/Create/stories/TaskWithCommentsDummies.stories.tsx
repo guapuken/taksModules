@@ -9,8 +9,9 @@ function DemoComponent(props: any) {
 		<ModalTaskWithComments
 			onCl_close={() => alert('Cerrar')}
 			onCl_reWork={() => {}}
+			// isReviewer
 			reasonToRework={{ id: '1', title: 'No hay material' }}
-			onCh_comment={(e) => console.log('comments: ', e.target.value)}
+			onCh_comment={(e) => console.log('comments: ', e.target)}
 			onCl_addComment={(e) => alert('addComment: ')}
 			onCl_approve={(e) => alert('aprobar: ')}
 			taskName="Dummies plazas principales Name"
@@ -19,6 +20,7 @@ function DemoComponent(props: any) {
 			onCl_abort={() => alert('cancelar')}
 			onCl_edit={() => alert('editar')}
 			isReviewer
+			isCampaignTask
 			reasonsToWorkAgain={[]}
 			valueComment={''}
 			messages={[

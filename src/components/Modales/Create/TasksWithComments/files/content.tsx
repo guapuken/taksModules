@@ -4,6 +4,55 @@ import '../styles/modalTaskWithComents.scss';
 import { contentProps, subtasksComponent } from '../types/types';
 import { Comentarios } from './index';
 
+const Subtasks = ({
+	taskName,
+	taskDescription,
+	subtasks,
+	completed,
+	modo,
+	themeStyle,
+}: subtasksComponent) => {
+	return (
+		<div className="modalTask" theme-config={modo} theme-style={themeStyle}>
+			<p
+				style={{
+					textDecoration: completed ? 'line-through' : 'none',
+					textDecorationColor: 'red',
+					fontWeight: 'bold',
+				}}
+			>
+				{taskName}
+			</p>
+			<p
+				style={{
+					opacity: '.5',
+					textDecoration: completed ? 'line-through' : 'none',
+					textDecorationColor: 'red',
+				}}
+			>
+				{taskDescription}
+			</p>
+			{subtasks && (
+				<div
+					style={{
+						borderLeft: '2px solid #dedede',
+						marginLeft: '10px',
+						paddingLeft: '5px',
+					}}
+				>
+					{subtasks.map((indSubTask) => (
+						<Subtasks
+							taskName={indSubTask.taskName}
+							subtasks={indSubTask.subtasks}
+							taskDescription={indSubTask.taskDescription}
+							completed={indSubTask.completed}
+						/>
+					))}
+				</div>
+			)}
+		</div>
+	);
+};
 const Content = ({
 	modo = 'Light',
 	messages,
@@ -26,56 +75,7 @@ const Content = ({
 	themeStyle,
 }: contentProps) => {
 	const [showTasks, setShowTasks] = useState(false);
-	const Subtasks = ({ taskName, taskDescription, subtasks, completed }: subtasksComponent) => {
-		return (
-			<div
-				className="modalTask"
-				theme-config={modo}
-				theme-style={themeStyle}
-				// style={{
-				// 	marginLeft: '15px',
-				// 	marginTop: '15px',
-				// }}
-			>
-				<p
-					style={{
-						textDecoration: completed ? 'line-through' : 'none',
-						textDecorationColor: 'red',
-						fontWeight: 'bold',
-					}}
-				>
-					{taskName}
-				</p>
-				<p
-					style={{
-						opacity: '.5',
-						textDecoration: completed ? 'line-through' : 'none',
-						textDecorationColor: 'red',
-					}}
-				>
-					{taskDescription}
-				</p>
-				{subtasks && (
-					<div
-						style={{
-							borderLeft: '2px solid #dedede',
-							marginLeft: '10px',
-							paddingLeft: '5px',
-						}}
-					>
-						{subtasks.map((indSubTask) => (
-							<Subtasks
-								taskName={indSubTask.taskName}
-								subtasks={indSubTask.subtasks}
-								taskDescription={indSubTask.taskDescription}
-								completed={indSubTask.completed}
-							/>
-						))}
-					</div>
-				)}
-			</div>
-		);
-	};
+
 	return (
 		<div className={`ctn${modo}${messages ? 'Cmts' : 'noCmts'}_TWCC`}>
 			<div className="ctnTaskDtls" /* style={{ overflow: 'hidden', height: '100%' }} */>

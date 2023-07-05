@@ -19,8 +19,9 @@ export interface cardTask {
 	// generales
 	modo: Modo;
 	idTask: string;
-	isPM?: boolean;
-	haveSubPersonal?: boolean;
+	// isPM?: boolean;
+	// haveSubPersonal?: boolean;
+	isCampaignTask?: boolean;
 }
 
 export type aside = {
@@ -32,8 +33,7 @@ export type aside = {
 	onCl_reasignDate: onClickType;
 	follow: boolean;
 	modo: Modo;
-	isPM?: boolean;
-	haveSubPersonal?: boolean;
+	isCampaignTask?: boolean;
 };
 
 export type content = {

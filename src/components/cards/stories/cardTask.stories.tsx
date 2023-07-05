@@ -27,7 +27,7 @@ Dummies.args = {
 	percentTask: 75,
 	onCl_showDetails: () => alert('ver detalles'),
 	subtasks: 15,
-	modo: 'Light',
+	modo: 'Dark',
 	idTask: '1',
 };
 export default {

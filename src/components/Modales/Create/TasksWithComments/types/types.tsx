@@ -41,6 +41,7 @@ export interface contentProps {
 	isReviewer?: boolean;
 	onCl_edit: onClickType;
 	onCl_abort: onClickType;
+	isCampaignTask?: boolean;
 }
 // botones que se utilizan
 export type functions = {
@@ -59,6 +60,7 @@ export type functions = {
 	reasonsToWorkAgain: optionsDropdown[];
 	onCl_edit: onClickType;
 	onCl_abort: onClickType;
+	isCampaignTask?: boolean;
 };
 // types del componente complemenetario Item Comments
 export type itemComments = {
@@ -94,4 +96,6 @@ export type subtasksComponent = {
 	taskDescription?: string;
 	subtasks?: subtasksComponent[];
 	completed?: boolean;
+	modo?: Modo;
+	themeStyle?: string;
 };
