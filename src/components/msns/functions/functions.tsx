@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { msnsChats } from '../../../types';
 
 /** EXPLICACIÓN DE LA FUNCIÓN
@@ -15,22 +16,37 @@ export function getTimeElapsed(timeStamp: any) {
 	const minutes = Math.floor(seconds / 60);
 	const hours = Math.floor(minutes / 60);
 	const days = Math.floor(hours / 24);
-	const months = Math.floor(days / 30);
-	const years = Math.floor(months / 12);
 
-	if (years > 0) {
-		return `Hace ${years} año${years > 1 ? 's' : ''}`;
-	} else if (months > 0) {
-		return `Hace ${months} mes${months > 1 ? 'es' : ''}`;
-	} else if (days > 0) {
-		return `Hace ${days} día${days > 1 ? 's' : ''}`;
-	} else if (hours > 0) {
-		return `Hace ${hours} hora${hours > 1 ? 's' : ''}`;
-	} else if (minutes > 0) {
-		return `Hace ${minutes} minuto${minutes > 1 ? 's' : ''}`;
-	} else {
-		return `Hace ${seconds} segundo${seconds > 1 ? 's' : ''}`;
-	}
+	const dia =
+		date.getDay() === 0
+			? 'Domingo'
+			: date.getDay() === 1
+			? 'Lunes'
+			: date.getDay() === 2
+			? 'Martes'
+			: date.getDay() === 3
+			? 'Miércoles'
+			: date.getDay() === 4
+			? 'Jueves'
+			: date.getDay() === 5
+			? 'Viernes'
+			: 'Sábado';
+
+	const hora = `${date.getHours()}:${
+		date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()
+	}`;
+	const textToShow =
+		days > 7
+			? `El ${date.getDate()}/${date.getMonth() + 1}/${date
+					.getFullYear()
+					.toString()
+					.slice(-2)} a las ${hora}`
+			: date.getDay() === (now.getDay() === 0 ? 6 : now.getDay()) - 1
+			? `Ayer a las ${hora}`
+			: days > 1 && days <= 7
+			? `El ${dia} a las ${hora}`
+			: hora;
+	return textToShow;
 }
 
 /**  EXPLICACIÓN DE LA FUNCIÓN

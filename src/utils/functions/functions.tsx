@@ -42,7 +42,6 @@ export function aspectRatio() {
 	const scrnH = useWindowSize().height;
 	const tablet = scrnH / 3 > scrnW / 4 ? true : false;
 	const mobile = scrnH / 10 > scrnW / 7 ? true : false;
-	console.log('mobile', mobile, 'tablet:', tablet);
 	return { mobile, tablet };
 }
 

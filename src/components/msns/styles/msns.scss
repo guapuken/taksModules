@@ -61,8 +61,9 @@
             }
             .date{
                 margin: 5px 0;
-                font-size: clamp(10px, 1.2vw, 30px);
-                opacity: .3;
+                font-size: clamp(10px, 1.2vw, 13px) !important;
+                // opacity: .3;
+                // color: var(--fc90) !important;
             }
         }
     }
@@ -122,9 +123,6 @@
             .msn_text{
                 .contenidoMsn,.date{
                     text-align: right;
-                }
-                .date{
-                    opacity: .6;
                 }
                 padding-right: 50px;
             }

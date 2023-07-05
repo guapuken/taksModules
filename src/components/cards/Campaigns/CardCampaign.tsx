@@ -42,7 +42,6 @@ const CardCampaign = ({
 		return dividendo === 0 || total === 0 ? 0 : total / dividendo;
 	}
 
-	console.log(percentCampaign());
 	return (
 		<SimpleContainer
 			labels={{

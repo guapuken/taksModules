@@ -56,7 +56,6 @@ const Content = ({
 			onClick: onCl_reminder,
 		},
 	];
-	console.log('aspectRatio: ', aspectRatio().tablet);
 	return (
 		<CardContainer
 			labels={{
