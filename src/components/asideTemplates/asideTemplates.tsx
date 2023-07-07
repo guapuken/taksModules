@@ -135,6 +135,7 @@ const AsideTemplates = ({
 						<ValidationComponent validate={aspectRatio().mobile && tasks.length > 0}>
 							<Carousel
 								data={tasks}
+								modo={modo}
 								Card={(e: any) => (
 									<Card modo={visible ? 'Dark' : modo} {...e.property} />
 								)}

@@ -59,7 +59,7 @@ const Container = ({
 				<SimpleContainer className="contenedorLayout__children-contenido">
 					{children}
 				</SimpleContainer>
-				<ValidationComponent validate={FooterContent && !aspectRatio().mobile}>
+				<ValidationComponent validate={FooterContent}>
 					<SimpleContainer className="container__children-footer">
 						{FooterContent}
 					</SimpleContainer>
