@@ -18,7 +18,7 @@ const Content = ({
 	statusTask,
 	percentTask,
 	onCl_showDetails,
-	subtasks = 0,
+	// subtasks = 0,
 	modo = 'Light',
 	className,
 	onCl_edit,
@@ -26,8 +26,8 @@ const Content = ({
 	onCl_asignTask,
 	onCl_follow,
 	onCl_reminder,
+	// dndCard,
 	onCl_status,
-	dndCard,
 }: any) => {
 	const options = [
 		{
@@ -77,7 +77,7 @@ const Content = ({
 				legendButton={aspectRatio().tablet ? 'Cambiar estatus' : 'Ver más...'}
 				percentTask={percentTask}
 				statusTask={statusTask}
-				onCl_showDetails={aspectRatio().tablet ? onCl_showDetails : onCl_status}
+				onCl_showDetails={aspectRatio().tablet ? onCl_status : onCl_showDetails}
 				moreOptions
 				options={options}
 			/>

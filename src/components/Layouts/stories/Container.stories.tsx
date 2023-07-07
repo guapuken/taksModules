@@ -7,6 +7,7 @@ import {
 	CardMannageProjects,
 	CardMembersTeam,
 	CardTask,
+	CardTaskReview,
 	DragAndDrop,
 	Dropdown,
 } from '../../../components';
@@ -65,28 +66,30 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 		<Container
 			onCh_commentChat={() => {}}
 			onCl_addCommentChat={() => {}}
-			modo={'Dark'}
+			modo="Dark"
+			//
 			// chat
 			// chatValue={chat}
 			// projectName="1526-Uber_Eats-Noviembre"
 			// multiplesChats
 			// chats={[
-			// {
-			// id: '1',
-			// title: 'Chat con comercial',
-			// },
-			// {
-			// id: '2',
-			// title: 'Chat con operaciones',
-			// },
+			// 	{
+			// 		id: '1',
+			// 		title: 'Chat con comercial',
+			// 	},
+			// 	{
+			// 		id: '2',
+			// 		title: 'Chat con operaciones',
+			// 	},
 			// ]}
 			// onCh_dropdownChat={(e) => setChat(e)}
 			// messages={
 			// 	chat?.id === '1' ? messages.comercial : chat?.id === '2' ? messages.operativo : null
 			// }
+			//
 			AsideContent={
 				<AsideTemplates
-					Card={CardMannageProjects}
+					Card={CardTaskReview}
 					modo="Dark"
 					onCl_reorder={() => {}}
 					visible
@@ -98,7 +101,30 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 					tasks={[
 						{
 							id: '1',
-							projectName: 'Dummies',
+							taskName: 'Dummies - 2563-Uber_Eats-Noviembre',
+							taskDescription: 'Dummies de las plazas principales',
+							percentTask: 25,
+						},
+						{
+							id: '2',
+							taskName: 'Dummies - 2563-Electrolit-Enero',
+							taskDescription: 'Realizar dummies de todas las plazas',
+							percentTask: 75,
+							statusTask: 3,
+						},
+						{
+							id: '2',
+							taskName: 'Dummies - 2563-Electrolit-Enero',
+							taskDescription: 'Realizar dummies de todas las plazas',
+							percentTask: 75,
+							statusTask: 3,
+						},
+						{
+							id: '2',
+							taskName: 'Dummies - 2563-Electrolit-Enero',
+							taskDescription: 'Realizar dummies de todas las plazas',
+							percentTask: 75,
+							statusTask: 3,
 						},
 					]}
 				/>
@@ -108,16 +134,17 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 				legendBtn: 'Nuevo tarea',
 			}}
 			FooterContent={
-				<SimpleContainer>
+				<SimpleContainer style={{ display: 'flex', gap: ' 20px', flexDirection: 'column' }}>
 					<SimpleContainer style={{ display: 'flex', gap: ' 20px' }}>
 						<Dropdown
 							modo="Dark"
 							onCh={() => {}}
+							values={{ id: '1', title: 'TI' }}
 							options={[
 								{ id: '1', title: 'TI' },
 								{ id: '2', title: 'UX / UI' },
 							]}
-							placeHolder="Selecciona tus equipos disponible"
+							placeHolder="Selecciona tus equipos"
 							style={{ width: '30vw' }}
 						/>
 						<Button
@@ -128,7 +155,26 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 							size="small"
 						/>
 					</SimpleContainer>
-					<CardMembersTeam modo="Dark" name="Adán Moreno" role="Desarrollador" />
+					<SimpleContainer style={{ display: 'flex', gap: ' 20px' }}>
+						<CardMembersTeam
+							modo="Dark"
+							colorTeam="red"
+							name="Olaf Ruvalcaba"
+							role="Fullstack"
+						/>
+						<CardMembersTeam
+							modo="Dark"
+							colorTeam="red"
+							name="Adán Moreno"
+							role="Fullstack"
+						/>
+						<CardMembersTeam
+							modo="Dark"
+							colorTeam="red"
+							name="Rene Darío"
+							role="Desarrollador"
+						/>
+					</SimpleContainer>
 				</SimpleContainer>
 			}
 		>
@@ -136,8 +182,8 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 				modo="Dark"
 				tasks={[
 					{
-						followNotificationsValue: null,
 						id: '1',
+						followNotificationsValue: false,
 						idNotification: '1',
 						modo: 'Dark',
 						onCh_follow: () => {},
@@ -149,7 +195,227 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 						onCl_showDetails: () => {},
 						onCl_status: () => {},
 						percentTask: 10,
-						status: 'In Progress:',
+						status: 'to_do',
+						statusTask: 'onTime',
+						taskDescription: '',
+						taskName: 'Dummies',
+						valueResponsable: 'Adan',
+					},
+					{
+						id: '2',
+						followNotificationsValue: false,
+						idNotification: '2',
+						modo: 'Dark',
+						onCh_follow: () => {},
+						onCl_asignTask: () => {},
+						onCl_edit: () => {},
+						onCl_follow: () => {},
+						onCl_reasignDate: () => {},
+						onCl_remimder: () => {},
+						onCl_showDetails: () => {},
+						onCl_status: () => {},
+						percentTask: 10,
+						status: 'in_progress',
+						statusTask: 'onTime',
+						taskDescription: '',
+						taskName: 'Dummies',
+						valueResponsable: 'Adan',
+					},
+					{
+						id: '3',
+						followNotificationsValue: false,
+						idNotification: '3',
+						modo: 'Dark',
+						onCh_follow: () => {},
+						onCl_asignTask: () => {},
+						onCl_edit: () => {},
+						onCl_follow: () => {},
+						onCl_reasignDate: () => {},
+						onCl_remimder: () => {},
+						onCl_showDetails: () => {},
+						onCl_status: () => {},
+						percentTask: 10,
+						status: 'in_progress',
+						statusTask: 'onTime',
+						taskDescription: '',
+						taskName: 'Dummies',
+						valueResponsable: 'Adan',
+					},
+					{
+						id: '4',
+						followNotificationsValue: false,
+						idNotification: '4',
+						modo: 'Dark',
+						onCh_follow: () => {},
+						onCl_asignTask: () => {},
+						onCl_edit: () => {},
+						onCl_follow: () => {},
+						onCl_reasignDate: () => {},
+						onCl_remimder: () => {},
+						onCl_showDetails: () => {},
+						onCl_status: () => {},
+						percentTask: 10,
+						status: 'to_do',
+						statusTask: 'onTime',
+						taskDescription: '',
+						taskName: 'Dummies',
+						valueResponsable: 'Adan',
+					},
+					{
+						id: '5',
+						followNotificationsValue: false,
+						idNotification: '4',
+						modo: 'Dark',
+						onCh_follow: () => {},
+						onCl_asignTask: () => {},
+						onCl_edit: () => {},
+						onCl_follow: () => {},
+						onCl_reasignDate: () => {},
+						onCl_remimder: () => {},
+						onCl_showDetails: () => {},
+						onCl_status: () => {},
+						percentTask: 10,
+						status: 'to_do',
+						statusTask: 'onTime',
+						taskDescription: '',
+						taskName: 'Dummies',
+						valueResponsable: 'Adan',
+					},
+					{
+						id: '6',
+						followNotificationsValue: false,
+						idNotification: '4',
+						modo: 'Dark',
+						onCh_follow: () => {},
+						onCl_asignTask: () => {},
+						onCl_edit: () => {},
+						onCl_follow: () => {},
+						onCl_reasignDate: () => {},
+						onCl_remimder: () => {},
+						onCl_showDetails: () => {},
+						onCl_status: () => {},
+						percentTask: 10,
+						status: 'to_do',
+						statusTask: 'onTime',
+						taskDescription: '',
+						taskName: 'Dummies',
+						valueResponsable: 'Adan',
+					},
+					{
+						id: '7',
+						followNotificationsValue: false,
+						idNotification: '4',
+						modo: 'Dark',
+						onCh_follow: () => {},
+						onCl_asignTask: () => {},
+						onCl_edit: () => {},
+						onCl_follow: () => {},
+						onCl_reasignDate: () => {},
+						onCl_remimder: () => {},
+						onCl_showDetails: () => {},
+						onCl_status: () => {},
+						percentTask: 10,
+						status: 'to_do',
+						statusTask: 'onTime',
+						taskDescription: '',
+						taskName: 'Dummies',
+						valueResponsable: 'Adan',
+					},
+					{
+						id: '8',
+						followNotificationsValue: false,
+						idNotification: '4',
+						modo: 'Dark',
+						onCh_follow: () => {},
+						onCl_asignTask: () => {},
+						onCl_edit: () => {},
+						onCl_follow: () => {},
+						onCl_reasignDate: () => {},
+						onCl_remimder: () => {},
+						onCl_showDetails: () => {},
+						onCl_status: () => {},
+						percentTask: 10,
+						status: 'to_do',
+						statusTask: 'onTime',
+						taskDescription: '',
+						taskName: 'Dummies',
+						valueResponsable: 'Adan',
+					},
+					{
+						id: '9',
+						followNotificationsValue: false,
+						idNotification: '4',
+						modo: 'Dark',
+						onCh_follow: () => {},
+						onCl_asignTask: () => {},
+						onCl_edit: () => {},
+						onCl_follow: () => {},
+						onCl_reasignDate: () => {},
+						onCl_remimder: () => {},
+						onCl_showDetails: () => {},
+						onCl_status: () => {},
+						percentTask: 10,
+						status: 'to_do',
+						statusTask: 'onTime',
+						taskDescription: '',
+						taskName: 'Dummies',
+						valueResponsable: 'Adan',
+					},
+					{
+						id: '10',
+						followNotificationsValue: false,
+						idNotification: '4',
+						modo: 'Dark',
+						onCh_follow: () => {},
+						onCl_asignTask: () => {},
+						onCl_edit: () => {},
+						onCl_follow: () => {},
+						onCl_reasignDate: () => {},
+						onCl_remimder: () => {},
+						onCl_showDetails: () => {},
+						onCl_status: () => {},
+						percentTask: 10,
+						status: 'to_do',
+						statusTask: 'onTime',
+						taskDescription: '',
+						taskName: 'Dummies',
+						valueResponsable: 'Adan',
+					},
+					{
+						id: '11',
+						followNotificationsValue: false,
+						idNotification: '4',
+						modo: 'Dark',
+						onCh_follow: () => {},
+						onCl_asignTask: () => {},
+						onCl_edit: () => {},
+						onCl_follow: () => {},
+						onCl_reasignDate: () => {},
+						onCl_remimder: () => {},
+						onCl_showDetails: () => {},
+						onCl_status: () => {},
+						percentTask: 10,
+						status: 'to_do',
+						statusTask: 'onTime',
+						taskDescription: '',
+						taskName: 'Dummies',
+						valueResponsable: 'Adan',
+					},
+					{
+						id: '12',
+						followNotificationsValue: false,
+						idNotification: '4',
+						modo: 'Dark',
+						onCh_follow: () => {},
+						onCl_asignTask: () => {},
+						onCl_edit: () => {},
+						onCl_follow: () => {},
+						onCl_reasignDate: () => {},
+						onCl_remimder: () => {},
+						onCl_showDetails: () => {},
+						onCl_status: () => {},
+						percentTask: 10,
+						status: 'to_do',
 						statusTask: 'onTime',
 						taskDescription: '',
 						taskName: 'Dummies',
@@ -158,9 +424,9 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 				]}
 				Card={CardTask}
 				nameBoards={{
-					'To do: ': 'To do:',
-					'In Progress:': 'In Progress:',
-					'Done: ': 'Done:',
+					to_do: [] as any,
+					in_progress: [] as any,
+					done: [] as any,
 				}}
 			/>
 		</Container>

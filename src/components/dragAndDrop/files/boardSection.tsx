@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 // types
 import { boards } from '../types';
 // dnd librería
@@ -15,6 +15,7 @@ import TaskItem from './taskItem';
 import bell from '../../../img/bell.svg';
 
 import '../dragAndDrop.scss';
+import { SimpleContainer } from '../../Atoms';
 
 const BoardSection = (props: boards) => {
 	const datos = { ...props };
@@ -22,12 +23,24 @@ const BoardSection = (props: boards) => {
 		id: datos.id,
 	});
 
+	function separarTexto(text: string) {
+		let newText = '';
+		if (/[-,_]/.test(text)) {
+			newText = text.replace(/[-,_]/g, ' ');
+		} else {
+			newText = text;
+		}
+		newText !== '' ? (newText = `${newText.charAt(0).toUpperCase()}${newText.slice(1)}`) : '';
+		return newText;
+	}
+
 	return (
 		<div className={`drpblCtn`}>
-			<div className={'ctnTitle'}>
-				<h2>{datos.title}</h2>
-				<img src={bell} alt="" />
-			</div>
+			<SimpleContainer style={{ width: '100%', height: '30px', position: 'relative' }}>
+				<div className={'ctnTitle'}>
+					<h2>{separarTexto(datos.title)}</h2>
+				</div>
+			</SimpleContainer>
 			<SortableContext
 				id={datos.id}
 				items={datos.tasks}
@@ -38,8 +51,17 @@ const BoardSection = (props: boards) => {
 				}
 			>
 				{/* Se aplican los estilos al componente que contiene las tareas */}
-				<div ref={setNodeRef} style={datos.styleTaskContainer} className={`ctnIndvlBrd`}>
-					{datos.tasks.map((task) => {
+				<div
+					ref={(e) => {
+						setNodeRef(e);
+					}}
+					id={`${datos.id}Board`}
+					style={{
+						...datos.styleTaskContainer,
+					}}
+					className={`ctnIndvlBrd`}
+				>
+					{datos.tasks.map((task: any) => {
 						return (
 							<div className={`ctnDrgbl`} key={task.id}>
 								<SortableTaskItem id={task.id}>
@@ -48,6 +70,7 @@ const BoardSection = (props: boards) => {
 										Card={datos.Card}
 										approved={task.approved}
 										modo={datos.modo}
+										pendingToReview={task.pendingToReview}
 									/>
 								</SortableTaskItem>
 							</div>

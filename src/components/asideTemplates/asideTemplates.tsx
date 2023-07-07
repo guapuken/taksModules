@@ -123,7 +123,7 @@ const AsideTemplates = ({
 					<ErrorNc modo={visible ? 'Dark' : modo} />
 				) : (
 					<SimpleContainer className="aside__children-contenido">
-						<ValidationComponent validate={!aspectRatio() && tasks.length > 0}>
+						<ValidationComponent validate={!aspectRatio().mobile && tasks.length > 0}>
 							{tasks?.map((individualTask) => (
 								<Card
 									key={individualTask.id}
@@ -132,7 +132,7 @@ const AsideTemplates = ({
 								/>
 							))}
 						</ValidationComponent>
-						<ValidationComponent validate={aspectRatio() && tasks.length > 0}>
+						<ValidationComponent validate={aspectRatio().mobile && tasks.length > 0}>
 							<Carousel
 								data={tasks}
 								Card={(e: any) => (

@@ -28,6 +28,7 @@ export type taskItem = {
 	data?: any;
 	approved?: boolean;
 	modo: Modo;
+	pendingToReview?: boolean;
 };
 
 // tableros
@@ -43,6 +44,8 @@ export type boards = {
 	styleTaskContainer?: css;
 	property?: any;
 	setProperty?: any;
+	height?: number;
+	setMinHeight?: any;
 };
 
 export type task = {

@@ -6,9 +6,9 @@
 :root{
     --sombraCard: #dedede;
     --cardSize: calc(100vw / 4 - 20px);
-
+    --cardHeight: auto;
     @media (max-aspect-ratio: 4/3){
-        --cardSize: calc(100vw / 2 - 20px);
+        --cardSize: calc(100vw / 2 - 100px);
     }
     @media (max-aspect-ratio: 7/10){
         --cardSize: calc(100vw - 20px);
@@ -23,7 +23,7 @@
     position: relative; 
     background: var(--bg);
     width: var(--cardSize);
-    height: auto;
+    height: var(--cardHeight);
     min-height: 15vh;
     max-height: calc(50vh - 20px) ;
     box-shadow: var(--boxShadow);

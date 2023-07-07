@@ -6,23 +6,31 @@ import './styles/carousel.scss';
 // elemento auxiliares
 import { ButtonsPrevNext, Examples, dataExample } from './principalComponents';
 import { asignIndex, sizeElement } from './functions/functions';
+import { SimpleContainer, Title } from '../Atoms';
 
-const Carousel = ({ Card, data = dataExample, height = 264, titleContent }: carousel) => {
+const Carousel = ({ Card, data = dataExample, height = 264, titleContent, modo }: carousel) => {
 	// recibe la data y les asigna un index automático
 	asignIndex(data, 'index');
 	// seleciona la propiedad activa
 	const [property, setProperty] = useState(data[0]);
 
 	return (
-		<div style={{ position: 'relative', height: height, width: '100%' }}>
+		<SimpleContainer className="carrusel" style={{}}>
 			<ButtonsPrevNext property={property} setProperty={setProperty} data={data} />
-			<div
-				className={`cards-slider active-slide-${property?.index}`}
+			<SimpleContainer
+				className={`carrusel__slider carrusel__active-slide-${property?.index}`}
+				// className={`cards-slider active-slide-${property?.index}`}
 				style={{ width: '100%', overflow: 'hidden' }}
 			>
-				<div>{titleContent}</div>
-				<div
-					className={`cards-slider-wrapper`}
+				<SimpleContainer
+					style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+				>
+					<Title modo={modo} style={{ margin: '5px 0' }}>
+						{titleContent}
+					</Title>
+				</SimpleContainer>
+				<SimpleContainer
+					className={`carrusel__slider-wrapper`}
 					style={{
 						display: 'flex',
 						marginLeft: '8px',
@@ -33,13 +41,9 @@ const Carousel = ({ Card, data = dataExample, height = 264, titleContent }: caro
 				>
 					{data.map((prop: elements) => {
 						return (
-							<div
-								className={`card card${prop.index}`}
-								style={{
-									display: 'flex',
-									justifyContent: 'center',
-									alignItems: 'center',
-								}}
+							<SimpleContainer
+								className={`carrusel__slider-wrapper-card card${prop.index}`}
+								style={{}}
 								key={prop.id ?? prop.index}
 								id={`card${prop.id}`}
 							>
@@ -48,12 +52,12 @@ const Carousel = ({ Card, data = dataExample, height = 264, titleContent }: caro
 								) : (
 									<Examples property={prop} />
 								)}
-							</div>
+							</SimpleContainer>
 						);
 					})}
-				</div>
-			</div>
-		</div>
+				</SimpleContainer>
+			</SimpleContainer>
+		</SimpleContainer>
 	);
 };
 

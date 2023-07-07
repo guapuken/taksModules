@@ -43,6 +43,8 @@ export interface ModalProjectsProps {
 	onCh_dificultad?: onChangeType;
 	isMannager?: boolean;
 	onCh_asignPM?: onChangeType;
+	optionsPM?: optionsDropdown[];
+	PMSelected?: optionsDropdown;
 }
 
 export type content = {

@@ -98,7 +98,7 @@ const Content = ({
 						<Texts modo={modo}>{taskDescription}</Texts>
 					</SimpleContainer>
 				</SimpleContainer>
-				{!showTasks ? (
+				{showTasks ? (
 					<SimpleContainer className="modalTaskWithComments__tareas-subtareas">
 						<Title modo={modo} style={{ padding: '15px' }}>
 							Subtareas
