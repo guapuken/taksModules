@@ -14,6 +14,9 @@
         .contenedorLayout{
             &__children{
                 grid-column: 2 / 4;
+                &-contenido{
+                    overflow-y: auto;
+                }
             }
         } 
     }

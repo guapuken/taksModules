@@ -118,7 +118,7 @@ export const tasks = {
 
 export const fijos = [
 	{
-		nombre: 'IMJ-CDMX-ESP-1526',
+		nombre: 'IMJ-CDMX-ESP-1526 - 2563-Uber_Eats-noviembre ',
 		porcentaje: 25,
 		status: 1,
 		onClick: () => alert('IMJ-CDMX-ESP-1526'),

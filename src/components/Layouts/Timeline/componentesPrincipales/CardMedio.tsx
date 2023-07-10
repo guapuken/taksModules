@@ -46,11 +46,6 @@ const CardMedios = ({
 				/>
 			</SimpleContainer>
 			<Icon />
-			{/* <img src={icon} alt="" className="timelineProject__contenido-medios-titles-icon" /> */}
-			{/* <SitiosIcon
-				fill={modo === 'Dark' ? '#fff' : '#343232'}
-				className="timelineProject__contenido-medios-titles-icon"
-			/> */}
 			<Title modo={modo} className="timelineProject__contenido-medios-titles-title">
 				{title}
 			</Title>

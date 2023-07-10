@@ -13,7 +13,9 @@ const Medio = ({ nombre, porcentaje, status, modo, onClick }: medios) => (
 			<CircularProgressBar percentTask={porcentaje} statusTask={status} />
 			<Title modo={modo as Modo}>{`${porcentaje}%`}</Title>
 		</SimpleContainer>
-		<Texts modo={modo as Modo}>{nombre}</Texts>
+		<Texts modo={modo as Modo} maxLines={1} labels={{ title: nombre }}>
+			{nombre}
+		</Texts>
 	</SimpleContainer>
 );
 
