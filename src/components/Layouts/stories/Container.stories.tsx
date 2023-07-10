@@ -13,6 +13,7 @@ import {
 } from '../../../components';
 import Container from '../Container/Container';
 import { SimpleContainer } from '../../Atoms';
+import { aspectRatio } from '../../../utils/functions/functions';
 
 storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', () => {
 	const [chat, setChat] = useState({
@@ -101,15 +102,9 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 					tasks={[
 						{
 							id: '1',
-							taskName: 'Dummies - 2563-Uber_Eats-Noviembre',
+							taskName: 'Bloqueos - 2563-Uber_Eats-Noviembre',
 							taskDescription: 'Dummies de las plazas principales',
 							percentTask: 25,
-						},
-						{
-							id: '2',
-							taskName: 'Dummies - 2563-Electrolit-Enero',
-							taskDescription: 'Realizar dummies de todas las plazas',
-							percentTask: 75,
 							statusTask: 3,
 						},
 						{
@@ -121,7 +116,14 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 						},
 						{
 							id: '2',
-							taskName: 'Dummies - 2563-Electrolit-Enero',
+							taskName: 'Pdc - 2563-Electrolit-Enero',
+							taskDescription: 'Realizar dummies de todas las plazas',
+							percentTask: 75,
+							statusTask: 3,
+						},
+						{
+							id: '2',
+							taskName: 'Impresión - 2563-Electrolit-Enero',
 							taskDescription: 'Realizar dummies de todas las plazas',
 							percentTask: 75,
 							statusTask: 3,
@@ -134,8 +136,21 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 				legendBtn: 'Nuevo tarea',
 			}}
 			FooterContent={
-				<SimpleContainer style={{ display: 'flex', gap: ' 20px', flexDirection: 'column' }}>
-					<SimpleContainer style={{ display: 'flex', gap: ' 20px' }}>
+				<SimpleContainer
+					style={{
+						display: 'flex',
+						gap: ' 20px',
+						flexDirection: !aspectRatio().mobile ? 'column' : 'column-reverse',
+						padding: '0 15px',
+					}}
+				>
+					<SimpleContainer
+						style={{
+							display: 'flex',
+							gap: ' 20px',
+							justifyContent: !aspectRatio().mobile ? '' : 'space-between',
+						}}
+					>
 						<Dropdown
 							modo="Dark"
 							onCh={() => {}}
@@ -195,7 +210,7 @@ storiesOf('Layouts/Contenedor/Ejemplos/Contenedor', module).add('Contenedor', ()
 						onCl_showDetails: () => {},
 						onCl_status: () => {},
 						percentTask: 10,
-						status: 'to_do',
+						status: 'done',
 						statusTask: 'onTime',
 						taskDescription: '',
 						taskName: 'Dummies',

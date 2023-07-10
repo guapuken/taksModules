@@ -122,6 +122,9 @@
         .ctnChildAsdFtr //si hay aside y footer
         {
             left: calc(50vw + 20px);
+            &__children{
+                
+            }
         }
     } 
 }

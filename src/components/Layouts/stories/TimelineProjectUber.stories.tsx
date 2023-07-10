@@ -10,7 +10,7 @@ storiesOf('Layouts/TimelineProject/Examples/Uber', module).add('Uber', () => {
 	return (
 		<TimelineProject
 			onCl_compartir={() => alert('Compartir línea de tiempo')}
-			modo="Dark"
+			modo="Light"
 			nombreProyecto="2536-Uber_eats-Noviembre"
 			tasks={
 				medios === 'sitios'

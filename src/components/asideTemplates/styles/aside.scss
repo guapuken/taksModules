@@ -83,8 +83,14 @@
     .aside
     {
         width: calc(50vw - 40px);
-        .children{
+        // padding-top: 0 !important;
+        // margin-top: 0 !important;
+        &__children{
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 20px;
             width: 100%;
+            height: 100%;
         }
     }    
 }
@@ -94,10 +100,13 @@
     .aside
     {
         width: 100vw;
-        height: calc(100vh /4);
+        height: calc(90vh / 4);
         &__children {
             height: 92%;
             margin-top: 0;
+            &-contenido{
+                margin-top: 0;
+            }
         }
         .dropdownCtn{
             height: 30px !important;
