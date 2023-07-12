@@ -50,9 +50,6 @@ $altura: 90vh;
         display: flex;
         justify-content: space-between;
         grid-column: var(--gridColumnHeader);
-        &-title{
-            font-weight: lighter; 
-        }
         &-img{
             height: 30px;
             cursor: pointer;

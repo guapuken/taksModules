@@ -7,7 +7,7 @@ const Texts = ({ children, modo, className, style, maxLines, onClick, labels }: 
 	return (
 		<Fragment>
 			<p
-				className={`ctn_Txts ${className}`}
+				className={`textos ${className}`}
 				theme-config={modo}
 				onClick={onClick}
 				style={{

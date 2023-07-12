@@ -20,31 +20,15 @@ const CommentsTask = ({
 	handleClose,
 }: commentsTask) => {
 	return (
-		<ValidationComponent validate={isActive}>
-			<div
-				style={{
-					display: 'flex',
-					justifyContent: 'center',
-					alignItems: 'center',
-					position: 'fixed',
-					top: '0',
-					left: '0',
-					width: '100vw',
-					height: '100vh',
-				}}
-			>
+		<ValidationComponent validate={!isActive}>
+			<SimpleContainer className="commentTask">
 				<SimpleContainer
 					onClick={handleClose}
+					className="commentTask__bg"
 					children={null}
-					style={{
-						width: '100%',
-						height: '100%',
-						position: 'fixed',
-						top: '0',
-						left: '0',
-					}}
+					style={{}}
 				/>
-				<div className={`ctn_CTC ${modo}`}>
+				<SimpleContainer className={`ctn_CTC ${modo}`}>
 					<SimpleContainer
 						style={{
 							display: 'flex',
@@ -72,8 +56,8 @@ const CommentsTask = ({
 						onCl_addComment={onCl_addComment}
 						onCh_comment={onCh_comment}
 					/>
-				</div>
-			</div>
+				</SimpleContainer>
+			</SimpleContainer>
 		</ValidationComponent>
 	);
 };

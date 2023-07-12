@@ -191,7 +191,12 @@ const DragAndDrop = (props: dragAndDrop) => {
 			<SimpleContainer>
 				{Object.keys(boardSections).map((boardSectionKey) => {
 					return (
-						<div style={{ width: '95%', margin: '0 auto', minHeight: '25vh' }}>
+						<div
+							style={{
+								maxWidth: '100vw',
+								minHeight: '25vh',
+							}}
+						>
 							<Carousel
 								data={boardSections[boardSectionKey]}
 								modo={modo}

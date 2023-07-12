@@ -35,10 +35,8 @@ const Cards = (props: cardIntrfc) => {
 		>
 			{Content ? (
 				<SimpleContainer className="card__contenido">
-					{/* 					<SimpleContainer className="detalleCardSup" children={null} />
-					<SimpleContainer className="detalleCardInf" children={null} /> */}
 					<SimpleContainer className="card__contenido-children">
-						{<Content data={data} />}
+						<Content data={data} />
 					</SimpleContainer>
 					<ValidationComponent validate={Aside}>
 						<SimpleContainer className="card__contenido-aside">

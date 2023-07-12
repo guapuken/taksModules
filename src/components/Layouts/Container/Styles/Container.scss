@@ -8,7 +8,7 @@
     gap: 15px;
     grid-template-columns: repeat(4, 1fr);
     background: var(--bg) !important;
-    z-index: -1;
+    // z-index: -1;
     // SI ASIDE SI CHAT-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
     &[aside-status='withAside'][chat-status='withChat']{
         .contenedorLayout{

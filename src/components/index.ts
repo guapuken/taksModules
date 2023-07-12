@@ -1,6 +1,9 @@
 // ---------------------------------------------------------------------------------------------------------
 //      Átomos
 // ---------------------------------------------------------------------------------------------------------
+export{default as Title} from '../components/Atoms/titles/Title';
+export {default as Texts} from '../components/Atoms/texts/Texts';
+
 // button que puede incluir un icono, ser flotante y su legenda
 export {default as Button} from './button/Button';
 // conjunto de botones que tienen cierta composición

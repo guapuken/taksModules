@@ -22,6 +22,7 @@ export type header = {
 	header?: string;
 	styleHeader?: css;
 	onCl_close: onClickType;
+	modo: Modo;
 };
 
 // componente footer

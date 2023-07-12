@@ -1,3 +1,20 @@
+.commentTask{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    &__bg{
+        width: 100%;
+        height: 100%;
+        position: fixed !important;
+        top: 0;
+        left: 0;
+    }
+}
 .ctn_CTC
 {
     width: 300px;
