@@ -2,12 +2,13 @@
 :root{
     --colorTeam: #000;
 }
+
+
 // estilos generales -----------------------------------------------------------------------------------------------------------------
 .cardTeams{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     &__contenedor{
         &-title{
             user-select: none;
@@ -51,44 +52,38 @@
     }
     &__colorTeam{
         height: 30px;
-        width: 100%;
+        width: 75%;
         margin-top: 15px;
-        z-index: 0;
+        border-radius: 0 20px 20px 0;
         position: relative !important;
-        &-text{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
         &:before{
             content: attr(initial-letters);
             position: absolute;
-            width: 40px;
+            width: 60px;
+            letter-spacing: 3px;
             height: 40px;
-            font-size: 20px;
+            font-size: 14px;
+            padding-left: 3px;
+            font-weight: 700;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: var(--fc60);
-            box-shadow: inset 0 0 0 2px var(--fc60);
+            background: inherit;
             border-radius: 40px;
             top: -5px;
             left: 20px;
-            z-index: 1;
+            color: #343232;
+            box-shadow: 0 0 0 6px var(--bg);
         }
-        &:after{
-            content: "";
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: #fff;
-            border-radius: 40px;
-            top: -10px;
-            left: 15px;
+        &[color-font='#dedede']{
+            &:before{
+                color: #fff;
+            }
         }
     }
 }
+
+
 
 // media queries -------------------------------------------------------------------------------------------
 

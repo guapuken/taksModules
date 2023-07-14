@@ -27,8 +27,8 @@
   --errorColor: #da3430;
   //fonts Colors
   --fc100: #2c2926;
-  --fc90: #343232;  
-  --fc60: #54514f; 
+  --fc90: #343232;
+  --fc60: #54514f;
   --fc30: #bdbaba;
   // font weights
   --fw700: 700;
@@ -124,13 +124,14 @@
   //definición de pesos visuales
   h1, h2,h3,h4,h5,h6{
     font-weight: bold;
+    text-transform: uppercase;
   }
   //definición de tamaños en tipografías
   h1{ font-size: clamp(25px, 2.8vw, 30px); }
-  h2{ font-size: clamp(18px, 2vw, 23px); }
+  h2{ font-size: clamp(12px, 1.4vw, 14px); }
   h3{ font-size: clamp(16px, 1.8vw, 21px); }
   h4{ font-size: clamp(14px, 1.6vw, 19px); }
-  h5,p,li,ul,span,button,textarea,input{ font-size: clamp(12px, 1.4vw, 17px) ; }
+  h5,p,li,ul,span,button,textarea,input{ font-size: clamp(12px, 1.4vw, 14px); }
 
 // ---------------------------------------------------------------------------------------------------------
 //      utilidades

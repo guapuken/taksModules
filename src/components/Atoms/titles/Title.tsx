@@ -4,7 +4,7 @@ import { titleProps } from './types/types';
 
 const Title = ({ children, modo, className, style, maxLines, title, labels }: titleProps) => {
 	return (
-		<p
+		<h2
 			className={`title ${className}`}
 			theme-config={modo}
 			style={{
@@ -15,7 +15,7 @@ const Title = ({ children, modo, className, style, maxLines, title, labels }: ti
 			{...labels}
 		>
 			{children}
-		</p>
+		</h2>
 	);
 };
 

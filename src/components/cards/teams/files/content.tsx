@@ -5,13 +5,18 @@ import { CardContainer } from '../../../../utils/cardsUtils';
 // funciones
 import { Hover } from '../../../../utils/hover';
 import { SimpleContainer, Texts, Title, ValidationComponent } from '../../../Atoms';
-import { initialLetters } from '../../../../utils/functions/functions';
+import { initialLetters, obtenerColorLetra } from '../../../../utils/functions/functions';
 
 //Componente que regresa el contenido de la card
 const Content = ({ modo, teamName = 'Equipo', onCl_preview, members, teamColor }: any) => {
 	const [mouseEnter, setMouseEnter] = useState(false);
 
 	const iniciales = initialLetters(teamName);
+	console.log(
+		initialLetters(teamName),
+		iniciales.length,
+		iniciales.join('').slice(0, 2).toUpperCase()
+	);
 	return (
 		<CardContainer
 			labels={{
@@ -57,7 +62,14 @@ const Content = ({ modo, teamName = 'Equipo', onCl_preview, members, teamColor }
 				labels={{
 					className: 'cardTeams__colorTeam',
 					style: { background: teamColor },
-					'initial-letters': iniciales.length > 1 ? iniciales.join('') : iniciales,
+					'initial-letters': iniciales
+						? iniciales?.length > 1
+							? iniciales?.length > 2
+								? iniciales?.join('')?.slice(0, 2)?.toUpperCase()
+								: iniciales?.join('')?.toUpperCase()
+							: iniciales
+						: 'NA',
+					'color-font': obtenerColorLetra(teamColor),
 				}}
 				children={null}
 			/>

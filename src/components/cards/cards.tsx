@@ -24,7 +24,7 @@ const Cards = (props: cardIntrfc) => {
 	return (
 		<SimpleContainer
 			labels={{
-				className: `card ${className ?? ''}`,
+				className: `cardComponent ${className ?? ''}`,
 				'theme-config': modo,
 				'theme-style': themeStyle,
 				'contenido-card': Content ? 'conContenido' : 'sinContenido',
