@@ -158,41 +158,11 @@
 }
 
 // ---------------------------------------------------------------------------------------------------------
-//      modo claro
-// ---------------------------------------------------------------------------------------------------------
-.ctnLightCmts_TWCC,
-.ctnLightnoCmts_TWCC
-{
-
-}
-
-// ---------------------------------------------------------------------------------------------------------
-//      modo oscuro
-// ---------------------------------------------------------------------------------------------------------
-.ctnDarkCmts_TWCC,
-.ctnDarknoCmts_TWCC
-{
-
-}
-
-// ---------------------------------------------------------------------------------------------------------
 //      media queries
 // ---------------------------------------------------------------------------------------------------------
-// tablet
-@media (max-width:834px){
-    .ctnLightCmts_TWCC,
-    .ctnDarkCmts_TWCC,
-    .ctnLightnoCmts_TWCC,
-    .ctnDarknoCmts_TWCC
-    {
-    }  
-} 
-// celular
-@media (max-width:415px){
-    .ctnLightCmts_TWCC,
-    .ctnDarkCmts_TWCC,
-    .ctnLightnoCmts_TWCC,
-    .ctnDarknoCmts_TWCC
-    {
-    }  
-} 
+@media (max-aspect-ratio: 4/3){ // relación aspecto con dispositivos mayores a móviles tales como tablets
+
+ }
+ @media (max-aspect-ratio: 7/10){ // Relación aspecto de dispositivos móviles
+
+ }

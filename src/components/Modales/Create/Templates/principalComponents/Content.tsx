@@ -79,39 +79,6 @@ export const Content = ({
 								style={{ zIndex: 10 }}
 							/>
 						</div>
-						{tipoMedio && (
-							<SimpleContainer
-								style={{
-									display: 'flex',
-									flexDirection: 'column',
-									gap: '10px',
-									width: '100%',
-									marginTop: '15px',
-								}}
-							>
-								<Dropdown
-									style={{ width: '100%', height: '30px' }}
-									modo={modo}
-									placeHolder="Selecciona el medio"
-									onCh={onCh_dropDownTipoMedio}
-									isSearchable
-									options={optionsTipoMedio as optionsDropdown[]}
-									initialValue={valueTipoMedio}
-									disabled={isEditingTemplate}
-								/>
-								<SimpleContainer style={{ display: 'flex', gap: '10px' }}>
-									<CheckboxInput
-										idCheckbox={idTemplate}
-										check={valueCheckboxPrintBF}
-										modo={modo}
-										onCh_checkbox={onCh_checkboxPrintBF}
-										style={{ marginTop: '7px' }}
-										disabled={isEditingTemplate}
-									/>
-									<Texts modo={modo}>Impresión en BF</Texts>
-								</SimpleContainer>
-							</SimpleContainer>
-						)}
 					</div>
 				)}
 				{!tipoMedio && isMannager && (
@@ -119,7 +86,7 @@ export const Content = ({
 						style={{
 							display: 'flex',
 							width: '98%',
-							alignItems: 'center',
+							alignItems: 'start',
 						}}
 					>
 						<div
@@ -148,6 +115,41 @@ export const Content = ({
 							/>
 						</div>
 					</div>
+				)}
+				{(tipoMedio || campanha) && (
+					<SimpleContainer
+						style={{
+							display: 'flex',
+							flexDirection: 'column',
+							gap: '10px',
+							width: '100%',
+							marginTop: '15px',
+						}}
+					>
+						<Dropdown
+							style={{ width: '100%', height: '30px' }}
+							modo={modo}
+							placeHolder="Selecciona el medio"
+							onCh={onCh_dropDownTipoMedio}
+							isSearchable
+							options={optionsTipoMedio as optionsDropdown[]}
+							initialValue={valueTipoMedio}
+							disabled={isEditingTemplate}
+						/>
+						{tipoMedio && (
+							<SimpleContainer style={{ display: 'flex', gap: '10px' }}>
+								<CheckboxInput
+									idCheckbox={idTemplate}
+									check={valueCheckboxPrintBF}
+									modo={modo}
+									onCh_checkbox={onCh_checkboxPrintBF}
+									style={{ marginTop: '7px' }}
+									disabled={isEditingTemplate}
+								/>
+								<Texts modo={modo}>Impresión en BF</Texts>
+							</SimpleContainer>
+						)}
+					</SimpleContainer>
 				)}
 			</SimpleContainer>
 			<AddTask legend="+ Añadir tarea" onClick={onCl_addTask} />

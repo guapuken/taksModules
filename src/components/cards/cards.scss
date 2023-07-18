@@ -18,6 +18,7 @@
     --sombraCard: #00000075;
 }
 
+
 .cardComponent
 { 
     position: relative; 
@@ -36,7 +37,7 @@
         border-radius: 10px;
     }
     &[aside-element='aside']{
-        .card__contenido{
+        .cardComponent__contenido{
             grid-template-columns: auto 50px;
         }
     }

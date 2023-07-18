@@ -20,6 +20,7 @@ function DemoComponent() {
 			idTemplate="1"
 			modo="Light"
 			isMannager
+			isEditingTemplate
 			onCh_checkboxMedio={() => {
 				setCheckTem(!checkTem);
 			}}
@@ -35,7 +36,7 @@ function DemoComponent() {
 			}}
 			valueCheckboxMedio={checkTem}
 			// isEditingTemplate
-			valueCheckboxCampaign={checkCam}
+			valueCheckboxCampaign={true}
 			templateNameValue="Espectaculares"
 			optionsTipoMedio={[
 				{ id: String(autoIncrementalId()), title: 'Urbanos' },

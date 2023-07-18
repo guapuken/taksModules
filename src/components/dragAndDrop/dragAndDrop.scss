@@ -28,7 +28,7 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
-    height: auto;
+    height: 100% !important;
     // se aplican estos estilos a la carda cuando no se carga una plantilla
     .noCardTmplt{
         box-shadow: 0 0 20px #dedede;
@@ -52,7 +52,7 @@
             background: transparent;
             display:flex;
             flex-direction: column;
-            height: 25%;
+            // height: 25%;
             overflow-y: auto !important;
             overflow-x: hidden !important;
             .ctnIndvlBrd{

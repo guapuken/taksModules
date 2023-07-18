@@ -5,8 +5,8 @@ import { SimpleContainer, Texts } from '../../Atoms';
 
 const ItemMsn = ({ message, date, modo }: itemMsn) => {
 	return (
-		<SimpleContainer className="msn">
-			<SimpleContainer className="msn_text">
+		<SimpleContainer className="mensajes__contenedor-bloquesMsn-cuerpo">
+			<SimpleContainer className="mensajes__contenedor-bloquesMsn-cuerpo-contenido">
 				<Texts modo={modo} className="contenidoMsn">
 					{message}
 				</Texts>

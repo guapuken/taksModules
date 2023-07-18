@@ -5,7 +5,7 @@ import { titleProps } from './types/types';
 const Title = ({ children, modo, className, style, maxLines, title, labels }: titleProps) => {
 	return (
 		<h2
-			className={`title ${className}`}
+			className={`titleComponent ${className}`}
 			theme-config={modo}
 			style={{
 				WebkitLineClamp: maxLines,

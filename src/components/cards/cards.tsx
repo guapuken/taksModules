@@ -34,20 +34,20 @@ const Cards = (props: cardIntrfc) => {
 			}}
 		>
 			{Content ? (
-				<SimpleContainer className="card__contenido">
-					<SimpleContainer className="card__contenido-children">
+				<SimpleContainer className="cardComponent__contenido">
+					<SimpleContainer className="cardComponent__contenido-children">
 						<Content data={data} />
 					</SimpleContainer>
 					<ValidationComponent validate={Aside}>
-						<SimpleContainer className="card__contenido-aside">
-							<SimpleContainer className="card__contenido-aside-children">
+						<SimpleContainer className="cardComponent__contenido-aside">
+							<SimpleContainer className="cardComponent__contenido-aside-children">
 								<Aside />
 							</SimpleContainer>
 						</SimpleContainer>
 					</ValidationComponent>
 				</SimpleContainer>
 			) : (
-				<ErrorNC />
+				<ErrorNC modo={modo} />
 			)}
 		</SimpleContainer>
 	);

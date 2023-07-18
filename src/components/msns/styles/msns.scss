@@ -1,38 +1,114 @@
-.ctn_MsnsC
+.mensajes
 {
-    // min-height: calc(100% - 225px);
     overflow-y: auto;
     overflow-x: hidden;
 
+    overflow-y: auto !important;
+    max-height: 90vh !important;
     // línea que une los mensajes con sus usuarios
-    // .ctnMsn{
-    .blockMsns{
-        &:before{
-            content: '';
-            position: absolute;
-            border-left: 2px solid #dedede;
-            top: 0;
-            height: calc(100% - 55px);
-            z-index: 0;
-        }
-    }
-    .ctnMsn,.msn{
+    &__contenedor{
         position: relative;
-        .avatar_user{
+        // estado de mensaje recibido
+        &[ty-msn='Received']{
+            &:before{
+                left: 20px;
+            }
+            &{
+                .mensajes__contenedor-user{
+                    .noImage, .image{
+                        background-color: #dedede;
+                        color: var(--fcLight);
+                    }
+                    .userName{
+                        opacity: 1;
+                    }
+                }
+            }
+            .mensajes__contenedor-bloquesMsn:before{
+                left: 20px;
+            }
+            .mensajes__contenedor-bloquesMsn-cuerpo-contenido{
+                padding-left: 50px;
+                .contenidoMsn{
+                    opacity: 1;
+                }
+                &:before{
+                    border-left: 2px solid #dedede;
+                    border-bottom: 2px solid #dedede;
+                    border-bottom-left-radius: 15px;
+                    left: 20px;
+                }
+            }
+        }
+            // estado de mensaje enviado
+        &[ty-msn='Sent']{
+            &:before{
+                right: 20px;
+            }
+            .mensajes__contenedor-bloquesMsn:before{
+                right: 20px;
+            }
+            &, .msn{
+                .mensajes__contenedor-user{
+                    flex-direction: row-reverse;
+                    .noImage,.image{
+                        background-color: #282828;
+                    }
+                    .userName{
+                        opacity: 1;
+                    }
+                }
+                .mensajes__contenedor-bloquesMsn-cuerpo-contenido{
+                    .contenidoMsn,.date{
+                        text-align: right;
+                    }
+                    padding-right: 50px;
+                }
+            }
+            .mensajes__contenedor-bloquesMsn-cuerpo-contenido{
+                &:before{
+                    border-right: 2px solid #dedede;
+                    border-bottom: 2px solid #dedede;
+                    border-bottom-right-radius: 15px;
+                    right: 20px;
+                }
+            }
+        }
+        // estado del mensaje cuando es del sistema
+        &[ty-msn='System']{
+            .mensajes__contenedor-bloquesMsn{
+                text-align: center;
+                background: #52525260;
+                padding: 10px;
+                border-radius: 10px;
+                margin: 15px 0;
+                color: #fff;            
+                &::before{
+                    display:none;
+                }
+                .contenidoMsn{
+                    font-size: clamp(8px, 2vw, 10px);
+                    margin: 2.5px 0;
+                    color: #fff !important;
+                }
+                .date{
+                    color: #fff !important;
+                    font-size: clamp(8px, 2vw, 10px) !important;
+                }
+            }
+        }
+        &-user{
             display: flex;
             gap:15px;
             align-items: center;
             position: relative;
             z-index: 1;
-            .image,.noImage{
-                min-width: 40px;
-                min-height: 40px;
-                border-radius: 40px;
+            &-image, &-noImage{
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center center;
             }
-            .noImage{
+            &-noImage{
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -41,119 +117,34 @@
                 color:#dedede;
                 z-index: 1;
             }
-            .userName{
-                opacity: .5;
-                font-weight: bold;
-                font-size: clamp(11px, 1.3vw, 31px);
-            }
         }
-        .msn_text{
-            display: flex;
-            flex-direction: column;
-
+        &-bloquesMsn{
             &:before{
-                content: ' ';
+                content: '';
                 position: absolute;
-                height: 30px;
-                width: 20px;
-                bottom: 40px;
+                border-left: 2px solid #dedede;
+                top: 0;
+                height: calc(100% - 55px);
                 z-index: 0;
             }
-            .date{
-                margin: 5px 0;
-                font-size: clamp(10px, 1.2vw, 13px) !important;
-                // opacity: .3;
-                // color: var(--fc90) !important;
-            }
-        }
-    }
-    // estado de mensaje recibido
-    .ctnMsn[ty-msn='Received']{
-        &:before{
-            left: 20px;
-        }
-        &, .msn{
-            .avatar_user{
-                .noImage, .image{
-                    background-color: #dedede;
-                    color: var(--fcLight);
+            &-cuerpo{
+                &-contenido{
+                    display: flex;
+                    flex-direction: column;
+                    &:before{
+                        content: ' ';
+                        position: absolute;
+                        height: 30px;
+                        width: 20px;
+                        bottom: 40px;
+                        z-index: 0;
+                    }
+                    .date{
+                        margin: 5px 0;
+                        font-size: clamp(10px, 1.2vw, 12px) !important;
+                        opacity: .5;
+                    }
                 }
-                .userName{
-                    opacity: 1;
-                }
-            }
-        }
-        .blockMsns:before{
-            left: 20px;
-        }
-        .msn_text{
-            padding-left: 50px;
-            .contenidoMsn{
-                opacity: 1;
-            }
-        }
-        .msn_text{
-            &:before{
-                border-left: 2px solid #dedede;
-                border-bottom: 2px solid #dedede;
-                border-bottom-left-radius: 15px;
-                left: 20px;
-                // bottom: 0px;
-            }
-        }
-    }
-    // estado de mensaje enviado
-    .ctnMsn[ty-msn='Sent']{
-        &:before{
-            right: 20px;
-        }
-        .blockMsns:before{
-            right: 20px;
-        }
-        &, .msn{
-            .avatar_user{
-                flex-direction: row-reverse;
-                .noImage,.image{
-                    background-color: #282828;
-                }
-                .userName{
-                    opacity: 1;
-                }
-            }
-            .msn_text{
-                .contenidoMsn,.date{
-                    text-align: right;
-                }
-                padding-right: 50px;
-            }
-        }
-        .msn_text{
-            &:before{
-                border-right: 2px solid #dedede;
-                border-bottom: 2px solid #dedede;
-                border-bottom-right-radius: 15px;
-                right: 20px;
-            }
-        }
-    }
-    // estado del mensaje cuando es del sistema
-    .ctnMsn[ty-msn='System']{
-        .blockMsns{
-            text-align: center;
-            background: #52525260;
-            padding: 10px;
-            border-radius: 10px;
-            margin: 15px 0;
-            color: #fff;
-            &::before{
-                display:none;
-            }
-            .contenidoMsn{
-                font-size: clamp(10px, 1.2vw, 20px);
-                margin: 10px 0;
-            }
-            .date{
-                display: none;
             }
         }
     }
@@ -165,7 +156,7 @@
 @media (max-aspect-ratio: 4/3){ // relación aspecto con dispositivos mayores a móviles tales como tablets
     .ctn_MsnsC
     {
-     .msn_text{
+     .mensajes__contenedor-bloquesMsn-cuerpo-contenido{
          &:before{
              bottom: 30px !important;
          }
@@ -175,7 +166,7 @@
  @media (max-aspect-ratio: 7/10){ // Relación aspecto de dispositivos móviles
     .ctn_MsnsC
      {
-      .msn_text{
+        .mensajes__contenedor-bloquesMsn-cuerpo-contenido{
          &:before{
              bottom: 25px !important;
          }

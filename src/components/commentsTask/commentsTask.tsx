@@ -7,7 +7,7 @@ import { CommentTask } from './files';
 import './commentsTask.scss';
 import Msns from '../msns/Msns';
 import close from '../../img/close.svg';
-import { SimpleContainer, ValidationComponent } from '../Atoms';
+import { SimpleContainer, Title, ValidationComponent } from '../Atoms';
 
 const CommentsTask = ({
 	modo = 'Light',
@@ -20,7 +20,7 @@ const CommentsTask = ({
 	handleClose,
 }: commentsTask) => {
 	return (
-		<ValidationComponent validate={!isActive}>
+		<ValidationComponent validate={isActive}>
 			<SimpleContainer className="commentTask">
 				<SimpleContainer
 					onClick={handleClose}
@@ -28,22 +28,17 @@ const CommentsTask = ({
 					children={null}
 					style={{}}
 				/>
-				<SimpleContainer className={`ctn_CTC ${modo}`}>
+				<SimpleContainer className={`commentTask__contenedor`}>
 					<SimpleContainer
+						className="commentTask__contenedor-title"
 						style={{
 							display: 'flex',
 							justifyContent: 'space-between',
 							alignItems: 'center',
 						}}
 					>
-						<h2>Comentarios</h2>
-						<img
-							style={{ height: '30px' }}
-							src={close}
-							alt=""
-							className="iconClose"
-							onClick={handleClose}
-						/>
+						<Title modo={modo}>Comentarios</Title>
+						<img style={{ height: '30px' }} src={close} alt="" onClick={handleClose} />
 					</SimpleContainer>
 					<ValidationComponent validate={messages}>
 						<Msns messages={messages} modo={modo} />
