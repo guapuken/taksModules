@@ -1,9 +1,23 @@
 @import '../../../../global.scss';
+// ---------------------------------------------------------------------------------------------------------
+//      estilos generales
+// ---------------------------------------------------------------------------------------------------------
+// temas _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[theme_config='Dark']{
+    --bgModal: var(--bgDark);
+    --sombra: var(--boxShadowDark);
+   
+}
+[theme_config='Light']{
+    --bgModal: var(--bg);
+    --sombra: var(--boxShadow);
+    --pr_fc: #282828
+}
 
 // ---------------------------------------------------------------------------------------------------------
 //      estilos generales
 // ---------------------------------------------------------------------------------------------------------
-.ctn_MdlConfirmation{
+.MdlConfirmation{
     position: fixed !important;
     left: 0;
     top: 0;
@@ -11,16 +25,17 @@
     width: 100vw;
     height: 100vh;
     z-index: 0;
-    .modalBgFW_MdlConfirmation{ // se le agregan estos estilos para poder hacer clic fuera del modal y cerrarlo
+    &.conteiner{ // se le agregan estos estilos para poder hacer clic fuera del modal y cerrarlo
         width: 100vw;
         height: 100vh;
         backdrop-filter: blur(5px);
+
         position: fixed !important;
         overflow: hidden;
         top: 0;
         left: 0;
     }
-    .ctnModal_MdlConfirmation{
+    &.children{
         width: 50vw;
         height: 50vh;
         border-radius: 20px;
@@ -29,20 +44,23 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%,-50%);
-        .header_MdlConfirmation{
+        &.header{
             height: 25%;
             width: 100%;
             display: flex;
             justify-content: flex-end;
-            .iconClose_MdlConfirmation{
+            &.iconClose{
                 cursor: pointer;
-                height: 30px;
+                height: 20px;
+                width: 20px;
+            
             }
         }
-        .children_MdlConfirmation{
+        
+        &.children{
             height: 65%;
             width: 100%;
-            .content_MdlConfirmation{
+            &.conteiner{
                 height: 100%;
                 width: 100%;
                 display: flex;
@@ -56,42 +74,43 @@
 // ---------------------------------------------------------------------------------------------------------
 //      modo claro
 // ---------------------------------------------------------------------------------------------------------
-    &.Light{
-        .ctnModal_MdlConfirmation{
-            box-shadow: var(--boxShadow);
-            background: var(--bg);
-        }
-    }
+    // &.Light{
+    //     .ctnModal_MdlConfirmation{
+    //         box-shadow: var(--boxShadow);
+    //         background: var(--bg);
+    //     }
+    // }
 // ---------------------------------------------------------------------------------------------------------
 //      modo oscuro
 // ---------------------------------------------------------------------------------------------------------
-    &.Dark{
-        .ctnModal_MdlConfirmation{
-            box-shadow: var(--boxShadowDark);
-            background: var(--bgDark);
-        }
-    }
-}
+//     &.Dark{
+//         .ctnModal_MdlConfirmation{
+//             box-shadow: var(--boxShadowDark);
+//             background: var(--bgDark);
+//         }
+//     }
+// }
 
 // ---------------------------------------------------------------------------------------------------------
 //      media queries
 // ---------------------------------------------------------------------------------------------------------
 @media (max-aspect-ratio: 4/3){ // relación aspecto con dispositivos mayores a móviles tales como tablets
-    .ctn_MdlConfirmation
+    .MdlConfirmation
     {
-        .ctnModal_MdlConfirmation{
+        &.conteiner{
             width: 100vw;
         }
     }    
 }
 @media (max-aspect-ratio: 7/10){ // Relación aspecto de dispositivos móviles
-    .ctn_MdlConfirmation
+    .MdlConfirmation
     {
-        .ctnModal_MdlConfirmation{
+        &.conteiner{
             width: 100vw;
             height: 50vh;
             transform: translateX(-50%);
             border-radius: 20px 20px 0 0 ;
         }
     }
+}
 }
