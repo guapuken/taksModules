@@ -20,6 +20,8 @@ export interface aside {
 	placeholderDropdown?: string;
 	optionsFilter?: optionsIcnDrp[];
 	onCl_reorder: onClickType;
+	themeStyle?: string;
+	className?: string;
 }
 
 // componente NoTasks

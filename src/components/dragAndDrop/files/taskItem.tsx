@@ -1,31 +1,27 @@
 import React from 'react';
 import { taskItem } from '../types';
 import NoCard from './noCard';
+import { SimpleContainer, Title } from '../../Atoms';
 
 export const TaskItem = (props: taskItem) => {
 	const datos = { ...props };
 	return (
 		<>
 			{datos.Card ? (
-				<div>
-					{datos.approved && (
-						<h3
-							style={{
-								position: 'absolute',
-								right: '20px',
-								top: '-10px',
-								fontSize: '12px',
-								background: '#1cbf59',
-								padding: '5px',
-								borderRadius: '5px',
-								color: '#fff',
+				<SimpleContainer>
+					{(datos.approved || datos.pendingToReview) && (
+						<Title
+							modo={'Light'}
+							className="dndLabelStatus"
+							labels={{
+								'status-task': datos.approved ? 'approved' : 'pending',
 							}}
 						>
-							Revisada
-						</h3>
+							{datos.approved ? 'Revisada' : 'Pendiente de revisar'}
+						</Title>
 					)}
 					<datos.Card modo={datos.modo} {...datos.data} />
-				</div>
+				</SimpleContainer>
 			) : (
 				<NoCard taskName={datos.data.taskName} />
 			)}

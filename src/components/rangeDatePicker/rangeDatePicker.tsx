@@ -6,6 +6,7 @@ import { rangeDatePicker } from './types';
 import { MonthName } from './files/functions';
 // styles
 import './rangeDatePicker.scss';
+import { SimpleContainer, Texts, Title } from '../Atoms';
 
 const RangeDatePicker = ({
 	startDateValue,
@@ -33,11 +34,17 @@ const RangeDatePicker = ({
 	useEffect(() => {
 		if (endDateValue) setEndDate(endDateValue);
 	}, [endDateValue]);
+
 	return (
-		<div id={`dates${modo}_RDatePC`} style={style} className={`ctn${modo}_RDatePC`}>
-			<div>
-				<p>Inicio</p>
-				<label htmlFor="startDate" className={`${startDate === '' ? 'No' : ''}Dt`}>
+		<SimpleContainer style={style} className="rangeDatePicker">
+			<SimpleContainer className="rangeDatePicker__startDate">
+				<Texts modo={modo} className="rangeDatePicker__textLabel">
+					Inicio
+				</Texts>
+				<label
+					htmlFor="startDate"
+					className={`rangeDatePicker__labelDate ${startDate === '' ? 'noDate' : 'date'}`}
+				>
 					{startDate === '' ? 'Inicio' : MonthName(String(startDate))}
 				</label>
 				<input
@@ -46,7 +53,6 @@ const RangeDatePicker = ({
 					name="start-date"
 					min={minStartDate}
 					max={maxStartDate}
-					className={'DatePickerTaskComponent'}
 					value={String(startDate)}
 					disabled={disabledStartDate}
 					onChange={(e: any) => {
@@ -56,11 +62,17 @@ const RangeDatePicker = ({
 						}
 					}}
 				/>
-			</div>
-			<h2>→</h2>
-			<div>
-				<p>Entrega</p>
-				<label id="lblEnd" htmlFor="endDate" className={`${endDate === '' ? 'No' : ''}Dt`}>
+			</SimpleContainer>
+			<Title modo={modo}>→</Title>
+			<SimpleContainer className="rangeDatePicker__startDate">
+				<Texts modo={modo} className="rangeDatePicker__textLabel">
+					Entrega
+				</Texts>
+				<label
+					id="lblEnd"
+					htmlFor="endDate"
+					className={`rangeDatePicker__labelDate ${endDate === '' ? 'noDate' : 'date'}`}
+				>
 					{endDate === '' ? 'Fin' : MonthName(String(endDate))}
 				</label>
 				<input
@@ -71,14 +83,13 @@ const RangeDatePicker = ({
 					min={minEndDate ?? String(startDate)}
 					max={maxEndDate}
 					value={String(endDate)}
-					className={`${'DatePickerTaskComponent'} ${'CalendarOpenTaskModules'}`}
 					onChange={(e: any) => {
 						setEndDate(e.target.value);
 						if (onCh_endDate) onCh_endDate(e);
 					}}
 				/>
-			</div>
-		</div>
+			</SimpleContainer>
+		</SimpleContainer>
 	);
 };
 

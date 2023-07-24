@@ -15,7 +15,7 @@ InitialState.args = {};
 export const WithProperties = Template.bind({});
 WithProperties.args = {
 	// personalMsn: true,
-	modo: 'Dark',
+	modo: 'Light',
 	messages: [
 		{
 			id: 1,

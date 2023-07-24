@@ -12,6 +12,7 @@ const InputLabel = ({
 	min = 0,
 	max = 30,
 	style,
+	modo,
 }: inputLabel) => {
 	const [isActive, setIsActive] = useState(false);
 	const [value, setValue] = useState(initialValue);
@@ -30,8 +31,9 @@ const InputLabel = ({
 	}, [initialValue]);
 
 	return (
-		<div id="LblInpt_ILC" style={style}>
+		<div style={style} className="inputLabel" theme-config={modo}>
 			<input
+				className="inputLabel__input"
 				type={type}
 				min={min}
 				max={max}
@@ -44,7 +46,7 @@ const InputLabel = ({
 			/>
 
 			<label
-				className={isActive || value ? 'isActLbl' : ''}
+				className={`inputLabel__label ${(isActive || value) && 'active'}`}
 				style={{ display: 'flex', alignItems: 'center' }}
 			>
 				{legend}

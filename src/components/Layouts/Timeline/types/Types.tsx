@@ -1,9 +1,23 @@
 import { Modo, onChangeType, onClickType, optionsDropdown, statusTask } from '../../../../types';
 
 export type visualizacionMedios = {
-	arreglo?: medios[];
+	arreglo?: medios[] | null;
 	modo: Modo;
 	titulo?: string;
+	tasks?: medios[];
+	onCl_selectedMedios?: onClickType;
+	percentSitios?: number;
+	percentUrbanos?: number;
+	percentIndoors?: number;
+	percentVallas?: number;
+	statusSitios?: statusTask;
+	statusUrbanos?: statusTask;
+	statusIndoors?: statusTask;
+	statusVallas?: statusTask;
+	sitiosFijos?: boolean;
+	unidadesUrbanas?: boolean;
+	sitiosIndoors?: boolean;
+	vallasMoviles?: boolean;
 };
 
 export type medios = {
@@ -21,15 +35,22 @@ export type tasksTimeline = {
 	legendBtn?: string;
 };
 export interface timelineProjectProps {
+	onCh_dropdown?: onChangeType;
+	optionsDropdown?: optionsDropdown[];
+	initialValueDropdown?: optionsDropdown;
 	tasks: tasksTimeline[];
 	nombreProyecto: string;
-	fijos?: medios[];
-	urbanos?: medios[];
-	indoors?: medios[];
-	vallas?: medios[];
+	medios?: medios[] | null;
 	modo: Modo;
-	onCh_dropdown: onChangeType;
-	opcionesDropdown: optionsDropdown[];
-	valorInicialDropdown?: optionsDropdown;
 	onCl_compartir: onClickType;
+	onCl_selectedMedios: onClickType;
+	percentSitios?: number;
+	percentUrbanos?: number;
+	percentIndoors?: number;
+	percentVallas?: number;
+	statusSitios?: statusTask;
+	statusUrbanos?: statusTask;
+	statusIndoors?: statusTask;
+	statusVallas?: statusTask;
+	onCl_close?: onClickType;
 }

@@ -1,6 +1,9 @@
 // ---------------------------------------------------------------------------------------------------------
 //      Átomos
 // ---------------------------------------------------------------------------------------------------------
+export{default as Title} from '../components/Atoms/titles/Title';
+export {default as Texts} from '../components/Atoms/texts/Texts';
+
 // button que puede incluir un icono, ser flotante y su legenda
 export {default as Button} from './button/Button';
 // conjunto de botones que tienen cierta composición
@@ -42,19 +45,19 @@ export {default as Dificultad} from './Dificultad/Dificultad';
 //      Cards preestablecidas
 // ---------------------------------------------------------------------------------------------------------
 export {default as Cards} from './cards'; // genérica
+export {default as CardTask} from '../components/cards/Tasks/cardTask';
 export {default as CardCampaign} from './cards/Campaigns/CardCampaign';
-export {default as CardTeam} from  './cardTeam';
-export {default as CardProject} from './cardProject';
-export {default as CardTask} from './cardTask';
-export {default as CardMembersTeam} from './cardMembersTeam';
-export {default as CardTaskReview} from './cardTaskReview';
+export {default as CardTeam} from  './cards/teams';
+export {default as CardProject} from './cards/Projects/cardProject';
+export {default as CardMembersTeam} from './cards/MemberTeam/cardMembersTeam';
+export {default as CardTaskReview} from './cards/TaskReview/cardTaskReview';
 
 // ---------------------------------------------------------------------------------------------------------
 //      Cards de gestión
 // ---------------------------------------------------------------------------------------------------------
-export {default as CardMannageTemplates} from './cardMannageTemplates';
-export {default as CardMannageProjects} from './cardMannageProjects';
-export {default as CardMannageTasks} from './cardMannageTasks';
+export {default as CardMannageTemplates} from './cards/MannageTemplates/cardMannageTemplate';
+export {default as CardMannageProjects} from './cards/MannageProjects/cardMannageProjects';
+export {default as CardMannageTasks} from './cards/MannageTasks/cardMannageTasks';
 
 // ---------------------------------------------------------------------------------------------------------
 //      Modales preestablecidos
@@ -92,7 +95,9 @@ export {default as Msns} from './msns';
 // ---------------------------------------------------------------------------------------------------------
 export {default as TimelineProject} from './Layouts/Timeline/TimelineProject';
 // layout de página del módulo de tareas
-export {default as Container} from './containerComp'
+// export {default as Container} from './containerComp'
+export {default as Container} from './Layouts/Container/Container'
+export {default as Organigrama} from './organigrama/Organigrama';
 
 // ---------------------------------------------------------------------------------------------------------
 //      Hooks

@@ -18,7 +18,7 @@ const Button = ({
 	styleIcon,
 	legend = 'Simple button',
 	icon,
-	className,
+	className = '',
 	primary,
 	secondary,
 	tertiary,
@@ -32,25 +32,28 @@ const Button = ({
 	return (
 		<button
 			id={id}
-			className={`ctn${modo}_BtnC ${className}`}
+			className={`boton ${className}`}
 			onClick={onCl}
+			theme-config={modo}
 			disabled={disabled}
 			style={style}
-			rd-btn={rounded ? 'rounded' : ''}
-			ds-btn={disabled ? 'disabled' : ''}
-			brd-btn={border ? 'border' : ''}
-			jrq-btn={primary ? 'Pr' : secondary ? 'Sc' : tertiary ? 'Tr' : ''}
-			fl-btn={float ? 'float' : ''}
-			sz-btn={size}
+			rounded-button={rounded ? 'rounded' : ''}
+			disabled-button={disabled ? 'disabled' : ''}
+			border-button={border ? 'border' : ''}
+			style-button={
+				primary ? 'primary' : secondary ? 'secondary' : tertiary ? 'tertiary' : ''
+			}
+			float-button={float ? 'float' : 'noFloat'}
+			size-button={size}
 		>
-			<SimpleContainer className={`ctnIcnLgnd_${size}`} style={textStyle}>
+			<span className={`boton__contenido`} style={textStyle}>
 				<ValidationComponent validate={icon}>
-					<img className="icn" src={icon} style={styleIcon} />
+					<img className="boton__contenido-icon" src={icon} style={styleIcon} />
 				</ValidationComponent>
-				<Texts modo={'' as Modo} className="lgnd">
+				<Texts modo={'' as Modo} className="boton__contenido-legend">
 					{legend}
 				</Texts>
-			</SimpleContainer>
+			</span>
 		</button>
 	);
 };

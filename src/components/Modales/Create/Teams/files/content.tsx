@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // componentes auxiliares
 import { InputLabel } from '../../../../../components';
 import { Spans } from '../../../../../utils/cardsUtils';
@@ -28,7 +28,7 @@ const Content = ({
 	idTeam,
 	modo = 'Light',
 }: content) => {
-	const [asignColor, setAsignColor] = React.useState(teamColor || '');
+	const [asignColor, setAsignColor] = useState(teamColor);
 
 	useEffect(() => {
 		setAsignColor(teamColor);
@@ -47,7 +47,7 @@ const Content = ({
 					<Spans
 						legend={asignColor}
 						boldLegend={
-							teamColor === undefined ? 'Color de equipo' : 'Color de quipo: '
+							teamColor === undefined ? 'Color de equipo' : 'Color de equipo: '
 						}
 						style={{ color: obtenerColorLetra(asignColor) }}
 					/>

@@ -1,21 +1,10 @@
-@import '../../../global.scss';
-// ---------------------------------------------------------------------------------------------------------
-//      Estilos generales
-// ---------------------------------------------------------------------------------------------------------
-
-
-[theme-config='Dark']{
-
-}
 
 
 .chat
 {
     height: 90vh;
-    max-height: 100vh;
     overflow: hidden;
-    overflow-y: auto;
-    width: calc(100vw / 4 - 50px);
+    width: 100%;
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -28,25 +17,10 @@
     &__identificacion{
         margin-bottom: 10px;
     }
-// ---------------------------------------------------------------------------------------------------------
-//      modo claro
-// ---------------------------------------------------------------------------------------------------------
-    &.Light{
-        background: var(--bg);
-        // z-index: -1;
-        .ctnDropdown, .ttlChat{
-            color: var(--bgDark);
-        }
+    &__iconOpenClose{
+        display: none;
     }
-// ---------------------------------------------------------------------------------------------------------
-//      modo oscuro
-// ---------------------------------------------------------------------------------------------------------
-    &.Dark{
-        background: var(--bgDark);
-        .ctnDropdown, .ttlChat{
-            color: var(--fcDark);
-        }
-    }
+    
 }
 
 
@@ -54,8 +28,50 @@
 //      media queries
 // ---------------------------------------------------------------------------------------------------------
 @media (max-aspect-ratio: 4/3){ // relación aspecto con dispositivos mayores a móviles tales como tablets
-   .ctn_ChC{
-    width: 50vw;
+   .chat{
+    // height: 50px;
+    // width: 50px;
+    display: grid;
+    place-items: center;
+    position: fixed !important;
+    right: 0 !important;
+    top: 15vh;
+    &[open-chat='close']{
+        .chat__contenedor{
+            display: none;
+        }
+    }
+    &[open-chat='open']{
+        .chat__contenedor{
+            display: block;
+            position: fixed;
+            bottom:0;
+            left:0;
+            width: 100vw;
+            height: 90vh;
+        }
+    }
+    &__iconOpenClose{
+        position: absolute;
+        // background: red;
+        border-radius: 50px;
+        display: block;
+        // height: 50px;
+        // width: 50px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        img{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+    }
+    // width: 50vw;
     .msn_text{
         &:before{
             bottom: 30px !important;

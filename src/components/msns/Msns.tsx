@@ -19,30 +19,36 @@ import './styles/msns.scss';
 
 const Msns = ({ messages = messagesExample, height = 'auto', modo = 'Light' }: msnsProps) => {
 	return (
-		<div className={`ctn_MsnsC ${modo}`} style={{ height: `${height}` }}>
+		<div className={`mensajes`} theme-config={modo} style={{ height: `${height}` }}>
 			{messages.length === 0 ? (
 				<></>
 			) : (
 				arrayMsns(messages).map((user: messageWorked) => (
 					<div
-						className="ctnMsn"
+						className="mensajes__contenedor"
 						ty-msn={user.type}
 						key={autoIncrementalId(user.userName)}
 					>
 						{user.userName && (
-							<SimpleContainer className="avatar_user">
+							// <SimpleContainer className="avatar_user">
+							<div className="mensajes__contenedor-user">
 								<Avatar
-									className={user.avatar ? 'image' : 'noImage'}
+									className={
+										user.avatar
+											? 'mensajes__contenedor-user-image'
+											: 'mensajes__contenedor-user-noImage'
+									}
 									modo={modo}
 									avatar={user.avatar}
 									userName={user.userName}
 								/>
-								<Title modo={modo} className="userName">
+								<Title modo={modo} className="mensajes__contenedor-user-name">
 									{user.userName}
 								</Title>
-							</SimpleContainer>
+							</div>
 						)}
-						<SimpleContainer className="blockMsns">
+						{/* <div className="blockMsns"> */}
+						<div className="mensajes__contenedor-bloquesMsn">
 							{user.messages.map((message: message) => (
 								<ItemMsn
 									modo={modo}
@@ -51,7 +57,7 @@ const Msns = ({ messages = messagesExample, height = 'auto', modo = 'Light' }: m
 									message={message.message}
 								/>
 							))}
-						</SimpleContainer>
+						</div>
 					</div>
 				))
 			)}

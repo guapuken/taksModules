@@ -89,7 +89,6 @@ const LabelStar = ({ value, color, id }: any) => {
 	);
 };
 const Dificultad = ({ onChange, initialValue, modo, id }: any) => {
-	console.log('dificultad comentario:', id, initialValue);
 	const [valueStar, setValueStar] = useState(initialValue);
 	useEffect(() => {
 		setValueStar(initialValue);

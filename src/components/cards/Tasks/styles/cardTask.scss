@@ -1,0 +1,34 @@
+.cardTask {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+    position: relative;
+    height: 100%;
+    &__contenido{
+        padding: 15px 8px;
+        margin-bottom: 5px;
+        &.dndCard{
+            padding-left: 50px;
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------
+//      media queries
+// ---------------------------------------------------------------------------------------------------------
+@media (max-aspect-ratio: 4/3){
+    .cardTask {
+        &__contenido{
+            &.dndCard{
+                padding-left: 8px;
+            }
+        }
+        &__footer{
+            padding-right: 10px;
+        }
+    }
+
+}
+@media (max-aspect-ratio: 7/10){
+
+}

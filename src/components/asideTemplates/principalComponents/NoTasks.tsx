@@ -4,6 +4,7 @@ import { Button } from '../../../components';
 import image from '../../../img/reloj.svg';
 import { noTasksProps } from '../types/types';
 import { onClickType } from '../../../types';
+import { SimpleContainer, Texts, ValidationComponent } from '../../Atoms';
 
 const NoTasks = ({
 	priText,
@@ -16,12 +17,18 @@ const NoTasks = ({
 }: noTasksProps) => {
 	return (
 		<Fragment>
-			<div className="ctnTextAndImage">
-				<img className="imgAsd" src={imageNoTasks ?? image} alt="" />
-				<div className="ctnTexts">
-					{priText && <h2 className="ttlAsd">{priText}</h2>}
-					{secText && <p className="descrAsd">{secText}</p>}
-					{legendBtn && (
+			<SimpleContainer className="aside__children-noTareas">
+				<img className="aside__children-noTareas-img" src={imageNoTasks ?? image} alt="" />
+				<SimpleContainer className="aside__children-noTareas-textos">
+					<ValidationComponent validate={priText}>
+						<h2 className="aside__children-noTareas-textos-title">{priText}</h2>
+					</ValidationComponent>
+					<ValidationComponent validate={secText}>
+						<Texts modo={modo} className="aside__children-noTareas-textos-description">
+							{secText}
+						</Texts>
+					</ValidationComponent>
+					<ValidationComponent validate={legendBtn}>
 						<Button
 							legend={legendBtn}
 							id={idSection}
@@ -29,9 +36,9 @@ const NoTasks = ({
 							primary
 							modo={modo}
 						/>
-					)}
-				</div>
-			</div>
+					</ValidationComponent>
+				</SimpleContainer>
+			</SimpleContainer>
 		</Fragment>
 	);
 };

@@ -1,37 +1,108 @@
-@import '../../../../global.scss';
 
-.ctnGeneral_TimelineProject{
-    .header_TimelineProject{
+.timelineProject{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 90vh;
+    padding: 20px;
+    overflow: hidden;
+    background: var(--bg);
+
+    &__header{
         display:flex;
         justify-content: space-between;
         align-items: center;
+        &-logo{
+            height: 10vh;
+        }
     }
-    .projectName_TimelineProject{
+    &__infoProject{
         margin: 15px 0;
     }
-    .CtnContenido_TimelineProject{
+    &__contenido{
+        // max-height: 80vh;
+        overflow: auto;
         display: grid;
         grid-template-columns: 30% 70%;
-        .CtnMediosGenerales_TimelineProject{
-            overflow: auto !important;
-            max-height: 80vh;
-        }
-        .CtnMedios_TimelineProject{
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            width: 100%;
-            padding-bottom: 15px;
-            box-shadow: 0px 15px 15px -10px #dedede;
-        }
-        .CtnMedio_TimelineProject{
+        &-timeline{
+            max-height: 70vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            user-select: none;
-            //safiri
-            -webkit-user-select: none;
+            overflow-y: auto !important;
+        }
+        &-medios{
+            overflow: auto !important;
+            max-height: 70vh;
+            background: var(--bg) ;
+            &-titles{
+                margin-top: 10px;
+                width: calc(25% - 20px);
+                box-shadow: var(--boxShadow);
+                height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                border-radius: 20px;
+                &.selected{
+                    box-shadow: 0 0 10px var(--detailColor)
+
+                }
+                &-percent{
+                    display: grid;
+					place-items: center;
+					position: absolute !important;
+					top: 10px;
+					right: 10px;
+					pointer-events: none; 
+                    // max-width: 20%;
+                    &-text{
+                        // max-width: 20%;
+                        position: absolute;
+						font-size: 11px;
+						user-select: none;
+						pointer-events: none;
+                    }
+                }
+                &-icon{
+                    height: 80px;
+					pointer-events: none;
+					user-select: none;
+                }
+                &-title{
+                    pointer-events: none;
+					user-select: none;
+					margin-top: -20px;
+					font-weight: lighter;
+                }
+                &:hover {
+                    background: var(--detailColor);
+                    color: #000 !important;
+                    
+                }
+            }
+            &-individual{
+                box-shadow: 0 0 10px var(--detailColor);
+                height: 100%;
+                padding: 20px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                border-radius: 20px;
+                &-medio{
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    max-width: 20%;
+                }
+            }
         }
     }
 }

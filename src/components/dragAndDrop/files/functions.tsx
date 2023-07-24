@@ -29,8 +29,8 @@ export const initializeBoard = (tasks: task[], BoardSection: any) => {
 
 	// Object.keys(BOARD_SECTIONS).forEach((boardSectionKey) => {
 	Object.keys(BoardSection).forEach((boardSectionKey) => {
-		// boardSections[boardSectionKey] = getTasksByStatus(tasks, boardSectionKey as Status);
 		boardSections[boardSectionKey] = getTasksByStatus(tasks, boardSectionKey as string);
+		console.log('boardSections:', boardSections[boardSectionKey]);
 	});
 	return boardSections;
 };

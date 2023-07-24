@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './checkboxInput.scss';
 import { Modo, css } from '../../../types';
+import { SimpleContainer } from '../../Atoms';
 
 interface CheckboxInputProps {
 	onCh_checkbox?: (e: React.FormEvent<HTMLInputElement>) => void;
@@ -20,14 +21,14 @@ export const CheckboxInput = (props: CheckboxInputProps) => {
 	const inputRef = useRef<any>(null);
 
 	useEffect(() => {
-		console.log('nivelInicial', check);
 		setCheckValue(check);
 	}, [check]);
 
 	return (
-		<div className={`ctn${modo}_CBIC`} style={style}>
+		<SimpleContainer labels={{ className: `checkbox`, style: style, 'theme-config': modo }}>
 			<input
 				type="checkbox"
+				className="checkbox__input"
 				ref={inputRef}
 				id={idCheckbox}
 				checked={checkValue}
@@ -35,6 +36,6 @@ export const CheckboxInput = (props: CheckboxInputProps) => {
 				onChange={onCh_checkbox}
 			/>
 			<label htmlFor={idCheckbox}></label>
-		</div>
+		</SimpleContainer>
 	);
 };

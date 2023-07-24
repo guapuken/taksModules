@@ -26,6 +26,8 @@ import { findBoardSectionContainer, getTaskById, initializeBoard } from './files
 import icon from '../../img/bell.svg';
 import Carousel from '../carousel/carousel';
 import './dragAndDrop.scss';
+import { aspectRatio } from '../../utils/functions/functions';
+import { SimpleContainer } from '../Atoms';
 
 const DragAndDrop = (props: dragAndDrop) => {
 	const scrSize = useWindowSize();
@@ -184,66 +186,61 @@ const DragAndDrop = (props: dragAndDrop) => {
 	const task = activeTaskId ? getTaskById(datos.tasks, activeTaskId) : null;
 
 	//
-	return scrSize.width < 1024 ? (
-		Object.keys(boardSections).map((boardSectionKey) => {
-			return (
-				<div style={{ width: '95%', margin: '0 auto' }}>
-					<Carousel
-						data={boardSections[boardSectionKey]}
-						Card={(e: any) => {
-							return datos.Card ? (
-								<div style={{ position: 'relative' }}>
-									{datos.approved && (
-										<h3
+	return aspectRatio().tablet ? (
+		<Fragment>
+			<SimpleContainer>
+				{Object.keys(boardSections).map((boardSectionKey) => {
+					return (
+						<div
+							style={{
+								maxWidth: '100vw',
+								minHeight: '25vh',
+							}}
+						>
+							<Carousel
+								data={boardSections[boardSectionKey]}
+								modo={modo}
+								Card={(e: any) => {
+									return datos.Card ? (
+										<div style={{ position: 'relative' }}>
+											{datos.approved && (
+												<h3
+													style={{
+														fontSize: '12px',
+														background: '#1cbf59',
+														padding: '5px',
+														borderRadius: '5px',
+														color: '#fff',
+													}}
+												>
+													Revisada
+												</h3>
+											)}
+											<datos.Card modo={datos.modo} {...e.property} />
+										</div>
+									) : (
+										<NoCard taskName={e.taskName} />
+									);
+								}}
+								height={scrSize.height / 4}
+								titleContent={
+									<div key={boardSectionKey}>
+										<div
 											style={{
-												position: 'absolute',
-												right: '20px',
-												top: '-10px',
-												fontSize: '12px',
-												background: '#1cbf59',
-												padding: '5px',
-												borderRadius: '5px',
-												color: '#fff',
+												display: 'flex',
+												gap: '20px',
 											}}
 										>
-											Revisada
-										</h3>
-									)}
-									<datos.Card modo={datos.modo} {...e.property} />
-								</div>
-							) : (
-								<NoCard taskName={e.taskName} />
-							);
-						}}
-						height={scrSize.height / 4}
-						titleContent={
-							<div
-								style={{
-									position: 'absolute',
-									left: '50%',
-									transform: 'translateX(-50%)',
-								}}
-								key={boardSectionKey}
-							>
-								<div
-									style={{
-										display: 'flex',
-										gap: '20px',
-									}}
-								>
-									<p>{boardSectionKey}</p>
-									<img
-										src={icon}
-										alt=""
-										style={{ height: '20px', width: 'auto' }}
-									/>
-								</div>
-							</div>
-						}
-					/>
-				</div>
-			);
-		})
+											<p>{boardSectionKey}</p>
+										</div>
+									</div>
+								}
+							/>
+						</div>
+					);
+				})}
+			</SimpleContainer>
+		</Fragment>
 	) : (
 		<DndContext
 			sensors={sensors}
@@ -263,6 +260,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 		>
 			<div className={`ctn_DDC ${modo}`}>
 				{Object.keys(boardSections).map((boardSectionKey) => {
+					console.log('boardSectionKey: ', boardSections);
 					//genera los elementos droppables
 					return (
 						<div className="boardCtn" key={boardSectionKey}>

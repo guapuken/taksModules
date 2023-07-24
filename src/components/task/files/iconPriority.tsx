@@ -62,11 +62,11 @@ const IconPriority = (props: IconPriorityProps) => {
 						height={30}
 						fill={
 							prioridad === 'baja'
-								? '#1cbf59'
+								? '#038f39'
 								: prioridad === 'media'
-								? '#fcb23b'
+								? '#f8b03d'
 								: prioridad === 'alta'
-								? '#fc3d38'
+								? '#da3430'
 								: modo === 'Dark'
 								? '#dedede'
 								: '#525252'

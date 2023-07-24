@@ -16,10 +16,9 @@ const CommentTask = (props: functions) => {
 					taskType="task"
 					initialValue={valueComment}
 				/>
-			</fieldset>
-			<div className="ctnButtons" style={{}}>
-				{/* Se agregará esta parte cuando se puedan subir archivos */}
-				{/* <input
+				<div className="ctnButtons">
+					{/* Se agregará esta parte cuando se puedan subir archivos */}
+					{/* <input
 					type="file"
 					id="file"
 					onChange={(e) => {
@@ -31,14 +30,15 @@ const CommentTask = (props: functions) => {
 				<label htmlFor="file">
 					<Texts>Adjuntar</Texts>
 				</label> */}
-				<Button
-					modo={modo}
-					primary
-					legend="Agregar comentario"
-					onCl={onCl_addComment}
-					style={{ height: '20px' }}
-				/>
-			</div>
+					<Button
+						modo={modo}
+						primary
+						legend="Agregar comentario"
+						onCl={onCl_addComment}
+						style={{ height: '20px' }}
+					/>
+				</div>
+			</fieldset>
 		</div>
 	);
 };

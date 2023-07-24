@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import CardTask from '../cardTask';
+import { CardTask } from '../../components';
 import Cards from '../cards';
 import Task from '../task/task';
 import DragAndDrop from './dragAndDrop';
@@ -14,10 +14,11 @@ const tasks = [
 		status: 'En proceso',
 		taskName: 'Dummies CDMX',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
-		statusTask: 'outOfTime',
+		statusTask: 2,
 		percentTask: 15,
 		onCh_follow: (e) => !e,
 		subtasks: 10,
+		pendingToReview: true,
 	},
 	{
 		id: '16',
@@ -25,7 +26,7 @@ const tasks = [
 		status: 'En proceso',
 		taskName: 'Bloqueos',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
-		statusTask: 'outOfTime',
+		statusTask: 1,
 		percentTask: 35,
 		onCh_follow: (e) => !e,
 		subtasks: 10,
@@ -56,10 +57,10 @@ const tasks = [
 	{
 		id: '18',
 		idNotification: '18',
-		status: 'Por hacer',
+		status: 'completas_o_revision',
 		taskName: 'Impresión',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
-		statusTask: 'outOfTime',
+		statusTask: 1,
 		percentTask: 0,
 		onCh_follow: (e) => !e,
 		subtasks: 10,
@@ -67,10 +68,10 @@ const tasks = [
 	{
 		id: '20',
 		idNotification: '20',
-		status: 'Por hacer',
+		status: 'en_proceso',
 		taskName: 'Impresión de locas',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
-		statusTask: 'outOfTime',
+		statusTask: 2,
 		percentTask: 60,
 		onCh_follow: (e) => !e,
 		subtasks: 10,
@@ -78,7 +79,7 @@ const tasks = [
 	{
 		id: '21',
 		idNotification: '21',
-		status: 'Por hacer',
+		status: 'por_hacer',
 		taskName: 'Impresión por medio de Bigfoot print para ayr',
 		taskDescription: 'Dummies de la campaña de UBER-sitios-1253-noviembre',
 		statusTask: 'outOfTime',
@@ -92,9 +93,9 @@ export const Initial = Template.bind({});
 Initial.args = {
 	tasks: tasks,
 	nameBoards: {
-		'Por hacer': '1',
-		'En proceso': 'progress',
-		'Completas / Revisión': 'done',
+		por_hacer: [],
+		en_proceso: [],
+		completas_o_revision: [],
 	},
 	Card: CardTask,
 	modo: 'Dark',

@@ -1,11 +1,4 @@
-@import '../../../global.scss';
-
-// ---------------------------------------------------------------------------------------------------------
-//      Estilos generales 
-// ---------------------------------------------------------------------------------------------------------
-// .ctnDark_ATC,
-// .ctnLight_ATC
-.ctn_ATC
+.aside
 {
     position: relative;
     margin-block: 0;
@@ -13,28 +6,38 @@
     display: flex;
     justify-content: center;
     height: calc(92vh);
-    // width: 25%; 
-    .children {
+    background: var(--bg);
+    width: 100%;
+    &__children {
         width: 100%;
         height: 80vh;
         overflow-y: auto;
         overflow-x: hidden;
         margin-top: 10vh;
-        h2{
-            font-weight: bold;
+        &-noContent{ // se aplican cuando no hay ningún elemento en el aside
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
-        p{
-            font-weight: lighter;
-            opacity: .5;
+        &-dropdown{
+            width: 90%;
+            display: flex;
+            gap: 10px;
+            height: 30px;
+            margin: 0 auto;
         }
-        .ctnCards{
+        &-contenido{
             display: flex;
             gap:20px;
             margin-top: 15px;
             flex-wrap: wrap;
             justify-content: center ;
         }
-        .ctnTextAndImage{
+        &-noTareas{
             height: 100%;
             width: 100%;
             text-align: left;
@@ -42,20 +45,20 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 1;
-            .ctnTexts{
+            &-textos{
                 background: #28282875;
                 padding: 20px;
                 border-radius: 20px;
                 z-index: 1;
                 max-width: 95%;
                 color: #fff;
-                .descrAsd{
+                &-description{
                     margin: 10px auto 20px auto;
                     opacity: 1;
+                    color: var(--fc);
                 }
             }
-            .imgAsd{
+            &-img{
                 position: absolute;
                 right: 0;
                 height: 75%;
@@ -66,117 +69,44 @@
             }
         }
     }
-    .noCtn{
-        text-align: center;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-    &[vs-asd='Visible']{
-        .noCtn{
-            color: #fff;
-        }
-    }
-    // ---------------------------------------------------------------------------------------------------------
-//      modo claro
-// ---------------------------------------------------------------------------------------------------------
-    &.Light{
-    background: var(--bgDark);
-    &[vs-asd='Visible']{
-        .noCtn, .ttlAsd, .descrAsd{
-            color: #fff!important;
-
-        }
-    }
-    &[vs-asd='Normal']{
-                background: var(--bg);
-                color: #525252;
-                .ttlAsd, .descrAsd{
-                    color: #fff!important;
-        
-                }
-            }
-            color: var(--bg)
-    }
-// ---------------------------------------------------------------------------------------------------------
-//      modo Oscuro
-// ---------------------------------------------------------------------------------------------------------
-    &.Dark{
-    background: var(--fcDark);
-    &[vs-asd='Visible']{
+    &[vs-asd='visible']{
         background: var(--contrastDark);
-        .noCtn, .ttlAsd, .descrAsd{
-            color: #fff!important;
-
+        .aside__children-noContent{
+            background: var(--contrastDark);
         }
-    }
-    &[vs-asd='Normal']{
-                background: var(--bgDark);
-                color: #525252;
-                .ttlAsd, .descrAsd{
-                    color: #fff!important;
-        
-                }
-            }
     }
 }
-
-// ---------------------------------------------------------------------------------------------------------
-//      modo claro
-// ---------------------------------------------------------------------------------------------------------
-// .ctnLight_ATC
-// {
-//     &[vs-asd='Visible']{
-//         background: var(--bgDark) !important;
-//     }
-//     &[vs-asd='Normal']{
-//         background: var(--bg);
-//         color: #525252;
-//     }
-//     color: #fff;
-// }
-
-// // ---------------------------------------------------------------------------------------------------------
-// //      Modo oscuro
-// // ---------------------------------------------------------------------------------------------------------
-// .ctnDark_ATC{
-//     .noCtn{
-//         color: #dedede;
-//     }
-//     &[vs-asd='Visible']{
-//         background: var(--contrastDark) !important;
-//     }
-//     &[vs-asd='Normal']{
-//         background: var(--bgDark);
-//     }
-// }
 // ---------------------------------------------------------------------------------------------------------
 //      media queries 
 // ---------------------------------------------------------------------------------------------------------
 @media (max-aspect-ratio: 4/3){ // relación aspecto con dispositivos mayores a móviles tales como tablets
-    // .ctnLight_ATC,
-    // .ctnDark_ATC
-    .ctn_ATC
+    .aside
     {
-        // width: calc(50% - 20px);
-        .children{
+        width: calc(50vw - 40px);
+        // padding-top: 0 !important;
+        // margin-top: 0 !important;
+        &__children{
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 20px;
             width: 100%;
+            height: 100%;
         }
     }    
 }
 @media (max-aspect-ratio: 7/10){ // Relación aspecto de dispositivos móviles
     // .ctnLight_ATC,
     // .ctnDark_ATC
-    .ctn_ATC
+    .aside
     {
-        width: 100%;
-        height: calc(100vh /4);
-        .children {
+        width: 100vw;
+        height: calc(90vh / 4);
+        &__children {
             height: 92%;
             margin-top: 0;
+            &-contenido{
+                margin-top: 0;
+            }
         }
         .dropdownCtn{
             height: 30px !important;

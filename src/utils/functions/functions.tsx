@@ -22,8 +22,13 @@ export function cardH() {
  * @returns las letras iniciales de la cadena de texto
  * @example - initialLetters("Juan Calos Almada") → return → "JCA"
  */
-export function initialLetters(text: string) {
-	return text ? text.split(' ').map((word) => word.charAt(0)) : '';
+export function initialLetters(text: any) {
+	return text
+		? text
+				.toString()
+				.split(' ')
+				.map((word: string) => word.charAt(0))
+		: '';
 }
 
 let id = 0;
@@ -35,8 +40,9 @@ export function autoIncrementalId(diferencial?: string) {
 export function aspectRatio() {
 	const scrnW = useWindowSize().width;
 	const scrnH = useWindowSize().height;
-	const size = scrnH / 10 > scrnW / 7 ? true : false;
-	return size;
+	const tablet = scrnH / 3 > scrnW / 4 ? true : false;
+	const mobile = scrnH / 10 > scrnW / 7 ? true : false;
+	return { mobile, tablet };
 }
 
 /**
@@ -45,11 +51,9 @@ export function aspectRatio() {
  * @returns - el tamaño a lo ancho del elemento con el id seleccionado
  */
 export function getWidth(idToSelect: string) {
-	console.log(idToSelect);
 	let width = 0;
 	let height = 0;
 	const element = document.getElementById(idToSelect);
-	console.log(element);
 	if (element && element.clientWidth) {
 		width = element?.clientWidth;
 	}
@@ -69,10 +73,10 @@ export function obtenerColorLetra(colorFondo: any) {
 	let r = 0;
 	let g = 0;
 	let b = 0;
-	if (colorFondo.includes('#')) {
-		r = parseInt(colorFondo.slice(1, 3), 16);
-		g = parseInt(colorFondo.slice(3, 5), 16);
-		b = parseInt(colorFondo.slice(5, 7), 16);
+	if (colorFondo?.includes('#')) {
+		r = parseInt(colorFondo?.slice(1, 3), 16);
+		g = parseInt(colorFondo?.slice(3, 5), 16);
+		b = parseInt(colorFondo?.slice(5, 7), 16);
 	} else {
 		[r, g, b] = colorFondo;
 	}
@@ -94,6 +98,3 @@ const fondoNegro = [0, 0, 0];
 
 const colorLetraBlanca = obtenerColorLetra(fondoBlanco);
 const colorLetraNegra = obtenerColorLetra(fondoNegro);
-
-console.log('Color de letra para fondo blanco:', colorLetraBlanca);
-console.log('Color de letra para fondo negro:', colorLetraNegra);

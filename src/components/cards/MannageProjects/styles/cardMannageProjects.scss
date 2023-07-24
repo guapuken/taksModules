@@ -1,0 +1,9 @@
+
+.cardMannageProjects{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__contenido{
+        padding: 15px;
+    }
+}

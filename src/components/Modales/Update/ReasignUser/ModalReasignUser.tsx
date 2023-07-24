@@ -68,8 +68,9 @@ const MdlReasignUser = ({
 									}
 									setTeam(!team);
 								}}
+								style={{ marginTop: '20px' }}
 							/>
-							Reasignar a equipo
+							<Texts modo={modo}>Reasignar a equipo</Texts>
 						</SimpleContainer>
 						<SimpleContainer
 							style={{
@@ -88,8 +89,9 @@ const MdlReasignUser = ({
 									}
 									setRes(!responsable);
 								}}
+								style={{ marginTop: '20px' }}
 							/>
-							Reasignar a responsable
+							<Texts modo={modo}>Reasignar a responsable</Texts>
 						</SimpleContainer>
 					</SimpleContainer>
 				</ValidationComponent>

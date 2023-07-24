@@ -1,10 +1,13 @@
 import React from 'react';
+import { Texts, Title } from '../../Atoms';
 
-const ErrorNC = () => {
+const ErrorNC = ({ modo }: any) => {
 	return (
-		<div className={`noCtn`}>
-			<h2>Ups!</h2>
-			<p>parece que olvidaste agregar tu contenido</p>
+		<div className={`aside__children-noContent`}>
+			<Title modo={modo} className={`aside__children-noContent-title`}>
+				Ups!
+			</Title>
+			<Texts modo={modo}>parece que olvidaste agregar tu contenido</Texts>
 		</div>
 	);
 };

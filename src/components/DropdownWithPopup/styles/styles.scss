@@ -1,0 +1,51 @@
+
+.dropdownWithPopup{
+    display: flex;
+    position: relative;
+    margin: 0;
+    &__circle{
+        position: absolute;
+        top: 0;
+        left: 60%;
+        background-color: red;
+        width: 18px;
+        height: 18px;
+        padding-left: 6px;
+        padding-top: 2px;
+        margin-block: 0;
+        border-radius: 20px;
+        color: #fff;
+        font-size: 13px;
+        color: #fff;
+        z-index: 4;
+        &-container{
+            position: absolute;
+            // width: 100%;
+            min-width: 200px;
+            &-contenido{
+                display: flex;
+                flex-wrap: wrap;
+                background: var(--fc90);
+                padding: 10px 10px;
+                position: relative;
+                border: none;
+                border-radius: 10px;
+                color: #fff;
+                width: 100%;
+                &:before{
+                    content:'';
+                    position: absolute;
+                    bottom: 100%;
+                    left:50%;
+                    width:0;
+                    height: 0;
+                    border: none;
+                    border-bottom: 26px solid var(--fc90);
+                    border-right: 13px solid transparent;
+                    border-left: 13px solid transparent;
+                    border-top: 13px solid transparent;
+                }
+            }
+        }
+    }
+}

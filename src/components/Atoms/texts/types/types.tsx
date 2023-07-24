@@ -6,4 +6,5 @@ export interface textsProps {
 	style?: css;
 	maxLines?: number;
 	onClick?: onClickType;
+	labels?: any;
 }

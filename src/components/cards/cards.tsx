@@ -5,41 +5,51 @@ import { cardIntrfc } from './types';
 import ErrorNC from './files/errorNoContent';
 // importación de estilos
 import './cards.scss';
+import { SimpleContainer, ValidationComponent } from '../Atoms';
 
 // creación del componente principal
 const Cards = (props: cardIntrfc) => {
 	//desestructuración de propiedades
-	const { rounded = false, Content, data, Aside, modo = 'Light', className, height } = props;
+	const {
+		rounded = false,
+		Content,
+		data,
+		Aside,
+		modo = 'Light',
+		className,
+		height,
+		themeStyle,
+	} = props;
 
-	//renderizado del componente
 	return (
-		//Contenedor general de la card
-		<div
-			className={`ctn_CC  ${modo} ${className ?? ''}`}
-			asd-ctn={Aside ? 'Asd' : 'NoAsd'}
-			rnd-ctn={rounded ? 'Rnd' : 'NoRnd'}
-			ctn-ctn={Content ? 'Ctn' : 'NoCtn'}
-			style={{ height: height ?? '' }}
+		<SimpleContainer
+			labels={{
+				className: `cardComponent ${className ?? ''}`,
+				'theme-config': modo,
+				'theme-style': themeStyle,
+				'contenido-card': Content ? 'conContenido' : 'sinContenido',
+				'aside-element': Aside ? 'aside' : 'NoAside',
+				'card-style': rounded ? 'redondeada' : 'cuadrada',
+				style: { height: height ?? '' },
+			}}
 		>
-			{/* Si no existe contenido para ser mostrado en las cards se renderiza este bloque de código */}
 			{Content ? (
-				<div className="contentCtn">
-					{/* Contenedor general del children */}
-					<div className="childrenCtn">{<Content data={data} />}</div>
-					{/* Si existe la propiedad de Aside se renderiza este código */}
-					{Aside && (
-						<div className="asideCtn">
-							{/* Contenedor general del Aside */}
-							<div className="asideChildren">
+				<SimpleContainer className="cardComponent__contenido">
+					<SimpleContainer className="cardComponent__contenido-children">
+						<Content data={data} />
+					</SimpleContainer>
+					<ValidationComponent validate={Aside}>
+						<SimpleContainer className="cardComponent__contenido-aside">
+							<SimpleContainer className="cardComponent__contenido-aside-children">
 								<Aside />
-							</div>
-						</div>
-					)}
-				</div>
+							</SimpleContainer>
+						</SimpleContainer>
+					</ValidationComponent>
+				</SimpleContainer>
 			) : (
-				<ErrorNC />
+				<ErrorNC modo={modo} />
 			)}
-		</div>
+		</SimpleContainer>
 	);
 };
 

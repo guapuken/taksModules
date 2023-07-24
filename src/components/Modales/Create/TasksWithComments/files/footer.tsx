@@ -13,6 +13,7 @@ const Footer = (props: functions) => {
 		isReviewer,
 		onCl_edit,
 		onCl_abort,
+		isCampaignTask,
 	} = props;
 	const [reWork, setReWork] = React.useState(false);
 	return (
@@ -75,10 +76,13 @@ const Footer = (props: functions) => {
 			{!isReviewer && (
 				<Buttons
 					styleComposition={{ width: '100%' }}
-					buttons={{ primary: true, secondary: true }}
-					legends={{ primary: 'Editar', secondary: 'Cancelar' }}
+					buttons={{ primary: true, secondary: isCampaignTask ? false : true }}
+					legends={{
+						primary: isCampaignTask ? 'Minimizar' : 'Editar',
+						secondary: 'Cancelar',
+					}}
 					onCl_buttons={{
-						primary: onCl_edit,
+						primary: isCampaignTask && !isReviewer ? onCl_abort : onCl_edit,
 						secondary: onCl_abort,
 						tertiary: {} as any,
 					}}

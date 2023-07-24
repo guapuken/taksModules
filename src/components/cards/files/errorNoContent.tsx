@@ -1,9 +1,10 @@
 import React from 'react';
+import { Texts, Title } from '../../Atoms';
 
-const ErrorNC = () => (
+const ErrorNC = ({ modo }: any) => (
 	<>
-		<h4>Without content 😥</h4>
-		<p style={{ fontSize: '13px' }}>Add property Content and see it </p>
+		<Title modo={modo}>Without content 😥</Title>
+		<Texts modo={modo}>Add property Content and see it </Texts>
 	</>
 );
 

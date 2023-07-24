@@ -1,41 +1,37 @@
-@import '../../../global.scss';
 
 // ---------------------------------------------------------------------------------------------------------
 //      estilos generales
 // ---------------------------------------------------------------------------------------------------------
-.ctn_AIPTC
+.autoresizeInput
 {
   border-radius: 0;
   border: none;
   resize: none;
   transition: border-color 150ms ease;
   width: 100%;
-  font-family: 'Open Sans', sans-serif;
   margin-block: 0;
   background: transparent;
-  font-size: clamp(13px,1.5vw, 16px);
   &:focus {
     outline: none;
   }
   &::placeholder {
     font-weight: normal;
+    color: var(--fc30);
   }
   // estilos de una tarea principal
   &[hrc-inpt='principal']{
-    font-size: clamp(14px, 1.6vw, 17px);
     font-weight: normal;
+    color: var(--fc90);
   }
   // estilos de una tarea normal
   &[hrc-inpt='task']{
+    color: var(--fc90);
     font-weight: normal;
-    font-size: clamp(13px,1.5vw, 16px);
-    opacity: .8 ;
   }
   // estilos de una subtarea
   &[hrc-inpt='subtask']{
     font-weight: normal;
-    font-size: clamp(13px,1.5vw, 16px);
-    opacity:.5; 
+    color: var(--fc30);
   }
 }
 // ---------------------------------------------------------------------------------------------------------

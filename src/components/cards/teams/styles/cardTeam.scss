@@ -1,0 +1,90 @@
+//importación de estilos globales
+:root{
+    --colorTeam: #000;
+}
+
+
+// estilos generales -----------------------------------------------------------------------------------------------------------------
+.cardTeams{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    &__contenedor{
+        &-title{
+            user-select: none;
+            padding: 15px 15px 0 15px;
+            &-members{
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                padding: 10px;
+                position: absolute;
+                border-radius: 20px;
+                top: 100%;
+                width: max-content;
+                background: var(--bg);
+                box-shadow: var(--boxShadow);
+                z-index: 2;
+                &:before{
+                    content:'';
+                    position: absolute;
+                    bottom: 99%;
+                    left:10%;
+                    width:0;
+                    height: 0;
+                    border: none;
+                    border-right: 13px solid transparent;
+                    border-left: 13px solid transparent;
+                    border-top: 13px solid transparent;
+                }
+                &-name{
+                    font-size: 14px;
+                    margin-bottom: 5px;
+                    color: var(--fc90);
+                    &:nth-child(2n){
+                        font-size: 14px;
+                        margin-bottom: 5px;
+                        color: var(--fc30);
+                    }
+                }
+            }
+        }
+    }
+    &__colorTeam{
+        height: 30px;
+        width: 75%;
+        margin-top: 15px;
+        border-radius: 0 20px 20px 0;
+        position: relative !important;
+        &:before{
+            content: attr(initial-letters);
+            position: absolute;
+            width: 60px;
+            letter-spacing: 3px;
+            height: 40px;
+            font-size: 14px;
+            padding-left: 3px;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: inherit;
+            border-radius: 40px;
+            top: -5px;
+            left: 20px;
+            color: #343232;
+            box-shadow: 0 0 0 6px var(--bg);
+        }
+        &[color-font='#dedede']{
+            &:before{
+                color: #fff;
+            }
+        }
+    }
+}
+
+
+
+// media queries -------------------------------------------------------------------------------------------
+
+

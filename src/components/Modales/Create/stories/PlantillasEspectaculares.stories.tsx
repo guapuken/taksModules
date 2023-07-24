@@ -8,18 +8,35 @@ import ModalTemplates from '../Templates/modalPlantillas';
 
 function DemoComponent() {
 	const [template, setTemplate] = useState(undefined);
+	const [checkTem, setCheckTem] = useState(false);
+	const [checkCam, setCheckCam] = useState(false);
+	const [tiposMedio, setTiposMedio] = useState(null);
+
+	console.clear();
+	console.log('campaña: ', checkCam, 'Template', checkTem, 'tiposMedio', tiposMedio);
 	return (
 		<ModalTemplates
 			onCl_close={() => {}}
 			idTemplate="1"
 			modo="Light"
 			isMannager
-			onCh_checkboxMedio={() => {}}
-			onCh_dropDownTipoMedio={() => {}}
+			isEditingTemplate
+			onCh_checkboxMedio={() => {
+				setCheckTem(!checkTem);
+			}}
+			onCh_dropDownTipoMedio={(e) => {
+				setTiposMedio(e);
+			}}
 			onCh_templateName={(e) => setTemplate(e.target.value)}
 			onCl_abort={() => {}}
 			onCl_addTask={() => {}}
-			onCl_confirm={() => {}}
+			onCl_confirm={() => {
+				setCheckTem(false);
+				setTiposMedio(null);
+			}}
+			valueCheckboxMedio={checkTem}
+			// isEditingTemplate
+			valueCheckboxCampaign={true}
 			templateNameValue="Espectaculares"
 			optionsTipoMedio={[
 				{ id: String(autoIncrementalId()), title: 'Urbanos' },
@@ -27,7 +44,9 @@ function DemoComponent() {
 				{ id: String(autoIncrementalId()), title: 'Muros' },
 				{ id: String(autoIncrementalId()), title: 'Vallas móviles' },
 			]}
-			onCh_checkboxCampaign={() => {}}
+			onCh_checkboxCampaign={() => {
+				setCheckCam(!checkCam);
+			}}
 			tasks={[
 				{
 					dependence: { id: '1', title: 'Dummies' },
@@ -57,6 +76,242 @@ function DemoComponent() {
 					durationValue: '2',
 					responsables: responsable,
 					revision: revision,
+					subtasks: [
+						{
+							equipos: [],
+							idTask: '1',
+							modo: 'Light',
+							onCh_descriptionTask: {} as any,
+							onCh_nameTask: {} as any,
+							onCl_addTask: {} as any,
+							onCl_delete: {} as any,
+							onCl_newTemplate: {} as any,
+							responsables: [],
+							revision: [],
+							templateOptions: [],
+							valueDescription: 'CDMX',
+							valueResponsable: 'Gabriela Serna',
+							valueTask: 'CDMX',
+							subtasks: [
+								{
+									equipos: [],
+									idTask: '2',
+									modo: 'Light',
+									onCh_descriptionTask: {} as any,
+									onCh_nameTask: {} as any,
+									onCl_addTask: {} as any,
+									onCl_delete: {} as any,
+									onCl_newTemplate: {} as any,
+									responsables: [],
+									revision: [],
+									templateOptions: [],
+									valueDescription: 'Proveedor 1',
+									valueResponsable: 'Gabriela Serna',
+									valueTask: 'Proveedor 1',
+									subtasks: [
+										{
+											equipos: [],
+											idTask: '8',
+											modo: 'Light',
+											onCh_descriptionTask: {} as any,
+											onCh_nameTask: {} as any,
+											onCl_addTask: {} as any,
+											onCl_delete: {} as any,
+											onCl_newTemplate: {} as any,
+											responsables: [],
+											revision: [],
+											templateOptions: [],
+											valueDescription: 'Proveedor 1',
+											valueResponsable: 'Gabriela Serna',
+											valueTask: 'Proveedor 1',
+										},
+										{
+											equipos: [],
+											idTask: '9',
+											modo: 'Light',
+											onCh_descriptionTask: {} as any,
+											onCh_nameTask: {} as any,
+											onCl_addTask: {} as any,
+											onCl_delete: {} as any,
+											onCl_newTemplate: {} as any,
+											responsables: [],
+											revision: [],
+											templateOptions: [],
+											valueDescription: 'Proveedor 1',
+											valueResponsable: 'Gabriela Serna',
+											valueTask: 'Proveedor 1',
+										},
+										{
+											equipos: [],
+											idTask: '10',
+											modo: 'Light',
+											onCh_descriptionTask: {} as any,
+											onCh_nameTask: {} as any,
+											onCl_addTask: {} as any,
+											onCl_delete: {} as any,
+											onCl_newTemplate: {} as any,
+											responsables: [],
+											revision: [],
+											templateOptions: [],
+											valueDescription: 'Proveedor 1',
+											valueResponsable: 'Gabriela Serna',
+											valueTask: 'Proveedor 1',
+										},
+									],
+								},
+								{
+									equipos: [],
+									idTask: '5',
+									modo: 'Light',
+									onCh_descriptionTask: {} as any,
+									onCh_nameTask: {} as any,
+									onCl_addTask: {} as any,
+									onCl_delete: {} as any,
+									onCl_newTemplate: {} as any,
+									responsables: [],
+									revision: [],
+									templateOptions: [],
+									valueDescription: 'Proveedor 1',
+									valueResponsable: 'Gabriela Serna',
+									valueTask: 'Proveedor 1',
+									subtasks: [
+										{
+											equipos: [],
+											idTask: '8',
+											modo: 'Light',
+											onCh_descriptionTask: {} as any,
+											onCh_nameTask: {} as any,
+											onCl_addTask: {} as any,
+											onCl_delete: {} as any,
+											onCl_newTemplate: {} as any,
+											responsables: [],
+											revision: [],
+											templateOptions: [],
+											valueDescription: 'Proveedor 1',
+											valueResponsable: 'Gabriela Serna',
+											valueTask: 'Proveedor 1',
+										},
+										// {
+										// 	equipos: [],
+										// 	idTask: '9',
+										// 	modo: 'Light',
+										// 	onCh_descriptionTask: {} as any,
+										// 	onCh_nameTask: {} as any,
+										// 	onCl_addTask: {} as any,
+										// 	onCl_delete: {} as any,
+										// 	onCl_newTemplate: {} as any,
+										// 	responsables: [],
+										// 	revision: [],
+										// 	templateOptions: [],
+										// 	valueDescription: 'Proveedor 1',
+										// 	valueResponsable: 'Gabriela Serna',
+										// 	valueTask: 'Proveedor 1',
+										// },
+									],
+								},
+							],
+						},
+						{
+							equipos: [],
+							idTask: '3',
+							modo: 'Light',
+							onCh_descriptionTask: {} as any,
+							onCh_nameTask: {} as any,
+							onCl_addTask: {} as any,
+							onCl_delete: {} as any,
+							onCl_newTemplate: {} as any,
+							responsables: [],
+							revision: [],
+							templateOptions: [],
+							valueDescription: 'MTY',
+							valueResponsable: 'Gabriela Serna',
+							valueTask: 'MTY',
+							subtasks: [
+								{
+									equipos: [],
+									idTask: '6',
+									modo: 'Light',
+									onCh_descriptionTask: {} as any,
+									onCh_nameTask: {} as any,
+									onCl_addTask: {} as any,
+									onCl_delete: {} as any,
+									onCl_newTemplate: {} as any,
+									responsables: [],
+									revision: [],
+									templateOptions: [],
+									valueDescription: 'Proveedor 1',
+									valueResponsable: 'Gabriela Serna',
+									valueTask: 'Proveedor 1',
+								},
+								{
+									equipos: [],
+									idTask: '7',
+									modo: 'Light',
+									onCh_descriptionTask: {} as any,
+									onCh_nameTask: {} as any,
+									onCl_addTask: {} as any,
+									onCl_delete: {} as any,
+									onCl_newTemplate: {} as any,
+									responsables: [],
+									revision: [],
+									templateOptions: [],
+									valueDescription: 'Proveedor 1',
+									valueResponsable: 'Gabriela Serna',
+									valueTask: 'Proveedor 1',
+								},
+							],
+						},
+						{
+							equipos: [],
+							idTask: '4',
+							modo: 'Light',
+							onCh_descriptionTask: {} as any,
+							onCh_nameTask: {} as any,
+							onCl_addTask: {} as any,
+							onCl_delete: {} as any,
+							onCl_newTemplate: {} as any,
+							responsables: [],
+							revision: [],
+							templateOptions: [],
+							valueDescription: 'MTY',
+							valueResponsable: 'Gabriela Serna',
+							valueTask: 'MTY',
+							subtasks: [
+								{
+									equipos: [],
+									idTask: '8',
+									modo: 'Light',
+									onCh_descriptionTask: {} as any,
+									onCh_nameTask: {} as any,
+									onCl_addTask: {} as any,
+									onCl_delete: {} as any,
+									onCl_newTemplate: {} as any,
+									responsables: [],
+									revision: [],
+									templateOptions: [],
+									valueDescription: 'Proveedor 1',
+									valueResponsable: 'Gabriela Serna',
+									valueTask: 'Proveedor 1',
+								},
+								// {
+								// 	equipos: [],
+								// 	idTask: '9',
+								// 	modo: 'Light',
+								// 	onCh_descriptionTask: {} as any,
+								// 	onCh_nameTask: {} as any,
+								// 	onCl_addTask: {} as any,
+								// 	onCl_delete: {} as any,
+								// 	onCl_newTemplate: {} as any,
+								// 	responsables: [],
+								// 	revision: [],
+								// 	templateOptions: [],
+								// 	valueDescription: 'Proveedor 1',
+								// 	valueResponsable: 'Gabriela Serna',
+								// 	valueTask: 'Proveedor 1',
+								// },
+							],
+						},
+					],
 				},
 				{
 					idTask: String(autoIncrementalId()),

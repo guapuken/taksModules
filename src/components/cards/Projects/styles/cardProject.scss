@@ -1,0 +1,12 @@
+.cardProjects{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+    position: relative;
+    height: 100%;
+    &__info{
+        display: flex;
+        flex-direction: column;
+        padding: 15px 15px 0 15px;
+    }
+}

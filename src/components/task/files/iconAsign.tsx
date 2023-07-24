@@ -1,7 +1,7 @@
 import React, { CSSProperties, useState } from 'react';
 import addUserIcon from '../../../img/addUser.svg';
 import { Modo, submenusArray } from '../../../types';
-import { ValidationComponent } from '../../Atoms';
+import { TextBoldLight, Texts, Title, ValidationComponent } from '../../Atoms';
 import DropdownWithPopup from '../../DropdownWithPopup/DropdownWithPopup';
 
 interface IconAsignProps {
@@ -53,11 +53,11 @@ const IconAsign = ({
 	};
 
 	// se hace la validación de si es PM o si tiene personal bajo su mando
-	isPM && menusOperativos.push(menusExclusivosPM);
-	haveSubPersonal && menusOperativos.push(personalBajoSuMando);
+	/* isPM && */ menusOperativos.push(menusExclusivosPM);
+	/* (haveSubPersonal || isPM) && */ menusOperativos.push(personalBajoSuMando);
 
 	return (
-		<div className={`ContainerIconAsignUsers ${className}`} style={style}>
+		<div className={`task__icons-asign ${className}`} style={style}>
 			<DropdownWithPopup
 				dropdownIcon={addUserIcon}
 				dropdownOptions={menusOperativos}
@@ -68,16 +68,12 @@ const IconAsign = ({
 				disabledDropdown={disabled}
 			>
 				<ValidationComponent validate={valueResponsable}>
-					<span>
-						<strong>Responsable: </strong>
-						{valueResponsable}
-					</span>
+					<Title modo={'Dark'}>Responsable: </Title>
+					<Texts modo={'Dark'}>{valueResponsable}</Texts>
 				</ValidationComponent>
 				<ValidationComponent validate={valueRevision}>
-					<span>
-						<strong>Encargado de revisión: </strong>
-						{valueRevision}
-					</span>
+					<Title modo={'Dark'}>Encargado de revisión: </Title>
+					<Texts modo={'Dark'}>{valueRevision}</Texts>
 				</ValidationComponent>
 			</DropdownWithPopup>
 		</div>

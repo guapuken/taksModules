@@ -1,96 +1,116 @@
-@import '../../global.scss';
-
-// ---------------------------------------------------------------------------------------------------------
-//      estilos generales
-// ---------------------------------------------------------------------------------------------------------
-.ctn_PBC
+.progressBar
 {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 30px;
-    min-height: 30px;
     position: relative;
-    // contebnedor de la barra de progreso
-    .ctnBarra{
-        height: 20px;
+    &__barra{
+        position: relative;
+        height: 30px;
         min-height: 20px;
-		border-radius: 100px;
-        box-shadow: inset 0 0 0 3px #282828;
-        .progressBar{
-            background: #282828;
+		border-radius: 0 5px 5px 0;
+        background: var(--detailColorContrast);
+        &-avance{
+            background: var(--detailColor);
             width: 100%;
             height: inherit;
-            border-radius: 100px;
+            border-radius: 0 5px 5px 0;
         }
-    }
-    // texto que muestra el porcentaje
-    .txtPrcnt{
-		font-size: 20px;
-		color: #282828;
-		font-family: 'Open Sans', sans-serif !important;
-		font-weight: lighter;
-		justify-content: right;
     }
     &[stts-tsk='outOfTime'],&[stts-tsk='3']{
-        .ctnBarra{
-            box-shadow: inset 0 0 0 3px #FC3D38;
-            .progressBar{
-                background: #FC3D38;
+        .progressBar__barra{
+            &:before{
+                content:'';
+                position: absolute;
+                z-index: 1;
+                border-left: 20px solid transparent;
+                border-right: 20px solid transparent;
+                border-bottom: 40px solid var(--errorColor);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            &:after{
+                content: "!";
+                position: absolute;
+                top: 60%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+                font-size: 20px;
+                color: #fff;
+                font-weight: 700;
             }
         }
-        .txtPrcnt{
-            color: #FC3D38;
+        .progressBar__text{
+            color: var(--errorColor) !important;
+        }
+        .progressBar__icon{
+            width: calc(100% - 50px);
+            position: absolute !important;
+            &:before{   
+                content:'';
+                position: absolute;
+                z-index: 1;
+                border-left: 26px solid transparent;
+                border-right: 26px solid transparent;
+                border-bottom: 46px solid var(--bg);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            } 
         }
     }
     &[stts-tsk='onTime'],&[stts-tsk='1']{
-        .ctnBarra{
-            box-shadow: inset 0 0 0 3px #1CBF59;
-            .progressBar{
-                background: #1CBF59;
-            }
+        .progressBar__text{
+            color: var(--detailColor) !important;
         }
     }
-    &[stts-tsk='delayed'],&[stts-tsk='2']{
-        .ctnBarra{
-            box-shadow: inset 0 0 0 3px #FCB24F;
-            .progressBar{
-                background: #FCB24F;
+    &[stts-tsk='delayed'], &[stts-tsk='2']{
+        .progressBar__barra{
+            &:before{
+                content:'';
+                position: absolute;
+                z-index: 1;
+                background:  var(--warningColor);
+                width: 30px;
+                height: 30px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(45deg) ;
+                border-radius: 5px;
+            }
+            &:after{
+                content: "!" ;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+                font-size: 20px;
+                color: #fff;
+                font-weight: 700;
             }
         }
+        .progressBar__icon{
+            width: calc(100% - 50px);
+            position: absolute !important;
+            &:before{   
+                 content:'';
+                position: absolute;
+                background:  var(--bg);
+                width: 35px;
+                height: 35px;
+                top: 50%;
+                z-index: 1;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(45deg)  ;
+                border-radius: 5px;
+            } 
+        }
+        .progressBar__text{
+            color: var(--warningColor) !important;
+        }
     }
-}
-
-// ---------------------------------------------------------------------------------------------------------
-//      modo claro
-// ---------------------------------------------------------------------------------------------------------
-
-
-// ---------------------------------------------------------------------------------------------------------
-//      modo oscuro
-// ---------------------------------------------------------------------------------------------------------
-
-
-// ---------------------------------------------------------------------------------------------------------
-//      media queries
-// ---------------------------------------------------------------------------------------------------------
-@media (min-width:768px) and (max-width:1024px){
-    .ctnOtOfTmLight_PBC,
-    .ctnOtOfTmDark_PBC,
-    .ctnOnTmLight_PBC,
-    .ctnOnTmDark_PBC,
-    .ctnDldDark_PBC,
-    .ctnDldLight_PBC,
-    .ctnLight_PBC,
-    .ctnDark_PBC{} 
-}
-@media (max-width:767px){
-    .ctnOtOfTmLight_PBC,
-    .ctnOtOfTmDark_PBC,
-    .ctnOnTmLight_PBC,
-    .ctnOnTmDark_PBC,
-    .ctnDldDark_PBC,
-    .ctnDldLight_PBC,
-    .ctnLight_PBC,
-    .ctnDark_PBC{}
 }

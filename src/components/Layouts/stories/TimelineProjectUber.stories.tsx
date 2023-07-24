@@ -5,47 +5,45 @@ import { fijos, indoors, tasks, urbanos, vallas } from '../Timeline/data/dataExa
 import TimelineProject from '../Timeline/TimelineProject';
 
 storiesOf('Layouts/TimelineProject/Examples/Uber', module).add('Uber', () => {
-	const [taskGroup, setTaskGroup] = useState({
-		id: '',
-		title: '',
-	});
+	const [medios, setMedios] = useState('');
+	console.log('medios: ', medios);
 	return (
 		<TimelineProject
-			onCh_dropdown={(e) => setTaskGroup(e)}
+			onCl_compartir={() => alert('Compartir línea de tiempo')}
 			modo="Light"
-			opcionesDropdown={[
-				{
-					id: '1',
-					title: 'Sitios fijos',
-				},
-				{
-					id: '2',
-					title: 'Urbanos',
-				},
-				{
-					id: '3',
-					title: 'Indoors',
-				},
-				{
-					id: '4',
-					title: 'Vallas móviles',
-				},
-			]}
+			nombreProyecto="2536-Uber_eats-Noviembre"
 			tasks={
-				taskGroup.id === '1'
+				medios === 'sitios'
 					? tasks.fijos
-					: taskGroup.id === '2'
+					: medios === 'urbanos'
 					? tasks.urbanos
-					: taskGroup.id === '3'
+					: medios === 'indoors'
 					? tasks.indoors
-					: taskGroup.id === '4'
+					: medios === 'vallas'
 					? tasks.vallas
-					: []
+					: (null as any)
 			}
-			fijos={fijos}
-			urbanos={urbanos}
-			indoors={indoors}
-			vallas={vallas}
+			onCl_close={() => alert('close')}
+			percentUrbanos={25}
+			percentSitios={90}
+			percentIndoors={75}
+			percentVallas={69}
+			statusUrbanos={'outOfTime'}
+			statusSitios={3}
+			statusIndoors={1}
+			statusVallas={2}
+			onCl_selectedMedios={(e) => setMedios(e.target.id)}
+			medios={
+				medios === 'sitios'
+					? fijos
+					: medios === 'urbanos'
+					? urbanos
+					: medios === 'indoors'
+					? indoors
+					: medios === 'vallas'
+					? vallas
+					: (null as any)
+			}
 		/>
 	);
 });

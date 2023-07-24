@@ -3,6 +3,8 @@ import { SimpleContainer, Title, ValidationComponent } from '../../Atoms';
 
 import './Styles/Container.scss';
 import { Button, Chat } from '../../../components';
+import Menu from '../../containerComp/files/menu';
+import { aspectRatio } from '../../../utils/functions/functions';
 
 const Container = ({
 	header,
@@ -19,23 +21,29 @@ const Container = ({
 	chats,
 	messages,
 	multiplesChats,
-}) => {
+	themeStyle,
+	onCl_menus,
+}: any) => {
 	return (
-		<div
-			className={`container ${modo}`}
-			aside-content={AsideContent ? 'aside' : 'noAside'}
-			chat-content={chat ? 'chat' : 'noChat'}
+		<SimpleContainer
+			className="contenedorLayout"
+			labels={{
+				'aside-status': AsideContent ? 'withAside' : 'noAside',
+				'chat-status': chat ? 'withChat' : 'noChat',
+				'theme-config': modo,
+			}}
 		>
+			<SimpleContainer style={{ position: 'absolute' }}>
+				<Menu modo={modo} onClick={onCl_menus} />
+			</SimpleContainer>
 			<ValidationComponent validate={AsideContent}>
-				<SimpleContainer className="container__aside">{AsideContent}</SimpleContainer>
+				<SimpleContainer className="contenedorLayout__aside">
+					{AsideContent}
+				</SimpleContainer>
 			</ValidationComponent>
-			<div
-				className="container__children"
-				header-content={header ? 'header' : 'noHeader'}
-				footer-content={FooterContent ? 'footer' : 'noFooter'}
-			>
+			<SimpleContainer className="contenedorLayout__children">
 				<ValidationComponent validate={header}>
-					<SimpleContainer className="container__children-header">
+					<SimpleContainer className="contenedorLayout__children-header">
 						<Title modo={modo}>{header.legend}</Title>
 						<ValidationComponent validate={header.legendBtn}>
 							<Button
@@ -48,7 +56,7 @@ const Container = ({
 						</ValidationComponent>
 					</SimpleContainer>
 				</ValidationComponent>
-				<SimpleContainer className="container__children-content">
+				<SimpleContainer className="contenedorLayout__children-contenido">
 					{children}
 				</SimpleContainer>
 				<ValidationComponent validate={FooterContent}>
@@ -56,10 +64,11 @@ const Container = ({
 						{FooterContent}
 					</SimpleContainer>
 				</ValidationComponent>
-			</div>
+			</SimpleContainer>
 			<ValidationComponent validate={chat}>
-				<SimpleContainer className="container__chat">
+				<SimpleContainer className="contenedorLayout__chat">
 					<Chat
+						themeStyle=""
 						multiplesChats={multiplesChats}
 						onCh_comment={onCh_commentChat}
 						onCh_dropdown={onCh_dropdownChat}
@@ -73,8 +82,7 @@ const Container = ({
 					{chat}
 				</SimpleContainer>
 			</ValidationComponent>
-		</div>
+		</SimpleContainer>
 	);
 };
-
 export default Container;

@@ -5,6 +5,7 @@ import { itemComments } from '../types/types';
 import '../styles/modalTaskWithComents.scss';
 import { CommentTask } from '.';
 import { Msns } from '../../../../../components';
+import { Title } from '../../../../Atoms';
 
 const Comentarios = (props: itemComments) => {
 	const {
@@ -26,9 +27,9 @@ const Comentarios = (props: itemComments) => {
 	} = props;
 	return (
 		<div className={`ctnComents${showTasks ? 'Full' : ''}_TWCC`} style={{ overflow: 'hidden' }}>
-			<h5 className="ttlComents" style={{ fontWeight: 'lighter', marginBottom: '20px' }}>
+			<Title modo={modo} className="ttlComents" style={{ marginBottom: '10px' }}>
 				Comentarios
-			</h5>
+			</Title>
 			<Msns
 				messages={messages}
 				// height={`calc(100% - ${heightComments}px)`}

@@ -1,35 +1,21 @@
-@import '../../../../global.scss';
 // root iniciales
 :root{
-    --bgModal: var(--bg);
-    --sombra: var(--boxShadow); 
     --width: 50vw;
     --gridRowsDisplay: 50px auto 80px;
     --gridColumnsDisplay: auto;
-    --pr_fc: #282828
     --gridColumnHeader: auto;
+    @media (max-aspect-ratio: 4/3){
+        --width: 100vw;
+    }
+    @media (max-aspect-ratio: 7/10){
+        --width: 100vw;
+    }
 }
 
 // temas _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
-[theme-config='Dark']{
-    --bgModal: var(--bgDark);
-    --sombra: var(--boxShadowDark);
-    --pr_fc: #dedede;
-}
-[theme-config='Light']{
-    --bgModal: var(--bg);
-    --sombra: var(--boxShadow);
-    --pr_fc: #282828
-}
+
 
 // temas de estilos _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
-[theme-style='box']{
-    --gridColumnHeader: 1/3;
-    --width : 100vw;
-    // --bgModal: purple;
-    --gridRowsDisplay: 50px auto;
-    --gridColumnsDisplay: auto 80px;
-}
 
 //variables _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 $altura: 90vh;
@@ -40,10 +26,10 @@ $altura: 90vh;
     // centrado del elemento
     position: fixed;
     left: 50%;
-    top: 0;
+    bottom: 0;
 
-    background: var(--bgModal);
-    box-shadow: var(--sombra);
+    background: var(--bg);
+    box-shadow: var(--boxShadow);
     width:var(--width);
     transform: translateX(-50%);
     height: $altura;
@@ -53,6 +39,7 @@ $altura: 90vh;
     grid-template-rows: var(--gridRowsDisplay);
     grid-template-columns: var(--gridColumnsDisplay);
     gap: 10px;
+    z-index: 3;
 
     // estilos del header
     &__header, &__children, &__footer{
@@ -63,9 +50,6 @@ $altura: 90vh;
         display: flex;
         justify-content: space-between;
         grid-column: var(--gridColumnHeader);
-        &-title{
-            font-weight: lighter; 
-        }
         &-img{
             height: 30px;
             cursor: pointer;
@@ -77,11 +61,6 @@ $altura: 90vh;
         overflow-y: auto;
         overflow-x: hidden;
     }
-    
-    // estilos del footer
-    &__footer{
-        //
-    }
 }
 // estilos del modal sin propiedades
 .modal__noCtn{
@@ -89,16 +68,4 @@ $altura: 90vh;
     place-items: center;
     width: 100%;
     height:$altura;
-}
-
-// media queries _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
-@media (max-aspect-ratio: 4/3){ // tabletas
-    :root{
-        --width: 100vw;
-    }
-}
-@media (max-aspect-ratio: 7/10){ // dispositivos móviles
-    :root{
-        --width: 100vw;
-    }
 }

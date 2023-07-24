@@ -1,4 +1,3 @@
-@import '../../../global.scss';
 // ---------------------------------------------------------------------------------------------------------
 //      Estilos generales 
 // ---------------------------------------------------------------------------------------------------------
@@ -114,7 +113,7 @@
 //     mediaQueries
 // ---------------------------------------------------------------------------------------------------------
 //tablet
-@media  (min-width:768px) and (max-width:1024px){
+@media  (max-aspect-ratio: 4/3){
     .ctnLight_CtnC,
     .ctnDark_CtnC{
         .ctnChild,      //si no hay aside ni footer
@@ -123,11 +122,14 @@
         .ctnChildAsdFtr //si hay aside y footer
         {
             left: calc(50vw + 20px);
+            &__children{
+                
+            }
         }
     } 
 }
 //cel
-@media (max-width:767px){
+@media (max-aspect-ratio: 7/10){
     .ctnLight_CtnC,
     .ctnDark_CtnC{
         .asideCtn{

@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { CheckboxInput } from './complements/checkboxInput';
 import { AutoresizeInput } from '../../components';
 import { inputTasks } from './types';
+//Estilos
+import './styles/inputTask.scss';
+import { ValidationComponent } from '../Atoms';
 
 const InputTask = ({
 	check,
@@ -20,61 +23,40 @@ const InputTask = ({
 	valueDescription,
 	isSubtask,
 }: inputTasks) => {
-	// const [checked, setChecked] = useState(check);
-	// useEffect(() => {
-	// 	console.log('checkIn', check);
-	// 	setChecked(check);
-	// }, [check]);
-
 	return (
-		<div
-			style={{
-				display: 'flex',
-				width: '100%',
-				alignItems: 'start',
-				...style,
-			}}
-		>
-			{/* Si existe la propiedad de showTask no se muestra el componente de Checkbox */}
-			{showTask && (
+		<div className="inputTask" style={style}>
+			<ValidationComponent
+				validate={showTask} // valida si existe la propiedad de show task para mostrar u ocultar el checkbox
+			>
 				<CheckboxInput
-					style={{ marginTop: '.5vh' }}
+					style={{ marginTop: '7px' }}
 					modo={modo}
 					principalTask={principalTask}
 					onCh_checkbox={onCh_checkbox}
 					check={check}
 					idCheckbox={idCheckbox}
 				/>
-			)}
-			<div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
+			</ValidationComponent>
+
+			<div className="inputTask__inputs">
 				<AutoresizeInput
 					modo={modo}
 					id={`task${id}`}
 					taskType={principalTask ? 'principal' : 'task'}
-					style={{
-						textDecoration: check ? 'line-through' : 'none',
-						opacity: check ? '.7' : '1',
-						width: '100%',
-						marginBottom: '0',
-					}}
+					className={`inputTask__inputs-name ${check ? 'check' : ''}`}
 					onCh={onCh_nameTask}
 					initialValue={valueTask}
 					placeholder={`Nombre de la ${isSubtask ? 'subtarea' : 'tarea'}`}
-					tabIndex={1}
 					disabled={check ? true : disabled ? disabled : false}
 				/>
 				<AutoresizeInput
 					modo={modo}
 					id={`description${id}`}
 					taskType={'subtask'}
-					style={{
-						opacity: check ? '.5' : '.5',
-						marginLeft: showTask ? '0' : '20px',
-					}}
+					className={`inputTask__inputs-description ${check ? 'check' : ''}`}
 					onCh={onCh_descriptionTask}
 					initialValue={valueDescription}
 					placeholder={`Descripción de la ${isSubtask ? 'subtarea' : 'tarea'}`}
-					tabIndex={2}
 					disabled={check ? true : disabled ? disabled : false}
 				/>
 			</div>

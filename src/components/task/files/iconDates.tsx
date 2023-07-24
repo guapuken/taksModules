@@ -47,16 +47,19 @@ const IconDates = (props: IconDatesProps) => {
 		minStartDate,
 	} = props;
 	return plantillas ? (
-		<div style={{ position: 'relative', zIndex: '2' }} className={className}>
+		<div className={className} style={{ display: ' flex', position: 'relative' }}>
 			<InputLabel
 				id={idTask}
-				style={{ width: '122px' }}
+				style={{ width: '80px' }}
 				legend="Duración"
 				type="number"
 				onCh={onCh_duration}
 				initialValue={durationValue}
 			/>
-			<div className="IconInformationTaskcomponent">
+			<div
+				className="IconInformationTaskcomponent"
+				style={{ position: 'absolute', right: '0', top: '-5px', zIndex: '4' }}
+			>
 				<Information
 					modo={modo}
 					info="¿En cuántos días debería de estar lista la tarea una vez que se le asigne al responsable?"

@@ -10,7 +10,7 @@ function DemoComponent(props: any) {
 			onCl_close={() => alert('Cerrar')}
 			onCl_reWork={() => {}}
 			reasonToRework={{ id: '1', title: 'No hay material' }}
-			onCh_comment={(e) => console.log('comments: ', e.target.value)}
+			onCh_comment={(e) => console.log('comments: ', e.target)}
 			onCl_addComment={(e) => alert('addComment: ')}
 			onCl_approve={(e) => alert('aprobar: ')}
 			taskName="Dummies plazas principales Name"
@@ -19,6 +19,7 @@ function DemoComponent(props: any) {
 			onCl_abort={() => alert('cancelar')}
 			onCl_edit={() => alert('editar')}
 			isReviewer
+			isCampaignTask
 			reasonsToWorkAgain={[]}
 			valueComment={''}
 			messages={[
@@ -27,25 +28,32 @@ function DemoComponent(props: any) {
 					type: 'Received',
 					message:
 						'Por que aún no se termina si eso tiene que estar montado a más tardar el martes por la mañana',
-					date: '2023-05-09 GMT-0600 12:00:00',
+					date: 'Tur Jun 27 2023 08:00:00 GMT-0700 (hora estándar del Pacífico de México)',
+					// date: '2023-05-09 GMT-0600 12:00:00',
 				},
 				{
 					userName: 'Giselle Ascencio',
 					message: 'Hubo unos problemas al recibir los artes de parte del cliente',
-					date: '2023-05-09 GMT-0600 13:00:00',
+					date: 'Sat Jul 01 2023 08:00:00 GMT-0700 (hora estándar del Pacífico de México)',
 					type: 'Sent',
 				},
 				{
 					userName: 'Giselle Ascencio',
 					message: 'Pero ya estamos en eso',
-					date: '2023-05-09 GMT-0600 13:01:00',
+					date: 'Mon Jul 03 2023 08:00:00 GMT-0700 (hora estándar del Pacífico de México)',
 					type: 'Sent',
+				},
+				{
+					userName: 'Kaori Soto',
+					date: 'Tur Jul 04 2023 08:00:00 GMT-0700 (hora estándar del Pacífico de México)',
+					type: 'Received',
+					message: 'Perfecto, quedo al pendiente',
 				},
 				{
 					userName: 'Kaori Soto',
 					type: 'Received',
 					message: 'Perfecto, quedo al pendiente',
-					date: '2023-05-09 GMT-0600 13:15:00',
+					date: new Date().toISOString(),
 				},
 			]}
 			onCh_addFile={() => {}}

@@ -26,14 +26,15 @@ function DemoComponent() {
 		<Fragment>
 			<Task
 				check={check}
-				modo="Dark"
+				modo="Light"
 				valueDificultad={dificultad}
 				onCh_dificultad={(e) =>
 					setDificultad({ id: e.target.id, title: e.target.outerText })
 				}
-				isPM
-				haveSubPersonal
+				// isPM
+				// haveSubPersonal
 				principalTask
+				// plantillas
 				onCh_checkbox={() => setCheck(!check)}
 				//
 				equipos={[]}
@@ -64,7 +65,6 @@ function DemoComponent() {
 						valueTask: 'name',
 						equipos: [],
 						idTask: '2',
-						valueDificultad: 5,
 						dependence: dependencie,
 						dependenciesOptions: [
 							{
@@ -85,37 +85,60 @@ function DemoComponent() {
 						templateOptions: [],
 						endDateValue: '2023-09-05 00:00:00',
 						startDateValue: '2023-09-05 00:00:00',
-					},
-					{
-						check: check,
-						onCh_checkbox: () => setCheck(!check),
-						onCh_endDate: () => {},
-						onCh_startDate: () => {},
-						valueDescription: description,
-						valueTask: 'name',
-						equipos: [],
-						idTask: '3',
-						valueDificultad: 5,
-						dependence: dependencie,
-						dependenciesOptions: [
+						subtasks: [
 							{
-								id: '1',
-								title: 'Dummies CDMX',
-								onClick: (e) => {
-									console.log(e);
-									setDependencie({ id: '1', title: 'Dummies CDMX' });
-								},
+								check: false,
+								equipos: [],
+								idTask: '3',
+								onCh_checkbox: {} as any,
+								onCh_endDate: {} as any,
+								onCh_descriptionTask: {} as any,
+								onCh_nameTask: {} as any,
+								onCh_startDate: {} as any,
+								onCl_newTemplate: {} as any,
+								responsables: [],
+								revision: [],
+								templateOptions: [],
+								valueDescription: '',
+								valueTask: '',
+								subtasks: [
+									{
+										check: false,
+										equipos: [],
+										idTask: '4',
+										onCh_checkbox: {} as any,
+										onCh_endDate: {} as any,
+										onCh_descriptionTask: {} as any,
+										onCh_nameTask: {} as any,
+										onCh_startDate: {} as any,
+										onCl_newTemplate: {} as any,
+										responsables: [],
+										revision: [],
+										templateOptions: [],
+										valueDescription: '',
+										valueTask: '',
+										subtasks: [
+											{
+												check: false,
+												equipos: [],
+												idTask: '5',
+												onCh_checkbox: {} as any,
+												onCh_endDate: {} as any,
+												onCh_descriptionTask: {} as any,
+												onCh_nameTask: {} as any,
+												onCh_startDate: {} as any,
+												onCl_newTemplate: {} as any,
+												responsables: [],
+												revision: [],
+												templateOptions: [],
+												valueDescription: '',
+												valueTask: '',
+											},
+										],
+									},
+								],
 							},
-							{ id: '2', title: 'Bloqueos' },
 						],
-						onCh_descriptionTask: (e) => setDescription(e.target.value),
-						onCh_nameTask: (e) => {},
-						onCl_newTemplate: () => alert('newTemplate'),
-						responsables: [],
-						revision: [],
-						templateOptions: [],
-						endDateValue: '2023-09-05 00:00:00',
-						startDateValue: '2023-09-05 00:00:00',
 					},
 				]}
 			/>

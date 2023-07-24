@@ -1,0 +1,78 @@
+
+// ---------------------------------------------------------------------------------------------------------
+//      estilos generales
+// ---------------------------------------------------------------------------------------------------------
+.cardTaskReview {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 15px;
+    &__footer{
+        display: grid; 
+        grid-template-columns: auto 50px;
+
+    }
+    .cardTaskReview__icon{
+        &[status-task='2'],&[status-task='delayed']{
+            position: relative;
+            &:before{
+                content:'';
+                position: absolute;
+                z-index: 1;
+                background:  var(--warningColor);
+                width: 30px;
+                height: 30px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(45deg) ;
+                border-radius: 5px;
+            }
+            &:after{
+                content: "!" ;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+                font-size: 20px;
+                color: #fff;
+                font-weight: 700;
+            }
+        }
+        &[status-task='3'],&[status-task='outOfTime']{
+            position: relative;
+            &:before{
+                content:'';
+                position: absolute;
+                z-index: 1;
+                border-left: 20px solid transparent;
+                border-right: 20px solid transparent;
+                border-bottom: 40px solid var(--errorColor);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            &:after{
+                content: "!";
+                position: absolute;
+                top: 60%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+                font-size: 20px;
+                color: #fff;
+                font-weight: 700;
+            }
+        }
+    }
+}
+// ---------------------------------------------------------------------------------------------------------
+//      media queries
+// ---------------------------------------------------------------------------------------------------------
+@media (max-aspect-ratio: 4/3){
+
+}
+@media (max-aspect-ratio: 7/10){
+}
+

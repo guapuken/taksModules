@@ -2,7 +2,8 @@ import React from 'react';
 //importacióon de elementos del storybook auxiliares
 import { Meta, Story } from '@storybook/react';
 //importación de componente principal
-import Cards, { cardIntrfc } from './cards';
+import Cards from './cards';
+import { cardIntrfc } from './types';
 
 //importación de componentes auxiliares
 import { AsideContainer, ButtonsArray } from '../../utils/asideUtils';
@@ -10,34 +11,48 @@ import { AsideContainer, ButtonsArray } from '../../utils/asideUtils';
 //importación de archivos multimedia auxiliares
 import del from '../../img/vaciar.svg';
 import prev from '../../img/previsualizar.svg';
+import { Texts, Title } from '../Atoms';
 
 //creación de la plantilla en la que se colocarán los elementos
 const Template: Story<cardIntrfc> = (args) => <Cards {...args} />;
 
 // estado inicial del componente
 export const initialState = Template.bind({});
-initialState.args = {};
+initialState.args = {
+	modo: 'Dark',
+};
 
 // estado del componente con propiedades
 export const withProperties = Template.bind({});
 withProperties.args = {
 	rounded: true,
 	modo: 'Dark',
+	statusTask: 3,
 	Content: () => {
 		return (
-			<div className="hola" style={{ display: 'grid', placeItems: 'center', height: '100%' }}>
+			<div
+				className="hola"
+				style={{
+					display: 'grid',
+					placeItems: 'center',
+					height: '100%',
+					padding: '15px',
+					margin: '0 auto',
+				}}
+			>
 				<div>
-					<h3>Traffic</h3>
-					<p>5 Integrantes...</p>
+					<Title modo="Dark">Traffic</Title>
+					<Texts modo="Dark"> 5 Integrantes...</Texts>
 				</div>
 				<div
 					style={{
 						background: 'green',
 						height: '100%',
-						width: '15px',
+						width: '30px',
 						position: 'absolute',
 						top: '0',
 						right: '0',
+						// borderRadius: '0 20px 20px 0',
 					}}
 				></div>
 			</div>
@@ -50,11 +65,13 @@ withProperties.args = {
 					modo="Dark"
 					buttons={[
 						{
+							id: '1',
 							img: del,
 							onClick: () => alert('eliminar'),
 							titleToShow: 'Eliminar',
 						},
 						{
+							id: '2',
 							img: prev,
 							onClick: () => alert('previsualizar'),
 							titleToShow: 'Previsualizar',

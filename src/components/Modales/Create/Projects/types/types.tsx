@@ -41,6 +41,10 @@ export interface ModalProjectsProps {
 		title: string;
 	};
 	onCh_dificultad?: onChangeType;
+	isMannager?: boolean;
+	onCh_asignPM?: onChangeType;
+	optionsPM?: optionsDropdown[];
+	PMSelected?: optionsDropdown;
 }
 
 export type content = {
@@ -56,4 +60,8 @@ export type content = {
 	onCh_asignTeam: onChangeType;
 	teamOptions: optionsDropdown[];
 	initialTeamValue?: optionsDropdown;
+	isMannager?: boolean;
+	onCh_asignPM?: onChangeType;
+	optionsPM?: optionsDropdown[];
+	PMSelected?: optionsDropdown;
 };

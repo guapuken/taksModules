@@ -11,4 +11,5 @@ export interface cardIntrfc {
 	rounded?: boolean;
 	className?: string;
 	height?: string;
+	themeStyle?: string;
 }

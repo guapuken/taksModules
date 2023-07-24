@@ -5,12 +5,12 @@ const ButtonsPrevNext = ({ property, setProperty, data }: any) => {
 	return (
 		<>
 			<button
-				className="arrow arrowLeft"
+				className="carrusel__arrow arrowLeft"
 				onClick={() => nextPrevProp(false, property, setProperty, data)}
 				disabled={property?.index === 0}
 			></button>
 			<button
-				className="arrow arrowRight"
+				className="carrusel__arrow arrowRight"
 				onClick={() => nextPrevProp(true, property, setProperty, data)}
 				disabled={property?.index === data.length - 1}
 			></button>

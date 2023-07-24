@@ -1,11 +1,11 @@
 {
   "name": "@guapuken/tasks-modules",
-  "version": "0.1.76",
+  "version": "0.2.15",
   "description": "librería con paquetes actualizados",
   "scripts": {
     "pack": "rollup -c",
     "test": "jest",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6007",
     "build-sstorybook": "build-storybook"
   },
   "keywords": [],

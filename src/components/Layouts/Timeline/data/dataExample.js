@@ -118,7 +118,7 @@ export const tasks = {
 
 export const fijos = [
 	{
-		nombre: 'IMJ-CDMX-ESP-1526',
+		nombre: 'IMJ-CDMX-ESP-1526 - 2563-Uber_Eats-noviembre ',
 		porcentaje: 25,
 		status: 1,
 		onClick: () => alert('IMJ-CDMX-ESP-1526'),
@@ -198,12 +198,12 @@ export const indoors = [
 
 export const vallas = [
 	{
-		nombre: '254',
+		nombre: 'Valla No.254',
 		porcentaje: 75,
 		status: 'onTime',
 	},
 	{
-		nombre: '7569',
+		nombre: 'Valla No.7569',
 		porcentaje: 20,
 		status: 'onTime',
 	},

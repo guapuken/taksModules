@@ -1,5 +1,6 @@
 import React from 'react';
 import { AutoresizeInput, Button } from '../../../components';
+import { SimpleContainer } from '../../Atoms';
 
 const AddComment = ({ onCh_addFile, onCl_addComment, onCh_comment, modo }: any) => {
 	return (

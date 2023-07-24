@@ -38,6 +38,11 @@ const Menu = (props: any) => {
 					title: 'Gestionar tareas',
 					onClick: onClick?.mannageTask,
 				},
+				{
+					id: 'taskHistory',
+					title: 'Historial de tareas',
+					onClick: onClick?.historyTask,
+				},
 			],
 		},
 		{
@@ -75,15 +80,20 @@ const Menu = (props: any) => {
 					title: 'Estatus de proyectos',
 					onClick: onClick?.projectsStatus,
 				},
+				{
+					id: 'statusCampanhas',
+					title: 'Estatus de campañas',
+					onClick: onClick?.campaignStatus,
+				},
 			],
 		},
 	];
 
 	// Si el usuario que está usando es PM se muestra el menú exclusivo del PM
-	isPM ? menusOperativos.push(menusExclisivosPM) : menusOperativos;
+	/* isPM ? */ menusOperativos.push(menusExclisivosPM) /* : menusOperativos */;
 
 	return (
-		<div style={{ zIndex: '2' }}>
+		<div style={{ zIndex: '1' }}>
 			<OptionMenu
 				modo={modo}
 				menus={{

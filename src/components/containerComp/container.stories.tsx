@@ -7,10 +7,10 @@ import Container from './container';
 import { container } from './types/container';
 // componentes auxiliares
 import AsideTemplates from '../asideTemplates/asideTemplates';
-import CardTaskReview from '../cardTaskReview/cardTaskReview';
-import CardMembersTeam from '../cardMembersTeam/cardMembersTeam';
+import CardTaskReview from '../cards/TaskReview/cardTaskReview';
+import CardMembersTeam from '../cards/MemberTeam/cardMembersTeam';
 import DragAndDrop from '../dragAndDrop/dragAndDrop';
-import CardTask from '../cardTask/cardTask';
+import { CardTask } from '../../components';
 
 // creación de plantilla donde se colocará el elemento
 const Template: Story<container> = (args) => <Container {...args} />;

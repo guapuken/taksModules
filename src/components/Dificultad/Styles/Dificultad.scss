@@ -1,12 +1,11 @@
-@import '../../../global.scss';
 
 $hue: 223;
 $starHue: 38;
 
 :root {
-	--bg: #{hsl($hue,10%,90%)};
+	// --bg: #{hsl($hue,10%,90%)};
 	--fg: #{hsl($hue,10%,10%)};
-	--primary: #{hsl($hue,90%,55%)};
+	// --primary: #{hsl($hue,90%,55%)};
 	--yellow: #{hsl($starHue,90%,55%)};
 	--yellow-t: #{hsla($starHue,90%,55%,0)};
 	--bezier: cubic-bezier(0.42,0,0.58,1);
@@ -158,21 +157,21 @@ body {
 }
 
 // Dark theme
-@media (prefers-color-scheme: dark) {
-	:root {
-		--bg: #{hsl($hue,10%,10%)};
-		--fg: #{hsl($hue,10%,90%)};
-	}
-	.rating {
-		margin: auto;
+// @media (prefers-color-scheme: dark) {
+// 	:root {
+// 		--bg: #{hsl($hue,10%,10%)};
+// 		--fg: #{hsl($hue,10%,90%)};
+// 	}
+// 	.rating {
+// 		margin: auto;
 
-		&__star {
-			&-stroke {
-				stroke: hsl($hue,10%,30%);
-			}
-		}
-	}
-}
+// 		&__star {
+// 			&-stroke {
+// 				stroke: hsl($hue,10%,30%);
+// 			}
+// 		}
+// 	}
+// }
 
 // Animations
 @keyframes starRing {

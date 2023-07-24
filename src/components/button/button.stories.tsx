@@ -29,18 +29,22 @@ Primary.args = {
 	onCl: () => alert('Change the function'),
 	primary: true,
 	legend: 'Botón primario',
+	size: 'large',
+	icon: 'https://cdn3.iconfinder.com/data/icons/picons-social/57/46-facebook-512.png',
 };
 export const Secondary = Template.bind({});
 Secondary.args = {
 	onCl: () => alert('Change the function'),
 	secondary: true,
 	legend: 'Botón secundario',
+	icon: 'https://cdn3.iconfinder.com/data/icons/picons-social/57/46-facebook-512.png',
 };
 export const Tertiary = Template.bind({});
 Tertiary.args = {
 	onCl: () => alert('Change the function'),
 	tertiary: true,
 	legend: 'Botón terciario',
+	// icon: 'https://cdn3.iconfinder.com/data/icons/picons-social/57/46-facebook-512.png',
 };
 
 export default {

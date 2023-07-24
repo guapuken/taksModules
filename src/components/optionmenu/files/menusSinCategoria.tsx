@@ -3,11 +3,9 @@ import '../optionmenu.scss';
 
 export default function MenusSc(props: any) {
 	const { menus, setIsOpen } = props;
-	console.log(menus);
 	return (
 		menus &&
 		menus.sinCategoria?.map((sinCategoria: any) => {
-			console.log(sinCategoria);
 			if (sinCategoria === null) {
 				return null;
 			} else {

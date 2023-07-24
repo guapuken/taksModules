@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Dropdown, Information, InputLabel, Task } from '../../../../../components';
 import { CheckboxInput } from '../../../../inputTask/complements/checkboxInput';
 import { AddTask } from '../../../../task/files';
 import { modalTemplates } from '../types/types';
 import { optionsDropdown, tasksTemplates } from '../../../../../types';
+import { SimpleContainer, Texts } from '../../../../Atoms';
 
 //COMPONENTE QUE REGRESA TODO EL CONTENIDO DEL MODAL
 export const Content = ({
@@ -19,10 +20,21 @@ export const Content = ({
 	onCh_checkboxCampaign,
 	onCh_checkboxMedio,
 	isMannager,
+	onCh_checkboxPrintBF,
+	valueCheckboxPrintBF,
+	isEditingTemplate /* = true */,
+	valueCheckboxMedio,
+	valueCheckboxCampaign,
 }: modalTemplates) => {
-	const [tipoMedio, setTipoMedio] = useState(false);
-	const [campanha, setCampanha] = useState(false);
+	const [tipoMedio, setTipoMedio] = useState(valueCheckboxMedio);
+	const [campanha, setCampanha] = useState(valueCheckboxCampaign);
 
+	useEffect(() => {
+		setTipoMedio(valueCheckboxMedio);
+	}, [valueCheckboxMedio]);
+	useEffect(() => {
+		setCampanha(valueCheckboxCampaign);
+	}, [valueCheckboxCampaign]);
 	return (
 		<div>
 			<InputLabel
@@ -30,88 +42,120 @@ export const Content = ({
 				legend="Nombre de la plantilla"
 				onCh={onCh_templateName}
 				initialValue={templateNameValue}
+				modo={modo}
 			/>
 
-			{!campanha && isMannager && (
-				<div
-					style={{
-						display: 'flex',
-						width: '98%',
-						alignItems: 'center',
-					}}
-				>
+			<SimpleContainer style={{ display: 'flex' }}>
+				{!campanha && isMannager && (
 					<div
 						style={{
 							display: 'flex',
-							alignItems: 'center',
-							width: '100%',
+							width: '98%',
+							alignItems: 'flex-start',
 						}}
 					>
-						<CheckboxInput
-							idCheckbox=""
-							onCh_checkbox={(e) => {
-								setTipoMedio(!tipoMedio);
-								if (onCh_checkboxMedio) onCh_checkboxMedio(e);
+						<div
+							style={{
+								display: 'flex',
+								alignItems: 'center',
+								width: '100%',
 							}}
-							style={{ marginTop: '20px' }}
-						/>
-						<p>Plantilla de medio</p>
-						<Information
-							modo={modo}
-							positionInfo="center"
-							info="Tareas que se asignarán en un tipo de medio en específico"
-							style={{ zIndex: 10 }}
-						/>
+						>
+							<CheckboxInput
+								idCheckbox=""
+								onCh_checkbox={(e) => {
+									setTipoMedio(!tipoMedio);
+									if (onCh_checkboxMedio) onCh_checkboxMedio(e);
+								}}
+								check={tipoMedio}
+								disabled={isEditingTemplate}
+								style={{ marginTop: '20px' }}
+							/>
+							<p>Plantilla de medio</p>
+							<Information
+								modo={modo}
+								positionInfo="center"
+								info="Tareas que se asignarán en un tipo de medio en específico"
+								style={{ zIndex: 10 }}
+							/>
+						</div>
 					</div>
-					{tipoMedio && (
+				)}
+				{!tipoMedio && isMannager && (
+					<div
+						style={{
+							display: 'flex',
+							width: '98%',
+							alignItems: 'start',
+						}}
+					>
+						<div
+							style={{
+								display: 'flex',
+								alignItems: 'center',
+								width: '100%',
+							}}
+						>
+							<CheckboxInput
+								idCheckbox=""
+								onCh_checkbox={(e) => {
+									setCampanha(!campanha);
+									if (onCh_checkboxCampaign) onCh_checkboxCampaign(e);
+								}}
+								disabled={isEditingTemplate}
+								check={campanha}
+								style={{ marginTop: '20px' }}
+							/>
+							<p>Plantilla de campaña</p>
+							<Information
+								modo={modo}
+								positionInfo="center"
+								info="Tareas que se asignarán a los miembros del equipo de contabilidad de la campaña completa"
+								style={{ zIndex: 10 }}
+							/>
+						</div>
+					</div>
+				)}
+				{(tipoMedio || campanha) && (
+					<SimpleContainer
+						style={{
+							display: 'flex',
+							flexDirection: 'column',
+							gap: '10px',
+							width: '100%',
+							marginTop: '15px',
+						}}
+					>
 						<Dropdown
 							style={{ width: '100%', height: '30px' }}
 							modo={modo}
 							placeHolder="Selecciona el medio"
 							onCh={onCh_dropDownTipoMedio}
+							isSearchable
 							options={optionsTipoMedio as optionsDropdown[]}
 							initialValue={valueTipoMedio}
+							disabled={isEditingTemplate}
 						/>
-					)}
-				</div>
-			)}
-			{!tipoMedio && isMannager && (
-				<div
-					style={{
-						display: 'flex',
-						width: '98%',
-						alignItems: 'center',
-					}}
-				>
-					<div
-						style={{
-							display: 'flex',
-							alignItems: 'center',
-							width: '100%',
-						}}
-					>
-						<CheckboxInput
-							idCheckbox=""
-							onCh_checkbox={(e) => {
-								setCampanha(!campanha);
-								if (onCh_checkboxCampaign) onCh_checkboxCampaign(e);
-							}}
-							style={{ marginTop: '20px' }}
-						/>
-						<p>Plantilla de campaña</p>
-						<Information
-							modo={modo}
-							positionInfo="center"
-							info="Tareas que se asignarán a los miembros del equipo de contabilidad de la campaña completa"
-							style={{ zIndex: 10 }}
-						/>
-					</div>
-				</div>
-			)}
+						{tipoMedio && (
+							<SimpleContainer style={{ display: 'flex', gap: '10px' }}>
+								<CheckboxInput
+									idCheckbox={idTemplate}
+									check={valueCheckboxPrintBF}
+									modo={modo}
+									onCh_checkbox={onCh_checkboxPrintBF}
+									style={{ marginTop: '7px' }}
+									disabled={isEditingTemplate}
+								/>
+								<Texts modo={modo}>Impresión en BF</Texts>
+							</SimpleContainer>
+						)}
+					</SimpleContainer>
+				)}
+			</SimpleContainer>
 			<AddTask legend="+ Añadir tarea" onClick={onCl_addTask} />
-			<div
+			<SimpleContainer
 				style={{
-					borderLeft: '3px solid #28282830',
+					// borderLeft: '3px solid #28282830',
 					paddingLeft: '20px',
 				}}
 			>
@@ -155,7 +199,7 @@ export const Content = ({
 							onCh_startDate={() => {}}
 						/>
 					))}
-			</div>
+			</SimpleContainer>
 		</div>
 	);
 };

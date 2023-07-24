@@ -1,95 +1,85 @@
-@import '../../global.scss';
-// ---------------------------------------------------------------------------------------------------------
-//      estilos generales
-// ---------------------------------------------------------------------------------------------------------
-.ctnLight_TLPC,
-.ctnDark_TLPC
+
+:root{
+    --colorPaloma: var(--fc100);
+}
+[theme-config='Light']{
+    --colorPaloma: #fff;
+}
+
+.timeline
 {
+    height: 100% !important;
+    overflow-y: auto !important;
     *{
         user-select: none;
     }
-    .ttlTimeline{
-        margin-bottom: 10px;
-        font-weight: normal;
-        font-size: 15px;
-        opacity: .5;
-    }
-    .ctnTimeline{
+    &__contenido{
         display: flex;
         flex-direction: column;
-        // justify-content: space-between;
         position: relative;
         gap: 20px;
-    }
-    // línea que une las tareas
-    .line{
-        width: 2px;
-        height: calc(100% - 30px);
-        background: #525252;
-        position: absolute;
-        left: 8px;
-        z-index: -1;
-        margin-top: 10px;
-    }
-    // conteneor de las tareas
-    .ctnTasks{
-        display: flex;
-        gap: 20px;
-        align-items: start;
-        .ctnDrtnTaks{
+        z-index: 1;
+        &-line{
+            width: 2px;
+            height: calc(100% - 30px) ;
+            // background: var(--fc90);
+            background: var(--detail);
+            position: absolute !important;
+            left: 8px;
+            z-index: -1;
+            margin-top: 10px;
+        }
+        &-contenedorTasks{
             display: flex;
-            flex-direction: column;
-            .nmTask{
-                font-size: 15px;
+            gap: 20px;
+            align-items: start;
+            &-circle,&-circle.complete{
+                width: 20px;
+                height: 20px;
+                border-radius: 20px;
+                display: grid;
+                place-items: center;
             }
-            .drtnTask{
-                padding: 3px 0;
-                opacity: .5;
-                font-size: 14px;
+            &-circle{
+                // background: #fff;
+                background: var(--bg);
+                // box-shadow: inset 0 0 0 2px var(--fc90);
+                box-shadow: inset 0 0 0 2px var(--detail);
+                &:before{
+                    color: #282828 ;
+                }
+            }
+            &-circle.complete{
+                // background: var(--fc90);
+                // background: var(--fc30);
+                background: var(--detail);
+                box-shadow: none;
+                &:before{
+                    content: "✔";
+                    position: absolute;
+                    font-size: 15px;
+                    // color: #dedede;
+                    // color: var(--fc30);
+                    color: var(--colorPaloma);
+                }
+            }
+            &-duration{
+                display: flex;
+                flex-direction: column;
+                
+                &-duration{
+                    opacity: .7;
+                    font-size: 14px;
+                }
+                &-name{
+                    color: var(--fc90) !important;
+                }
             }
         }
     }
-    // tarea completa e incompleta
-    .circleComplete,
-    .circle{
-        width: 20px;
-        height: 20px;
-        border-radius: 20px;
-        display: grid;
-        place-items: center;
-    }
-    // cuando la tarea aun no se completa
-    .circle{
-        background: #fff;
-        box-shadow: inset 0 0 0 2px #282828;
-        &:before{
-            color: #282828;
-        }
-    }
-    // cuando la tarea se encuentra completada
-    .circleComplete{
-        background: #282828;
-        box-shadow: none;
-        &:before{
-            content: "✔";
-            position: absolute;
-            font-size: 15px;
-            color: #dedede;
-        }
-    }
+
     
-}
-
-// ---------------------------------------------------------------------------------------------------------
-//      modo claro
-// ---------------------------------------------------------------------------------------------------------
-
-
-// ---------------------------------------------------------------------------------------------------------
-//      modo oscuro
-// ---------------------------------------------------------------------------------------------------------
-
-
+} 
 // ---------------------------------------------------------------------------------------------------------
 //      media queries
 // ---------------------------------------------------------------------------------------------------------

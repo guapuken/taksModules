@@ -1,7 +1,13 @@
 import React from 'react';
 import { Avatar, SimpleContainer, Texts, Title, ValidationComponent } from '../../Atoms';
 
-const ContenedorUser = ({ userName = 'No Hay', avatar, role = 'Indefinido', boss, lowLevel }) => {
+const ContenedorUser = ({
+	userName = 'No Hay',
+	avatar,
+	role = 'Indefinido',
+	boss,
+	lowLevel,
+}: any) => {
 	return (
 		<SimpleContainer
 			style={{

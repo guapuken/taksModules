@@ -1,5 +1,4 @@
-@import '../../../../global.scss';
-.ctn_Txts{
+.textos{
     font-weight: 400;
     position: relative;
     line-height: 1.4;
@@ -8,10 +7,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     white-space: pre-wrap;
-    &.Light{
-        color: var(--fcLight);
-    }
-    &.Dark{
-        color: var(--fcDark);
-    }
+    color: var(--fc60) !important;
+    opacity: .6;
+    font-weight: var(--fw400) !important;
 }

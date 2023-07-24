@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { IconDropdown } from '../../components';
 import { PopUp, ValidationComponent } from '../Atoms';
 import { dropdownWithPopupProps } from './types/Types';
+import './styles/styles.scss';
 
 const DropdownWithPopup = ({
 	style,
@@ -22,7 +23,7 @@ const DropdownWithPopup = ({
 		setIsHoverEnter(!isHover);
 	};
 	return (
-		<div className={`ContainerIconAsignUsers ${className}`} style={style}>
+		<div className={`dropdownWithPopup ${className}`} style={style}>
 			<IconDropdown
 				modo={modo}
 				options={dropdownOptions}
@@ -32,8 +33,8 @@ const DropdownWithPopup = ({
 				title={title}
 			/>
 			<ValidationComponent validate={validateToShowIcon}>
-				<p
-					className={'CircleInvolucradosTaskComponent'}
+				<div
+					className={'dropdownWithPopup__circle'}
 					onMouseEnter={Hover}
 					onMouseLeave={Hover}
 					onClick={() => setIsHoverEnter(!isHover)}
@@ -42,7 +43,7 @@ const DropdownWithPopup = ({
 					<PopUp className="TabletAndMobileVersion" isHover={isHover}>
 						{children}
 					</PopUp>
-				</p>
+				</div>
 			</ValidationComponent>
 		</div>
 	);

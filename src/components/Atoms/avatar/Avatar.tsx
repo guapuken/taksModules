@@ -3,22 +3,24 @@ import { initialLetters } from '../../../utils/functions/functions';
 // types
 import { avatar } from './types/types';
 // componentes auxiliares
-import { Texts, SimpleContainer } from '../../Atoms';
+import { Texts, SimpleContainer, ValidationComponent } from '../../Atoms';
 // styles
 import './styles/avatar.scss';
 
 const Avatar = ({ avatar, userName, modo, className, style }: avatar) => {
-	return avatar ? (
+	return (
 		<SimpleContainer
-			className={`ctn_Avtr ${modo} ${className}`}
+			className={`avatar ${className}`}
+			labels={{ 'theme-config': modo }}
 			style={{ backgroundImage: `url(${avatar})`, ...style }}
-			children={null}
-		/>
-	) : (
-		<Texts modo={modo} className={`ctn_Avtr ${modo} ${className}`} style={style}>
-			{initialLetters(userName ?? 'NU')}
-		</Texts>
+		>
+			<ValidationComponent validate={!avatar}>
+				<Texts modo={modo} className="avatar__iniciales">
+					{initialLetters(userName ?? 'NU')}
+				</Texts>
+			</ValidationComponent>
+			<ValidationComponent validate={avatar}>{null}</ValidationComponent>
+		</SimpleContainer>
 	);
 };
-
 export default Avatar;

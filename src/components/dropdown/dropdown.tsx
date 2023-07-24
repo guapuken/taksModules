@@ -8,6 +8,7 @@ import { optionsDropdown } from '../../types';
 import { Modo, onChangeType } from '../../types';
 // estilos
 import './dropdown.scss';
+import { SimpleContainer, ValidationComponent } from '../Atoms';
 
 /**documentación de componente
  * @param {optionsDropdown[]} props.options - recibe un arreglo de objetos con los siguientes datos:
@@ -66,7 +67,9 @@ const Dropdown = (props: dropdown) => {
 	}, [datos.initialValue || datos.values]);
 
 	const handleInputClick = (e: any) => {
-		setShowMenu(!showMenu);
+		if (!datos.disabled) {
+			setShowMenu(!showMenu);
+		}
 	};
 
 	// muestra los valores dentro del dropdown que se existen dependiendo si es de múltiple selección o de selección simple
@@ -77,19 +80,22 @@ const Dropdown = (props: dropdown) => {
 		// si el dropdown es de selección múltiple se crean las tags para encapsular las opciones seleccionadas
 		if (datos.isMulti)
 			return (
-				<div className={'dropdownTags'}>
+				<SimpleContainer className={'dropdown__input-selectedValue-etiquetas'}>
 					{selectedValue.map((option: optionsDropdown) => (
-						<div key={option.id} className={'dropdownTagItem'}>
+						<SimpleContainer
+							key={option.id}
+							className={'dropdown__input-selectedValue-etiquetas-etiqueta'}
+						>
 							{option.title}
 							<span
 								onClick={(e) => onTagRemove(e, option)}
-								className={'dropdownTagClose'}
+								className={'dropdown__input-selectedValue-etiquetas-etiqueta-close'}
 							>
 								<CloseIcon />
 							</span>
-						</div>
+						</SimpleContainer>
 					))}
-				</div>
+				</SimpleContainer>
 			);
 		// se regresa la propiedad de title del valor seleccionado
 		return selectedValue.title;
@@ -149,8 +155,8 @@ const Dropdown = (props: dropdown) => {
 			return datos.options;
 		}
 
-		return datos.options?.filter(
-			(option) => option.title.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0
+		return datos?.options?.filter(
+			(option) => option?.title?.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0
 		);
 	};
 
@@ -160,42 +166,66 @@ const Dropdown = (props: dropdown) => {
 			: 15;
 	}
 	return (
-		<div className={'dropdownContainer'} style={datos.style}>
-			<div ref={inputRef} onClick={handleInputClick} className={'dropdownInput'}>
-				<div className={'dropdownSelectedValue'}>{getDisplay()}</div>
-				<div className={'dropdownTools'}>
-					<div className={'dropdownTool'}>{Icon(undefined, showMenu ? true : false)}</div>
-				</div>
-			</div>
+		<SimpleContainer
+			className={'dropdown'}
+			style={datos.style}
+			labels={{
+				'disabled-dropdown': datos.disabled ? 'disabled' : '',
+			}}
+		>
+			<SimpleContainer
+				labels={{ ref: inputRef }}
+				onClick={handleInputClick}
+				className={'dropdown__input'}
+			>
+				<SimpleContainer className={'dropdown__input-selectedValue'}>
+					{getDisplay()}
+				</SimpleContainer>
+				<SimpleContainer className={'dropdown__input-tools'}>
+					<SimpleContainer className={'dropdown__input-tools-tool'}>
+						{Icon(
+							datos.modo === 'Dark' || datos.disabled ? '#fff' : '',
+							showMenu ? true : false
+						)}
+					</SimpleContainer>
+				</SimpleContainer>
+			</SimpleContainer>
 			{showMenu && (
-				<div
-					className={'dropdownMenu'}
+				<SimpleContainer
+					className={'dropdown__menu'}
 					style={{
 						maxHeight: `${sizeDrop() * 10}px`,
-						transform: `translate(-5px, ${
-							datos.topPosition ? `-${(sizeDrop() + 3) * 10}px` : '1px'
+						transform: `translate(0px, ${
+							datos.topPosition ? `-${(sizeDrop() + 3) * 10}px` : '0'
 						})`,
 					}}
 				>
-					{datos.isSearchable && (
-						<div className={'searchBox'}>
-							<input onChange={onSearch} value={searchValue} ref={searchRef} />
-						</div>
-					)}
+					<ValidationComponent validate={datos.isSearchable}>
+						<SimpleContainer className={'dropdown__menu-busqueda'}>
+							<input
+								disabled={datos.disabled}
+								onChange={onSearch}
+								value={searchValue}
+								ref={searchRef}
+							/>
+						</SimpleContainer>
+					</ValidationComponent>
 					{getOptions()?.map((option) => {
 						return (
-							<div
+							<SimpleContainer
 								onClick={() => onItemClick(option)}
 								key={option.id}
-								className={`${'dropdownItem'} ${isSelected(option) && 'selected'}`}
+								className={`${'dropdown__menu-item'} ${
+									isSelected(option) && 'selected'
+								}`}
 							>
 								{option.title}
-							</div>
+							</SimpleContainer>
 						);
 					})}
-				</div>
+				</SimpleContainer>
 			)}
-		</div>
+		</SimpleContainer>
 	);
 };
 
