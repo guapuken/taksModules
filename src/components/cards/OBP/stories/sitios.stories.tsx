@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import CardSitios from '../sitios/cardSitios';
 
 storiesOf('Cards / OBP / sitios', module).add('sitios', () => {
+	const [added, setAdded] = useState(false);
 	return (
 		<div style={{ display: 'flex', gap: '25px', flexWrap: 'wrap' }}>
 			<CardSitios
@@ -22,7 +23,8 @@ storiesOf('Cards / OBP / sitios', module).add('sitios', () => {
 				longitud={'-99.1542630'}
 				material={'Lona front'}
 				modo={'Dark'}
-				onCarritoClick={() => {}}
+				addedToCar={added}
+				onCarritoClick={() => setAdded(!added)}
 				onClickEditar={() => {}}
 				onClickEstado={() => {}}
 				onClickPdf={() => {}}

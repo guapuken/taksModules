@@ -37,6 +37,7 @@ const CardSitios = ({
 	precioventa,
 	costo,
 	onClickPrev,
+	addedToCar,
 }: any) => {
 	//TODO: crear interface para las propiedades que se recibirpan
 	const [isOpen, setIsOpen] = useState(false);
@@ -114,7 +115,7 @@ const CardSitios = ({
 				></div>
 				<div className="cardSitios__image-btn">
 					<Button
-						modo={modo}
+						modo={'Light'}
 						onCl={onCarritoClick}
 						float
 						rounded
@@ -123,6 +124,8 @@ const CardSitios = ({
 						size="medium"
 						id={claveimj}
 						color="#343232"
+						valueSuccess={addedToCar && '✔'}
+						successColor={addedToCar}
 					/>
 				</div>
 				<div className="cardSitios__image-info">
