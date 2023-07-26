@@ -133,7 +133,7 @@ $padding: 5px 10px;
     position: relative;
     border-radius: 5px;
     cursor: pointer;
-    background: var(--background) ;
+    background: var(--background);
 
     box-shadow: var(--border) !important;
     // border: none !important;
@@ -181,6 +181,6 @@ $padding: 5px 10px;
         }
     }
     &:hover{
-        background: var(--hover) !important;
+        background: var(--hover) ;
     }
 }
