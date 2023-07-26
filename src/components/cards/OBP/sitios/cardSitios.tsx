@@ -34,7 +34,10 @@ const CardSitios = ({
 	iluminacion,
 	altura,
 	comentarios,
+	precioventa,
+	costo,
 }: any) => {
+	//TODO: crear interface para las propiedades que se recibirpan
 	const [isOpen, setIsOpen] = useState(false);
 	const [activeIndex, setActiveIndex] = useState(1);
 
@@ -61,7 +64,7 @@ const CardSitios = ({
 			case 3:
 				return <Comentarios comentarios={comentarios} />;
 			case 4:
-				return <Precios />;
+				return <Precios precioventa={precioventa} costo={costo} />;
 			default:
 				break;
 		}
