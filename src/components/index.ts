@@ -59,6 +59,9 @@ export {default as CardMannageTemplates} from './cards/MannageTemplates/cardMann
 export {default as CardMannageProjects} from './cards/MannageProjects/cardMannageProjects';
 export {default as CardMannageTasks} from './cards/MannageTasks/cardMannageTasks';
 
+//CARD DE OBP
+export {default as CardSitios} from './cards/OBP/sitios/cardSitios';
+
 // ---------------------------------------------------------------------------------------------------------
 //      Modales preestablecidos
 // ---------------------------------------------------------------------------------------------------------
