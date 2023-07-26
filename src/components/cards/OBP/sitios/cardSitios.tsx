@@ -36,6 +36,7 @@ const CardSitios = ({
 	comentarios,
 	precioventa,
 	costo,
+	onClickPrev,
 }: any) => {
 	//TODO: crear interface para las propiedades que se recibirpan
 	const [isOpen, setIsOpen] = useState(false);
@@ -72,6 +73,11 @@ const CardSitios = ({
 
 	const setOptionsSubmenus = [
 		{
+			title: 'Previsualizar',
+			id: 'preview',
+			onClick: onClickPrev,
+		},
+		{
 			title: 'Editar',
 			id: 'edit',
 			onClick: onClickEditar,
@@ -80,16 +86,16 @@ const CardSitios = ({
 			title: 'Descargar PDF',
 			id: 'downloadPdf',
 			onClick: onClickPdf,
-			submenus: [
-				{
-					id: 'ficha',
-					title: 'Ficha técnica',
-				},
-				{
-					id: 'detalle',
-					title: 'Detalle indoor',
-				},
-			],
+			// submenus: [
+			// 	{
+			// 		id: 'ficha',
+			// 		title: 'Ficha técnica',
+			// 	},
+			// 	{
+			// 		id: 'detalle',
+			// 		title: 'Detalle indoor',
+			// 	},
+			// ],
 		},
 		{
 			title: estadoBtn ? 'Activar sitio' : 'Desactivar sitio',
@@ -104,6 +110,7 @@ const CardSitios = ({
 				<div
 					className="cardSitios__image-bg"
 					style={{ backgroundImage: `url(${imagen1})` }}
+					onClick={onClickPrev}
 				></div>
 				<div className="cardSitios__image-btn">
 					<Button
@@ -121,7 +128,12 @@ const CardSitios = ({
 				<div className="cardSitios__image-info">
 					<div className="cardSitios__image-info-background"></div>
 					<div>
-						<Title modo="Light" className="cardSitios__image-info-title" maxLines={1}>
+						<Title
+							modo="Light"
+							className="cardSitios__image-info-title"
+							maxLines={1}
+							labels={{ title: claveimj }}
+						>
 							{claveimj}
 						</Title>
 						<Texts maxLines={1} modo="Light" className="cardSitios__image-info-title">
