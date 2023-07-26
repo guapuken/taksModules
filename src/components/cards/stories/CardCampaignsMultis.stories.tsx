@@ -8,7 +8,6 @@ storiesOf('Cards/Campaigns/Examples/Uber eats', module).add('Uber eats', () => {
 		<SimpleContainer style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
 			<CardCampaign
 				nombreProyecto="2563-Uber_Eats-Noviembre"
-				porcentajeFijos={0}
 				statusFijos={'onTime'}
 				modo={'Light'}
 				campaignColor="#f1f498"
@@ -25,6 +24,9 @@ storiesOf('Cards/Campaigns/Examples/Uber eats', module).add('Uber eats', () => {
 			<CardCampaign
 				nombreProyecto="9568-Electrolit-Julio"
 				porcentajeFijos={45}
+				porcentajeIndoors={75}
+				porcentajeUrbanos={12}
+				porcentajeVallas={0}
 				statusFijos={'delayed'}
 				modo={'Light'}
 				campaignColor="#3EDE46"
