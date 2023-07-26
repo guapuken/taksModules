@@ -1,7 +1,7 @@
 import React from 'react';
 import { Texts, Title } from '../../../../Atoms';
 
-const Precios = () => {
+const Precios = ({ costo, precioventa }: any) => {
 	return (
 		<div
 			style={{
@@ -14,13 +14,13 @@ const Precios = () => {
 			<div>
 				<Texts modo="Dark">Costo</Texts>
 				<Texts modo="Dark" style={{ fontSize: '20px' }}>
-					$75,253.00
+					{costo}
 				</Texts>
 			</div>
 			<div>
 				<Title modo="Dark">Precio</Title>
 				<Title modo="Dark" style={{ fontSize: '30px' }}>
-					$112,253.00
+					{precioventa}
 				</Title>
 			</div>
 		</div>

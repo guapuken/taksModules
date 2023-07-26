@@ -1,7 +1,7 @@
 import React from 'react';
 import { Texts } from '../../../../Atoms';
 
-const Comentarios = ({ comentarios }) => {
+const Comentarios = ({ comentarios }: any) => {
 	return (
 		<div>
 			<Texts modo="Dark" maxLines={5} labels={{ title: comentarios }}>

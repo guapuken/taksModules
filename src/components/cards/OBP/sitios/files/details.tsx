@@ -21,7 +21,7 @@ const Details = ({
 	bloqueado,
 	vista,
 	iluminacion,
-}) => {
+}: any) => {
 	return (
 		<>
 			<div className="cardSitios__detalles-contenido">
