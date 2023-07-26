@@ -28,15 +28,17 @@ const Button = ({
 	float,
 	modo = 'Light',
 	textStyle,
+	color,
 }: button) => {
 	return (
 		<button
 			id={id}
+			color-btn={color}
 			className={`boton ${className}`}
 			onClick={onCl}
 			theme-config={modo}
 			disabled={disabled}
-			style={style}
+			style={{ background: color, ...style }}
 			rounded-button={rounded ? 'rounded' : ''}
 			disabled-button={disabled ? 'disabled' : ''}
 			border-button={border ? 'border' : ''}
@@ -47,9 +49,9 @@ const Button = ({
 			size-button={size}
 		>
 			<span className={`boton__contenido`} style={textStyle}>
-				<ValidationComponent validate={icon}>
-					<img className="boton__contenido-icon" src={icon} style={styleIcon} />
-				</ValidationComponent>
+				{icon && <img className="boton__contenido-icon" src={icon} style={styleIcon} />}
+				{/* <ValidationComponent validate={icon}>
+				</ValidationComponent> */}
 				<Texts modo={'' as Modo} className="boton__contenido-legend">
 					{legend}
 				</Texts>

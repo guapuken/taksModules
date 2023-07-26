@@ -68,6 +68,16 @@
 [float-button='float'],[size-button='large']{
     --display: none;
 }
+// tamaños de los íconos con la propiedad de float
+[float-button='float'][size-button='small']{
+    --sizeIcon: 28px;
+}
+[float-button='float'][size-button='medium']{
+    --sizeIcon: 30px;
+}
+[float-button='float'][size-button='large']{
+    --sizeIcon: 35px;
+}
 [float-button='noFloat']{
     --sizeButton: auto;
     --display: block;
@@ -105,7 +115,7 @@ $padding: 5px 10px;
     position: relative;
     border-radius: 5px;
     cursor: pointer;
-    background: var(--background) !important;
+    background: var(--background) ;
     box-shadow: var(--border) !important;
     // border: none !important;
     width: var(--sizeButton) !important;
