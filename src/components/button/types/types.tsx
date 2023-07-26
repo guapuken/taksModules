@@ -22,4 +22,6 @@ export interface button {
 	float?: boolean;
 	modo: Modo;
 	color?: string;
+	valueSuccess?: any;
+	successColor?: boolean;
 }

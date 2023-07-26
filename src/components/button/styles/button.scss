@@ -15,6 +15,8 @@
     --display: block;
     --paddingIcon: 0;
     --borderRadius:5px;
+    --successSize: 17px;
+    --fontSizeSuccess: 10px;
 }
 
 // tamaños
@@ -24,6 +26,9 @@
     --fontSizeMax: 17px;
     --sizeIcon: 18px;
     --sizeButton: 30px;
+    --successSize: 20px;
+    --fontSizeSuccess: 10px;
+
 }
 [size-button='medium']{
     --fontSizeMin: 14px;
@@ -31,6 +36,8 @@
     --fontSizeMax: 19px;
     --sizeIcon: 20px;
     --sizeButton: 40px;
+    --successSize: 25px;
+    --fontSizeSuccess: 12px;
 }
 [size-button='large']{
     --fontSizeMin: 16px;
@@ -38,6 +45,9 @@
     --fontSizeMax: 21px;
     --sizeIcon: 25px;
     --sizeButton: 50px;
+    --successSize: 30px;
+    --fontSizeSuccess: 14px;
+
 }
 // colores
 [style-button='primary']{
@@ -109,6 +119,14 @@
 
 $padding: 5px 10px;
 
+.boton[success-color='successColor']{
+    background: var(--successColor);
+    .boton__contenido{
+        &-number{
+                background: var(--successColor);
+        }
+    }
+}
 // jeraquias (primary, secondary, tertiary) ----------------------
 .boton
 {
@@ -116,15 +134,37 @@ $padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
     background: var(--background) ;
+
     box-shadow: var(--border) !important;
     // border: none !important;
     width: var(--sizeButton) !important;
     height: var(--sizeButton) !important;
     border-radius: var(--borderRadius);
+    &__number{
+        position: absolute;
+        right:-20%;
+        top: -20%;
+        width: var(--successSize);
+        height: var(--successSize);
+        border-radius: 100%;
+        // background: var(--background);
+        background: inherit;
+        border: 3px solid var(--bg);
+        font-size: var(--fontSizeSuccess);
+        &::before{
+            content: attr(value-success);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            color: #fff;
+        }
+    }
     &__contenido{
         display: flex;
         align-items: center;
         justify-content: center;
+        
         // border: none;
         &-legend{
             display: var(--display);

@@ -29,6 +29,8 @@ const Button = ({
 	modo = 'Light',
 	textStyle,
 	color,
+	valueSuccess,
+	successColor,
 }: button) => {
 	return (
 		<button
@@ -47,7 +49,9 @@ const Button = ({
 			}
 			float-button={float ? 'float' : 'noFloat'}
 			size-button={size}
+			success-color={successColor ? 'successColor' : ''}
 		>
+			{valueSuccess && <span className={`boton__number`} value-success={valueSuccess}></span>}
 			<span className={`boton__contenido`} style={textStyle}>
 				{icon && <img className="boton__contenido-icon" src={icon} style={styleIcon} />}
 				{/* <ValidationComponent validate={icon}>

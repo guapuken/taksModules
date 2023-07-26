@@ -30,7 +30,11 @@ Primary.args = {
 	primary: true,
 	legend: 'Botón primario',
 	size: 'large',
+	rounded: false,
 	icon: 'https://cdn3.iconfinder.com/data/icons/picons-social/57/46-facebook-512.png',
+	// valueSuccess: '✔',
+	valueSuccess: '25',
+	successColor: true,
 };
 export const Secondary = Template.bind({});
 Secondary.args = {
