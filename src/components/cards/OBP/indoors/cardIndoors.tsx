@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Texts, Title } from '../../../Atoms';
-import { Button } from '../../../../components';
+import { Button } from '../../..';
 
 import './styles/styles.scss';
 import { IconMoreOptions } from '../../../task/files';
@@ -9,26 +9,21 @@ import Comentarios from './files/Comentarios';
 import Precios from './files/Precios';
 import carrito from '../../../../img/carrito.svg';
 
-const CardSitios = ({
+const CardIndoors = ({
 	activo,
 	imagen1,
+	clave,
+	tipo,
 	modo,
 	onCarritoClick,
-	claveimj,
-	tipos,
 	onClickEditar,
-	onClickPdf,
 	onClickEstado,
 	estadoBtn,
 	base,
-	direccion,
 	proveedor,
 	ubicacion,
 	especiales,
-	latitud,
-	longitud,
 	claveproveedor,
-	material,
 	bloqueado,
 	vista,
 	iluminacion,
@@ -38,6 +33,14 @@ const CardSitios = ({
 	costo,
 	onClickPrev,
 	addedToCar,
+	onClickPDFPreview,
+	onClickPDFFicha,
+	area,
+	piso,
+	nivelIndoor,
+	siglas,
+	descripcion,
+	costoproduccion,
 }: any) => {
 	//TODO: crear interface para las propiedades que se recibirpan
 	const [isOpen, setIsOpen] = useState(false);
@@ -48,25 +51,31 @@ const CardSitios = ({
 			case 1:
 				return (
 					<Details
-						base={base}
 						altura={altura}
-						direccion={direccion}
+						base={base}
 						proveedor={proveedor}
 						ubicacion={ubicacion}
 						especiales={especiales}
-						latitud={latitud}
-						longitud={longitud}
 						claveproveedor={claveproveedor}
-						material={material}
 						bloqueado={bloqueado}
 						vista={vista}
 						iluminacion={iluminacion}
+						area={area}
+						piso={piso}
+						nivelIndoor={nivelIndoor}
+						siglas={siglas}
 					/>
 				);
 			case 3:
-				return <Comentarios comentarios={comentarios} />;
+				return <Comentarios comentarios={comentarios} descripcion={descripcion} />;
 			case 4:
-				return <Precios precioventa={precioventa} costo={costo} />;
+				return (
+					<Precios
+						precioventa={precioventa}
+						costo={costo}
+						costoproduccion={costoproduccion}
+					/>
+				);
 			default:
 				break;
 		}
@@ -86,17 +95,18 @@ const CardSitios = ({
 		{
 			title: 'Descargar PDF',
 			id: 'downloadPdf',
-			onClick: onClickPdf,
-			// submenus: [
-			// 	{
-			// 		id: 'ficha',
-			// 		title: 'Ficha técnica',
-			// 	},
-			// 	{
-			// 		id: 'detalle',
-			// 		title: 'Detalle indoor',
-			// 	},
-			// ],
+			submenus: [
+				{
+					id: 'ficha',
+					title: 'Ficha técnica',
+					onClick: onClickPDFPreview,
+				},
+				{
+					id: 'detalle',
+					title: 'Detalle indoor',
+					onClick: onClickPDFFicha,
+				},
+			],
 		},
 		{
 			title: estadoBtn ? 'Activar sitio' : 'Desactivar sitio',
@@ -122,7 +132,7 @@ const CardSitios = ({
 						style={{}}
 						icon={carrito}
 						size="medium"
-						id={claveimj}
+						id={clave}
 						color={addedToCar ? undefined : '#343232'}
 						valueSuccess={addedToCar && '✔'}
 						successColor={addedToCar}
@@ -135,12 +145,17 @@ const CardSitios = ({
 							modo="Light"
 							className="cardSitios__image-info-title"
 							maxLines={1}
-							labels={{ title: claveimj }}
+							labels={{ title: clave }}
 						>
-							{claveimj}
+							{clave}
 						</Title>
-						<Texts maxLines={1} modo="Light" className="cardSitios__image-info-title">
-							{tipos}
+						<Texts
+							maxLines={1}
+							modo="Light"
+							className="cardSitios__image-info-title"
+							labels={{ title: tipo }}
+						>
+							{tipo}
 						</Texts>
 					</div>
 					{!isOpen && (
@@ -213,4 +228,4 @@ const CardSitios = ({
 	);
 };
 
-export default CardSitios;
+export default CardIndoors;
