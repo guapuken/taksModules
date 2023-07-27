@@ -1,7 +1,5 @@
 .commentTask{
     display: flex;
-    justify-content: center;
-    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -17,12 +15,16 @@
     }
     &__contenedor{
         min-width: 20vw;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         max-width: 50vw;
         height: auto;
         max-height: 75vh;
         overflow: auto;
         border-radius: 20px;
-        position: relative;
+        // position: relative;
         padding: 15px;
         background: var(--bg);
         box-shadow: var(--boxShadow);

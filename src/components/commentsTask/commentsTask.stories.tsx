@@ -4,8 +4,18 @@ import { Meta, Story } from '@storybook/react';
 import CommentsTask from './commentsTask';
 import { commentsTask } from './types';
 import { modo } from '../../storyUtils';
+import Button from '../button/Button';
+import useModalWithData from '../Atoms/hooks/useModalWithData';
 
-const Template: Story<commentsTask> = (args) => <CommentsTask {...args} />;
+const Template: Story<commentsTask> = (args) => {
+	const { isOpened, setData, data } = useModalWithData();
+	return (
+		<div>
+			<Button modo="Light" onCl={() => setData({ id: '1', title: '1' })} />
+			<CommentsTask {...args} isActive={isOpened()} handleClose={() => setData(null)} />
+		</div>
+	);
+};
 
 // estado inicial del componente
 export const InitialState = Template.bind({});
