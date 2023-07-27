@@ -235,12 +235,12 @@ const Task = (props: tasks) => {
 									//////Date
 									onCh_endDate={plantillas ? () => {} : e.onCh_endDate}
 									onCh_startDate={plantillas ? () => {} : e.onCh_startDate}
-									endDateValue={plantillas ? undefined : endDateValue}
-									startDateValue={plantillas ? undefined : startDateValue}
-									maxEndDate={plantillas ? undefined : maxEndDate}
-									maxStartDate={plantillas ? undefined : maxStartDate}
-									minEndDate={plantillas ? undefined : minEndDate}
-									minStartDate={plantillas ? undefined : minStartDate}
+									endDateValue={plantillas ? undefined : e.endDateValue}
+									startDateValue={plantillas ? undefined : e.startDateValue}
+									maxEndDate={plantillas ? undefined : e.maxEndDate}
+									maxStartDate={plantillas ? undefined : e.maxStartDate}
+									minEndDate={plantillas ? undefined : e.minEndDate}
+									minStartDate={plantillas ? undefined : e.minStartDate}
 									disabledEndDate={plantillas ? false : disabledEndDate}
 									disabledStartDate={plantillas ? false : disabledStartDate}
 									onCh_duration={plantillas ? onCh_duration : () => {}}
