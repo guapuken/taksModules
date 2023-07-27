@@ -12,8 +12,6 @@ function DemoComponent() {
 	const [checkCam, setCheckCam] = useState(false);
 	const [tiposMedio, setTiposMedio] = useState(null);
 
-	console.clear();
-	console.log('campaña: ', checkCam, 'Template', checkTem, 'tiposMedio', tiposMedio);
 	return (
 		<ModalTemplates
 			onCl_close={() => {}}
@@ -27,6 +25,9 @@ function DemoComponent() {
 			onCh_dropDownTipoMedio={(e) => {
 				setTiposMedio(e);
 			}}
+			valueTemplateType="Venta"
+			// disabledPostventa
+			// disabledVenta
 			onCh_templateName={(e) => setTemplate(e.target.value)}
 			onCl_abort={() => {}}
 			onCl_addTask={() => {}}
@@ -34,7 +35,7 @@ function DemoComponent() {
 				setCheckTem(false);
 				setTiposMedio(null);
 			}}
-			valueCheckboxMedio={checkTem}
+			// valueCheckboxMedio={checkTem}
 			// isEditingTemplate
 			valueCheckboxCampaign={true}
 			templateNameValue="Espectaculares"

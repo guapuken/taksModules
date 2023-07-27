@@ -32,4 +32,8 @@ export interface modalTemplates {
 	isEditingTemplate?: boolean;
 	valueCheckboxMedio?: boolean;
 	valueCheckboxCampaign?: boolean;
+	disabledPreventa?: boolean;
+	disabledVenta?: boolean;
+	disabledPostventa?: boolean;
+	valueTemplateType?: 'Preventa' | 'Venta' | 'Postventa';
 }
