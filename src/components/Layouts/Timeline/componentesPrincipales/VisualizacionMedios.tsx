@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SimpleContainer, ValidationComponent } from '../../../Atoms';
+import { SimpleContainer, Title, ValidationComponent } from '../../../Atoms';
 import Medio from './Medio';
 import CardMedios from './CardMedio';
 import { medios, visualizacionMedios } from '../types/Types';
@@ -7,6 +7,7 @@ import { SitiosIcon } from '../../../../img/sitios';
 import { UrbanosIcon } from '../../../../img/urbanosIcon';
 import { VallaIcon } from '../../../../img/vallasIcon';
 import { IndoorsIcon } from '../../../../img/indoorsIcon';
+import Dropdown from '../../../dropdown/dropdown';
 
 const VisualizacionMedios = ({
 	tasks,
@@ -24,6 +25,9 @@ const VisualizacionMedios = ({
 	unidadesUrbanas,
 	sitiosIndoors,
 	vallasMoviles,
+	onCh_dropdownRutas,
+	optionsRutas,
+	valuesRutas,
 }: visualizacionMedios) => {
 	const [selectedElement, setSelectElement] = useState('');
 	const [idSelect, setIdSelect] = useState('');
@@ -117,6 +121,20 @@ const VisualizacionMedios = ({
 			</SimpleContainer>
 			<ValidationComponent validate={tasks}>
 				<SimpleContainer className="timelineProject__contenido-medios-individual">
+					{selectedElement === '2' && (
+						<div style={{ display: 'block', width: '100%' }}>
+							<Title modo={modo}>Filtrar por plaza</Title>
+							<Dropdown
+								modo={modo}
+								onCh={onCh_dropdownRutas}
+								options={optionsRutas}
+								isSearchable
+								isMulti
+								values={valuesRutas}
+								placeHolder="Selecciona las plazas que deseas visualizar"
+							/>
+						</div>
+					)}
 					{tasks?.map((element: medios) => (
 						<Medio
 							modo={modo}

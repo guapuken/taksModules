@@ -32,6 +32,22 @@ storiesOf('Layouts/TimelineProject/Examples/Uber', module).add('Uber', () => {
 			statusSitios={3}
 			statusIndoors={1}
 			statusVallas={2}
+			onCh_dropdownRutas={() => {}}
+			optionsRutas={[
+				{ id: '1', title: 'T-18' },
+				{ id: '2', title: 'T-19' },
+			]}
+			valuesRutas={[]}
+			optionsDropdown={[
+				{
+					id: '1',
+					title: 'Espectaculares',
+				},
+				{
+					id: '2',
+					title: 'Muros',
+				},
+			]}
 			onCl_selectedMedios={(e) => setMedios(e.target.id)}
 			medios={
 				medios === 'sitios'

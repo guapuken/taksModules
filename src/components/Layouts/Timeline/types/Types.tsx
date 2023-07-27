@@ -18,6 +18,9 @@ export type visualizacionMedios = {
 	unidadesUrbanas?: boolean;
 	sitiosIndoors?: boolean;
 	vallasMoviles?: boolean;
+	onCh_dropdownRutas: onChangeType;
+	optionsRutas: optionsDropdown[];
+	valuesRutas?: optionsDropdown[];
 };
 
 export type medios = {
@@ -53,4 +56,7 @@ export interface timelineProjectProps {
 	statusIndoors?: statusTask;
 	statusVallas?: statusTask;
 	onCl_close?: onClickType;
+	onCh_dropdownRutas: onChangeType;
+	optionsRutas: optionsDropdown[];
+	valuesRutas?: optionsDropdown[];
 }

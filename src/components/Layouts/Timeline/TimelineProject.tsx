@@ -36,6 +36,9 @@ const TimelineProject = ({
 	optionsDropdown,
 	initialValueDropdown,
 	onCl_close,
+	onCh_dropdownRutas,
+	optionsRutas,
+	valuesRutas,
 }: timelineProjectProps) => {
 	const [medioSelected, setMedioSelected] = useState('');
 	return (
@@ -59,9 +62,7 @@ const TimelineProject = ({
 					<SimpleContainer style={{ width: '30vw', display: 'flex', gap: '10px' }}>
 						<Title modo={modo}>{nombreProyecto}</Title>
 					</SimpleContainer>
-					<ValidationComponent validate={!tasks}>
-						<NoContent modo={modo} />
-					</ValidationComponent>
+					{!tasks && <NoContent modo={modo} />}
 					<ValidationComponent validate={tasks}>
 						<SimpleContainer style={{ marginTop: '20px' }}>
 							<SimpleContainer
@@ -109,7 +110,7 @@ const TimelineProject = ({
 									onCh={onCh_dropdown as onChangeType}
 									options={optionsDropdown ?? []}
 									initialValue={initialValueDropdown}
-									style={{ marginBottom: '20px' }}
+									style={{ marginBottom: '20px', zIndex: '2' }}
 									placeHolder="Selecciona el tipo de medio"
 								/>
 							</ValidationComponent>
@@ -137,6 +138,9 @@ const TimelineProject = ({
 						unidadesUrbanas={statusUrbanos || percentUrbanos ? true : false}
 						sitiosIndoors={statusIndoors || percentIndoors ? true : false}
 						vallasMoviles={statusVallas || percentVallas ? true : false}
+						onCh_dropdownRutas={onCh_dropdownRutas}
+						optionsRutas={optionsRutas}
+						valuesRutas={valuesRutas}
 					/>
 				</SimpleContainer>
 			</SimpleContainer>
