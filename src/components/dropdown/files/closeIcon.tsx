@@ -13,7 +13,7 @@ const CloseIcon = () => {
 			height="15"
 			width="15"
 			viewBox="0 0 20 20"
-			fill="#fff"
+			fill="red"
 			style={{
 				transform: isHover ? 'rotate(90deg)' : '',
 				transition: '.3s ease',
