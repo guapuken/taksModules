@@ -1,6 +1,6 @@
 {
   "name": "@guapuken/tasks-modules",
-  "version": "0.2.27",
+  "version": "0.2.28",
   "description": "librería con paquetes actualizados",
   "scripts": {
     "pack": "rollup -c",
