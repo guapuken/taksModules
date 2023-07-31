@@ -4,7 +4,7 @@ import './Donut.scss';
 import { Texts, Title } from '../../../../Atoms';
 import { findMaxValue } from '../../../../../utils/functions/functions';
 
-const Donut = ({ colores, porcentajes, values }) => {
+const Donut = ({ colores, porcentajes, values }: any) => {
 	function percentToDegrees(percents: number[]) {
 		let value = 0;
 		let newArray = [] as any;
@@ -43,7 +43,6 @@ const Donut = ({ colores, porcentajes, values }) => {
 		return `conic-gradient(${background})`;
 	}
 
-	console.log(findMaxValue(porcentajes));
 	return (
 		<div
 			className="donut"

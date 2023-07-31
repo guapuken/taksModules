@@ -20,7 +20,7 @@ const Data = ({
 	reach = 0,
 	total_hits = 0,
 	total_users = 0,
-}) => {
+}: any) => {
 	const percents = {
 		male: male_users > 0 ? Math.round((male_users * 100) / (male_users + female_users)) : '0',
 		female:
@@ -32,11 +32,11 @@ const Data = ({
 				<Donut
 					colores={['#F8B03D', '#5FB464', '#3866AE', '#CA2284', '#8E1913']}
 					porcentajes={[
-						income_a_users,
-						income_b_users,
-						income_c_users,
-						income_d_users,
-						income_e_users,
+						income_a_users ?? 0,
+						income_b_users ?? 0,
+						income_c_users ?? 0,
+						income_d_users ?? 0,
+						income_e_users ?? 0,
 					]}
 					values={['A', 'B', 'C', 'D', 'E']}
 				/>
@@ -49,11 +49,11 @@ const Data = ({
 				<Donut
 					colores={['#F8B03D', '#5FB464', '#3866AE', '#CA2284', '#8E1913']}
 					porcentajes={[
-						a13_17_users,
-						a18_25_users,
-						a26_40_users,
-						a41_55_users,
-						a55_users,
+						a13_17_users ?? 0,
+						a18_25_users ?? 0,
+						a26_40_users ?? 0,
+						a41_55_users ?? 0,
+						a55_users ?? 0,
 					]}
 					values={['13-17', '18-25', '26-40', '41-55', '55 +']}
 				/>

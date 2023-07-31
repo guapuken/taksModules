@@ -46,8 +46,6 @@ const CardSitios = ({
 	a26_40_users,
 	a41_55_users,
 	a55_users,
-	percent_female_users,
-	percent_male_users,
 	female_users,
 	male_users,
 	frequency,
@@ -56,8 +54,8 @@ const CardSitios = ({
 	total_users,
 }: any) => {
 	//TODO: crear interface para las propiedades que se recibirpan
-	const [isOpen, setIsOpen] = useState(true);
-	const [activeIndex, setActiveIndex] = useState(2);
+	const [isOpen, setIsOpen] = useState(false);
+	const [activeIndex, setActiveIndex] = useState(1);
 
 	function getActiveIndex(index: number) {
 		switch (index) {
@@ -92,8 +90,6 @@ const CardSitios = ({
 						a26_40_users={a26_40_users}
 						a41_55_users={a41_55_users}
 						a55_users={a55_users}
-						percent_female_users={percent_female_users}
-						percent_male_users={percent_male_users}
 						female_users={female_users}
 						male_users={male_users}
 						frequency={frequency}

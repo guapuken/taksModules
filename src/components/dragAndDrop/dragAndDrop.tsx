@@ -260,7 +260,6 @@ const DragAndDrop = (props: dragAndDrop) => {
 		>
 			<div className={`ctn_DDC ${modo}`}>
 				{Object.keys(boardSections).map((boardSectionKey) => {
-					console.log('boardSectionKey: ', boardSections);
 					//genera los elementos droppables
 					return (
 						<div className="boardCtn" key={boardSectionKey}>

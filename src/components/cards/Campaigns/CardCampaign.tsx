@@ -23,12 +23,6 @@ const CardCampaign = ({
 	function percentCampaign() {
 		let total = 0;
 		let dividendo = 0;
-		console.log({
-			sitios: porcentajeFijos,
-			urbanos: porcentajeUrbanos,
-			indoors: porcentajeIndoors,
-			vallas: porcentajeVallas,
-		});
 		if (porcentajeFijos !== undefined || porcentajeFijos !== null) {
 			if (porcentajeFijos !== undefined) dividendo += 1;
 			total += porcentajeFijos ?? 0;
@@ -45,7 +39,6 @@ const CardCampaign = ({
 			if (porcentajeVallas !== undefined) dividendo += 1;
 			total += porcentajeVallas ?? 0;
 		}
-		console.log(dividendo);
 		return dividendo === 0 || total === 0 ? 0 : total / dividendo;
 	}
 
