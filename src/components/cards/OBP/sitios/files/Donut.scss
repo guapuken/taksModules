@@ -1,0 +1,75 @@
+
+.donut{
+    // width: 300px;
+    // height: 300px;
+    border-radius: 50%;
+
+    //Segmentos
+    // background: conic-gradient(
+    //     red 0deg 80deg,
+    //     green 80deg 190deg,
+    //     blue 190deg 360deg
+    // );
+    position: relative;
+
+    &__hole{
+        width: 80%;
+        height: 80%;
+        background: var(--fc90);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        flex-direction: column;
+        text-align: left ;
+    }
+    &__datos{
+        display: flex;
+        place-items: center;
+        height: 100%;
+        width: 100%;
+        &-max{
+            display: flex;
+            gap: 5px;
+            font-size: 11px;
+            flex-direction: column;
+            & > .textos{
+                font-size: 12px;
+                opacity: 1;
+                border-bottom: 3px solid var(--fc30);
+            }
+            &-maxValue{
+                scale: 1.4;
+            }
+        }
+    }
+}
+
+.circle-donut{
+    width: 100%;
+    height: 80%;
+    position: relative;
+    & > canvas{
+        width: 80%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    &-info{
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        background: var(--bg);
+    }
+}
+

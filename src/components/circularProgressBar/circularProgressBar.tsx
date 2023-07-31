@@ -29,7 +29,7 @@ const CircularProgressBar = ({
 		// <SimpleContainer className="ctn_CPB" style={{ width: size, height: size }}>
 		<SimpleContainer className="circularProgressBar" style={{ width: size, height: size }}>
 			<SimpleContainer style={{ height: size, width: size }}>
-				<svg viewBox="0 0 38 38">
+				<svg viewBox="0 0 38 38" className="circleProgressBar">
 					<circle
 						cx={circleConfig.x}
 						cy={circleConfig.y}

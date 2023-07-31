@@ -4,9 +4,7 @@ import { Button } from '../../../../components';
 
 import './styles/styles.scss';
 import { IconMoreOptions } from '../../../task/files';
-import Details from './files/details';
-import Comentarios from './files/Comentarios';
-import Precios from './files/Precios';
+import { Precios, Data, Comentarios, Details } from './files';
 import carrito from '../../../../img/carrito.svg';
 
 const CardSitios = ({
@@ -38,10 +36,28 @@ const CardSitios = ({
 	costo,
 	onClickPrev,
 	addedToCar,
+	income_a_users,
+	income_b_users,
+	income_c_users,
+	income_d_users,
+	income_e_users,
+	a13_17_users,
+	a18_25_users,
+	a26_40_users,
+	a41_55_users,
+	a55_users,
+	percent_female_users,
+	percent_male_users,
+	female_users,
+	male_users,
+	frequency,
+	reach,
+	total_hits,
+	total_users,
 }: any) => {
 	//TODO: crear interface para las propiedades que se recibirpan
-	const [isOpen, setIsOpen] = useState(false);
-	const [activeIndex, setActiveIndex] = useState(1);
+	const [isOpen, setIsOpen] = useState(true);
+	const [activeIndex, setActiveIndex] = useState(2);
 
 	function getActiveIndex(index: number) {
 		switch (index) {
@@ -61,6 +77,29 @@ const CardSitios = ({
 						bloqueado={bloqueado}
 						vista={vista}
 						iluminacion={iluminacion}
+					/>
+				);
+			case 2:
+				return (
+					<Data
+						income_a_users={income_a_users}
+						income_b_users={income_b_users}
+						income_c_users={income_c_users}
+						income_d_users={income_d_users}
+						income_e_users={income_e_users}
+						a13_17_users={a13_17_users}
+						a18_25_users={a18_25_users}
+						a26_40_users={a26_40_users}
+						a41_55_users={a41_55_users}
+						a55_users={a55_users}
+						percent_female_users={percent_female_users}
+						percent_male_users={percent_male_users}
+						female_users={female_users}
+						male_users={male_users}
+						frequency={frequency}
+						reach={reach}
+						total_hits={total_hits}
+						total_users={total_users}
 					/>
 				);
 			case 3:
@@ -87,16 +126,6 @@ const CardSitios = ({
 			title: 'Descargar PDF',
 			id: 'downloadPdf',
 			onClick: onClickPdf,
-			// submenus: [
-			// 	{
-			// 		id: 'ficha',
-			// 		title: 'Ficha técnica',
-			// 	},
-			// 	{
-			// 		id: 'detalle',
-			// 		title: 'Detalle indoor',
-			// 	},
-			// ],
 		},
 		{
 			title: estadoBtn ? 'Activar sitio' : 'Desactivar sitio',
@@ -168,17 +197,6 @@ const CardSitios = ({
 							>
 								Detalles
 							</Title>
-							{/* 							<Title
-								modo="Dark"
-								labels={{
-									className: `cardSitios__detalles-header-nav-option ${
-										activeIndex === 2 ? 'active' : ''
-									}`,
-									onClick: () => setActiveIndex(2),
-								}}
-							>
-								Data
-							</Title> */}
 							<Title
 								modo="Dark"
 								labels={{
@@ -189,6 +207,17 @@ const CardSitios = ({
 								}}
 							>
 								Comentarios
+							</Title>
+							<Title
+								modo="Dark"
+								labels={{
+									className: `cardSitios__detalles-header-nav-option ${
+										activeIndex === 2 ? 'active' : ''
+									}`,
+									onClick: () => setActiveIndex(2),
+								}}
+							>
+								Data
 							</Title>
 							<Title
 								modo="Dark"

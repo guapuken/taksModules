@@ -35,6 +35,24 @@ storiesOf('Cards / OBP / sitios', module).add('sitios', () => {
 				claveimj="IMJ-CDMX-ESP-O-1526"
 				precioventa="$150,000.00"
 				costo="$57,000.00"
+				income_a_users={37}
+				income_b_users={16}
+				income_c_users={15}
+				income_d_users={13}
+				income_e_users={19}
+				a13_17_users={0}
+				a18_25_users={19}
+				a26_40_users={32}
+				a41_55_users={30}
+				a55_users={20}
+				percent_female_users={62}
+				percent_male_users={38}
+				female_users={310808}
+				male_users={324418}
+				frequency={2.68}
+				reach={18.41}
+				total_hits={1704223}
+				total_users={635226}
 				imagen1={'https://img.gruporeforma.com/imagenes/960x640/6/365/5364652.jpg'}
 			/>
 			<CardSitios

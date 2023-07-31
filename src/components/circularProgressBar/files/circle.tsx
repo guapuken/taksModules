@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import '../circularProgressBar.scss';
+import { Texts } from '../../Atoms';
 
 const Circle = ({ cx, cy, r, fill, stroke, strokeWidth, strokeDashoffset, progressBar }: any) => {
 	return (
-		<svg>
+		<svg className="circleProgressBar">
 			<circle
 				style={{ strokeDasharray: `${progressBar} ${100 - progressBar}` }}
 				cx={cx}
