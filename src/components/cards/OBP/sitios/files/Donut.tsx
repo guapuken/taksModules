@@ -18,9 +18,10 @@ const Donut = ({ colores, porcentajes, values }: any) => {
 				value += percents[i];
 				// value ? newArray.push(Math.floor((percents[i] * 180) / 100)): newArray.push(0)
 
-				newArray.push(Math.floor((percents[i] + value * 180) / 100)||0);
+				newArray.push(Math.floor((percents[i] + value * 180) / 100));
 			}
 			i++;
+			console.log('newArray',newArray)
 		}
 		return newArray;
 	}
@@ -70,7 +71,7 @@ const Donut = ({ colores, porcentajes, values }: any) => {
 						}
 						style={{ borderColor: colores[0] }}
 					>
-						{`${values[0]}: ${porcentajes[0]}%`}
+						{`${values[0]}: ${isNaN(porcentajes[0])?0:porcentajes[0]}%`}
 					</Texts>
 					<Texts
 						modo="Dark"
@@ -81,7 +82,7 @@ const Donut = ({ colores, porcentajes, values }: any) => {
 						}
 						style={{ borderColor: colores[1] }}
 					>
-						{`${values[1]}: ${porcentajes[1]}%`}
+						{`${values[1]}: ${isNaN(porcentajes[1])?0:porcentajes[1]}%`}
 					</Texts>
 					<Texts
 						modo="Dark"
@@ -92,7 +93,7 @@ const Donut = ({ colores, porcentajes, values }: any) => {
 						}
 						style={{ borderColor: colores[2] }}
 					>
-						{`${values[2]}: ${porcentajes[2]}%`}
+						{`${values[2]}: ${isNaN(porcentajes[2])?0: porcentajes[2]}%`}
 					</Texts>
 					<Texts
 						modo="Dark"
@@ -103,7 +104,7 @@ const Donut = ({ colores, porcentajes, values }: any) => {
 						}
 						style={{ borderColor: colores[3] }}
 					>
-						{`${values[3]}: ${porcentajes[3]}%`}
+						{`${values[3]}: ${isNaN(porcentajes[3])?0:porcentajes[3]}%`}
 					</Texts>
 					<Texts
 						modo="Dark"
@@ -114,7 +115,7 @@ const Donut = ({ colores, porcentajes, values }: any) => {
 						}
 						style={{ borderColor: colores[4] }}
 					>
-						{`${values[4]}: ${porcentajes[4]}%`}
+						{`${values[4]}: ${isNaN(porcentajes[4])?0:porcentajes[4]}%`}
 					</Texts>
 				</div>
 			</div>
