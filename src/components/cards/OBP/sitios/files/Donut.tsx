@@ -12,10 +12,13 @@ const Donut = ({ colores, porcentajes, values }: any) => {
 		while (i < percents.length) {
 			if (i <= 0) {
 				value += percents[i];
-				newArray.push(Math.floor((percents[i] * 180) / 100));
+				
+				newArray.push(Math.floor((percents[i] * 180) / 100)??0)/* : newArray.push(0) */
 			} else {
 				value += percents[i];
-				newArray.push(Math.floor((percents[i] + value * 180) / 100));
+				// value ? newArray.push(Math.floor((percents[i] * 180) / 100)): newArray.push(0)
+
+				newArray.push(Math.floor((percents[i] + value * 180) / 100)??0);
 			}
 			i++;
 		}
