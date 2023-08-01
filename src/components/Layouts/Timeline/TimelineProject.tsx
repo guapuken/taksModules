@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // elementos auxiliares
-import { div, TextBoldLight, Texts, Title, ValidationComponent } from '../../Atoms';
+import {  TextBoldLight, Texts, Title, ValidationComponent } from '../../Atoms';
 import { Button, Dropdown, Timeline } from '../../../components';
 import { ButtonItem } from '../../../utils/asideUtils';
 import VisualizacionMedios from './componentesPrincipales/VisualizacionMedios';
