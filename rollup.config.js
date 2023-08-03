@@ -41,7 +41,7 @@ export default [
 				useTsconfigDeclarationDir: true,
 			}),
 			postcss({
-				plugins: [autoprefixer(), postcssNormalize()],
+				plugins: [/* autoprefixer(), */ postcssNormalize()],
 				// exclude: "src/styles/*/.scss",
 				namedExports: true,
 				sourceMap: true,
@@ -52,6 +52,22 @@ export default [
 				extensions: ['.scss'],
 				use: ['sass'], // Si funciona ambos css y scss
 				// parser: "postcss-scss",
+			}),
+			// autoprefixer(),
+			postcss({
+				config: {
+					path: './postcss.config.js',
+				},
+				plugins: [tailwindcss(tailwindConfig)],
+				extensions: ['.css'],
+				namedExports: true,
+				sourceMap: true,
+				extract: false,
+				autoModules: true,
+				minimize: true,
+				inject: {
+					insertAt: 'top',
+				},
 			}),
 			terser(),
 			//dts(),

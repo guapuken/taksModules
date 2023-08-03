@@ -1,0 +1,55 @@
+td{
+    text-transform: none;
+}
+
+.subheading {
+    margin-bottom: 15px;
+    margin-top: 30px;
+    text-transform: capitalize;
+    font-size: 15px;
+    color: #343232 ;
+}
+.sub_subheading{
+    margin-bottom: 15px;
+    margin-top: 30px;
+    text-transform: capitalize;
+    font-size: 13px;
+    color: #54514f ;
+    font-weight: 500;
+}
+.sizes{
+    &__container{
+        display: flex;
+        gap: 30px;
+        &-elementos{
+            display: flex;
+            flex-direction: column;
+            &-descripcion{
+                margin-top: 0;
+            }
+        }
+    }
+}
+.mbt-2{
+    margin: 15px 0;
+}
+
+.colores{
+    display: flex;
+    gap: 30px;
+    &__individual{
+        background:auto;
+        padding: 20px 30px;
+        color: #fff;
+        border-radius:15px;
+        &.primario{
+            background:#126EFA ;
+        }
+        &.secundario{
+            background:#FC3D38 ;
+        }
+        &.terciario{
+            background:#7BAFFF ;
+        }
+    }
+}

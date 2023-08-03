@@ -59,14 +59,14 @@
 [style-button='secondary']{
     --background:transparent;
     --hover:#FC3D38;
-    --border: inset 0 0 0 2px #FC3D38;
+    --border: inset 0 0 0 2px #FC3D38 !important;
     --fontColor: #FC3D38;
 }
 [style-button='tertiary']{
     --background:transparent;
     --hover:#7BAFFF;
     --fontColor:#7BAFFF;
-    --border: none;
+    --border: none !important;
 }
 // flotantes 
 [float-button='float'],[size-button='small']{
@@ -101,12 +101,36 @@
 [border-button='border'][style-button='primary']{
     --border: inset 0 0 0 2px #126EFA !important;
     --fontColor: #126EFA;
+    .boton{
+        &__number{
+            box-shadow:inset 0 0 0 2px #126EFA;
+            &:before{
+                color: #126EFA;
+            }
+        }
+    }
 }
 [border-button='border'][style-button='secondary']{
     --border: inset 0 0 0 2px #FC3D38 !important;
+    .boton{
+        &__number{
+            box-shadow:inset 0 0 0 2px #FC3D38;
+            &:before{
+                color: #FC3D38;
+            }
+        }
+    }
 }
 [border-button='border'][style-button='tertiary']{
     --border: inset 0 0 0 2px #7BAFFF !important;
+    .boton{
+        &__number{
+            box-shadow:inset 0 0 0 2px #7BAFFF;
+            &:before{
+                color: #7BAFFF;
+            }
+        }
+    }
 }
 // estilos de redondeado
 [rounded-button='rounded']{
@@ -148,7 +172,7 @@ $padding: 5px 10px;
         height: var(--successSize);
         border-radius: 100%;
         // background: var(--background);
-        background: inherit;
+        background: inherit;    
         border: 3px solid var(--bg);
         font-size: var(--fontSizeSuccess);
         &::before{
@@ -168,9 +192,11 @@ $padding: 5px 10px;
         // border: none;
         &-legend{
             display: var(--display);
-            color: var(--fontColor) !important;
             font-size: clamp(var(--fontSizeMin), var(--fontSizePref), var(--fontSizeMax)) !important;
             padding: $padding;
+            &.textos{
+                color: var(--fontColor) !important;
+            }
             &:hover{
                 color: var(--fcHover) !important;
             }

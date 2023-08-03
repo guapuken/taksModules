@@ -4,7 +4,7 @@ import { Meta, Story } from '@storybook/react';
 // componente principal
 import { Button } from '../../components';
 // types
-import { button } from './types/types';
+import { button } from '../../components/button/types/types';
 // storybook utils
 import {
 	boolean,
@@ -32,9 +32,6 @@ Primary.args = {
 	size: 'large',
 	rounded: false,
 	icon: 'https://cdn3.iconfinder.com/data/icons/picons-social/57/46-facebook-512.png',
-	// valueSuccess: '✔',
-	valueSuccess: '25',
-	successColor: true,
 };
 export const Secondary = Template.bind({});
 Secondary.args = {

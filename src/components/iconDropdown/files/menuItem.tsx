@@ -15,7 +15,7 @@ const Menus = (props: any) => {
 				<DropdownMenu.Item
 					className={`ttlMenus${modo}_IcnDrpC`}
 					onClick={menu.onClick}
-					id={menu.id}
+					id={menu.id ?? ''}
 					key={menu.id}
 				>
 					{menu.title}
@@ -27,7 +27,10 @@ const Menus = (props: any) => {
 		if (menu.submenus) {
 			return (
 				<DropdownMenu.Sub key={menu.id}>
-					<DropdownMenu.SubTrigger className={`ttlMenus${modo}_IcnDrpC`} id={menu.id}>
+					<DropdownMenu.SubTrigger
+						className={`ttlMenus${modo}_IcnDrpC`}
+						id={menu.id ?? ''}
+					>
 						{menu.title}
 					</DropdownMenu.SubTrigger>
 					<DropdownMenu.Portal>
@@ -44,7 +47,7 @@ const Menus = (props: any) => {
 												submenu.onClick(e);
 											}
 										}}
-										id={submenu.id}
+										id={submenu.id ?? ''}
 										key={submenu.id}
 									>
 										{submenu.title}
