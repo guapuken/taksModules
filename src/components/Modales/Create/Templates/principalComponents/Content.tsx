@@ -30,6 +30,7 @@ export const Content = ({
 	disabledVenta,
 	disabledPostventa,
 	valueTemplateType,
+	onCl_postventaTemplate,
 }: modalTemplates) => {
 	const [tipoMedio, setTipoMedio] = useState(valueCheckboxMedio);
 	const [campanha, setCampanha] = useState(valueCheckboxCampaign);
@@ -129,7 +130,10 @@ export const Content = ({
 							valueTemplateType === 'Venta' ||
 							valueTemplateType === 'Preventa'
 								? null
-								: () => setSelectedIndex('post'),
+								: (e: any) => {
+										setSelectedIndex('post');
+										if (onCl_postventaTemplate) onCl_postventaTemplate(e);
+								  },
 					}}
 					className={`modalTemplate__optionsTemplate-option ${
 						selectIndex === 'post' ? 'active' : ''
