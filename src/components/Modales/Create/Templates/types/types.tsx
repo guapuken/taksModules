@@ -12,6 +12,7 @@ export interface modalTemplates {
 	onCl_addTask: onClickType;
 	onCh_templateName: onChangeType;
 	onCl_close: onClickType;
+	onCl_postventaTemplate?: onClickType;
 
 	onCh_dropDownTipoMedio: onChangeType;
 	optionsTipoMedio?: optionsDropdown[];
