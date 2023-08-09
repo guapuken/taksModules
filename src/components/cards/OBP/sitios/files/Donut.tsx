@@ -3,50 +3,54 @@ import React, { useEffect, useRef, useState } from 'react';
 import './Donut.scss';
 import { Texts, Title } from '../../../../Atoms';
 import { findMaxValue } from '../../../../../utils/functions/functions';
+import { Modo } from '../../../../../types';
 
-const Donut = ({ colores, porcentajes, values }: any) => {
-	function percentToDegrees(percents: number[]) {
-		let value = 0;
-		let newArray = [] as any;
-		let i = 0;
-		while (i < percents.length) {
-			if (i <= 0) {
-				value += percents[i];
-				
-				newArray.push(Math.floor((percents[i] * 180) / 100)||0)/* : newArray.push(0) */
+/***
+ Función que se encarga de generar un arreglo de número que son pasados de porcentajes a grados para poder generar la curvatura total de un círculo
+ */
+function percentToDegrees(percents: number[], grados: number) {
+	let value = 0;
+	let newArray = [] as any;
+	let i = 0;
+	while (i < percents.length) {
+		if (i <= 0) {
+			value += percents[i];
+
+			newArray.push(Math.floor((percents[i] * grados) / 100) || 0);
+		} else {
+			value += percents[i];
+
+			newArray.push(Math.floor((percents[i] + value * grados) / 100));
+		}
+		i++;
+	}
+	return newArray;
+}
+
+/**
+ Función que genera un gradiente cónico para generar una gráfica estática por medio de estilos de css
+ */
+function elementsToPie({ colores, porcentajes, grados }: any) {
+	let porcentajesToDegrees = percentToDegrees(porcentajes, grados);
+	let contador = 0;
+	let background = '';
+	if (colores && porcentajesToDegrees) {
+		while (contador <= porcentajesToDegrees.length) {
+			if (contador === 0) {
+				background += `${colores[contador]} 0deg ${porcentajesToDegrees[contador]}deg, `;
+			} else if (contador === porcentajes.length) {
+				background += `transparent ${porcentajesToDegrees[contador - 1]}deg ${grados}deg`;
 			} else {
-				value += percents[i];
-				// value ? newArray.push(Math.floor((percents[i] * 180) / 100)): newArray.push(0)
-
-				newArray.push(Math.floor((percents[i] + value * 180) / 100));
+				background += `${colores[contador]} ${porcentajesToDegrees[contador - 1]}deg ${
+					porcentajesToDegrees[contador]
+				}deg,`;
 			}
-			i++;
-			console.log('newArray',newArray)
+			contador++;
 		}
-		return newArray;
 	}
-
-	function elementsToPie({ colores, porcentajes }: any) {
-		let porcentajesToDegrees = percentToDegrees(porcentajes);
-		let contador = 0;
-		let background = '';
-		if (colores && porcentajesToDegrees) {
-			while (contador <= porcentajesToDegrees.length) {
-				if (contador === 0) {
-					background += `${colores[contador]} 0deg ${porcentajesToDegrees[contador]}deg, `;
-				} else if (contador === porcentajes.length) {
-					background += `transparent ${porcentajesToDegrees[contador - 1]}deg 180deg`;
-				} else {
-					background += `${colores[contador]} ${porcentajesToDegrees[contador - 1]}deg ${
-						porcentajesToDegrees[contador]
-					}deg,`;
-				}
-				contador++;
-			}
-		}
-		return `conic-gradient(${background})`;
-	}
-
+	return `conic-gradient(${background})`;
+}
+export const HalfDonut = ({ colores, porcentajes, values }: any) => {
 	return (
 		<div
 			className="donut"
@@ -56,8 +60,10 @@ const Donut = ({ colores, porcentajes, values }: any) => {
 				background: elementsToPie({
 					colores: colores,
 					porcentajes: porcentajes,
+					grados: 180,
 				}),
 			}}
+			theme-config="Dark"
 		>
 			<div className="donut__hole"></div>
 			<div className="donut__datos">
@@ -71,7 +77,7 @@ const Donut = ({ colores, porcentajes, values }: any) => {
 						}
 						style={{ borderColor: colores[0] }}
 					>
-						{`${values[0]}: ${isNaN(porcentajes[0])?0:porcentajes[0]}%`}
+						{`${values[0]}: ${isNaN(porcentajes[0]) ? 0 : porcentajes[0]}%`}
 					</Texts>
 					<Texts
 						modo="Dark"
@@ -82,7 +88,7 @@ const Donut = ({ colores, porcentajes, values }: any) => {
 						}
 						style={{ borderColor: colores[1] }}
 					>
-						{`${values[1]}: ${isNaN(porcentajes[1])?0:porcentajes[1]}%`}
+						{`${values[1]}: ${isNaN(porcentajes[1]) ? 0 : porcentajes[1]}%`}
 					</Texts>
 					<Texts
 						modo="Dark"
@@ -93,7 +99,7 @@ const Donut = ({ colores, porcentajes, values }: any) => {
 						}
 						style={{ borderColor: colores[2] }}
 					>
-						{`${values[2]}: ${isNaN(porcentajes[2])?0: porcentajes[2]}%`}
+						{`${values[2]}: ${isNaN(porcentajes[2]) ? 0 : porcentajes[2]}%`}
 					</Texts>
 					<Texts
 						modo="Dark"
@@ -104,7 +110,7 @@ const Donut = ({ colores, porcentajes, values }: any) => {
 						}
 						style={{ borderColor: colores[3] }}
 					>
-						{`${values[3]}: ${isNaN(porcentajes[3])?0:porcentajes[3]}%`}
+						{`${values[3]}: ${isNaN(porcentajes[3]) ? 0 : porcentajes[3]}%`}
 					</Texts>
 					<Texts
 						modo="Dark"
@@ -115,7 +121,7 @@ const Donut = ({ colores, porcentajes, values }: any) => {
 						}
 						style={{ borderColor: colores[4] }}
 					>
-						{`${values[4]}: ${isNaN(porcentajes[4])?0:porcentajes[4]}%`}
+						{`${values[4]}: ${isNaN(porcentajes[4]) ? 0 : porcentajes[4]}%`}
 					</Texts>
 				</div>
 			</div>
@@ -123,78 +129,32 @@ const Donut = ({ colores, porcentajes, values }: any) => {
 	);
 };
 
-export default Donut;
-
-/* import React, { useEffect, useRef, useState } from 'react';
-
-import './Donut.scss';
-import { Texts, Title } from '../../../../Atoms';
-
-const Donut = () => {
-	const [isOver, setIsOver] = useState(false);
-	function percentToDegrees(percents: number[]) {
-		let value = 0;
-		let newArray = [] as any;
-		let i = 0;
-		while (i < percents.length) {
-			if (i <= 0) {
-				value += percents[i];
-				newArray.push(Math.floor((percents[i] * 180) / 100));
-			} else {
-				value += percents[i];
-				newArray.push(Math.floor((percents[i] + value * 180) / 100));
-			}
-			i++;
-		}
-		console.log(value);
-		return newArray;
-	}
-
-	const canvasRef = useRef<HTMLCanvasElement | null>(null);
-	const data = [40, 15, 20, 10, 15]; // Valores para los segmentos del arco
-	const colors = ['#F8B03D', '#5FB464', '#3866AE', '#CA2284', '#8E1913']; // Colores para cada segmento
-
-	useEffect(() => {
-		drawPieChart();
-	}, []);
-
-	const drawPieChart = () => {
-		const canvas = canvasRef.current;
-		const ctx = canvas?.getContext('2d');
-
-		if (canvas) {
-			const centerX = canvas.width / 2;
-			const centerY = canvas.height / 2;
-			const radius = Math.min(centerX, centerY) - 10;
-
-			let startAngle = 0;
-			let endAngle = 0;
-
-			for (let i = 0; i < data.length; i++) {
-				const slicePercentage = data[i] / data.reduce((a, b) => a + b, 0);
-				endAngle = startAngle + 2 * Math.PI * slicePercentage;
-
-				if (ctx) {
-					ctx.fillStyle = colors[i];
-					ctx.beginPath();
-					ctx.moveTo(centerX, centerY);
-					ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-					ctx.lineTo(centerX, centerY);
-					ctx.fill();
-				}
-
-				startAngle = endAngle;
-			}
-		}
-	};
-
+interface Donut {
+	colores: string[];
+	porcentajes: number[];
+	grados?: number;
+	modo: Modo;
+}
+export const Donut = ({ colores, porcentajes, grados, modo }: Donut) => {
 	return (
-		<div className="circle-donut">
-			<canvas ref={canvasRef} width={200} height={200}></canvas>
-			<span className="circle-donut-info"></span>
+		<div
+			className="donut"
+			style={{
+				width: '140px',
+				height: '140px',
+				background:
+					porcentajes && colores
+						? elementsToPie({
+								colores: colores,
+								porcentajes: porcentajes,
+								grados: grados ?? 360,
+						  })
+						: '#000',
+			}}
+			theme-config={modo}
+		>
+			<div className="donut__hole"></div>
+			<div className="donut__datos"></div>
 		</div>
 	);
-	// );
 };
-
-export default Donut; */
