@@ -141,3 +141,7 @@ export const ChangeStateWithButton: Story = {
 	name: 'Cambio de estilo',
 	render: () => <ButtonWithHooks />,
 };
+
+export const border: Story = {
+	render: () => <Button modo="Light" onCl={() => {}} border color="#f1e323" />,
+};

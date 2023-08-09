@@ -10,9 +10,11 @@ const CloseIcon = () => {
 		<svg
 			onMouseEnter={ChangeOverState}
 			onMouseLeave={ChangeOverState}
-			height="15"
-			width="15"
+			height={'15'}
+			width={'15'}
 			viewBox="0 0 20 20"
+			x={0}
+			y={0}
 			fill="red"
 			style={{
 				transform: isHover ? 'rotate(90deg)' : '',

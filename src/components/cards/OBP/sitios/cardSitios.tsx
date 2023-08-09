@@ -75,27 +75,28 @@ const CardSitios = ({
 						bloqueado={bloqueado}
 						vista={vista}
 						iluminacion={iluminacion}
+						modo="Light"
 					/>
 				);
 			case 2:
 				return (
 					<Data
-						income_a_users={income_a_users??0}
-						income_b_users={income_b_users??0}
-						income_c_users={income_c_users??0}
-						income_d_users={income_d_users??0}
-						income_e_users={income_e_users??0}
-						a13_17_users={a13_17_users??0}
-						a18_25_users={a18_25_users??0}
-						a26_40_users={a26_40_users??0}
-						a41_55_users={a41_55_users??0}
-						a55_users={a55_users??0}
-						female_users={female_users??0}
-						male_users={male_users??0}
-						frequency={frequency??0}
-						reach={reach??0}
-						total_hits={total_hits??0}
-						total_users={total_users??0}
+						income_a_users={income_a_users ?? 0}
+						income_b_users={income_b_users ?? 0}
+						income_c_users={income_c_users ?? 0}
+						income_d_users={income_d_users ?? 0}
+						income_e_users={income_e_users ?? 0}
+						a13_17_users={a13_17_users ?? 0}
+						a18_25_users={a18_25_users ?? 0}
+						a26_40_users={a26_40_users ?? 0}
+						a41_55_users={a41_55_users ?? 0}
+						a55_users={a55_users ?? 0}
+						female_users={female_users ?? 0}
+						male_users={male_users ?? 0}
+						frequency={frequency ?? 0}
+						reach={reach ?? 0}
+						total_hits={total_hits ?? 0}
+						total_users={total_users ?? 0}
 					/>
 				);
 			case 3:

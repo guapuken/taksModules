@@ -3,6 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------
 export{default as Title} from '../components/Atoms/titles/Title';
 export {default as Texts} from '../components/Atoms/texts/Texts';
+export {Donut} from './cards/OBP/sitios/files/Donut';
 
 // button que puede incluir un icono, ser flotante y su legenda
 export {default as Button} from './button/Button';
@@ -59,9 +60,7 @@ export {default as CardMannageTemplates} from './cards/MannageTemplates/cardMann
 export {default as CardMannageProjects} from './cards/MannageProjects/cardMannageProjects';
 export {default as CardMannageTasks} from './cards/MannageTasks/cardMannageTasks';
 
-//CARD DE OBP
-export {default as CardSitios} from './cards/OBP/sitios/cardSitios';
-export {default as CardIndoors} from './cards/OBP/indoors/cardIndoors';
+
 
 // ---------------------------------------------------------------------------------------------------------
 //      Modales preestablecidos
@@ -108,3 +107,8 @@ export {default as Organigrama} from './organigrama/Organigrama';
 // ---------------------------------------------------------------------------------------------------------
 export {default as useModal} from './Atoms/hooks/useModal.jsx';
 export {default as useModalWithData} from './Atoms/hooks/useModalWithData.jsx';
+
+//OBP
+export {default as CardSitios} from './cards/OBP/sitios/cardSitios';
+export {default as CardIndoors} from './cards/OBP/indoors/cardIndoors';
+export {default as FichaSitios} from './OBP/Fichas/Sitios/FichaSitios';

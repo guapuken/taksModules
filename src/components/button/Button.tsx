@@ -40,7 +40,13 @@ const Button = ({
 			onClick={onCl}
 			theme-config={modo}
 			disabled={disabled}
-			style={{ background: color, ...style }}
+			style={{
+				background: !border && color ? color : '',
+				boxShadow: color && border ? `inset 0 0 0 2px ${color}` : '',
+				opacity: '1',
+				...style,
+			}}
+			color-button={color}
 			rounded-button={rounded ? 'rounded' : ''}
 			disabled-button={disabled ? 'disabled' : ''}
 			border-button={border ? 'border' : ''}

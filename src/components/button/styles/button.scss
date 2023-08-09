@@ -18,7 +18,67 @@
     --successSize: 17px;
     --fontSizeSuccess: 10px;
 }
+$padding: 5px 10px;
 
+// jeraquias (primary, secondary, tertiary) ----------------------
+.boton
+{
+    position: relative;
+    border-radius: 5px;
+    cursor: pointer;
+    background: var(--background);
+
+    box-shadow: var(--border) ;
+    // border: none !important;
+    width: var(--sizeButton) !important;
+    height: var(--sizeButton) !important;
+    border-radius: var(--borderRadius);
+    &__number{
+        position: absolute;
+        right:-20%;
+        top: -20%;
+        width: var(--successSize);
+        height: var(--successSize);
+        border-radius: 100%;
+        // background: var(--background);
+        background: inherit;    
+        border: 3px solid var(--bg);
+        font-size: var(--fontSizeSuccess);
+        &::before{
+            content: attr(value-success);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            color: #fff;
+        }
+    }
+    &__contenido{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        // border: none;
+        &-legend{
+            display: var(--display);
+            font-size: clamp(var(--fontSizeMin), var(--fontSizePref), var(--fontSizeMax)) !important;
+            padding: $padding;
+            &.textos{
+                color: var(--fontColor) !important;
+            }
+            &:hover{
+                color: var(--fcHover) !important;
+            }
+        }
+        &-icon{
+            height: var(--sizeIcon);
+            padding-left: var(--paddingIcon);
+        }
+    }
+    &:hover{
+        background: var(--hover) ;
+    }
+}
 // tamaños
 [size-button='small']{
     --fontSizeMin: 12px;
@@ -95,8 +155,9 @@
 }
 // de bordes
 [border-button='border']{
-    --background: transparent;
-    --border: inset 0 0 0 2px #000 !important;
+    --background: transparent !important;
+    // --border: inset 0 0 0 2px attr(color-btn)!important;
+    --border: inset 0 0 0 2px #000 ;
 }
 [border-button='border'][style-button='primary']{
     --border: inset 0 0 0 2px #126EFA !important;
@@ -141,72 +202,13 @@
     --hover: gray;
 }
 
-$padding: 5px 10px;
+
 
 .boton[success-color='successColor']{
-    background: var(--successColor);
+    background: var(--successColor) !important;
     .boton__contenido{
         &-number{
                 background: var(--successColor) !important;
         }
-    }
-}
-// jeraquias (primary, secondary, tertiary) ----------------------
-.boton
-{
-    position: relative;
-    border-radius: 5px;
-    cursor: pointer;
-    background: var(--background);
-
-    box-shadow: var(--border) !important;
-    // border: none !important;
-    width: var(--sizeButton) !important;
-    height: var(--sizeButton) !important;
-    border-radius: var(--borderRadius);
-    &__number{
-        position: absolute;
-        right:-20%;
-        top: -20%;
-        width: var(--successSize);
-        height: var(--successSize);
-        border-radius: 100%;
-        // background: var(--background);
-        background: inherit;    
-        border: 3px solid var(--bg);
-        font-size: var(--fontSizeSuccess);
-        &::before{
-            content: attr(value-success);
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%,-50%);
-            color: #fff;
-        }
-    }
-    &__contenido{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-        // border: none;
-        &-legend{
-            display: var(--display);
-            font-size: clamp(var(--fontSizeMin), var(--fontSizePref), var(--fontSizeMax)) !important;
-            padding: $padding;
-            &.textos{
-                color: var(--fontColor) !important;
-            }
-            &:hover{
-                color: var(--fcHover) !important;
-            }
-        }
-        &-icon{
-            height: var(--sizeIcon);
-            padding-left: var(--paddingIcon);
-        }
-    }
-    &:hover{
-        background: var(--hover) ;
     }
 }

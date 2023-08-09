@@ -1,0 +1,293 @@
+
+
+.OBP_fichaSitios{
+    width: 85vw;
+    // height: 85vh;
+    height: auto;
+    max-height: 85vh;
+    box-shadow: var(--boxShadow);
+    border-radius: 20px;
+    position: relative;
+    overflow-y: auto;
+    background: var(--bg);
+    &__header{
+        display: flex;
+        gap: 15px;
+        /* estilos que se aplican a la imagen con que contiene la siguiente información:
+            medidas, 
+            vista, 
+            iluminación
+            logotipo
+        */
+        &-image{
+            width: 45vw;
+            overflow: hidden;
+            height: calc(45vw / 16 * 9);
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 20px 0 20px 0;
+            position: relative;
+            &-pleca{
+                width: 100%;
+                height: 50px;
+                background: #34323299;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 40px 0 20px;
+                &-medidas{
+                    display: flex;
+                    gap: 15px;
+                    & > .textos{
+                        color: var(--detail) !important;
+                        font-size: 15px;
+                        font-weight: 700 !important;
+                        opacity: 1;
+                    }
+                }
+                &-especificaciones{
+                    position: relative;
+                    display: flex;
+                    gap: 30px;
+                    &-vista{
+                        height: 45px;
+                        display: flex;
+                        position: relative;
+                        align-items: center;
+                        &-bg{
+                            background: var(--detail);
+                            height: 30px;
+                            padding: 0;
+                            opacity: 1;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 5px;
+                            & > .textos{
+                                color: #000 !important;
+                                padding: 0 5px;
+                                z-index: 1;
+                            }
+                        }
+                        &-icon, &-iconVista{
+                            height: 100%;
+                            opacity: 1;
+                            z-index: 0;
+                            position: absolute;
+                            bottom: 5px;
+                            right: -25px;
+                        }
+                    }
+                }
+            }
+            &-logo{
+                background: #34323299;
+                width: 25%;
+                height: 25%;
+                border-radius: 0 0 10px 10px;
+                position: absolute;
+                top: 0;
+                left: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                & img{
+                    width: 90%;
+                }
+            }
+        }
+        /* contenedor de la información general del sitio que es:
+            Dirección
+            Acabados
+            Material
+            Comentarios
+            Implementaciones especiales
+        */
+        &-info{
+            padding-top: 15px;
+            padding-right: 15px;
+            width: 40vw;
+
+            &-nombre{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                min-width: 285px;
+                &-closeButton{
+                    position: absolute;
+                    right: 15px;
+                    top: 15px;
+                    & svg{
+                        height: 40px;
+                        width: 40px;
+                    }
+                }
+                &-button{
+                    margin-right: 65px;
+                }
+                &> div > .titleComponent{
+                    font-size: 18px;
+                }
+                & > div > .textos{
+                    font-size: 17px;
+                }
+            }
+            &-general{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                user-select: none;
+                & > .titleComponent, & > .textos, & > div > .titleComponent,&>div>.textos{
+                    span {
+                        user-select: text;
+                    }
+                }
+                &-coordenadas{
+                    font-size: 12px !important;
+                    margin: 20px 0 5px 0; 
+                }
+                &-detalles{
+                    &-implementacionesNoPermitidas, &-implementacionesPermitidas{
+                        opacity: 1;
+                    }
+                    &-implementacionesNoPermitidas{
+                        color: var(--errorColor) !important;
+                    }
+                    &-implementacionesPermitidas{
+                        color: var(--successColor) !important;
+                    }
+                }
+                &-detalles>.titleComponent,&-coordenadas{
+                    text-transform: capitalize;
+                    color: var(--fc60);
+                    & > span{
+                        font-size: inherit;
+                        color: var(--fc30);
+                        text-transform: none;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+    &__estadisticas{
+        padding: 15px 20px 15px 20px;
+        display: flex;
+        align-items: flex-end;
+        gap: 30px;
+        width: 100%;
+        &-graficas{
+            width: 25vw;
+        }
+        &-bigData{
+            width: 35vw;
+        }
+    }
+}
+[vista-sitio='Natural']{
+    .OBP_fichaSitios__header-image-pleca-especificaciones{
+        gap: 60px !important;
+    }
+}
+[vista-sitio='Cruzada']{
+    .OBP_fichaSitios__header-image-pleca-especificaciones{
+        &-vista{
+            &-iconVista{
+                left: -25px ;
+            }
+        }
+    }
+}
+
+// estilos que se aplican a formatos de menor tamaño coo tabletas
+@media (max-aspect-ratio: 4/3){
+    .OBP_fichaSitios{
+        width: 100vw;
+        height: 100vh;
+        max-height: 100vh;
+        overflow-x: hidden;
+        &__header{
+            flex-wrap: wrap;
+            &-image{
+                width: 100vw;
+                height: calc(100vw / 16 * 9);
+            }
+            &-info{
+                width: 100vw;
+                padding: 0 15px 15px 15px;
+                &-nombre{
+                    &-button{
+                        position: absolute;
+                        top: 65px;
+                        right: 15px;
+                        margin: 0;
+                    }
+                }
+                &-general{
+                    &-detalles{
+                        display: grid ;
+                        grid-template-columns: repeat(2,1fr);
+                        &-comentarios{
+                            grid-column: 1 / 3;
+                        }
+                    }
+                }
+            }
+        }
+        &__estadisticas{
+            display: flex;
+            flex-wrap: wrap;
+            &-graficas{
+                width: calc(50vw - 50px);
+            }
+            &-bigData{
+                width: 100vw;
+            }
+        }
+    }
+}
+// estilos que se aplican a formatos móviles como celulares
+@media (max-aspect-ratio: 7/10){
+    .OBP_fichaSitios{
+        &__header{
+            &-info{
+                &-nombre{
+                    &-button{
+                        position: relative;
+                        right: auto;
+                        top: auto;
+                    }
+                }
+                &-general{
+                    &-coordenadas{
+                        margin: 0;
+                    }
+                    &-detalles {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+            }
+            &-image{
+                &-pleca{
+                    &-medidas{
+                        flex-direction: column;
+                        gap: 0;
+                    }
+                }
+            }
+        }
+        &__estadisticas{
+            &-graficas{
+                width: 100vw;
+            }
+            &-bigData{
+                width: 100vw;
+            }
+        }
+    }
+}

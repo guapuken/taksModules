@@ -1,6 +1,6 @@
 import React from 'react';
 import { Texts, Title } from '../../../../Atoms';
-import Donut from './Donut';
+import { HalfDonut } from './Donut';
 import { formatearNumeroConComas } from '../../../../../utils/functions/functions';
 
 const Data = ({
@@ -20,6 +20,7 @@ const Data = ({
 	reach = 0,
 	total_hits = 0,
 	total_users = 0,
+	modo,
 }: any) => {
 	const percents = {
 		male: male_users > 0 ? Math.round((male_users * 100) / (male_users + female_users)) : '0',
@@ -29,7 +30,7 @@ const Data = ({
 	return (
 		<div className="cardSitios__detalles-contenidoData">
 			<div className="cardSitios__detalles-contenidoData-nicho">
-				<Donut
+				<HalfDonut
 					colores={['#F8B03D', '#5FB464', '#3866AE', '#CA2284', '#8E1913']}
 					porcentajes={[
 						income_a_users ?? 0,
@@ -40,13 +41,13 @@ const Data = ({
 					]}
 					values={['A', 'B', 'C', 'D', 'E']}
 				/>
-				<Title modo="Dark" style={{ fontSize: '12px', textTransform: 'capitalize' }}>
+				<Title modo={modo} style={{ fontSize: '12px', textTransform: 'capitalize' }}>
 					Nivel socieconómico
 				</Title>
 			</div>
 
 			<div className="cardSitios__detalles-contenidoData-edad">
-				<Donut
+				<HalfDonut
 					colores={['#F8B03D', '#5FB464', '#3866AE', '#CA2284', '#8E1913']}
 					porcentajes={[
 						a13_17_users ?? 0,
@@ -57,7 +58,7 @@ const Data = ({
 					]}
 					values={['13-17', '18-25', '26-40', '41-55', '55 +']}
 				/>
-				<Title modo="Dark" style={{ fontSize: '12px', textTransform: 'capitalize' }}>
+				<Title modo={modo} style={{ fontSize: '12px', textTransform: 'capitalize' }}>
 					Rango de edad
 				</Title>
 			</div>
@@ -65,10 +66,10 @@ const Data = ({
 				<div>
 					<div className="cardSitios__detalles-contenidoData-bigData-genero">
 						<div>
-							<Texts modo="Dark">Mujeres</Texts>
+							<Texts modo={modo}>Mujeres</Texts>
 						</div>
 						<div>
-							<Texts modo="Dark">Hombres</Texts>
+							<Texts modo={modo}>Hombres</Texts>
 						</div>
 					</div>
 					<div className="cardSitios__detalles-contenidoData-bigData-barras">
@@ -76,12 +77,12 @@ const Data = ({
 							className="cardSitios__detalles-contenidoData-bigData-barras-female"
 							style={{ width: `${percents.female}%` }}
 						></div>
-						<Title modo="Dark">{`${percents.female}%`}</Title>
-						<Title modo="Dark">{`${percents.male}%`}</Title>
+						<Title modo={modo}>{`${percents.female}%`}</Title>
+						<Title modo={modo}>{`${percents.male}%`}</Title>
 					</div>
 					<div className="cardSitios__detalles-contenidoData-bigData-totalesGenero">
-						<Texts modo="Dark">{formatearNumeroConComas(female_users)}</Texts>
-						<Texts modo="Dark">{formatearNumeroConComas(male_users)}</Texts>
+						<Texts modo={modo}>{formatearNumeroConComas(female_users)}</Texts>
+						<Texts modo={modo}>{formatearNumeroConComas(male_users)}</Texts>
 					</div>
 				</div>
 				<div
@@ -93,23 +94,23 @@ const Data = ({
 				>
 					<div>
 						<Title
-							modo="Dark"
+							modo={modo}
 							style={{ fontSize: '25px', marginBottom: '0', paddingBottom: '0' }}
 						>
 							{frequency}
 						</Title>
-						<Texts modo="Dark" style={{ marginTop: '-5px', paddingTop: '0' }}>
+						<Texts modo={modo} style={{ marginTop: '-5px', paddingTop: '0' }}>
 							Frecuencia
 						</Texts>
 					</div>
 					<div>
 						<Title
-							modo="Dark"
+							modo={modo}
 							style={{ fontSize: '25px', marginBottom: '0', paddingBottom: '0' }}
 						>
 							{reach}
 						</Title>
-						<Texts modo="Dark" style={{ marginTop: '-5px', paddingTop: '0' }}>
+						<Texts modo={modo} style={{ marginTop: '-5px', paddingTop: '0' }}>
 							Alcance
 						</Texts>
 					</div>
@@ -122,14 +123,14 @@ const Data = ({
 					}}
 				>
 					<div style={{ marginTop: '10px' }}>
-						<Texts modo="Dark">{formatearNumeroConComas(total_hits)}</Texts>
-						<Title modo="Dark" style={{ textTransform: 'capitalize' }}>
+						<Texts modo={modo}>{formatearNumeroConComas(total_hits)}</Texts>
+						<Title modo={modo} style={{ textTransform: 'capitalize' }}>
 							Impactos
 						</Title>
 					</div>
 					<div style={{ marginTop: '10px' }}>
-						<Texts modo="Dark">{formatearNumeroConComas(total_users)}</Texts>
-						<Title modo="Dark" style={{ textTransform: 'capitalize' }}>
+						<Texts modo={modo}>{formatearNumeroConComas(total_users)}</Texts>
+						<Title modo={modo} style={{ textTransform: 'capitalize' }}>
 							Usuarios
 						</Title>
 					</div>
