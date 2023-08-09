@@ -11,6 +11,7 @@ import InfoGeneral from './files/InfoGeneral';
 import Graficas from './files/Graficas';
 import BigData from './files/BigData';
 //data
+// import { dataEdad, dataNse } from './data/datos';
 import { dataEdad, dataNse } from './data/datos';
 //types
 import { Modo, onClickType } from '../../../../types';

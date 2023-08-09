@@ -31,6 +31,8 @@ export const Content = ({
 	disabledPostventa,
 	valueTemplateType,
 	onCl_postventaTemplate,
+	onCl_ventaTemplate,
+	onCl_preventaTemplate,
 }: modalTemplates) => {
 	const [tipoMedio, setTipoMedio] = useState(valueCheckboxMedio);
 	const [campanha, setCampanha] = useState(valueCheckboxCampaign);
@@ -88,7 +90,10 @@ export const Content = ({
 							valueTemplateType === 'Venta' ||
 							valueTemplateType === 'Postventa'
 								? null
-								: () => setSelectedIndex('prev'),
+								: (e: any) => {
+										setSelectedIndex('prev');
+										if (onCl_preventaTemplate) onCl_preventaTemplate(e);
+								  },
 					}}
 					className={`modalTemplate__optionsTemplate-option ${
 						selectIndex === 'prev' ? 'active' : ''
@@ -109,7 +114,10 @@ export const Content = ({
 							valueTemplateType === 'Preventa' ||
 							valueTemplateType === 'Postventa'
 								? null
-								: () => setSelectedIndex('ven'),
+								: (e: any) => {
+										setSelectedIndex('ven');
+										if (onCl_ventaTemplate) onCl_ventaTemplate(e);
+								  },
 					}}
 					className={`modalTemplate__optionsTemplate-option ${
 						selectIndex === 'ven' ? 'active' : ''

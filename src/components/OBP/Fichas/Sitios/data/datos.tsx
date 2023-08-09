@@ -1,10 +1,10 @@
-export const dataNse = ({
+export function dataNse({
 	income_a_users,
 	income_b_users,
 	income_c_users,
 	income_d_users,
 	income_e_users,
-}) => {
+}: any) {
 	return [
 		{
 			title: 'NSE A',
@@ -32,9 +32,15 @@ export const dataNse = ({
 			color: '#5fb464',
 		},
 	];
-};
+}
 
-export const dataEdad = ({ a13_17_users, a18_25_users, a26_40_users, a41_55_users, a55_users }) => {
+export function dataEdad({
+	a13_17_users,
+	a18_25_users,
+	a26_40_users,
+	a41_55_users,
+	a55_users,
+}: any) {
 	return [
 		{
 			title: '13-17',
@@ -62,4 +68,4 @@ export const dataEdad = ({ a13_17_users, a18_25_users, a26_40_users, a41_55_user
 			color: '#5fb464',
 		},
 	];
-};
+}
