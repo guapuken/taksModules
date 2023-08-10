@@ -132,7 +132,7 @@ const CardSitios = ({
 	];
 
 	return (
-		<div className="cardSitios" status-card={isOpen ? 'open' : 'close'}>
+		<div className="cardSitios" status-card={isOpen ? 'open' : 'close'} theme-config={modo}>
 			<div className={`cardSitios__image ${!activo && 'inactive'}`}>
 				<div
 					className="cardSitios__image-bg"

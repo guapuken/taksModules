@@ -22,7 +22,7 @@ storiesOf('Cards / OBP / sitios', module).add('sitios', () => {
 				latitud={'15.623586'}
 				longitud={'-99.1542630'}
 				material={'Lona front'}
-				modo={'Dark'}
+				modo={'Light'}
 				addedToCar={added}
 				onCarritoClick={() => setAdded(!added)}
 				onClickEditar={() => {}}
