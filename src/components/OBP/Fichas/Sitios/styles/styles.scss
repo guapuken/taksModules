@@ -139,6 +139,7 @@
             &-general{
                 display: flex;
                 justify-content: space-between;
+                flex-direction: column;
                 flex-wrap: wrap;
                 user-select: none;
                 & > .titleComponent, & > .textos, & > div > .titleComponent,&>div>.textos{
@@ -147,8 +148,13 @@
                     }
                 }
                 &-coordenadas{
-                    font-size: 12px !important;
-                    margin: 20px 0 5px 0; 
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    &-individual{
+                        font-size: 12px !important;
+                        margin: 20px 0 5px 0; 
+                    }
                 }
                 &-detalles{
                     &-implementacionesNoPermitidas, &-implementacionesPermitidas{
@@ -161,7 +167,7 @@
                         color: var(--successColor) !important;
                     }
                 }
-                &-detalles>.titleComponent,&-coordenadas{
+                &-detalles>.titleComponent,&-coordenadas-individual{
                     text-transform: capitalize;
                     color: var(--fc60);
                     & > span{
@@ -264,7 +270,10 @@
                 }
                 &-general{
                     &-coordenadas{
-                        margin: 0;
+                        &-individual{
+
+                            margin: 0;
+                        }
                     }
                     &-detalles {
                         display: flex;

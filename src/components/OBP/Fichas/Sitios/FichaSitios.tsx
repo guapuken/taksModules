@@ -26,6 +26,7 @@ interface FichaSitiosProps {
 	iluminacion?: boolean;
 	modo: Modo;
 	onCl_addToCar: onClickType;
+	onCl_closeModal: onClickType;
 	especiales?: boolean;
 	nombreSitio?: string;
 	tipoMedio?: string;
@@ -66,6 +67,7 @@ const FichaSitios = (props: FichaSitiosProps) => {
 		nombreSitio,
 		tipoMedio,
 		addedToCar: agregado,
+		onCl_closeModal,
 	} = props;
 	const [addedToCar, setAddedToCar] = useState(agregado);
 
@@ -118,14 +120,17 @@ const FichaSitios = (props: FichaSitiosProps) => {
 							<Title modo={modo}>{nombreSitio ?? 'Sitio sin nombre 🤔'}</Title>
 							<Texts modo={modo}>{tipoMedio ?? 'Tipo de medio no definido 😶'}</Texts>
 						</div>
-						<div className="OBP_fichaSitios__header-info-nombre-closeButton">
+						<div
+							className="OBP_fichaSitios__header-info-nombre-closeButton"
+							onClick={onCl_closeModal}
+						>
 							<CloseIcon />
 						</div>
 						<Button
 							modo={modo}
-							onCl={(e) => {
-								if (onCl_addToCar) onCl_addToCar(e);
+							onCl={(e: any) => {
 								setAddedToCar(!addedToCar);
+								if (onCl_addToCar) onCl_addToCar(e);
 							}}
 							float
 							icon={carrito}

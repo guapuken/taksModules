@@ -17,7 +17,8 @@ export const Primary: Story = {
 	render: () => (
 		<FichaSitios
 			modo="Light"
-			onCl_addToCar={() => {}}
+			onCl_addToCar={() => alert('Carrito')}
+			onCl_closeModal={() => alert('close')}
 			// datos en imagen
 			image={image}
 			base={12.5}
