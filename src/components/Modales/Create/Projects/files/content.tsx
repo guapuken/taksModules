@@ -4,8 +4,8 @@ import { AddTask } from '../../../../task/files';
 // import { optionsPlantillas } from '../../../../task/task';
 import { onChangeType, onClickType } from '../../../../../types';
 import { Spans } from '../../../../../utils/cardsUtils';
+import { SimpleContainer, TextBoldLight, Texts, ValidationComponent } from '../../../../Atoms';
 import { content } from '../types/types';
-import { SimpleContainer, Texts, ValidationComponent } from '../../../../Atoms';
 
 //COMPONENTE QUE REGRESA TODO EL CONTENIDO DEL MODAL
 const Content = ({
@@ -36,10 +36,11 @@ const Content = ({
 			/>
 			<SimpleContainer style={{ display: 'flex', gap: '10px', width: '100%' }}>
 				<SimpleContainer style={{ width: '100%' }}>
-					<Spans
+					<TextBoldLight
 						boldLegend={'Equipo encargado'}
 						legend={'(Opcional)'}
-						style={{ opacity: '.5' }}
+						modo={modo}
+						styleBold={{ textTransform: 'none' }}
 					/>
 					<Dropdown
 						onCh={onCh_asignTeam}
@@ -67,7 +68,7 @@ const Content = ({
 				</ValidationComponent>
 			</SimpleContainer>
 			<div style={{ display: 'flex', alignItems: 'baseline' }}>
-				<AddTask legend="+ Añadir tarea" onClick={onCl_addTask} />
+				<AddTask modo={modo} legend="+ Añadir tarea" onClick={onCl_addTask} />
 				<IconDropdown
 					modo={modo}
 					legend="Cargar plantilla"

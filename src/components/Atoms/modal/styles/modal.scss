@@ -1,13 +1,15 @@
 // root iniciales
-:root{
+:root {
     --width: 50vw;
     --gridRowsDisplay: 50px auto 80px;
     --gridColumnsDisplay: auto;
     --gridColumnHeader: auto;
-    @media (max-aspect-ratio: 4/3){
+
+    @media (max-aspect-ratio: 4/3) {
         --width: 100vw;
     }
-    @media (max-aspect-ratio: 7/10){
+
+    @media (max-aspect-ratio: 7/10) {
         --width: 100vw;
     }
 }
@@ -16,13 +18,34 @@
 
 
 // temas de estilos _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[theme-config='Dark'] {
+    --fc100: #d3d3d3;
+    --fc90: #bdbaba;
+    --fc60: #8d8989;
+    --fc30: #656262;
+    --bg: #2c2926;
+    --border: inset 0 0 0 .5px var(--fc30),
+        0 0 5px var(--fc30);
+    --boxShadow: 0 0 10px #00000050;
+}
+
+[theme-config='Light'] {
+    --fc100: #2c2926;
+    --fc90: #343232;
+    --fc60: #54514f;
+    --fc30: #bdbaba;
+
+    --bg: #ffffff;
+    --contrastDark: #525252;
+    --border: inset 0 0 0 .5px var(--fc30);
+    --boxShadow: 0 0 20px #bdbaba50;
+}
 
 //variables _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 $altura: 90vh;
 
 //clases _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
-.modal
-{
+.modal {
     // centrado del elemento
     position: fixed;
     left: 50%;
@@ -30,7 +53,7 @@ $altura: 90vh;
 
     background: var(--bg);
     box-shadow: var(--boxShadow);
-    width:var(--width);
+    width: var(--width);
     transform: translateX(-50%);
     height: $altura;
     max-height: $altura;
@@ -42,30 +65,35 @@ $altura: 90vh;
     z-index: 3;
 
     // estilos del header
-    &__header, &__children, &__footer{
+    &__header,
+    &__children,
+    &__footer {
         width: 100%;
         padding: 15px;
     }
-    &__header{
+
+    &__header {
         display: flex;
         justify-content: space-between;
         grid-column: var(--gridColumnHeader);
-        &-img{
+
+        &-img {
             height: 30px;
             cursor: pointer;
         }
     }
 
     // estilos del children
-    &__children{
+    &__children {
         overflow-y: auto;
         overflow-x: hidden;
     }
 }
+
 // estilos del modal sin propiedades
-.modal__noCtn{
-    display: grid;
-    place-items: center;
-    width: 100%;
-    height:$altura;
-}
+// .modal__noCtn{
+//     display: grid;
+//     place-items: center;
+//     width: 100%;
+//     height:$altura;
+// }

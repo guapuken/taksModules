@@ -1,17 +1,20 @@
 
+
+
 .modalProjects{
-    color: var(--fc90);
+    color: var(--fc60);
     display: flex;
     gap: 10px;
     box-shadow: var(--boxShadow);
-    
+    &.spans-boldlegend{
+  color: var(--fc60);
+  &:hover{
+    color: var(--fc30);
+  }
 }
-[theme_config=Dark] {
-    --fc: #dedede;
-    --bg: #282828;
-    --fc90: #dedede90;
-    --fc60: #dedede60;
-    --fc30: #dedede30;
-    --border: inset 0 0 0 calc(2px + 0.390625vw) #525252;
-    --boxShadow: 0 0 calc(10px + 0.390625vw)#00000075;
+  
+
+ // temas de estilos _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-   
 }
+
+

@@ -1,13 +1,13 @@
 import React from 'react';
-import { SimpleContainer, Texts, Title, ValidationComponent } from '../../Atoms';
 import { CircularProgressBar } from '../../../components';
+import { SimpleContainer, Texts, Title, ValidationComponent } from '../../Atoms';
 
 //Styles
 import './styles/CardCampaigns.scss';
 import { cardCampaignProps } from './types/Types';
 
 const CardCampaign = ({
-	modo,
+	modo = 'Light',
 	porcentajeFijos,
 	porcentajeUrbanos,
 	porcentajeIndoors,

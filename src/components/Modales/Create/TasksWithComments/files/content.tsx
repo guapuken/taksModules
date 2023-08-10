@@ -73,71 +73,73 @@ const Content = ({
 
 	return (
 		// <div className={`ctn${modo}${messages ? 'Cmts' : 'noCmts'}_TWCC`}>
-		<SimpleContainer
-			labels={{
-				className: 'modalTaskWithComments',
-				'have-comments': messages ? 'withMessages' : 'noMessages',
-			}}
-		>
-			<SimpleContainer className="modalTaskWithComments__tareas">
-				<SimpleContainer className="modalTaskWithComments__tareas-tarea">
-					<SimpleContainer
-						className="modalTaskWithComments__tareas-tarea-circle"
-						labels={{
-							'status-task': completed ? 'completed' : 'incompleted',
-						}}
-						children={null}
-					/>
-					<SimpleContainer>
-						<Title
-							modo={modo}
-							className={`taskName${completed ? 'Check' : 'Incompleted'}`}
-						>
-							{taskName}
-						</Title>
-						<Texts modo={modo}>{taskDescription}</Texts>
+		<div className="modalTaskWithComments" theme-config={modo} theme-style={themeStyle}>
+			<SimpleContainer
+				labels={{
+					className: 'modalTaskWithComments',
+					'have-comments': messages ? 'withMessages' : 'noMessages',
+				}}
+			>
+				<SimpleContainer className="modalTaskWithComments__tareas">
+					<SimpleContainer className="modalTaskWithComments__tareas-tarea">
+						<SimpleContainer
+							className="modalTaskWithComments__tareas-tarea-circle"
+							labels={{
+								'status-task': completed ? 'completed' : 'incompleted',
+							}}
+							children={null}
+						/>
+						<SimpleContainer>
+							<Title
+								modo={modo}
+								className={`taskName${completed ? 'Check' : 'Incompleted'}`}
+							>
+								{taskName}
+							</Title>
+							<Texts modo={modo}>{taskDescription}</Texts>
+						</SimpleContainer>
 					</SimpleContainer>
-				</SimpleContainer>
-				{showTasks ? (
-					<SimpleContainer className="modalTaskWithComments__tareas-subtareas">
-						<Title modo={modo} style={{ padding: '15px' }}>
-							Subtareas
-						</Title>
-						{subtasks?.map((individualSubtask) => (
-							<Subtasks
-								taskName={individualSubtask.taskName}
-								taskDescription={individualSubtask.taskDescription}
-								subtasks={individualSubtask.subtasks}
-								completed={individualSubtask.completed}
-							/>
-						))}
-					</SimpleContainer>
-				) : (
-					<></>
-				)}
+					{showTasks ? (
+						<SimpleContainer className="modalTaskWithComments__tareas-subtareas">
+							<Title modo={modo} style={{ padding: '15px' }}>
+								Subtareas
+							</Title>
+							{subtasks?.map((individualSubtask) => (
+								<Subtasks
+									taskName={individualSubtask.taskName}
+									taskDescription={individualSubtask.taskDescription}
+									subtasks={individualSubtask.subtasks}
+									completed={individualSubtask.completed}
+								/>
+							))}
+						</SimpleContainer>
+					) : (
+						<></>
+					)}
 
-				<TextButton modo={modo} onClick={() => setShowTasks(!showTasks)}>
-					{`${showTasks ? 'Ocultar' : 'Ver'} ${subtasks?.length || 0} subtareas más`}
-				</TextButton>
+					<TextButton modo={modo} onClick={() => setShowTasks(!showTasks)}>
+						{`${showTasks ? 'Ocultar' : 'Ver'} ${subtasks?.length || 0} subtareas más`}
+					</TextButton>
+				</SimpleContainer>
+				<Comentarios
+					onCl_abort={onCl_abort}
+					onCl_edit={onCl_edit}
+					valueComment={valueComment}
+					reasonsToWorkAgain={reasonsToWorkAgain}
+					onCl_close={onCl_close}
+					onCh_dropdown={onCh_dropdown}
+					onCl_approve={onCl_approve}
+					onCl_confirm={onCl_confirm}
+					onCl_reWork={onCl_reWork}
+					onCh_comment={onCh_comment}
+					messages={messages}
+					showTasks={showTasks}
+					onCh_addFile={onCh_addFile}
+					onCl_addComment={onCl_addComment}
+					modo={modo}
+				/>
 			</SimpleContainer>
-			<Comentarios
-				onCl_abort={onCl_abort}
-				onCl_edit={onCl_edit}
-				valueComment={valueComment}
-				reasonsToWorkAgain={reasonsToWorkAgain}
-				onCl_close={onCl_close}
-				onCh_dropdown={onCh_dropdown}
-				onCl_approve={onCl_approve}
-				onCl_confirm={onCl_confirm}
-				onCl_reWork={onCl_reWork}
-				onCh_comment={onCh_comment}
-				messages={messages}
-				showTasks={showTasks}
-				onCh_addFile={onCh_addFile}
-				onCl_addComment={onCl_addComment}
-				modo={modo}
-			/>
-		</SimpleContainer>
+		</div>
 	);
 };
 export default Content;
