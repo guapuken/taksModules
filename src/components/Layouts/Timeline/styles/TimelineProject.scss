@@ -1,5 +1,4 @@
-
-.timelineProject{
+.timelineProject {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -9,33 +8,45 @@
     overflow: hidden;
     background: var(--bg);
 
-    &__header{
-        display:flex;
+    &__header {
+        display: flex;
         justify-content: space-between;
         align-items: center;
-        &-logo{
+
+        &-logo {
             height: 10vh;
         }
     }
-    &__infoProject{
+
+    &__infoProject {
         margin: 15px 0;
     }
-    &__contenido{
+
+    &__contenido {
         // max-height: 80vh;
         overflow: auto;
         display: grid;
         grid-template-columns: 30% 70%;
-        &-timeline{
+
+        &-timeline {
             max-height: 70vh;
             display: flex;
             flex-direction: column;
             overflow-y: auto !important;
+
+            &-title {
+                width: 100%;
+                display: flex;
+                gap: 10px;
+            }
         }
-        &-medios{
+
+        &-medios {
             overflow: auto !important;
             max-height: 70vh;
-            background: var(--bg) ;
-            &-titles{
+            background: var(--bg);
+
+            &-titles {
                 margin-top: 10px;
                 width: calc(25% - 20px);
                 box-shadow: var(--boxShadow);
@@ -45,44 +56,50 @@
                 justify-content: center;
                 flex-direction: column;
                 border-radius: 20px;
-                &.selected{
-                    box-shadow: 0 0 10px var(--detailColor)
 
+                &.selected {
+                    box-shadow: 0 0 10px var(--detailColor)
                 }
-                &-percent{
+
+                &-percent {
                     display: grid;
-					place-items: center;
-					position: absolute !important;
-					top: 10px;
-					right: 10px;
-					pointer-events: none; 
+                    place-items: center;
+                    position: absolute !important;
+                    top: 10px;
+                    right: 10px;
+                    pointer-events: none;
+
                     // max-width: 20%;
-                    &-text{
+                    &-text {
                         // max-width: 20%;
                         position: absolute;
-						font-size: 11px;
-						user-select: none;
-						pointer-events: none;
+                        font-size: 11px;
+                        user-select: none;
+                        pointer-events: none;
                     }
                 }
-                &-icon{
+
+                &-icon {
                     height: 80px;
-					pointer-events: none;
-					user-select: none;
-                }
-                &-title{
                     pointer-events: none;
-					user-select: none;
-					margin-top: -20px;
-					font-weight: lighter;
+                    user-select: none;
                 }
+
+                &-title {
+                    pointer-events: none;
+                    user-select: none;
+                    margin-top: -20px;
+                    font-weight: lighter;
+                }
+
                 &:hover {
                     background: var(--detailColor);
                     color: #000 !important;
-                    
+
                 }
             }
-            &-individual{
+
+            &-individual {
                 box-shadow: 0 0 10px var(--detailColor);
                 height: 100%;
                 padding: 20px;
@@ -93,7 +110,8 @@
                 justify-content: center;
                 gap: 20px;
                 border-radius: 20px;
-                &-medio{
+
+                &-medio {
                     display: flex;
                     flex-wrap: wrap;
                     flex-direction: column;

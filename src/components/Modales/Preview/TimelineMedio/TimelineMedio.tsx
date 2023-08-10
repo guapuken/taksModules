@@ -19,8 +19,15 @@ export interface timelineMedioProps {
 	handleClose: any;
 	modo: Modo;
 	tasks: tasks[];
+	onCl_goToGant?: onClickType;
 }
-const TimelineMedio = ({ isActive, handleClose, modo, tasks }: timelineMedioProps) => {
+const TimelineMedio = ({
+	isActive,
+	handleClose,
+	modo,
+	tasks,
+	onCl_goToGant,
+}: timelineMedioProps) => {
 	return (
 		<ValidationComponent validate={isActive}>
 			<div
@@ -62,7 +69,12 @@ const TimelineMedio = ({ isActive, handleClose, modo, tasks }: timelineMedioProp
 				>
 					<img src={close} alt="" onClick={handleClose} style={{ height: '30px' }} />
 					<Timeline modo={modo} tasks={tasks} />
-					<Button modo={modo} onCl={() => {}} legend={'Ver progreso en Gant'} primary />
+					<Button
+						modo={modo}
+						onCl={onCl_goToGant as onClickType}
+						legend={'Ver progreso en Gant'}
+						primary
+					/>
 				</div>
 			</div>
 		</ValidationComponent>

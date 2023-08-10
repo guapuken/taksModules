@@ -23,21 +23,21 @@ const CardCampaign = ({
 	function percentCampaign() {
 		let total = 0;
 		let dividendo = 0;
-		if (porcentajeFijos && porcentajeFijos !== null) {
-			total += porcentajeFijos;
-			dividendo += 1;
+		if (porcentajeFijos !== undefined || porcentajeFijos !== null) {
+			if (porcentajeFijos !== undefined) dividendo += 1;
+			total += porcentajeFijos ?? 0;
 		}
-		if (porcentajeIndoors && porcentajeIndoors !== null) {
-			total += porcentajeIndoors;
-			dividendo += 1;
+		if (porcentajeIndoors !== undefined || porcentajeIndoors !== null) {
+			if (porcentajeIndoors !== undefined) dividendo += 1;
+			total += porcentajeIndoors ?? 0;
 		}
-		if (porcentajeUrbanos && porcentajeUrbanos !== null) {
-			total += porcentajeUrbanos;
-			dividendo += 1;
+		if (porcentajeUrbanos !== undefined || porcentajeUrbanos !== null) {
+			if (porcentajeUrbanos !== undefined) dividendo += 1;
+			total += porcentajeUrbanos ?? 0;
 		}
-		if (porcentajeVallas && porcentajeVallas !== null) {
-			total += porcentajeVallas;
-			dividendo += 1;
+		if (porcentajeVallas !== undefined || porcentajeVallas !== null) {
+			if (porcentajeVallas !== undefined) dividendo += 1;
+			total += porcentajeVallas ?? 0;
 		}
 		return dividendo === 0 || total === 0 ? 0 : total / dividendo;
 	}
@@ -54,8 +54,7 @@ const CardCampaign = ({
 				<Title modo={modo}>{nombreProyecto}</Title>
 				<SimpleContainer className="cardCampaign__header-percent">
 					<CircularProgressBar
-						// percentTask={percentCampaign()}
-						percentTask={10}
+						percentTask={percentCampaign()}
 						statusTask={'onTime'}
 						strokeColor={
 							statusFijos === 'outOfTime' ||
@@ -82,7 +81,7 @@ const CardCampaign = ({
 				/>
 			</ValidationComponent>
 			<SimpleContainer className="cardCampaign__contenido">
-				<ValidationComponent validate={porcentajeFijos !== null}>
+				{porcentajeFijos !== undefined && (
 					<SimpleContainer className="cardCampaign__contenido-medios">
 						<SimpleContainer className="cardCampaign__contenido-medios-percent">
 							<CircularProgressBar
@@ -94,8 +93,8 @@ const CardCampaign = ({
 						</SimpleContainer>
 						<Texts modo={modo}>Fijos</Texts>
 					</SimpleContainer>
-				</ValidationComponent>
-				<ValidationComponent validate={porcentajeUrbanos !== null}>
+				)}
+				{porcentajeUrbanos !== undefined && (
 					<SimpleContainer className="cardCampaign__contenido-medios">
 						<SimpleContainer className="cardCampaign__contenido-medios-percent">
 							<CircularProgressBar
@@ -107,8 +106,8 @@ const CardCampaign = ({
 						</SimpleContainer>
 						<Texts modo={modo}>Urbanos</Texts>
 					</SimpleContainer>
-				</ValidationComponent>
-				<ValidationComponent validate={porcentajeIndoors !== null}>
+				)}
+				{porcentajeIndoors !== undefined && (
 					<SimpleContainer className="cardCampaign__contenido-medios">
 						<SimpleContainer className="cardCampaign__contenido-medios-percent">
 							<CircularProgressBar
@@ -120,8 +119,8 @@ const CardCampaign = ({
 						</SimpleContainer>
 						<Texts modo={modo}>Indoors</Texts>
 					</SimpleContainer>
-				</ValidationComponent>
-				<ValidationComponent validate={porcentajeVallas !== null}>
+				)}
+				{porcentajeVallas !== undefined && (
 					<SimpleContainer className="cardCampaign__contenido-medios">
 						<SimpleContainer className="cardCampaign__contenido-medios-percent">
 							<CircularProgressBar
@@ -133,7 +132,7 @@ const CardCampaign = ({
 						</SimpleContainer>
 						<Texts modo={modo}>Vallas M.</Texts>
 					</SimpleContainer>
-				</ValidationComponent>
+				)}
 			</SimpleContainer>
 		</SimpleContainer>
 	);

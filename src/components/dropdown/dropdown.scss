@@ -30,14 +30,15 @@
       color: var(--fc60);
       &-selectedValue{
         &-etiquetas {
-          display: flex;
+          display: flex;  
           flex-wrap: wrap;
           gap: 5px;
           &-etiqueta{
             box-shadow: var(--boxShadow);
-            border: 1px solid var(--fc90);
-            background: var(--bg);
+            box-shadow: inset 0 0 0 2px var(--detail);
+            // background: var(--fc30);
             color: var(--fc90);
+            font-weight: 700;
             padding: 2px 5px;
             border-radius: 2px;
             font-size: 10px;
@@ -70,10 +71,15 @@
         & input{
           width: 100%;
           box-sizing: border-box;
-          padding: 5px;
+          padding: 7px;
           border: none;
           background: var(--bg);
-          box-shadow: var(--border);
+          outline: var(--successColor);
+          box-shadow: inset 0 0 0 2px var(--detail) ;
+          &:focus{
+            box-shadow: inset 0 0 0 1px var(--detail),
+                        0 0 10px var(--detail) ;
+          }
         }
       }
       &-item{
@@ -82,9 +88,13 @@
         font-size: 13px;
         cursor: pointer;
         color: var(--fc60);
-        &.selected, &:hover{
-          background: var(--selected);
+        &.selected{
           color: var(--fc90);
+          background: var(--selected);
+          box-shadow: inset 0 0 0 2px var(--bg);
+        }
+        &:hover{
+          background: var(--detail);
         }
       }
     }

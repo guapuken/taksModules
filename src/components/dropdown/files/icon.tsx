@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Icon = (fillColor?: string, isOpen?: Boolean) => {
+const Icon = ({ fillColor, isOpen }: any) => {
 	return (
 		<svg
 			height="20"

@@ -12,11 +12,6 @@ const Content = ({ modo, teamName = 'Equipo', onCl_preview, members, teamColor }
 	const [mouseEnter, setMouseEnter] = useState(false);
 
 	const iniciales = initialLetters(teamName);
-	console.log(
-		initialLetters(teamName),
-		iniciales.length,
-		iniciales.join('').slice(0, 2).toUpperCase()
-	);
 	return (
 		<CardContainer
 			labels={{

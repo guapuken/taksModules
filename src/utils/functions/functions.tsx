@@ -98,3 +98,32 @@ const fondoNegro = [0, 0, 0];
 
 const colorLetraBlanca = obtenerColorLetra(fondoBlanco);
 const colorLetraNegra = obtenerColorLetra(fondoNegro);
+
+export function findMaxValue(arreglo: any[]) {
+	if (!Array.isArray(arreglo) || arreglo.length === 0) {
+		throw new Error('El argumento debe ser un arreglo no vacio');
+	}
+	return Math.max(...arreglo);
+}
+
+export function formatearNumeroConComas(numero: number) {
+	if (typeof numero !== 'number' || isNaN(numero)) {
+		throw new Error('El argumento debe ser un número válido');
+	}
+	const separador = ',';
+	const digitos = numero.toString().split('.');
+	let parteEntera = digitos[0];
+	const parteDecimal = digitos[1] ? '.' + digitos[1] : '';
+
+	if (parteEntera.length > 3) {
+		let pos = parteEntera.length % 3;
+		const primeraParte = parteEntera.substr(0, pos);
+		const restoParte = parteEntera.substr(pos).match(/\d{3}/g);
+
+		if (restoParte) {
+			const separados = restoParte.join(separador);
+			parteEntera = primeraParte + (pos ? separador : '') + separados;
+		}
+	}
+	return parteEntera + parteDecimal;
+}

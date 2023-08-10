@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // elementos auxiliares
-import { SimpleContainer, TextBoldLight, Texts, Title, ValidationComponent } from '../../Atoms';
+import {  TextBoldLight, Texts, Title, ValidationComponent } from '../../Atoms';
 import { Button, Dropdown, Timeline } from '../../../components';
 import { ButtonItem } from '../../../utils/asideUtils';
 import VisualizacionMedios from './componentesPrincipales/VisualizacionMedios';
@@ -36,16 +36,17 @@ const TimelineProject = ({
 	optionsDropdown,
 	initialValueDropdown,
 	onCl_close,
+	onCh_dropdownRutas,
+	optionsRutas,
+	valuesRutas,
 }: timelineProjectProps) => {
 	const [medioSelected, setMedioSelected] = useState('');
 	return (
-		<SimpleContainer
+		<div
 			className="timelineProject"
-			labels={{
-				'theme-config': modo,
-			}}
+			theme-config= {modo}
 		>
-			<SimpleContainer className="timelineProject__header">
+			<div className="timelineProject__header">
 				<img
 					className="timelineProject__header-logo"
 					src={logo}
@@ -53,18 +54,18 @@ const TimelineProject = ({
 					onClick={onCl_compartir}
 				/>
 				<ButtonItem id="1" img={close} onClick={onCl_close} />
-			</SimpleContainer>
-			<SimpleContainer className="timelineProject__contenido">
-				<SimpleContainer className="timelineProject__contenido-timeline">
-					<SimpleContainer style={{ width: '30vw', display: 'flex', gap: '10px' }}>
+			</div>
+			<div className="timelineProject__contenido">
+				<div className="timelineProject__contenido-timeline">
+					<div className="timelineProject__contenido-timeline-title" >
 						<Title modo={modo}>{nombreProyecto}</Title>
-					</SimpleContainer>
-					<ValidationComponent validate={!tasks}>
+					</div>
+					{!tasks && 
 						<NoContent modo={modo} />
-					</ValidationComponent>
-					<ValidationComponent validate={tasks}>
-						<SimpleContainer style={{ marginTop: '20px' }}>
-							<SimpleContainer
+					}
+					{tasks && 
+						<div style={{ marginTop: '20px' }}>
+							<div
 								style={{
 									display: 'flex',
 									justifyContent: 'space-between',
@@ -72,52 +73,50 @@ const TimelineProject = ({
 									marginBottom: '20px',
 								}}
 							>
-								<ValidationComponent // aquí se valida si se encuentra seleccionadas las tareas
-									validate={medioSelected !== ''}
-								>
-									<TextBoldLight
-										modo={modo}
-										legend={'Línea de tiempo de  '}
-										boldLegend={
-											medioSelected === 'sitios'
-												? 'Sitios fijos'
-												: medioSelected === 'urbanos'
-												? 'Urbanos'
-												: medioSelected === 'indoors'
-												? 'Sitios Indoor'
-												: medioSelected === 'vallas'
-												? 'Vallas fijas'
-												: ''
-										}
-										positionBold="end"
-									/>
-									<Button
-										modo={modo}
-										onCl={onCl_compartir}
-										float
-										icon={share}
-										rounded
-										border
-									/>
-								</ValidationComponent>
-							</SimpleContainer>
-							<ValidationComponent
-								validate={medioSelected === 'sitios' || medioSelected === 'indoors'}
-							>
+								{medioSelected !== '' &&
+									<>
+										<TextBoldLight
+											modo={modo}
+											legend={'Línea de tiempo de  '}
+											boldLegend={
+												medioSelected === 'sitios'
+													? 'Sitios fijos'
+													: medioSelected === 'urbanos'
+													? 'Urbanos'
+													: medioSelected === 'indoors'
+													? 'Sitios Indoor'
+													: medioSelected === 'vallas'
+													? 'Vallas fijas'
+													: ''
+											}
+											positionBold="end"
+										/>
+										<Button
+											modo={modo}
+											onCl={onCl_compartir}
+											float
+											icon={share}
+											rounded
+											border
+										/>
+									</>
+								}
+							</div>
+							{(medioSelected === 'sitios' || medioSelected === 'indoors') && 
 								<Dropdown
 									modo={modo}
 									onCh={onCh_dropdown as onChangeType}
 									options={optionsDropdown ?? []}
 									initialValue={initialValueDropdown}
-									style={{ marginBottom: '20px' }}
+									style={{ marginBottom: '20px', zIndex: '2' }}
 									placeHolder="Selecciona el tipo de medio"
 								/>
-							</ValidationComponent>
+							}
 							<Timeline modo={modo} tasks={tasks as any} />
-						</SimpleContainer>
-					</ValidationComponent>
-				</SimpleContainer>
-				<SimpleContainer className="timelineProject__contenido-medios">
+						</div>
+					}
+				</div>
+				<div className="timelineProject__contenido-medios">
 					<VisualizacionMedios
 						tasks={medios ?? (null as any)}
 						modo={modo}
@@ -137,10 +136,13 @@ const TimelineProject = ({
 						unidadesUrbanas={statusUrbanos || percentUrbanos ? true : false}
 						sitiosIndoors={statusIndoors || percentIndoors ? true : false}
 						vallasMoviles={statusVallas || percentVallas ? true : false}
+						onCh_dropdownRutas={onCh_dropdownRutas}
+						optionsRutas={optionsRutas}
+						valuesRutas={valuesRutas}
 					/>
-				</SimpleContainer>
-			</SimpleContainer>
-		</SimpleContainer>
+				</div>
+			</div>
+		</div>
 	);
 };
 

@@ -15,8 +15,70 @@
     --display: block;
     --paddingIcon: 0;
     --borderRadius:5px;
+    --successSize: 17px;
+    --fontSizeSuccess: 10px;
 }
+$padding: 5px 10px;
 
+// jeraquias (primary, secondary, tertiary) ----------------------
+.boton
+{
+    position: relative;
+    border-radius: 5px;
+    cursor: pointer;
+    background: var(--background);
+
+    box-shadow: var(--border) ;
+    // border: none !important;
+    width: var(--sizeButton) !important;
+    height: var(--sizeButton) !important;
+    border-radius: var(--borderRadius);
+    &__number{
+        position: absolute;
+        right:-20%;
+        top: -20%;
+        width: var(--successSize);
+        height: var(--successSize);
+        border-radius: 100%;
+        // background: var(--background);
+        background: inherit;    
+        border: 3px solid var(--bg);
+        font-size: var(--fontSizeSuccess);
+        &::before{
+            content: attr(value-success);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            color: #fff;
+        }
+    }
+    &__contenido{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        // border: none;
+        &-legend{
+            display: var(--display);
+            font-size: clamp(var(--fontSizeMin), var(--fontSizePref), var(--fontSizeMax)) !important;
+            padding: $padding;
+            &.textos{
+                color: var(--fontColor) !important;
+            }
+            &:hover{
+                color: var(--fcHover) !important;
+            }
+        }
+        &-icon{
+            height: var(--sizeIcon);
+            padding-left: var(--paddingIcon);
+        }
+    }
+    &:hover{
+        background: var(--hover) ;
+    }
+}
 // tamaños
 [size-button='small']{
     --fontSizeMin: 12px;
@@ -24,6 +86,9 @@
     --fontSizeMax: 17px;
     --sizeIcon: 18px;
     --sizeButton: 30px;
+    --successSize: 20px;
+    --fontSizeSuccess: 10px;
+
 }
 [size-button='medium']{
     --fontSizeMin: 14px;
@@ -31,6 +96,8 @@
     --fontSizeMax: 19px;
     --sizeIcon: 20px;
     --sizeButton: 40px;
+    --successSize: 25px;
+    --fontSizeSuccess: 12px;
 }
 [size-button='large']{
     --fontSizeMin: 16px;
@@ -38,6 +105,9 @@
     --fontSizeMax: 21px;
     --sizeIcon: 25px;
     --sizeButton: 50px;
+    --successSize: 30px;
+    --fontSizeSuccess: 14px;
+
 }
 // colores
 [style-button='primary']{
@@ -49,14 +119,14 @@
 [style-button='secondary']{
     --background:transparent;
     --hover:#FC3D38;
-    --border: inset 0 0 0 2px #FC3D38;
+    --border: inset 0 0 0 2px #FC3D38 !important;
     --fontColor: #FC3D38;
 }
 [style-button='tertiary']{
     --background:transparent;
     --hover:#7BAFFF;
     --fontColor:#7BAFFF;
-    --border: none;
+    --border: none !important;
 }
 // flotantes 
 [float-button='float'],[size-button='small']{
@@ -68,6 +138,16 @@
 [float-button='float'],[size-button='large']{
     --display: none;
 }
+// tamaños de los íconos con la propiedad de float
+[float-button='float'][size-button='small']{
+    --sizeIcon: 28px;
+}
+[float-button='float'][size-button='medium']{
+    --sizeIcon: 30px;
+}
+[float-button='float'][size-button='large']{
+    --sizeIcon: 35px;
+}
 [float-button='noFloat']{
     --sizeButton: auto;
     --display: block;
@@ -75,18 +155,43 @@
 }
 // de bordes
 [border-button='border']{
-    --background: transparent;
-    --border: inset 0 0 0 2px #000 !important;
+    --background: transparent !important;
+    // --border: inset 0 0 0 2px attr(color-btn)!important;
+    --border: inset 0 0 0 2px #000 ;
 }
 [border-button='border'][style-button='primary']{
     --border: inset 0 0 0 2px #126EFA !important;
     --fontColor: #126EFA;
+    .boton{
+        &__number{
+            box-shadow:inset 0 0 0 2px #126EFA;
+            &:before{
+                color: #126EFA;
+            }
+        }
+    }
 }
 [border-button='border'][style-button='secondary']{
     --border: inset 0 0 0 2px #FC3D38 !important;
+    .boton{
+        &__number{
+            box-shadow:inset 0 0 0 2px #FC3D38;
+            &:before{
+                color: #FC3D38;
+            }
+        }
+    }
 }
 [border-button='border'][style-button='tertiary']{
     --border: inset 0 0 0 2px #7BAFFF !important;
+    .boton{
+        &__number{
+            box-shadow:inset 0 0 0 2px #7BAFFF;
+            &:before{
+                color: #7BAFFF;
+            }
+        }
+    }
 }
 // estilos de redondeado
 [rounded-button='rounded']{
@@ -97,40 +202,13 @@
     --hover: gray;
 }
 
-$padding: 5px 10px;
 
-// jeraquias (primary, secondary, tertiary) ----------------------
-.boton
-{
-    position: relative;
-    border-radius: 5px;
-    cursor: pointer;
-    background: var(--background) !important;
-    box-shadow: var(--border) !important;
-    // border: none !important;
-    width: var(--sizeButton) !important;
-    height: var(--sizeButton) !important;
-    border-radius: var(--borderRadius);
-    &__contenido{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        // border: none;
-        &-legend{
-            display: var(--display);
-            color: var(--fontColor) !important;
-            font-size: clamp(var(--fontSizeMin), var(--fontSizePref), var(--fontSizeMax)) !important;
-            padding: $padding;
-            &:hover{
-                color: var(--fcHover) !important;
-            }
+
+.boton[success-color='successColor']{
+    background: var(--successColor) !important;
+    .boton__contenido{
+        &-number{
+                background: var(--successColor) !important;
         }
-        &-icon{
-            height: var(--sizeIcon);
-            padding-left: var(--paddingIcon);
-        }
-    }
-    &:hover{
-        background: var(--hover) !important;
     }
 }

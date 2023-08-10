@@ -8,7 +8,7 @@ import { optionsDropdown } from '../../types';
 import { Modo, onChangeType } from '../../types';
 // estilos
 import './dropdown.scss';
-import { SimpleContainer, ValidationComponent } from '../Atoms';
+import { SimpleContainer, Texts, ValidationComponent } from '../Atoms';
 
 /**documentación de componente
  * @param {optionsDropdown[]} props.options - recibe un arreglo de objetos con los siguientes datos:
@@ -51,7 +51,9 @@ const Dropdown = (props: dropdown) => {
 	React.useEffect(() => {
 		const handler = (e: any) => {
 			if (inputRef.current && !inputRef.current.contains(e.target)) {
-				setShowMenu(false);
+				if (datos.isMulti) {
+					setShowMenu(true);
+				} else setShowMenu(false);
 			}
 		};
 
@@ -86,7 +88,8 @@ const Dropdown = (props: dropdown) => {
 							key={option.id}
 							className={'dropdown__input-selectedValue-etiquetas-etiqueta'}
 						>
-							{option.title}
+							<Texts modo={datos.modo}>{option.title}</Texts>
+							{/* {option.title} */}
 							<span
 								onClick={(e) => onTagRemove(e, option)}
 								className={'dropdown__input-selectedValue-etiquetas-etiqueta-close'}
@@ -98,7 +101,8 @@ const Dropdown = (props: dropdown) => {
 				</SimpleContainer>
 			);
 		// se regresa la propiedad de title del valor seleccionado
-		return selectedValue.title;
+		// return selectedValue.title;
+		return <Texts modo={datos.modo}>{selectedValue.title}</Texts>;
 	};
 
 	const removeOption = (option: any) => {
@@ -135,7 +139,6 @@ const Dropdown = (props: dropdown) => {
 		if (datos.isMulti) {
 			return selectedValue.filter((o: any) => o.id === option.id).length > 0;
 		}
-
 		if (!selectedValue) {
 			return false;
 		}
@@ -183,10 +186,10 @@ const Dropdown = (props: dropdown) => {
 				</SimpleContainer>
 				<SimpleContainer className={'dropdown__input-tools'}>
 					<SimpleContainer className={'dropdown__input-tools-tool'}>
-						{Icon(
-							datos.modo === 'Dark' || datos.disabled ? '#fff' : '',
-							showMenu ? true : false
-						)}
+						<Icon
+							fillColor={datos.modo === 'Dark' ? '#8d8989' : '#54514f'}
+							isOpen={showMenu}
+						/>
 					</SimpleContainer>
 				</SimpleContainer>
 			</SimpleContainer>
@@ -207,6 +210,7 @@ const Dropdown = (props: dropdown) => {
 								onChange={onSearch}
 								value={searchValue}
 								ref={searchRef}
+								placeholder="Busca tu opción"
 							/>
 						</SimpleContainer>
 					</ValidationComponent>

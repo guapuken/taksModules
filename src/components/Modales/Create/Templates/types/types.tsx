@@ -12,6 +12,9 @@ export interface modalTemplates {
 	onCl_addTask: onClickType;
 	onCh_templateName: onChangeType;
 	onCl_close: onClickType;
+	onCl_postventaTemplate?: onClickType;
+	onCl_ventaTemplate?: onClickType;
+	onCl_preventaTemplate?: onClickType;
 
 	onCh_dropDownTipoMedio: onChangeType;
 	optionsTipoMedio?: optionsDropdown[];
@@ -32,4 +35,8 @@ export interface modalTemplates {
 	isEditingTemplate?: boolean;
 	valueCheckboxMedio?: boolean;
 	valueCheckboxCampaign?: boolean;
+	disabledPreventa?: boolean;
+	disabledVenta?: boolean;
+	disabledPostventa?: boolean;
+	valueTemplateType?: 'Preventa' | 'Venta' | 'Postventa';
 }

@@ -1,0 +1,227 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+// Componente principal
+import Button from '../../components/button/Button.tsx';
+//Elementos multimedia
+import bell from '../../img/bell.svg';
+import carrito from '../../img/carrito.svg';
+// styles
+import './styles.scss';
+
+<Meta title="Button/Documentación" component={Button} />
+
+# Button
+
+El componente de botón funciona como el elemento más pequeño e importante dentro de la librería, ya que será utilizado en muchos de los componentes e incluso en los layouts que se produzcan.
+
+# Estilos disponibles
+
+<div className="subheading">
+	<div className="sizes">
+		<div className="sizes__container">
+			<div className="sizes__container-elementos">
+				{<Button size="medium" />}
+				<p className="sizes__container-elementos-descripcion">initial</p>
+			</div>
+			<div className="sizes__container-elementos">
+				{<Button size="medium" rounded />}
+				<p className="sizes__container-elementos-descripcion">rounded</p>
+			</div>
+			<div className="sizes__container-elementos">
+				{<Button size="medium" icon={bell} />}
+				<p className="sizes__container-elementos-descripcion">con ícono</p>
+			</div>
+			<div className="sizes__container-elementos">
+				{<Button size="medium" border />}
+				<p className="sizes__container-elementos-descripcion">border</p>
+			</div>
+			<div className="sizes__container-elementos">
+				{<Button size="medium" float icon={bell} />}
+				<p className="sizes__container-elementos-descripcion">float</p>
+			</div>
+			<div className="sizes__container-elementos">
+				{<Button size="medium" float icon={carrito} valueSuccess={1} />}
+				<p className="sizes__container-elementos-descripcion">conValue</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+# Paletas de colores
+
+<div className="subheading">
+	<p>
+		Se pueden utilizar los botones con los valores por default que contienen los botones con la
+		paleta de colores que se definió. <br></br>
+		El color primario se utilizará para acciones importantes o CTA, ejemplo: Comprar, Guardar,
+		Aplicar etc. <br></br>
+		El color secundario se utilizará para acciones secundarias como su nombre lo dice o acciones
+		de cancelación, ejemplo: Cancelar, Descartar etc. <br></br>
+		Mientras tanto el color terciario se utilizará con las acciones que no tienen mucha
+		importancia pero aún así son necearias dentro de las interfaces, ejemplo: Regresar, Olvidé
+		mi contraseña, etc.
+	</p>
+	<div className={'colores'}>
+		<div className="colores__individual primario">Color primario #126EFA</div>
+		<div className="colores__individual secundario">Color primario #FC3D38</div>
+		<div className="colores__individual terciario">Color primario #7BAFFF</div>
+	</div>
+	<div className="mbt-2">
+		<h3 className="sub_subheading ">Ejemplo de uso</h3>
+		<div style={{ display: 'flex', gap: '20px' }}>
+			<Button secondary legend="Cancelar" size="large" modo="Light" />
+			<Button tertiary legend="Regresar" size="large" modo="Light" />
+			<Button primary legend="Comprar" size="large" modo="Light" icon={carrito} />
+		</div>
+	</div>
+</div>
+
+<style>
+	{`
+
+  `}
+</style>
+
+# Propiedades
+
+<div className="subheading">
+	<table>
+		<tr>
+			<th>Propiedad</th>
+			<th>Para qué sirve</th>
+			<th>Tipo de dato</th>
+			<th>Valor por defecto</th>
+		</tr>
+		<tr>
+			<td>
+				id<span style={{ color: 'red' }}>*</span>
+			</td>
+			<td>Sirve para identificar de manera correcta el botón</td>
+			<td>string</td>
+			<td>NA</td>
+		</tr>
+		<tr>
+			<td>
+				onCl<span style={{ color: 'red' }}>*</span>
+			</td>
+			<td>Sirve para agregar la función del botón al momento de dar clic</td>
+			<td>Function</td>
+			<td>NA</td>
+		</tr>
+		<tr>
+			<td>
+				modo<span style={{ color: 'red' }}>*</span>
+			</td>
+			<td>Sirve para cambiar el tema de color</td>
+			<td>"Light" | "Dark"</td>
+			<td>"Light"</td>
+		</tr>
+		<tr>
+			<td>size</td>
+			<td>Sirve para definir el tamaño del botón</td>
+			<td>"small" | "medium" | "large"</td>
+			<td>"medium" </td>
+		</tr>
+		<tr>
+			<td>style</td>
+			<td>Sirve para agregar estilos al componente en general</td>
+			<td>object</td>
+			<td>NA </td>
+		</tr>
+		<tr>
+			<td>styleIcon</td>
+			<td>Sirve para agregar estilos al ícono del botón</td>
+			<td>object</td>
+			<td>NA </td>
+		</tr>
+		<tr>
+			<td>textStyle</td>
+			<td>Sirve para agregar estilos al legend del botón</td>
+			<td>object</td>
+			<td>NA </td>
+		</tr>
+		<tr>
+			<td>legend</td>
+			<td>Sirve para agregar la leyenda al botón</td>
+			<td>string</td>
+			<td>"Simple Button"</td>
+		</tr>
+		<tr>
+			<td>icon</td>
+			<td>Sirve para agregar un ícono al botón</td>
+			<td>string</td>
+			<td>NA</td>
+		</tr>
+		<tr>
+			<td>className</td>
+			<td>Sirve para agregar un className al botón</td>
+			<td>string</td>
+			<td>NA</td>
+		</tr>
+		<tr>
+			<td>primary</td>
+			<td>Sirve para definir el botón con el color primario</td>
+			<td>boolean</td>
+			<td>false</td>
+		</tr>
+		<tr>
+			<td>secondary</td>
+			<td>Sirve para definir el botón con el color secundario</td>
+			<td>boolean</td>
+			<td>false</td>
+		</tr>
+		<tr>
+			<td>tertiary</td>
+			<td>Sirve para definir el botón con el color terciario</td>
+			<td>boolean</td>
+			<td>false</td>
+		</tr>
+		<tr>
+			<td>rounded</td>
+			<td>Sirve para generar un botón con las esquinas completamente redondeadas</td>
+			<td>boolean</td>
+			<td>false</td>
+		</tr>
+		<tr>
+			<td>disabled</td>
+			<td>Sirve para deshabilitar el botón</td>
+			<td>boolean</td>
+			<td>false</td>
+		</tr>
+		<tr>
+			<td>border</td>
+			<td>Sirve para generar un botón con bordes y sin color de fondo</td>
+			<td>boolean</td>
+			<td>false</td>
+		</tr>
+		<tr>
+			<td>float</td>
+			<td>
+				Sirve para generar un botón flotante, se tiene que agregar un ícono para que
+				funcione correctamente
+			</td>
+			<td>boolean</td>
+			<td>false</td>
+		</tr>
+		<tr>
+			<td>color</td>
+			<td>Sirve para agregar un color específico al botón</td>
+			<td>string</td>
+			<td>NA</td>
+		</tr>
+		<tr>
+			<td>valueSuccess</td>
+			<td>
+				Sirve para un identificador al botón que puede recibir números o textos muy cortos
+				como ✔ para agregar ya sea un contador o un validador
+			</td>
+			<td>string | number</td>
+			<td>NA</td>
+		</tr>
+		<tr>
+			<td>successColor</td>
+			<td>Sirve para un el color verde de validación en el botón al momento de dar clic</td>
+			<td>boolean</td>
+			<td>false</td>
+		</tr>
+	</table>
+</div>
