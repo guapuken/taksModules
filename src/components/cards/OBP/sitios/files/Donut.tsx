@@ -50,7 +50,7 @@ function elementsToPie({ colores, porcentajes, grados }: any) {
 	}
 	return `conic-gradient(${background})`;
 }
-export const HalfDonut = ({ colores, porcentajes, values }: any) => {
+export const HalfDonut = ({ colores, porcentajes, values, modo }: any) => {
 	return (
 		<div
 			className="donut"
@@ -63,13 +63,13 @@ export const HalfDonut = ({ colores, porcentajes, values }: any) => {
 					grados: 180,
 				}),
 			}}
-			theme-config="Dark"
+			theme-config={modo}
 		>
 			<div className="donut__hole"></div>
 			<div className="donut__datos">
 				<div className="donut__datos-max">
 					<Texts
-						modo="Dark"
+						modo={modo}
 						className={
 							porcentajes[0] === findMaxValue(porcentajes)
 								? 'donut__datos-max-maxValue'
@@ -80,7 +80,7 @@ export const HalfDonut = ({ colores, porcentajes, values }: any) => {
 						{`${values[0]}: ${isNaN(porcentajes[0]) ? 0 : porcentajes[0]}%`}
 					</Texts>
 					<Texts
-						modo="Dark"
+						modo={modo}
 						className={
 							porcentajes[1] === findMaxValue(porcentajes)
 								? 'donut__datos-max-maxValue'
@@ -91,7 +91,7 @@ export const HalfDonut = ({ colores, porcentajes, values }: any) => {
 						{`${values[1]}: ${isNaN(porcentajes[1]) ? 0 : porcentajes[1]}%`}
 					</Texts>
 					<Texts
-						modo="Dark"
+						modo={modo}
 						className={
 							porcentajes[2] === findMaxValue(porcentajes)
 								? 'donut__datos-max-maxValue'
@@ -102,7 +102,7 @@ export const HalfDonut = ({ colores, porcentajes, values }: any) => {
 						{`${values[2]}: ${isNaN(porcentajes[2]) ? 0 : porcentajes[2]}%`}
 					</Texts>
 					<Texts
-						modo="Dark"
+						modo={modo}
 						className={
 							porcentajes[3] === findMaxValue(porcentajes)
 								? 'donut__datos-max-maxValue'
@@ -113,7 +113,7 @@ export const HalfDonut = ({ colores, porcentajes, values }: any) => {
 						{`${values[3]}: ${isNaN(porcentajes[3]) ? 0 : porcentajes[3]}%`}
 					</Texts>
 					<Texts
-						modo="Dark"
+						modo={modo}
 						className={
 							porcentajes[4] === findMaxValue(porcentajes)
 								? 'donut__datos-max-maxValue'

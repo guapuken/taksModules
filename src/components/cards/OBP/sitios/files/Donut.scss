@@ -15,8 +15,7 @@
     &__hole{
         width: 80%;
         height: 80%;
-        // background: var(--fc90);
-        background: var(--bg);
+        background: var(--bg) !important;
         position: absolute;
         left: 50%;
         top: 50%;
