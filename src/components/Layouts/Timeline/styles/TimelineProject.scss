@@ -3,6 +3,7 @@
     bottom: 0;
     left: 0;
     width: 100vw;
+    max-width: 100vw;
     height: 90vh;
     padding: 20px;
     overflow: hidden;
@@ -47,7 +48,7 @@
             background: var(--bg);
 
             &-titles {
-                margin-top: 10px;
+                margin-top: 15px;
                 width: calc(25% - 20px);
                 box-shadow: var(--boxShadow);
                 height: 100px;
@@ -56,9 +57,9 @@
                 justify-content: center;
                 flex-direction: column;
                 border-radius: 20px;
-
+                position: relative;
                 &.selected {
-                    box-shadow: 0 0 10px var(--detailColor)
+                    box-shadow: 0 0 10px var(--detail)
                 }
 
                 &-percent {
@@ -88,19 +89,18 @@
                 &-title {
                     pointer-events: none;
                     user-select: none;
-                    margin-top: -20px;
-                    font-weight: lighter;
+                    margin-top: -10px;
                 }
 
                 &:hover {
-                    background: var(--detailColor);
+                    background: var(--detail);
                     color: #000 !important;
 
                 }
             }
 
             &-individual {
-                box-shadow: 0 0 10px var(--detailColor);
+                box-shadow: 0 0 10px var(--detail);
                 height: 100%;
                 padding: 20px;
                 margin-top: 20px;

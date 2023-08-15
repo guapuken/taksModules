@@ -1,13 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { SimpleContainer, Title, ValidationComponent } from '../../../Atoms';
 import Medio from './Medio';
 import CardMedios from './CardMedio';
 import { medios, visualizacionMedios } from '../types/Types';
-import { SitiosIcon } from '../../../../img/sitios';
-import { UrbanosIcon } from '../../../../img/urbanosIcon';
-import { VallaIcon } from '../../../../img/vallasIcon';
-import { IndoorsIcon } from '../../../../img/indoorsIcon';
 import Dropdown from '../../../dropdown/dropdown';
+
+// archivos multimedia
+import VallaIcon from '../../../../img/icons/vallas_amarillo.svg';
+import VallaIconDark from '../../../../img/icons/vallas_blanco.svg';
+import SitiosIcon from '../../../../img/icons/sitios_amarillo.svg';
+import SitiosIconDark from '../../../../img/icons/sitios_blanco.svg';
+import UrbanosIcon from '../../../../img/icons/urbanos_amarillo.svg';
+import UrbanosIconDark from '../../../../img/icons/urbanos_blanco.svg';
+import IndoorsIcon from '../../../../img/icons/centroscomerciales_amarillo.svg';
+import IndoorsIconDark from '../../../../img/icons/centroscomerciales_blanco.svg';
 
 const VisualizacionMedios = ({
 	tasks,
@@ -54,8 +60,14 @@ const VisualizacionMedios = ({
 						idValue={'sitios'}
 						title={'Sitios fijos'}
 						Icon={() => (
-							<SitiosIcon
-								fill={modo === 'Dark' ? '#d3d3d3' : '#2c2926'}
+							<img
+								src={SitiosIcon}
+								className="timelineProject__contenido-medios-titles-icon"
+							/>
+						)}
+						IconDark={() => (
+							<img
+								src={SitiosIconDark}
 								className="timelineProject__contenido-medios-titles-icon"
 							/>
 						)}
@@ -73,8 +85,14 @@ const VisualizacionMedios = ({
 						idValue={'urbanos'}
 						title={'Urbanos'}
 						Icon={() => (
-							<UrbanosIcon
-								fill={modo === 'Dark' ? '#d3d3d3' : '#2c2926'}
+							<img
+								src={UrbanosIcon}
+								className="timelineProject__contenido-medios-titles-icon"
+							/>
+						)}
+						IconDark={() => (
+							<img
+								src={UrbanosIconDark}
 								className="timelineProject__contenido-medios-titles-icon"
 							/>
 						)}
@@ -92,8 +110,14 @@ const VisualizacionMedios = ({
 						idValue={'indoors'}
 						title={'Indoors'}
 						Icon={() => (
-							<IndoorsIcon
-								fill={modo === 'Dark' ? '#d3d3d3' : '#2c2926'}
+							<img
+								src={IndoorsIcon}
+								className="timelineProject__contenido-medios-titles-icon"
+							/>
+						)}
+						IconDark={() => (
+							<img
+								src={IndoorsIconDark}
 								className="timelineProject__contenido-medios-titles-icon"
 							/>
 						)}
@@ -111,8 +135,14 @@ const VisualizacionMedios = ({
 						idValue={'vallas'}
 						title={'Vallas móviles'}
 						Icon={() => (
-							<VallaIcon
-								fill={modo === 'Dark' ? '#d3d3d3' : '#2c2926'}
+							<img
+								src={VallaIcon}
+								className="timelineProject__contenido-medios-titles-icon"
+							/>
+						)}
+						IconDark={() => (
+							<img
+								src={VallaIconDark}
 								className="timelineProject__contenido-medios-titles-icon"
 							/>
 						)}

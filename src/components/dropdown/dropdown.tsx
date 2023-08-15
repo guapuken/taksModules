@@ -51,9 +51,8 @@ const Dropdown = (props: dropdown) => {
 	React.useEffect(() => {
 		const handler = (e: any) => {
 			if (inputRef.current && !inputRef.current.contains(e.target)) {
-				if (datos.isMulti) {
-					setShowMenu(true);
-				} else setShowMenu(false);
+				if (datos.isMulti) null;
+				else setShowMenu(false);
 			}
 		};
 
@@ -83,7 +82,7 @@ const Dropdown = (props: dropdown) => {
 		if (datos.isMulti)
 			return (
 				<SimpleContainer className={'dropdown__input-selectedValue-etiquetas'}>
-					{selectedValue.map((option: optionsDropdown) => (
+					{selectedValue?.map((option: optionsDropdown) => (
 						<SimpleContainer
 							key={option.id}
 							className={'dropdown__input-selectedValue-etiquetas-etiqueta'}

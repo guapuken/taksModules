@@ -59,4 +59,5 @@ export interface timelineProjectProps {
 	onCh_dropdownRutas: onChangeType;
 	optionsRutas: optionsDropdown[];
 	valuesRutas?: optionsDropdown[];
+	title?: string;
 }
