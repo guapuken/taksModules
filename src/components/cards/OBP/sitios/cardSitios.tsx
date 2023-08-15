@@ -133,7 +133,15 @@ const CardSitios = ({
 
 	return (
 		<div className="cardSitios" status-card={isOpen ? 'open' : 'close'} theme-config={modo}>
-			<div className={`cardSitios__image ${!activo && 'inactive'}`}>
+			<div className={`cardSitios__image`}>
+				{!activo && (
+					<div className="cardSitios__image-inactive">
+						<div className="cardSitios__image-inactive-desactivationMotive">
+							<h2>Inactivo</h2>
+							<Texts modo={'' as any}>Por finalización de contrato</Texts>
+						</div>
+					</div>
+				)}
 				<div
 					className="cardSitios__image-bg"
 					style={{ backgroundImage: `url(${imagen1})` }}
@@ -145,13 +153,14 @@ const CardSitios = ({
 						onCl={onCarritoClick}
 						float
 						rounded
-						style={{}}
+						style={{ boxShadow: 'inset 0 0 0 3px #fff' }}
 						icon={carrito}
 						size="medium"
 						id={claveimj}
 						color={addedToCar ? undefined : '#343232'}
 						valueSuccess={addedToCar && '✔'}
 						successColor={addedToCar}
+						disabled={!activo}
 					/>
 				</div>
 				<div className="cardSitios__image-info">

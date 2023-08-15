@@ -21,6 +21,7 @@ storiesOf('Cards / OBP / sitios', module).add('sitios', () => {
 				iluminacion={false}
 				latitud={'15.623586'}
 				longitud={'-99.1542630'}
+				// activo={false}
 				material={'Lona front'}
 				modo={'Light'}
 				addedToCar={added}
