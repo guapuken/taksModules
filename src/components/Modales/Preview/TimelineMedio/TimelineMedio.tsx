@@ -69,12 +69,14 @@ const TimelineMedio = ({
 				>
 					<img src={close} alt="" onClick={handleClose} style={{ height: '30px' }} />
 					<Timeline modo={modo} tasks={tasks} />
-					<Button
-						modo={modo}
-						onCl={onCl_goToGant as onClickType}
-						legend={'Ver progreso en Gant'}
-						primary
-					/>
+					{onCl_goToGant && (
+						<Button
+							modo={modo}
+							onCl={onCl_goToGant as onClickType}
+							legend={'Ver progreso en Gant'}
+							primary
+						/>
+					)}
 				</div>
 			</div>
 		</ValidationComponent>
