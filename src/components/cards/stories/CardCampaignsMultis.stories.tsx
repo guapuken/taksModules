@@ -11,6 +11,7 @@ storiesOf('Cards/Campaigns/Examples/Uber eats', module).add('Uber eats', () => {
 				statusFijos={'onTime'}
 				modo={'Light'}
 				campaignColor="#f1f498"
+				porcentajeFijos={10}
 			/>
 			<CardCampaign
 				nombreProyecto="4856-Mc_Donalds-Enero"

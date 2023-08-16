@@ -2,6 +2,17 @@ td{
     text-transform: none;
 }
 
+.flex{
+    display: flex;
+}
+.flex-column{
+    flex-direction: column;
+}
+.align-center{
+    align-items: center;
+}
+
+
 .subheading {
     margin-bottom: 15px;
     margin-top: 30px;
