@@ -85,6 +85,11 @@ const Menu = (props: any) => {
 					title: 'Estatus de campañas',
 					onClick: onClick?.campaignStatus,
 				},
+				{
+					id: 'statusPostventa',
+					title: 'Postventa',
+					onClick: onClick?.postventa,
+				},
 			],
 		},
 	];
