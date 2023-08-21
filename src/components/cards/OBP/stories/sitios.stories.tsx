@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import CardSitios from '../sitios/cardSitios';
+import Button from '../../../button/Button';
 
 storiesOf('Cards / OBP / sitios', module).add('sitios', () => {
 	const [added, setAdded] = useState(false);

@@ -52,6 +52,7 @@ const CardSitios = ({
 	reach,
 	total_hits,
 	total_users,
+	inactiveReason,
 }: any) => {
 	//TODO: crear interface para las propiedades que se recibirpan
 	const [isOpen, setIsOpen] = useState(false);
@@ -138,7 +139,7 @@ const CardSitios = ({
 					<div className="cardSitios__image-inactive">
 						<div className="cardSitios__image-inactive-desactivationMotive">
 							<h2>Inactivo</h2>
-							<Texts modo={'' as any}>Por finalización de contrato</Texts>
+							{inactiveReason && <Texts modo={'' as any}>{inactiveReason}</Texts>}
 						</div>
 					</div>
 				)}

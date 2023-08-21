@@ -1,0 +1,28 @@
+
+.TaMo_donut{
+    border-radius: 50%;
+    position: relative;
+    &__hole{
+        width: 80%;
+        height: 80%;
+        background: var(--bg) !important;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        flex-direction: column;
+        text-align: left ;
+    }
+    &__datos{
+        display: flex;
+        place-items: center;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+
