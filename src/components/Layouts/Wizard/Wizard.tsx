@@ -19,9 +19,10 @@ interface wizardProps {
 	activeIndex?: number;
 	setActiveIndex?: any;
 	children: React.ReactNode;
+	height?: string;
 }
 const Wizard = (props: wizardProps) => {
-	const { modo, icons, activeIndex, setActiveIndex, children } = props;
+	const { modo, icons, activeIndex, setActiveIndex, children, height } = props;
 	const [openModal, setOpenModal] = useState(false);
 
 	function getIcons() {
@@ -55,7 +56,7 @@ const Wizard = (props: wizardProps) => {
 			open-modal={openModal ? 'open' : 'close'}
 			className="OBP_Layouts_Wizard"
 			theme-config={modo}
-			style={{ height: '100vh' }}
+			style={{ height: height ?? '100vh' }}
 		>
 			<div className="OBP_Layouts_Wizard__icons">{getIcons()}</div>
 			{openModal && <div className="OBP_Layouts_Wizard__children">{children}</div>}
