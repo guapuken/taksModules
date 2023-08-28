@@ -25,7 +25,7 @@ interface FichaSitiosProps {
 	vista?: string;
 	iluminacion?: boolean;
 	modo: Modo;
-	onCl_addToCar: onClickType;
+	onCl_addToCar: any;
 	onCl_closeModal: onClickType;
 	especiales?: boolean;
 	nombreSitio?: string;

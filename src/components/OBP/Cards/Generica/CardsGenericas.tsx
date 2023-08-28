@@ -44,22 +44,33 @@ interface cardGenericasProps {
 	activeIndex?: number;
 	setActiveIndex?: any;
 	children?: any;
+	openCard?: boolean;
+	setOpenCard?: any;
 }
 const CardsGenericas = (props: cardGenericasProps) => {
-	const { modo, initialView, menus, activeIndex, setActiveIndex, children } = props;
-	const [openModal, setOpenModal] = useState(false);
+	const {
+		modo,
+		initialView,
+		menus,
+		activeIndex,
+		setActiveIndex,
+		children,
+		openCard,
+		setOpenCard,
+	} = props;
+	// const [openModal, setOpenModal] = useState(false);
 
 	return (
 		<div
 			className="OBP_cardsGenericas"
-			show-more={openModal ? 'open' : 'close'}
+			show-more={openCard ? 'open' : 'close'}
 			theme-config={modo}
 		>
 			<div className="OBP_cardsGenericas__image">{initialView}</div>
-			<button className="OBP_cardsGenericas__button" onClick={() => setOpenModal(!openModal)}>
+			<button className="OBP_cardsGenericas__button" onClick={() => setOpenCard(!openCard)}>
 				<span className="OBP_cardsGenericas__button-icon"></span>
 			</button>
-			{openModal && (
+			{openCard && (
 				<div className="OBP_cardsGenericas__details">
 					{menus && (
 						<div className="OBP_cardsGenericas__details-header">
