@@ -14,6 +14,7 @@ export const Primary: Story = {
 	name: 'Genericas',
 	render: () => {
 		const [activeIndex, setActiveIndex] = useState(1);
+		const [openCard, setOpenCard] = useState(false);
 		function getInfoToShow() {
 			switch (activeIndex) {
 				case 1:
@@ -53,120 +54,8 @@ export const Primary: Story = {
 					setActiveIndex={setActiveIndex}
 					modo="Light"
 					menus={getMenus()}
-					initialView={
-						<div
-							style={{
-								width: '100%',
-								height: '100%',
-								background: 'red',
-								display: 'grid',
-								placeItems: 'center',
-							}}
-						>
-							Hola
-						</div>
-					}
-				>
-					{getInfoToShow()}
-				</CardsGenericas>
-				<CardsGenericas
-					activeIndex={activeIndex}
-					setActiveIndex={setActiveIndex}
-					modo="Light"
-					menus={[
-						{
-							title: 'detalles',
-							index: 1,
-						},
-						{
-							title: 'Comentarios y Precios',
-							index: 2,
-						},
-						{
-							title: 'Data',
-							index: 3,
-						},
-						{
-							title: 'Opciones extras',
-							index: 4,
-						},
-					]}
-					initialView={
-						<div
-							style={{
-								width: '100%',
-								height: '100%',
-								background: 'red',
-								display: 'grid',
-								placeItems: 'center',
-							}}
-						>
-							Hola
-						</div>
-					}
-				>
-					{getInfoToShow()}
-				</CardsGenericas>
-				<CardsGenericas
-					activeIndex={activeIndex}
-					setActiveIndex={setActiveIndex}
-					modo="Light"
-					menus={[
-						{
-							title: 'detalles',
-							index: 1,
-						},
-						{
-							title: 'Comentarios y Precios',
-							index: 2,
-						},
-						{
-							title: 'Data',
-							index: 3,
-						},
-						{
-							title: 'Opciones extras',
-							index: 4,
-						},
-					]}
-					initialView={
-						<div
-							style={{
-								width: '100%',
-								height: '100%',
-								background: 'red',
-								display: 'grid',
-								placeItems: 'center',
-							}}
-						>
-							Hola
-						</div>
-					}
-				>
-					{getInfoToShow()}
-				</CardsGenericas>
-				<CardsGenericas
-					activeIndex={activeIndex}
-					setActiveIndex={setActiveIndex}
-					modo="Light"
-					menus={[
-						{
-							title: 'detalles',
-							index: 1,
-						},
-						{
-							title: 'Comentarios y Precios',
-							index: 2,
-						},
-						{
-							title: 'Data',
-							index: 3,
-						},
-						{
-							title: 'Opciones extras',
-							index: 4,
-						},
-					]}
+					openCard={openCard}
+					setOpenCard={setOpenCard}
 					initialView={
 						<div
 							style={{

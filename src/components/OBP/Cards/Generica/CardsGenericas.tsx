@@ -58,7 +58,6 @@ const CardsGenericas = (props: cardGenericasProps) => {
 		openCard,
 		setOpenCard,
 	} = props;
-	// const [openModal, setOpenModal] = useState(false);
 
 	return (
 		<div
