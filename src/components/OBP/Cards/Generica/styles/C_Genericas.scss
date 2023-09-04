@@ -1,11 +1,17 @@
 :root{
     --widthCard: calc(25vw - 70px);
-    --heightCard: calc(var(--widthCard) / 16 * 9) 
+    --heightCard: calc(var(--widthCard) / 16 * 9);
+    @media (max-aspect-ratio: 4/3){
+        --widthCard: calc(50vw - 80px);
+    }
+    @media (max-aspect-ratio: 7/10){
+        --widthCard: calc(100vw - 100px);
+    }
 }
 
 .OBP_cardsGenericas{
     width: var(--widthCard);
-    height: var(--heightCard);
+    height: var(--heightCard) ;
     position: relative;
     border-radius: 15px;
     transition: all .5s ease-in-out;
@@ -52,7 +58,7 @@
 .OBP_cardsGenericas[show-more='open']{
     display: flex;
     &{
-        width: calc(var(--cardWidth) * 2 - 80px) ;
+        width: calc(var(--widthCard) * 2 + 70px) ;
         .OBP_cardsGenericas__image{
             border-radius: 15px 0 0 15px;
         }
@@ -105,6 +111,36 @@
                 padding: 5px 0;
                 overflow-y: auto;
 
+            }
+        }
+    }
+}
+
+@media (max-aspect-ratio: 7/10){
+    .OBP_cardsGenericas{
+        height: auto;
+        min-height: var(--heightCard);
+        &__button{
+            &-icon{
+                transform: rotate(45deg) translateY(-21px) translateX(2px);
+            }
+        }
+        &[show-more='open']{
+            flex-direction: column;
+            .OBP_cardsGenericas__image{
+                width: var(--widthCard);
+                height: calc(var(--widthCard) / 16 * 9);
+                border-radius: 15px 15px 0 0;
+            }
+            .OBP_cardsGenericas__button{
+                top: 28%;
+                &-icon{
+                    transform: rotate(225deg) translateY(15px) translateX(-8px);
+                }
+            }
+            .OBP_cardsGenericas__details{
+                width: var(--widthCard);
+                height: var(--heightCard);
             }
         }
     }

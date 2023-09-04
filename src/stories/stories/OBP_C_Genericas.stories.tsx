@@ -15,6 +15,7 @@ export const Primary: Story = {
 	render: () => {
 		const [activeIndex, setActiveIndex] = useState(1);
 		const [openCard, setOpenCard] = useState(false);
+		const [openCard2, setOpenCard2] = useState(false);
 		function getInfoToShow() {
 			switch (activeIndex) {
 				case 1:
@@ -56,6 +57,29 @@ export const Primary: Story = {
 					menus={getMenus()}
 					openCard={openCard}
 					setOpenCard={setOpenCard}
+					initialView={
+						<div
+							style={{
+								width: '100%',
+								height: '100%',
+								background: 'red',
+								display: 'grid',
+								placeItems: 'center',
+							}}
+						>
+							Hola
+						</div>
+					}
+				>
+					{getInfoToShow()}
+				</CardsGenericas>
+				<CardsGenericas
+					activeIndex={activeIndex}
+					setActiveIndex={setActiveIndex}
+					modo="Light"
+					menus={getMenus()}
+					openCard={openCard2}
+					setOpenCard={setOpenCard2}
 					initialView={
 						<div
 							style={{
