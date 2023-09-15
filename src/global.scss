@@ -19,6 +19,7 @@
 //      variables
 // ---------------------------------------------------------------------------------------------------------
 :root{
+  --detailFont:#0095c6; 
   --detailColor: #0095c6;
   --detailColorContrast: #73cfe5;
   --detail: #f1e323;
@@ -52,6 +53,7 @@
   --aquaContrast: #127574;
 }
 [theme-config='Dark']{
+  --detailFont: #f1e323; 
   --fc100: #d3d3d3;
   --fc90: #bdbaba; 
   --fc60: #8d8989; 

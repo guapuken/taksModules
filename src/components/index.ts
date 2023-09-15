@@ -112,3 +112,4 @@ export {default as useModalWithData} from './Atoms/hooks/useModalWithData.jsx';
 export {default as CardSitios} from './cards/OBP/sitios/cardSitios';
 export {default as CardIndoors} from './cards/OBP/indoors/cardIndoors';
 export {default as FichaSitios} from './OBP/Fichas/Sitios/FichaSitios';
+export {default as FichaIndoors} from './OBP/Fichas/Indoors/FichaIndoors';

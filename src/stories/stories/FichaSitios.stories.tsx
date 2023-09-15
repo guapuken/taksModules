@@ -1,5 +1,5 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 import FichaSitios from '../../components/OBP/Fichas/Sitios/FichaSitios';
 import image from '../../img/example_1.jpg';
 

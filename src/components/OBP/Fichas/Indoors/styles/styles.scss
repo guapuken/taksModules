@@ -1,0 +1,161 @@
+.OBP_fichaIndoors{
+    width: 80vw;
+    height: auto;
+    min-height: 10vh;
+    max-height: 80vh;
+    box-shadow: var(--boxShadow);
+    position: relative;
+    overflow: auto;
+    background: var(--bg);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+      &_header{
+        display: flex;
+        gap: 15px;
+      
+        &-footer{
+            display: flex;
+            justify-content: space-between;
+            padding-left: 15px;
+            &-mapa{
+            width: 30vw;
+              top: 0;
+              justify-content: left;
+                height: calc(30vw / 16 * 9);
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                border-radius: 20px 0 20px 0;
+                position: relative;
+                box-shadow: inset 0 0 0  2px var(--detailFont);
+               &-fondo{
+                width: 100%;
+                height: 50px;
+                 justify-content: space-evenly;
+                position: absolute;
+                padding: 0 40px 0 20px;
+                bottom: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                &-circle {
+                    width: 30px;
+                    background-position: center center;
+                    height: 30px;
+                    position: absolute;
+                    display: grid;
+                    top: 15px;
+                    left: 15px;
+                    justify-content: center;
+                    align-items: center;
+    
+                    border-radius: 50%;
+                    box-shadow: inset 0 0 0  2px var(--detailFont);
+                  }
+                  
+               }
+             }
+            
+        }
+        &-image {
+            width: 45vw;
+            overflow: hidden;
+            height: calc(45vw / 16 * 9);
+            // background-size: cover;
+            background-position: center;
+            border-radius: 20px 0 20px 0;
+            position: relative;
+
+             &-logo{
+                background: #34323299;
+                width: 25%;
+                height: 25%;
+                border-radius: 0 0 10px 10px;
+                position: absolute;
+                top: 0;
+                left: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                & img{
+                    width: 90%;
+                }
+                &-pleca{
+                    width: 100%;
+                    height: 50px;
+                     justify-content: space-evenly;
+                    position: absolute;
+                    padding: 0 40px 0 20px;
+                    bottom: 0;
+                    left: 0;
+                    display: flex;
+                    align-items: center;
+                    background:  #34323299;
+                    
+                        &-medida{
+                            display: flex;
+                            gap: 15px;
+                            & > .textos{
+                                color: var(--detailFont) !important;
+                                opacity: 1;
+                            }
+                        font-size: 15px;
+                        &-afluencia{
+                            display: flex;
+                            gap: 15px;
+                            & > .textos{
+                                color: var(--detailFont) !important;
+                                opacity: 1;
+                            }
+                          
+                        font-size: 15px;
+                              }
+                              }  }
+         
+            &-nombreIndoor{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                min-width: 285px;
+                position: relative;
+            
+            }                                                                                                                 
+            
+                
+        
+            }
+        }
+        &-info{
+            display: flex;
+            user-select: none;
+            flex-direction: column;
+            padding-top: 20px;
+            &-tipo{
+                display: flex;
+                justify-content: space-between;
+            }
+            &-titulo{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                margin: 10px 0;
+            }
+        }
+    
+    }
+  
+&-direccion{
+    padding-top: 15px;
+    padding-right: 15px;
+    width: 40vw;
+}
+
+&-tiendasAncla{
+    display: grid;
+}
+
+}
+
+  
