@@ -15,10 +15,12 @@ interface BigDataProps {
 		total_hits?: number;
 		total_users?: number;
 	};
+	userRoutes?: boolean;
 }
 const BigData = (props: BigDataProps) => {
 	const { modo, female_users, male_users, frequency, reach, total_hits, total_users } =
 		props.data;
+	const userRoutes = props.userRoutes;
 	function getPercents(getPercent: number) {
 		const value = percent((female_users ?? 1) + (male_users ?? 1), getPercent);
 		return isNaN(value) ? 0 : value;
@@ -57,7 +59,9 @@ const BigData = (props: BigDataProps) => {
 				</div>
 				<div className="OBP_BigData__contenedor-datos">
 					<Texts modo={modo}>{formatearNumeroConComas(total_users ?? 0)}</Texts>
-					<Title modo={modo}>Usuarios totales</Title>
+					<Title modo={modo}>
+						{userRoutes ? 'Impactos de ruta' : 'Usuarios totales'}
+					</Title>
 				</div>
 				<div className="OBP_BigData__contenedor-datos">
 					<Texts modo={modo}>{`${reach ?? 0}%`}</Texts>

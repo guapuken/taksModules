@@ -109,7 +109,9 @@ export {default as useModal} from './Atoms/hooks/useModal.jsx';
 export {default as useModalWithData} from './Atoms/hooks/useModalWithData.jsx';
 
 //OBP
+export {default as CardsGenericas} from './OBP/Cards/Generica/CardsGenericas';
 export {default as CardSitios} from './cards/OBP/sitios/cardSitios';
 export {default as CardIndoors} from './cards/OBP/indoors/cardIndoors';
 export {default as FichaSitios} from './OBP/Fichas/Sitios/FichaSitios';
 export {default as FichaIndoors} from './OBP/Fichas/Indoors/FichaIndoors';
+export {default as Wizard} from './Layouts/Wizard/Wizard';

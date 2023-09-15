@@ -1,0 +1,172 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+// Componente principal
+import { CardsGenericas } from '../../components';
+//Elementos multimedia
+// styles
+import './styles.scss';
+
+<Meta title="OBP/Cards/Genericas / Documentación" component={CardsGenericas} />
+
+# Cards Genericas
+
+El componente de cards genéricas funciona como un pizarrón en blanco en el que se le pueden colocar elementos que ayuden a mostrar información dependiendo las necesidades del usuario
+
+# Estado inicial
+
+<div className="flex">
+	<div className="flex flex-column align-center">
+		{<CardsGenericas modo="Light" />} <p>Modo claro</p>
+	</div>
+	<div className="flex flex-column align-center">
+		{<CardsGenericas modo="Dark" />} <p>Modo Oscuro</p>
+	</div>
+</div>
+
+# Propiedades
+
+<div className="subheading">
+	<table>
+		<tr>
+			<th>Propiedad</th>
+			<th>Para qué sirve</th>
+			<th>Tipo de dato</th>
+			<th>Valor por defecto</th>
+		</tr>
+		<tr>
+			<td>
+				modo<span style={{ color: 'red' }}>*</span>
+			</td>
+			<td>Sirve para cambiar el tema de color</td>
+			<td>"Light" | "Dark"</td>
+			<td>"Light"</td>
+		</tr>
+		<tr>
+			<td>initialView</td>
+			<td>
+				Sirve para agregar un children dentro de la visualización inicial del elemento que
+				se mostrará incluso en su estado de apertura
+			</td>
+			<td>any</td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td>menus</td>
+			<td>
+				Sirve para agregar la navegación en caso de que necesite tener múltiples ventanas en
+				su visualización
+			</td>
+			<td>menusCards[ ]</td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td>activeIndex</td>
+			<td>
+				Sirve para identificar en qué enú se encuentra posicionado el elemento ( sólo aplica
+				cuando se tienen múltiples menús )
+			</td>
+			<td>number</td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td>setActiveIndex</td>
+			<td>Sirve para dar el funcionamiento a los menús que se agregan.</td>
+			<td>any</td>
+			<td>N/A</td>
+		</tr>
+	</table>
+	<h2>menusCard</h2>
+	<table>
+		<tr>
+			<th>Propiedad</th>
+			<th>Para qué sirve</th>
+			<th>Tipo de dato</th>
+			<th>Valor por defecto</th>
+		</tr>
+		<tr>
+			<td>
+				title<span style={{ color: 'red' }}>*</span>
+			</td>
+			<td>Sirve para asignar un nombre al menú</td>
+			<td>string</td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td>
+				index<span style={{ color: 'red' }}>*</span>
+			</td>
+			<td>
+				Sirve para asignar el identificador al menú para que se pueda navegar entre
+				ellos{' '}
+			</td>
+			<td>number</td>
+			<td>N/A</td>
+		</tr>
+	</table>
+</div>
+
+# Ejemplo de uso
+
+    	const [activeIndex, setActiveIndex] = useState( 1 );
+    	function getInfoToShow( ) {
+    		switch (activeIndex) {
+    			case 1:return <div>Soy detalles</div>;
+    			case 2:return <div>Soy comentarios y precios</div>;
+    			case 3:return <div>Soy Data</div>;
+    			case 4:return <div>Soy Opciones extras</div>;
+    			case 5:return <div>Soy Dudas del sitio</div>;
+    			default:break;
+    		}
+    	}
+        function getMenus( ) {
+    		return [
+    			{ title: 'detalles', index: 1, },
+    			{ title: 'Comentarios y Precios', index: 2, },
+    			{ title: 'Data', index: 3, },
+    		];
+    	}
+    	return (
+            <CardsGenericas
+                activeIndex={activeIndex}
+                setActiveIndex={setActiveIndex}
+                modo="Light"
+                menus={getMenus( )}
+                initialView={ <div className='InitialView'> Hola </div> }
+            >
+                {getInfoToShow( )}
+            </CardsGenericas>
+    	);
+
+# Resultado
+
+<div>
+	<CardsGenericas
+		modo="Light"
+		menus={[
+			{
+				title: 'detalles',
+				index: 1,
+			},
+			{
+				title: 'Comentarios y Precios',
+				index: 2,
+			},
+			{
+				title: 'Data',
+				index: 3,
+			},
+		]}
+		initialView={
+			<div
+				style={{
+					width: '100%',
+					height: '100%',
+					background: 'red',
+					display: 'grid',
+					placeItems: 'center',
+				}}
+			>
+				Hola
+			</div>
+		}
+	></CardsGenericas>
+</div>

@@ -20,12 +20,20 @@ const InfoGeneral = (props: InfoGeneralProps) => {
 	};
 	return (
 		<div className="OBP_fichaSitios__header-info-general">
-			<Title modo={modo} className="OBP_fichaSitios__header-info-general-coordenadas">
-				Latitud: <span>{latitud ?? 'no definida'}</span>
-			</Title>
-			<Title modo={modo} className="OBP_fichaSitios__header-info-general-coordenadas">
-				Longitud: <span>{longitud ?? 'no definida'}</span>
-			</Title>
+			<div className="OBP_fichaSitios__header-info-general-coordenadas">
+				<Title
+					modo={modo}
+					className="OBP_fichaSitios__header-info-general-coordenadas-individual"
+				>
+					Latitud: <span>{latitud ?? 'no definida'}</span>
+				</Title>
+				<Title
+					modo={modo}
+					className="OBP_fichaSitios__header-info-general-coordenadas-individual"
+				>
+					Longitud: <span>{longitud ?? 'no definida'}</span>
+				</Title>
+			</div>
 			<div className="OBP_fichaSitios__header-info-general-detalles">
 				<Title modo={modo} maxLines={2}>
 					Dirección: <span>{direccion ?? 'Dirección extraviada 😢'}</span>

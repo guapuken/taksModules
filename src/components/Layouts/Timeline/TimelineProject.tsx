@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 // elementos auxiliares
-import {  TextBoldLight, Texts, Title, ValidationComponent } from '../../Atoms';
+import { TextBoldLight, Texts, Title, ValidationComponent } from '../../Atoms';
 import { Button, Dropdown, Timeline } from '../../../components';
 import { ButtonItem } from '../../../utils/asideUtils';
 import VisualizacionMedios from './componentesPrincipales/VisualizacionMedios';
 import NoContent from './componentesPrincipales/NoContent';
 // types
 import { timelineProjectProps } from './types/Types';
+import { onChangeType } from '../../../types';
 
 // archivos multimedia
 import close from '../../../img/close.svg';
@@ -15,7 +16,6 @@ import share from '../../../img/share.svg';
 
 //styles
 import './styles/TimelineProject.scss';
-import { onChangeType } from '../../../types';
 
 const TimelineProject = ({
 	modo,
@@ -39,31 +39,38 @@ const TimelineProject = ({
 	onCh_dropdownRutas,
 	optionsRutas,
 	valuesRutas,
+	title,
 }: timelineProjectProps) => {
 	const [medioSelected, setMedioSelected] = useState('');
 	return (
-		<div
-			className="timelineProject"
-			theme-config= {modo}
-		>
+		<div className="timelineProject" theme-config={modo}>
 			<div className="timelineProject__header">
-				<img
-					className="timelineProject__header-logo"
-					src={logo}
-					alt="OBP By IMJ"
-					onClick={onCl_compartir}
-				/>
+				<div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+					<img
+						className="timelineProject__header-logo"
+						src={logo}
+						alt="OBP By IMJ"
+						onClick={onCl_compartir}
+					/>
+					{title && (
+						<Title
+							modo={modo}
+							style={{ fontSize: '30px', textTransform: 'none', color: '#f1e323' }}
+						>
+							{title}
+						</Title>
+					)}
+				</div>
+
 				<ButtonItem id="1" img={close} onClick={onCl_close} />
 			</div>
 			<div className="timelineProject__contenido">
 				<div className="timelineProject__contenido-timeline">
-					<div className="timelineProject__contenido-timeline-title" >
+					<div className="timelineProject__contenido-timeline-title">
 						<Title modo={modo}>{nombreProyecto}</Title>
 					</div>
-					{!tasks && 
-						<NoContent modo={modo} />
-					}
-					{tasks && 
+					{!tasks && <NoContent modo={modo} />}
+					{tasks && (
 						<div style={{ marginTop: '20px' }}>
 							<div
 								style={{
@@ -73,7 +80,7 @@ const TimelineProject = ({
 									marginBottom: '20px',
 								}}
 							>
-								{medioSelected !== '' &&
+								{medioSelected !== '' && (
 									<>
 										<TextBoldLight
 											modo={modo}
@@ -97,12 +104,13 @@ const TimelineProject = ({
 											float
 											icon={share}
 											rounded
+											color="transparent"
 											border
 										/>
 									</>
-								}
+								)}
 							</div>
-							{(medioSelected === 'sitios' || medioSelected === 'indoors') && 
+							{(medioSelected === 'sitios' || medioSelected === 'indoors') && (
 								<Dropdown
 									modo={modo}
 									onCh={onCh_dropdown as onChangeType}
@@ -111,10 +119,10 @@ const TimelineProject = ({
 									style={{ marginBottom: '20px', zIndex: '2' }}
 									placeHolder="Selecciona el tipo de medio"
 								/>
-							}
+							)}
 							<Timeline modo={modo} tasks={tasks as any} />
 						</div>
-					}
+					)}
 				</div>
 				<div className="timelineProject__contenido-medios">
 					<VisualizacionMedios

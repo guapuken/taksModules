@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { SimpleContainer, Texts, Title } from '../../../Atoms';
+import { SimpleContainer, Title } from '../../../Atoms';
 import CircularProgressBar from '../../../circularProgressBar';
-import { SitiosIcon } from '../../../../img/sitios';
 
 const CardMedios = ({
 	selectedElement,
@@ -12,8 +11,10 @@ const CardMedios = ({
 	percentTask,
 	statusTask,
 	Icon,
+	IconDark,
 }: any) => {
 	const [idSelected, setIdSelected] = useState(idValue);
+	const [Hover, setIsOver] = useState(false);
 
 	useEffect(() => {
 		setIdSelected(idValue);
@@ -26,6 +27,8 @@ const CardMedios = ({
 			style={{ cursor: 'pointer', marginBottom: '10px' }}
 			labels={{
 				id: idSelected,
+				onMouseEnter: () => setIsOver(true),
+				onMouseLeave: () => setIsOver(false),
 			}}
 			onClick={onClick}
 		>
@@ -45,7 +48,7 @@ const CardMedios = ({
 					size={50}
 				/>
 			</SimpleContainer>
-			<Icon />
+			{Hover ? IconDark && <IconDark /> : Icon && <Icon />}
 			<Title modo={modo} className="timelineProject__contenido-medios-titles-title">
 				{title}
 			</Title>

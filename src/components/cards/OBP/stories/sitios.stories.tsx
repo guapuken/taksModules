@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import CardSitios from '../sitios/cardSitios';
+import Button from '../../../button/Button';
 
 storiesOf('Cards / OBP / sitios', module).add('sitios', () => {
 	const [added, setAdded] = useState(false);
@@ -21,8 +22,9 @@ storiesOf('Cards / OBP / sitios', module).add('sitios', () => {
 				iluminacion={false}
 				latitud={'15.623586'}
 				longitud={'-99.1542630'}
+				// activo={false}
 				material={'Lona front'}
-				modo={'Dark'}
+				modo={'Light'}
 				addedToCar={added}
 				onCarritoClick={() => setAdded(!added)}
 				onClickEditar={() => {}}

@@ -1,0 +1,147 @@
+:root{
+    --widthCard: calc(25vw - 70px);
+    --heightCard: calc(var(--widthCard) / 16 * 9);
+    @media (max-aspect-ratio: 4/3){
+        --widthCard: calc(50vw - 80px);
+    }
+    @media (max-aspect-ratio: 7/10){
+        --widthCard: calc(100vw - 100px);
+    }
+}
+
+.OBP_cardsGenericas{
+    width: var(--widthCard);
+    height: var(--heightCard) ;
+    position: relative;
+    border-radius: 15px;
+    transition: all .5s ease-in-out;
+    margin: 15px 30px 15px 15px;
+    background: var(--bg);
+    // box-shadow: inset 0 0 0 1px var(--detail);
+    box-shadow: none;
+    &__image{
+        width: 100%;
+        border-radius: 15px;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    &__button{
+        position: absolute;
+        right: -25px;
+        width: 50px;
+        height: 50px;
+        background: var(--detail);
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        border-radius: 50px;
+        box-shadow:  0 0 0 3px var(--bg);
+        &-icon{
+            width: 20px;
+            height: 20px;
+            border-right: 4px solid #2c2926;
+            border-bottom: 4px solid #2c2926;
+            position: absolute;
+            transform: rotate(-45deg) translateY(2px) translateX(15px);
+            transition: all .5s ease-in-out;
+        }
+        &:hover{
+            background: var(--detailColor);
+            .OBP_cardsGenericas__button-icon{
+                border-color: var(--bg) ;
+            }
+        }
+    }
+}
+
+.OBP_cardsGenericas[show-more='open']{
+    display: flex;
+    &{
+        width: calc(var(--widthCard) * 2 + 70px) ;
+        .OBP_cardsGenericas__image{
+            border-radius: 15px 0 0 15px;
+        }
+        .OBP_cardsGenericas__button{
+            background: var(--detailColor);
+            &-icon{
+                transform: rotate(135deg) translateY(-5px) translateX(-20px);
+                border-color: #fff;
+            }
+            &:hover{
+                background: var(--detail);
+                .OBP_cardsGenericas__button-icon{
+                    border-color: #2c2926;
+                }
+            }
+        }
+        .OBP_cardsGenericas__image{
+            width: calc(var(--widthCard) / 2);
+        }
+        .OBP_cardsGenericas__details{
+            width: calc(100% - var(--widthCard) / 2);
+            height: 100%;
+            padding: 15px 15px 10px 15px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 0 15px 15px 0;
+            box-shadow: inset 0 0 0 1px var(--detail);
+            &-header{
+                display: flex;
+                overflow-x: auto;
+                overflow-y: hidden;
+                gap: 15px;
+                height: 25px;
+                width: 100%;
+                &-option{
+                    min-width: max-content;
+                    cursor: pointer;
+                    &:hover{
+                        color: var(--detailColor);
+                    }
+                }
+                &-option.active{
+                    color: var(--detail);
+                    border-bottom: 2px solid var(--detail);
+                }
+            }
+            &-children{
+                width: 100%;
+                height: 100%;
+                padding: 5px 0;
+                overflow-y: auto;
+
+            }
+        }
+    }
+}
+
+@media (max-aspect-ratio: 7/10){
+    .OBP_cardsGenericas{
+        height: auto;
+        min-height: var(--heightCard);
+        &__button{
+            &-icon{
+                transform: rotate(45deg) translateY(-21px) translateX(2px);
+            }
+        }
+        &[show-more='open']{
+            flex-direction: column;
+            .OBP_cardsGenericas__image{
+                width: var(--widthCard);
+                height: calc(var(--widthCard) / 16 * 9);
+                border-radius: 15px 15px 0 0;
+            }
+            .OBP_cardsGenericas__button{
+                top: 28%;
+                &-icon{
+                    transform: rotate(225deg) translateY(15px) translateX(-8px);
+                }
+            }
+            .OBP_cardsGenericas__details{
+                width: var(--widthCard);
+                height: var(--heightCard);
+            }
+        }
+    }
+}

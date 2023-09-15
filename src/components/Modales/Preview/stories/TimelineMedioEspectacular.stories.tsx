@@ -14,16 +14,20 @@ storiesOf('Modales/Preview/TimelineMedio', module).add('Espectacular', () => {
 				isActive={isOpened()}
 				handleClose={() => setData(null)}
 				modo={'Light'}
+				onCl_goToGant={() => {}}
 				tasks={[
 					{
+						modo: 'Light',
 						taskName: 'Dummies - Uber_Eats-1526-noviembre - IMJ-CDMX-ESP-2562',
 						duration: 2,
 					},
 					{
+						modo: 'Light',
 						taskName: 'Pdc -Uber_Eats-1526-noviembre',
 						duration: 2,
 					},
 					{
+						modo: 'Light',
 						taskName: 'Impresión -Uber_Eats-1526-noviembre',
 						duration: 2,
 					},

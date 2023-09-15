@@ -52,6 +52,7 @@ const CardSitios = ({
 	reach,
 	total_hits,
 	total_users,
+	inactiveReason,
 }: any) => {
 	//TODO: crear interface para las propiedades que se recibirpan
 	const [isOpen, setIsOpen] = useState(false);
@@ -132,8 +133,16 @@ const CardSitios = ({
 	];
 
 	return (
-		<div className="cardSitios" status-card={isOpen ? 'open' : 'close'}>
-			<div className={`cardSitios__image ${!activo && 'inactive'}`}>
+		<div className="cardSitios" status-card={isOpen ? 'open' : 'close'} theme-config={modo}>
+			<div className={`cardSitios__image`}>
+				{!activo && (
+					<div className="cardSitios__image-inactive">
+						<div className="cardSitios__image-inactive-desactivationMotive">
+							<h2>Inactivo</h2>
+							{inactiveReason && <Texts modo={'' as any}>{inactiveReason}</Texts>}
+						</div>
+					</div>
+				)}
 				<div
 					className="cardSitios__image-bg"
 					style={{ backgroundImage: `url(${imagen1})` }}
@@ -145,13 +154,14 @@ const CardSitios = ({
 						onCl={onCarritoClick}
 						float
 						rounded
-						style={{}}
+						style={{ boxShadow: 'inset 0 0 0 3px #fff' }}
 						icon={carrito}
 						size="medium"
 						id={claveimj}
 						color={addedToCar ? undefined : '#343232'}
 						valueSuccess={addedToCar && '✔'}
 						successColor={addedToCar}
+						disabled={!activo}
 					/>
 				</div>
 				<div className="cardSitios__image-info">
