@@ -18,28 +18,35 @@
         &-footer{
             display: flex;
             justify-content: space-between;
-            padding-left: 15px;
             &-mapa{
-            width: 30vw;
-              top: 0;
-              justify-content: left;
+                padding: 15px;
+                position: relative;
                 height: calc(30vw / 16 * 9);
-                background-position: center center;
-                background-size: cover;
-                background-repeat: no-repeat;
+                width: 30vw;
+                overflow: hidden;
+
+                &-noMap{
+                    height: 100%;
+                    width: 100%;
+                    background-position: center center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    &-texto{
+                        width: 100%;
+                        height: auto;
+                         justify-content: center;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        display: flex;
+                       }
+                }
                 border-radius: 20px 0 20px 0;
                 position: relative;
                 box-shadow: inset 0 0 0  2px var(--detailFont);
-               &-fondo{
-                width: 100%;
-                height: 50px;
-                 justify-content: space-evenly;
-                position: absolute;
-                padding: 0 40px 0 20px;
-                bottom: 0;
-                left: 0;
-                display: flex;
-                align-items: center;
                 &-circle {
                     width: 30px;
                     background-position: center center;
@@ -50,12 +57,14 @@
                     left: 15px;
                     justify-content: center;
                     align-items: center;
-    
+                    background: var(--detailFont);
                     border-radius: 50%;
-                    box-shadow: inset 0 0 0  2px var(--detailFont);
+                    &>.textos > span{
+                        color: var(--bg);
+                    }
+                    // box-shadow: inset 0 0 0  2px var(--detailFont);
                   }
-                  
-               }
+               
              }
             
         }
@@ -63,8 +72,8 @@
             width: 45vw;
             overflow: hidden;
             height: calc(45vw / 16 * 9);
-            // background-size: cover;
-            background-position: center;
+            background-size: cover;
+            background-position: center center;
             border-radius: 20px 0 20px 0;
             position: relative;
 
@@ -85,7 +94,7 @@
                 &-pleca{
                     width: 100%;
                     height: 50px;
-                     justify-content: space-evenly;
+                     justify-content: space-between;
                     position: absolute;
                     padding: 0 40px 0 20px;
                     bottom: 0;
@@ -141,6 +150,7 @@
                 display: flex;
                 justify-content: space-between;
                 margin: 10px 0;
+                padding-right: 15px;
             }
         }
     

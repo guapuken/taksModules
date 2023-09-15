@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../../../../img/ByImjSimpleDark.svg';
 import carrito from '../../../../img/carrito.svg';
+import image1 from '../../../../img/descripcion.svg';
 import { color } from '../../../../storyUtils';
 import { Modo, onClickType } from '../../../../types';
+import { formatearNumeroConComas } from '../../../../utils/functions/functions';
 import { Texts, Title } from '../../../Atoms';
 import Button from '../../../button/Button';
 import { CloseIcon } from '../../../dropdown/files';
@@ -24,6 +26,8 @@ interface FichaIndoorsProps {
 	afluencia?: number;
 	tiendasAncla?: string;
 	mapa?: string;
+	nivelIndoor?: string;
+	clave?: string;
 }
 const FichaIndoors = (props: FichaIndoorsProps) => {
 	const {
@@ -38,7 +42,9 @@ const FichaIndoors = (props: FichaIndoorsProps) => {
 		addedToCar: agregado,
 		pleca,
 		afluencia,
-		tiendasAncla,
+		nivelIndoor,
+		clave,
+		tipoMedio,
 	} = props;
 	const [addedToCar, setAddedToCar] = useState(agregado);
 
@@ -68,7 +74,7 @@ const FichaIndoors = (props: FichaIndoorsProps) => {
 								<span style={{ fontWeight: 'bold', marginRight: '5px' }}>
 									Afluencia:
 								</span>{' '}
-								{afluencia ?? ''}
+								{formatearNumeroConComas(afluencia ?? 0) ?? ''}
 							</Texts>
 						</div>
 					</div>
@@ -80,8 +86,8 @@ const FichaIndoors = (props: FichaIndoorsProps) => {
 					</div>
 					<div className="OBP_fichaIndoors_header-info-titulo">
 						<div>
-							<Texts modo={modo}>IMJ-CDMX-ESP-435B</Texts>
-							<Texts modo={modo}>Escaleras eléctricas</Texts>
+							<Texts modo={modo}>{clave}</Texts>
+							<Texts modo={modo}>{tipoMedio}</Texts>
 						</div>
 						<Button
 							modo={modo}
@@ -107,20 +113,24 @@ const FichaIndoors = (props: FichaIndoorsProps) => {
 					{descripcion ?? 'Sin descripción 🤓'}
 				</Texts>
 
-				<div
-					className="OBP_fichaIndoors_header-footer-mapa"
-					style={{ backgroundImage: `url(${mapa})` }}
-				>
-					<div className="OBP_fichaIndoors_header-footer-mapa-fondo">
-						<Texts modo={modo}>
-							<span style={{ fontWeight: 'bold', marginRight: '5px' }}></span>{' '}
-							{descripcion ?? 'No se encontro mapa de indoor ⚠️'}
-						</Texts>
+				<div className="OBP_fichaIndoors_header-footer-mapa">
+					<div
+						className="OBP_fichaIndoors_header-footer-mapa-noMap"
+						style={{ backgroundImage: `url(${!mapa ? image1 : mapa})` }}
+					>
+						{!mapa && (
+							<Texts
+								modo={modo}
+								className="OBP_fichaIndoors_header-footer-mapa-noMap-texto"
+							>
+								<span style={{ fontWeight: 'bold', marginRight: '5px' }}></span>{' '}
+								{`No se encontro mapa de nivel ⚠️`}
+							</Texts>
+						)}
 					</div>
-					<div className="OBP_fichaIndoors_header-footer-mapa-fondo-circle">
+					<div className="OBP_fichaIndoors_header-footer-mapa-circle">
 						<Texts modo={modo}>
-							<span style={{ fontWeight: 'bold', marginRight: '4px' }}></span>
-							{descripcion ?? 'N1'}
+							<span style={{ fontWeight: 'bold' }}>{nivelIndoor ?? 'N/A'}</span>
 						</Texts>
 					</div>
 				</div>

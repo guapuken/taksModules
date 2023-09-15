@@ -15,8 +15,11 @@ export const Primary: Story = {
 	name: 'Indoor',
 	render: () => (
 		<FichaIndoors
-			modo="Light"
-			onCl_addToCar={() => {}}
+			modo="Dark"
+			onCl_addToCar={() => alert('Hoal que hace')}
+			nivelIndoor="PB"
+			clave="IMJCDMXESP1453"
+			// descripcion="asjhkjhas ckhjnagd fhgahjdg cnhjka ckhjga cjhg"
 			//datos en la imagen
 			image={image}
 			base={1.2}
@@ -27,7 +30,7 @@ export const Primary: Story = {
 			tipoMedio="Escaleras eletricas"
 			direccion={'Av San Rsfael Sanzio 150, Camichines Vallarta, 45020 Zapopan, Jal.'}
 			tiendasAncla="Liverpool"
-			mapa={image1}
+			mapa={image}
 		/>
 	),
 };
