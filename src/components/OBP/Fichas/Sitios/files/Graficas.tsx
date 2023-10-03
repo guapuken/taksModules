@@ -39,7 +39,7 @@ const Graficas = (props: GraficasProps) => {
 						style={{
 							borderBottom: `4px solid ${option.color ?? '#000'}`,
 							opacity: '1',
-							scale: option.value === maxValue && maxValue > 0 ? '1.2' : '',
+							// scale: option.value === maxValue && maxValue > 0 ? '1.2' : '',
 						}}
 					>
 						<span style={{ fontWeight: '700' }}>{option.title ?? 'N/A'}</span>
@@ -59,7 +59,7 @@ const Graficas = (props: GraficasProps) => {
 					{data ? getOptions(data, modo) : <></>}
 				</div>
 				<div style={{ position: 'relative' }}>
-					<Donut colores={colores} porcentajes={percents} modo={modo} />
+					<Donut colores={colores} porcentajes={percents} modo={modo} grados={360} />
 					<Texts
 						modo={modo}
 						style={{

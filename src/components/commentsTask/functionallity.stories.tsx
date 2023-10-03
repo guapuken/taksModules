@@ -13,7 +13,7 @@ function DemoComponent() {
 
 	return (
 		<div>
-			<Button modo="Light" onCl={() => setData({ id: '1', title: '1' })} />
+			<Button modo="Light" onCl={() => setData({ id: '1', title: '' })} />
 			<CommentTask
 				messages={[
 					{

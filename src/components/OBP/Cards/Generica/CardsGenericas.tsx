@@ -4,10 +4,6 @@ import { Title } from '../../../Atoms';
 import './styles/C_Genericas.scss';
 import { Modo } from '../../../../types';
 
-/**
- *
- * @returns una opción con cada elemto que se le envía que sirve para poder hacer el setteo del index activo al momento de seleccionarlo, así como mostrar el nolmbre del mismo
- */
 interface getOptionsProps {
 	menus?: menusCard[];
 	modo: Modo;
@@ -18,6 +14,18 @@ export type menusCard = {
 	title: string;
 	index: number;
 };
+
+//#region getOptions
+/**
+ * Generates React elements for menu options to display in the header.
+ *
+ * @param menus - Array of menu objects with title and index properties.
+ * @param modo - The theme mode recives Dark or Light theme.
+ * @param activeIndex - The index of the currently active menu.
+ * @param setActiveIndex - Callback to set the active index on click.
+ *
+ * @returns React elements for each menu option.
+ */
 function getOptions({ menus, modo, activeIndex, setActiveIndex }: getOptionsProps) {
 	return menus?.map((menu: menusCard) => (
 		<div className="OBP_cardsGenericas__details-header-option">
@@ -37,6 +45,8 @@ function getOptions({ menus, modo, activeIndex, setActiveIndex }: getOptionsProp
 		</div>
 	));
 }
+//#endregion
+
 interface cardGenericasProps {
 	modo: Modo;
 	initialView?: any;
@@ -69,6 +79,7 @@ const CardsGenericas = (props: cardGenericasProps) => {
 			<button className="OBP_cardsGenericas__button" onClick={() => setOpenCard(!openCard)}>
 				<span className="OBP_cardsGenericas__button-icon"></span>
 			</button>
+
 			{openCard && (
 				<div className="OBP_cardsGenericas__details">
 					{menus && (

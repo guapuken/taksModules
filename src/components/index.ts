@@ -2,6 +2,7 @@
 //      Átomos
 // ---------------------------------------------------------------------------------------------------------
 export{default as Title} from '../components/Atoms/titles/Title';
+export{default as Avatar} from '../components/Atoms/avatar/Avatar';
 export {default as Texts} from '../components/Atoms/texts/Texts';
 export {Donut} from './cards/OBP/sitios/files/Donut';
 

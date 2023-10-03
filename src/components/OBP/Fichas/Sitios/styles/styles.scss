@@ -9,6 +9,7 @@
     border-radius: 20px;
     position: relative;
     overflow-y: auto;
+    overflow-x:hidden;
     background: var(--bg);
     &__header{
         display: flex;
@@ -149,7 +150,8 @@
                 }
                 &-coordenadas{
                     display: flex;
-                    justify-content: space-between;
+                    // justify-content: space-between;
+                    gap: 20px;
                     flex-wrap: wrap;
                     &-individual{
                         font-size: 12px !important;
