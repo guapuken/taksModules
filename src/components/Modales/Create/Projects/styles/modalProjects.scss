@@ -1,6 +1,20 @@
 
+
+
 .modalProjects{
-    color: var(--fc90);
+    color: var(--fc60);
     display: flex;
-    gap: 10px
+    gap: 10px;
+    box-shadow: var(--boxShadow);
+    &.spans-boldlegend{
+  color: var(--fc60);
+  &:hover{
+    color: var(--fc30);
   }
+}
+  
+
+ // temas de estilos _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-   
+}
+
+

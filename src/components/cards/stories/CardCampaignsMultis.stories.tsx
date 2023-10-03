@@ -1,7 +1,7 @@
-import React from 'react';
 import { storiesOf } from '@storybook/react';
-import CardCampaign from '../Campaigns/CardCampaign';
+import React from 'react';
 import { SimpleContainer } from '../../Atoms';
+import CardCampaign from '../Campaigns/CardCampaign';
 
 storiesOf('Cards/Campaigns/Examples/Uber eats', module).add('Uber eats', () => {
 	return (
@@ -9,7 +9,7 @@ storiesOf('Cards/Campaigns/Examples/Uber eats', module).add('Uber eats', () => {
 			<CardCampaign
 				nombreProyecto="2563-Uber_Eats-Noviembre"
 				statusFijos={'onTime'}
-				modo={'Light'}
+				modo={'Dark'}
 				campaignColor="#f1f498"
 				porcentajeFijos={10}
 			/>
@@ -19,7 +19,7 @@ storiesOf('Cards/Campaigns/Examples/Uber eats', module).add('Uber eats', () => {
 				porcentajeUrbanos={100}
 				statusUrbanos={'onTime'}
 				statusFijos={'onTime'}
-				modo={'Light'}
+				modo={'Dark'}
 				campaignColor="#525252"
 			/>
 			<CardCampaign
@@ -29,7 +29,7 @@ storiesOf('Cards/Campaigns/Examples/Uber eats', module).add('Uber eats', () => {
 				porcentajeUrbanos={12}
 				porcentajeVallas={0}
 				statusFijos={'delayed'}
-				modo={'Light'}
+				modo={'Dark'}
 				campaignColor="#3EDE46"
 			/>
 			<CardCampaign
@@ -38,13 +38,13 @@ storiesOf('Cards/Campaigns/Examples/Uber eats', module).add('Uber eats', () => {
 				porcentajeUrbanos={85}
 				statusUrbanos={'delayed'}
 				statusFijos={'outOfTime'}
-				modo={'Light'}
+				modo={'Dark'}
 			/>
 			<CardCampaign
 				nombreProyecto="9568-Electrolit-Julio"
 				porcentajeFijos={45}
 				statusFijos={'delayed'}
-				modo={'Light'}
+				modo={'Dark'}
 			/>
 		</SimpleContainer>
 	);

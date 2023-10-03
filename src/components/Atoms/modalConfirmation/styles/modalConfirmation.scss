@@ -1,4 +1,19 @@
-
+:root {
+    --fontSize: clamp(12px 1.3vh 17px);
+    --background: #dedede;
+    --border: none;
+    --hover: #525252;
+    --fcHover: #fff;
+    --fontColor: var(--fc90);
+    --sizeIcon: clamp(12px 1.3vh 17px);
+    --fontSizeMin: 16px;
+    --fontSizePref: 1.7vh;
+    --fontSizeMax: 21px;
+    --sizeButton: 100%;
+    --display: block;
+    --paddingIcon: 0;
+    --borderRadius: 5px;
+}
 // ---------------------------------------------------------------------------------------------------------
 //      estilos generales
 // ---------------------------------------------------------------------------------------------------------
@@ -10,10 +25,15 @@
     width: 100vw;
     height: 100vh;
     z-index: 0;
+     // temas de estilos _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- 
+   
+     
+      
     &__bg{ // se le agregan estos estilos para poder hacer clic fuera del modal y cerrarlo
         width: 100vw;
         height: 100vh;
         backdrop-filter: blur(5px);
+
         position: fixed !important;
         overflow: hidden;
         top: 0;

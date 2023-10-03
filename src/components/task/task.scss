@@ -118,6 +118,11 @@
         padding-left: 7px;
     }
 }
-// .ButtonAddTaskComponent:hover{
-//     color: #dedede;
-// }
+//Botón añadir tarea 
+.ButtonAddTaskComponent{
+    // &[theme-config='Dark']{
+        color: var(--fc60);
+    &:hover{
+        color: var(--fc30);
+    }
+}

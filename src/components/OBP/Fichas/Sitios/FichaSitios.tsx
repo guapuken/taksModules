@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
 //components
-import { Texts, Title } from '../../../Atoms';
 import { Button } from '../../../../components';
+import { Texts, Title } from '../../../Atoms';
 //multimedia files
 import logo from '../../../../img/ByImjSimpleDark.svg';
 import carrito from '../../../../img/carrito.svg';
 import { Iluminacion, Vista } from '../../../../img/icons';
 //auxiliar files
-import InfoGeneral from './files/InfoGeneral';
-import Graficas from './files/Graficas';
 import BigData from './files/BigData';
+import Graficas from './files/Graficas';
+import InfoGeneral from './files/InfoGeneral';
 //data
 // import { dataEdad, dataNse } from './data/datos';
 import { dataEdad, dataNse } from './data/datos';
 //types
 import { Modo, onClickType } from '../../../../types';
-import './styles/styles.scss';
 import { CloseIcon } from '../../../dropdown/files';
+import './styles/styles.scss';
 
 interface FichaSitiosProps {
 	image?: string;
