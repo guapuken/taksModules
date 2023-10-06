@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Styles/Pleca.scss';
 
-const Pleca = ({ children, ...props }) => {
+const Pleca = ({ children, ...props }: any) => {
 	return (
 		<div
 			{...props}

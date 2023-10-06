@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Styles/Image.scss';
 
-const Image = ({ children, ...props }) => {
+const Image = ({ children, ...props }: any) => {
 	return (
 		<img
 			src={children}
