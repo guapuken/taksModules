@@ -1,0 +1,23 @@
+
+:root{
+    --prim-color-button: #0095c6;
+}
+
+._GTL_button_component{
+    all: unset;
+    width: auto;
+    height: auto;
+    position: relative;
+    // background: var(--prim-color-button);
+    padding: 5px 10px;
+    display: flex;
+    gap:10px;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover{
+        filter: saturate(1.5);
+    }
+}

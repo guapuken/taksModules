@@ -1,0 +1,9 @@
+._GTL_Tab{
+    padding: 10px;
+    position: relative;
+    &:hover:not(._GTL_Tabs){
+        background: var(--fc60);
+        color: #fff;
+        cursor: pointer;
+    }
+}

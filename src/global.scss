@@ -231,3 +231,45 @@
     -webkit-line-clamp: 1 !important;
   }
 }
+
+
+// tipos de fuentes
+.titleFont{
+  font-weight: 700;
+  color: var(--fc100);
+  font-size: clamp(15px, 1.7vw, 20px);
+}
+.textFont{
+  font-weight: 500;
+  color: var(--fc100);
+  font-size: clamp(13px, 1.5vw, 18px);
+}
+.detailFont{
+  color: var(--detailFont);
+}
+.absolute-lb, .absolute-lt{
+  left: 0;
+}
+.absolute{
+  position: absolute;
+  &-lt, &-lb{
+    left:0;
+  }
+  &-rt, &-rb{
+    right:0;
+  }
+  &-lt,&-rt{
+    top: 0;
+  }
+  &-lb,&-rb{
+    bottom: 0;
+  }
+  &-center{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+}
+.bold{
+  font-weight: 700;
+}

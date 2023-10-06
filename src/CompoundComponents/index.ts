@@ -1,0 +1,1 @@
+export {default as Wizard} from '../CompoundComponents/Wizard/Wizard';
