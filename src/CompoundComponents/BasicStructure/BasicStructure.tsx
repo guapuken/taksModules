@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header, Content, Footer } from './Helpers';
 
-const BasicStructure = ({ children, ...props }) => {
+const BasicStructure = ({ children, ...props }: any) => {
 	return (
 		<div {...props} style={{ width: props.width, height: props.height, ...props.style }}>
 			{children}
