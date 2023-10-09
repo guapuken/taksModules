@@ -24,4 +24,5 @@ const Wizard = ({ children, ...props }: any) => {
 
 Wizard.Aside = Aside;
 Wizard.Content = Content;
+
 export default Wizard;

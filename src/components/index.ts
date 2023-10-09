@@ -116,3 +116,4 @@ export {default as CardIndoors} from './cards/OBP/indoors/cardIndoors';
 export {default as FichaSitios} from './OBP/Fichas/Sitios/FichaSitios';
 export {default as FichaIndoors} from './OBP/Fichas/Indoors/FichaIndoors';
 export {default as Wizard} from '../CompoundComponents/Wizard/Wizard';
+export {default as BasicStructure} from '../CompoundComponents/BasicStructure/BasicStructure';

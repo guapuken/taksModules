@@ -6,7 +6,11 @@ import '../Styles/Aside.scss';
 
 const Aside = ({ children, ...props }: any) => {
 	return (
-		<div {...props} className="_GTL_Aside-wizard">
+		<div
+			{...props}
+			style={{ width: props.width, height: props.height, ...props.style }}
+			className={`_GTL_Aside-wizard ${props.className}`}
+		>
 			{children}
 		</div>
 	);
