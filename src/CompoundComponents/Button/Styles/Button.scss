@@ -18,6 +18,6 @@
     border-radius: 5px;
     cursor: pointer;
     &:hover{
-        filter: saturate(1.5);
+        filter: brightness(.8);
     }
 }

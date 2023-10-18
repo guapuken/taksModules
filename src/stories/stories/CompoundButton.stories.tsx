@@ -15,8 +15,8 @@ export const CompoundButton: Story = {
 	name: 'Button',
 	render: () => (
 		<div theme-config="Dark">
-			<Button color="#7BAFFF" border>
-				<Button.Counter>Cerrada ganada</Button.Counter>
+			<Button color="#126EFA">
+				{/* <Button.Counter>Cerrada ganada</Button.Counter> */}
 				<Button.Legend>Cerrar ganada la campaña</Button.Legend>
 			</Button>
 		</div>
