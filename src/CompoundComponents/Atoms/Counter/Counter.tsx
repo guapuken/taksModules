@@ -3,7 +3,11 @@ import './Styles/Counter.scss';
 
 const Counter = ({ children, ...props }: any) => {
 	return (
-		<span className={`_GTL_counter ${props.className}`} {...props}>
+		<span
+			className={`_GTL_counter ${props.className}`}
+			style={{ background: 'inherit' ?? 'var(--bg)' }}
+			{...props}
+		>
 			{children}
 		</span>
 	);

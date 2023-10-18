@@ -14,9 +14,11 @@ type Story = StoryObj<typeof Button>;
 export const CompoundButton: Story = {
 	name: 'Button',
 	render: () => (
-		<Button color="#f1e323">
-			<Button.Counter>1</Button.Counter>
-			<Button.Legend>Comprar ahora</Button.Legend>
-		</Button>
+		<div theme-config="Dark">
+			<Button color="#7BAFFF" border>
+				<Button.Counter>Cerrada ganada</Button.Counter>
+				<Button.Legend>Cerrar ganada la campaña</Button.Legend>
+			</Button>
+		</div>
 	),
 };
