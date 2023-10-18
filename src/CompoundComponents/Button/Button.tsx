@@ -12,11 +12,11 @@ const Button = ({ children, color, rounded, border, style, ...props }: any) => {
 			id={props.id}
 			onMouseEnter={() => {
 				setIsOver(true);
-				props.onMouseEnter;
+				if (props.onMouseEnter) props.onMouseEnter();
 			}}
 			onMouseLeave={() => {
 				setIsOver(false);
-				props.onMouseLeave;
+				if (props.onMouseLeave) props.onMouseLeave();
 			}}
 			className={`_GTL_button_component ${props.className}`}
 			style={{
