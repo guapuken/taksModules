@@ -109,15 +109,17 @@ const FichaIndoors = (props: FichaIndoorsProps) => {
 
 			<div className="OBP_fichaIndoors_header-footer">
 				<Texts modo={modo}>
-					<span style={{ fontWeight: 'bold', marginRight: '5px' }}>Descripción:</span>{' '}
+					<span style={{ fontWeight: 'bold', marginLeft: '15px' }}>Descripción:</span>{' '}
 					{descripcion ?? 'Sin descripción 🤓'}
 				</Texts>
 
 				<div className="OBP_fichaIndoors_header-footer-mapa">
-					<div
-						className="OBP_fichaIndoors_header-footer-mapa-noMap"
-						style={{ backgroundImage: `url(${!mapa ? image1 : mapa})` }}
-					>
+					<div className="OBP_fichaIndoors_header-footer-mapa-noMap">
+						<img
+							src={!mapa ? image1 : mapa}
+							alt=""
+							style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+						/>
 						{!mapa && (
 							<Texts
 								modo={modo}
