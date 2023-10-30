@@ -1,17 +1,75 @@
 import React, { ReactNode } from 'react';
-import './Modal.scss';
-import Header from './helpers/Header';
 import { Modo } from '../../types';
-import Contenido from './helpers/Contenido';
-import Footer from './helpers/Footer';
+import { Title } from '../../components/Atoms';
+import GetIcons from '../Atoms/Icon/getIcons';
+import './styles/Modal.scss';
+import './styles/Header.scss';
+import './styles/Contenido.scss';
+import './styles/Footer.scss';
 
+// ! EXPORTACIÓN DE HEADER
+interface HeaderModal {
+	modo: Modo;
+	children: string;
+	closeIcon?: boolean;
+	onClickClose?: () => any;
+	[key: string]: any;
+}
+const Header = ({ closeIcon, onClickClose, modo, children, ...props }: HeaderModal) => {
+	return (
+		<div {...props} className="Compound_Modal__Header">
+			<Title modo={modo} style={{ textTransform: 'none' }}>
+				{children}
+			</Title>
+			{closeIcon && (
+				<GetIcons
+					strokeWidth={'6px'}
+					size={30}
+					onClick={onClickClose}
+					style={{
+						cursor: 'pointer',
+					}}
+				>
+					<GetIcons.Close fill="var(--errorColor)" />
+				</GetIcons>
+			)}
+		</div>
+	);
+};
+
+// ! EXPORTACIÓN DE CONTENIDO
+interface Contenido {
+	children: any;
+	[key: string]: any;
+}
+const Contenido = ({ children, ...props }: Contenido) => {
+	return (
+		<div {...props} className={`Compound_Modal__Contenido ${props?.className}`}>
+			{children}
+		</div>
+	);
+};
+
+// ! EXPORTACIÓN DE FOOTER
+interface Footer {
+	children: any;
+	[key: string]: any;
+}
+const Footer = ({ children, ...props }: Footer) => {
+	return (
+		<div {...props} className={`Compound_Modal__Footer ${props?.className}`}>
+			{children}
+		</div>
+	);
+};
+
+// ! EXPORTACIÓN DE MODAL PRINCIPAL
 interface Modal {
 	onClickBg?: () => any;
 	children: ReactNode;
 	modo: Modo;
 	[key: string]: any;
 }
-
 const Modal = ({ modo, onClickBg, children, ...props }: Modal) => {
 	return (
 		<div className={`Compound_Modal`}>
@@ -31,4 +89,5 @@ const Modal = ({ modo, onClickBg, children, ...props }: Modal) => {
 Modal.Header = Header;
 Modal.Contenido = Contenido;
 Modal.Footer = Footer;
+
 export default Modal;
