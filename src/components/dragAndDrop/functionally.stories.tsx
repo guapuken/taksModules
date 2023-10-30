@@ -18,6 +18,8 @@ function DemoComponent() {
 				Card={CardTask}
 				tasks={[
 					{
+						modo: 'Light',
+						diasAtraso: 3,
 						onCl_asignTask: () => {},
 						onCl_reasignDate: () => {},
 						onCl_remimder: {} as any,
@@ -40,6 +42,7 @@ function DemoComponent() {
 						onCl_status: () => alert('hola'),
 					},
 					{
+						modo: 'Light',
 						id: '2',
 						idNotification: '2',
 						onCl_edit: () => alert('editar'),
@@ -47,7 +50,7 @@ function DemoComponent() {
 						status: 'Progress',
 						taskName: 'Hacer las tareas del día siguiente',
 						taskDescription: 'no pues creo que no',
-						statusTask: 'outOfTime',
+						statusTask: 1,
 						percentTask: 25,
 						onCl_follow: () => {
 							setNotifications(!notifications);
@@ -57,12 +60,13 @@ function DemoComponent() {
 						onCh_follow: () => setNotifications(!notifications),
 					},
 					{
+						modo: 'Light',
 						id: '3',
 						idNotification: '3',
 						status: 'To Do',
 						taskName: 'decirle gracias a Adan',
 						taskDescription: 'no pues creo que no',
-						statusTask: 'outOfTime',
+						statusTask: 2,
 						percentTask: 25,
 						onCl_follow: () => {
 							setNotifications(!notifications);
@@ -73,12 +77,13 @@ function DemoComponent() {
 						onCh_follow: () => setNotifications(!notifications),
 					},
 					{
+						modo: 'Light',
 						id: '4',
 						idNotification: '4',
 						status: 'To Do',
 						taskName: 'decirle gracias a Adan',
 						taskDescription: 'no pues creo que no',
-						statusTask: 'outOfTime',
+						statusTask: 1,
 						percentTask: 25,
 						onCl_follow: () => {
 							setNotifications(!notifications);
@@ -89,12 +94,13 @@ function DemoComponent() {
 						onCh_follow: () => setNotifications(!notifications),
 					},
 					{
+						modo: 'Light',
 						id: '5',
 						idNotification: '5',
 						status: 'Done',
 						taskName: 'decirle gracias a Adan',
 						taskDescription: 'no pues creo que no',
-						statusTask: 'outOfTime',
+						statusTask: 1,
 						percentTask: 25,
 						onCl_follow: () => {
 							setNotifications(!notifications);

@@ -4,20 +4,25 @@ import React from 'react';
 import { modalTemplates } from './types/types';
 
 // componentes principales
-import Modal from '../../../Atoms/modal/modal';
+// import Modal from '../../../Atoms/modal/modal';
 
 import { Content, Footer } from './principalComponents';
+import Modal from '../../../../CompoundComponents/Modal/Modal';
 
 const ModalTemplates = (props: modalTemplates) => {
-	//DESESTRUCTURACIÓN DE PROPIEDADES DEL COMPONENTE DE MODAL
-	const args = {
-		header: 'Creación de plantillas',
-		Content: <Content {...(props as any)} />,
-		Footer: <Footer {...props} />,
-		modo: props.modo,
-		onCl_close: props.onCl_close,
-	};
-	return <Modal {...args} />;
+	return (
+		<Modal modo={props?.modo}>
+			<Modal.Header modo={props?.modo} onClickClose={props.onCl_close} closeIcon>
+				Registro de plantillas
+			</Modal.Header>
+			<Modal.Contenido>
+				<Content {...(props as any)} />
+			</Modal.Contenido>
+			<Modal.Footer>
+				<Footer {...props} />
+			</Modal.Footer>
+		</Modal>
+	);
 };
 
 export default ModalTemplates;

@@ -15,13 +15,15 @@ import TaskItem from './taskItem';
 import bell from '../../../img/bell.svg';
 
 import '../dragAndDrop.scss';
-import { SimpleContainer } from '../../Atoms';
+import { SimpleContainer, Texts, Title } from '../../Atoms';
 
 const BoardSection = (props: boards) => {
 	const datos = { ...props };
 	const { setNodeRef } = useDroppable({
 		id: datos.id,
 	});
+
+	console.log({ datos });
 
 	function separarTexto(text: string) {
 		let newText = '';
@@ -38,7 +40,8 @@ const BoardSection = (props: boards) => {
 		<div className={`drpblCtn`}>
 			<SimpleContainer style={{ width: '100%', height: '30px', position: 'relative' }}>
 				<div className={'ctnTitle'}>
-					<h2>{separarTexto(datos.title)}</h2>
+					<Title modo={datos.modo}>{separarTexto(datos.title)}</Title>
+					<Texts modo={datos.modo}>Total: {datos?.tasks?.length}</Texts>
 				</div>
 			</SimpleContainer>
 			<SortableContext

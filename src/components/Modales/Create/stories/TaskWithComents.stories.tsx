@@ -10,7 +10,10 @@ const Template: Story = (args) => <ModalTaskWithComents {...args} />;
 
 //estado inicial del componente
 export const InitialState = Template.bind({});
-InitialState.args = {};
+InitialState.args = {
+	onCl_close: () => alert('cerrar modal'),
+	onCl_abort: () => alert('cerrar modal'),
+};
 
 //exportación de valores default
 export default {

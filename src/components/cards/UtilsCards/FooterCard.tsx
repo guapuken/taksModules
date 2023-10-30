@@ -5,6 +5,7 @@ import { footerCardProps } from './types/types';
 import './styles/FooterCard.scss';
 import { IconMoreOptions } from '../../task/files';
 import { aspectRatio } from '../../../utils/functions/functions';
+import { ButtonCompound } from '../../../CompoundComponents';
 
 const FooterCard = ({
 	modo,
@@ -23,7 +24,7 @@ const FooterCard = ({
 				'progress-bar': progressBar ? 'bar' : 'noBar',
 			}}
 		>
-			<ValidationComponent validate={progressBar}>
+			{progressBar && (
 				<ProgressBar
 					modo={modo}
 					status={statusTask}
@@ -31,15 +32,20 @@ const FooterCard = ({
 					onClick={onCl_showDetails as any}
 					styleContent={{ cursor: 'pointer' }}
 				/>
-			</ValidationComponent>
-			<SimpleContainer className="cardUtilFooter__buttons">
-				<button className="cardUtilFooter__buttons-legend" onClick={onCl_showDetails}>
-					{legendButton}
-				</button>
-				<ValidationComponent validate={aspectRatio().tablet && moreOptions}>
+			)}
+			<div className="cardUtilFooter__buttons">
+				<ButtonCompound
+					onClick={onCl_showDetails}
+					color="#f1e323"
+					border
+					style={{ borderRadius: '0 10px 0 10px' }}
+				>
+					<ButtonCompound.Legend>{legendButton}</ButtonCompound.Legend>
+				</ButtonCompound>
+				{aspectRatio().tablet && moreOptions && (
 					<IconMoreOptions options={options as any} />
-				</ValidationComponent>
-			</SimpleContainer>
+				)}
+			</div>
 		</SimpleContainer>
 	);
 };

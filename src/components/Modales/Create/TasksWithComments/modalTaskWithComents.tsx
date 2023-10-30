@@ -1,17 +1,23 @@
 import React from 'react';
-import Modal from '../../../Atoms/modal/modal';
+// import Modal from '../../../Atoms/modal/modal';
 import { Content, Footer } from './files';
 import { contentProps } from './types/types';
+import Modal from '../../../../CompoundComponents/Modal/Modal';
 
 const ModalTaskWithComments = (props: contentProps) => {
-	const args = {
-		Content: <Content {...props} />,
-		Footer: <Footer {...props} />,
-		header: 'Detalles de tarea',
-		modo: props.modo,
-		onCl_close: props.onCl_close,
-	};
-	return <Modal {...args} />;
+	return (
+		<Modal modo={props?.modo} width="50vw" height="100%">
+			<Modal.Header onClickClose={props?.onCl_close} closeIcon modo={props?.modo}>
+				Detalles de la tarea
+			</Modal.Header>
+			<Modal.Contenido>
+				<Content {...props} />
+			</Modal.Contenido>
+			<Modal.Footer>
+				<Footer {...props} />
+			</Modal.Footer>
+		</Modal>
+	);
 };
 
 export default ModalTaskWithComments;

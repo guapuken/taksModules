@@ -28,6 +28,7 @@ const Content = ({
 	onCl_reminder,
 	// dndCard,
 	onCl_status,
+	diasAtraso,
 }: any) => {
 	const options = [
 		{
@@ -63,6 +64,28 @@ const Content = ({
 				'theme-config': modo,
 			}}
 		>
+			{diasAtraso && (
+				<div
+					style={{
+						position: 'absolute',
+						top: '-10px',
+						right: '-20px',
+						background: 'var(--bg)',
+						padding: '2px 10px',
+						borderRadius: '5px',
+						boxShadow: 'var(--boxShadow), inset 0 0 0 2px red',
+						zIndex: 1,
+					}}
+				>
+					<Texts modo={modo} style={{ color: 'red' }}>
+						<span style={{ color: 'red', fontWeight: 700 }}>
+							{`${
+								diasAtraso > 1 ? `${diasAtraso} días` : `${diasAtraso} día`
+							}  de atraso`}
+						</span>
+					</Texts>
+				</div>
+			)}
 			<SimpleContainer className={`cardTask__contenido ${'dndCard'}`}>
 				<Title modo={modo} maxLines={1} title={taskName}>
 					{taskName}

@@ -1,3 +1,4 @@
+
 .progressBar
 {
     display: flex;
@@ -20,6 +21,10 @@
     }
     &[stts-tsk='outOfTime'],&[stts-tsk='3']{
         .progressBar__barra{
+            background: #da343080;
+            &-avance{
+            background: #da3430;
+            }
             &:before{
                 content:'';
                 position: absolute;
@@ -69,6 +74,10 @@
     }
     &[stts-tsk='delayed'], &[stts-tsk='2']{
         .progressBar__barra{
+            background: #f8b03d80;
+            &-avance{
+                background: #f8b03d;
+            }
             &:before{
                 content:'';
                 position: absolute;

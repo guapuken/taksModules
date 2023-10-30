@@ -1,21 +1,24 @@
 import React from 'react';
-
 //componentes principales
 import { Content, Footer } from '../Projects/files';
 //componentes auxiliares
-import Modal from '../../../Atoms/modal/modal';
+import Modal from '../../../../CompoundComponents/Modal/Modal';
 // types
 import { ModalProjectsProps } from './types/types';
 
 const ModalProjects = (props: ModalProjectsProps) => {
 	return (
-		<Modal
-			header="Creación de proyectos"
-			Content={<Content {...props} />}
-			Footer={<Footer {...props} />}
-			modo={props.modo}
-			onCl_close={props.onCl_close}
-		/>
+		<Modal modo={props?.modo}>
+			<Modal.Header modo={props?.modo} closeIcon onClickClose={props.onCl_close}>
+				Registro de proyectos
+			</Modal.Header>
+			<Modal.Contenido>
+				<Content {...props} />
+			</Modal.Contenido>
+			<Modal.Footer>
+				<Footer {...props} />
+			</Modal.Footer>
+		</Modal>
 	);
 };
 
