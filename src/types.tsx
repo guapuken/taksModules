@@ -284,7 +284,7 @@ export type msnsChats = {
 // ---------------------------------------------------------------------------------------------------------
 //      funciones
 // ---------------------------------------------------------------------------------------------------------
-export type onClickType = () => any;
+export type onClickType = (e: React.MouseEvent<HTMLElement>) => any;
 export type onChangeType = (e: React.FormEvent<HTMLInputElement>) => any;
 export type onBlurType = (e: React.FocusEvent<HTMLInputElement>) => any;
 // ---------------------------------------------------------------------------------------------------------

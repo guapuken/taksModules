@@ -90,7 +90,7 @@ export const Content = ({
 							valueTemplateType === 'Venta' ||
 							valueTemplateType === 'Postventa'
 								? null
-								: (e: any) => {
+								: (e: React.MouseEvent<HTMLElement>) => {
 										setSelectedIndex('prev');
 										if (onCl_preventaTemplate) onCl_preventaTemplate(e);
 								  },
@@ -274,7 +274,7 @@ export const Content = ({
 					)}
 				</SimpleContainer>
 			)}
-			<AddTask legend="+ Añadir tarea" onClick={onCl_addTask} />
+			<AddTask modo={modo} legend="+ Añadir tarea" onClick={onCl_addTask} />
 			<SimpleContainer
 				style={{
 					// borderLeft: '3px solid #28282830',

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Modo } from '../../types';
+import { Modo, onClickType } from '../../types';
 import { Title } from '../../components/Atoms';
 import GetIcons from '../Atoms/Icon/getIcons';
 import './styles/Modal.scss';
@@ -12,7 +12,7 @@ interface HeaderModal {
 	modo: Modo;
 	children: string;
 	closeIcon?: boolean;
-	onClickClose?: () => any;
+	onClickClose?: onClickType;
 	[key: string]: any;
 }
 const Header = ({ closeIcon, onClickClose, modo, children, ...props }: HeaderModal) => {
@@ -65,7 +65,7 @@ const Footer = ({ children, ...props }: Footer) => {
 
 // ! EXPORTACIÓN DE MODAL PRINCIPAL
 interface Modal {
-	onClickBg?: () => any;
+	onClickBg?: onClickType;
 	children: ReactNode;
 	modo: Modo;
 	[key: string]: any;
