@@ -49,7 +49,11 @@ const Members = ({
 						<Spans legend={role ? role : 'Sin definir'} boldLegend={'Puesto: '} />
 					</div>
 				</div>
-				<AddTask legend="+ Agregar Personal bajo su mando" onClick={onCl_addUser} />
+				<AddTask
+					modo={modo}
+					legend="+ Agregar Personal bajo su mando"
+					onClick={onCl_addUser}
+				/>
 			</div>
 			<div
 				style={{

@@ -11,7 +11,7 @@ import Modal from '../../../../CompoundComponents/Modal/Modal';
 const ModalTeams = (props: modalTeams) => {
 	return (
 		<Modal modo={props?.modo}>
-			<Modal.Header closeIcon onClickClose={props.onCl_close} modo={props?.modo}>
+			<Modal.Header closeIcon onClickClose={props?.onCl_close} modo={props?.modo}>
 				Registro de equipos
 			</Modal.Header>
 			<Modal.Contenido>

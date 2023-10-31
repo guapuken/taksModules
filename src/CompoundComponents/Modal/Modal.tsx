@@ -6,6 +6,7 @@ import './styles/Modal.scss';
 import './styles/Header.scss';
 import './styles/Contenido.scss';
 import './styles/Footer.scss';
+import { ButtonCompound } from '..';
 
 // ! EXPORTACIÓN DE HEADER
 interface HeaderModal {
@@ -22,16 +23,11 @@ const Header = ({ closeIcon, onClickClose, modo, children, ...props }: HeaderMod
 				{children}
 			</Title>
 			{closeIcon && (
-				<GetIcons
-					strokeWidth={'6px'}
-					size={30}
-					onClick={onClickClose}
-					style={{
-						cursor: 'pointer',
-					}}
-				>
-					<GetIcons.Close fill="var(--errorColor)" />
-				</GetIcons>
+				<ButtonCompound onClick={onClickClose}>
+					<GetIcons strokeWidth={'6px'} size={30}>
+						<GetIcons.Close fill="var(--errorColor)" />
+					</GetIcons>
+				</ButtonCompound>
 			)}
 		</div>
 	);

@@ -199,7 +199,7 @@ const Task = (props: tasks) => {
 				</SimpleContainer>
 				<ValidationComponent validate={!subtaskForbbiden}>
 					<SimpleContainer className="tasks__buttons">
-						<AddTask legend="+ Añadir subtarea" onClick={onCl_addTask} />
+						<AddTask modo={modo} legend="+ Añadir subtarea" onClick={onCl_addTask} />
 						<IconDropdown
 							modo={modo}
 							legend="Cargar plantilla"
