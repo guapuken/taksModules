@@ -48,6 +48,7 @@ export interface submenusArray {
 export interface tasks {
 	//Input Task
 	idTask: string;
+	valueTeam?: string;
 	forbbidenDependencies?: boolean;
 	principalTask?: boolean;
 	taskDisabled?: boolean;

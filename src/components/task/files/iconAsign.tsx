@@ -12,6 +12,7 @@ interface IconAsignProps {
 	className?: string;
 	valueResponsable?: string;
 	valueRevision?: string;
+	valueTeam?: string;
 	involucrados?: number;
 	disabled?: boolean;
 	modo: Modo;
@@ -30,6 +31,7 @@ const IconAsign = ({
 	valueRevision,
 	modo = 'Light',
 	disabled,
+	valueTeam,
 	isPM,
 	haveSubPersonal,
 }: IconAsignProps) => {
@@ -67,6 +69,12 @@ const IconAsign = ({
 				title="Asignar responsable"
 				disabledDropdown={disabled}
 			>
+				{valueTeam && (
+					<>
+						<Title modo={'Dark'}>Equipo responsable: </Title>
+						<Texts modo={'Dark'}>{valueTeam}</Texts>
+					</>
+				)}
 				<ValidationComponent validate={valueResponsable}>
 					<Title modo={'Dark'}>Responsable: </Title>
 					<Texts modo={'Dark'}>{valueResponsable}</Texts>

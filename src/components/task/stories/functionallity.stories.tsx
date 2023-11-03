@@ -47,6 +47,7 @@ function DemoComponent() {
 				prioridadInicial={'none'}
 				valueResponsable="Hola"
 				valueRevision="Adios"
+				valueTeam="Creative"
 				// onCl_selectPriority={()=>}
 				templateOptions={[]}
 				valueTask={'name'}

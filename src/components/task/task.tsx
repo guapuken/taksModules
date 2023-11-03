@@ -68,6 +68,7 @@ const Task = (props: tasks) => {
 		onCh_dificultad,
 		isPM,
 		haveSubPersonal,
+		valueTeam,
 	} = props;
 
 	const [dificultad, setDificultad] = useState({ ...valueDificultad });
@@ -156,6 +157,7 @@ const Task = (props: tasks) => {
 							revision={revision}
 							valueResponsable={valueResponsable}
 							valueRevision={valueRevision}
+							valueTeam={valueTeam}
 							disabled={check ? check : false}
 							isPM={isPM}
 							haveSubPersonal={haveSubPersonal}
@@ -250,6 +252,7 @@ const Task = (props: tasks) => {
 									revision={e.revision}
 									valueRevision={e.valueRevision}
 									valueResponsable={e.valueResponsable}
+									valueTeam={e.valueTeam}
 									equipos={e.equipos}
 									reasignForbidden={e.reasignForbidden}
 									//////dificultad
