@@ -3,6 +3,8 @@ import addUserIcon from '../../../img/addUser.svg';
 import { Modo, submenusArray } from '../../../types';
 import { TextBoldLight, Texts, Title, ValidationComponent } from '../../Atoms';
 import DropdownWithPopup from '../../DropdownWithPopup/DropdownWithPopup';
+import { ButtonCompound } from '../../../CompoundComponents';
+import GetIcons from '../../../CompoundComponents/Atoms/Icon/getIcons';
 
 interface IconAsignProps {
 	style?: CSSProperties;
@@ -35,6 +37,8 @@ const IconAsign = ({
 	isPM,
 	haveSubPersonal,
 }: IconAsignProps) => {
+	const [overAsign, setOverAsign] = useState(false);
+
 	//Opciones de usuarios
 	let menusOperativos = [
 		{
@@ -59,31 +63,63 @@ const IconAsign = ({
 	/* (haveSubPersonal || isPM) && */ menusOperativos.push(personalBajoSuMando);
 
 	return (
-		<div className={`task__icons-asign ${className}`} style={style}>
-			<DropdownWithPopup
-				dropdownIcon={addUserIcon}
-				dropdownOptions={menusOperativos}
-				legend={involucrados}
-				modo={modo}
-				validateToShowIcon={involucrados > 0}
-				title="Asignar responsable"
-				disabledDropdown={disabled}
-			>
-				{valueTeam && (
-					<>
-						<Title modo={'Dark'}>Equipo responsable: </Title>
-						<Texts modo={'Dark'}>{valueTeam}</Texts>
-					</>
+		<div
+			style={{
+				position: 'relative',
+				maxWidth: '30px',
+				zIndex: 1,
+			}}
+		>
+			<ButtonCompound color="transparent" style={{ padding: 0 }}>
+				{involucrados > 0 && (
+					<ButtonCompound.Counter
+						style={{ background: 'red' }}
+						onMouseEnter={() => setOverAsign(true)}
+						onMouseLeave={() => setOverAsign(false)}
+					>
+						{involucrados}
+					</ButtonCompound.Counter>
 				)}
-				<ValidationComponent validate={valueResponsable}>
-					<Title modo={'Dark'}>Responsable: </Title>
-					<Texts modo={'Dark'}>{valueResponsable}</Texts>
-				</ValidationComponent>
-				<ValidationComponent validate={valueRevision}>
-					<Title modo={'Dark'}>Encargado de revisión: </Title>
-					<Texts modo={'Dark'}>{valueRevision}</Texts>
-				</ValidationComponent>
-			</DropdownWithPopup>
+				<ButtonCompound.Svg>
+					<GetIcons size={30}>
+						<GetIcons.AsignUser />
+					</GetIcons>
+				</ButtonCompound.Svg>
+			</ButtonCompound>
+
+			{overAsign && (
+				<div
+					style={{
+						background: 'var(--bg)',
+						boxShadow: 'var(--boxShadow)',
+						maxWidth: '200px',
+						padding: '5px 10px',
+						borderRadius: '5px',
+						top: '15px',
+						right: '-215px',
+						position: 'absolute',
+						zIndex: 1,
+						display: 'flex',
+						flexDirection: 'column',
+					}}
+				>
+					{valueResponsable && (
+						<Texts modo={modo} style={{ display: 'flex', flexDirection: 'column' }}>
+							<strong>Responsable:</strong> {valueResponsable}
+						</Texts>
+					)}
+					{valueRevision && (
+						<Texts modo={modo} style={{ display: 'flex', flexDirection: 'column' }}>
+							<strong>Responsable de revisión:</strong> {valueRevision}
+						</Texts>
+					)}
+					{valueTeam && (
+						<Texts modo={modo} style={{ display: 'flex', flexDirection: 'column' }}>
+							<strong>Equipo responsable:</strong> {valueTeam}
+						</Texts>
+					)}
+				</div>
+			)}
 		</div>
 	);
 };

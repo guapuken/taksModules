@@ -18,6 +18,8 @@ import './task.scss';
 
 // archivos multimedia
 import { DificultadIcon } from '../../img/dificultadIcon';
+import { ButtonCompound } from '../../CompoundComponents';
+import GetIcons from '../../CompoundComponents/Atoms/Icon/getIcons';
 
 //COMPONENTE PRINCIPAL
 const Task = (props: tasks) => {
@@ -151,7 +153,7 @@ const Task = (props: tasks) => {
 					<ValidationComponent validate={!reasignForbidden}>
 						<IconAsign
 							modo={modo}
-							involucrados={involucrados(valueResponsable, valueRevision)}
+							involucrados={involucrados(valueResponsable, valueRevision, valueTeam)}
 							responsables={responsables}
 							equipos={equipos}
 							revision={revision}

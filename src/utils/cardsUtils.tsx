@@ -6,12 +6,13 @@ import { Modo, onClickType } from '../types';
 functions
 -----------------------------------------------------------------------------------------------*/
 //función que retorna el número de involucrados en una activodad
-export function involucrados(valueResponsable: any, valueRevision: any) {
-	if (valueResponsable && valueRevision) {
-		return 2;
-	} else if ((valueResponsable && !valueRevision) || (!valueResponsable && valueRevision)) {
-		return 1;
-	} else return 0;
+export function involucrados(valueResponsable: any, valueRevision: any, valueTeam: any) {
+	const datos = [valueResponsable, valueRevision, valueTeam];
+	const newDatoas = [];
+	datos?.forEach((dato) => {
+		if (dato) newDatoas.push(dato);
+	});
+	return newDatoas?.length;
 }
 
 export function sizeCard() {
