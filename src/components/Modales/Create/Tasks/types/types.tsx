@@ -98,6 +98,7 @@ export type content = {
 	valueTask: string;
 	valueDescription: string;
 	valueResponsable: string;
+	valueTeam?: string;
 	subtaskForbbiden?: boolean;
 	onCh_startDate: onChangeType;
 	onCh_endDate: onChangeType;

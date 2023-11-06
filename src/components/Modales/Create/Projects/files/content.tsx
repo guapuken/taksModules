@@ -122,6 +122,7 @@ const Content = ({
 									responsables={e.responsables}
 									equipos={e.equipos}
 									revision={e.revision}
+									valueTeam={e.valueTeam}
 									valueResponsable={e.valueResponsable}
 									valueRevision={e.valueRevision}
 									//

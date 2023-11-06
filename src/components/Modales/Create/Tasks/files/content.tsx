@@ -42,6 +42,7 @@ const Content = (props: content) => {
 			valueTask={datos.valueTask}
 			valueDescription={datos.valueDescription}
 			valueResponsable={datos.valueResponsable}
+			valueTeam={datos?.valueTeam}
 			subtaskForbbiden={datos.subtaskForbbiden}
 			onCh_startDate={datos.onCh_startDate}
 			onCh_endDate={datos.onCh_endDate}

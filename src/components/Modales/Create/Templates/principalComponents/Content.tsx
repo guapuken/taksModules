@@ -307,6 +307,7 @@ export const Content = ({
 							onCl_delete={indTask.onCl_delete}
 							valueResponsable={indTask.valueResponsable}
 							valueRevision={indTask.valueRevision}
+							valueTeam={indTask?.valueTeam}
 							moreOptions={indTask.moreOptions}
 							subtasks={indTask.subtasks as any}
 							// definición de la tarea como plantilla

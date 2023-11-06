@@ -135,6 +135,7 @@ export interface tasksTemplates {
 	revision: submenusArray[];
 	valueResponsable?: string;
 	valueRevision?: string;
+	valueTeam?: string;
 	moreOptions?: optionsIcnDrp[];
 	onCl_delete: onClickType;
 	subtaskForbbiden?: boolean;
