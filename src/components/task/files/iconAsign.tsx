@@ -5,6 +5,7 @@ import { TextBoldLight, Texts, Title, ValidationComponent } from '../../Atoms';
 import DropdownWithPopup from '../../DropdownWithPopup/DropdownWithPopup';
 import { ButtonCompound } from '../../../CompoundComponents';
 import GetIcons from '../../../CompoundComponents/Atoms/Icon/getIcons';
+import IconDropdown from '../../iconDropdown';
 
 interface IconAsignProps {
 	style?: CSSProperties;
@@ -70,22 +71,28 @@ const IconAsign = ({
 				zIndex: 1,
 			}}
 		>
-			<ButtonCompound color="transparent" style={{ padding: 0 }}>
-				{involucrados > 0 && (
-					<ButtonCompound.Counter
-						style={{ background: 'red' }}
-						onMouseEnter={() => setOverAsign(true)}
-						onMouseLeave={() => setOverAsign(false)}
-					>
-						{involucrados}
-					</ButtonCompound.Counter>
-				)}
-				<ButtonCompound.Svg>
-					<GetIcons size={30}>
-						<GetIcons.AsignUser />
-					</GetIcons>
-				</ButtonCompound.Svg>
-			</ButtonCompound>
+			<IconDropdown
+				modo={modo}
+				options={menusOperativos}
+				svg={
+					<ButtonCompound color="transparent" style={{ padding: 0 }}>
+						{involucrados > 0 && (
+							<ButtonCompound.Counter
+								style={{ background: 'red' }}
+								onMouseEnter={() => setOverAsign(true)}
+								onMouseLeave={() => setOverAsign(false)}
+							>
+								{involucrados}
+							</ButtonCompound.Counter>
+						)}
+						<ButtonCompound.Svg>
+							<GetIcons size={30}>
+								<GetIcons.AsignUser />
+							</GetIcons>
+						</ButtonCompound.Svg>
+					</ButtonCompound>
+				}
+			/>
 
 			{overAsign && (
 				<div
