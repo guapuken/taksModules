@@ -10,7 +10,7 @@ const ModalTaskWithComments = (props: contentProps) => {
 			<Modal.Header onClickClose={props?.onCl_close} closeIcon modo={props?.modo}>
 				Detalles de la tarea
 			</Modal.Header>
-			<Modal.Contenido>
+			<Modal.Contenido height="100%">
 				<Content {...props} />
 			</Modal.Contenido>
 			<Modal.Footer>

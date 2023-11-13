@@ -15,7 +15,7 @@ const ModalTemplates = (props: modalTemplates) => {
 			<Modal.Header modo={props?.modo} onClickClose={props.onCl_close} closeIcon>
 				Registro de plantillas
 			</Modal.Header>
-			<Modal.Contenido>
+			<Modal.Contenido height="100%">
 				<Content {...(props as any)} />
 			</Modal.Contenido>
 			<Modal.Footer>

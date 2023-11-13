@@ -12,7 +12,7 @@ const ModalProjects = (props: ModalProjectsProps) => {
 			<Modal.Header modo={props?.modo} closeIcon onClickClose={props.onCl_close}>
 				Registro de proyectos
 			</Modal.Header>
-			<Modal.Contenido>
+			<Modal.Contenido height="100%">
 				<Content {...props} />
 			</Modal.Contenido>
 			<Modal.Footer>

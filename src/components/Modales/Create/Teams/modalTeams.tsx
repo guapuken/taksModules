@@ -14,7 +14,7 @@ const ModalTeams = (props: modalTeams) => {
 			<Modal.Header closeIcon onClickClose={props?.onCl_close} modo={props?.modo}>
 				Registro de equipos
 			</Modal.Header>
-			<Modal.Contenido>
+			<Modal.Contenido height="100%">
 				<Content {...props} />
 			</Modal.Contenido>
 			<Modal.Footer>
