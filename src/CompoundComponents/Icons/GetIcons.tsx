@@ -1,12 +1,7 @@
 import React from 'react';
+import { getIconsInterface, iconsInterface } from './typesgetIcons';
 
-interface getIconsInterface {
-	children?: any;
-	size?: number | string;
-	fill?: string;
-	icon?: string;
-}
-const getIcons = ({ icon, ...props }: any) => {
+const getIcons = ({ icon = 'puntosSupensivos', ...props }: iconsInterface) => {
 	const dataToView = {
 		//#region Icono Pautar
 		pautar: () => (
@@ -1047,7 +1042,7 @@ const getIcons = ({ icon, ...props }: any) => {
 		),
 		//#endregion
 		//#region ícono reordenar
-		eeordernar: () => (
+		reordernar: () => (
 			<>
 				<g>
 					<path
