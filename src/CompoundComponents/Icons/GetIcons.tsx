@@ -1,6 +1,12 @@
 import React from 'react';
 
-const getIcons = ({ icon, ...props }) => {
+interface getIconsInterface {
+	children?: any;
+	size?: number | string;
+	fill?: string;
+	icon?: string;
+}
+const getIcons = ({ icon, ...props }: any) => {
 	const dataToView = {
 		//#region Icono Pautar
 		pautar: () => (
@@ -1304,7 +1310,7 @@ const getIcons = ({ icon, ...props }) => {
 	if (dataToView[icon]) return dataToView[icon]();
 	else return;
 };
-const GetIcons = ({ children, icon, ...props }) => {
+const GetIcons = ({ children, icon, ...props }: getIconsInterface) => {
 	return (
 		<div style={{ width: props.size ?? 50, height: props.size ?? 50 }} title={props.title}>
 			<svg viewBox="0 0 50 50" width={props.size ?? 50} height={props.size ?? 50} {...props}>
