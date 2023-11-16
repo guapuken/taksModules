@@ -248,7 +248,7 @@ const Task = (props: tasks) => {
 									disabledEndDate={plantillas ? false : disabledEndDate}
 									disabledStartDate={plantillas ? false : disabledStartDate}
 									onCh_duration={plantillas ? onCh_duration : () => {}}
-									durationValue={plantillas ? durationValue : undefined}
+									durationValue={e?.durationValue}
 									//////asigUser
 									responsables={e.responsables}
 									revision={e.revision}
