@@ -192,6 +192,7 @@ export type subtaskTemplates = {
 		title: string;
 	};
 	onCh_dificultad?: onChangeType;
+	durationValue?: string;
 };
 export type subtasksProps = {
 	//Input Task
@@ -226,6 +227,7 @@ export type subtasksProps = {
 	minEndDate?: string;
 	minStartDate?: string;
 	valueRevision?: string;
+	durationValue?: string;
 
 	//Icon Priority
 	prioridadInicial?: prioritys;
