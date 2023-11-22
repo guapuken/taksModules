@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import Tasks from '../../CompoundComponents/Tasks/Tasks';
-import { ButtonCompound } from '../../CompoundComponents';
-import GetIcons from '../../CompoundComponents/Atoms/Icon/getIcons';
-import { PopUp, Texts, Title } from '../../components/Atoms';
+import { ButtonCompound, GetIcons } from '../../CompoundComponents';
+import { Texts } from '../../components/Atoms';
 
 const meta: Meta<typeof Tasks> = {
 	title: 'Compound/Tasks',
@@ -16,51 +15,40 @@ type Story = StoryObj<typeof Tasks>;
 export const CompoundTasks: Story = {
 	name: 'Tasks',
 	render: () => {
-		const [overAsign, setOverAsign] = useState(false);
+		const [isOverAsign, setIsOverAsign] = useState(false);
 		return (
-			<Tasks disable={false}>
-				<Tasks.Icons style={{ marginTop: '15px' }}>
-					<div style={{ position: 'relative', maxWidth: '30px' }}>
-						<ButtonCompound color="transparent">
-							<ButtonCompound.Counter
-								style={{ background: 'red' }}
-								onMouseEnter={() => setOverAsign(true)}
-								onMouseLeave={() => setOverAsign(false)}
-							>
-								1
-							</ButtonCompound.Counter>
-							<ButtonCompound.Svg>
-								<GetIcons size={30}>
-									<GetIcons.AsignUser />
-								</GetIcons>
-							</ButtonCompound.Svg>
+			<Tasks disabled={false}>
+				<Tasks.Icons
+					size={'50px'}
+					counter={3}
+					style={{ marginTop: 10 }}
+					icon={<GetIcons icon="newUser" size={30} fill="red" />}
+					onMouseEnter={() => setIsOverAsign(true)}
+					onMouseLeave={() => setIsOverAsign(false)}
+				>
+					<Tasks.Icons.Popup visible={isOverAsign}>
+						<Texts modo="Light">
+							<strong>Responsable:</strong> Juan C. Almada
+						</Texts>
+						<Texts modo="Light">
+							<strong>Creativo responsable:</strong> Hilenni Ascencio
+						</Texts>
+						<Texts modo="Light">
+							<strong>Equipo responsable:</strong> Creative
+						</Texts>
+					</Tasks.Icons.Popup>
+				</Tasks.Icons>
+				<Tasks.Icons
+					style={{ marginTop: 10 }}
+					size="50px"
+					icon={<GetIcons icon="puntosSupensivos" size={30} />}
+					counter={'2 más'}
+				>
+					<Tasks.Icons.Popup visible>
+						<ButtonCompound color={'#ffffff'}>
+							<ButtonCompound.Legend>Editar</ButtonCompound.Legend>
 						</ButtonCompound>
-
-						{overAsign && (
-							<div
-								style={{
-									background: 'var(--bg)',
-									boxShadow: 'var(--boxShadow)',
-									maxWidth: '200px',
-									padding: '5px 10px',
-									borderRadius: '5px',
-									top: '15px',
-									right: '-215px',
-									position: 'absolute',
-								}}
-							>
-								<Texts modo="Light">
-									<strong>Responsable:</strong> Juan C. Almada
-								</Texts>
-								<Texts modo="Light">
-									<strong>Creativo responsable:</strong> Hilenni Ascencio
-								</Texts>
-								<Texts modo="Light">
-									<strong>Equipo responsable:</strong> Creative
-								</Texts>
-							</div>
-						)}
-					</div>
+					</Tasks.Icons.Popup>
 				</Tasks.Icons>
 			</Tasks>
 		);

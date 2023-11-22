@@ -52,7 +52,9 @@ type iconsType =
 	| 'conPerifoneo'
 	| 'ubicacion'
 	| 'flechas'
-	| 'timeline';
+	| 'timeline'
+	| 'newUser'
+	| 'dificultad';
 export interface getIconsInterface {
 	children?: any;
 	size?: number | string;
