@@ -34,6 +34,10 @@ const ModalTemplates = ({
 	onCl_preventaTemplate,
 	onCl_abort,
 	edit,
+	disabledPlantillaMedio,
+	disabledPlantillaCampania,
+	disabledPlantillaReporte,
+	disabledCheckboxPrintBF,
 	onCl_confirm,
 }: modalTemplates) => {
 	const [tipoPlantilla, setTipoPlantilla] = useState<string | any>(valueTemplateType || null);
@@ -46,9 +50,11 @@ const ModalTemplates = ({
 
 	const handleClick = (e: any, tipo: 'Preventa' | 'Venta' | 'Postventa') => {
 		e?.preventDefault();
-		setTipoPlantillaVenta(null);
-		setTipoPlantillaPostventa(null);
-		if (tipo === tipoPlantilla) setTipoPlantilla(null);
+		if (!disabledPreventa && !disabledVenta && !disabledPostventa) setTipoPlantillaVenta(null);
+		if (!disabledPreventa && !disabledVenta && !disabledPostventa)
+			setTipoPlantillaPostventa(null);
+		if (tipo === tipoPlantilla && !disabledPreventa && !disabledVenta && !disabledPostventa)
+			setTipoPlantilla(null);
 		if (onCl_postventaTemplate) onCl_postventaTemplate(e);
 		if (onCl_ventaTemplate) onCl_ventaTemplate(e);
 		if (onCl_preventaTemplate) onCl_preventaTemplate(e);
@@ -86,6 +92,7 @@ const ModalTemplates = ({
 							setTipoPlantillaVenta('PlantillaMedio');
 							if (onCl_plantillaMedio) onCl_plantillaMedio(e);
 						}}
+						disabled={disabledPlantillaMedio}
 					>
 						<ButtonCompound.Legend>Plantilla de medio</ButtonCompound.Legend>
 					</ButtonCompound>
@@ -100,6 +107,7 @@ const ModalTemplates = ({
 								: 'var(--fc30)'
 						}
 						style={{ width: '100%', borderRadius: '0 5px 5px 0' }}
+						disabled={disabledPlantillaCampania}
 					>
 						<ButtonCompound.Legend>Plantilla de campaña</ButtonCompound.Legend>
 					</ButtonCompound>
@@ -114,6 +122,7 @@ const ModalTemplates = ({
 									onChange={onCh_checkboxPrintBF}
 									label="Impresión en BF"
 									id="1"
+									disabled={disabledCheckboxPrintBF}
 								/>
 							</div>
 						)}
@@ -127,12 +136,18 @@ const ModalTemplates = ({
 				<div style={{ width: '100%', display: 'flex' }}>
 					<ButtonCompound
 						color={
-							tipoPlantillaPostventa === 'PlantillaMedio'
+							disabledPlantillaMedio
+								? 'var(--fc60)'
+								: tipoPlantillaPostventa === 'PlantillaMedio'
 								? 'var(--detailFont)'
 								: 'var(--fc30)'
 						}
 						style={{ width: '100%', borderRadius: '5px 0 0 5px' }}
-						onClick={() => setTipoPlantillaPostventa('PlantillaMedio')}
+						onClick={(e: any) => {
+							setTipoPlantillaPostventa('PlantillaMedio');
+							if (onCl_plantillaMedio) onCl_plantillaMedio(e);
+						}}
+						disabled={disabledPlantillaMedio}
 					>
 						<ButtonCompound.Legend>Plantilla de medio</ButtonCompound.Legend>
 					</ButtonCompound>
@@ -142,11 +157,14 @@ const ModalTemplates = ({
 							if (onCl_plantillaReporte) onCl_plantillaReporte(e);
 						}}
 						color={
-							tipoPlantillaPostventa === 'PlantillaReporte'
+							disabledPlantillaReporte
+								? 'var(--fc60)'
+								: tipoPlantillaPostventa === 'PlantillaReporte'
 								? 'var(--detailFont)'
 								: 'var(--fc30)'
 						}
 						style={{ width: '100%', borderRadius: '0 5px 5px 0' }}
+						disabled={disabledPlantillaReporte}
 					>
 						<ButtonCompound.Legend>Plantilla de reporte</ButtonCompound.Legend>
 					</ButtonCompound>
@@ -187,21 +205,27 @@ const ModalTemplates = ({
 							<ButtonCompound
 								onClick={(e: any) => handleClick(e, 'Preventa')}
 								color={
-									tipoPlantilla === 'Preventa'
+									disabledPreventa
+										? 'var(--fc60)'
+										: tipoPlantilla === 'Preventa'
 										? 'var(--detailFont)'
 										: 'var(--fc30)'
 								}
 								style={{ width: '100%', borderRadius: '5px 0 0 5px' }}
-								disbaled={disabledPreventa}
+								disabled={disabledPreventa}
 							>
 								<ButtonCompound.Legend>Plantilla de preventa</ButtonCompound.Legend>
 							</ButtonCompound>
 							<ButtonCompound
 								onClick={(e: any) => handleClick(e, 'Venta')}
 								color={
-									tipoPlantilla === 'Venta' ? 'var(--detailFont)' : 'var(--fc30)'
+									disabledVenta
+										? 'var(--fc60)'
+										: tipoPlantilla === 'Venta'
+										? 'var(--detailFont)'
+										: 'var(--fc30)'
 								}
-								disbaled={disabledVenta}
+								disabled={disabledVenta}
 								style={{ width: '100%', borderRadius: '0' }}
 							>
 								<ButtonCompound.Legend>Plantilla de venta</ButtonCompound.Legend>
@@ -209,11 +233,13 @@ const ModalTemplates = ({
 							<ButtonCompound
 								onClick={(e: any) => handleClick(e, 'Postventa')}
 								color={
-									tipoPlantilla === 'Postventa'
+									disabledPostventa
+										? 'var(--fc60)'
+										: tipoPlantilla === 'Postventa'
 										? 'var(--detailFont)'
 										: 'var(--fc30)'
 								}
-								disbaled={disabledPostventa}
+								disabled={disabledPostventa}
 								style={{ width: '100%', borderRadius: '0 5px 5px 0' }}
 							>
 								<ButtonCompound.Legend>

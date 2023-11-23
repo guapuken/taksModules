@@ -68,7 +68,10 @@ export const CompoundModalTemplates: Story = {
 				onCh_checkboxPrintBF={() => setPrintBF(!printBF)}
 				valueTemplateType="Postventa"
 				valueTipoPlantillaVenta={null}
-				valueTipoPlantillaPostventa="PlantillaReporte"
+				valueTipoPlantillaPostventa="PlantillaMedio"
+				disabledPreventa
+				disabledVenta
+				disabledPlantillaReporte
 			/>
 		);
 	},

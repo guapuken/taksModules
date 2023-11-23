@@ -40,6 +40,10 @@ export interface modalTemplates {
 	disabledPreventa?: boolean;
 	disabledVenta?: boolean;
 	disabledPostventa?: boolean;
+	disabledPlantillaMedio?: boolean;
+	disabledPlantillaCampania?: boolean;
+	disabledPlantillaReporte?: boolean;
+	disabledCheckboxPrintBF?: boolean;
 	valueTemplateType?: 'Preventa' | 'Venta' | 'Postventa';
 	valueTipoPlantillaVenta?: 'PlantillaMedio' | 'PlantillaCampania' | null;
 	valueTipoPlantillaPostventa?: 'PlantillaMedio' | 'PlantillaReporte' | null;
