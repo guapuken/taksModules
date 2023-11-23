@@ -40,7 +40,11 @@ interface Contenido {
 }
 const Contenido = ({ children, ...props }: Contenido) => {
 	return (
-		<div {...props} className={`Compound_Modal__Contenido ${props?.className}`}>
+		<div
+			{...props}
+			style={{ height: props?.height ?? '100%', ...props.style }}
+			className={`Compound_Modal__Contenido ${props?.className}`}
+		>
 			{children}
 		</div>
 	);
@@ -53,7 +57,11 @@ interface Footer {
 }
 const Footer = ({ children, ...props }: Footer) => {
 	return (
-		<div {...props} className={`Compound_Modal__Footer ${props?.className}`}>
+		<div
+			{...props}
+			className={`Compound_Modal__Footer ${props?.className}`}
+			style={{ height: props?.height ?? 50, ...props.style }}
+		>
 			{children}
 		</div>
 	);
@@ -74,7 +82,7 @@ const Modal = ({ modo, onClickBg, children, ...props }: Modal) => {
 				{...props}
 				theme-config={modo}
 				className={`Compound_Modal__contenido ${props.className}`}
-				style={{ width: props?.width, height: props?.height, ...props?.style }}
+				style={{ width: props?.width, height: props?.height ?? '100%', ...props?.style }}
 			>
 				{children}
 			</div>

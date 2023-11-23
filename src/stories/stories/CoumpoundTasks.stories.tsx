@@ -45,7 +45,7 @@ export const CompoundTasks: Story = {
 					counter={'2 más'}
 				>
 					<Tasks.Icons.Popup visible>
-						<ButtonCompound color={'#ffffff'}>
+						<ButtonCompound color={'#ffffff'} style={{ width: '100%' }}>
 							<ButtonCompound.Legend>Editar</ButtonCompound.Legend>
 						</ButtonCompound>
 					</Tasks.Icons.Popup>

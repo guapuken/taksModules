@@ -18,7 +18,7 @@ export const Content = ({
 	onCh_dropDownTipoMedio,
 	optionsTipoMedio,
 	valueTipoMedio,
-	onCh_checkboxCampaign,
+	// onCh_checkboxCampaign,
 	onCh_checkboxMedio,
 	isMannager,
 	onCh_checkboxPrintBF,
@@ -221,7 +221,7 @@ export const Content = ({
 									idCheckbox=""
 									onCh_checkbox={(e) => {
 										setCampanha(!campanha);
-										if (onCh_checkboxCampaign) onCh_checkboxCampaign(e);
+										// if (onCh_checkboxCampaign) onCh_checkboxCampaign(e);
 									}}
 									disabled={isEditingTemplate}
 									check={campanha}
@@ -277,7 +277,6 @@ export const Content = ({
 			<AddTask modo={modo} legend="+ Añadir tarea" onClick={onCl_addTask} />
 			<SimpleContainer
 				style={{
-					// borderLeft: '3px solid #28282830',
 					paddingLeft: '20px',
 				}}
 			>

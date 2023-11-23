@@ -17,7 +17,13 @@ const IconsPopUp = ({ children, ...props }) =>
 				position: 'absolute',
 			}}
 		>
-			{children}
+			<div
+				style={{
+					position: 'relative',
+				}}
+			>
+				{children}
+			</div>
 		</div>
 	);
 const Icons = ({ children, ...props }: any) => {

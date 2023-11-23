@@ -25,7 +25,7 @@ function DemoComponent() {
 			onCh_dropDownTipoMedio={(e) => {
 				setTiposMedio(e);
 			}}
-			valueTemplateType="Preventa"
+			valueTemplateType="Venta"
 			// disabledPostventa
 			// disabledVenta
 			onCh_templateName={(e) => setTemplate(e.target.value)}

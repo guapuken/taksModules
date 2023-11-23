@@ -13,4 +13,5 @@ export interface avatar {
 	modo: Modo;
 	className?: string;
 	style?: css;
+	size?: string | number;
 }

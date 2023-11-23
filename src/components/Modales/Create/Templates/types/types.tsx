@@ -15,11 +15,13 @@ export interface modalTemplates {
 	onCl_postventaTemplate?: onClickType;
 	onCl_ventaTemplate?: onClickType;
 	onCl_preventaTemplate?: onClickType;
+	onCl_plantillaMedio?: onClickType;
+	onCl_plantillaReporte?: onClickType;
 
 	onCh_dropDownTipoMedio: onChangeType;
 	optionsTipoMedio?: optionsDropdown[];
 	valueTipoMedio?: optionsDropdown;
-	onCh_checkboxCampaign: onChangeType;
+	onCl_plantillaCampania: onClickType;
 	onCh_checkboxMedio: onChangeType;
 
 	edit?: boolean;
@@ -39,4 +41,6 @@ export interface modalTemplates {
 	disabledVenta?: boolean;
 	disabledPostventa?: boolean;
 	valueTemplateType?: 'Preventa' | 'Venta' | 'Postventa';
+	valueTipoPlantillaVenta?: 'PlantillaMedio' | 'PlantillaCampania' | null;
+	valueTipoPlantillaPostventa?: 'PlantillaMedio' | 'PlantillaReporte' | null;
 }

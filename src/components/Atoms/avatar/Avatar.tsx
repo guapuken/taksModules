@@ -3,24 +3,36 @@ import { initialLetters } from '../../../utils/functions/functions';
 // types
 import { avatar } from './types/types';
 // componentes auxiliares
-import { Texts, SimpleContainer, ValidationComponent } from '../../Atoms';
+import { Texts } from '../../Atoms';
 // styles
 import './styles/avatar.scss';
 
-const Avatar = ({ avatar, userName, modo, className, style }: avatar) => {
+const Avatar = ({ avatar, userName, modo, className, style, size }: avatar) => {
 	return (
-		<SimpleContainer
+		<div
 			className={`avatar ${className}`}
-			labels={{ 'theme-config': modo }}
-			style={{ backgroundImage: `url(${avatar})`, ...style }}
+			theme-config={modo}
+			style={{
+				height: size && size,
+				width: size && size,
+				borderRadius: size && size,
+				...style,
+			}}
+			title={userName ?? 'Usuario no identificado'}
 		>
-			<ValidationComponent validate={!avatar}>
+			{avatar && (
+				<img
+					className="avatar__image"
+					src={avatar}
+					alt={userName ?? 'Usuario no identificado'}
+				/>
+			)}
+			{!avatar && (
 				<Texts modo={modo} className="avatar__iniciales">
 					{initialLetters(userName ?? 'NU')}
 				</Texts>
-			</ValidationComponent>
-			<ValidationComponent validate={avatar}>{null}</ValidationComponent>
-		</SimpleContainer>
+			)}
+		</div>
 	);
 };
 export default Avatar;

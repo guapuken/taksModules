@@ -70,7 +70,7 @@ export {default as ModalConfirmation} from './Atoms/modalConfirmation/ModalConfi
 // Modales de creación
 export {default as ModalProjects} from './Modales/Create/Projects/modalProjects';
 export {default as ModalTask} from './Modales/Create/Tasks/modalTareas';
-export {default as ModalTemplates} from './Modales/Create/Templates/modalPlantillas';
+// export {default as ModalTemplates} from './Modales/Create/Templates/modalPlantillas';
 export {default as ModalTeams} from './Modales/Create/Teams/modalTeams';
 export {default as ModalTaskWithComments} from './Modales/Create/TasksWithComments/modalTaskWithComents';
 // Modales de eliminación

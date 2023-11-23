@@ -2,15 +2,23 @@
     width: clamp(30px,3vw,50px);
     height: clamp(30px,3vw,50px);
     border-radius: clamp(30px,3vw,50px);
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
+    // background-size: cover !important;
+    // background-repeat: no-repeat !important;
+    // background-position: center center !important;
     background: var(--fc60);
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    position: relative;
+    &__image{
+        object-fit: cover;
+        height: inherit;
+        width: inherit;
+    }
     &__iniciales{
-        font-size: clamp(15px, 5vh, 20px) !important;
+        font-size:  50% ;
+        // font-size: clamp(5px, 100vw , 200px) ;
         color: #fff !important;
     }
 }
