@@ -22,13 +22,6 @@ export const ReproductorVideoStory: Story = {
 						width={'100%'}
 					/>
 				</div>
-				<div style={{ width: 'calc(100% / 3)', height: '100vh', overflow: 'hidden' }}>
-					<ReproductorVideo
-						url="https://youtu.be/Tf2Yr3iF8sg"
-						height={'100%'}
-						width={'100%'}
-					/>
-				</div>
 			</div>
 		</>
 	),
