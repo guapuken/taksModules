@@ -1,6 +1,6 @@
 {
 	"name": "@guapuken/tasks-modules",
-	"version": "0.2.72",
+	"version": "0.2.73",
 	"description": "librería con paquetes actualizados",
 	"scripts": {
 		"pack": "rollup -c",
@@ -54,6 +54,7 @@
 		"prettier": "^2.7.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
+		"react-player": "^2.13.0",
 		"rollup": "^2.79.1",
 		"rollup-plugin-dts": "^4.0.1",
 		"rollup-plugin-peer-deps-external": "^2.2.4",

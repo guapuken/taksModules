@@ -1,0 +1,14 @@
+
+.React-Multiplayer{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__component{
+        position: absolute;
+        transform: translate(-50%, -50%);
+        
+    }
+}
