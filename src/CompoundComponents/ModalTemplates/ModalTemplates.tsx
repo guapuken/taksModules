@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from '../Modal/Modal';
 import { Dropdown, InputLabel, Task, Texts } from '../../components';
 import { ButtonCompound } from '..';
@@ -48,6 +48,18 @@ const ModalTemplates = ({
 		valueTipoPlantillaPostventa || null
 	);
 
+	useEffect(() => {
+		setTipoPlantilla(valueTemplateType);
+	}, [valueTemplateType]);
+
+	useEffect(() => {
+		setTipoPlantillaVenta(valueTipoPlantillaVenta);
+	}, [valueTipoPlantillaVenta]);
+
+	useEffect(() => {
+		setTipoPlantillaPostventa(valueTipoPlantillaPostventa);
+	}, [valueTipoPlantillaPostventa]);
+
 	const handleClick = (e: any, tipo: 'Preventa' | 'Venta' | 'Postventa') => {
 		e?.preventDefault();
 		if (!disabledPreventa && !disabledVenta && !disabledPostventa) setTipoPlantillaVenta(null);
@@ -55,9 +67,9 @@ const ModalTemplates = ({
 			setTipoPlantillaPostventa(null);
 		if (tipo === tipoPlantilla && !disabledPreventa && !disabledVenta && !disabledPostventa)
 			setTipoPlantilla(null);
-		if (onCl_postventaTemplate) onCl_postventaTemplate(e);
-		if (onCl_ventaTemplate) onCl_ventaTemplate(e);
-		if (onCl_preventaTemplate) onCl_preventaTemplate(e);
+		if (tipo === 'Postventa' && onCl_postventaTemplate) onCl_postventaTemplate(e);
+		if (tipo === 'Venta' && onCl_ventaTemplate) onCl_ventaTemplate(e);
+		if (tipo === 'Preventa' && onCl_preventaTemplate) onCl_preventaTemplate(e);
 		else setTipoPlantilla(tipo);
 	};
 
