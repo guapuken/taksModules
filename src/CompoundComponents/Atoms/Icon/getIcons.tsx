@@ -32,7 +32,11 @@ const AsigUsersIcons = (props: any) => (
 );
 
 const GetIcons = ({ children, ...props }: any) => (
-	<div style={{ width: props.size ?? 50, height: props.size ?? 50 }} title={props.title}>
+	<div
+		style={{ width: props.size ?? 50, height: props.size ?? 50 }}
+		title={props.title}
+		onClick={props?.onClick}
+	>
 		<svg viewBox="0 0 50 50" width={props.size ?? 50} height={props.size ?? 50} {...props}>
 			{children}
 		</svg>

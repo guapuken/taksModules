@@ -12,6 +12,7 @@ import {
 export interface tasksProps {
 	idTask: string;
 	check: boolean;
+	valueTeam?: string;
 	onCl_close: onClickType;
 	onCh_checkbox: onChangeType;
 	equipos: submenusArray[];
