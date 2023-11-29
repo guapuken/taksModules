@@ -17,7 +17,7 @@ export interface modalTemplates {
 	onCl_preventaTemplate?: onClickType;
 	onCl_plantillaMedio?: onClickType;
 	onCl_plantillaReporte?: onClickType;
-
+	tipoPlantillaRuta?: 'unidad' | 'ruta';
 	onCh_dropDownTipoMedio: onChangeType;
 	optionsTipoMedio?: optionsDropdown[];
 	valueTipoMedio?: optionsDropdown;

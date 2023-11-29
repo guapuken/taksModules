@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Modal from '../Modal/Modal';
-import { Dropdown, InputLabel, Task, Texts } from '../../components';
+import { Dropdown, InputLabel, Task, Texts, Title } from '../../components';
 import { ButtonCompound } from '..';
 import SwitchSiNo from '../Switch/Switch';
 import { AddTask } from '../../components/task/files';
@@ -38,6 +38,7 @@ const ModalTemplates = ({
 	disabledPlantillaCampania,
 	disabledPlantillaReporte,
 	disabledCheckboxPrintBF,
+	tipoPlantillaRuta,
 	onCl_confirm,
 }: modalTemplates) => {
 	const [tipoPlantilla, setTipoPlantilla] = useState<string | any>(valueTemplateType || null);
@@ -182,7 +183,15 @@ const ModalTemplates = ({
 					</ButtonCompound>
 				</div>
 				{tipoPlantillaPostventa === 'PlantillaMedio' && (
-					<div style={{ marginTop: '15px' }}>{getDropdownTipoMedio()}</div>
+					<>
+						<div style={{ marginTop: '15px' }}>{getDropdownTipoMedio()}</div>
+						{tipoPlantillaRuta && (
+							<Title
+								modo={modo}
+								style={{ marginTop: '15px' }}
+							>{`Plantilla de ${tipoPlantillaRuta}`}</Title>
+						)}
+					</>
 				)}
 			</>
 		),

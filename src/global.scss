@@ -1,23 +1,15 @@
-/** anotaciones
-* z-index:
-    elementos X (poca relevanacia) 1
-    elementos que se sobrepongan ejemplos (dropdowns) 4
-    Modales 3
-    menu 5
-*/
-
-// ---------------------------------------------------------------------------------------------------------
-//      normalize
-// ---------------------------------------------------------------------------------------------------------
+//*---------------------------------------------------------------------------------------------------------
+//* hoja de estilos de normalize
+//*---------------------------------------------------------------------------------------------------------
 @import './normalize.scss';
-// ---------------------------------------------------------------------------------------------------------
-//      fonts
-// ---------------------------------------------------------------------------------------------------------
+//*---------------------------------------------------------------------------------------------------------
+//* Fuente open sans 
+//*---------------------------------------------------------------------------------------------------------
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
 
-// ---------------------------------------------------------------------------------------------------------
-//      variables
-// ---------------------------------------------------------------------------------------------------------
+//*---------------------------------------------------------------------------------------------------------
+//* Variables
+//*---------------------------------------------------------------------------------------------------------
 :root{
   --detailFont:#0095c6; 
   --detailColor: #0095c6;
@@ -39,8 +31,6 @@
   --bg : #ffffff;
   --contrastDark: #525252;
   // inputs
-  // --border: inset 0 0 0 .5px var(--fc30),
-  // 0 0 5px var(--fc30);
   --border: inset 0 0 0 .5px var(--fc30);
 
   // contenedores
@@ -79,70 +69,75 @@
 
 }
 
-// ---------------------------------------------------------------------------------------------------------
-//      snippets de formateo
-// ---------------------------------------------------------------------------------------------------------
+//*---------------------------------------------------------------------------------------------------------
+//* Snippets de formateo
+//*---------------------------------------------------------------------------------------------------------
 *, *:before,*:after{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
-/// ---------------------------------------------------------------------------------------------------------
-//      estilos generales
-// ---------------------------------------------------------------------------------------------------------
+button { // elimina todos los estilos que contiene el button por defecto
+  all: unset;
+}
 *{
-    font-family: 'Open Sans', sans-serif;
-  }
-  //Modificación en los estilos del scrollbar
+  font-family: 'Open Sans', sans-serif ; // aplica la fuente de OBp a todo el código
+}
+
+//*---------------------------------------------------------------------------------------------------------
+//* Estilos del scrollbar
+//*---------------------------------------------------------------------------------------------------------
   ::-webkit-scrollbar{
-    width: 5px !important;
-    height: 5px !important;
+    width: 10px !important;
     position: absolute;
     background: transparent;
   }
   ::-webkit-scrollbar-track {
-    background: transparent ;
+    background: #00000010 ;
+    opacity: .5 !important;
   }
   ::-webkit-scrollbar-thumb {
-    // background-color: transparent !important;
-    background-color: var(--fc30);
+    background-color: #00000030 ;
     border-radius: 10px;
   }
-  // elimina todos los estilos que contiene el button por defecto
-  button {
-    all: unset;
-  }
 
-// ---------------------------------------------------------------------------------------------------------
-//      estilos generales del texto
-// ---------------------------------------------------------------------------------------------------------
-//eliminación de márgenes
-  h1, h2,h3,h4,h5,h6,p,button,span,a{ margin-block: 0; }
-  a,li,ul{
+//*---------------------------------------------------------------------------------------------------------
+//* Estilos generales de textos
+//*---------------------------------------------------------------------------------------------------------
+  h1, h2,h3,h4,h5,h6,p,button,span,a{ margin-block: 0; } //eliminación de márgenes 
+  a,li,ul{ //eliminación de estilos por defecto de listas y enlaces
     text-decoration: none;
     list-style: none;
-    // font-size: clamp(13px, 1.5vw, 22px);
     color: inherit;
   }
   span{
     font-size: inherit;
   }
-  //definición de pesos visuales
   h1, h2,h3,h4,h5,h6{
     font-weight: bold;
-    text-transform: uppercase;
   }
-  //definición de tamaños en tipografías
-  h1{ font-size: clamp(25px, 2.8vw, 30px); }
-  h2{ font-size: clamp(12px, 1.4vw, 14px); }
-  h3{ font-size: clamp(16px, 1.8vw, 21px); }
-  h4{ font-size: clamp(14px, 1.6vw, 19px); }
-  h5,p,li,ul,span,button,textarea,input{ font-size: clamp(12px, 1.4vw, 14px); }
+  h1{ 
+    font-size: clamp(20px, 2.2vw, 23px); 
+  }
+  h2{ 
+    font-size: clamp(18px, 2vw, 21px); 
+  }
+  h3{ 
+    font-size: clamp(16px, 1.8vw, 19px); 
+  }
+  h4{ 
+    font-size: clamp(14px, 1.6vw, 17px); 
+  }
+  h5{ 
+    font-size: clamp(12px, 1.4vw, 15px); 
+  }
+  p,li,ul,span,button,textarea,input{ 
+    font-size: clamp(12px, 1.4vw, 14px); 
+  }
 
-// ---------------------------------------------------------------------------------------------------------
-//      utilidades
-// ---------------------------------------------------------------------------------------------------------
+//*---------------------------------------------------------------------------------------------------------
+//* utilidades
+//*---------------------------------------------------------------------------------------------------------
   .TextOverflow{
     overflow: hidden;
     display: -webkit-box;
@@ -153,13 +148,6 @@
   .ttlTask{
     font-size: clamp(12px, 2.5vh, 15px);
     font-weight: bold;
-  }
-  .ContainerCardTeamComponent{
-    // position: relative;
-    // margin: 0 auto;
-    // width: calc(100% - 30px) !important;
-    // height: calc(100% - 20px) !important;
-    // margin-top: 10px;
   }
   .centerElement{
     display:grid;

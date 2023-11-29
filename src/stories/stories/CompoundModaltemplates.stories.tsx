@@ -69,6 +69,7 @@ export const CompoundModalTemplates: Story = {
 				valueTemplateType="Postventa"
 				valueTipoPlantillaVenta={null}
 				valueTipoPlantillaPostventa="PlantillaMedio"
+				tipoPlantillaRuta="ruta"
 				// onCl_preventaTemplate={() => {}}
 				// disabledPreventa
 				// disabledVenta

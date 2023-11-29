@@ -24,8 +24,9 @@ export const CompoundCards: Story = {
 				<Cards.Image
 					style={{
 						height: '100%',
-						width: openCard ? '20%' : 'calc(20vw - 20px)',
+						width: openCard ? '20%' : '100%',
 					}}
+					onClick={() => setOpenCard(!openCard)}
 				>
 					https://www.bilbo.mx/wp-content/uploads/2021/04/Pantalla-aguascalientes-espectacular-av-universidad.jpg
 				</Cards.Image>
