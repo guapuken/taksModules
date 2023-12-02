@@ -54,7 +54,8 @@ type iconsType =
 	| 'flechas'
 	| 'timeline'
 	| 'newUser'
-	| 'dificultad';
+	| 'dificultad'
+	| 'recargar';
 export interface getIconsInterface {
 	children?: any;
 	size?: number | string;
