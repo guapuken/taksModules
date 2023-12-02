@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Button from '../../CompoundComponents/Button/Button';
+import { GetIcons } from '../../CompoundComponents';
 
 const meta: Meta<typeof Button> = {
 	title: 'Compound/Button',
@@ -19,6 +20,7 @@ export const CompoundButton: Story = {
 				{/* <Button.Counter>Cerrada ganada</Button.Counter> */}
 				<Button.Legend>Cerrar ganada la campaña</Button.Legend>
 			</Button>
+			<GetIcons icon='reloj' fill="#000" size={50}/>
 		</div>
 	),
 };

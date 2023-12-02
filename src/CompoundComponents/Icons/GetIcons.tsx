@@ -1349,6 +1349,56 @@ const getIcons = ({ icon = 'puntosSupensivos', ...props }: iconsInterface) => {
 			/>
 		),
 		//#endregion
+		//#region calendar
+		calendar: () => (
+			<>
+			<path d="M25.49,24.03H24.5c-1.1,0-2-0.9-2-2v-0.99c0-1.1,0.9-2,2-2h0.99c1.1,0,2,0.9,2,2v0.99C27.49,23.13,26.6,24.03,25.49,24.03z"/>
+			<path d="M35.5,24.03H34.5c-1.1,0-2-0.9-2-2v-0.99c0-1.1,0.9-2,2-2h0.99c1.1,0,2,0.9,2,2v0.99C37.5,23.13,36.6,24.03,35.5,24.03z"/>
+			<path 
+				d="M15.49,31.53H14.5c-1.1,0-2-0.9-2-2v-0.99c0-1.1,0.9-2,2-2h0.99c1.1,0,2,0.9,2,2v0.99C17.49,30.63,16.6,31.53,15.49,31.53z"
+			/>
+			<path 
+				d="M25.49,31.53H24.5c-1.1,0-2-0.9-2-2v-0.99c0-1.1,0.9-2,2-2h0.99c1.1,0,2,0.9,2,2v0.99C27.49,30.63,26.6,31.53,25.49,31.53z"
+			/>
+			<path d="M35.5,31.53H34.5c-1.1,0-2-0.9-2-2v-0.99c0-1.1,0.9-2,2-2h0.99c1.1,0,2,0.9,2,2v0.99C37.5,30.63,36.6,31.53,35.5,31.53z"/>
+			<path d="M15.49,39.03H14.5c-1.1,0-2-0.9-2-2v-0.99c0-1.1,0.9-2,2-2h0.99c1.1,0,2,0.9,2,2v0.99C17.49,38.13,16.6,39.03,15.49,39.03z"
+				/>
+			<path d="M25.49,39.03H24.5c-1.1,0-2-0.9-2-2v-0.99c0-1.1,0.9-2,2-2h0.99c1.1,0,2,0.9,2,2v0.99C27.49,38.13,26.6,39.03,25.49,39.03z"
+				/>
+			<path d="M35.5,39.03H34.5c-1.1,0-2-0.9-2-2v-0.99c0-1.1,0.9-2,2-2h0.99c1.1,0,2,0.9,2,2v0.99C37.5,38.13,36.6,39.03,35.5,39.03z"/>
+			<g>
+				<path stroke={props?.fill ?? 'var(--detailFont)'} fill="transparent" strokeWidth={2} d="M40.5,7.57H37v2.93c0,1.11-0.9,2-2,2h-3c-1.11,0-2-0.9-2-2V7.57H20v2.93c0,1.11-0.9,2-2,2h-3
+					c-1.11,0-2-0.9-2-2V7.57H9.5c-1.11,0-2,0.9-2,2v6.91h35V9.57C42.5,8.47,41.6,7.57,40.5,7.57z"/>
+			</g>
+			<path stroke={props?.fill ?? 'var(--detailFont)'} fill="transparent" strokeWidth={2} d="M40.5,42.5h-31c-1.1,0-2-0.9-2-2V16.48h35V40.5C42.5,41.6,41.6,42.5,40.5,42.5z"/>
+			<line stroke={props?.fill ?? 'var(--detailFont)'} strokeWidth={2} x1="33.5" y1="6.01" x2="33.5" y2="8.99"/>
+			<line stroke={props?.fill ?? 'var(--detailFont)'} strokeWidth={2} x1="16.5" y1="6.01" x2="16.5" y2="8.99"/></>
+		),
+		//#endregion
+		//#region calendar
+		reloj: () => (
+			<>
+			<circle  stroke={props?.fill??"var(--detailFont)"} strokeWidth={2}  fill="transparent" cx="25" cy="25" r="17.5"/>
+			<line stroke={props?.fill??"var(--detailFont)"} strokeWidth={2} x1="25" y1="11.01" x2="25" y2="13.99"/>
+			<line stroke={props?.fill??"var(--detailFont)"} strokeWidth={2} x1="38.99" y1="25" x2="36.01" y2="25"/>
+			<line stroke={props?.fill??"var(--detailFont)"} strokeWidth={2} x1="25" y1="38.99" x2="25" y2="36.01"/>
+			<line stroke={props?.fill??"var(--detailFont)"} strokeWidth={2} x1="11.01" y1="25" x2="13.99" y2="25"/>
+			<line stroke={props?.fill??"var(--detailFont)"} strokeWidth={2} x1="31.61" y1="13.56" x2="31.61" y2="13.56"/>
+			<line stroke={props?.fill??"var(--detailFont)"} strokeWidth={2} x1="36.44" y1="18.39" x2="36.44" y2="18.39"/>
+			<line stroke={props?.fill??"var(--detailFont)"} strokeWidth={2} x1="36.44" y1="31.61" x2="36.44" y2="31.61"/>
+			<line stroke={props?.fill??"var(--detailFont)"} strokeWidth={2} x1="31.61" y1="36.44" x2="31.61" y2="36.44"/>
+			<line stroke={props?.fill??"var(--detailFont)"} strokeWidth={2} x1="18.39" y1="36.44" x2="18.39" y2="36.44"/>
+			<line stroke={props?.fill??"var(--detailFont)"} strokeWidth={2} x1="13.56" y1="31.61" x2="13.56" y2="31.61"/>
+			<line stroke={props?.fill??"var(--detailFont)"} strokeWidth={2} x1="13.56" y1="18.39" x2="13.56" y2="18.39"/>
+			<line stroke={props?.fill??"var(--detailFont)"} strokeWidth={2} x1="18.39" y1="13.56" x2="18.39" y2="13.56"/>
+			<g>
+				<path d="M30.57,16.3l-4.71,9.22l-0.02,0.03c-0.23,0.45-0.79,0.63-1.24,0.4c-0.12-0.06-0.22-0.15-0.3-0.25l-4.44-5.56
+					c-0.07-0.09-0.06-0.21,0.03-0.28c0.08-0.06,0.18-0.06,0.25,0l5.56,4.44l-1.56,0.19l5.99-8.45c0.08-0.12,0.24-0.14,0.36-0.06
+					C30.59,16.05,30.63,16.19,30.57,16.3z"/>
+			</g>
+			</>
+		),
+		//#endregion
 	};
 	if (dataToView[icon]) return dataToView[icon]();
 	else return;
