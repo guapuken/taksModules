@@ -88,8 +88,10 @@ const tasks = [
 		subtasks: 10,
 	},
 ];
+function onDrag(e) {
+	throw "No se permite"
+}
 export const Initial = Template.bind({});
-
 Initial.args = {
 	tasks: tasks,
 	nameBoards: {
@@ -97,6 +99,7 @@ Initial.args = {
 		en_proceso: [],
 		completas_o_revision: [],
 	},
+	onDragStart: onDrag,
 	Card: CardTask,
 	modo: 'Dark',
 };

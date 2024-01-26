@@ -24,10 +24,10 @@ import { BoardSections, dragAndDrop } from './types';
 import { findBoardSectionContainer, getTaskById, initializeBoard } from './files/functions';
 //importaciones de estilos
 import icon from '../../img/bell.svg';
-import Carousel from '../carousel/carousel';
-import './dragAndDrop.scss';
 import { aspectRatio } from '../../utils/functions/functions';
 import { SimpleContainer } from '../Atoms';
+import Carousel from '../carousel/carousel';
+import './dragAndDrop.scss';
 
 const DragAndDrop = (props: dragAndDrop) => {
 	const scrSize = useWindowSize();
@@ -45,16 +45,16 @@ const DragAndDrop = (props: dragAndDrop) => {
 				taskDescription: 'Tarea 1 por hacer',
 				valueResponsable: '',
 				followNotificationsValue: false,
-				onCh_follow: () => {},
-				onCl_asignTask: () => {},
-				onCl_edit: () => {},
-				onCl_follow: () => {},
-				onCl_reasignDate: () => {},
-				onCl_remimder: () => {},
-				onCl_showDetails: () => {},
+				onCh_follow: () => { },
+				onCl_asignTask: () => { },
+				onCl_edit: () => { },
+				onCl_follow: () => { },
+				onCl_reasignDate: () => { },
+				onCl_remimder: () => { },
+				onCl_showDetails: () => { },
 				percentTask: 0,
 				statusTask: 'onTime',
-				onCl_status: () => {},
+				onCl_status: () => { },
 			},
 		],
 		modo = 'Light',
@@ -68,7 +68,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 
 	/**
 	 * se encarga de recibir el estado inicial de los tableros que incluyen su contenedores princiaples y las tareas con las que cuentaa cada uno, ejemplo:
-	 		{
+				{
 				Por hacer : [
 					{id:1, tarea: Hacer dummies},
 				],
@@ -99,7 +99,8 @@ const DragAndDrop = (props: dragAndDrop) => {
 
 	//se encarga de settear el id activo al momento de mover alguna tarea
 	const handleDragStart = ({ active }: DragStartEvent) => {
-		setActiveTaskId(active.id as string);
+		if (props?.onDragStart) props?.onDragStart(active)
+		else setActiveTaskId(active.id as string);
 	};
 
 	/**
