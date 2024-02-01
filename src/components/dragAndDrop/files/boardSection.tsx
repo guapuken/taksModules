@@ -14,8 +14,8 @@ import TaskItem from './taskItem';
 // archivos multimedia
 import bell from '../../../img/bell.svg';
 
-import '../dragAndDrop.scss';
 import { SimpleContainer, Texts, Title } from '../../Atoms';
+import '../dragAndDrop.scss';
 
 const BoardSection = (props: boards) => {
 	const datos = { ...props };
@@ -23,7 +23,6 @@ const BoardSection = (props: boards) => {
 		id: datos.id,
 	});
 
-	console.log({ datos });
 
 	function separarTexto(text: string) {
 		let newText = '';
@@ -35,7 +34,6 @@ const BoardSection = (props: boards) => {
 		newText !== '' ? (newText = `${newText.charAt(0).toUpperCase()}${newText.slice(1)}`) : '';
 		return newText;
 	}
-
 	return (
 		<div className={`drpblCtn`}>
 			<SimpleContainer style={{ width: '100%', height: '30px', position: 'relative' }}>
@@ -46,7 +44,7 @@ const BoardSection = (props: boards) => {
 			</SimpleContainer>
 			<SortableContext
 				id={datos.id}
-				items={datos.tasks}
+				items={datos?.tasks}
 				strategy={
 					datos.scrSize.width <= 834
 						? horizontalListSortingStrategy
@@ -64,7 +62,7 @@ const BoardSection = (props: boards) => {
 					}}
 					className={`ctnIndvlBrd`}
 				>
-					{datos.tasks.map((task: any) => {
+					{datos?.tasks.map((task: any) => {
 						return (
 							<div className={`ctnDrgbl`} key={task.id}>
 								<SortableTaskItem id={task.id}>

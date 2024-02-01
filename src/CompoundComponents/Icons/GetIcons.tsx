@@ -1399,6 +1399,15 @@ const getIcons = ({ icon = 'puntosSupensivos', ...props }: iconsInterface) => {
 			</>
 		),
 		//#endregion
+		//#region calendar
+		prioridad: () => (
+			<g>
+				<line strokeWidth="2" stroke={props?.fill ?? "var(--detailFont)"} x1="17.5" y1="42.9" x2="17.5" y2="12.9" />
+				<polygon strokeWidth="2" fill="none" stroke={props?.fill ?? "var(--detailFont)"} points="22.5,12.9 40,20.4 22.5,27.9 	" />
+				<circle strokeWidth="2" stroke={props?.fill ?? "var(--detailFont)"} cx="17.5" cy="7.9" r="0.8" />
+			</g>
+		),
+		//#endregion
 	};
 	if (dataToView[icon]) return dataToView[icon]();
 	else return;

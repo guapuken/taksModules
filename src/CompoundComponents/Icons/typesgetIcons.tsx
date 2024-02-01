@@ -57,7 +57,8 @@ type iconsType =
 	| 'dificultad'
 	| 'recargar'
 	| "calendar"
-	| "reloj";
+	| "reloj"
+	| "prioridad";
 export interface getIconsInterface {
 	children?: any;
 	size?: number | string;

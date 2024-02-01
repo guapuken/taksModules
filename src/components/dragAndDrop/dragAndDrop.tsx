@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 //Importaciones de dnd-kit-core----------------------------------------------------------------------------------------------------------
 import {
 	DndContext,
@@ -66,6 +66,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 		width = scrSize.width * 3,
 	} = props;
 
+
 	/**
 	 * se encarga de recibir el estado inicial de los tableros que incluyen su contenedores princiaples y las tareas con las que cuentaa cada uno, ejemplo:
 				{
@@ -82,6 +83,14 @@ const DragAndDrop = (props: dragAndDrop) => {
 	const [boardSections, setBoardSections] = React.useState<BoardSections>(
 		initializeBoard(tasks, nameBoards)
 	);
+
+	useEffect(() => {
+		setBoardSections(initializeBoard(tasks, nameBoards))
+	}, [tasks])
+
+	useEffect(() => {
+		console.log(boardSections)
+	}, [boardSections])
 
 	/**
 	 * muestra el id de la tarea que se encuentra activa
@@ -184,7 +193,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 	};
 
 	//se encarga de ver qué tarea es la que se encuentra activa
-	const task = activeTaskId ? getTaskById(datos.tasks, activeTaskId) : null;
+	const task = activeTaskId ? getTaskById(tasks, activeTaskId) : null;
 
 	//
 	return aspectRatio().tablet ? (
@@ -266,7 +275,7 @@ const DragAndDrop = (props: dragAndDrop) => {
 						<div className="boardCtn" key={boardSectionKey}>
 							<BoardSection
 								Card={datos.Card}
-								data={datos.tasks}
+								data={tasks}
 								scrSize={scrSize}
 								width={width}
 								id={boardSectionKey}
