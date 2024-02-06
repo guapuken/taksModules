@@ -65,7 +65,7 @@ const BoardSection = (props: boards) => {
 					{datos?.tasks.map((task: any) => {
 						return (
 							<div className={`ctnDrgbl`} key={task.id}>
-								<SortableTaskItem id={task.id}>
+								<SortableTaskItem id={task.id} cantMove={task?.cantMove}>
 									<TaskItem
 										data={task}
 										Card={datos.Card}
