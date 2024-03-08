@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from './Helpers/Header';
-import Contenido from './Helpers/Contenido';
 import Aside from './Helpers/Aside';
+import Contenido from './Helpers/Contenido';
 import Footer from './Helpers/Footer';
+import Header from './Helpers/Header';
 
-const Container = ({ children, ...props }) => {
+const Container = ({ children, ...props }: any) => {
 	return (
 		<div
 			{...props}

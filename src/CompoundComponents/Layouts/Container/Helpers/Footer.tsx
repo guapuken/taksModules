@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = ({ children, ...props }) => {
+const Footer = ({ children, ...props }: any) => {
 	return <div {...props}>{children}</div>;
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SimpleText = ({ children, ...props }) => {
+const SimpleText = ({ children, ...props }: any) => {
 	return (
 		<p
 			{...props}

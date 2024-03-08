@@ -1,5 +1,5 @@
+import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { StoryObj, Meta } from '@storybook/react';
 import ModalTemplates from '../../CompoundComponents/ModalTemplates/ModalTemplates';
 
 const meta: Meta<typeof ModalTemplates> = {
@@ -18,14 +18,14 @@ export const CompoundModalTemplates: Story = {
 				idTask: '1',
 				valueTask: 'Dummies',
 				valueDescription: 'Realizar adaptación de dummies',
-				onCh_nameTask: () => {},
-				onCh_descriptionTask: () => {},
+				onCh_nameTask: () => { },
+				onCh_descriptionTask: () => { },
 				responsables: [],
 				equipos: [],
 				revision: [],
-				onCl_delete: () => {},
-				onCl_newTemplate: () => {},
-				onCl_addTask: () => {},
+				onCl_delete: () => { },
+				onCl_newTemplate: () => { },
+				onCl_addTask: () => { },
 				templateOptions: [],
 				modo: 'Dark' as any,
 				subtasks: [
@@ -33,14 +33,14 @@ export const CompoundModalTemplates: Story = {
 						idTask: '1',
 						valueTask: 'Dummies',
 						valueDescription: 'Realizar adaptación de dummies',
-						onCh_nameTask: () => {},
-						onCh_descriptionTask: () => {},
+						onCh_nameTask: () => { },
+						onCh_descriptionTask: () => { },
 						responsables: [],
 						equipos: [],
 						revision: [],
-						onCl_delete: () => {},
-						onCl_newTemplate: () => {},
-						onCl_addTask: () => {},
+						onCl_delete: () => { },
+						onCl_newTemplate: () => { },
+						onCl_addTask: () => { },
 						templateOptions: [],
 						modo: 'Dark' as any,
 						valueResponsable: '',
@@ -53,11 +53,11 @@ export const CompoundModalTemplates: Story = {
 			<ModalTemplates
 				modo="Light"
 				idTemplate="1"
-				onCl_plantillaCampania={() => {}}
-				onCh_checkboxMedio={() => {}}
-				onCh_dropDownTipoMedio={() => {}}
-				onCh_templateName={() => {}}
-				onCl_addTask={() => {}}
+				onCl_plantillaCampania={() => { }}
+				onCh_checkboxMedio={() => { }}
+				onCh_dropDownTipoMedio={() => { }}
+				onCh_templateName={() => { }}
+				onCl_addTask={() => { }}
 				onCl_close={() => alert('cerrar modal')}
 				isMannager
 				onCl_abort={() => alert('cerrar modal')}
@@ -66,14 +66,16 @@ export const CompoundModalTemplates: Story = {
 				tasks={tasks}
 				valueCheckboxPrintBF={printBF}
 				onCh_checkboxPrintBF={() => setPrintBF(!printBF)}
-				valueTemplateType="Postventa"
+				valueTemplateType="Venta"
 				valueTipoPlantillaVenta={null}
 				valueTipoPlantillaPostventa="PlantillaMedio"
+
 				tipoPlantillaRuta="ruta"
-				// onCl_preventaTemplate={() => {}}
-				// disabledPreventa
-				// disabledVenta
-				// disabledPlantillaReporte
+				optionsTipoMedio={[]}
+			// onCl_preventaTemplate={() => {}}
+			// disabledPreventa
+			// disabledVenta
+			// disabledPlantillaReporte
 			/>
 		);
 	},

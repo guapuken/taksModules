@@ -14,11 +14,11 @@ function DemoComponent() {
 
 	return (
 		<ModalTemplates
-			onCl_close={() => {}}
+			onCl_close={() => { }}
 			idTemplate="1"
 			modo="Light"
 			isMannager
-			isEditingTemplate
+			// isEditingTemplate
 			onCh_checkboxMedio={() => {
 				setCheckTem(!checkTem);
 			}}
@@ -29,8 +29,8 @@ function DemoComponent() {
 			// disabledPostventa
 			// disabledVenta
 			onCh_templateName={(e) => setTemplate(e.target.value)}
-			onCl_abort={() => {}}
-			onCl_addTask={() => {}}
+			onCl_abort={() => { }}
+			onCl_addTask={() => { }}
 			onCl_confirm={() => {
 				setCheckTem(false);
 				setTiposMedio(null);
@@ -68,12 +68,12 @@ function DemoComponent() {
 					valueDificultad: { id: '2', title: 'Fácil' },
 					onCh_descriptionTask: (e) => console.log(e.target.value),
 					onCh_nameTask: (e) => console.log(e.target.value),
-					onCl_addTask: () => {},
+					onCl_addTask: () => { },
 					onCh_duration: (e) => console.log(e.target.value),
-					onCl_delete: () => {},
+					onCl_delete: () => { },
 					equipos: equipos,
 					templateOptions: templateOptions,
-					onCl_newTemplate: () => {},
+					onCl_newTemplate: () => { },
 					durationValue: '2',
 					responsables: responsable,
 					revision: revision,
@@ -321,14 +321,14 @@ function DemoComponent() {
 					modo: 'Light',
 					onCh_descriptionTask: (e) => console.log(e.target.value),
 					onCh_nameTask: (e) => console.log(e.target.value),
-					onCl_addTask: () => {},
+					onCl_addTask: () => { },
 					onCh_duration: (e) => console.log(e.target.value),
-					onCl_delete: () => {},
+					onCl_delete: () => { },
 					valueDificultad: { id: '4', title: 'Dificil' },
 
 					equipos: equipos,
 					templateOptions: templateOptions,
-					onCl_newTemplate: () => {},
+					onCl_newTemplate: () => { },
 					responsables: responsable,
 					revision: revision,
 					durationValue: '1',
@@ -342,12 +342,12 @@ function DemoComponent() {
 					modo: 'Light',
 					onCh_descriptionTask: (e) => console.log(e.target.value),
 					onCh_nameTask: (e) => console.log(e.target.value),
-					onCl_addTask: () => {},
+					onCl_addTask: () => { },
 					onCh_duration: (e) => console.log(e.target.value),
-					onCl_delete: () => {},
+					onCl_delete: () => { },
 					equipos: equipos,
 					templateOptions: templateOptions,
-					onCl_newTemplate: () => {},
+					onCl_newTemplate: () => { },
 					responsables: responsable,
 					revision: revision,
 					durationValue: '1',

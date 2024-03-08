@@ -2,11 +2,11 @@ import React from 'react';
 import SimpleText from './Simple/SimpleText';
 import Titles from './Titles/Titles';
 
-const Texto = ({ children, ...props }) => {
-	return <>{children}</>;
+const Textos = ({ children }: any) => {
+    return <>{children}</>;
 };
 
-Texto.Simple = SimpleText;
-Texto.Title = Titles;
+Textos.Simple = SimpleText;
+Textos.Title = Titles;
 
-export default Texto;
+export default Textos;

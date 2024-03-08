@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Aside = ({ children, ...props }) => (
+const Aside = ({ children, ...props }: any) => (
 	<div
 		{...props}
 		style={{

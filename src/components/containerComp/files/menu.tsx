@@ -46,6 +46,22 @@ const Menu = (props: any) => {
 			],
 		},
 		{
+			id: 'teamsMenus',
+			title: 'Equipos',
+			menus: [
+				{
+					id: 'newTeam',
+					title: 'Crear equipo',
+					onClick: onClick?.createTeam,
+				},
+				{
+					id: 'mannageTeam',
+					title: 'Gestionar equipos',
+					onClick: onClick?.mannageTeams,
+				},
+			]
+		},
+		{
 			id: 'templatesMenus',
 			title: 'Plantillas',
 			menus: [

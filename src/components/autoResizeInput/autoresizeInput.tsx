@@ -55,6 +55,7 @@ const AutoresizeInput = ({
 		setValue(initialValue);
 	}, [initialValue]);
 
+
 	const handleChange = (e: any) => {
 		setValue(e.target.value);
 		if (onCh) onCh(e);

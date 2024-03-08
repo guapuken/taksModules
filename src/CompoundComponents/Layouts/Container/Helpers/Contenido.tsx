@@ -1,39 +1,22 @@
 import React from 'react';
 import Textos from '../../../Atoms/Textos/Textos';
+import Footer from './Footer';
 
-const Contenido = ({ children, ...props }) => {
+const Contenido = ({ children, ...props }: any) => {
 	return (
-		<div
-			{...props}
-			style={{
-				width: props?.width ?? '100%',
-				maxWidth: props?.width ?? '100%',
-				height: props?.height ?? '100%',
-				maxHeight: props?.height ?? '100%',
-				overflowY: 'auto',
-				overflowX: 'hidden',
-				...props?.style,
-			}}
-		>
+		<div {...props} >
 			{children}
 		</div>
 	);
 };
 
-const Aside = ({ children, ...props }) => (
-	<div
-		{...props}
-		style={{
-			width: props?.width ?? '25%',
-			height: props?.height ?? '100%',
-			...props?.style,
-		}}
-	>
+const Aside = ({ children, ...props }: any) => (
+	<div {...props} >
 		{children}
 	</div>
 );
 
-const Title = ({ children, ...props }) => (
+const Title = ({ children, ...props }: any) => (
 	<Textos>
 		<Textos.Title {...props} tipo="h4">
 			{children}
@@ -41,8 +24,8 @@ const Title = ({ children, ...props }) => (
 	</Textos>
 );
 
-const Header = ({ children, ...props }) => (
-	<div {...props} style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+const Header = ({ children, ...props }: any) => (
+	<div {...props} style={{ display: 'flex', alignItems: 'center', gap: '15px', ...props.style }}>
 		{children}
 	</div>
 );
@@ -50,5 +33,6 @@ const Header = ({ children, ...props }) => (
 Header.Title = Title;
 Contenido.Header = Header;
 Contenido.Aside = Aside;
+Contenido.Footer = Footer;
 
 export default Contenido;
