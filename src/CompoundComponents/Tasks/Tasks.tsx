@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
-import { InputTask, Texts } from '../../components';
 import { ButtonCompound } from '..';
+import { InputTask, Texts } from '../../components';
 
 const IconsPopUp = ({ children, ...props }) =>
 	props?.visible && (
-		<div
+		<div {...props}
 			style={{
 				background: 'var(--bg)',
 				boxShadow: 'var(--boxShadow)',
 				maxWidth: '200px',
 				minWidth: '200px',
-				padding: '5px 10px',
 				borderRadius: '5px',
 				top: '15px',
 				right: '-190px',
 				position: 'absolute',
+
 			}}
 		>
 			<div
 				style={{
 					position: 'relative',
+					...props?.style
 				}}
 			>
 				{children}
@@ -51,9 +52,9 @@ const Tasks = ({ children, ...props }) => {
 				id=""
 				idCheckbox=""
 				modo="Light"
-				onCh_checkbox={() => {}}
-				onCh_descriptionTask={() => {}}
-				onCh_nameTask={() => {}}
+				onCh_checkbox={() => { }}
+				onCh_descriptionTask={() => { }}
+				onCh_nameTask={() => { }}
 				valueDescription=""
 				valueTask=""
 			/>

@@ -1408,6 +1408,40 @@ const getIcons = ({ icon = 'puntosSupensivos', ...props }: iconsInterface) => {
 			</g>
 		),
 		//#endregion
+		//#region confirmar
+		confirmar: () => (
+			<>
+				<circle strokeWidth={"2px"} stroke={props?.fill ?? "var(--detailFont)"} fill='none' cx="25" cy="25" r="17.5" />
+				<polyline strokeWidth={"2px"} stroke={props?.fill ?? "var(--detailFont)"} fill='none' points="15,27.5 20,32.5 35,17.5 " />
+			</>
+		),
+		//endregion
+		//#region close
+		close: () => (
+			<>
+				<circle strokeWidth={"2px"} stroke={props?.fill ?? "var(--detailFont)"} fill='none' cx="25" cy="25" r="17.5" />
+				<g>
+					<line strokeWidth={"2px"} stroke={props?.fill ?? "var(--detailFont)"} fill='none' x1="17.93" y1="17.93" x2="32.07" y2="32.07" />
+					<line strokeWidth={"2px"} stroke={props?.fill ?? "var(--detailFont)"} fill='none' x1="32.07" y1="17.93" x2="17.93" y2="32.07" />
+				</g>
+			</>
+		),
+		//endregion
+		//#region seleccionarTodo
+		seleccionarTodo: () => (
+			<>
+				<path strokeWidth={"2px"} stroke={props?.fill ?? "var(--detailFont)"} fill='none' d="M30.7,41.49H10.51c-1.1,0-2-0.9-2-2V19.3c0-1.1,0.9-2,2-2H30.7c1.1,0,2,0.9,2,2v20.18
+	C32.7,40.59,31.8,41.49,30.7,41.49z"/>
+				<path strokeWidth={"2px"} stroke={props?.fill ?? "var(--detailFont)"} fill='none' d="M17.3,12.91v-2.4c0-1.11,0.9-2,2-2h20.19c1.11,0,2,0.89,2,2V30.7c0,1.1-0.89,2-2,2h-2.4" />
+				<path strokeWidth={"2px"} stroke={props?.fill ?? "var(--detailFont)"} fill='none' d="M32.7,37.09h2.4c1.1,0,1.99-0.89,1.99-1.99v-2.4V14.9c0-1.1-0.89-1.99-1.99-1.99H17.3h-2.4
+	c-1.1,0-1.99,0.89-1.99,1.99v2.4"/>
+				<g>
+					<line strokeWidth={"2px"} stroke={props?.fill ?? "var(--detailFont)"} fill='none' x1="20.6" y1="23.91" x2="20.6" y2="34.89" />
+					<line strokeWidth={"2px"} stroke={props?.fill ?? "var(--detailFont)"} fill='none' x1="26.09" y1="29.4" x2="15.11" y2="29.4" />
+				</g>
+			</>
+		)
+		//endregion
 	};
 	if (dataToView[icon]) return dataToView[icon]();
 	else return;

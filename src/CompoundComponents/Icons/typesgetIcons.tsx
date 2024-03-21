@@ -58,7 +58,10 @@ type iconsType =
 	| 'recargar'
 	| "calendar"
 	| "reloj"
-	| "prioridad";
+	| "prioridad"
+	| "confirmar"
+	| "close"
+	| "seleccionarTodo";
 export interface getIconsInterface {
 	children?: any;
 	size?: number | string;
