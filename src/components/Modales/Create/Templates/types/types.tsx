@@ -3,6 +3,7 @@ import {
 	onChangeType,
 	onClickType,
 	optionsDropdown,
+	optionsIcnDrp,
 	tasksTemplates,
 } from '../../../../../types';
 //INTERFACES
@@ -47,4 +48,5 @@ export interface modalTemplates {
 	valueTemplateType?: 'Preventa' | 'Venta' | 'Postventa';
 	valueTipoPlantillaVenta?: 'PlantillaMedio' | 'PlantillaCampania' | null;
 	valueTipoPlantillaPostventa?: 'PlantillaMedio' | 'PlantillaReporte' | null;
+	templateOptions?: optionsIcnDrp[];
 }

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import Modal from '../Modal/Modal';
-import { Dropdown, InputLabel, Task, Texts, Title } from '../../components';
 import { ButtonCompound } from '..';
-import SwitchSiNo from '../Switch/Switch';
+import { Dropdown, IconDropdown, InputLabel, Task, Texts, Title } from '../../components';
+import { modalTemplates } from '../../components/Modales/Create/Templates/types/types';
 import { AddTask } from '../../components/task/files';
 import { tasksTemplates } from '../../types';
-import { modalTemplates } from '../../components/Modales/Create/Templates/types/types';
+import Modal from '../Modal/Modal';
+import SwitchSiNo from '../Switch/Switch';
 
 const ModalTemplates = ({
 	idTemplate,
@@ -40,6 +40,7 @@ const ModalTemplates = ({
 	disabledCheckboxPrintBF,
 	tipoPlantillaRuta,
 	onCl_confirm,
+	templateOptions
 }: modalTemplates) => {
 	const [tipoPlantilla, setTipoPlantilla] = useState<string | any>(valueTemplateType || null);
 	const [tipoPlantillaVenta, setTipoPlantillaVenta] = useState<string | any>(
@@ -152,8 +153,8 @@ const ModalTemplates = ({
 							disabledPlantillaMedio
 								? 'var(--fc60)'
 								: tipoPlantillaPostventa === 'PlantillaMedio'
-								? 'var(--detailFont)'
-								: 'var(--fc30)'
+									? 'var(--detailFont)'
+									: 'var(--fc30)'
 						}
 						style={{ width: '100%', borderRadius: '5px 0 0 5px' }}
 						onClick={(e: any) => {
@@ -173,8 +174,8 @@ const ModalTemplates = ({
 							disabledPlantillaReporte
 								? 'var(--fc60)'
 								: tipoPlantillaPostventa === 'PlantillaReporte'
-								? 'var(--detailFont)'
-								: 'var(--fc30)'
+									? 'var(--detailFont)'
+									: 'var(--fc30)'
 						}
 						style={{ width: '100%', borderRadius: '0 5px 5px 0' }}
 						disabled={disabledPlantillaReporte}
@@ -229,8 +230,8 @@ const ModalTemplates = ({
 									disabledPreventa
 										? 'var(--fc60)'
 										: tipoPlantilla === 'Preventa'
-										? 'var(--detailFont)'
-										: 'var(--fc30)'
+											? 'var(--detailFont)'
+											: 'var(--fc30)'
 								}
 								style={{ width: '100%', borderRadius: '5px 0 0 5px' }}
 								disabled={disabledPreventa}
@@ -243,8 +244,8 @@ const ModalTemplates = ({
 									disabledVenta
 										? 'var(--fc60)'
 										: tipoPlantilla === 'Venta'
-										? 'var(--detailFont)'
-										: 'var(--fc30)'
+											? 'var(--detailFont)'
+											: 'var(--fc30)'
 								}
 								disabled={disabledVenta}
 								style={{ width: '100%', borderRadius: '0' }}
@@ -257,8 +258,8 @@ const ModalTemplates = ({
 									disabledPostventa
 										? 'var(--fc60)'
 										: tipoPlantilla === 'Postventa'
-										? 'var(--detailFont)'
-										: 'var(--fc30)'
+											? 'var(--detailFont)'
+											: 'var(--fc30)'
 								}
 								disabled={disabledPostventa}
 								style={{ width: '100%', borderRadius: '0 5px 5px 0' }}
@@ -280,7 +281,17 @@ const ModalTemplates = ({
 						)}
 					</div>
 				)}
-				<AddTask modo={modo} legend="+ Añadir tarea" onClick={onCl_addTask} />
+				<div className='flex' style={{ gap: "20px" }}>
+					<AddTask modo={modo} legend="+ Añadir tarea" onClick={onCl_addTask} />
+					<IconDropdown
+						modo={modo}
+						legend="Cargar plantilla"
+						iconStyles={{
+							fontSize: '15px',
+						}}
+						options={templateOptions ?? []}
+					/>
+				</div>
 				<div
 					style={{
 						paddingLeft: '20px',
@@ -319,12 +330,12 @@ const ModalTemplates = ({
 								plantillas
 								// no necesarios
 								check={false}
-								onCh_checkbox={() => {}}
+								onCh_checkbox={() => { }}
 								disabledEndDate={false}
 								disabledStartDate={false}
 								endDateValue={undefined}
-								onCh_endDate={() => {}}
-								onCh_startDate={() => {}}
+								onCh_endDate={() => { }}
+								onCh_startDate={() => { }}
 							/>
 						))}
 				</div>
