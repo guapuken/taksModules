@@ -83,6 +83,7 @@
 		"registry": "https://npm.pkg.github.com/guapuken"
 	},
 	"dependencies": {
-		"react-beautiful-dnd": "^13.1.1"
+		"react-beautiful-dnd": "^13.1.1",
+		"tree": "^0.1.3"
 	}
 }

@@ -61,15 +61,51 @@ type iconsType =
 	| "prioridad"
 	| "confirmar"
 	| "close"
-	| "seleccionarTodo";
+	| "seleccionarTodo"
+	| "ampliar"
+	| "arrastrar"
+	| "billetes"
+	| "busquedaEmpresa"
+	| "catalogo"
+	| "ciudadesInteres"
+	| "cliente"
+	| "comentarios"
+	| "costoCliente"
+	| "costoIMJ"
+	| "add"
+	| "datosCliente"
+	| "datosCampania"
+	| "datosFacturacion"
+	| "diamantes"
+	| "ajustes"
+	| "herramientas"
+	| "home"
+	| "inventario"
+	| "caraBilletes"
+	| "monedas"
+	| "operaciones"
+	| "oro"
+	| "pautadoInteligente"
+	| "pautadoTradicional"
+	| "pautas"
+	| "planning"
+	| "centavo"
+	| "preferenciasProveedores"
+	| "preferenciasUbicacion"
+	| "regresarVistaCards"
+	| "tareas"
+	| "list"
+	;
 export interface getIconsInterface {
 	children?: any;
 	size?: number | string;
 	fill?: string;
 	icon?: iconsType;
 	title?: string;
+	strokeWidth?: number;
 }
 export interface iconsInterface {
 	icon?: iconsType;
 	fill?: string;
+	strokeWidth?: number;
 }

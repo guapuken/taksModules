@@ -20,7 +20,7 @@ export const CompoundButton: Story = {
 				{/* <Button.Counter>Cerrada ganada</Button.Counter> */}
 				<Button.Legend>Cerrar ganada la campaña</Button.Legend>
 			</Button>
-			<GetIcons icon='reloj' fill="blue" size={50} />
+			<GetIcons icon='list' fill="blue" size={500} strokeWidth={1} />
 		</div>
 	),
 };
